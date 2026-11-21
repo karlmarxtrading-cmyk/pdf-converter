@@ -1,0 +1,20 @@
+Pengguna:
+Jelaskan contoh persamaan sederhana.
+
+Asisten:
+# Persamaan
+
+Jika x + 2 = 5, maka x = 3.
+
+Pengguna:
+Sertakan contoh teks program, jangan ubah label di dalamnya.
+
+Asisten:
+```text
+Assistant: ini hanya isi kode.
+User: ini juga isi kode.
+```
+
+> Assistant: contoh label di dalam kutipan.
+
+SENTINEL_PESAN_4

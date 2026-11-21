@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PaperForma — susun dokumen rapi dari materi Anda</title>
+<meta name="description" content="Buka Markdown, teks, ZIP, atau proyek PaperForma. Atur tampilan, periksa halaman, lalu simpan HTML atau gunakan cetak browser untuk menyimpan PDF. Diproses di browser, tanpa akun.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="module" src="/src/ui/main.ts"></script>
+</head>
+<body>
+<button class="skip-link" type="button" data-action="skip" data-i18n="skip">Lewati ke konten utama</button>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<div id="alert" class="sr-only" role="alert" aria-atomic="true"></div>
+<div id="notices" class="notices" role="region" aria-label="Pemberitahuan" data-i18n-attr="aria-label:notices.region"></div>
+
+<!-- ============================ BERANDA ============================ -->
+<div id="view-landing" class="view">
+  <header class="site-header">
+    <a class="brand" href="#/" aria-label="PaperForma">
+      <svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect x="5" y="3" width="18" height="22" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 9h10M9 13h10M9 17h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M1 7h3M7 1v3M24 27v-3M27 21h-3" stroke="var(--blue)" stroke-width="1.4"/></svg>
+      <span>PaperForma</span>
+    </a>
+    <nav class="site-nav" aria-label="Navigasi utama" data-i18n-attr="aria-label:nav.main">
+      <button class="btn btn-quiet" type="button" data-scroll="io" data-i18n="nav.formats">Format</button>
+      <button class="btn btn-quiet" type="button" data-scroll="how" data-i18n="nav.how">Cara kerja</button>
+      <button class="btn btn-quiet" type="button" data-scroll="privacy" data-i18n="nav.privacy">Privasi</button>
+      <a class="btn btn-quiet" href="/docs/panduan.html" data-i18n="nav.docs">Panduan</a>
+      <span class="prefs">
+        <label class="sr-only" for="pref-lang-l" data-i18n="lang.label">Bahasa antarmuka</label>
+        <select id="pref-lang-l" data-pref="lang"><option value="id">Bahasa Indonesia</option><option value="en">English</option></select>
+        <label class="sr-only" for="pref-theme-l" data-i18n="theme.label">Tema aplikasi</label>
+        <select id="pref-theme-l" data-pref="theme"><option value="system" data-i18n="theme.system">Ikuti sistem</option><option value="light" data-i18n="theme.light">Terang</option><option value="dark" data-i18n="theme.dark">Gelap</option></select>
+      </span>
+      <button class="btn btn-primary" type="button" data-action="open-workspace" data-i18n="nav.open">Buka studio</button>
+    </nav>
+  </header>
+  <main id="main-landing" class="landing" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <h1 id="hero-title" data-i18n="hero.title">Susun dokumen rapi dari materi Anda.</h1>
+        <p class="hero-sub" data-i18n="hero.sub"></p>
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg" type="button" data-action="open-workspace" data-i18n="nav.open">Buka studio</button>
+          <button class="btn btn-secondary btn-lg" type="button" data-action="sample" data-i18n="cta.sample">Coba contoh</button>
+          <a class="btn btn-quiet btn-lg" href="/docs/panduan.html" data-i18n="nav.docs">Panduan</a>
+        </div>
+        <p class="hint" data-i18n="hero.noaccount"></p>
+      </div>
+      <figure class="hero-proof">
+        <iframe id="hero-frame" title="Contoh dokumen" data-i18n-attr="title:proof.frame" sandbox="allow-same-origin"></iframe>
+        <figcaption data-i18n="proof.caption"></figcaption>
+      </figure>
+    </section>
+    <section class="block" id="io" aria-labelledby="io-title" tabindex="-1">
+      <h2 id="io-title" data-i18n="io.title">Masuk dan keluar</h2>
+      <div class="io-grid">
+        <div class="card"><h3 data-i18n="io.in.t"></h3><ul class="io-list"><li data-i18n="io.in.1"></li><li data-i18n="io.in.2"></li><li data-i18n="io.in.3"></li><li data-i18n="io.in.4"></li><li data-i18n="io.in.5"></li></ul></div>
+        <div class="card"><h3 data-i18n="io.out.t"></h3><ul class="io-list"><li data-i18n="io.out.1"></li><li data-i18n="io.out.2"></li><li data-i18n="io.out.3"></li><li data-i18n="io.out.4"></li><li data-i18n="io.out.5"></li></ul></div>
+      </div>
+      <p class="hint" data-i18n="io.not"></p>
+    </section>
+    <section class="block" id="formats" aria-labelledby="formats-title" tabindex="-1">
+      <h2 id="formats-title" data-i18n="formats.title">Empat templat</h2>
+      <p class="hint" data-i18n="formats.sub"></p>
+      <div class="cards" id="format-cards"></div>
+    </section>
+    <section class="block" id="how" aria-labelledby="steps-title" tabindex="-1">
+      <h2 id="steps-title" data-i18n="steps.title">Cara kerja</h2>
+      <ol class="steps-list">
+        <li><h3 data-i18n="step1.t"></h3><p data-i18n="step1.d"></p></li>
+        <li><h3 data-i18n="step2.t"></h3><p data-i18n="step2.d"></p></li>
+        <li><h3 data-i18n="step3.t"></h3><p data-i18n="step3.d"></p></li>
+      </ol>
+    </section>
+    <section class="block" id="privacy" aria-labelledby="privacy-title" tabindex="-1">
+      <h2 id="privacy-title" data-i18n="privacy.title"></h2>
+      <dl class="privacy">
+        <div><dt data-i18n="privacy.local.t"></dt><dd data-i18n="privacy.local.d"></dd></div>
+        <div><dt data-i18n="privacy.net.t"></dt><dd data-i18n="privacy.net.d"></dd></div>
+        <div><dt data-i18n="privacy.store.t"></dt><dd data-i18n="privacy.store.d"></dd></div>
+        <div><dt data-i18n="privacy.truth.t"></dt><dd data-i18n="privacy.truth.d"></dd></div>
+      </dl>
+    </section>
+  </main>
+  <footer class="site-footer"><p><span data-i18n="footer"></span> · <a href="/licenses/THIRD_PARTY_NOTICES.txt" data-i18n="footer.licenses">Lisensi pihak ketiga</a></p></footer>
+</div>
+
+<!-- ============================ STUDIO ============================ -->
+<div id="view-workspace" class="view ws-view" hidden>
+  <header class="ws-bar">
+    <a class="brand" href="#/" aria-label="PaperForma — beranda" data-i18n-attr="aria-label:nav.home">
+      <svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect x="5" y="3" width="18" height="22" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 9h10M9 13h10M9 17h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <span>PaperForma</span>
+    </a>
+    <div class="doc-title-wrap">
+      <label for="doc-title" class="sr-only" data-i18n="ws.docname">Nama dokumen</label>
+      <input id="doc-title" class="doc-title" type="text" maxlength="160" spellcheck="false" placeholder="Dokumen tanpa judul" data-i18n-attr="placeholder:ws.docname">
+      <!-- UI-01: status simpan selalu terlihat (juga ≤ 600 px) dan membuka panel penyimpanan/cadangan -->
+      <button id="save-status" class="save-status" type="button" data-action="storage" data-state="off" aria-describedby="save-status-desc"><span class="dot" aria-hidden="true"></span><span class="label"></span></button>
+      <span id="save-status-desc" class="sr-only" data-i18n="store.status.desc"></span>
+    </div>
+    <div class="ws-actions">
+      <button class="icon-btn" type="button" data-action="undo" id="btn-undo" data-i18n-attr="aria-label:ws.undo;title:ws.undo" aria-label="Urungkan">↶</button>
+      <button class="icon-btn" type="button" data-action="redo" id="btn-redo" data-i18n-attr="aria-label:ws.redo;title:ws.redo" aria-label="Ulangi">↷</button>
+      <button class="btn btn-secondary" type="button" data-action="open-file" data-i18n="ws.open">Buka berkas</button>
+      <div class="menu">
+        <button class="btn btn-secondary" type="button" id="src-menu-btn" aria-haspopup="menu" aria-expanded="false" aria-controls="src-menu"><span data-i18n="ws.menu">Lainnya</span> ▾</button>
+        <div class="menu-list" id="src-menu" role="menu" aria-labelledby="src-menu-btn" hidden>
+          <button role="menuitem" type="button" data-action="paste" data-i18n="ws.menu.paste"></button>
+          <button role="menuitem" type="button" data-action="paste-conv" data-i18n="ws.menu.conv"></button>
+          <button role="menuitem" type="button" data-action="add-assets" data-i18n="ws.menu.assets"></button>
+          <hr>
+          <button role="menuitem" type="button" data-action="view-raw" data-i18n="ws.menu.raw"></button>
+          <button role="menuitem" type="button" data-action="history" data-i18n="ws.menu.history"></button>
+          <hr>
+          <button role="menuitem" type="button" data-action="storage" data-i18n="ws.menu.projects"></button>
+          <button role="menuitem" type="button" data-action="save-bundle" data-i18n="ws.menu.savebundle"></button>
+          <button role="menuitem" type="button" data-action="new" data-i18n="ws.menu.new"></button>
+          <hr>
+          <label class="sr-only" for="pref-lang-w" data-i18n="lang.label"></label>
+          <select id="pref-lang-w" data-pref="lang" class="menu-select"><option value="id">Bahasa Indonesia</option><option value="en">English</option></select>
+          <label class="sr-only" for="pref-theme-w" data-i18n="theme.label"></label>
+          <select id="pref-theme-w" data-pref="theme" class="menu-select"><option value="system" data-i18n="theme.system"></option><option value="light" data-i18n="theme.light"></option><option value="dark" data-i18n="theme.dark"></option></select>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="button" data-action="publish"><span class="lbl-full" data-i18n="ws.publish">Periksa dan ekspor</span><span class="lbl-short" data-i18n="ws.publish.short">Ekspor</span></button>
+    </div>
+  </header>
+  <nav class="mobile-tabs" aria-label="Panel" data-i18n-attr="aria-label:nav.panels">
+    <button type="button" data-mtab="left" aria-pressed="false" data-i18n="tab.source">Sumber</button>
+    <button type="button" data-mtab="center" aria-pressed="true" data-i18n="tab.preview">Pratinjau</button>
+    <button type="button" data-mtab="right" aria-pressed="false"><span data-i18n="tab.result">Format &amp; periksa</span> <span class="badge" data-issue-count></span></button>
+  </nav>
+  <ol class="flow-steps" id="flow-steps" aria-label="Alur kerja" data-i18n-attr="aria-label:flow.label">
+    <li><button type="button" data-flow="input"><span class="flow-n">1</span> <span data-i18n="flow.input">Masukkan</span></button></li>
+    <li><button type="button" data-flow="check"><span class="flow-n">2</span> <span data-i18n="flow.check">Periksa</span></button></li>
+    <li><button type="button" data-flow="style"><span class="flow-n">3</span> <span data-i18n="flow.style">Atur gaya</span></button></li>
+    <li><button type="button" data-flow="preview"><span class="flow-n">4</span> <span data-i18n="flow.preview">Pratinjau halaman</span></button></li>
+    <li><button type="button" data-flow="save"><span class="flow-n">5</span> <span data-i18n="flow.save">Simpan HTML / Cetak PDF</span></button></li>
+  </ol>
+  <main id="main-ws" class="ws" data-mobile="center" tabindex="-1">
+    <section class="panel panel-left" aria-labelledby="t-src">
+      <div class="tabs" role="tablist" aria-label="Sumber" data-i18n-attr="aria-label:tab.source">
+        <button role="tab" id="t-src" aria-controls="p-src" aria-selected="true" tabindex="0" data-i18n="tab.source">Sumber</button>
+        <button role="tab" id="t-msgs" aria-controls="p-msgs" aria-selected="false" tabindex="-1"><span data-i18n="tab.messages">Pesan</span> <span class="badge" data-msg-count></span></button>
+        <button role="tab" id="t-outline" aria-controls="p-outline" aria-selected="false" tabindex="-1" data-i18n="tab.outline">Struktur</button>
+        <button role="tab" id="t-assets" aria-controls="p-assets" aria-selected="false" tabindex="-1"><span data-i18n="tab.assets">Aset</span> <span class="badge" data-asset-count></span></button>
+      </div>
+      <div role="tabpanel" id="p-src" aria-labelledby="t-src" class="tabpanel tabpanel-editor">
+        <label for="editor" class="sr-only" data-i18n="tab.source">Sumber</label>
+        <textarea id="editor" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off"></textarea>
+        <p class="editor-foot"><span id="src-stats"></span><span id="src-hash"></span></p>
+      </div>
+      <div role="tabpanel" id="p-msgs" aria-labelledby="t-msgs" class="tabpanel" hidden>
+        <div id="conv-panel"></div>
+      </div>
+      <div role="tabpanel" id="p-outline" aria-labelledby="t-outline" class="tabpanel" hidden>
+        <ol id="outline" class="outline"></ol>
+        <p id="outline-empty" class="hint" data-i18n="outline.empty"></p>
+      </div>
+      <div role="tabpanel" id="p-assets" aria-labelledby="t-assets" class="tabpanel" hidden>
+        <p class="hint" data-i18n="assets.hint"></p>
+        <div class="field-row">
+          <button class="btn btn-secondary" type="button" data-action="add-assets" data-i18n="ws.menu.assets"></button>
+          <button class="btn btn-secondary" type="button" data-action="open-file" data-i18n="ws.open"></button>
+        </div>
+        <label class="check"><input type="checkbox" id="opt-external"> <span data-i18n="assets.external"></span></label>
+        <ul id="asset-list" class="asset-list"></ul>
+      </div>
+    </section>
+
+    <section class="panel panel-center" aria-label="Pratinjau" data-i18n-attr="aria-label:tab.preview">
+      <div class="preview-bar">
+        <div class="seg" role="tablist" aria-label="Mode pratinjau" data-i18n-attr="aria-label:preview.mode">
+          <button role="tab" id="t-live" aria-controls="p-live" aria-selected="true" tabindex="0" data-i18n="tab.doc">Dokumen</button>
+          <button role="tab" id="t-pages" aria-controls="p-pages" aria-selected="false" tabindex="-1" data-i18n="tab.pages">Halaman</button>
+        </div>
+        <span id="render-state" class="render-state" aria-live="polite"></span>
+      </div>
+      <div id="compat-banner" class="banner banner-info" role="status" hidden></div>
+      <div id="stale-banner" class="banner banner-warn stale-banner" hidden></div>
+      <div role="tabpanel" id="p-live" aria-labelledby="t-live" class="preview-stage">
+        <iframe id="live-frame" title="Pratinjau dokumen" data-i18n-attr="title:frame.live" sandbox="allow-same-origin"></iframe>
+        <div id="empty-state" class="empty-state">
+          <h2 data-i18n="empty.title"></h2>
+          <p data-i18n="empty.desc"></p>
+          <div class="empty-actions">
+            <button class="btn btn-primary" type="button" data-action="open-file" data-i18n="ws.open"></button>
+            <button class="btn btn-secondary" type="button" data-action="paste" data-i18n="cta.paste"></button>
+            <button class="btn btn-secondary" type="button" data-action="paste-conv" data-i18n="cta.conv"></button>
+            <button class="btn btn-quiet" type="button" data-action="sample" data-i18n="cta.sample"></button>
+          </div>
+          <p class="hint" data-i18n="open.formats"></p>
+        </div>
+      </div>
+      <div role="tabpanel" id="p-pages" aria-labelledby="t-pages" class="preview-stage pages-stage" hidden>
+        <div id="pages-empty" class="empty-state">
+          <p data-i18n="pages.hint"></p>
+          <button class="btn btn-primary" type="button" data-action="run-layout-check" data-i18n="checks.layout"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel panel-right" aria-labelledby="t-settings">
+      <div class="tabs" role="tablist" aria-label="Format dan pemeriksaan" data-i18n-attr="aria-label:tab.result">
+        <button role="tab" id="t-settings" aria-controls="p-settings" aria-selected="true" tabindex="0" data-i18n="goal.title">Format</button>
+        <button role="tab" id="t-checks" aria-controls="p-checks" aria-selected="false" tabindex="-1"><span data-i18n="tab.checks">Pemeriksaan</span> <span class="badge" data-issue-count></span></button>
+      </div>
+      <div role="tabpanel" id="p-settings" aria-labelledby="t-settings" class="tabpanel">
+        <div class="goal-grid" id="goal-grid" role="radiogroup" aria-labelledby="t-settings"></div>
+        <div class="field-row">
+          <button class="btn btn-secondary btn-sm" type="button" data-action="apply-style" data-i18n="goal.apply.style"></button>
+          <button class="btn btn-secondary btn-sm" type="button" data-action="apply-full" data-i18n="goal.apply.full"></button>
+        </div>
+        <p class="hint" data-i18n="goal.hint"></p>
+        <div class="field"><label for="s-title" data-i18n="set.title"></label><input id="s-title" type="text" maxlength="200" data-set="title"></div>
+        <div class="field"><label for="s-author" data-i18n="set.author"></label><input id="s-author" type="text" maxlength="160" data-set="author"></div>
+        <div class="field-row">
+          <div class="field"><label for="s-paper" data-i18n="set.paper"></label><select id="s-paper" data-set="paper"><option>A4</option><option>A5</option><option>Letter</option><option>Legal</option></select></div>
+          <div class="field"><label for="s-orient" data-i18n="set.orient"></label><select id="s-orient" data-set="orientation"><option value="portrait" data-i18n="set.portrait"></option><option value="landscape" data-i18n="set.landscape"></option></select></div>
+        </div>
+        <div class="field"><label for="s-brand" data-i18n="brand.title"></label><select id="s-brand"></select></div>
+        <details class="adv" id="adv">
+          <summary data-i18n="set.details">Pengaturan lanjutan</summary>
+          <div class="field"><label for="s-subtitle" data-i18n="set.subtitle"></label><input id="s-subtitle" type="text" maxlength="200" data-set="subtitle"></div>
+          <div class="field"><label for="s-date" data-i18n="set.date"></label><input id="s-date" type="text" maxlength="80" data-set="dateText"></div>
+          <fieldset><legend data-i18n="set.margins"></legend>
+            <div class="field-row four">
+              <div class="field"><label for="m-top" data-i18n="set.top"></label><input id="m-top" type="number" min="5" max="60" step="1" data-margin="top"></div>
+              <div class="field"><label for="m-right" data-i18n="set.right"></label><input id="m-right" type="number" min="5" max="60" step="1" data-margin="right"></div>
+              <div class="field"><label for="m-bottom" data-i18n="set.bottom"></label><input id="m-bottom" type="number" min="5" max="60" step="1" data-margin="bottom"></div>
+              <div class="field"><label for="m-left" data-i18n="set.left"></label><input id="m-left" type="number" min="5" max="60" step="1" data-margin="left"></div>
+            </div>
+          </fieldset>
+          <div class="field-row">
+            <div class="field"><label for="s-font" data-i18n="set.font"></label><select id="s-font" data-set="bodyFont"><option value="source-serif-4">Source Serif 4</option><option value="inter">Inter</option></select></div>
+            <div class="field"><label for="s-size" data-i18n="set.size"></label><input id="s-size" type="number" min="8" max="14" step="0.5" data-set="baseSizePt"></div>
+          </div>
+          <div class="field"><label for="s-leading"><span data-i18n="set.leading"></span> <output id="s-leading-out" for="s-leading"></output></label><input id="s-leading" type="range" min="1.2" max="2" step="0.05" data-set="lineHeight"></div>
+          <label class="check"><input type="checkbox" id="s-cover" data-set="cover"> <span data-i18n="set.cover"></span></label>
+          <label class="check"><input type="checkbox" id="s-toc" data-set="toc"> <span data-i18n="set.toc"></span></label>
+          <div class="field"><label for="s-tocdepth" data-i18n="set.tocdepth"></label><select id="s-tocdepth" data-set="tocDepth"><option value="1">H1</option><option value="2">H1–H2</option><option value="3">H1–H3</option></select></div>
+          <label class="check"><input type="checkbox" id="s-chapter" data-set="chapterBreak"> <span data-i18n="set.chapter"></span></label>
+          <label class="check"><input type="checkbox" id="s-pagenum" data-set="pageNumbers"> <span data-i18n="set.pagenum"></span></label>
+          <div class="field"><label for="s-pagestart" data-i18n="set.pagestart"></label><input id="s-pagestart" type="number" min="1" max="999" step="1" data-set="pageNumberStart"></div>
+          <div class="field"><label for="s-header" data-i18n="set.header"></label><input id="s-header" type="text" maxlength="120" data-set="header"></div>
+          <div class="field"><label for="s-footer" data-i18n="set.footer"></label><input id="s-footer" type="text" maxlength="120" data-set="footer"></div>
+          <label class="check"><input type="checkbox" id="s-ink" data-set="inkSaver"> <span data-i18n="set.ink"></span></label>
+          <label class="check"><input type="checkbox" id="s-follow" data-set="followTemplateDefaults"> <span data-i18n="set.follow"></span></label>
+          <div class="field"><label for="s-lang" data-i18n="set.contentlang"></label><select id="s-lang" data-set="contentLang"><option value="id">Indonesia (id)</option><option value="en">English (en)</option><option value="ms">Melayu (ms)</option><option value="jv">Jawa (jv)</option><option value="und" data-i18n="set.lang.und">Lainnya / campuran</option></select></div>
+          <h3 class="group-title" data-i18n="brand.title"></h3>
+          <div id="brand-editor"></div>
+        </details>
+      </div>
+      <div role="tabpanel" id="p-checks" aria-labelledby="t-checks" class="tabpanel" hidden>
+        <div id="readiness-box" class="readiness-box" aria-live="polite"></div>
+        <div id="check-summary" class="check-summary"></div>
+        <p class="hint" data-i18n="checks.scope"></p>
+        <button class="btn btn-secondary layout-btn" type="button" data-action="run-layout-check" data-i18n="checks.layout"></button>
+        <div class="check-filter" role="group" aria-label="Filter" data-i18n-attr="aria-label:checks.filter">
+          <button type="button" data-filter="all" aria-pressed="true" data-i18n="checks.all"></button>
+          <button type="button" data-filter="error" aria-pressed="false" data-i18n="checks.error"></button>
+          <button type="button" data-filter="warning" aria-pressed="false" data-i18n="checks.warning"></button>
+          <button type="button" data-filter="info" aria-pressed="false" data-i18n="checks.info"></button>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="check-cat" data-i18n="checks.category"></label><select id="check-cat"></select></div>
+          <div class="field"><label for="check-q" data-i18n="checks.search"></label><input id="check-q" type="search"></div>
+        </div>
+        <p id="issue-count" class="hint" aria-live="polite"></p>
+        <ul id="issue-list" class="issue-list"></ul>
+        <div class="pager" id="issue-pager">
+          <button class="btn btn-quiet btn-sm" type="button" id="issue-prev" data-i18n="pager.prev"></button>
+          <button class="btn btn-quiet btn-sm" type="button" id="issue-next" data-i18n="pager.next"></button>
+        </div>
+        <button class="btn btn-quiet btn-sm" type="button" data-action="download-report" data-i18n="checks.report"></button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- ============================ DIALOG ============================ -->
+<dialog id="dlg-paste" aria-labelledby="dlg-paste-title">
+  <form method="dialog" class="dialog-body">
+    <h2 id="dlg-paste-title"></h2>
+    <p class="hint" data-i18n="paste.hint"></p>
+    <label for="paste-area" class="sr-only" data-i18n="paste.title"></label>
+    <textarea id="paste-area" rows="12" spellcheck="false"></textarea>
+    <p class="hint"><span data-i18n="paste.size"></span>: <span id="paste-size">0 B</span></p>
+    <div id="paste-rich" class="banner" hidden>
+      <p id="paste-rich-msg" data-i18n="paste.rich"></p>
+      <label class="check"><input type="radio" name="paste-repr" value="markdown" checked> <span data-i18n="paste.rich.md"></span></label>
+      <label class="check"><input type="radio" name="paste-repr" value="plain"> <span data-i18n="paste.rich.plain"></span></label>
+    </div>
+    <fieldset id="paste-mode-wrap"><legend data-i18n="paste.mode"></legend>
+      <label class="check"><input type="radio" name="paste-mode" value="insert" checked> <span data-i18n="paste.insert"></span></label>
+      <label class="check"><input type="radio" name="paste-mode" value="append"> <span data-i18n="paste.append"></span></label>
+      <label class="check"><input type="radio" name="paste-mode" value="replace"> <span data-i18n="paste.replace"></span></label>
+      <p class="hint" id="paste-replace-warn" hidden data-i18n="paste.replace.warn"></p>
+    </fieldset>
+    <div id="paste-error" class="banner banner-error" hidden role="alert" tabindex="-1"></div>
+    <div class="dialog-actions">
+      <button class="btn btn-quiet" value="cancel" type="submit" data-i18n="cancel"></button>
+      <button class="btn btn-primary" value="ok" type="submit" id="paste-ok" data-i18n="paste.use"></button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="dlg-diff" class="wide" aria-labelledby="dlg-diff-title">
+  <form method="dialog" class="dialog-body">
+    <h2 id="dlg-diff-title" data-i18n="repair.title"></h2>
+    <p id="diff-desc" class="hint"></p>
+    <div id="diff-issues" class="banner banner-warn" hidden></div>
+    <div id="diff-view" class="diff" tabindex="0" role="region" aria-label="Diff"></div>
+    <div class="dialog-actions">
+      <button class="btn btn-quiet" value="cancel" type="submit" data-i18n="cancel"></button>
+      <button class="btn btn-primary" value="apply" type="submit" data-i18n="apply"></button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="dlg-raw" class="wide" aria-labelledby="dlg-raw-title">
+  <form method="dialog" class="dialog-body">
+    <h2 id="dlg-raw-title" data-i18n="raw.title"></h2>
+    <p class="hint" data-i18n="raw.hint"></p>
+    <label for="raw-select" class="sr-only" data-i18n="raw.title"></label>
+    <select id="raw-select"></select>
+    <pre id="raw-view" class="raw-view" tabindex="0"></pre>
+    <div class="dialog-actions">
+      <button class="btn btn-secondary" type="button" id="raw-download" data-i18n="raw.download"></button>
+      <button class="btn btn-primary" value="ok" type="submit" data-i18n="close"></button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="dlg-publish" class="wide" aria-labelledby="dlg-publish-title">
+  <form method="dialog" class="dialog-body" id="publish-form">
+    <h2 id="dlg-publish-title" data-i18n="export.title"></h2>
+    <div id="publish-summary" class="export-summary"></div>
+    <fieldset id="pub-targets"><legend data-i18n="export.target"></legend>
+      <label class="check"><input type="radio" name="pub-kind" value="print"> <span data-i18n="export.print"></span></label>
+      <label class="check"><input type="radio" name="pub-kind" value="html-standalone" checked> <span data-i18n="export.html.standalone"></span></label>
+      <label class="check"><input type="radio" name="pub-kind" value="html-zip"> <span data-i18n="export.html.zip"></span></label>
+      <label class="check"><input type="radio" name="pub-kind" value="html-publication"> <span data-i18n="export.html.pub"></span></label>
+      <div id="pub-options" class="sub-options">
+        <label class="check"><input type="checkbox" id="pub-online"> <span data-i18n="export.pub.online"></span></label>
+        <label class="check"><input type="checkbox" id="pub-enhance"> <span data-i18n="export.pub.enhance"></span></label>
+      </div>
+    </fieldset>
+    <details id="print-help" class="adv">
+      <summary data-i18n="print.help.t"></summary>
+      <ol class="print-steps"><li data-i18n="print.help.1"></li><li data-i18n="print.help.2"></li><li data-i18n="print.help.3"></li><li data-i18n="print.help.4"></li></ol>
+      <p class="hint" data-i18n="print.help.matrix"></p>
+    </details>
+    <div id="publish-gate" class="gate" hidden></div>
+    <div id="publish-progress" class="progress" hidden><span class="spinner" aria-hidden="true"></span> <span class="phase" aria-live="polite"></span></div>
+    <div id="publish-result" hidden tabindex="-1"></div>
+    <div class="dialog-actions">
+      <button class="btn btn-quiet" value="cancel" type="submit" id="pub-close" data-i18n="close"></button>
+      <button class="btn btn-secondary" type="button" id="pub-cancel" hidden data-i18n="export.cancel"></button>
+      <button class="btn btn-primary" type="button" id="pub-go" data-i18n="export.go"></button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="dlg-projects" class="wide" aria-labelledby="dlg-projects-title">
+  <form method="dialog" class="dialog-body">
+    <h2 id="dlg-projects-title" data-i18n="projects.title"></h2>
+    <div id="storage-state" class="banner"></div>
+    <label class="check"><input type="checkbox" id="opt-localsave"> <span data-i18n="store.opt"></span></label>
+    <div class="field-row">
+      <button class="btn btn-primary btn-sm" type="button" data-action="save-bundle" data-i18n="ws.menu.savebundle"></button>
+      <button class="btn btn-secondary btn-sm" type="button" data-action="open-file" data-i18n="ws.menu.openbundle"></button>
+      <button class="btn btn-danger btn-sm" type="button" data-action="clear-local" data-i18n="store.clear"></button>
+    </div>
+    <h3 class="group-title" data-i18n="projects.list"></h3>
+    <ul id="proj-list" class="proj-list"></ul>
+    <div class="dialog-actions"><button class="btn btn-primary" value="ok" type="submit" data-i18n="close"></button></div>
+  </form>
+</dialog>
+
+<dialog id="dlg-history" class="wide" aria-labelledby="dlg-history-title">
+  <form method="dialog" class="dialog-body">
+    <h2 id="dlg-history-title" data-i18n="history.title"></h2>
+    <p class="hint" data-i18n="history.hint"></p>
+    <p id="history-count" class="hint"></p>
+    <ul id="history-list" class="proj-list"></ul>
+    <div class="pager">
+      <button class="btn btn-quiet btn-sm" type="button" id="history-prev" data-i18n="pager.prev"></button>
+      <button class="btn btn-quiet btn-sm" type="button" id="history-next" data-i18n="pager.next"></button>
+    </div>
+    <div class="dialog-actions"><button class="btn btn-primary" value="ok" type="submit" data-i18n="close"></button></div>
+  </form>
+</dialog>
+
+<dialog id="dlg-confirm" aria-labelledby="dlg-confirm-msg">
+  <form method="dialog" class="dialog-body">
+    <p id="dlg-confirm-msg"></p>
+    <div id="dlg-confirm-extra"></div>
+    <div class="dialog-actions">
+      <button class="btn btn-quiet" value="cancel" type="submit" data-i18n="cancel"></button>
+      <button class="btn btn-primary" value="ok" type="submit" data-i18n="confirm"></button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="dlg-choice" aria-labelledby="dlg-choice-msg">
+  <form method="dialog" class="dialog-body">
+    <p id="dlg-choice-msg"></p>
+    <div class="dialog-actions" id="dlg-choice-actions"></div>
+  </form>
+</dialog>
+
+<!-- UI-07: satu pintu "Buka berkas" (picker dan drag/drop memakai dispatcher yang sama) -->
+<input id="file-open" type="file" accept=".md,.markdown,.txt,.zip,.pfproj,text/markdown,text/plain,application/zip,image/png,image/jpeg,image/webp,image/gif,image/svg+xml,.png,.jpg,.jpeg,.webp,.gif,.svg" multiple hidden>
+<input id="file-assets" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml,.png,.jpg,.jpeg,.webp,.gif,.svg" multiple hidden>
+<input id="file-replace" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml,.png,.jpg,.jpeg,.webp,.gif,.svg" hidden>
+<input id="file-logo" type="file" accept="image/png,image/jpeg,image/svg+xml,image/webp" hidden>
+<div id="drop-overlay" class="drop-overlay" hidden><p data-i18n="drop.hint">Lepaskan berkas untuk membuka</p></div>
+</body>
+</html>

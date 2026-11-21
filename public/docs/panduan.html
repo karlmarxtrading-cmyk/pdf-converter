@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panduan PaperForma — penggunaan, format, cetak PDF, privasi</title>
+<meta name="description" content="Cara memakai PaperForma: membuka materi, mengatur format, memeriksa, mengekspor HTML, mencetak ke PDF lewat browser, menyimpan proyek, dan batasnya.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root{--ink:#14213d;--ink2:#4b5568;--line:#d5dae1;--bg:#fff;--canvas:#eef1f5;--blue:#2b59c3;--warn:#93370d;--warnbg:#fffaeb;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--ink:#e6eaf0;--ink2:#b4bccb;--line:#2c3749;--bg:#161e2b;--canvas:#0f1520;--blue:#86a6f2;--warn:#fdb022;--warnbg:#352512}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--canvas)}
+a{color:var(--blue)}header,main,footer{max-width:860px;margin:0 auto;padding:16px 20px}
+main{background:var(--bg);border:1px solid var(--line);border-radius:10px}
+h1{font-size:30px;line-height:1.2}h2{margin-top:36px;border-top:1px solid var(--line);padding-top:20px}h3{margin-top:22px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;display:block;overflow-x:auto}th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+.note{background:var(--warnbg);border-left:4px solid var(--warn);padding:10px 12px;border-radius:6px}
+nav.toc ol{columns:2;gap:24px}code{font-size:.9em}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+</style>
+</head>
+<body>
+<header><a href="/">← PaperForma</a></header>
+<main id="main">
+<h1>Panduan PaperForma</h1>
+<p>PaperForma adalah studio dokumen statis: semua pemrosesan terjadi di browser Anda. Tidak ada akun, biaya, atau batas pemakaian.</p>
+<nav class="toc" aria-label="Isi panduan"><ol>
+<li><a href="#mulai">Memulai</a></li><li><a href="#buka">Membuka materi</a></li><li><a href="#percakapan">Percakapan AI</a></li>
+<li><a href="#format">Format dan pengaturan</a></li><li><a href="#periksa">Pemeriksaan</a></li><li><a href="#html">Ekspor HTML</a></li>
+<li><a href="#pdf">Cetak / Simpan PDF</a></li><li><a href="#simpan">Menyimpan proyek</a></li><li><a href="#undo">Urungkan dan riwayat</a></li>
+<li><a href="#batas">Batas</a></li><li><a href="#privasi">Privasi</a></li><li><a href="#papan">Pintasan</a></li>
+</ol></nav>
+
+<h2 id="mulai">Memulai</h2>
+<p>Buka studio, lalu pilih <strong>Buka berkas</strong>, <strong>Tempel teks</strong>, <strong>Tempel percakapan</strong>, atau <strong>Coba contoh</strong>. Sumber ada di kiri, pratinjau di tengah, format dan pemeriksaan di kanan. Di layar sempit, gunakan tab Sumber / Pratinjau / Format &amp; periksa.</p>
+<p>Baris <strong>Alur kerja</strong> di atas studio menunjukkan lima langkah — <em>Masukkan → Periksa → Atur gaya → Pratinjau halaman → Simpan HTML / Cetak PDF</em> — beserta statusnya (selesai, belum, perlu perhatian). Klik langkah untuk membuka panel yang sesuai.</p>
+
+<h2 id="buka">Membuka materi</h2>
+<table><thead><tr><th>Masukan</th><th>Catatan</th></tr></thead><tbody>
+<tr><td><code>.md</code>, <code>.markdown</code>, <code>.txt</code></td><td>UTF-8. BOM dan CRLF dipertahankan pada sumber asli. Mengganti sumber selalu dikonfirmasi dan dapat diurungkan.</td></tr>
+<tr><td><code>.zip</code></td><td>Naskah Markdown + gambar. Bila ada beberapa naskah, Anda memilih satu. Berkas lain dilewati dan dilaporkan. Path berbahaya, symlink, enkripsi, CRC salah, dan rasio kompresi ekstrem ditolak.</td></tr>
+<tr><td>PNG, JPEG, WebP, GIF, SVG</td><td>Ditambahkan sebagai aset. Ukuran dibaca dari header sebelum didekode (maks 16.384 px per sisi, 40 MP per gambar, 200 MP per proyek). SVG dibersihkan dari skrip.</td></tr>
+<tr><td><code>.pfproj</code></td><td>Paket proyek PaperForma (termasuk dari versi 2.0). Bila ada perubahan belum tersimpan, Anda ditanya dulu.</td></tr>
+<tr><td>Tempel</td><td>Teks biasa dan teks terformat. Format HTML hanya dipakai bila teks belum Anda ubah setelah ditempel; perubahan ditinjau dalam diff sebelum diterapkan.</td></tr>
+</tbody></table>
+<p class="note">Belum didukung: impor PDF, DOCX/ODT/RTF, dan OCR gambar. Berkas tersebut ditolak dengan pesan khusus.</p>
+
+<h2 id="percakapan">Percakapan AI</h2>
+<p>Tempel percakapan (teks biasa dengan label seperti <code>Pengguna:</code>/<code>Asisten:</code>, atau salinan HTML dari aplikasi obrolan). Di tab <strong>Pesan</strong> Anda dapat memilih pesan, mengubah peran, mengurutkan, memisah, menggabung, lalu memilih bentuk hasil: satu jawaban, pesan terpilih, transkrip, dokumen terkurasi, atau lampiran sumber. <strong>Buat dokumen</strong> menulis hasilnya ke editor sebagai Markdown yang dapat disunting; percakapan asli tetap tersimpan. Teks di luar penanda pesan tidak dibuang: ia menjadi pesan “Tidak diketahui” yang dapat Anda pilih.</p>
+
+<h2 id="format">Format dan pengaturan</h2>
+<p>Empat templat: <strong>Modul Belajar (EDU-01)</strong>, <strong>Laporan Eksekutif (BUS-01)</strong>, <strong>Esai dan Bab Panjang (EDT-01)</strong>, <strong>Transkrip Percakapan AI (CON-01)</strong>. “Terapkan gaya saja” mempertahankan kertas, margin, sampul dan daftar isi Anda; “Pakai rekomendasi format” menerapkan semua bawaan. Pengaturan lanjutan: kertas A4/A5/Letter/Legal, orientasi, margin, huruf, ukuran, spasi baris, sampul, daftar isi, H1 di halaman baru, nomor halaman, kepala/kaki halaman, hemat tinta, bahasa isi, dan brand kit (nama, lembaga, warna, huruf judul, logo, teks kaki). Mengganti format tidak mengubah isi.</p>
+
+<h2 id="periksa">Pemeriksaan</h2>
+<p>Panel Pemeriksaan menampilkan kesiapan terpisah untuk <strong>HTML</strong> dan <strong>Cetak / PDF</strong>, terikat revisi yang sedang tampil. Setiap perubahan menurunkan status ke “Memproses” sampai revisi baru selesai. Cakupan: keutuhan isi sumber → keluaran, sintaks rumus, tabel, aset, struktur, keamanan, font; tata letak halaman setelah <strong>Periksa halaman (cetak)</strong>. Semua temuan dapat dijelajah per 100, disaring menurut tingkat dan kategori, dicari, dan diunduh lengkap sebagai JSON. Pemeriksaan ini bukan pemeriksaan fakta.</p>
+
+<h2 id="html">Ekspor HTML</h2>
+<ul>
+<li><strong>Satu berkas HTML</strong>: font dan gambar tersemat, tanpa skrip, dapat dibuka tanpa internet.</li>
+<li><strong>ZIP HTML</strong>: <code>index.html</code>, aset dan <code>manifest.json</code> berisi SHA-256 setiap berkas.</li>
+<li><strong>HTML publikasi</strong>: responsif untuk hosting Anda sendiri; opsional varian daring (gambar https) dan skrip kecil tombol salin kode.</li>
+</ul>
+<p>Hasil hanya diserahkan bila semua pemeriksaan wajib lulus. Masalah yang dapat menghilangkan isi (mis. font gagal dimuat, isi berubah) memblokir hasil. Masalah lain (mis. tautan internal rusak, karakter di luar font bawaan) harus Anda setujui secara eksplisit. Hasil, kegagalan dan pembatalan ditampilkan di dalam dialog ekspor.</p>
+
+<h2 id="pdf">Cetak / Simpan PDF</h2>
+<ol>
+<li>Periksa dan ekspor → <strong>Cetak / Simpan PDF</strong> → <strong>Siapkan cetak</strong>. Halaman dipaginasi dan isinya diverifikasi terhadap sumber (teks, angka, gambar, rumus, tautan).</li>
+<li>Tekan <strong>Buka dialog cetak</strong>. Pilih tujuan “Simpan sebagai PDF” (atau tujuan PDF di sistem Anda).</li>
+<li>Gunakan ukuran kertas dan orientasi yang sama dengan dokumen, skala 100%. Matikan header/footer bawaan browser; aktifkan grafik latar bila tersedia.</li>
+<li>Simpan. PaperForma tidak dapat melihat apakah berkas disimpan atau dibatalkan — periksa berkas Anda. Tekan “Cetak lagi” bila perlu.</li>
+</ol>
+<p class="note">PaperForma tidak membuat berkas PDF sendiri. Generator PDF di browser (jsPDF, html2canvas) telah diuji: hasilnya berupa gambar halaman tanpa teks yang dapat dicari, 4–40× lebih besar, dan gagal pada dokumen ±200 halaman. Karena itu PDF dibuat oleh mesin cetak browser Anda dari halaman yang sudah diverifikasi.</p>
+<p class="note">Diuji otomatis untuk rilis ini (Linux): Chrome 153 dan Firefox 160 — halaman diperiksa dan PDF dari mesin cetaknya diverifikasi teks per halaman; WebKitGTK 2.52 — halaman diperiksa. Dialog cetak native, Safari macOS/iOS dan perangkat seluler belum diuji manual.</p>
+
+<h2 id="simpan">Menyimpan proyek</h2>
+<p>Status penyimpanan selalu terlihat di samping judul dokumen. Secara bawaan tidak ada yang disimpan (“Belum disimpan”). Pilihan:</p>
+<ul><li><strong>Simpan paket kerja (.pfproj)</strong>: cadangan lengkap yang dapat disunting (sumber, input asli, aset, pengaturan, riwayat). Status menjadi “Cadangan diminta”, karena browser tidak selalu dapat memastikan berkas tersimpan.</li>
+<li><strong>Simpan proyek otomatis di perangkat ini</strong> (IndexedDB): status “Menyimpan…”, “Tersimpan di perangkat”, atau kegagalan nyata (gagal, penuh, diblokir, tidak tersedia, konflik dua tab, dihapus di tab lain).</li></ul>
+<p>Unduhan HTML atau PDF bukan cadangan proyek. Menutup halaman dengan perubahan yang belum tersimpan memicu peringatan browser.</p>
+
+<h2 id="undo">Urungkan dan riwayat</h2>
+<p><strong>Urungkan/Ulangi</strong> (Ctrl/⌘+Z, Ctrl/⌘+Shift+Z atau Ctrl+Y) mencakup teks, pengaturan, templat, brand kit, percakapan dan gambar. <strong>Riwayat revisi</strong> menyimpan hingga 100 revisi (6 MiB) dan memulihkan revisi sebagai revisi baru. Input asli tidak pernah ditimpa; lihat lewat <strong>Lihat sumber mentah</strong>.</p>
+
+<h2 id="batas">Batas</h2>
+<ul>
+<li>Masukan yang melewati batas ukuran ditolak utuh, tidak dipotong.</li>
+<li>Font bawaan mencakup Latin/Indonesia, Yunani, Sirilik dan simbol matematika terpilih. Arab, CJK, Thai, Devanagari, emoji berwarna dan karakter Private Use bergantung font perangkat.</li>
+<li>Widow/orphan paragraf tidak ditegakkan oleh mesin paginasi; paragraf yang menyisakan satu baris di tepi halaman dilaporkan sebagai catatan. Dua kolom, bagian lanskap, catatan margin, PDF/A/PDF-UA, bookmark PDF: tidak tersedia.</li>
+<li>Analisis naskah (penguraian, rumus, model keutuhan) berjalan di Web Worker sehingga editor tetap responsif. Paginasi halaman memerlukan DOM dan tetap berjalan di thread utama; pada dokumen ratusan halaman UI dapat tersendat sesaat. Bila Worker tidak tersedia, analisis berjalan di thread utama dengan jeda antar-tahap dan studio menampilkan pemberitahuan.</li>
+<li>Bila mesin paginasi memutus kata di tengah, tanda hubung tambahan diabaikan dalam pemeriksaan keutuhan; di dalam kode tanda itu dihapus agar kode tidak berubah.</li>
+</ul>
+
+<h2 id="privasi">Privasi</h2>
+<p>Situs hanya mengirim berkas aplikasi. Isi dokumen, clipboard dan berkas Anda tidak dikirim ke server mana pun. Gambar https eksternal hanya dimuat di pratinjau bila Anda mengizinkannya. Data lokal dapat dihapus lewat Penyimpanan &amp; proyek → Hapus semua data lokal.</p>
+
+<h2 id="papan">Pintasan</h2>
+<table><tbody><tr><td>Ctrl/⌘+Z</td><td>Urungkan</td></tr><tr><td>Ctrl/⌘+Shift+Z, Ctrl+Y</td><td>Ulangi</td></tr><tr><td>Esc</td><td>Tutup dialog; saat ekspor berjalan: batalkan proses</td></tr><tr><td>Panah/Home/End</td><td>Berpindah tab dan menu</td></tr></tbody></table>
+</main>
+<footer><p>PaperForma 3 — <a href="/licenses/THIRD_PARTY_NOTICES.txt">lisensi pihak ketiga</a></p></footer>
+</body>
+</html>

@@ -1,0 +1,12 @@
+
+ RUN  v5.1.0 /home/claude/work/final2/repository
+
+
+ Test Files  29 passed (29)
+      Tests  237 passed (237)
+   Start at  09:25:30
+   Duration  26.14s (tests 39%, environment 30%, import 23%, transform 6%, worker 1%)
+
+    Isolate  29 workers spawned · ~342ms startup each (spawn + environment, per file)
+             at least ~9.59s faster with isolate: false — reuses workers across files instead of one per file
+

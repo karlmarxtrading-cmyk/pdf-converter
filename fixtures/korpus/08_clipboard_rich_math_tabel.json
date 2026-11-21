@@ -1,0 +1,5 @@
+{
+  "text_plain": "Ringkasan\nKelompok A: 00123\nx = -5\nSENTINEL_AKHIR_RICH",
+  "text_html": "<h1>Ringkasan</h1><table><tr><th rowspan=\"2\">Kelompok A</th><th>Nilai</th></tr><tr><td>00123</td></tr></table><span class=\"katex\"><span class=\"katex-mathml\"><math><semantics><mrow><mi>x</mi><mo>=</mo><mo>-</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">x=-5</annotation></semantics></math></span><span aria-hidden=\"true\">x = -5</span></span><p>SENTINEL_AKHIR_RICH</p>",
+  "note": "Data clipboard sintetis; bukan capture provider live."
+}

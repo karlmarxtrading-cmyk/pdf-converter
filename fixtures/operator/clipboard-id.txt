@@ -1,0 +1,5 @@
+Paragraf pertama  memiliki dua spasi, lalu kutipan “angka -12,50”.
+
+Biaya Rp1.250.000,50 untuk 👩‍🏫. URL yang ditulis adalah https://example.org/dokumen.
+
+END_CLIPBOARD_03  Urutan terakhir harus tetap sama.

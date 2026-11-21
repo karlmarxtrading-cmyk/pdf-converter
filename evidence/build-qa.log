@@ -1,0 +1,287 @@
+{"total":438,"runtime":255,"unknownLicense":0}
+vite v7.3.8 building client environment for production...
+transforming...
+✓ 2409 modules transformed.
+rendering chunks...
+[plugin vite:reporter] 
+(!) /home/claude/work/final2/repository/node_modules/diff/libesm/index.js is dynamically imported by /home/claude/work/final2/repository/src/ui/main.ts but also statically imported by /home/claude/work/final2/repository/src/core/wrapper.ts, dynamic import will not move module into another chunk.
+
+computing gzip size...
+dist-qa/print.html                                                        1.01 kB │ gzip:   0.60 kB
+dist-qa/assets/jetbrains-mono-cyrillic-ext-400-normal-C_uLvvQ5.woff2      1.16 kB
+dist-qa/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2                         3.62 kB
+dist-qa/assets/jetbrains-mono-vietnamese-400-normal-ByoDsISC.woff2        3.92 kB
+dist-qa/assets/jetbrains-mono-greek-400-normal-C190GLew.woff2             4.23 kB
+dist-qa/assets/KaTeX_Size4-Regular-Dl5lxZxV.woff2                         4.93 kB
+dist-qa/assets/inter-vietnamese-400-normal-DMkecbls.woff2                 4.97 kB
+dist-qa/assets/inter-vietnamese-600-normal-Cc8MFFhd.woff2                 5.10 kB
+dist-qa/assets/inter-vietnamese-700-normal-DlLaEgI2.woff2                 5.10 kB
+dist-qa/assets/inter-vietnamese-400-italic-Ceaj4WUo.woff2                 5.13 kB
+dist-qa/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2                         5.21 kB
+dist-qa/assets/inter-greek-ext-400-normal-DGGRlc-M.woff2                  5.26 kB
+dist-qa/assets/inter-vietnamese-700-italic-BbJv01XC.woff2                 5.31 kB
+dist-qa/assets/jetbrains-mono-cyrillic-400-normal-BEIGL1Tu.woff2          5.33 kB
+dist-qa/assets/inter-vietnamese-600-italic-BuG6-S9s.woff2                 5.38 kB
+dist-qa/assets/inter-greek-ext-600-normal-DRtmH8MT.woff2                  5.43 kB
+dist-qa/assets/inter-greek-ext-700-normal-qfdV9bQt.woff2                  5.44 kB
+dist-qa/assets/KaTeX_Size1-Regular-mCD8mA8B.woff2                         5.47 kB
+dist-qa/assets/inter-greek-ext-400-italic-DgljI1UR.woff2                  5.53 kB
+dist-qa/assets/inter-greek-ext-700-italic-5m0CTrl1.woff2                  5.74 kB
+dist-qa/assets/inter-greek-ext-600-italic-BxS-O1qG.woff2                  5.76 kB
+dist-qa/assets/source-serif-4-vietnamese-400-normal-DFDfvBrN.woff2        6.30 kB
+dist-qa/assets/source-serif-4-vietnamese-400-italic-B7_QYl3c.woff2        6.36 kB
+dist-qa/assets/source-serif-4-vietnamese-600-normal-B33FcZBi.woff2        6.37 kB
+dist-qa/assets/source-serif-4-vietnamese-700-normal-CAL-i-xy.woff2        6.41 kB
+dist-qa/assets/source-serif-4-vietnamese-700-italic-CVnjuq9C.woff2        6.52 kB
+dist-qa/assets/source-serif-4-vietnamese-600-italic-CH0yWcxH.woff2        6.54 kB
+dist-qa/assets/KaTeX_Caligraphic-Regular-Di6jR-x-.woff2                   6.91 kB
+dist-qa/assets/KaTeX_Caligraphic-Bold-Dq_IR9rO.woff2                      6.91 kB
+dist-qa/assets/source-serif-4-cyrillic-ext-400-normal-CWV284fw.woff2      7.15 kB
+dist-qa/assets/source-serif-4-cyrillic-ext-400-italic-zoDFlEzN.woff2      7.28 kB
+dist-qa/assets/source-serif-4-cyrillic-ext-600-normal-D_E8FDgP.woff2      7.29 kB
+dist-qa/assets/jetbrains-mono-latin-ext-400-normal-Bc8Ftmh3.woff2         7.34 kB
+dist-qa/assets/source-serif-4-cyrillic-ext-700-normal-B9R79AaY.woff2      7.45 kB
+dist-qa/assets/source-serif-4-cyrillic-ext-700-italic-BdFI3uD2.woff2      7.53 kB
+dist-qa/assets/source-serif-4-cyrillic-ext-600-italic-Cezqx4eN.woff2      7.57 kB
+dist-qa/assets/inter-cyrillic-400-normal-obahsSVq.woff2                   7.71 kB
+dist-qa/assets/inter-greek-400-normal-B4URO6DV.woff2                      7.78 kB
+dist-qa/assets/inter-cyrillic-700-normal-CjBOestx.woff2                   7.90 kB
+dist-qa/assets/inter-greek-700-normal-C3JjAnD8.woff2                      7.92 kB
+dist-qa/assets/source-serif-4-greek-400-normal-Cw5-AHNN.woff2             7.92 kB
+dist-qa/assets/inter-greek-600-normal-plRanbMR.woff2                      7.94 kB
+dist-qa/assets/inter-cyrillic-600-normal-CWCymEST.woff2                   7.97 kB
+dist-qa/assets/source-serif-4-greek-600-normal-DdRkKr-1.woff2             8.13 kB
+dist-qa/assets/inter-cyrillic-400-italic-CIUtULAL.woff2                   8.22 kB
+dist-qa/assets/source-serif-4-greek-400-italic-C7D4Dq0H.woff2             8.24 kB
+dist-qa/assets/source-serif-4-greek-700-normal-BzuEQSqJ.woff2             8.41 kB
+dist-qa/assets/inter-cyrillic-700-italic-Ppu1tTPz.woff2                   8.43 kB
+dist-qa/assets/inter-greek-400-italic-SVIaMW7s.woff2                      8.44 kB
+dist-qa/assets/source-serif-4-greek-600-italic-BCtDz1WS.woff2             8.47 kB
+dist-qa/assets/inter-cyrillic-600-italic-BMNGqOVE.woff2                   8.48 kB
+dist-qa/assets/source-serif-4-greek-700-italic-DbF55r_P.woff2             8.51 kB
+dist-qa/assets/inter-greek-600-italic-MPI_Frmw.woff2                      8.62 kB
+dist-qa/assets/inter-greek-700-italic-D5vwbaZX.woff2                      8.64 kB
+dist-qa/assets/KaTeX_Script-Regular-D3wIWfF6.woff2                        9.64 kB
+dist-qa/assets/inter-cyrillic-ext-400-normal-BQZuk6qB.woff2              10.23 kB
+dist-qa/assets/KaTeX_SansSerif-Regular-DDBCnlJ7.woff2                    10.34 kB
+dist-qa/assets/inter-cyrillic-ext-600-normal-Dfes3d0z.woff2              10.48 kB
+dist-qa/assets/inter-cyrillic-ext-700-normal-BjwYoWNd.woff2              10.50 kB
+dist-qa/assets/inter-cyrillic-ext-400-italic-CsfrDhJx.woff2              10.80 kB
+dist-qa/assets/inter-cyrillic-ext-600-italic-La-to8Sa.woff2              11.10 kB
+dist-qa/assets/inter-cyrillic-ext-700-italic-GPRkb3xU.woff2              11.11 kB
+dist-qa/assets/KaTeX_Fraktur-Regular-CTYiF6lA.woff2                      11.32 kB
+dist-qa/assets/KaTeX_Fraktur-Bold-CL6g_b3V.woff2                         11.35 kB
+dist-qa/assets/KaTeX_SansSerif-Italic-C3H0VqGB.woff2                     12.03 kB
+dist-qa/assets/KaTeX_SansSerif-Bold-D1sUS0GD.woff2                       12.22 kB
+dist-qa/assets/KaTeX_Typewriter-Regular-CO6r4hn1.woff2                   13.57 kB
+dist-qa/assets/source-serif-4-cyrillic-400-italic-BLN19cOa.woff2         13.75 kB
+dist-qa/assets/source-serif-4-cyrillic-400-normal-C44pakCn.woff2         14.17 kB
+dist-qa/assets/source-serif-4-cyrillic-600-italic-Bbpc5VXY.woff2         14.31 kB
+dist-qa/assets/source-serif-4-cyrillic-700-italic-C5vSpb1a.woff2         14.35 kB
+dist-qa/assets/source-serif-4-cyrillic-600-normal-BDP5YDHD.woff2         14.78 kB
+dist-qa/assets/source-serif-4-cyrillic-700-normal-BmBwwUw2.woff2         14.86 kB
+dist-qa/assets/KaTeX_Math-BoldItalic-CZnvNsCZ.woff2                      16.40 kB
+dist-qa/assets/KaTeX_Math-Italic-t53AETM-.woff2                          16.44 kB
+dist-qa/assets/KaTeX_Main-BoldItalic-DxDJ3AOS.woff2                      16.78 kB
+dist-qa/assets/KaTeX_Main-Italic-NWA7e6Wa.woff2                          16.99 kB
+dist-qa/assets/source-serif-4-latin-ext-400-normal-B5LksYz5.woff2        17.84 kB
+dist-qa/assets/source-serif-4-latin-ext-600-normal-pa-C5Dkf.woff2        18.33 kB
+dist-qa/assets/source-serif-4-latin-ext-400-italic-Cj8BerOQ.woff2        18.45 kB
+dist-qa/assets/source-serif-4-latin-ext-700-normal-D0Q30MFM.woff2        18.47 kB
+dist-qa/assets/source-serif-4-latin-ext-600-italic-BjDfKlFY.woff2        19.06 kB
+dist-qa/assets/source-serif-4-latin-ext-700-italic-BD-KcGtX.woff2        19.16 kB
+dist-qa/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2            20.09 kB
+dist-qa/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2            20.09 kB
+dist-qa/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2            21.17 kB
+dist-qa/assets/source-serif-4-latin-700-italic-JqVfbRzb.woff2            21.48 kB
+dist-qa/assets/source-serif-4-latin-600-normal-DouSKlru.woff2            21.53 kB
+dist-qa/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2            21.59 kB
+dist-qa/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2            21.72 kB
+dist-qa/assets/inter-latin-400-normal-C38fXH4l.woff2                     23.66 kB
+dist-qa/assets/inter-latin-700-normal-Yt3aPRUw.woff2                     24.36 kB
+dist-qa/assets/inter-latin-600-normal-LgqL8muc.woff2                     24.45 kB
+dist-qa/assets/inter-latin-400-italic-D1l0FflY.woff2                     25.04 kB
+dist-qa/assets/KaTeX_Main-Bold-Cx986IdX.woff2                            25.32 kB
+dist-qa/assets/inter-latin-600-italic-BJYrns_i.woff2                     25.81 kB
+dist-qa/assets/inter-latin-700-italic-BsEzapPQ.woff2                     25.87 kB
+dist-qa/assets/KaTeX_Main-Regular-B22Nviop.woff2                         26.27 kB
+dist-qa/assets/KaTeX_AMS-Regular-BQhdFMY1.woff2                          28.08 kB
+dist-qa/index.html                                                       32.29 kB │ gzip:   6.54 kB
+dist-qa/assets/inter-latin-ext-400-normal-C1nco2VV.woff2                 35.00 kB
+dist-qa/assets/inter-latin-ext-700-normal-Ca8adRJv.woff2                 36.24 kB
+dist-qa/assets/inter-latin-ext-600-normal-D2bJ5OIk.woff2                 36.26 kB
+dist-qa/assets/inter-latin-ext-400-italic-CGFCRmTM.woff2                 37.59 kB
+dist-qa/assets/inter-latin-ext-600-italic-4pxPPAsx.woff2                 38.97 kB
+dist-qa/assets/inter-latin-ext-700-italic-DtYkv-XI.woff2                 39.07 kB
+dist-qa/assets/engine.worker-h3kZC176.js                                915.59 kB
+dist-qa/assets/main-Dh3YwMB6.css                                         23.09 kB │ gzip:   5.72 kB
+dist-qa/assets/KaTeX_Main-Bold-hfNTkWkB.js                                0.07 kB │ gzip:   0.09 kB
+dist-qa/assets/KaTeX_AMS-Regular-UteT86aj.js                              0.07 kB │ gzip:   0.09 kB
+dist-qa/assets/KaTeX_Main-Italic-Bl2NawWP.js                              0.07 kB │ gzip:   0.09 kB
+dist-qa/assets/KaTeX_Math-Italic-CGK6Cbg5.js                              0.07 kB │ gzip:   0.09 kB
+dist-qa/assets/KaTeX_Fraktur-Bold-Dy6Tyb1y.js                             0.07 kB │ gzip:   0.09 kB
+dist-qa/assets/KaTeX_Main-Regular-DL33ut4a.js                             0.07 kB │ gzip:   0.09 kB
+dist-qa/assets/KaTeX_Size1-Regular-QO1SbugN.js                            0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/KaTeX_Size2-Regular-BHXCnnFb.js                            0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/KaTeX_Size3-Regular-Bu1esYe4.js                            0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/KaTeX_Size4-Regular-R2plTDDH.js                            0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/KaTeX_SansSerif-Bold-CRy4YuTD.js                           0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/KaTeX_Script-Regular-CE9z4iCG.js                           0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/KaTeX_Fraktur-Regular-BX0BiI1Z.js                          0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/KaTeX_Main-BoldItalic-BNFl4Jl3.js                          0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/KaTeX_Math-BoldItalic-CnEBWI99.js                          0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-greek-400-italic-C7_c2ANf.js                         0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-greek-400-normal-BBXvRMK-.js                         0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-greek-600-italic-CqtIoaqL.js                         0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-greek-600-normal-CAXaQnrY.js                         0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-greek-700-italic-LnMuiqmf.js                         0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-greek-700-normal-Ca5aC0-a.js                         0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-latin-400-italic-BI_8YdTV.js                         0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-latin-400-normal-CfcOfZXz.js                         0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-latin-600-italic-w_isdD2o.js                         0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-latin-600-normal-Buz-D1WU.js                         0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-latin-700-italic-Ckd6PJ3n.js                         0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-latin-700-normal-BmijZNFf.js                         0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/KaTeX_Caligraphic-Bold-D-8fzIFX.js                         0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/KaTeX_SansSerif-Italic-OMxPTIwk.js                         0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/KaTeX_SansSerif-Regular-DnC6FNGy.js                        0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/KaTeX_Typewriter-Regular-BsP-qY0Y.js                       0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-cyrillic-400-italic-BMneVUHf.js                      0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-cyrillic-400-normal-Dmcz2tnp.js                      0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-cyrillic-600-italic-DFzHZkCA.js                      0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-cyrillic-600-normal-g4HVvoXF.js                      0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-cyrillic-700-italic-CuAvDs8-.js                      0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-cyrillic-700-normal-CdWGE2we.js                      0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/KaTeX_Caligraphic-Regular-DBTuBZ89.js                      0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-greek-ext-400-italic-DPGxHQoy.js                     0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-greek-ext-400-normal-CFhiEvGH.js                     0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-greek-ext-600-italic-dKbTDiDv.js                     0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-greek-ext-600-normal-BG24iwjc.js                     0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-greek-ext-700-italic-Cd6HA7QY.js                     0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-greek-ext-700-normal-CO1RHTTo.js                     0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-latin-ext-400-italic-CZ-RJDzY.js                     0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-latin-ext-400-normal-S-86ZCi7.js                     0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-latin-ext-600-italic-B2ZXdL4T.js                     0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-latin-ext-600-normal-YLn26byw.js                     0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-latin-ext-700-italic-CpK3o3xJ.js                     0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-latin-ext-700-normal-CEb6A6Va.js                     0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-vietnamese-400-italic-CePwEgGo.js                    0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-vietnamese-400-normal-ClFMoPTj.js                    0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-vietnamese-600-italic-Dd_o6poO.js                    0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-vietnamese-600-normal-Bj87b0o7.js                    0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-vietnamese-700-italic-DLlTYe-O.js                    0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-vietnamese-700-normal-BcWiFBQ5.js                    0.08 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-cyrillic-ext-400-italic-QOmVD_sY.js                  0.09 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-cyrillic-ext-400-normal-BYiGjIBF.js                  0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/inter-cyrillic-ext-600-italic-BcIcQ2ZH.js                  0.09 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-cyrillic-ext-600-normal-DLR0YgdU.js                  0.09 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-cyrillic-ext-700-italic-ELvsV6f-.js                  0.09 kB │ gzip:   0.10 kB
+dist-qa/assets/inter-cyrillic-ext-700-normal-BkzIUCkt.js                  0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-greek-400-italic-pNzUW9F_.js                0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-greek-400-normal-BpDO6KOc.js                0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-greek-600-italic-BA8aQTdL.js                0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-greek-600-normal-BL7JgX6y.js                0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-greek-700-italic-BsbgJNoz.js                0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-greek-700-normal-DRpbwLoU.js                0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js                0.09 kB │ gzip:   0.10 kB
+dist-qa/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js                0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-latin-600-italic-CFAISUOi.js                0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-latin-600-normal-BsSEiccf.js                0.09 kB │ gzip:   0.10 kB
+dist-qa/assets/source-serif-4-latin-700-italic-MWh6X_m4.js                0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-latin-700-normal-nXkfkErZ.js                0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/jetbrains-mono-greek-400-normal-BDfx4qzj.js                0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js                0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-cyrillic-400-italic-CK-HsUSz.js             0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-cyrillic-400-normal-Co22HvQn.js             0.09 kB │ gzip:   0.10 kB
+dist-qa/assets/source-serif-4-cyrillic-600-italic-C0-x_YbW.js             0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-cyrillic-600-normal-DS0neBsF.js             0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-cyrillic-700-italic-CmC7nPtn.js             0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-cyrillic-700-normal-DQ_VacgN.js             0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/jetbrains-mono-cyrillic-400-normal-CgnvvwcG.js             0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-latin-ext-400-italic-B14_vora.js            0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-latin-ext-400-normal-BkYkI_Oz.js            0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-latin-ext-600-italic-smj97yNs.js            0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-latin-ext-600-normal-UFhgJ9zw.js            0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-latin-ext-700-italic-BbbD5nkz.js            0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-latin-ext-700-normal-D8b3D21L.js            0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/jetbrains-mono-latin-ext-400-normal-DxF1VXS_.js            0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-vietnamese-400-italic-CVzq7IVI.js           0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-vietnamese-400-normal-BiQXOhUN.js           0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-vietnamese-600-italic-8On0LG28.js           0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-vietnamese-600-normal-C6PYbhQQ.js           0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-vietnamese-700-italic-HsqsD2QE.js           0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-vietnamese-700-normal-Dqsi8bmx.js           0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/jetbrains-mono-vietnamese-400-normal-DhrwKEQV.js           0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-cyrillic-ext-400-italic-D824PIKt.js         0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-cyrillic-ext-400-normal-DAwB1ji-.js         0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-cyrillic-ext-600-italic-CFQBSVBZ.js         0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-cyrillic-ext-600-normal-DLh91MEs.js         0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-cyrillic-ext-700-italic-CxWn3IJc.js         0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/source-serif-4-cyrillic-ext-700-normal-DJ6I7OKK.js         0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/jetbrains-mono-cyrillic-ext-400-normal-lLZns5mi.js         0.09 kB │ gzip:   0.11 kB
+dist-qa/assets/chunk-2Q5K7J3B-5eMjYRwy.js                                 0.20 kB │ gzip:   0.16 kB
+dist-qa/assets/chunk-JWPE2WC7-BPE-n4v_.js                                 0.23 kB │ gzip:   0.17 kB
+dist-qa/assets/chunk-XXDRQBXY-wu06UFUw.js                                 0.23 kB │ gzip:   0.21 kB
+dist-qa/assets/_commonjsHelpers-Cpj98o6Y.js                               0.24 kB │ gzip:   0.18 kB
+dist-qa/assets/chunk-5VM5RSS4-u3c1bGKO.js                                 0.37 kB │ gzip:   0.27 kB
+dist-qa/assets/chunk-TU62E6Q5-ocXYrpNr.js                                 0.51 kB │ gzip:   0.36 kB
+dist-qa/assets/swimlanesDiagram-OMPLPG4O-DkWHhTdi.js                      0.59 kB │ gzip:   0.40 kB
+dist-qa/assets/infoDiagram-KBXO4MBG-CKYJ78Ka.js                           0.66 kB │ gzip:   0.45 kB
+dist-qa/assets/sizeCapture-INFHLROL-DaE9XoVU.js                           1.01 kB │ gzip:   0.57 kB
+dist-qa/assets/railroadDiagram-MRQ6NCDL-DjMlpTM6.js                       1.68 kB │ gzip:   0.80 kB
+dist-qa/assets/chunk-HFQBQIA3-_v_wu_2_.js                                 1.88 kB │ gzip:   0.83 kB
+dist-qa/assets/abnfDiagram-S7VZAUFO-CWkKnj9l.js                           1.88 kB │ gzip:   0.94 kB
+dist-qa/assets/pegDiagram-FD4XPPHP-DdCYHvSs.js                            2.03 kB │ gzip:   0.97 kB
+dist-qa/assets/ebnfDiagram-UZSYDL2S-Dd37vp3J.js                           2.08 kB │ gzip:   0.92 kB
+dist-qa/assets/diagram-DNEMPZML-DTm17sU-.js                               4.36 kB │ gzip:   1.94 kB
+dist-qa/assets/pieDiagram-J4AKIIQI-CFI4Ogmx.js                            5.16 kB │ gzip:   2.20 kB
+dist-qa/assets/bpmnIcons-APHXDYXF-ByGoYv9M.js                             5.21 kB │ gzip:   1.16 kB
+dist-qa/assets/chunk-KS47KZWR-DyA8sWZM.js                                 5.60 kB │ gzip:   2.59 kB
+dist-qa/assets/diagram-L3MUGCDN-mdVsMEhw.js                               6.15 kB │ gzip:   2.67 kB
+dist-qa/assets/diagram-XPFHEONP-CZnpY8qQ.js                               8.29 kB │ gzip:   3.72 kB
+dist-qa/assets/paginate-error-B2kWKKv3.js                                 9.25 kB │ gzip:   3.83 kB
+dist-qa/assets/cynefinDiagram-L36ESFBY-BeM10J5n.js                       10.17 kB │ gzip:   3.68 kB
+dist-qa/assets/chunk-KQLB2F66-Bd7yWgxI.js                                10.48 kB │ gzip:   4.35 kB
+dist-qa/assets/diagram-MHCOC4E2-DPUhWS_2.js                              11.07 kB │ gzip:   4.32 kB
+dist-qa/assets/chunk-OY52VR5R-ocoxYvRD.js                                15.73 kB │ gzip:   4.40 kB
+dist-qa/assets/diagram-LA4NIPWU-DIdBCAQb.js                              16.38 kB │ gzip:   5.86 kB
+dist-qa/assets/ishikawaDiagram-M35NCXHK-DrARRKEX.js                      17.54 kB │ gzip:   6.69 kB
+dist-qa/assets/font-assets-js6Lc8Dy.js                                   17.57 kB │ gzip:   2.18 kB
+dist-qa/assets/kanban-definition-BZKZHSQY-D0JeJT5v.js                    20.37 kB │ gzip:   7.25 kB
+dist-qa/assets/mindmap-definition-I2QAS2VK-B-vEbOBG.js                   22.84 kB │ gzip:   7.65 kB
+dist-qa/assets/journeyDiagram-OPLOXDXO-CrUyNEYD.js                       23.62 kB │ gzip:   8.38 kB
+dist-qa/assets/graph-D8UmR1vK.js                                         23.89 kB │ gzip:   8.30 kB
+dist-qa/assets/katex.min-DDtwLco6.js                                     24.83 kB │ gzip:   3.65 kB
+dist-qa/assets/wardleyDiagram-S7YFUSEH-DNQ5tuYU.js                       25.58 kB │ gzip:   6.84 kB
+dist-qa/assets/gitGraphDiagram-STJD7YCW-Ubt07euH.js                      29.49 kB │ gzip:   8.74 kB
+dist-qa/assets/erDiagram-EYBAPDEH-GimyySeH.js                            30.75 kB │ gzip:  10.60 kB
+dist-qa/assets/timeline-definition-SEUHKTQE-BLvLd_AD.js                  30.93 kB │ gzip:  10.22 kB
+dist-qa/assets/requirementDiagram-Y7LWUY3S-DOQ6yNTo.js                   31.12 kB │ gzip:   9.82 kB
+dist-qa/assets/quadrantDiagram-XTYBLID2-ClF7fUBP.js                      34.02 kB │ gzip:   9.98 kB
+dist-qa/assets/print-DCy7txPK.js                                         36.49 kB │ gzip:  12.79 kB
+dist-qa/assets/sankeyDiagram-WGJFYUXA-BI4fORwO.js                        39.99 kB │ gzip:  15.15 kB
+dist-qa/assets/d3-scale-4DPf7zan.js                                      41.33 kB │ gzip:  15.14 kB
+dist-qa/assets/stateDiagram-v2-FJ4FJNEA-DvdYTubd.js                      41.83 kB │ gzip:  14.03 kB
+dist-qa/assets/vennDiagram-NNMJR3RB-BaMAtqNd.js                          42.06 kB │ gzip:  15.75 kB
+dist-qa/assets/blockDiagram-APKKGZFW-BSO58Fq-.js                         42.75 kB │ gzip:  14.10 kB
+dist-qa/assets/xychartDiagram-GGNKY7IX-D6x7bJqs.js                       43.58 kB │ gzip:  12.15 kB
+dist-qa/assets/dagre-SPEB5RXH-B8wHk34a.js                                46.20 kB │ gzip:  16.51 kB
+dist-qa/assets/classDiagram-v2-L25IHNXF-CrOt7Kg-.js                      49.95 kB │ gzip:  16.08 kB
+dist-qa/assets/ganttDiagram-23REXITY-CpdTdXF-.js                         53.23 kB │ gzip:  18.34 kB
+dist-qa/assets/flowDiagram-MALGAFMO-DzM-szjZ.js                          65.04 kB │ gzip:  20.98 kB
+dist-qa/assets/c4Diagram-KJ2TOQU5-CoAUibFR.js                            65.89 kB │ gzip:  18.93 kB
+dist-qa/assets/diagram-3B7GL73J-BismmCdu.js                              81.18 kB │ gzip:  25.19 kB
+dist-qa/assets/cose-bilkent-JH36ORCC-Dmb3TXrr.js                         81.78 kB │ gzip:  22.52 kB
+dist-qa/assets/sequenceDiagram-5NDRBG5M-Ds0cwoif.js                     119.00 kB │ gzip:  32.02 kB
+dist-qa/assets/swimlanes-UMQ2AFYF-Did05eUZ.js                           123.35 kB │ gzip:  45.42 kB
+dist-qa/assets/architectureDiagram-YGSQEFNW-DhJmt4tJ.js                 151.90 kB │ gzip:  43.18 kB
+dist-qa/assets/usecaseDiagram-AFA6YXN4-Df7HzyDQ.js                      189.97 kB │ gzip:  50.73 kB
+dist-qa/assets/cytoscape.esm-BHa1VTXv.js                                450.32 kB │ gzip: 144.03 kB
+dist-qa/assets/src-DAW3wOpX.js                                          512.42 kB │ gzip: 103.40 kB
+dist-qa/assets/mermaid.core-C_XUiqEY.js                                 639.82 kB │ gzip: 152.70 kB
+dist-qa/assets/cynefin-EF2NZ3EQ-CEVUpNbW.js                             653.75 kB │ gzip: 136.53 kB
+dist-qa/assets/main-DxSTZ50L.js                                       1,305.17 kB │ gzip: 412.24 kB
+dist-qa/assets/elk-XV6XMXQE-DHuxkKDk.js                               1,513.07 kB │ gzip: 463.63 kB
+✓ built in 30.92s
+Verifikasi statis lulus: {"dir":"dist-qa","profile":"qa","files":281,"bytes":9640183,"maxFileBytes":1513070}
+Build qa OK · candidate 5e649307531114cbec6ac54c3ac23864acd79abe170f9da77d692371c8be9136 · dist 0cab71021b0fc20695b4b514515d173ed12aa4ac7c4881b156ce672a6f37b1e0

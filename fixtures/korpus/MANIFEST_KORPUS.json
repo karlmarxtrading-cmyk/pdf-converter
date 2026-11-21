@@ -1,0 +1,234 @@
+{
+  "status": "INPUT_FIXTURES_ONLY_NOT_RENDERED",
+  "case_count": 16,
+  "cases": [
+    {
+      "file": "01_dokumen_pendek.md",
+      "sha256": "13e9d672618586172cf8b4119e1dd3595c3b56d919c9e5d51a36f1f4911f23ce",
+      "bytes": 505,
+      "status": "INPUT_READY_RENDER_NOT_RUN",
+      "expected_checks": [
+        "Tiga bagian dan seluruh nilai tetap; sentinel akhir tidak hilang; metadata dari sumber"
+      ],
+      "acceptance_ids": [
+        "IMP-01",
+        "PDF-01"
+      ]
+    },
+    {
+      "file": "02_rumus_dan_mata_uang.md",
+      "sha256": "5fb9598ba8fd198be8791435918caa089dadc43225ddf1ad384af67a28e975b9",
+      "bytes": 425,
+      "status": "INPUT_READY_RENDER_NOT_RUN",
+      "expected_checks": [
+        "Tanda +/- tidak tertukar; mata uang tetap literal; rumus invalid terlihat"
+      ],
+      "acceptance_ids": [
+        "SEM-01",
+        "SEM-02",
+        "SEM-03"
+      ]
+    },
+    {
+      "file": "03_tabel_60_baris.md",
+      "sha256": "b0c8ed47dd6ff19a2bd6eafb13501b9bd1d69a08689d16b5132e119ba12564d2",
+      "bytes": 4103,
+      "status": "INPUT_READY_RENDER_NOT_RUN",
+      "expected_checks": [
+        "Tepat 60 baris data; ROW_001..ROW_060 unik; header berulang"
+      ],
+      "acceptance_ids": [
+        "SEM-06",
+        "PDF-06"
+      ]
+    },
+    {
+      "file": "04_tabel_lebar.md",
+      "sha256": "ae6b813321a8310e539529f70432121aa87eb7790ba0f8e8f0dcfe1dd84ffb7b",
+      "bytes": 1708,
+      "status": "INPUT_READY_RENDER_NOT_RUN",
+      "expected_checks": [
+        "72 sel data tetap; no silent truncation; leading zero dan minus tetap"
+      ],
+      "acceptance_ids": [
+        "SEM-04",
+        "SEM-06"
+      ]
+    },
+    {
+      "file": "05_wrapper_dan_kode.md",
+      "sha256": "1b5e5687007606d04acae3d5379ac94f118f3832c704a4229d1098cdbbdbdae5",
+      "bytes": 138,
+      "status": "INPUT_READY_RENDER_NOT_RUN",
+      "expected_checks": [
+        "Fence luar dapat dilepas eksplisit; kode internal dan sentinel utuh"
+      ],
+      "acceptance_ids": [
+        "IMP-02",
+        "SEM-08"
+      ]
+    },
+    {
+      "file": "06_percakapan_empat_pesan.txt",
+      "sha256": "3407cf761e77d45263101f0e55544b7a9b8a2657ad391853ab67f8e25e4bd49d",
+      "bytes": 311,
+      "status": "INPUT_READY_RENDER_NOT_RUN",
+      "expected_checks": [
+        "Empat pesan yang dimaksud; dua label dalam kode dan satu quote bukan separator"
+      ],
+      "acceptance_ids": [
+        "IMP-06",
+        "IMP-07"
+      ]
+    },
+    {
+      "file": "07_transaksi_multi_paste.json",
+      "sha256": "235e46ce1f0542302f4080422ebc7545d151a5080d5d0bf5e8671efeeaf93301",
+      "bytes": 298,
+      "status": "INPUT_READY_RENDER_NOT_RUN",
+      "expected_checks": [
+        "A+B+C tetap; hanya B dikonversi"
+      ],
+      "acceptance_ids": [
+        "IMP-05"
+      ]
+    },
+    {
+      "file": "08_clipboard_rich_math_tabel.json",
+      "sha256": "5f1c146385c1d2075ee90af7a78b77da6f5f48a59625987e7c586016b7b54efe",
+      "bytes": 557,
+      "status": "INPUT_READY_RENDER_NOT_RUN",
+      "expected_checks": [
+        "Tabel merge dipertahankan/ditandai; math tidak diduplikasi; source LaTeX tersimpan"
+      ],
+      "acceptance_ids": [
+        "IMP-04",
+        "SEM-07"
+      ]
+    },
+    {
+      "file": "09_revisi_dan_duplikasi.txt",
+      "sha256": "c607afc03ccd634bce53f44894cd3ca1df51decc34f888fb383961f0367ea296",
+      "bytes": 234,
+      "status": "INPUT_READY_RENDER_NOT_RUN",
+      "expected_checks": [
+        "Enam pesan yang dimaksud; no silent dedup; -5 dan 5 berbeda"
+      ],
+      "acceptance_ids": [
+        "IMP-11"
+      ]
+    },
+    {
+      "file": "10_catatan_kaki_dan_sitasi.md",
+      "sha256": "847dfb9d54a6ee520d7df1e9c6340771d51b0332f2b21fb3a421a6e7c3e59e58",
+      "bytes": 324,
+      "status": "INPUT_READY_RENDER_NOT_RUN",
+      "expected_checks": [
+        "Satu definisi a dengan dua panggilan; missing ditandai; jangan mengarang URL token AI"
+      ],
+      "acceptance_ids": [
+        "SEM-09",
+        "SEM-10"
+      ]
+    },
+    {
+      "file": "11_aset_lokal_dan_hilang.md",
+      "sha256": "dd7fc3adbd5dd4c64f4ed9e8b4d588a01074e87512f7b8872b1ad193c9e4c961",
+      "bytes": 206,
+      "status": "INPUT_READY_RENDER_NOT_RUN",
+      "expected_checks": [
+        "Satu lokal, satu missing, satu external; status jelas sebelum ekspor"
+      ],
+      "acceptance_ids": [
+        "AST-01",
+        "AST-03",
+        "AST-04"
+      ]
+    },
+    {
+      "file": "12_unicode_dan_font.md",
+      "sha256": "6e71050fce489218d27b5dc053631c60aa159c5dbf06f828593b76e9bca7d457",
+      "bytes": 325,
+      "status": "INPUT_READY_RENDER_NOT_RUN",
+      "expected_checks": [
+        "Glyph probe dan shaping; no universal support claim; arah baca diperiksa"
+      ],
+      "acceptance_ids": [
+        "SEM-11"
+      ]
+    },
+    {
+      "file": "13_heading_dan_tautan.md",
+      "sha256": "6beee29dcfb536fb3af44256aeeaf022cc892534ffcba47d50100ca5243ff606",
+      "bytes": 243,
+      "status": "INPUT_READY_RENDER_NOT_RUN",
+      "expected_checks": [
+        "Heading duplikat tidak bentrok; urutan H1-H3 diberi diagnostics"
+      ],
+      "acceptance_ids": [
+        "SEM-10",
+        "SEM-12",
+        "HTM-04"
+      ]
+    },
+    {
+      "file": "14_blok_panjang.md",
+      "sha256": "d0a6bf0792d52d8489978eb066a324053c07dfdcc165c79deef633d105147302",
+      "bytes": 8456,
+      "status": "INPUT_READY_RENDER_NOT_RUN",
+      "expected_checks": [
+        "Kode tetap utuh; tall row tidak disembunyikan; warning actionable"
+      ],
+      "acceptance_ids": [
+        "SEM-08",
+        "PDF-06",
+        "PDF-08"
+      ]
+    },
+    {
+      "file": "15_input_keamanan.md",
+      "sha256": "9da20cae3f201784eecaf30bfdcdd653d57d3ff79278f66072a16cd55aada00c",
+      "bytes": 342,
+      "status": "INPUT_READY_RENDER_NOT_RUN",
+      "expected_checks": [
+        "Tidak ada eksekusi; remote image tidak dimuat tanpa kebijakan; instruksi tetap data"
+      ],
+      "acceptance_ids": [
+        "SEC-01",
+        "HTM-05"
+      ]
+    },
+    {
+      "file": "16_urutan_dan_operator.md",
+      "sha256": "f82c8ae1132b12d8035fc44f95a0045ad912278ab854541b12c365c37abc0ef9",
+      "bytes": 199,
+      "status": "INPUT_READY_RENDER_NOT_RUN",
+      "expected_checks": [
+        "Checker tidak menganggap pasangan identik hanya karena bag kata/angka sama"
+      ],
+      "acceptance_ids": [
+        "SEM-01",
+        "SEM-04",
+        "IMP-10"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "file": "assets/chart.png",
+      "bytes": 3172,
+      "sha256": "7f43c382e526f0d9a3462d6da1ed11cf69767576c7c08b4ce264956b08dfac98"
+    },
+    {
+      "file": "pengganti_A/chart.png",
+      "bytes": 3172,
+      "sha256": "4b69882778b7337cd7ede5904946ae990973f5e6a7516e04df0c64221cb5d947"
+    },
+    {
+      "file": "pengganti_B/chart.png",
+      "bytes": 3172,
+      "sha256": "b3e19309bedffac26af92e7a6463b966817caecf8f76f04c961af6cd7163703f"
+    }
+  ],
+  "note": "Contoh sintetis. Tidak ada hasil golden visual atau bukti output PaperForma dihasilkan dari korpus ini. Gambar pengganti A/B valid PNG sama nama dan ukuran, beda isi."
+}

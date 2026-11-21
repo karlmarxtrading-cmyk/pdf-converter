@@ -1,0 +1,12 @@
+✓ beranda tampil
+✓ tidak ada kait QA (window.__pf) di produksi
+✓ studio merender pratinjau
+✓ print.html tanpa kait QA — {"pfPaginate":"undefined","result":"undefined"}
+✓ tanpa permintaan eksternal — []
+✓ tanpa error konsol — []
+✓ /api/pdf → 404 — 404
+✓ /api/account → 404 — 404
+✓ /api/v1/ready → 404 — 404
+✓ /api/checkout → 404 — 404
+✓ / CSP connect-src 'self' & frame-ancestors — "default-src 'self'; script-src 'self'; style-src 'self' 'uns"
+✓ /print.html CSP connect-src 'self' & frame-ancestors — "default-src 'self'; script-src 'self'; style-src 'self' 'uns"

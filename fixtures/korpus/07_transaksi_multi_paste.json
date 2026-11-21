@@ -1,0 +1,7 @@
+{
+  "before": "A: Paragraf yang sudah ada.",
+  "clipboard_plain": "Bagian B\nNilai: -5",
+  "clipboard_html": "<h2>Bagian B</h2><p>Nilai: <strong>-5</strong></p>",
+  "typed_after": "C: Ketikan setelah paste.",
+  "expected": "Konversi fragmen B mempertahankan A dan C; undo memulihkan transaksi B."
+}

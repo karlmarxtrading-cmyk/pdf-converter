@@ -1,0 +1,7 @@
+✓ small-mixed-A4 pages=11 Chrome:pass Firefox:pass
+✓ small-mixed-Letter-landscape pages=14 Chrome:pass Firefox:pass
+✓ small-mixed-A5 pages=21 Chrome:pass Firefox:pass
+✓ medium-30 pages=63 Chrome:pass Firefox:pass
+✓ large-115 pages=196 Chrome:pass Firefox:pass
+✓ memory growth 1.2 MiB, iframes 7/7/7/7/7/7
+{"total":6,"pass":6,"fail":0}

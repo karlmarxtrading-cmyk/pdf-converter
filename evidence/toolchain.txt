@@ -1,0 +1,10 @@
+node v24.22.3
+npm 11.9.0
+Google Chrome for Testing 153.0.8010.12 
+Mozilla Firefox 160.0
+WebKitGTK 2.52.6-0ubuntu0.24.04.2 (MiniBrowser + WebKitWebDriver)
+pdfinfo version 24.02.0
+qpdf version 11.9.0
+Linux 6.18.44-fc-v726 x86_64
+2
+Mem:            8024         607        5752          12        1961        7416

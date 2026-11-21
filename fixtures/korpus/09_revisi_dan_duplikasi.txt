@@ -1,0 +1,6 @@
+User: Beri nilai contoh.
+Assistant: Nilai revisi pertama adalah -5.
+User: Tampilkan pembanding, bukan koreksi otomatis.
+Assistant: Nilai revisi kedua adalah 5.
+User: Pertahankan kedua versi.
+Assistant: Nilai revisi pertama adalah -5.

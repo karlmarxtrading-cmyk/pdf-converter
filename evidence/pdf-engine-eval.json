@@ -1,0 +1,149 @@
+{
+  "tool": "tests/e2e/pdf-engine-eval.mjs",
+  "candidateSha256": "5e649307531114cbec6ac54c3ac23864acd79abe170f9da77d692371c8be9136",
+  "at": "2026-11-21T02:31:43.679Z",
+  "cases": [
+    {
+      "id": "small",
+      "pages": 11,
+      "engines": [
+        {
+          "engine": "A: Chrome print engine",
+          "ms": 251,
+          "bytes": 354746,
+          "pages": 11,
+          "fonts": [
+            "AAAAAA+Inter-Regular CID",
+            "BAAAAA+Inter-Bold CID",
+            "CAAAAA+Inter-SemiBold CID",
+            "DAAAAA+Inter-Italic CID",
+            "EAAAAA+JetBrainsMono-Regular CID",
+            "FAAAAA+Inter-Regular CID",
+            "GAAAAA+Inter-Regular CID",
+            "HAAAAA+Inter-Regular CID"
+          ],
+          "embeddedAll": true,
+          "textBlocksFound": "26/28",
+          "textCoverage": 0.929
+        },
+        {
+          "engine": "B1-jspdf-html",
+          "ms": 2475,
+          "bytes": 4441411,
+          "pages": 11,
+          "fonts": [
+            "Helvetica Type",
+            "Helvetica-Bold Type",
+            "Helvetica-Oblique Type",
+            "Helvetica-BoldOblique Type",
+            "Courier Type",
+            "Courier-Bold Type",
+            "Courier-Oblique Type",
+            "Courier-BoldOblique Type"
+          ],
+          "embeddedAll": false,
+          "textBlocksFound": "0/28",
+          "textCoverage": 0,
+          "jsHeapPeakMiB": 11
+        },
+        {
+          "engine": "B2-raster",
+          "ms": 2217,
+          "bytes": 3225100,
+          "pages": 11,
+          "fonts": [],
+          "embeddedAll": true,
+          "textBlocksFound": "0/28",
+          "textCoverage": 0,
+          "jsHeapPeakMiB": 11
+        }
+      ]
+    },
+    {
+      "id": "medium",
+      "pages": 63,
+      "engines": [
+        {
+          "engine": "A: Chrome print engine",
+          "ms": 894,
+          "bytes": 778022,
+          "pages": 63,
+          "fonts": [
+            "AAAAAA+Inter-Regular CID",
+            "BAAAAA+Inter-Bold CID",
+            "CAAAAA+Inter-SemiBold CID",
+            "DAAAAA+Inter-Italic CID",
+            "EAAAAA+JetBrainsMono-Regular CID",
+            "FAAAAA+Inter-Regular CID",
+            "GAAAAA+Inter-Regular CID",
+            "HAAAAA+Inter-Regular CID"
+          ],
+          "embeddedAll": true,
+          "textBlocksFound": "357/360",
+          "textCoverage": 0.992
+        },
+        {
+          "engine": "B1-jspdf-html",
+          "ms": 23831,
+          "bytes": 15450498,
+          "pages": 63,
+          "fonts": [
+            "Helvetica Type",
+            "Helvetica-Bold Type",
+            "Helvetica-Oblique Type",
+            "Helvetica-BoldOblique Type",
+            "Courier Type",
+            "Courier-Bold Type",
+            "Courier-Oblique Type",
+            "Courier-BoldOblique Type"
+          ],
+          "embeddedAll": false,
+          "textBlocksFound": "0/360",
+          "textCoverage": 0,
+          "jsHeapPeakMiB": 14
+        },
+        {
+          "engine": "B2-raster",
+          "ms": 25402,
+          "bytes": 30300141,
+          "pages": 63,
+          "fonts": [],
+          "embeddedAll": true,
+          "textBlocksFound": "0/360",
+          "textCoverage": 0,
+          "jsHeapPeakMiB": 14
+        }
+      ]
+    },
+    {
+      "id": "large",
+      "pages": 196,
+      "engines": [
+        {
+          "engine": "A: Chrome print engine",
+          "ms": 2390,
+          "bytes": 1638805,
+          "pages": 196,
+          "fonts": [
+            "AAAAAA+Inter-Regular CID",
+            "BAAAAA+Inter-Bold CID",
+            "CAAAAA+Inter-SemiBold CID"
+          ],
+          "embeddedAll": true,
+          "textBlocksFound": "1341/1342",
+          "textCoverage": 0.999
+        },
+        {
+          "engine": "B1-jspdf-html",
+          "ms": 100660,
+          "result": "timeout setelah 122 halaman"
+        },
+        {
+          "engine": "B2-raster",
+          "ms": 100419,
+          "result": "timeout setelah 115 halaman"
+        }
+      ]
+    }
+  ]
+}
