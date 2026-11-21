@@ -1,0 +1,60 @@
+{
+  "at": "2026-11-21T10:02:37.240127+00:00",
+  "validation_archive_sha256": "5f03b8e260ff14081315e8f8a18b3887c0f4bd57a1578644840e65903fcfed50",
+  "note": "Candidate source/dist archive reconstructed before final documentation/evidence packaging. Final ZIP source/dist identities must equal this independently rebuilt candidate.",
+  "commands": [
+    {
+      "name": "npm-ci",
+      "command": [
+        "npm",
+        "ci"
+      ],
+      "exitCode": 0,
+      "seconds": 8.606,
+      "log": "npm-ci.log"
+    },
+    {
+      "name": "typecheck",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "seconds": 1.454,
+      "log": "typecheck.log"
+    },
+    {
+      "name": "lint",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exitCode": 0,
+      "seconds": 0.359,
+      "log": "lint.log"
+    },
+    {
+      "name": "tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exitCode": 0,
+      "seconds": 16.242,
+      "log": "tests.log"
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 1,
+      "seconds": 38.594,
+      "log": "build.log"
+    }
+  ]
+}

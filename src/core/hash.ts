@@ -154,6 +154,10 @@ export interface RenderInputParts {
 /** renderInputHash: model + hash aset aktual + setting + brand kit + versi templat + versi renderer. */
 export async function computeRenderInputHash(p: RenderInputParts): Promise<string> {
   const assets = (await actualAssetHashes(p.assets)).map(({ path, mime, sha256 }) => ({ path, mime, sha256 }));
+  return hashRenderParts(p, assets);
+}
+
+function hashRenderParts(p: RenderInputParts, assets: { path: string; mime: string; sha256: string }[]): Promise<string> {
   return sha256Hex(canonicalJson({
     content: p.contentSnapshotHash, sourcePath: p.sourcePath, assets, settings: p.settings, brandKit: p.brandKit ?? null,
     templateId: p.templateId, templateVersion: p.templateVersion, rendererVersion: p.rendererVersion,
@@ -173,8 +177,17 @@ export interface SnapshotOptions { templateVersion?: string; rendererVersion?: s
  * asset.id di snapshot = sha256 bytes aktual (id yang salah diperbaiki di salinan, tidak di proyek).
  */
 export async function makeSnapshot(project: Project, opts: SnapshotOptions = {}): Promise<Snapshot> {
-  const p = cloneDeep(project);
-  for (const a of p.assets) a.id = await sha256Hex(a.bytes);
+  // PF-AUD-P01: clone only fields needed by the render identity, not the entire revision history.
+  // This synchronous copy precedes every await, so external mutations cannot alter in-flight snapshots.
+  const p = cloneDeep({ projectId: project.projectId, revision: project.revision, source: project.source,
+    sourcePath: project.sourcePath, settings: project.settings, assets: project.assets,
+    inputs: project.inputs, brandKit: project.brandKit, conversation: project.conversation });
+  const hashes = new Map<Uint8Array, string>();
+  for (const a of p.assets) {
+    let digest = hashes.get(a.bytes);
+    if (!digest) { digest = await sha256Hex(a.bytes); hashes.set(a.bytes, digest); }
+    a.id = digest;
+  }
   const templateVersion = opts.templateVersion ?? TEMPLATE_VERSION;
   const rendererVersion = opts.rendererVersion ?? RENDERER_VERSION;
   const rawSourceHash = await computeRawSourceHash(p.inputs, p.source);
@@ -182,10 +195,12 @@ export async function makeSnapshot(project: Project, opts: SnapshotOptions = {})
   // Older ZIP projects recorded the selected member on the raw input only.
   const lastInput = p.inputs.at(-1);
   const sourcePath = p.sourcePath ?? (lastInput?.kind === 'zip' && lastInput.rawPlain === p.source ? lastInput.name : undefined);
-  const renderInputHash = await computeRenderInputHash({
+  const renderAssets = p.assets.map(({ path, mime, id }) => ({ path, mime, sha256: id }))
+    .sort((a, b) => a.path < b.path ? -1 : a.path > b.path ? 1 : a.sha256 < b.sha256 ? -1 : 1);
+  const renderInputHash = await hashRenderParts({
     sourcePath, contentSnapshotHash, assets: p.assets, settings: p.settings, brandKit: p.brandKit,
     templateId: p.settings.template, templateVersion, rendererVersion,
-  });
+  }, renderAssets);
   const snap: Snapshot = {
     projectId: p.projectId, revision: p.revision, createdAt: (opts.now ?? (() => new Date().toISOString()))(),
     rawSourceHash, contentSnapshotHash, renderInputHash,

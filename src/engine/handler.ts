@@ -7,9 +7,12 @@ export class EngineCancelled extends Error { constructor() { super('cancelled');
 /** Membuat penangan; `post` mengirim balasan, `yieldNow` memberi kesempatan pesan 'cancel' diproses. */
 export function createHandler(post: (r: EngineResponse) => void, yieldNow: () => Promise<void> = () => new Promise((r) => setTimeout(r, 0))) {
   const cancelled = new Set<number>();
+  const active = new Set<number>();
   return async function handle(req: EngineRequest): Promise<void> {
-    if (req.type === 'cancel') { cancelled.add(req.jobId); return; }
+    // PF-RC4-ENGINE: late cancellation must not retain one id per completed edit forever.
+    if (req.type === 'cancel') { if (active.has(req.jobId)) cancelled.add(req.jobId); return; }
     if (req.protocol !== ENGINE_PROTOCOL) { post({ type: 'error', jobId: req.jobId, docVersion: req.docVersion, code: 'ENGINE_PROTOCOL_MISMATCH', message: `protokol ${req.protocol} ≠ ${ENGINE_PROTOCOL}` }); return; }
+    active.add(req.jobId);
     const t0 = Date.now();
     const check = async () => { await yieldNow(); if (cancelled.has(req.jobId)) throw new EngineCancelled(); };
     try {
@@ -23,6 +26,6 @@ export function createHandler(post: (r: EngineResponse) => void, yieldNow: () =>
     } catch (e) {
       if (e instanceof EngineCancelled) post({ type: 'cancelled', jobId: req.jobId });
       else post({ type: 'error', jobId: req.jobId, docVersion: req.docVersion, code: 'ENGINE_JOB_FAILED', message: (e as Error)?.message ?? String(e) });
-    } finally { cancelled.delete(req.jobId); }
+    } finally { cancelled.delete(req.jobId); active.delete(req.jobId); }
   };
 }

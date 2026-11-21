@@ -1,0 +1,12 @@
+✔ PF-R4-06 sign removal never passes as the same quantity (1.640097ms)
+✔ PF-R4-06 raw fallback cannot pass reversed blocks or reuse the same occurrence (0.348456ms)
+✔ PF-R4-06 unsupported glyph omission requires an explicit caller decision (0.351399ms)
+✔ PF-R4-06 prosa and cells around math/images are included in the oracle (178.69943ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1482.1485

@@ -1,0 +1,21 @@
+8
+Tabel lebar
+bagian 1/2: kolom 1–8 dari 12
+Kolom
+1
+Kolom
+2
+Kolom
+3
+Kolom
+4
+Kolom
+5
+Kolom
+6
+Kolom
+7
+Kolom
+8
+v1.1 v1.2 v1.3 v1.4 v1.5 v1.6 v1.7 v1.8
+v2.1 v2.2 v2.3 v2.4 v2.5 v2.6 v2.7 v2.8

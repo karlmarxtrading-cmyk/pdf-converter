@@ -1,0 +1,6 @@
+{
+  "classification": "Audit harness packaging error, not an application-source defect",
+  "cause": "Temporary validation archive excluded every directory segment named docs; this incorrectly omitted public/docs/panduan.html. Static release gate correctly rejected it.",
+  "fix": "Only top-level documentation/evidence/dependency directories excluded; source candidate fingerprint must match before installation; rerun in new clean directory.",
+  "applicationSourceChanged": false
+}

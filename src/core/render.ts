@@ -17,9 +17,10 @@ import type { AssetRecord, BlockInfo, Conversation, FootnoteEntry, Issue, Messag
 import { parseMarkdown, blockModelOf, BlockIdAllocator, type BlockModel, type Frontmatter } from './markdown';
 import { renderTex, restorerFor } from './math';
 import { classifyUrl, DROP_WITH_CONTENT, UNWRAP, USER_ATTRS, ALLOWED_TAGS, purifyToBody } from './sanitize';
-import { assetDataUrl, resolveAsset } from './assets';
+import { assetDataUrl, resolveAsset, inspectInlineImage, IMAGE_BUDGET, pixelsOf, type InlineImageInspection } from './assets';
 import { detectWrapper } from './wrapper';
-import { LIMITS } from './limits';
+import { LIMITS, assertTreeBudget, BudgetError } from './limits';
+import { checkHtmlBudget } from './html';
 import { docLabels, docLanguage } from '../render/labels';
 import { mkIssue, numberIssues, type CoreIssue, randomId, imageRefKey } from './util';
 import { analyzeChars, charIssues } from './chars';
@@ -71,6 +72,9 @@ interface Ctx {
   post: Map<string, Record<string, string>>;
   /** src gambar aset diisi SETELAH sanitasi di thread utama (data: URL dibuat dari byte tersanitasi) — tahap 1 tidak butuh byte */
   assetSrc: Map<string, string>;
+  /** RC4-R02: one content/pixel budget across all selected messages, including uploaded assets. */
+  imageIds: Set<string>; imagePixels: number;
+  inlineImages: Map<string, InlineImageInspection>; inlineImageCacheUnits: number;
   frontmatter?: Frontmatter;
   /** pemulih sentinel untuk naskah yang sedang diproses (EN-003); identitas di luar renderOne */
   restore: (s: string) => string;
@@ -309,11 +313,15 @@ function placeholder(ctx: Ctx, cls: string, label: string, alt: string, attrs: P
 function handleImage(ctx: Ctx, el: Element): Element {
   ctx.stats.images++;
   const p = el.properties ?? {};
-  const src = propStr(p.src);
-  const alt = propStr(p.alt);
+  // RC4-M08: path lookup happens before the generic attribute restoration below.
+  const src = ctx.restore(propStr(p.src));
+  const alt = ctx.restore(propStr(p.alt));
   const line = srcLine(ctx, el);
   const t = docLabels(ctx.lang);
-  if (!alt.trim()) ctx.issues.push(mkIssue('IMAGE_NO_ALT', 'info', 'asset', { id: `Gambar "${src}" tidak memiliki teks alternatif.`, en: `Image "${src}" has no alternative text.` }, issueRef(ctx, { line })));
+  if (!alt.trim()) {
+    const ref = imageRefKey(src);
+    ctx.issues.push(mkIssue('IMAGE_NO_ALT', 'info', 'asset', { id: `Gambar "${ref}" tidak memiliki teks alternatif.`, en: `Image "${ref}" has no alternative text.` }, issueRef(ctx, { line })));
+  }
   const asset = src ? resolveAsset(ctx.assets, src, ctx.sourcePath) : undefined;
   if (asset) {
     const key = `${ctx.nonce}-a${ctx.assetSrc.size}`;
@@ -322,7 +330,30 @@ function handleImage(ctx: Ctx, el: Element): Element {
   }
   const v = classifyUrl(src, true);
   if (v.ok && v.kind === 'data-image') {
-    return { type: 'element', tagName: 'img', properties: { src, alt, dataSrcPath: imageRefKey(src) }, children: [] };
+    let inspection = ctx.inlineImages.get(src);
+    if (!inspection) {
+      inspection = inspectInlineImage(src);
+      // Metadata only, per job, at most 2 MiB of retained source URL strings.
+      if (ctx.inlineImages.size < 256 && ctx.inlineImageCacheUnits + src.length <= 1024 * 1024) {
+        ctx.inlineImages.set(src, inspection); ctx.inlineImageCacheUnits += src.length;
+      }
+    }
+    if (!inspection.ok) {
+      ctx.issues.push(mkIssue(inspection.code, 'error', 'asset', { id: inspection.message, en: inspection.messageEn }, { ...issueRef(ctx, { line }), blocking: true }));
+      return placeholder(ctx, 'pf-img-blocked', t.blockedImg, alt, { dataSrcPath: imageRefKey(src) });
+    }
+    if (!ctx.imageIds.has(inspection.id)) {
+      const total = ctx.imagePixels + inspection.pixels;
+      if (total > IMAGE_BUDGET.maxTotalPixels) {
+        ctx.issues.push(mkIssue('IMAGE_PIXELS_EXCEEDED', 'error', 'asset', {
+          id: `Total piksel gambar unik (${Math.round(total / 1e6)} MP) melewati batas ${IMAGE_BUDGET.maxTotalPixels / 1e6} MP. Gambar inline tidak didekode; perkecil atau kurangi gambar.`,
+          en: `Unique image pixels (${Math.round(total / 1e6)} MP) exceed the ${IMAGE_BUDGET.maxTotalPixels / 1e6} MP limit. The inline image was not decoded; resize or remove images.`,
+        }, { ...issueRef(ctx, { line }), blocking: true }));
+        return placeholder(ctx, 'pf-img-blocked', t.blockedImg, alt, { dataSrcPath: imageRefKey(src) });
+      }
+      ctx.imageIds.add(inspection.id); ctx.imagePixels = total;
+    }
+    return { type: 'element', tagName: 'img', properties: { src, alt, ...(p.title ? { title: p.title } : {}), dataSrcPath: imageRefKey(src), decoding: 'async' }, children: [] };
   }
   if (v.ok && (v.kind === 'https' || v.kind === 'http')) {
     if (ctx.allowExternal && v.kind === 'https') {
@@ -515,8 +546,8 @@ function renderOneParsed(source: string, parsed: ReturnType<typeof parseMarkdown
     ? { id: 'Naskah memuat karakter Private Use (U+E000–U+F8FF). Karakter tersebut dipertahankan apa adanya; perlindungan mata uang tetap aktif.', en: 'The text contains Private Use characters (U+E000–U+F8FF). They are kept as-is; currency protection stays on.' }
     : { id: 'Naskah memuat seluruh titik kode Private Use; perlindungan mata uang dinonaktifkan untuk naskah ini dan isinya dipertahankan apa adanya.', en: 'The text uses every Private Use code point; currency protection is disabled for it and its content is kept as-is.' }));
   // kompleksitas (LIMITS.maxNodes) — dilaporkan, tidak dipotong
-  let nodeCount = 0;
-  const countNodes = (n: MdNodes) => { nodeCount++; if ('children' in n) for (const c of n.children as MdNodes[]) countNodes(c); };
+  let nodeCount = 0, containsRawHtml = false;
+  const countNodes = (n: MdNodes) => { nodeCount++; if (n.type === 'html') containsRawHtml = true; if ('children' in n) for (const c of n.children as MdNodes[]) countNodes(c); };
   countNodes(parsed.tree);
   if (nodeCount > LIMITS.maxNodes) ctx.issues.push(mkIssue('INPUT_TOO_COMPLEX', 'error', 'input', { id: `Naskah memiliki ${nodeCount} elemen (batas ${LIMITS.maxNodes}); pratinjau/ekspor dapat lambat. Pecah naskah.`, en: `The document has ${nodeCount} nodes (limit ${LIMITS.maxNodes}); preview/export may be slow. Split the document.` }, { blocking: true, detail: { nodes: nodeCount } }));
   // model blok + anotasi
@@ -569,7 +600,13 @@ function renderOneParsed(source: string, parsed: ReturnType<typeof parseMarkdown
     footnoteLabel: t.fn, footnoteBackLabel: (ri: number, rr: number) => t.back(rr > 1 ? `${ri + 1}-${rr}` : String(ri + 1)),
   }) as HRoot;
   markGenerated(ctx.nonce, hast);
+  if (containsRawHtml) {
+    const serialized = unified().use(rehypeStringify, { allowDangerousHtml: true }).stringify(hast);
+    const complexity = checkHtmlBudget(serialized);
+    if (complexity) throw new BudgetError(complexity);
+  }
   const rawTree = unified().use(rehypeRaw).runSync(hast) as HRoot;
+  assertTreeBudget(rawTree);
   // definisi catatan kaki → id blok
   const tagFn = (n: HRoot | Element) => {
     for (const c of n.children) if (c.type === 'element') {
@@ -609,11 +646,15 @@ function detectScripts(s: string): string[] {
 }
 
 function newCtx(opts: CoreRenderOptions): Ctx {
+  const imageIds = new Set<string>();
+  let imagePixels = 0;
+  for (const asset of opts.assets ?? []) if (!imageIds.has(asset.id)) { imageIds.add(asset.id); imagePixels += pixelsOf(asset); }
   return {
     nonce: randomId('pfg').replace(/[^a-z0-9-]/gi, ''), prefix: opts.idPrefix ?? '', lang: opts.lang ?? 'id', sourcePath: opts.sourcePath, assets: opts.assets ?? [],
     allowExternal: !!opts.allowExternalImages, issues: [], slots: [], toc: [], footnotes: [], blocks: [],
     stats: { words: 0, tables: 0, math: 0, images: 0, code: 0, mermaid: 0 }, headingIds: new Map(), usedIds: new Set(), aliases: new Map(), explicitIds: new Map(), ariaRefs: [], fragments: [], lastHeadingLevel: 0,
     restore: (x: string) => x, lineOffset: 0, inputId: opts.inputId ?? (opts.conversation?.editable ? 'source' : opts.conversation?.inputId) ?? 'source', offsetBase: 0, post: new Map(), assetSrc: new Map(),
+    imageIds, imagePixels, inlineImages: new Map(), inlineImageCacheUnits: 0,
     ...(opts.parts ? { parts: opts.parts } : {}),
   };
 }
@@ -702,7 +743,20 @@ export async function renderStage1(source: string, options: RenderOptions | Core
   // karakter kendali/tak terlihat dilaporkan (tidak diubah)
   ctx.issues.push(...charIssues(analyzeChars(source)));
   // KaTeX (trust:false) dirender di tahap 1 — murni string, aman di Worker; disisipkan setelah sanitasi di tahap 2
-  const slots: RenderStage1['slots'] = ctx.slots.map((s) => { const r = renderTex(s.tex, s.display); return { key: s.key, tex: s.tex, line: s.line, ok: r.ok, html: r.html, ...(r.error ? { error: r.error } : {}), ...(s.blockId ? { blockId: s.blockId } : {}), ...(s.messageId ? { messageId: s.messageId } : {}) }; });
+  // RC4-P01: repeated formulas in one document share the same deterministic KaTeX result. This cache is
+  // job-local (never retained between projects), includes display mode, and caps retained markup at 2 MiB.
+  const mathCache = new Map<string, ReturnType<typeof renderTex>>();
+  let mathCacheUnits = 0;
+  const slots: RenderStage1['slots'] = ctx.slots.map((s) => {
+    const key = `${s.display ? 'display' : 'inline'}\u0000${s.tex}`;
+    let r = mathCache.get(key);
+    if (!r) {
+      r = renderTex(s.tex, s.display);
+      const units = key.length + r.html.length + (r.error?.length ?? 0);
+      if (mathCache.size < 256 && mathCacheUnits + units <= 1024 * 1024) { mathCache.set(key, r); mathCacheUnits += units; }
+    }
+    return { key: s.key, tex: s.tex, line: s.line, ok: r.ok, html: r.html, ...(r.error ? { error: r.error } : {}), ...(s.blockId ? { blockId: s.blockId } : {}), ...(s.messageId ? { messageId: s.messageId } : {}) };
+  });
   const scripts = detectScripts(conv && conv.outputMode !== 'answer' ? selectedMessages(conv).map((m) => m.markdown).join('\n') + source : source);
   return {
     html, post: [...ctx.post], assetSrc: [...ctx.assetSrc], slots, inputId: ctx.inputId,

@@ -1,0 +1,161 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+ RUN  v5.1.0 /workspace/scratch/69a766e93112/paperforma_rc3_review/candidate
+
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > control: literal trigonometry in a simple table renders once 140ms
+ × tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M01: literal TeX in a caption / merged HTML table renders 39ms
+   → expected [] to deeply equal [ 'x^2+y^2=1', …(1) ]
+ × tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M02: literal TeX spanning harmless inline formatting is recognized 27ms
+   → expected [] to deeply equal [ 'x^2+y^2=1' ]
+ × tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M03: math inside link label retains formula and URL 13ms
+   → expected [] to deeply equal [ 'E=mc^2' ]
+ × tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M04: display mode reaches nested phrasing: | Mode | Rumus |
+|---|---|
+| Display | \[x^2+y^2=1\] | 20ms
+   → expected +0 to be 1 // Object.is equality
+ × tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M04: display mode reaches nested phrasing: **\[x^2+y^2=1\]** 15ms
+   → expected +0 to be 1 // Object.is equality
+ × tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M05: indented code remains exact, including math-like delimiters 58ms
+   → expected { type: 'code', lang: null, …(3) } to match object { type: 'code', …(1) }
+(5 matching properties omitted from actual)
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M06: raw HTML code remains exact, including TeX-like delimiters 6ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M07: display matrices may close after an even backslash run 0ms
+ × tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M08: image references containing literal dollars stay resolvable 4ms
+   → expected false to be true // Object.is equality
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M01: literal TeX in a caption / merged HTML table renders
+AssertionError: expected [] to deeply equal [ 'x^2+y^2=1', …(1) ]
+
+- Expected
++ Received
+
+- [
+-   "x^2+y^2=1",
+-   "\\sin^2\\theta+\\cos^2\\theta=1",
+- ]
++ []
+
+ ❯ tests/unit/core/rc4-reading-regressions.test.ts:22:25
+     20|   it('RC4-M01: literal TeX in a caption / merged HTML table renders', …
+     21|     const { converted: c, rendered: r } = await fromHtml(String.raw`<t…
+     22|     expect(tex(r.html)).toEqual([String.raw`x^2+y^2=1`, String.raw`\si…
+       |                         ^
+     23|     expect(checkRenderIntegrity(c.markdown,r).ok).toBe(true);
+     24|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M02: literal TeX spanning harmless inline formatting is recognized
+AssertionError: expected [] to deeply equal [ 'x^2+y^2=1' ]
+
+- Expected
++ Received
+
+- [
+-   "x^2+y^2=1",
+- ]
++ []
+
+ ❯ tests/unit/core/rc4-reading-regressions.test.ts:27:25
+     25|   it('RC4-M02: literal TeX spanning harmless inline formatting is reco…
+     26|     const { rendered: r } = await fromHtml(String.raw`<p>Rumus \(<stro…
+     27|     expect(tex(r.html)).toEqual(['x^2+y^2=1']);
+       |                         ^
+     28|   });
+     29|   it('RC4-M03: math inside link label retains formula and URL', async …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M03: math inside link label retains formula and URL
+AssertionError: expected [] to deeply equal [ 'E=mc^2' ]
+
+- Expected
++ Received
+
+- [
+-   "E=mc^2",
+- ]
++ []
+
+ ❯ tests/unit/core/rc4-reading-regressions.test.ts:31:25
+     29|   it('RC4-M03: math inside link label retains formula and URL', async …
+     30|     const { rendered: r } = await fromHtml(String.raw`<p><a href="http…
+     31|     expect(tex(r.html)).toEqual(['E=mc^2']);
+       |                         ^
+     32|     expect(doc(r.html).querySelector('a')?.getAttribute('href')).toBe(…
+     33|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M04: display mode reaches nested phrasing: | Mode | Rumus |
+|---|---|
+| Display | \[x^2+y^2=1\] |
+ FAIL  tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M04: display mode reaches nested phrasing: **\[x^2+y^2=1\]**
+AssertionError: expected +0 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ tests/unit/core/rc4-reading-regressions.test.ts:38:67
+     36| | Display | \[x^2+y^2=1\] |`, String.raw`**\[x^2+y^2=1\]**`])('RC4-M04…
+     37|     const r = await renderBody(source,opts);
+     38|     expect(doc(r.html).querySelectorAll('.katex-display').length).toBe…
+       |                                                                   ^
+     39|     expect(checkRenderIntegrity(source,r).ok).toBe(true);
+     40|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M05: indented code remains exact, including math-like delimiters
+AssertionError: expected { type: 'code', lang: null, …(3) } to match object { type: 'code', …(1) }
+(5 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "type": "code",
+-   "value": "print(\"$5\", \"\\(x\\)\", \"\\[y\\]\", \"$z$\")",
++   "value": "print(\"$5\", \"\\(x\\)\", \"\\[y\\]\", \"$z\")",
+  }
+
+ ❯ tests/unit/core/rc4-reading-regressions.test.ts:47:52
+     45|     expect(doc(r.html).querySelector('code')?.textContent).toBe(body);
+     46|     expect(tex(r.html)).toEqual([]);
+     47|     expect(parseMarkdown(source).tree.children[0]).toMatchObject({ typ…
+       |                                                    ^
+     48|   });
+     49|   it('RC4-M06: raw HTML code remains exact, including TeX-like delimit…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M08: image references containing literal dollars stay resolvable
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/unit/core/rc4-reading-regressions.test.ts:61:24
+     59|   it('RC4-M08: image references containing literal dollars stay resolv…
+     60|     const r=assetPreflight({ source:'![price](price$1.png)', assets:[{…
+     61|     expect(r.complete).toBe(true);
+       |                        ^
+     62|     expect(r.resolved).toEqual(['price$1.png']);
+     63|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  7 failed | 3 passed (10)
+   Start at  16:21:58
+   Duration  3.08s (environment 56%, import 21%, tests 12%, transform 11%)
+

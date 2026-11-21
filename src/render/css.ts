@@ -106,7 +106,8 @@ export const BASE_CSS = `/* PaperForma document base 2 — dipakai semua templat
 .pf-doc .pf-table-part + .pf-table-part { margin-top: .9em; }
 .pf-doc .pf-split-caption { caption-side: top; text-align: left; font-size: max(.88em, 8.5pt); color: var(--pf-ink-soft); padding-bottom: .3em; }
 .pf-doc .pf-split-note { font-style: italic; }
-.pf-doc td.pf-repeat-key, .pf-doc th.pf-repeat-key { background: var(--pf-tint, rgba(0,0,0,.035)); }
+/* PF-R4-08: repeat-key tint applies to body cells; headers keep their template contrast pair. */
+.pf-doc td.pf-repeat-key { background: var(--pf-tint, rgba(0,0,0,.035)); }
 
 /* gambar & diagram: rasio aspek selalu dipertahankan */
 .pf-doc figure { margin: 0 0 var(--pf-gap); text-align: center; break-inside: avoid; }
@@ -121,6 +122,8 @@ export const BASE_CSS = `/* PaperForma document base 2 — dipakai semua templat
 
 /* matematika */
 .pf-doc .katex { font-size: 1.06em; }
+/* PF-R4-03: KaTeX fallback script text uses the same bundled Unicode faces as prose. */
+.pf-doc .katex [class*="_fallback"] { font-family: var(--pf-sans); }
 .pf-doc .pf-math-block { margin: .3em 0 var(--pf-gap); overflow-x: auto; overflow-y: hidden; break-inside: avoid; }
 .pf-doc .katex-display { margin: .4em 0; }
 .pf-print .pf-doc .pf-math-block { overflow: visible; }

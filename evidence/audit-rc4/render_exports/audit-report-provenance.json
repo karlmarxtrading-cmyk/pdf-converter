@@ -1,0 +1,9 @@
+{
+  "kind": "ReportLab audit report, not a PaperForma output PDF",
+  "sourceMarkdown": "/workspace/scratch/69a766e93112/paperforma_rc3_review/candidate/docs/AUDIT_RC4.md",
+  "sourceMarkdownSha256": "f1c98b317f870f8170a1691d6850f81380835595babd87bdfa27dfa3bbb60238",
+  "releaseSummary": "/workspace/scratch/69a766e93112/paperforma_rc3_review/evidence/release-summary.json",
+  "releaseSummarySha256": "370a09e12d3e1eff10c7c98849861b8a062647e1bbf44695e6eef81da3811990",
+  "output": "/workspace/scratch/69a766e93112/paperforma_rc3_review/candidate/docs/AUDIT_RC4.pdf",
+  "outputSha256": "9ff70b8a7c05889034a9205819fd500320117013d34c9a43b83f0053585bc6f4"
+}

@@ -1,0 +1,8 @@
+{
+  "command": "node --check tests/e2e/scenarios.mjs",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "browser_execution": "NOT_RUN",
+  "candidate_scenarios_sha256": "5603d1e2e0b656d3263b0ae1f57e8af3d10f66ce3bbd89be1159ea12db1bf3f4"
+}

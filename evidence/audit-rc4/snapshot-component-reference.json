@@ -1,0 +1,7 @@
+{
+  "note": "Reference computed at packaging, not a measurement-time full-candidate binding. Snapshot implementation has not changed since its paired benchmark. Explicit template/renderer version overrides were used for identity comparison.",
+  "files": {
+    "src/core/hash.ts": "3a159c89eb264601325f2dbfcde2336360da3f4dbf09ec22b16d0273e735a086",
+    "src/render/templates.ts": "94be3ebd12e2593660b0d788b14e8ecd10044ab8154eaa3218ab0509ce8123b8"
+  }
+}

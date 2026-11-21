@@ -1,0 +1,113 @@
+1
+Relativitas khusus Einstein
+Energi diam sebuah benda bermassa 
+ adalah 
+:
+Untuk benda yang bergerak dengan kelajuan 
+, faktor Lorentz didefinisikan sebagai
+sehingga energi total menjadi 
+ dan perubahan energi memenuhi
+1. 
+Transformasi Lorentz dalam bentuk matriks:
+2. 
+Waktu sebagai integral: 
+.
+Besaran
+Rumus
+Energi diam
+Momentum
+Biaya cetak buku ini $5 untuk versi hitam-putih dan $10 untuk versi berwarna.
+BASH
+echo
+"\(x\) tetap teks, 
+$HOME
+ juga"
+Kode sebaris 
+$PATH
+ dan 
+\[a\]
+ tidak diubah. PENUTUP-EINSTEIN.
+m
+E
+0
+E
+=
+m
+c
+0
+2
+v
+γ
+=
+1
+−
+c
+2
+v
+2
+1
+E
+=
+γ
+m
+c
+2
+Δ
+E
+=
+Δ
+m
+c
+2
+=
+(
+c
+t
+′
+x
+′
+)
+(
+γ
+−
+γ
+β
+−
+γ
+β
+γ
+)
+(
+c
+t
+x
+)
+τ
+=
+d
+t
+∫
+t
+1
+t
+2
+1
+−
+c
+2
+v
+(
+t
+)
+2
+E
+=
+0
+m
+c
+2
+p
+=
+γ
+m
+v

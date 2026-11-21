@@ -1,0 +1,305 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+ RUN  v5.1.0 /workspace/scratch/69a766e93112/paperforma_rc3_review/candidate
+
+ ❯ tests/unit/ui/asset-operations.test.ts (5 tests | 5 failed) 173ms
+   ❯ PF-AUD asynchronous asset UI (5)
+     × PF-AUD-A01 project switch while hashing cannot write old assets into the new project 143ms
+     × PF-AUD-A01 parallel uploads preserve both batches 7ms
+     × PF-AUD-A02 replacing the second alias changes the selected path, not the first shared hash 10ms
+     × PF-AUD-A01 reopening the same project invalidates an older pending upload 6ms
+     × PF-AUD-A01 competing replacements of the same filename do not silently overwrite a newer completion 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/ui/asset-operations.test.ts > PF-AUD asynchronous asset UI > PF-AUD-A01 project switch while hashing cannot write old assets into the new project
+AssertionError: expected { schemaVersion: 2, …(10) } to be { schemaVersion: 2, …(10) } // Object.is equality
+
+- Expected
++ Received
+
+@@ -1,13 +1,65 @@
+  {
+-   "assets": [],
++   "assets": [
++     {
++       "bytes": Uint8Array [
++         137,
++         80,
++         78,
++         71,
++         13,
++         10,
++         26,
++         10,
++         0,
++         0,
++         0,
++         13,
++         73,
++         72,
++         68,
++         82,
++         0,
++         0,
++         0,
++         4,
++         0,
++         0,
++         0,
++         4,
++         0,
++         0,
++         0,
++         0,
++         0,
++         0,
++         0,
++         0,
++         0,
++       ],
++       "height": 4,
++       "id": "8d5a02bdc72e8a1d079300f1032b3272f2035923cd175ef50ca889908baf9ad3",
++       "mime": "image/png",
++       "origin": "upload",
++       "path": "from-A.png",
++       "width": 4,
++     },
++   ],
+    "createdAt": "2026-11-21T09:27:03.132Z",
+-   "history": [],
++   "history": [
++     {
++       "at": "2026-11-21T09:27:03.132Z",
++       "label": "UI action",
++       "revision": 1,
++       "source": "",
++       "stateJson": "{\"name\":\"B\",\"settings\":{\"template\":\"EDU-01\",\"paper\":\"A4\",\"orientation\":\"portrait\",\"margins\":{\"top\":20,\"right\":18,\"bottom\":20,\"left\":20},\"followTemplateDefaults\":true,\"bodyFont\":\"source-serif-4\",\"baseSizePt\":11.5,\"lineHeight\":1.5,\"cover\":false,\"toc\":true,\"tocDepth\":2,\"chapterBreak\":false,\"pageNumbers\":true,\"pageNumberStart\":1,\"header\":\"{title}\",\"footer\":\"\",\"inkSaver\":false,\"contentLang\":\"id\",\"title\":\"\",\"allowExternalImages\":false},\"assetIds\":[\"8d5a02bdc72e8a1d079300f1032b3272f2035923cd175ef50ca889908baf9ad3\"],\"assetRefs\":[{\"id\":\"8d5a02bdc72e8a1d079300f1032b3272f2035923cd175ef50ca889908baf9ad3\",\"path\":\"from-A.png\"}]}",
++     },
++   ],
+    "inputs": [],
+    "name": "B",
+    "projectId": "proj-567318ac-e30b-456f-8807-b2f50daec67c",
+-   "revision": 0,
++   "revision": 1,
+    "schemaVersion": 2,
+    "settings": {
+      "allowExternalImages": false,
+      "baseSizePt": 11.5,
+      "bodyFont": "source-serif-4",
+
+ ❯ tests/unit/ui/asset-operations.test.ts:31:21
+     29|   const pending=add([file('from-A.png')]);await hashing.promise;
+     30|   const b=projects.createProject({name:'B'});S.project=b;S.projectGene…
+     31|   expect(S.project).toBe(b);expect(S.project.assets).toEqual([]);
+       |                     ^
+     32|  });
+     33|  it('PF-AUD-A01 parallel uploads preserve both batches',async()=>{
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  tests/unit/ui/asset-operations.test.ts > PF-AUD asynchronous asset UI > PF-AUD-A01 parallel uploads preserve both batches
+AssertionError: expected [ 'first.png' ] to deeply equal [ 'first.png', 'second.png' ]
+
+- Expected
++ Received
+
+  [
+    "first.png",
+-   "second.png",
+  ]
+
+ ❯ tests/unit/ui/asset-operations.test.ts:38:50
+     36|   const add=handler('addAssetFiles','replaceAsset',{...core,AssetStore…
+     37|   const first=add([file('first.png')]);await hashing.promise;await add…
+     38|   expect(S.project.assets.map(a=>a.path).sort()).toEqual(['first.png',…
+       |                                                  ^
+     39|  });
+     40|  it('PF-AUD-A02 replacing the second alias changes the selected path, …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  tests/unit/ui/asset-operations.test.ts > PF-AUD asynchronous asset UI > PF-AUD-A02 replacing the second alias changes the selected path, not the first shared hash
+AssertionError: expected '12f1789359645410388e431dbb2a594aaeabd…' to be '8d5a02bdc72e8a1d079300f1032b3272f2035…' // Object.is equality
+
+Expected: "8d5a02bdc72e8a1d079300f1032b3272f2035923cd175ef50ca889908baf9ad3"
+Received: "12f1789359645410388e431dbb2a594aaeabd61bb9544a52093d652616e6e339"
+
+ ❯ tests/unit/ui/asset-operations.test.ts:47:62
+     45|   const selected=source.includes('fi.dataset.replace = a.path') ? b.pa…
+     46|   await replace(selected,file('replacement.png',png(2)));
+     47|   expect(S.project.assets.find(x=>x.path==='first.png')?.id).toBe(a.id…
+       |                                                              ^
+     48|   expect(S.project.assets.find(x=>x.path==='second.png')?.id).not.toBe…
+     49|  });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  tests/unit/ui/asset-operations.test.ts > PF-AUD asynchronous asset UI > PF-AUD-A01 reopening the same project invalidates an older pending upload
+AssertionError: expected { schemaVersion: 2, …(10) } to be { schemaVersion: 2, …(10) } // Object.is equality
+
+- Expected
++ Received
+
+@@ -1,13 +1,65 @@
+  {
+-   "assets": [],
++   "assets": [
++     {
++       "bytes": Uint8Array [
++         137,
++         80,
++         78,
++         71,
++         13,
++         10,
++         26,
++         10,
++         0,
++         0,
++         0,
++         13,
++         73,
++         72,
++         68,
++         82,
++         0,
++         0,
++         0,
++         4,
++         0,
++         0,
++         0,
++         4,
++         0,
++         0,
++         0,
++         0,
++         0,
++         0,
++         0,
++         0,
++         0,
++       ],
++       "height": 4,
++       "id": "8d5a02bdc72e8a1d079300f1032b3272f2035923cd175ef50ca889908baf9ad3",
++       "mime": "image/png",
++       "origin": "upload",
++       "path": "old.png",
++       "width": 4,
++     },
++   ],
+    "createdAt": "2026-11-21T09:27:03.165Z",
+-   "history": [],
++   "history": [
++     {
++       "at": "2026-11-21T09:27:03.168Z",
++       "label": "UI action",
++       "revision": 1,
++       "source": "",
++       "stateJson": "{\"name\":\"reopened\",\"settings\":{\"template\":\"EDU-01\",\"paper\":\"A4\",\"orientation\":\"portrait\",\"margins\":{\"top\":20,\"right\":18,\"bottom\":20,\"left\":20},\"followTemplateDefaults\":true,\"bodyFont\":\"source-serif-4\",\"baseSizePt\":11.5,\"lineHeight\":1.5,\"cover\":false,\"toc\":true,\"tocDepth\":2,\"chapterBreak\":false,\"pageNumbers\":true,\"pageNumberStart\":1,\"header\":\"{title}\",\"footer\":\"\",\"inkSaver\":false,\"contentLang\":\"id\",\"title\":\"\",\"allowExternalImages\":false},\"assetIds\":[\"8d5a02bdc72e8a1d079300f1032b3272f2035923cd175ef50ca889908baf9ad3\"],\"assetRefs\":[{\"id\":\"8d5a02bdc72e8a1d079300f1032b3272f2035923cd175ef50ca889908baf9ad3\",\"path\":\"old.png\"}]}",
++     },
++   ],
+    "inputs": [],
+    "name": "reopened",
+    "projectId": "proj-bd65a682-e1dd-4a72-b535-b50209705fd1",
+-   "revision": 0,
++   "revision": 1,
+    "schemaVersion": 2,
+    "settings": {
+      "allowExternalImages": false,
+      "baseSizePt": 11.5,
+      "bodyFont": "source-serif-4",
+@@ -33,7 +85,7 @@
+      "title": "",
+      "toc": true,
+      "tocDepth": 2,
+    },
+    "source": "",
+-   "updatedAt": "2026-11-21T09:27:03.165Z",
++   "updatedAt": "2026-11-21T09:27:03.168Z",
+  }
+
+ ❯ tests/unit/ui/asset-operations.test.ts:55:21
+     53|   const add=handler('addAssetFiles','replaceAsset',{...core,AssetStore…
+     54|   const pending=add([file('old.png')]);await hashing.promise;S.project…
+     55|   expect(S.project).toBe(reopened);expect(S.project.assets).toEqual([]…
+       |                     ^
+     56|  });
+     57|  it('PF-AUD-A01 competing replacements of the same filename do not sil…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  tests/unit/ui/asset-operations.test.ts > PF-AUD asynchronous asset UI > PF-AUD-A01 competing replacements of the same filename do not silently overwrite a newer completion
+AssertionError: expected { schemaVersion: 2, …(10) } to be { schemaVersion: 2, …(10) } // Object.is equality
+
+- Expected
++ Received
+
+@@ -32,14 +32,14 @@
+          0,
+          0,
+          0,
+          0,
+          0,
+-         2,
++         1,
+        ],
+        "height": 4,
+-       "id": "12f1789359645410388e431dbb2a594aaeabd61bb9544a52093d652616e6e339",
++       "id": "8d222d8f0407fa6879de21097be810bff9acc9ab122e7f038fe8824e5dffa2b5",
+        "mime": "image/png",
+        "origin": "upload",
+        "path": "same.png",
+        "width": 4,
+      },
+@@ -51,15 +51,22 @@
+        "label": "UI action",
+        "revision": 1,
+        "source": "",
+        "stateJson": "{\"name\":\"Tanpa judul\",\"settings\":{\"template\":\"EDU-01\",\"paper\":\"A4\",\"orientation\":\"portrait\",\"margins\":{\"top\":20,\"right\":18,\"bottom\":20,\"left\":20},\"followTemplateDefaults\":true,\"bodyFont\":\"source-serif-4\",\"baseSizePt\":11.5,\"lineHeight\":1.5,\"cover\":false,\"toc\":true,\"tocDepth\":2,\"chapterBreak\":false,\"pageNumbers\":true,\"pageNumberStart\":1,\"header\":\"{title}\",\"footer\":\"\",\"inkSaver\":false,\"contentLang\":\"id\",\"title\":\"\",\"allowExternalImages\":false},\"assetIds\":[\"12f1789359645410388e431dbb2a594aaeabd61bb9544a52093d652616e6e339\"],\"assetRefs\":[{\"id\":\"12f1789359645410388e431dbb2a594aaeabd61bb9544a52093d652616e6e339\",\"path\":\"same.png\"}]}",
+      },
++     {
++       "at": "2026-11-21T09:27:03.174Z",
++       "label": "UI action",
++       "revision": 2,
++       "source": "",
++       "stateJson": "{\"name\":\"Tanpa judul\",\"settings\":{\"template\":\"EDU-01\",\"paper\":\"A4\",\"orientation\":\"portrait\",\"margins\":{\"top\":20,\"right\":18,\"bottom\":20,\"left\":20},\"followTemplateDefaults\":true,\"bodyFont\":\"source-serif-4\",\"baseSizePt\":11.5,\"lineHeight\":1.5,\"cover\":false,\"toc\":true,\"tocDepth\":2,\"chapterBreak\":false,\"pageNumbers\":true,\"pageNumberStart\":1,\"header\":\"{title}\",\"footer\":\"\",\"inkSaver\":false,\"contentLang\":\"id\",\"title\":\"\",\"allowExternalImages\":false},\"assetIds\":[\"8d222d8f0407fa6879de21097be810bff9acc9ab122e7f038fe8824e5dffa2b5\"],\"assetRefs\":[{\"id\":\"8d222d8f0407fa6879de21097be810bff9acc9ab122e7f038fe8824e5dffa2b5\",\"path\":\"same.png\"}]}",
++     },
+    ],
+    "inputs": [],
+    "name": "Tanpa judul",
+    "projectId": "proj-7ce8ebbe-2ca1-4fe9-8dbd-7aac203389d6",
+-   "revision": 1,
++   "revision": 2,
+    "schemaVersion": 2,
+    "settings": {
+      "allowExternalImages": false,
+      "baseSizePt": 11.5,
+      "bodyFont": "source-serif-4",
+@@ -85,7 +92,7 @@
+      "title": "",
+      "toc": true,
+      "tocDepth": 2,
+    },
+    "source": "",
+-   "updatedAt": "2026-11-21T09:27:03.173Z",
++   "updatedAt": "2026-11-21T09:27:03.174Z",
+  }
+
+ ❯ tests/unit/ui/asset-operations.test.ts:62:21
+     60|   const add=handler('addAssetFiles','replaceAsset',{...core,AssetStore…
+     61|   const first=add([file('same.png',png(1))]);await hashing.promise;awa…
+     62|   expect(S.project).toBe(latest);
+       |                     ^
+     63|  });
+     64| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed (5)
+   Start at  16:27:02
+   Duration  505ms (tests 55%, transform 25%, import 19%, worker 1%)
+

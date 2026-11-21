@@ -1,6 +1,6 @@
 // ST-QA-31: gerbang rilis harus GAGAL bila dist dirusak (backend, harga, kait QA, _worker.js, functions/, berkas wajib hilang).
 // Menyalin dist/ ke direktori sementara di dalam repo, menyuntik satu kerusakan per kasus, menjalankan verifier.
-import { cpSync, rmSync, writeFileSync, appendFileSync, readdirSync, mkdirSync } from 'node:fs';
+import { cpSync, rmSync, writeFileSync, readFileSync, appendFileSync, readdirSync, mkdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 import { candidateSha256 } from '../../scripts/fingerprint.mjs';
@@ -18,6 +18,9 @@ const cases = [
   ['_headers tanpa CSP', () => writeFileSync(join(tmp, '_headers'), '/*\n  X-Content-Type-Options: nosniff\n'), false],
   ['Worker analisis hilang', () => { for (const f of readdirSync(join(tmp, 'assets')).filter((f) => f.startsWith('engine.worker-'))) rmSync(join(tmp, 'assets', f)); }, false],
   ['sumber daya eksternal', () => appendFileSync(join(tmp, 'index.html'), '<script src="https://cdn.example/x.js"></script>'), false],
+  ['identitas versi hilang', () => { const file = join(tmp, 'index.html'); writeFileSync(file, readFileSync(file, 'utf8').replace(/<meta name="pf-version"[^>]*>/, '')); }, false],
+  ['HTML source belum dibangun', () => appendFileSync(join(tmp, 'index.html'), '<script type="module" src="/src/ui/main.ts"></script>'), false],
+  ['aset entry hilang', () => rmSync(js()), false],
 ];
 const results = [];
 for (const [name, inject, expectPass] of cases) {

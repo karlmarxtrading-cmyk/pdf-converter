@@ -110,7 +110,7 @@ export interface HtmlExportRequest {
   snapshot: Snapshot; body: RenderedBody; profile: HtmlProfile;
   /** publication saja: 'online' mengizinkan gambar https eksternal (berlabel) */ variant?: 'offline' | 'online';
   /** publication saja: sertakan skrip peningkatan kecil (tombol salin kode). Default false. */ enhancements?: boolean;
-  guard?: ExportGuard; signal?: AbortSignal;
+  guard?: ExportGuard; signal?: AbortSignal; fontTimeoutMs?: number;
   /** default: sumber font peramban (Vite ?url, dimuat sesuai permintaan) */ fontSource?: FontSource;
   /** default true di peramban; false = Mermaid ditampilkan sebagai sumber berlabel */ renderMermaid?: boolean;
   /** batas yang berlaku (default LIMITS); dapat disuntik untuk uji batas tanpa membuat dokumen 25 MiB */ limits?: Pick<typeof LIMITS, 'standaloneHtmlBytes'>;
@@ -183,11 +183,11 @@ export function staticChecks(html: string, opts: { scriptsAllowed: boolean; netw
 }
 
 interface Prepared { prepared: PreparedBody; fonts: LoadedFont[]; issues: Issue[]; integrityOk: boolean }
-async function prepareAll(req: HtmlExportRequest, allowExternal: boolean): Promise<Prepared> {
+async function prepareAll(req: HtmlExportRequest, allowExternal: boolean, signal?: AbortSignal): Promise<Prepared> {
   const hasDom = typeof window !== 'undefined' && typeof document !== 'undefined' && !(globalThis as { process?: unknown }).process;
   const prepared = await prepareBody(req.snapshot, req.body, { mode: 'screen', renderMermaid: req.renderMermaid ?? hasDom, allowExternalImages: allowExternal });
-  const plan = planFonts({ html: prepared.html, settings: req.snapshot.settings, mode: 'screen', headingFont: req.snapshot.brandKit?.headingFont });
-  const { fonts, issues: fIssues } = await loadFonts(plan, req.fontSource ?? (await defaultFontSource()));
+  const plan = planFonts({ html: prepared.html, settings: req.snapshot.settings, mode: 'screen', headingFont: req.snapshot.brandKit?.headingFont, brandKit: req.snapshot.brandKit });
+  const { fonts, issues: fIssues } = await loadFonts(plan, req.fontSource ?? (await defaultFontSource()), { signal, timeoutMs: req.fontTimeoutMs });
   // EN-012/QA-01: SEMUA issue mesin diteruskan (termasuk lingkup input yang memblokir), lalu integritas diperiksa ulang.
   const integrity = checkRenderIntegrity(req.snapshot.source, req.body, { conversation: req.snapshot.conversation });
   return { prepared, fonts, issues: dedupeIssues([...req.body.issues, ...integrity.issues, ...prepared.issues, ...plan.issues, ...fIssues]), integrityOk: integrity.ok };
@@ -211,7 +211,8 @@ export async function exportHtml(req: HtmlExportRequest): Promise<HtmlExportResu
   const check = () => { if (signal?.aborted) throw signal.reason instanceof Error ? signal.reason : new DOMException('Dibatalkan', 'AbortError'); };
   try {
     const online = req.profile === 'publication' && req.variant === 'online';
-    const p = await prepareAll(req, online); check();
+    check();
+    const p = await prepareAll(req, online, signal); check();
     const built = req.profile === 'standalone' ? await buildStandalone(req, p) : await buildFolder(req, p, online);
     check();
     built.manifest.checks.push({ name: 'integrity', status: p.integrityOk ? 'pass' : 'fail', detail: p.integrityOk ? 'sumber → keluaran utuh' : 'isi berubah' });

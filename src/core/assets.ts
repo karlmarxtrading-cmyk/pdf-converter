@@ -7,7 +7,7 @@
  */
 import DOMPurify from 'dompurify';
 import type { AssetRecord, Limits, Project, Snapshot } from './contracts';
-import { sha256Hex } from './hash';
+import { sha256Hex, sha256HexSync } from './hash';
 import { LIMITS, checkBudget, type BudgetResult } from './limits';
 import { fnv1a } from './util';
 
@@ -197,6 +197,50 @@ export const IMAGE_BUDGET = Object.freeze({ maxDimension: 16_384, maxPixels: 40_
 
 export function pixelsOf(a: Pick<AssetRecord, 'mime' | 'width' | 'height'>): number {
   return a.mime === 'image/svg+xml' || !a.width || !a.height ? 0 : a.width * a.height;
+}
+
+export type InlineImageInspection =
+  | { ok: true; id: string; mime: SniffedMime; width: number; height: number; pixels: number; byteLength: number }
+  | { ok: false; code: 'INLINE_IMAGE_INVALID' | 'IMAGE_PIXELS_EXCEEDED' | 'BUDGET_EXCEEDED'; message: string; messageEn: string };
+
+/** RC4-R02: inspect data-image bytes and raster headers before an <img> can reach the DOM.
+ * This is bounded resource admission, not a full image decoder or a proof that every frame is valid.
+ * Encoded size is checked before atob/Uint8Array, then MIME and declared dimensions are checked.
+ */
+export function inspectInlineImage(url: string, limits: Limits = LIMITS): InlineImageInspection {
+  const invalid = (): InlineImageInspection => ({ ok: false, code: 'INLINE_IMAGE_INVALID',
+    message: 'Gambar inline memiliki base64, MIME, atau header dimensi yang tidak valid. Gambar tidak didekode; sumber asli tetap tersedia.',
+    messageEn: 'The inline image has invalid base64, MIME, or dimension headers. It was not decoded; the original source is retained.' });
+  const comma = url.indexOf(',');
+  const header = /^data:(image\/(?:png|jpeg|gif|webp));base64$/i.exec(url.slice(0, comma).trim());
+  if (comma < 0 || !header) return invalid();
+  const payload = url.slice(comma + 1).replace(/[\t\n\f\r ]/g, '');
+  const padding = payload.endsWith('==') ? 2 : payload.endsWith('=') ? 1 : 0;
+  const estimatedBytes = Math.floor(payload.length * 3 / 4) - padding;
+  const budget = checkBudget('asset', estimatedBytes, limits);
+  if (!budget.ok) return { ok: false, code: 'BUDGET_EXCEEDED', message: budget.message, messageEn: budget.messageEn };
+  if (!payload || payload.length % 4 === 1 || (padding && payload.length % 4 !== 0) || !/^[a-z0-9+/]+={0,2}$/i.test(payload)) return invalid();
+  let bytes: Uint8Array;
+  try {
+    const decoded = atob(payload);
+    // atob implements the forgiving base64 rules; still verify the actual decoded allocation bound.
+    if (decoded.length !== estimatedBytes) return invalid();
+    bytes = new Uint8Array(decoded.length);
+    for (let i = 0; i < decoded.length; i++) bytes[i] = decoded.charCodeAt(i);
+  } catch { return invalid(); }
+  const mime = sniffMime(bytes);
+  if (!mime || mime !== header[1]!.toLowerCase()) return invalid();
+  // PNG dimensions are only meaningful in the mandatory first IHDR chunk.
+  if (mime === 'image/png' && (bytes.length < 24 || new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength).getUint32(8) !== 13 || String.fromCharCode(...bytes.subarray(12, 16)) !== 'IHDR')) return invalid();
+  const dim = imageDimensions(bytes, mime);
+  if (!dim || !Number.isFinite(dim.width) || !Number.isFinite(dim.height) || dim.width < 1 || dim.height < 1) return invalid();
+  const pixels = dim.width * dim.height;
+  if (dim.width > IMAGE_BUDGET.maxDimension || dim.height > IMAGE_BUDGET.maxDimension || pixels > IMAGE_BUDGET.maxPixels) return {
+    ok: false, code: 'IMAGE_PIXELS_EXCEEDED',
+    message: `Gambar inline terlalu besar untuk didekode (${dim.width}×${dim.height} piksel; batas ${IMAGE_BUDGET.maxDimension} per sisi dan ${IMAGE_BUDGET.maxPixels / 1e6} MP). Perkecil gambar; sumber tidak diubah.`,
+    messageEn: `The inline image is too large to decode (${dim.width}×${dim.height} px; limit ${IMAGE_BUDGET.maxDimension} per side and ${IMAGE_BUDGET.maxPixels / 1e6} MP). Resize the image; the source was not changed.`,
+  };
+  return { ok: true, id: sha256HexSync(bytes), mime, ...dim, pixels, byteLength: bytes.byteLength };
 }
 
 function svgDeclaredSize(b: Uint8Array): { width?: number; height?: number } {

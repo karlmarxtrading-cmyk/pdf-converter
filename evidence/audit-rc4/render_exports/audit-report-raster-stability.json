@@ -1,0 +1,26 @@
+{
+  "kind": "Report-only font-resource finalization; raster identity check",
+  "pdfSha256": "9ff70b8a7c05889034a9205819fd500320117013d34c9a43b83f0053585bc6f4",
+  "pagesBefore": {
+    "page-2.png": "f3b3fc8a6dd47167c3a201b7f5852318499582ea5ad08251e61b72fadcb5cae4",
+    "page-4.png": "b7240a801c873fe1bf7c72123f43038fb19fb04f0243930c05e0bf0869a0e0d5",
+    "page-5.png": "6ef26ec9cc2a7626002e79bc7aca1fdd0049d82c1c03627ec82f86f7387a8b4f",
+    "page-7.png": "ce3008d9ab454effa64ac1456b7f50d7cd41e5be0e3151ac0b8ef993663ec520",
+    "page-3.png": "cc623713ec09a3d158a526f5fd68ef50ded38a578b35981ad685051e8b7ccf87",
+    "page-1.png": "53b518bbd25b4911dd9fcd5dc2e15f2273f6460141e05a604c79aa0152190add",
+    "page-6.png": "f590ccfcd4217763c532c80712af83b499d52e287b7232f19c4c1b18720ebd87"
+  },
+  "pagesAfter": {
+    "page-2.png": "f3b3fc8a6dd47167c3a201b7f5852318499582ea5ad08251e61b72fadcb5cae4",
+    "page-4.png": "b7240a801c873fe1bf7c72123f43038fb19fb04f0243930c05e0bf0869a0e0d5",
+    "page-5.png": "6ef26ec9cc2a7626002e79bc7aca1fdd0049d82c1c03627ec82f86f7387a8b4f",
+    "page-7.png": "ce3008d9ab454effa64ac1456b7f50d7cd41e5be0e3151ac0b8ef993663ec520",
+    "page-3.png": "cc623713ec09a3d158a526f5fd68ef50ded38a578b35981ad685051e8b7ccf87",
+    "page-1.png": "53b518bbd25b4911dd9fcd5dc2e15f2273f6460141e05a604c79aa0152190add",
+    "page-6.png": "f590ccfcd4217763c532c80712af83b499d52e287b7232f19c4c1b18720ebd87"
+  },
+  "changed": [],
+  "identical": true,
+  "pdftoppmExit": 0,
+  "stderr": ""
+}

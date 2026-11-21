@@ -20,15 +20,16 @@ export interface PrintPayloadOptions {
 }
 
 export async function buildPrintPayload(snapshot: Snapshot, body: RenderedBody, o: PrintPayloadOptions = {}): Promise<PrintPayload> {
+  if (o.signal?.aborted) throw o.signal.reason instanceof Error ? o.signal.reason : new DOMException('Dibatalkan', 'AbortError');
   const s = snapshot.settings;
   const early = verdictOf(body.issues);
   if (early.status === 'blocked') throw new PrintBlockedError(dedupeIssues(body.issues), early);
   const hasDom = typeof window !== 'undefined' && typeof document !== 'undefined' && !(globalThis as { process?: unknown }).process;
   const prepared = await prepareBody(snapshot, body, { mode: 'print', renderMermaid: o.renderMermaid ?? hasDom, allowExternalImages: false });
   if (o.signal?.aborted) throw o.signal.reason;
-  const plan = planFonts({ html: prepared.html, settings: s, mode: 'print', headingFont: snapshot.brandKit?.headingFont, extraText: prepared.labels.toc + prepared.labels.cont });
+  const plan = planFonts({ html: prepared.html, settings: s, mode: 'print', headingFont: snapshot.brandKit?.headingFont, brandKit: snapshot.brandKit, extraText: prepared.labels.toc + prepared.labels.cont });
   const source = o.fontSource ?? (await import('./font-assets')).browserFontSource;
-  const { fonts, issues: fIssues } = await loadFonts(plan, source);
+  const { fonts, issues: fIssues } = await loadFonts(plan, source, { signal: o.signal, timeoutMs: o.fontTimeoutMs });
   if (o.signal?.aborted) throw o.signal.reason;
   const doc = await composeDocument(snapshot, { mode: 'print', prepared, fontCss: '' });
   const { w, h } = pageSizeMm(s.paper, s.orientation);

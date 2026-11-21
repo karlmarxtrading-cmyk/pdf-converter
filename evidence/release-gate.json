@@ -1,7 +1,7 @@
 {
   "tool": "tests/e2e/release-gate.mjs",
-  "candidateSha256": "82397ea41b8253c9c0b6678ea9d879effeb44e6b1f8f37b3b692c341ec7a5465",
-  "at": "2026-11-21T05:48:37.540Z",
+  "candidateSha256": "680c8b5c6cb1ca3948e19c17857682ab6711d3a2fb70430565692f8a0feadd79",
+  "at": "2026-11-21T10:02:20.598Z",
   "pass": true,
   "results": [
     {
@@ -60,6 +60,24 @@
     },
     {
       "case": "sumber daya eksternal",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "identitas versi hilang",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "HTML source belum dibangun",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "aset entry hilang",
       "verifierPassed": false,
       "expected": "fail",
       "ok": true

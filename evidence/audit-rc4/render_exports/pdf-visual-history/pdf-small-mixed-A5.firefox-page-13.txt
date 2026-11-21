@@ -1,0 +1,81 @@
+12
+Kode
+Nama
+Nilai (Rp)
+Aktif
+R052
+Barang 52
+65.000
+Tidak
+R053
+Barang 53
+66.250
+Ya
+R054
+Barang 54
+67.500
+Tidak
+R055
+Barang 55
+68.750
+Ya
+R056
+Barang 56
+70.000
+Tidak
+R057
+Barang 57
+71.250
+Ya
+R058
+Barang 58
+72.500
+Tidak
+R059
+Barang 59
+73.750
+Ya
+R060
+Barang 60
+75.000
+Tidak
+R061
+Barang 61
+76.250
+Ya
+R062
+Barang 62
+77.500
+Tidak
+R063
+Barang 63
+78.750
+Ya
+R064
+Barang 64
+80.000
+Tidak
+R065
+Barang 65
+81.250
+Ya
+R066
+Barang 66
+82.500
+Tidak
+R067
+Barang 67
+83.750
+Ya
+R068
+Barang 68
+85.000
+Tidak
+R069
+Barang 69
+86.250
+Ya
+R070
+Barang 70
+87.500
+Tidak

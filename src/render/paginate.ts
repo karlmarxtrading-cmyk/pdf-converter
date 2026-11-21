@@ -285,7 +285,7 @@ export function splitCodeLines(doc: Document, pre: HTMLElement): number {
   const stack: Element[] = [];
   const lines: HTMLElement[] = [];
   let tip: Element;
-  const open = () => { const l = doc.createElement('span'); l.className = 'pf-line'; lines.push(l); tip = l; for (const s of stack) { const c = s.cloneNode(false) as Element; tip.appendChild(c); tip = c; } };
+  const open = () => { const l = doc.createElement('span'); l.className = 'pf-line'; l.dataset.pfCodeLine = String(lines.length); lines.push(l); tip = l; for (const s of stack) { const c = s.cloneNode(false) as Element; tip.appendChild(c); tip = c; } };
   open();
   const walk = (n: Node) => {
     if (n.nodeType === 3) {
@@ -361,6 +361,10 @@ function preLayoutFixes(doc: Document, payload: PrintPayload): { html: string; i
     // dasar halaman. Blok panjang tetap boleh dipecah (dengan label lanjutan) agar tidak terdorong keluar halaman.
     // nomor baris isi tabel → perbaikan paginasi dapat memutus tepat sebelum baris yang meluap
     holder.querySelectorAll<HTMLTableElement>('.pf-doc table[data-block-id]').forEach((t) => { let n = 0; for (const tr of t.querySelectorAll(':scope > tbody > tr')) tr.setAttribute('data-pf-row', String(n++)); });
+    // PF-R4-05: stable code identities survive page splitting and preserve significant whitespace.
+    holder.querySelectorAll<HTMLElement>('pre, code, kbd, samp').forEach((code, i) => {
+      if (!code.parentElement?.closest('pre, code, kbd, samp')) code.dataset.pfCodeId = `c${i}`;
+    });
     // Blok panjang dipecah menjadi kotak per baris (span.pf-line, display:block) sehingga mesin paginasi memutus ANTAR baris,
     // tidak di tengah kata (WebKit/Paged.js menyisipkan tanda hubung U+2011 bila memutus teks kode → isi berubah).
     holder.querySelectorAll<HTMLElement>('.pf-doc pre').forEach((pre) => {
@@ -508,6 +512,8 @@ export interface ContentInventory {
   headings: string[];
   /** jumlah baris isi per tabel (baris header yang diulang di halaman lanjutan TIDAK dihitung) */
   tableRows: Record<string, number>;
+  /** PF-R4-05: exact code fragments, including spaces/tabs/newlines (no prose whitespace normalization). */
+  codeText: Record<string, string>;
 }
 const BLOCK_SEL = '[data-block-id]';
 /**
@@ -516,7 +522,7 @@ const BLOCK_SEL = '[data-block-id]';
  * pemotongan baris tabel, dan pengulangan/penyusunan ulang blok tetap terdeteksi — tidak memakai hitungan karakter semata.
  */
 export function contentInventory(roots: Element[]): ContentInventory {
-  const inv: ContentInventory = { text: '', numbers: [], images: [], formulas: [], links: [], blocks: [], code: 0, cells: 0, footnotes: 0, blockSeq: [], blockText: {}, headings: [], tableRows: {} };
+  const inv: ContentInventory = { text: '', numbers: [], images: [], formulas: [], links: [], blocks: [], code: 0, cells: 0, footnotes: 0, blockSeq: [], blockText: {}, headings: [], tableRows: {}, codeText: {} };
   const blocks = new Set<string>();
   let prevLink = '';
   let prevHeading: { key: string; el: Element | null } = { key: '', el: null };
@@ -530,6 +536,17 @@ export function contentInventory(roots: Element[]): ContentInventory {
       if (last?.nodeValue?.endsWith(ENGINE_HYPHEN)) last.nodeValue = last.nodeValue.slice(0, -1);
     }
     inv.text += (clone.textContent ?? '').replace(/\s+/g, '');
+    for (const [i, code] of [...clone.querySelectorAll<HTMLElement>('pre, code, kbd, samp')].entries()) {
+      if (code.parentElement?.closest('pre, code, kbd, samp')) continue;
+      const id = code.dataset.pfCodeId ?? `${code.closest('[data-block-id]')?.getAttribute('data-block-id') ?? 'unkeyed'}:${i}`;
+      const lines = [...code.querySelectorAll<HTMLElement>('.pf-line[data-pf-code-line]')];
+      if (lines.length) {
+        for (const line of lines) {
+          const key = `${id}:line:${line.dataset.pfCodeLine}`;
+          inv.codeText[key] = (inv.codeText[key] ?? '') + (line.textContent ?? '');
+        }
+      } else inv.codeText[id] = (inv.codeText[id] ?? '') + (code.textContent ?? '');
+    }
     for (const el of clone.querySelectorAll('img')) inv.images.push(el.getAttribute('src') ?? '');
     for (const el of clone.querySelectorAll('.pf-math[data-tex]')) inv.formulas.push(el.getAttribute('data-tex') ?? '');
     for (const el of clone.querySelectorAll('a[href]')) {
@@ -589,6 +606,10 @@ export function compareInventory(e: ContentInventory, a: ContentInventory): Inve
     out.push({ field: 'blockText', blockId: id, at: i, expected: (x ?? '∅').slice(Math.max(0, i - 15), i + 30), actual: (y ?? '∅').slice(Math.max(0, i - 15), i + 30), kind: y === undefined ? 'missing' : x === undefined ? 'added' : y.length > x.length && y.includes(x) ? 'duplicated' : y.length < x.length ? 'truncated' : 'changed' });
     if (out.length > 40) break;
   }
+  for (const id of new Set([...Object.keys(e.codeText), ...Object.keys(a.codeText)])) {
+    const x = e.codeText[id], y = a.codeText[id];
+    if (x !== y) out.push({ field: 'codeText', blockId: id, expected: JSON.stringify(x ?? null), actual: JSON.stringify(y ?? null), kind: y === undefined ? 'missing' : x === undefined ? 'added' : 'changed' });
+  }
   if (e.headings.join('\u0001') !== a.headings.join('\u0001')) {
     let i = 0; while (i < e.headings.length && e.headings[i] === a.headings[i]) i++;
     out.push({ field: 'headings', at: i, expected: e.headings[i] ?? '∅', actual: a.headings[i] ?? '∅', kind: a.headings.length < e.headings.length ? 'missing' : a.headings.length > e.headings.length ? 'added' : 'changed' });
@@ -604,6 +625,7 @@ export function describeInventoryDiff(d: InventoryDiff, en = false): string {
   const kindId: Record<string, string> = { missing: 'hilang', added: 'bertambah', changed: 'berubah', duplicated: 'berulang', reordered: 'urutannya berubah', truncated: 'terpotong' };
   const k = d.kind ? (en ? d.kind : kindId[d.kind]) : (en ? 'changed' : 'berubah');
   switch (d.field) {
+    case 'codeText': return en ? `Code ${d.blockId} changed (including whitespace): ${d.expected} → ${d.actual}.` : `Kode ${d.blockId} berubah (termasuk spasi): ${d.expected} → ${d.actual}.`;
     case 'blockText': return en ? `Block ${d.blockId} ${k}: “${d.expected}” → “${d.actual}”.` : `Blok ${d.blockId} ${k}: “${d.expected}” → “${d.actual}”.`;
     case 'blockSeq': return en ? `Block order ${k} at position ${(d.at ?? 0) + 1}: expected ${d.expected}, found ${d.actual}.` : `Urutan blok ${k} pada posisi ${(d.at ?? 0) + 1}: seharusnya ${d.expected}, ditemukan ${d.actual}.`;
     case 'headings': return en ? `Heading ${k}: “${d.expected}” → “${d.actual}”.` : `Judul bagian ${k}: “${d.expected}” → “${d.actual}”.`;
@@ -645,7 +667,10 @@ export function verifyPageStructure(pages: HTMLElement[], expectedLabels: string
   }
   const seen = new Set<string>();
   for (const a of root.querySelectorAll<HTMLAnchorElement>('.pagedjs_page_content a[href^="#"]')) {
-    const id = decodeURIComponent((a.getAttribute('href') ?? '').slice(1));
+    const fragment = (a.getAttribute('href') ?? '').slice(1);
+    // PF-R4-01: malformed external input is a broken anchor, never a URIError for the whole print job.
+    let id = fragment;
+    try { id = decodeURIComponent(fragment); } catch { /* retain literal fragment for warning */ }
     if (!id || seen.has(id)) continue; seen.add(id);
     if (!byId(id)) out.push({ code: 'INTERNAL_LINK_BROKEN', page: pageOf(a) + 1, expected: id, actual: '∅', target: id });
   }

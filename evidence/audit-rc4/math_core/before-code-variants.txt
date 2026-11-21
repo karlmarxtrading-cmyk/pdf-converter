@@ -1,0 +1,86 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+ RUN  v5.1.0 /workspace/scratch/69a766e93112/paperforma_rc3_review/candidate
+
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > control: literal trigonometry in a simple table renders once 98ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M01: literal TeX in a caption / merged HTML table renders 124ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M02: literal TeX spanning harmless inline formatting is recognized 25ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M03: math inside link label retains formula and URL 18ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M04: display mode reaches nested phrasing: | Mode | Rumus |
+|---|---|
+| Display | \[x^2+y^2=1\] | 25ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M04: display mode reaches nested phrasing: **\[x^2+y^2=1\]** 13ms
+ × tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M05: indented code remains exact: print("$5", "\(x\)", "\[y\]", "$z$") 19ms
+   → expected { type: 'code', lang: null, …(3) } to match object { type: 'code', …(1) }
+(5 matching properties omitted from actual)
+ × tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M05: indented code remains exact: print("\(x\)", "\[y\]") 7ms
+   → expected 'print("$x$", "$$y$$")' to be 'print("\(x\)", "\[y\]")' // Object.is equality
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M06: raw HTML code remains exact: print("$5", "\(x\)", "\[y\]", "$z$") 6ms
+ × tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M06: raw HTML code remains exact: print("\(x\)", "\[y\]") 6ms
+   → expected 'print("$x$", "$$y$$")' to be 'print("\(x\)", "\[y\]")' // Object.is equality
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M07: display matrices may close after an even backslash run 0ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M08: image references containing literal dollars stay resolvable 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M05: indented code remains exact: print("$5", "\(x\)", "\[y\]", "$z$")
+AssertionError: expected { type: 'code', lang: null, …(3) } to match object { type: 'code', …(1) }
+(5 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "type": "code",
+-   "value": "print(\"$5\", \"\\(x\\)\", \"\\[y\\]\", \"$z$\")",
++   "value": "print(\"$5\", \"\\(x\\)\", \"\\[y\\]\", \"$z\")",
+  }
+
+ ❯ tests/unit/core/rc4-reading-regressions.test.ts:46:52
+     44|     expect(doc(r.html).querySelector('code')?.textContent).toBe(body);
+     45|     expect(tex(r.html)).toEqual([]);
+     46|     expect(parseMarkdown(source).tree.children[0]).toMatchObject({ typ…
+       |                                                    ^
+     47|     expect(checkRenderIntegrity(source,r).ok).toBe(true);
+     48|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M05: indented code remains exact: print("\(x\)", "\[y\]")
+AssertionError: expected 'print("$x$", "$$y$$")' to be 'print("\(x\)", "\[y\]")' // Object.is equality
+
+Expected: "print("\(x\)", "\[y\]")"
+Received: "print("$x$", "$$y$$")"
+
+ ❯ tests/unit/core/rc4-reading-regressions.test.ts:44:60
+     42|     const source = '    '+body;
+     43|     const r = await renderBody(source,opts);
+     44|     expect(doc(r.html).querySelector('code')?.textContent).toBe(body);
+       |                                                            ^
+     45|     expect(tex(r.html)).toEqual([]);
+     46|     expect(parseMarkdown(source).tree.children[0]).toMatchObject({ typ…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M06: raw HTML code remains exact: print("\(x\)", "\[y\]")
+AssertionError: expected 'print("$x$", "$$y$$")' to be 'print("\(x\)", "\[y\]")' // Object.is equality
+
+Expected: "print("\(x\)", "\[y\]")"
+Received: "print("$x$", "$$y$$")"
+
+ ❯ tests/unit/core/rc4-reading-regressions.test.ts:51:60
+     49|   it.each([String.raw`print("$5", "\(x\)", "\[y\]", "$z$")`, String.ra…
+     50|     const r = await renderBody('<pre><code>'+body+'</code></pre>',opts…
+     51|     expect(doc(r.html).querySelector('code')?.textContent).toBe(body);
+       |                                                            ^
+     52|     expect(tex(r.html)).toEqual([]);
+     53|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 9 passed (12)
+   Start at  16:23:56
+   Duration  2.54s (environment 55%, import 21%, tests 16%, transform 8%)
+

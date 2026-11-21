@@ -1,6 +1,6 @@
-# PaperForma 2 — Core API (`src/core`)
+# PaperForma 3 — Core API (`src/core`)
 
-Status: 3.0.0-rc.1 (statis). Pemilik: modul core. Konsumen: `src/render`, `src/ui`.
+Status API: 3.0.0-rc.4 (statis). Pemilik: modul core. Konsumen: `src/render`, `src/ui`.
 
 Tambahan 3.0: `verdictOf`/`classifyIssue` (`verdict.ts`), `ProjectUndo`/`changesFor` (`undo.ts`), `restoreRevisionChanges`/`historyEntryState` (riwayat dengan `stateJson`), `privateUseConservation` (oracle PUA), `chooseSentinels`/`restorePua(s, scan)` (sentinel per pemindaian), `IMAGE_BUDGET`, preflight target `'html' | 'print' | 'pdf'` + `identity`.
 Impor: `import core, { … } from '../core'` (berkas `src/core/index.ts`). Objek default `core` mengimplementasikan
@@ -20,7 +20,7 @@ Konvensi:
 | Anggota | Perilaku |
 |---|---|
 | `LIMITS` | Konfigurasi batas tunggal (lihat §2). Beku. |
-| `utf8Length(s)` | Byte UTF-8 tanpa alokasi. |
+| `utf8Length(s)` | Byte UTF-8; implementasi menggunakan buffer TextEncoder terbatas per potongan, bukan janji nol alokasi. |
 | `sha256Hex(data)` | WebCrypto bila ada; fallback SHA-256 murni-JS (`sha256HexSync`) bila `crypto.subtle` tidak tersedia (konteks non-HTTPS). |
 | `renderBody(source, opts)` | §4. |
 | `assetDataUrl(asset)` | `data:` URL; cache dikunci `asset.id`+MIME **dan diverifikasi terhadap bytes** (objek sama atau sidik FNV atas seluruh bytes sama). Penggantian bytes tidak pernah mengembalikan isi lama (CODE-03/AST-02). SVG disanitasi dulu. LRU berbatas `DATA_URL_CACHE_MAX_CHARS` (64 Mi karakter). `clearDataUrlCache()` untuk proyek baru/hapus data, `evictAsset(id)` saat replace/delete (AssetStore sudah memanggilnya). |
@@ -32,12 +32,12 @@ Konvensi:
 ```ts
 LIMITS = { markdownBytes: 5 MiB, pasteBytes: 5 MiB, pasteHtmlBytes: 5 MiB, assetBytes: 10 MiB, totalProjectBytes: 30 MiB,
   zipBytes: 30 MiB, zipEntries: 500, zipMaxDepth: 8, zipMaxRatio: 100, zipUnpackedBytes: 30 MiB,
-  mathChars: 10000, maxNodes: 400000, maxTableCells: 50000, standaloneHtmlBytes: 25 MiB, pdfPayloadBytes: 45 MiB }
+  mathChars: 10000, maxNodes: 400000, maxNesting: 256, maxTableCells: 50000, standaloneHtmlBytes: 25 MiB, pdfPayloadBytes: 45 MiB }
 ```
 Angka = batas konfigurasi (nilai baseline `tE` dipertahankan), **bukan** kapasitas terukur.
 
 - `checkBudget(kind, actual, limits?) → BudgetResult {ok, kind, limitKey, actual, limit, unit, code:'OK'|'BUDGET_EXCEEDED', message, messageEn}`.
-  `kind ∈ markdown|paste|pasteHtml|asset|totalProject|zip|zipEntries|zipDepth|zipRatio|zipUnpacked|math|nodes|tableCells|standaloneHtml|pdfPayload`.
+  `kind ∈ markdown|paste|pasteHtml|asset|totalProject|zip|zipEntries|zipDepth|zipRatio|zipUnpacked|math|nodes|nesting|tableCells|standaloneHtml|pdfPayload`.
   Tepat di batas diterima; satu byte di atasnya ditolak. Pesan menyatakan input ditolak utuh dan dokumen aktif tidak berubah.
 - `checkTextBudget('markdown'|'paste'|'pasteHtml', text)` — menghitung byte UTF-8 (bukan karakter).
 - `readFileWithinBudget(file, 'markdown'|'asset'|'zip')` — memeriksa `file.size` **sebelum** `arrayBuffer()`; ukuran aktual diperiksa lagi.
@@ -58,7 +58,7 @@ string via `JSON.stringify`, tanpa normalisasi Unicode, angka harus finite, `Uin
 | `renderInputHash` | `sha256(canonical{content: contentSnapshotHash, assets: [{path, mime, sha256(bytes aktual)}] terurut path, settings, brandKit, templateId, templateVersion, rendererVersion})`. |
 | `outputHash` | dihitung lapisan ekspor (`sha256Hex(bytes)`). |
 
-`makeSnapshot(project, {templateVersion?, rendererVersion?, now?})` → `Snapshot` beku dari **salinan dalam** (structuredClone);
+`makeSnapshot(project, {templateVersion?, rendererVersion?, now?})` → `Snapshot` beku dari **salinan dalam bidang yang menentukan render** (structuredClone; riwayat revisi tidak disalin);
 `asset.id` di salinan diganti `sha256(bytes)` aktual. Default `templateVersion = TEMPLATE_VERSION` (render), `rendererVersion = RENDERER_VERSION`.
 
 `RevisionGuard`: `begin(key?) → token {rev, key, signal}` membatalkan token sebelumnya (AbortSignal); `isCurrent(token)`;
@@ -102,7 +102,7 @@ atribut lain (`SECURITY_ATTRIBUTE_REMOVED`); `id` pengguna diberi prefix `{p}u-`
 Frontmatter YAML di awal naskah (`---`…`---`) tidak dirender; pasangan `kunci: nilai` dikembalikan di `rendered.frontmatter = {raw, startLine, endLine, data, valid}` (tambahan di luar kontrak); baris tak terbaca → `FRONTMATTER_INVALID`. Nilai `data-tex` dan `data-src` mermaid diset SETELAH DOMPurify (nilai bebas seperti `-->` tetap utuh).
 `speakerDisplay(message, lang)` memberi label tertulis yang sama dengan yang dipakai renderBody/compose (mis. "Asisten (ChatGPT)"; label generik tidak diulang).
 
-Issue lain: `INPUT_TOO_COMPLEX` (node mdast > `maxNodes`; tetap dirender, blocking), `OUTER_FENCE` (deteksi pembungkus, `detail.repair='unwrap-fence'`), `HEADING_LEVEL_SKIP`, `HEADING_EMPTY`, `HEADING_DUPLICATE`, `IMAGE_NO_ALT`, `CITATION_UNRESOLVED` (token sitasi AI tanpa URL; tidak ada tautan dikarang), `TABLE_TOO_LARGE`, `CONVERSATION_NOTHING_SELECTED`.
+Issue lain: `INPUT_TOO_COMPLEX` pada jalur kompleksitas lama; admission node/kedalaman terbaru menolak input berlebih dengan BudgetError sebelum konversi rekursif, `OUTER_FENCE` (deteksi pembungkus, `detail.repair='unwrap-fence'`), `HEADING_LEVEL_SKIP`, `HEADING_EMPTY`, `HEADING_DUPLICATE`, `IMAGE_NO_ALT`, `CITATION_UNRESOLVED` (token sitasi AI tanpa URL; tidak ada tautan dikarang), `TABLE_TOO_LARGE`, `CONVERSATION_NOTHING_SELECTED`.
 
 `blocks[]`: `{id, type, line, text, sourceRef:{inputId, start, end, unit:'utf16', messageId?}, messageId?}` untuk semua blok tingkat atas (termasuk definisi catatan kaki dan HTML mentah). Pada mode percakapan, `line` relatif terhadap pesan dan `sourceRef` dipetakan ke `rawPlain` (`messageStart = sourceRef.end − markdown.length`; perkiraan bila pesan digabung manual, flag `source-span-approximate`).
 `stats`: words/tables/math/images/code/mermaid. `scripts`: `Latin, Greek, Cyrillic, Arabic, Hebrew, Han, Hiragana, Katakana, Hangul, Thai, Devanagari, Emoji` yang muncul (untuk resolver font).
@@ -188,7 +188,16 @@ Label: Siap / Perlu diperiksa / Perlu diperbaiki / Belum diperiksa. Error → Pe
 ## 14. Batas yang diketahui
 
 - Pengujian core = unit (Node/jsdom). Belum ada verifikasi browser nyata/visual untuk keluaran core.
-- `\(…\)` tidak didukung bila naskah memuat karakter PUA U+E001/U+E004 (`INPUT_PRIVATE_USE_CHARS`).
+- Sentinel PUA dipilih per pemindaian dari karakter yang tidak ada dalam sumber; PUA asli tetap diperiksa konservasinya. Tidak ada larangan tetap atas U+E001/U+E004.
 - Inline HTML yang dibuang (mis. `<script>` di tengah paragraf) juga memicu `INTEGRITY_TOKEN_CHANGED` pada blok itu — disengaja (isi tidak tampil).
 - Offset pesan hasil `mergeMessages` bersifat perkiraan (flag `source-span-approximate`).
 - Deteksi `ZIP64` → ditolak (tidak didukung).
+
+## Tambahan audit RC4
+
+- `parseHtmlWithinBudget` memeriksa tree parse5 secara iteratif (termasuk isi template) sebelum konversi rekursif ke HAST. Kedalaman >256 atau node berlebih ditolak utuh; sumber mentah tetap tersedia. Batas ini adalah admission struktur, bukan pembuktian bahwa semua parser memerlukan memori konstan.
+- Display math di sel, emphasis, daftar, label tautan, caption dan tabel dengan gabungan sel dipertahankan. Kode indented dan HTML `pre/code/kbd/samp` tetap literal; delimiter sengaja di-escape tidak diubah secara global.
+- Keutuhan raw table mencakup urutan URL tautan dan referensi gambar. Perubahan alt/title gambar belum seluruhnya dicakup oracle raw-table; tidak ada kehilangan aktual alt/title yang ditemukan pada renderer dalam pengujian audit.
+- `inspectInlineImage(url, limits?)` memeriksa ukuran base64 sebelum dekode byte, signature MIME, header dimensi, maksimum 16.384 px per sisi dan 40 MP. Total unik 200 MP digabung dengan aset unggahan dan seluruh pesan. Pelanggaran menghasilkan issue blocking dan placeholder sebelum elemen img dikeluarkan. Ini bukan decoder raster lengkap; jumlah frame animasi belum dihitung.
+- Identitas snapshot menghitung byte aset aktual sekali per buffer snapshot. Tidak ada cache persisten yang mempercayai buffer caller yang dapat berubah. Riwayat baru menyimpan pasangan `{id,path}`; metadata riwayat rusak menghasilkan pemulihan sumber saja. Byte historis yang tidak pernah disimpan tidak dapat diciptakan kembali.
+- Lihat `AUDIT_RC4.md`, `TESTING.md` dan `KNOWN_LIMITS.md` untuk bukti serta batas verifikasi kandidat.

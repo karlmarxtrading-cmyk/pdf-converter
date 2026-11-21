@@ -19,4 +19,5 @@ try {
   const out = { tool: 'tests/e2e/stress-pages.mjs', candidateSha256: candidateSha256(), browser: await env.browser.version(), sections: n, bytes: Buffer.byteLength(src), previewMs: preview, layoutWallMs: layoutWall, layout: s.layout, usedJsHeapMiB: heap, errors: p.log.errors, env: 'Chrome headless, kontainer Linux (bukan perangkat referensi)' };
   writeFileSync(`evidence/stress-${n}.json`, JSON.stringify(out, null, 2));
   console.log(JSON.stringify({ pages: s.layout.pages, status: s.layout.status, verification: s.layout.verification?.status, previewMs: preview, layoutWallMs: layoutWall, heap }));
+  process.exitCode = s.layout.status === 'done' && s.layout.pages > 0 && s.layout.verification?.status === 'pass' && p.log.errors.length === 0 ? 0 : 1;
 } finally { await env.close(); }

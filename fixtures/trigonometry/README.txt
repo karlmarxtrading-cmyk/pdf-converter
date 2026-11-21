@@ -1,0 +1,1 @@
+Korpus sintetis, ditranskripsi dari tiga tangkapan layar pengguna 21 November 2026. Bukan berkas sumber asli. Baris dari widget (Drag point P/Beri masukan) sengaja dipertahankan; tidak ada geometri/gambar/script interaktif yang dikarang. Rumus dan struktur yang terlihat direkonstruksi untuk uji parsing. Bukan bukti clipboard sistem operasi atau browser penyedia AI nyata.

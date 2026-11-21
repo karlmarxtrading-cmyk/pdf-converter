@@ -1,0 +1,727 @@
+{
+  "tool": "tests/e2e/pdf-verify.mjs",
+  "candidateSha256": "82397ea41b8253c9c0b6678ea9d879effeb44e6b1f8f37b3b692c341ec7a5465",
+  "distQaTreeSha256": "557d52a65d99bc80266b368993c7f4276b38ff868bed04e56e756693abd40370",
+  "at": "2026-11-21T05:50:47.147Z",
+  "note": "PDF dihasilkan oleh mesin cetak browser headless dari HTML datar yang sama dengan yang dibuka dialog cetak. Dialog cetak native TIDAK diuji di sini.",
+  "summary": {
+    "total": 7,
+    "pass": 7,
+    "fail": 0
+  },
+  "results": [
+    {
+      "id": "small-mixed-A4",
+      "sourceBytes": 25289,
+      "paper": "A4",
+      "orientation": "portrait",
+      "previewMs": 715,
+      "layoutMs": 1182,
+      "appVerification": {
+        "status": "pass",
+        "pages": 11,
+        "inventory": [],
+        "structure": [],
+        "lostBlocks": 0
+      },
+      "layoutStatus": "done",
+      "blockingIssues": [],
+      "pages": 11,
+      "meta": {
+        "externalLinks": 3,
+        "internalLinks": 14,
+        "images": 2,
+        "title": "Laporan Uji Campuran PaperForma",
+        "pages": 11,
+        "glyphNotBundledReported": true
+      },
+      "engines": [
+        {
+          "engine": "Chrome Chrome/153.0.8010.12",
+          "ms": 260,
+          "file": "evidence/pdf/small-mixed-A4.chrome.pdf",
+          "bytes": 354746,
+          "checks": {
+            "qpdfValid": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 11,
+          "pdfVersion": "1.4",
+          "fonts": 16,
+          "type3Fonts": [
+            "JAAAAA+NotoColorEmoji",
+            "JAAAAA+NotoColorEmoji",
+            "LAAAAA+Inter-Regular"
+          ],
+          "images": 2,
+          "linkAnnots": {
+            "uri": 3,
+            "internal": 14
+          },
+          "rawOrderMatches": 1,
+          "text": {
+            "pagesChecked": 11,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 2
+          },
+          "status": "pass"
+        },
+        {
+          "engine": "Firefox firefox/160.0",
+          "ms": 5372,
+          "file": "evidence/pdf/small-mixed-A4.firefox.pdf",
+          "bytes": 460683,
+          "checks": {
+            "qpdfValid": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 11,
+          "pdfVersion": "1.4",
+          "qpdfCheckWarnings": 10,
+          "fonts": 37,
+          "type3Fonts": [
+            "UAAAAA+NotoColorEmoji",
+            "UAAAAA+NotoColorEmoji"
+          ],
+          "images": 18,
+          "qpdfWarnings": 11,
+          "linkAnnots": {
+            "uri": 28,
+            "internal": 37
+          },
+          "rawOrderMatches": 3,
+          "text": {
+            "pagesChecked": 11,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 2
+          },
+          "status": "pass"
+        }
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "einstein-A4",
+      "sourceBytes": 946,
+      "paper": "A4",
+      "orientation": "portrait",
+      "previewMs": 406,
+      "layoutMs": 410,
+      "appVerification": {
+        "status": "pass",
+        "pages": 2,
+        "inventory": [],
+        "structure": [],
+        "lostBlocks": 0
+      },
+      "layoutStatus": "done",
+      "blockingIssues": [],
+      "pages": 2,
+      "meta": {
+        "externalLinks": 0,
+        "internalLinks": 0,
+        "images": 0,
+        "title": "Relativitas khusus Einstein",
+        "pages": 2,
+        "glyphNotBundledReported": false
+      },
+      "engines": [
+        {
+          "engine": "Chrome Chrome/153.0.8010.12",
+          "ms": 84,
+          "file": "evidence/pdf/einstein-A4.chrome.pdf",
+          "bytes": 49149,
+          "checks": {
+            "qpdfValid": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 2,
+          "pdfVersion": "1.4",
+          "fonts": 8,
+          "type3Fonts": [],
+          "images": 0,
+          "linkAnnots": {
+            "uri": 0,
+            "internal": 0
+          },
+          "text": {
+            "pagesChecked": 2,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 1
+          },
+          "status": "pass"
+        },
+        {
+          "engine": "Firefox firefox/160.0",
+          "ms": 1140,
+          "file": "evidence/pdf/einstein-A4.firefox.pdf",
+          "bytes": 93506,
+          "checks": {
+            "qpdfValid": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 2,
+          "pdfVersion": "1.4",
+          "qpdfCheckWarnings": 1,
+          "fonts": 19,
+          "type3Fonts": [],
+          "images": 0,
+          "qpdfWarnings": 2,
+          "linkAnnots": {
+            "uri": 0,
+            "internal": 1
+          },
+          "text": {
+            "pagesChecked": 2,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 1
+          },
+          "status": "pass"
+        }
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "small-mixed-Letter-landscape",
+      "sourceBytes": 25289,
+      "paper": "Letter",
+      "orientation": "landscape",
+      "previewMs": 876,
+      "layoutMs": 1065,
+      "appVerification": {
+        "status": "pass",
+        "pages": 14,
+        "inventory": [],
+        "structure": [],
+        "lostBlocks": 0
+      },
+      "layoutStatus": "done",
+      "blockingIssues": [],
+      "pages": 14,
+      "meta": {
+        "externalLinks": 3,
+        "internalLinks": 14,
+        "images": 2,
+        "title": "Laporan Uji Campuran PaperForma",
+        "pages": 14,
+        "glyphNotBundledReported": true
+      },
+      "engines": [
+        {
+          "engine": "Chrome Chrome/153.0.8010.12",
+          "ms": 277,
+          "file": "evidence/pdf/small-mixed-Letter-landscape.chrome.pdf",
+          "bytes": 361270,
+          "checks": {
+            "qpdfValid": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 14,
+          "pdfVersion": "1.4",
+          "fonts": 16,
+          "type3Fonts": [
+            "JAAAAA+NotoColorEmoji",
+            "JAAAAA+NotoColorEmoji",
+            "LAAAAA+Inter-Regular"
+          ],
+          "images": 2,
+          "linkAnnots": {
+            "uri": 3,
+            "internal": 14
+          },
+          "text": {
+            "pagesChecked": 14,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 2
+          },
+          "status": "pass"
+        },
+        {
+          "engine": "Firefox firefox/160.0",
+          "ms": 5533,
+          "file": "evidence/pdf/small-mixed-Letter-landscape.firefox.pdf",
+          "bytes": 470818,
+          "checks": {
+            "qpdfValid": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 14,
+          "pdfVersion": "1.4",
+          "qpdfCheckWarnings": 13,
+          "fonts": 37,
+          "type3Fonts": [
+            "UAAAAA+NotoColorEmoji",
+            "UAAAAA+NotoColorEmoji"
+          ],
+          "images": 17,
+          "qpdfWarnings": 14,
+          "linkAnnots": {
+            "uri": 28,
+            "internal": 37
+          },
+          "rawOrderMatches": 3,
+          "text": {
+            "pagesChecked": 14,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 2
+          },
+          "status": "pass"
+        }
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "small-mixed-A5",
+      "sourceBytes": 25289,
+      "paper": "A5",
+      "orientation": "portrait",
+      "previewMs": 787,
+      "layoutMs": 1349,
+      "appVerification": {
+        "status": "pass",
+        "pages": 21,
+        "inventory": [],
+        "structure": [],
+        "lostBlocks": 0
+      },
+      "layoutStatus": "done",
+      "blockingIssues": [],
+      "pages": 21,
+      "meta": {
+        "externalLinks": 3,
+        "internalLinks": 14,
+        "images": 2,
+        "title": "Laporan Uji Campuran PaperForma",
+        "pages": 21,
+        "glyphNotBundledReported": true
+      },
+      "engines": [
+        {
+          "engine": "Chrome Chrome/153.0.8010.12",
+          "ms": 339,
+          "file": "evidence/pdf/small-mixed-A5.chrome.pdf",
+          "bytes": 377685,
+          "checks": {
+            "qpdfValid": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 21,
+          "pdfVersion": "1.4",
+          "fonts": 16,
+          "type3Fonts": [
+            "JAAAAA+NotoColorEmoji",
+            "JAAAAA+NotoColorEmoji",
+            "LAAAAA+Inter-Regular"
+          ],
+          "images": 2,
+          "linkAnnots": {
+            "uri": 3,
+            "internal": 15
+          },
+          "text": {
+            "pagesChecked": 21,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 2
+          },
+          "status": "pass"
+        },
+        {
+          "engine": "Firefox firefox/160.0",
+          "ms": 5922,
+          "file": "evidence/pdf/small-mixed-A5.firefox.pdf",
+          "bytes": 497260,
+          "checks": {
+            "qpdfValid": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 21,
+          "pdfVersion": "1.4",
+          "qpdfCheckWarnings": 20,
+          "fonts": 40,
+          "type3Fonts": [
+            "UAAAAA+NotoColorEmoji",
+            "UAAAAA+NotoColorEmoji"
+          ],
+          "images": 18,
+          "qpdfWarnings": 21,
+          "linkAnnots": {
+            "uri": 29,
+            "internal": 38
+          },
+          "rawOrderMatches": 7,
+          "text": {
+            "pagesChecked": 21,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 2
+          },
+          "status": "pass"
+        }
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "medium-30",
+      "sourceBytes": 170427,
+      "paper": "A4",
+      "orientation": "portrait",
+      "previewMs": 1683,
+      "layoutMs": 3271,
+      "appVerification": {
+        "status": "pass",
+        "pages": 63,
+        "inventory": [],
+        "structure": [],
+        "lostBlocks": 0
+      },
+      "layoutStatus": "done",
+      "blockingIssues": [],
+      "pages": 63,
+      "meta": {
+        "externalLinks": 3,
+        "internalLinks": 45,
+        "images": 2,
+        "title": "Laporan Uji Campuran PaperForma",
+        "pages": 63,
+        "glyphNotBundledReported": true
+      },
+      "engines": [
+        {
+          "engine": "Chrome Chrome/153.0.8010.12",
+          "ms": 934,
+          "file": "evidence/pdf/medium-30.chrome.pdf",
+          "bytes": 778022,
+          "checks": {
+            "qpdfValid": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 63,
+          "pdfVersion": "1.4",
+          "fonts": 16,
+          "type3Fonts": [
+            "JAAAAA+NotoColorEmoji",
+            "JAAAAA+NotoColorEmoji",
+            "LAAAAA+Inter-Regular"
+          ],
+          "images": 2,
+          "linkAnnots": {
+            "uri": 3,
+            "internal": 45
+          },
+          "rawOrderMatches": 2,
+          "text": {
+            "pagesChecked": 63,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 2
+          },
+          "status": "pass"
+        },
+        {
+          "engine": "Firefox firefox/160.0",
+          "ms": 9329,
+          "file": "evidence/pdf/medium-30.firefox.pdf",
+          "bytes": 1016557,
+          "checks": {
+            "qpdfValid": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 63,
+          "pdfVersion": "1.4",
+          "qpdfCheckWarnings": 62,
+          "fonts": 37,
+          "type3Fonts": [
+            "UAAAAA+NotoColorEmoji",
+            "UAAAAA+NotoColorEmoji"
+          ],
+          "images": 18,
+          "qpdfWarnings": 63,
+          "linkAnnots": {
+            "uri": 90,
+            "internal": 130
+          },
+          "rawOrderMatches": 3,
+          "text": {
+            "pagesChecked": 63,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 2
+          },
+          "status": "pass"
+        }
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "large-115",
+      "sourceBytes": 556111,
+      "paper": "A4",
+      "orientation": "portrait",
+      "previewMs": 2886,
+      "layoutMs": 8559,
+      "appVerification": {
+        "status": "pass",
+        "pages": 196,
+        "inventory": [],
+        "structure": [],
+        "lostBlocks": 0
+      },
+      "layoutStatus": "done",
+      "blockingIssues": [],
+      "pages": 196,
+      "meta": {
+        "externalLinks": 0,
+        "internalLinks": 116,
+        "images": 0,
+        "title": "Dokumen sintetis untuk uji panjang",
+        "pages": 196,
+        "glyphNotBundledReported": false
+      },
+      "engines": [
+        {
+          "engine": "Chrome Chrome/153.0.8010.12",
+          "ms": 2808,
+          "file": "evidence/pdf/large-115.chrome.pdf",
+          "bytes": 1638805,
+          "checks": {
+            "qpdfValid": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 196,
+          "pdfVersion": "1.4",
+          "fonts": 3,
+          "type3Fonts": [],
+          "images": 0,
+          "linkAnnots": {
+            "uri": 0,
+            "internal": 116
+          },
+          "text": {
+            "pagesChecked": 196,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 2
+          },
+          "status": "pass"
+        },
+        {
+          "engine": "Firefox firefox/160.0",
+          "ms": 16833,
+          "file": "evidence/pdf/large-115.firefox.pdf",
+          "bytes": 2150649,
+          "checks": {
+            "qpdfValid": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 196,
+          "pdfVersion": "1.4",
+          "qpdfCheckWarnings": 195,
+          "fonts": 9,
+          "type3Fonts": [],
+          "images": 0,
+          "qpdfWarnings": 196,
+          "linkAnnots": {
+            "uri": 232,
+            "internal": 349
+          },
+          "text": {
+            "pagesChecked": 196,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 2
+          },
+          "status": "pass"
+        }
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "memory-repeat-layout",
+      "rounds": [
+        {
+          "round": 1,
+          "usedMiB": 20.1,
+          "iframes": 7
+        },
+        {
+          "round": 2,
+          "usedMiB": 20.1,
+          "iframes": 7
+        },
+        {
+          "round": 3,
+          "usedMiB": 20.4,
+          "iframes": 7
+        },
+        {
+          "round": 4,
+          "usedMiB": 20.7,
+          "iframes": 7
+        },
+        {
+          "round": 5,
+          "usedMiB": 20.9,
+          "iframes": 7
+        },
+        {
+          "round": 6,
+          "usedMiB": 21.2,
+          "iframes": 7
+        }
+      ],
+      "growthMiBRound2to6": 1.1,
+      "status": "pass"
+    }
+  ]
+}

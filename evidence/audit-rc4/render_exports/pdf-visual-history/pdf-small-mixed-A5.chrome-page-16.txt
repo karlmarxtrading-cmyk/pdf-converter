@@ -1,0 +1,34 @@
+15
+PYTHON · LANJUTAN
+    baris_031 = hitung(31, faktor=3)  # komentar 
+panjang untuk baris kode nomor 31
+    baris_032 = hitung(32, faktor=4)  # komentar 
+panjang untuk baris kode nomor 32
+    baris_033 = hitung(33, faktor=5)  # komentar 
+panjang untuk baris kode nomor 33
+    baris_034 = hitung(34, faktor=6)  # komentar 
+panjang untuk baris kode nomor 34
+    baris_035 = hitung(35, faktor=0)  # komentar 
+panjang untuk baris kode nomor 35
+    baris_036 = hitung(36, faktor=1)  # komentar 
+panjang untuk baris kode nomor 36
+    baris_037 = hitung(37, faktor=2)  # komentar 
+panjang untuk baris kode nomor 37
+    baris_038 = hitung(38, faktor=3)  # komentar 
+panjang untuk baris kode nomor 38
+    baris_039 = hitung(39, faktor=4)  # komentar 
+panjang untuk baris kode nomor 39
+    baris_040 = hitung(40, faktor=5)  # komentar 
+panjang untuk baris kode nomor 40
+    baris_041 = hitung(41, faktor=6)  # komentar 
+panjang untuk baris kode nomor 41
+    baris_042 = hitung(42, faktor=0)  # komentar 
+panjang untuk baris kode nomor 42
+    baris_043 = hitung(43, faktor=1)  # komentar 
+panjang untuk baris kode nomor 43
+    baris_044 = hitung(44, faktor=2)  # komentar 
+panjang untuk baris kode nomor 44
+    baris_045 = hitung(45, faktor=3)  # komentar 
+panjang untuk baris kode nomor 45
+    baris_046 = hitung(46, faktor=4)  # komentar 
+panjang untuk baris kode nomor 46

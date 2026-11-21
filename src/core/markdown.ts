@@ -10,6 +10,7 @@ import remarkMath from 'remark-math';
 import type { Root, RootContent, Nodes as MdNodes } from 'mdast';
 import { scanMath, restorerFor, type MathScan } from './math';
 import { fnv1a, imageRefKey } from './util';
+import { assertTreeBudget } from './limits';
 
 export interface Frontmatter { raw: string; startLine: number; endLine: number; data: Record<string, string>; valid: boolean }
 export interface ParsedMarkdown { tree: Root; scan: MathScan; source: string; frontmatter?: Frontmatter }
@@ -46,8 +47,39 @@ export function parseMarkdown(source: string): ParsedMarkdown {
   const masked = fm ? fm.raw.replace(/[^\n]/g, ' ') + source.slice(fm.raw.length) : source;
   const scan = scanMath(masked);
   const tree = processor.runSync(processor.parse(scan.parseCopy)) as Root;
+  assertTreeBudget(tree);
+  restoreLiteralNodes(tree, masked, scan);
   promoteDisplayMath(tree, scan);
   return fm ? { tree, scan, source, frontmatter: fm } : { tree, scan, source };
+}
+
+/** RC4-M05: CommonMark decides which indented/list blocks are code. Restore their values from an unmasked
+ * parse only when math masking touched one; the scanner must not silently rewrite literal code or HTML.
+ * Ordinary prose, math and fenced-code documents stay on the single-parse path.
+ */
+function restoreLiteralNodes(tree: Root, source: string, scan: MathScan): void {
+  const changed: (MdNodes & { value: string })[] = [];
+  const collect = (n: MdNodes): void => {
+    if ((n.type === 'code' || n.type === 'html') && n.position) {
+      const a = n.position.start.offset ?? 0, b = n.position.end.offset ?? 0;
+      if (source.slice(a, b) !== scan.parseCopy.slice(a, b)) changed.push(n);
+    }
+    if ('children' in n) n.children.forEach(collect);
+  };
+  collect(tree);
+  if (!changed.length) return;
+  const original = processor.parse(source) as Root;
+  const byPosition = new Map<string, string>();
+  const key = (n: MdNodes) => `${n.type}:${n.position?.start.offset}:${n.position?.end.offset}`;
+  const index = (n: MdNodes): void => {
+    if (n.type === 'code' || n.type === 'html') byPosition.set(key(n), n.value);
+    if ('children' in n) n.children.forEach(index);
+  };
+  index(original);
+  for (const n of changed) {
+    const value = byPosition.get(key(n));
+    if (value !== undefined) n.value = value;
+  }
 }
 
 /**
@@ -70,8 +102,11 @@ function promoteDisplayMath(tree: Root, scan: { spans: { start: number; display:
           return { type: 'math', value: m.value, position: n.position ?? m.position, data: n.data };
         }
         for (const k of n.children) if (isDisplay(k as never)) { const x = k as { data?: Record<string, unknown> }; x.data = { ...x.data, pfDisplay: true }; }
+        visit(n as { children: unknown[] });
         return n;
       }
+      // RC4-M04: table cells, links and emphasis also contain phrasing math nodes.
+      if (isDisplay(n)) n.data = { ...n.data, pfDisplay: true };
       if (n.children) visit(n as { children: unknown[] });
       return n;
     });

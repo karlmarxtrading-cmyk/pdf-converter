@@ -1,0 +1,68 @@
+{
+  "tool": "tests/e2e/release-gate.mjs",
+  "candidateSha256": "82397ea41b8253c9c0b6678ea9d879effeb44e6b1f8f37b3b692c341ec7a5465",
+  "at": "2026-11-21T05:48:37.540Z",
+  "pass": true,
+  "results": [
+    {
+      "case": "bersih (kontrol)",
+      "verifierPassed": true,
+      "expected": "pass",
+      "ok": true
+    },
+    {
+      "case": "panggilan backend /api/pdf",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "teks harga di HTML",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "kait QA di build produksi",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "_worker.js",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "functions/",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "print.html hilang",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "_headers tanpa CSP",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "Worker analisis hilang",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "sumber daya eksternal",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    }
+  ]
+}

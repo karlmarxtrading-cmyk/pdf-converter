@@ -5,7 +5,7 @@ import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const CANDIDATE = ['index.html', 'print.html', 'package.json', 'package-lock.json', '.node-version', '.npmrc', '.oxlintrc.json', 'tsconfig.json', 'vite.config.ts', 'vitest.config.ts', 'src', 'public', 'scripts', 'tests', 'fixtures'];
+const CANDIDATE = ['index.html', 'print.html', 'package.json', 'package-lock.json', '.node-version', '.npmrc', '.oxlintrc.json', '.gitattributes', 'tsconfig.json', 'vite.config.ts', 'vitest.config.ts', 'src', 'public', 'scripts', 'tests', 'fixtures'];
 const SKIP = new Set(['node_modules', 'dist', 'dist-qa', '.git', 'evidence']);
 
 function walk(dir, out) {

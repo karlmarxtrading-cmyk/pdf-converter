@@ -1,0 +1,39 @@
+[
+  {
+    "source": "pdf/einstein-A4.chrome.pdf",
+    "pypdfNonWhitespace": 514,
+    "popplerNonWhitespace": 530,
+    "type3Lines": []
+  },
+  {
+    "source": "pdf/einstein-A4.firefox.pdf",
+    "pypdfNonWhitespace": 514,
+    "popplerNonWhitespace": 514,
+    "type3Lines": []
+  },
+  {
+    "source": "pdf/small-mixed-A4.chrome.pdf",
+    "pypdfNonWhitespace": 14388,
+    "popplerNonWhitespace": 14391,
+    "type3Lines": [
+      "JAAAAA+NotoColorEmoji                Type 3            Custom           yes yes yes     41  0",
+      "JAAAAA+NotoColorEmoji                Type 3            Custom           yes yes yes     42  0",
+      "LAAAAA+Inter-Regular                 Type 3            Custom           yes yes yes     44  0"
+    ]
+  },
+  {
+    "source": "pdf/small-mixed-A4.firefox.pdf",
+    "pypdfNonWhitespace": 14388,
+    "popplerNonWhitespace": 14389,
+    "type3Lines": [
+      "UAAAAA+NotoColorEmoji                Type 3            Custom           yes yes yes     81  0",
+      "UAAAAA+NotoColorEmoji                Type 3            Custom           yes yes yes     82  0"
+    ]
+  },
+  {
+    "source": "pdf-eval/small.B1-jspdf-html.pdf",
+    "pypdfNonWhitespace": 14459,
+    "popplerNonWhitespace": 0,
+    "type3Lines": []
+  }
+]

@@ -5,6 +5,7 @@ import { writeFileSync } from 'node:fs';
 import { launch, page, openStudio, waitReady, setSource } from './lib.mjs';
 import { generateStress } from '../../scripts/generate-stress.mjs';
 import { candidateSha256, distTreeSha256 } from '../../scripts/fingerprint.mjs';
+import { performanceRunPass } from '../../scripts/result-gates.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const SIZES = arg('--sizes', '6,30,59,118,295,590').split(',').map(Number);
@@ -95,10 +96,11 @@ try {
     const summary = Object.fromEntries(keys.map((k) => [k, stat(runs.map((x) => x[k]))]));
     summary.maxEventLoopGapMs = Object.fromEntries(['preview', 'layout', 'reedit'].map((ph) => [ph, stat(runs.map((x) => x.maxEventLoopGapMs?.[ph]))]));
     summary.longTaskMaxMs = { preview: stat(runs.map((x) => x.longTasks?.preview.maxMs)), layout: stat(runs.map((x) => x.longTasks?.layout.maxMs)) };
-    rows.push({ sections, pages: runs.find((x) => x.pages)?.pages ?? null, reps: runs.length, allVerified: runs.every((x) => x.verification === 'pass'), failures: runs.filter((x) => x.error || x.verification !== 'pass').map((x) => x.error ?? x.blocking), summary, cancel: runs[0] && { ms: runs[0].cancelToIdleMs, outcome: runs[0].cancelOutcome, sessionLeft: runs[0].printSessionAfterCancel }, runs });
+    rows.push({ sections, pages: runs.find((x) => x.pages)?.pages ?? null, reps: runs.length, allVerified: runs.length > 0 && runs.every(performanceRunPass), failures: runs.filter((x) => !performanceRunPass(x)).map((x) => x.error ?? x.blocking), summary, cancel: runs[0] && { ms: runs[0].cancelToIdleMs, outcome: runs[0].cancelOutcome, sessionLeft: runs[0].printSessionAfterCancel }, runs });
   }
 } finally { await env.close(); }
 const out = { tool: 'tests/e2e/perf-matrix.mjs', candidateSha256: candidateSha256(), distQaTreeSha256: distTreeSha256('dist-qa'), at: new Date().toISOString(), browser: 'Chrome headless (lihat evidence/toolchain.txt)', env: 'Kontainer Linux, CPU bersama; bukan perangkat referensi. Angka untuk perbandingan relatif antar-kandidat.',
   baselineRc1: { sections: 115, pages: 196, layoutWallMs: 9256, previewMs: 2942, mainThreadLongestTaskMs: 888, source: 'evidence RC1 stress-115.json + profil awal sesi ini' }, rows };
 writeFileSync('evidence/perf-matrix.json', JSON.stringify(out, null, 2));
 console.log(JSON.stringify(rows.map((r) => ({ sections: r.sections, pages: r.pages, reps: r.reps, verified: r.allVerified, previewMedian: r.summary.previewMs?.median, layoutMedian: r.summary.layoutWallMs?.median, pdfMedian: r.summary.pdfExportMs?.median, heapPeak: r.summary.peakJsHeapMiB?.max }))));
+process.exitCode = rows.length === SIZES.length && rows.length > 0 && rows.every((r) => r.allVerified) ? 0 : 1;

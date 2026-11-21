@@ -1,0 +1,21 @@
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+Inter-Regular                 CID TrueType      Identity-H       yes yes yes      6  0
+BAAAAA+Inter-Bold                    CID TrueType      Identity-H       yes yes yes      7  0
+CAAAAA+Inter-Regular                 CID TrueType      Identity-H       yes yes yes      8  0
+DAAAAA+Inter-Regular                 CID TrueType      Identity-H       yes yes yes      9  0
+EAAAAA+Inter-SemiBold                CID TrueType      Identity-H       yes yes yes     10  0
+FAAAAA+Inter-Regular                 CID TrueType      Identity-H       yes yes yes     11  0
+GAAAAA+Inter-SemiBold                CID TrueType      Identity-H       yes yes yes     12  0
+HAAAAA+JetBrainsMono-Regular         CID TrueType      Identity-H       yes yes yes     13  0
+IAAAAA+JetBrainsMono-Regular         CID TrueType      Identity-H       yes yes yes     14  0
+JAAAAA+KaTeX_Math-Italic             CID TrueType      Identity-H       yes yes yes     15  0
+KAAAAA+KaTeX_Main-Regular            CID TrueType      Identity-H       yes yes yes     16  0
+LAAAAA+KaTeX_Main-Regular            CID TrueType      Identity-H       yes yes yes     17  0
+MAAAAA+KaTeX_Math-Italic             CID TrueType      Identity-H       yes yes yes     18  0
+NAAAAA+KaTeX_Main-Regular            CID TrueType      Identity-H       yes yes yes     19  0
+OAAAAA+KaTeX_Size3-Regular           CID TrueType      Identity-H       yes yes yes     20  0
+PAAAAA+KaTeX_Size1-Regular           CID TrueType      Identity-H       yes yes yes     21  0
+QAAAAA+KaTeX_Math-Italic             CID TrueType      Identity-H       yes yes yes     22  0
+RAAAAA+KaTeX_Main-Regular            CID TrueType      Identity-H       yes yes yes     23  0
+SAAAAA+KaTeX_Main-Regular            CID TrueType      Identity-H       yes yes yes     24  0

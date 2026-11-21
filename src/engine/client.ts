@@ -25,7 +25,7 @@ export interface EngineStats {
 }
 export interface RunOptions { docVersion: string; signal?: AbortSignal; onProgress?: (p: { phase: Phase; done: number; total: number }) => void; timeoutMs?: number }
 
-interface Pending { jobId: number; docVersion: string; resolve: (r: AnalyzeResult) => void; reject: (e: Error) => void; timer: ReturnType<typeof setTimeout> | null; onProgress?: RunOptions['onProgress']; t0: number; input: AnalyzeInput; opts: RunOptions }
+interface Pending { jobId: number; docVersion: string; resolve: (r: AnalyzeResult) => void; reject: (e: Error) => void; timer: ReturnType<typeof setTimeout> | null; abortHandler?: () => void; onProgress?: RunOptions['onProgress']; t0: number; input: AnalyzeInput; opts: RunOptions }
 
 export interface EngineClientOptions {
   /** pembuat Worker; null → fallback. Default: Worker modul Vite. */
@@ -54,6 +54,7 @@ export class EngineClient {
   private crashes = 0;
   /** Worker saat ini sudah mengirim 'ready' (modul termuat). Galat sebelum itu = gagal memuat → fallback langsung. */
   private readySeen = false;
+  private disposalGeneration = 0;
   readonly stats: EngineStats = { mode: 'idle', started: 0, completed: 0, staleDropped: 0, cancelled: 0, timeouts: 0, errors: 0, respawns: 0, lastMs: 0, lastPhase: null };
   private factory: (() => WorkerLike | null) | null;
   private yieldFn: () => Promise<void>;
@@ -72,8 +73,9 @@ export class EngineClient {
     try { w = this.factory(); } catch (e) { this.stats.reason = `worker-create-failed: ${(e as Error).message}`; w = null; }
     if (!w) { this.factory = null; this.stats.mode = 'fallback'; this.stats.reason ??= 'worker-unavailable'; return null; }
     this.readySeen = false;
-    w.onmessage = (ev) => this.onMessage(ev.data);
-    w.onerror = (ev) => this.onCrash(ev);
+    const currentWorker = w;
+    w.onmessage = (ev) => { if (this.worker === currentWorker) this.onMessage(ev.data); };
+    w.onerror = (ev) => { if (this.worker === currentWorker) this.onCrash(ev); };
     this.worker = w; this.stats.mode = 'worker';
     return w;
   }
@@ -82,7 +84,7 @@ export class EngineClient {
     if (m.type === 'ready') { if (m.protocol !== ENGINE_PROTOCOL) this.onCrash(new Error('protocol mismatch')); else this.readySeen = true; return; }
     const p = this.pending.get(m.jobId);
     if (!p) { if (m.type === 'result') this.stats.staleDropped++; return; }
-    if (m.type === 'progress') { if (m.jobId === this.latest) { this.stats.lastPhase = m.phase; p.onProgress?.({ phase: m.phase, done: m.done, total: m.total }); } return; }
+    if (m.type === 'progress') { if (m.jobId === this.latest && m.docVersion === p.docVersion) { this.stats.lastPhase = m.phase; p.onProgress?.({ phase: m.phase, done: m.done, total: m.total }); } return; }
     this.settle(p);
     if (m.type === 'cancelled') { this.stats.cancelled++; p.reject(new EngineError('ENGINE_STALE', 'dibatalkan')); return; }
     if (m.type === 'error') { this.stats.errors++; p.reject(new EngineError(m.code === 'ENGINE_PROTOCOL_MISMATCH' ? 'ENGINE_PROTOCOL_MISMATCH' : 'ENGINE_JOB_FAILED', m.message)); return; }
@@ -94,9 +96,14 @@ export class EngineClient {
     p.resolve(m.result);
   }
 
-  private settle(p: Pending): void { if (p.timer) clearTimeout(p.timer); this.pending.delete(p.jobId); }
+  private settle(p: Pending): void {
+    if (p.timer) clearTimeout(p.timer);
+    if (p.abortHandler) p.opts.signal?.removeEventListener('abort', p.abortHandler);
+    this.pending.delete(p.jobId);
+  }
 
   private restart(): void {
+    if (this.worker) { this.worker.onmessage = null; this.worker.onerror = null; }
     try { this.worker?.terminate(); } catch { /* sudah mati */ }
     this.worker = null; this.stats.respawns++;
   }
@@ -128,7 +135,7 @@ export class EngineClient {
     this.stats.started++;
     for (const old of [...this.pending.values()]) {
       // batalkan yang lama: Worker berhenti di titik periksa berikutnya; janji lama ditolak sebagai usang
-      this.worker?.postMessage({ type: 'cancel', jobId: old.jobId });
+      try { this.worker?.postMessage({ type: 'cancel', jobId: old.jobId }); } catch { this.restart(); }
       this.settle(old); this.stats.cancelled++;
       old.reject(new EngineError('ENGINE_STALE', `digantikan oleh pekerjaan ${jobId}`));
     }
@@ -147,21 +154,35 @@ export class EngineClient {
         reject(new EngineError('ENGINE_TIMEOUT', `Analisis melebihi ${Math.round(timeoutMs / 1000)} detik dan dihentikan.`));
       }, timeoutMs);
       this.pending.set(jobId, p);
-      o.signal?.addEventListener('abort', () => {
+      p.abortHandler = () => {
         if (!this.pending.has(jobId)) return;
-        w.postMessage({ type: 'cancel', jobId }); this.settle(p); this.stats.cancelled++;
+        try { w.postMessage({ type: 'cancel', jobId }); } catch { this.restart(); }
+        this.settle(p); this.stats.cancelled++;
         reject(new EngineError('ENGINE_ABORTED', 'dibatalkan'));
-      }, { once: true });
-      w.postMessage({ type: 'job', protocol: ENGINE_PROTOCOL, jobId, docVersion: o.docVersion, kind: 'analyze', input });
+      };
+      o.signal?.addEventListener('abort', p.abortHandler, { once: true });
+      try { w.postMessage({ type: 'job', protocol: ENGINE_PROTOCOL, jobId, docVersion: o.docVersion, kind: 'analyze', input }); }
+      catch (e) {
+        this.settle(p); this.stats.errors++; this.restart();
+        reject(new EngineError('ENGINE_CRASHED', `Pengiriman pekerjaan gagal: ${(e as Error)?.message ?? String(e)}`));
+      }
     });
   }
 
   private async runFallback(jobId: number, input: AnalyzeInput, o: RunOptions): Promise<AnalyzeResult> {
     const t0 = Date.now();
-    const check = async () => {
-      await this.yieldFn();
-      if (o.signal?.aborted) throw new EngineError('ENGINE_ABORTED', 'dibatalkan');
+    const generation = this.disposalGeneration;
+    const timeoutMs = o.timeoutMs ?? this.opts.timeoutMs ?? defaultTimeout(input);
+    const assertCurrent = () => {
+      if (generation !== this.disposalGeneration || o.signal?.aborted) throw new EngineError('ENGINE_ABORTED', 'dibatalkan');
       if (jobId !== this.latest) { this.stats.staleDropped++; throw new EngineError('ENGINE_STALE', `pekerjaan ${jobId} usang`); }
+      // Fallback cannot preempt synchronous parsing; its deadline is enforced at each phase boundary.
+      if (Date.now() - t0 >= timeoutMs) { this.stats.timeouts++; throw new EngineError('ENGINE_TIMEOUT', `Analisis melebihi ${Math.round(timeoutMs / 1000)} detik dan dihentikan.`); }
+    };
+    const check = async () => {
+      assertCurrent();
+      await this.yieldFn();
+      assertCurrent();
     };
     try {
       await check();
@@ -173,7 +194,9 @@ export class EngineClient {
   }
 
   dispose(): void {
+    this.disposalGeneration++;
     for (const p of [...this.pending.values()]) { this.settle(p); p.reject(new EngineError('ENGINE_ABORTED', 'ditutup')); }
+    if (this.worker) { this.worker.onmessage = null; this.worker.onerror = null; }
     try { this.worker?.terminate(); } catch { /* */ }
     this.worker = null;
   }

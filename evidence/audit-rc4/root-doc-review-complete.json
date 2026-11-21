@@ -1,0 +1,20 @@
+{
+  "recorded_at": "2026-11-21T09:50:38.541720+00:00",
+  "reviewer": "root",
+  "method": "Root reviewer explicitly confirmed complete reads in team review; historical claims compared to current audit evidence.",
+  "original_repository_paths": [
+    "README.md",
+    "CHANGELOG.md",
+    "docs/CORE_API.md",
+    "docs/RENDER_API.md",
+    "docs/TESTING.md",
+    "docs/RELEASE_REPORT.md",
+    "docs/ACCEPTANCE.md",
+    "docs/PERFORMANCE_REPORT.md",
+    "docs/KNOWN_LIMITS.md",
+    "docs/DEPLOYMENT.md",
+    "docs/DEPLOY_CLOUDFLARE.md",
+    "docs/AGENT_RULES.md"
+  ],
+  "scope": "Read review only; does not certify the historical test claims as fresh RC4 evidence."
+}

@@ -1,0 +1,35 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+ RUN  v5.1.0 /workspace/scratch/69a766e93112/paperforma_rc3_review/candidate
+
+ ❯ tests/unit/core/snapshot-efficiency.test.ts (2 tests | 1 failed) 21ms
+   ❯ PF-AUD-P01 immutable snapshot efficiency (2)
+     × hashes frozen image bytes once per asset rather than twice in one snapshot 17ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/core/snapshot-efficiency.test.ts > PF-AUD-P01 immutable snapshot efficiency > hashes frozen image bytes once per asset rather than twice in one snapshot
+AssertionError: expected 2 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ tests/unit/core/snapshot-efficiency.test.ts:12:43
+     10|   const original=crypto.subtle.digest.bind(crypto.subtle);let calls=0;
+     11|   const spy=vi.spyOn(crypto.subtle,'digest').mockImplementation((algor…
+     12|   try{await makeSnapshot(p);expect(calls).toBe(1);}finally{spy.mockRes…
+       |                                           ^
+     13|  });
+     14|  it('retains byte and setting immutability during asynchronous snapsho…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  16:29:46
+   Duration  498ms (transform 50%, import 33%, tests 12%, worker 5%)
+

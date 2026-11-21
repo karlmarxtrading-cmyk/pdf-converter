@@ -1,0 +1,149 @@
+{
+  "tool": "tests/e2e/pdf-engine-eval.mjs",
+  "candidateSha256": "82397ea41b8253c9c0b6678ea9d879effeb44e6b1f8f37b3b692c341ec7a5465",
+  "at": "2026-11-21T05:52:08.184Z",
+  "cases": [
+    {
+      "id": "small",
+      "pages": 11,
+      "engines": [
+        {
+          "engine": "A: Chrome print engine",
+          "ms": 307,
+          "bytes": 354746,
+          "pages": 11,
+          "fonts": [
+            "AAAAAA+Inter-Regular CID",
+            "BAAAAA+Inter-Bold CID",
+            "CAAAAA+Inter-SemiBold CID",
+            "DAAAAA+Inter-Italic CID",
+            "EAAAAA+JetBrainsMono-Regular CID",
+            "FAAAAA+Inter-Regular CID",
+            "GAAAAA+Inter-Regular CID",
+            "HAAAAA+Inter-Regular CID"
+          ],
+          "embeddedAll": true,
+          "textBlocksFound": "26/28",
+          "textCoverage": 0.929
+        },
+        {
+          "engine": "B1-jspdf-html",
+          "ms": 2813,
+          "bytes": 4441411,
+          "pages": 11,
+          "fonts": [
+            "Helvetica Type",
+            "Helvetica-Bold Type",
+            "Helvetica-Oblique Type",
+            "Helvetica-BoldOblique Type",
+            "Courier Type",
+            "Courier-Bold Type",
+            "Courier-Oblique Type",
+            "Courier-BoldOblique Type"
+          ],
+          "embeddedAll": false,
+          "textBlocksFound": "0/28",
+          "textCoverage": 0,
+          "jsHeapPeakMiB": 11
+        },
+        {
+          "engine": "B2-raster",
+          "ms": 2430,
+          "bytes": 3225101,
+          "pages": 11,
+          "fonts": [],
+          "embeddedAll": true,
+          "textBlocksFound": "0/28",
+          "textCoverage": 0,
+          "jsHeapPeakMiB": 11
+        }
+      ]
+    },
+    {
+      "id": "medium",
+      "pages": 63,
+      "engines": [
+        {
+          "engine": "A: Chrome print engine",
+          "ms": 1366,
+          "bytes": 778022,
+          "pages": 63,
+          "fonts": [
+            "AAAAAA+Inter-Regular CID",
+            "BAAAAA+Inter-Bold CID",
+            "CAAAAA+Inter-SemiBold CID",
+            "DAAAAA+Inter-Italic CID",
+            "EAAAAA+JetBrainsMono-Regular CID",
+            "FAAAAA+Inter-Regular CID",
+            "GAAAAA+Inter-Regular CID",
+            "HAAAAA+Inter-Regular CID"
+          ],
+          "embeddedAll": true,
+          "textBlocksFound": "357/360",
+          "textCoverage": 0.992
+        },
+        {
+          "engine": "B1-jspdf-html",
+          "ms": 25646,
+          "bytes": 15450498,
+          "pages": 63,
+          "fonts": [
+            "Helvetica Type",
+            "Helvetica-Bold Type",
+            "Helvetica-Oblique Type",
+            "Helvetica-BoldOblique Type",
+            "Courier Type",
+            "Courier-Bold Type",
+            "Courier-Oblique Type",
+            "Courier-BoldOblique Type"
+          ],
+          "embeddedAll": false,
+          "textBlocksFound": "0/360",
+          "textCoverage": 0,
+          "jsHeapPeakMiB": 14
+        },
+        {
+          "engine": "B2-raster",
+          "ms": 27163,
+          "bytes": 30300140,
+          "pages": 63,
+          "fonts": [],
+          "embeddedAll": true,
+          "textBlocksFound": "0/360",
+          "textCoverage": 0,
+          "jsHeapPeakMiB": 14
+        }
+      ]
+    },
+    {
+      "id": "large",
+      "pages": 196,
+      "engines": [
+        {
+          "engine": "A: Chrome print engine",
+          "ms": 2344,
+          "bytes": 1638805,
+          "pages": 196,
+          "fonts": [
+            "AAAAAA+Inter-Regular CID",
+            "BAAAAA+Inter-Bold CID",
+            "CAAAAA+Inter-SemiBold CID"
+          ],
+          "embeddedAll": true,
+          "textBlocksFound": "1341/1342",
+          "textCoverage": 0.999
+        },
+        {
+          "engine": "B1-jspdf-html",
+          "ms": 100747,
+          "result": "timeout setelah 115 halaman"
+        },
+        {
+          "engine": "B2-raster",
+          "ms": 100418,
+          "result": "timeout setelah 103 halaman"
+        }
+      ]
+    }
+  ]
+}

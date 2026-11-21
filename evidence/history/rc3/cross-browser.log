@@ -1,0 +1,4 @@
+✓ Chromium Chrome/153.0.8010.12: preview worker, layout 11p pass (1109 ms), 50 bagian 87p pass (4383 ms) 
+✓ Firefox firefox/160.0: preview worker, layout 12p pass (5756 ms), 50 bagian 87p pass (5891 ms) 
+✓ WebKitGTK 2.52.6 (MiniBrowser): preview worker, layout 13p pass (3932 ms), 50 bagian 87p pass (17256 ms) 
+{"engines":["chromium:pass","firefox:pass","webkit:pass"],"identicalHtml":true}

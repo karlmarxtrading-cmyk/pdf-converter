@@ -1,13 +1,15 @@
 // Utilitas E2E: server statis ala Pages + Chrome headless (puppeteer-core). Tidak ada jaringan eksternal.
 import puppeteer from 'puppeteer-core';
 import { startServer } from '../../scripts/serve-dist.mjs';
-import { existsSync } from 'node:fs';
+import { findChromium } from '../../scripts/browser-path.mjs';
 
-export const CHROME = process.env.PF_CHROME || ['/usr/bin/google-chrome', '/usr/bin/chromium', '/usr/bin/chromium-browser'].find((p) => existsSync(p));
+export const CHROME = findChromium();
 
 export async function launch({ dir = 'dist-qa', port = 4310 } = {}) {
   const server = await startServer(dir, port);
-  const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ['--no-sandbox', '--disable-gpu', '--font-render-hinting=none', '--lang=id-ID'] });
+  let browser;
+  try { browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ['--no-sandbox', '--disable-gpu', '--font-render-hinting=none', '--lang=id-ID'] }); }
+  catch (error) { await new Promise(resolve => server.close(resolve)); throw error; }
   const base = `http://127.0.0.1:${port}`;
   return { browser, server, base, async close() { await browser.close(); await new Promise((r) => server.close(r)); } };
 }

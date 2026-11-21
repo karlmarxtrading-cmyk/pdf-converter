@@ -1,0 +1,46 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+ RUN  v5.1.0 /workspace/scratch/69a766e93112/paperforma_rc3_review/candidate
+
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > control: literal trigonometry in a simple table renders once 444ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M01: literal TeX in a caption / merged HTML table renders 193ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M02: literal TeX spanning harmless inline formatting is recognized 49ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M03: math inside link label retains formula and URL 52ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M04: display mode reaches nested phrasing: | Mode | Rumus |
+|---|---|
+| Display | \[x^2+y^2=1\] | 167ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M04: display mode reaches nested phrasing: **\[x^2+y^2=1\]** 20ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M05: indented code remains exact: print("$5", "\(x\)", "\[y\]", "$z$") 19ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M05: indented code remains exact: print("\(x\)", "\[y\]") 31ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M06: raw HTML code remains exact: print("$5", "\(x\)", "\[y\]", "$z$") 15ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M06: raw HTML code remains exact: print("\(x\)", "\[y\]") 41ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M07: display matrices may close after an even backslash run 0ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M08: image references containing literal dollars stay resolvable 5ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > teks biasa/Markdown ChatGPT (\(…\), \[…\], $…$, $$…$$, matriks, integral, tabel, daftar) 869ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > HTML clipboard dengan delimiter literal → Markdown tanpa escape ganda, makna rumus sama 292ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > HTML clipboard KaTeX (markup ChatGPT) → TeX dari anotasi, spasi di sekitar rumus utuh 280ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > impor percakapan ChatGPT (data-message-author-role) mempertahankan rumus 304ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > MathML alttext dan MathJax v2 math/tex dipakai sebagai TeX; tanpa TeX → peringatan, teks tidak hilang 6ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > delimiter literal terbelah <br> (display multi-baris) dan di sel tabel tetap rumus 15ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > delimiter yang memang tidak membentuk rumus tidak dikarang menjadi rumus 7ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Harga $5 dan $10. → 0 rumus 4ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Harga $5 dan diskon 10$ saja. → 0 rumus 3ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Total $1.250 untuk 3 item$ ini. → 0 rumus 3ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Nilai $2x + 3y$ benar. → 1 rumus 29ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Hasil $3 \times 4$ = 12. → 1 rumus 5ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Rumus $5 \text{ dan } 10$ di sini. → 1 rumus 8ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Energi $E=mc^2$. → 1 rumus 8ms
+ ✓ tests/unit/core/math-einstein.test.ts > mode display untuk \[…\] dan $$…$$ satu baris > \[\boxed{E_0=mc^2}\]
+ 17ms
+ ✓ tests/unit/core/math-einstein.test.ts > mode display untuk \[…\] dan $$…$$ satu baris > $$E=mc^2$$
+ 30ms
+ ✓ tests/unit/core/math-einstein.test.ts > mode display untuk \[…\] dan $$…$$ satu baris > Energi diam adalah \[E_0=mc^2\] untuk benda diam.
+ 12ms
+ ✓ tests/unit/core/math-einstein.test.ts > mode display untuk \[…\] dan $$…$$ satu baris > Inline \(E_0\) saja.
+ 16ms
+
+ Test Files  2 passed (2)
+      Tests  30 passed (30)
+   Start at  16:25:09
+   Duration  7.42s (environment 46%, tests 24%, import 18%, transform 12%)
+

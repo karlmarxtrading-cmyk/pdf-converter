@@ -1,0 +1,24 @@
+8
+Kode Nama Nilai (Rp) Aktif
+R040 Barang 40 50.000 Tidak
+R041 Barang 41 51.250 Ya
+R042 Barang 42 52.500 Tidak
+R043 Barang 43 53.750 Ya
+R044 Barang 44 55.000 Tidak
+R045 Barang 45 56.250 Ya
+R046 Barang 46 57.500 Tidak
+R047 Barang 47 58.750 Ya
+R048 Barang 48 60.000 Tidak
+R049 Barang 49 61.250 Ya
+R050 Barang 50 62.500 Tidak
+R051 Barang 51 63.750 Ya
+R052 Barang 52 65.000 Tidak
+R053 Barang 53 66.250 Ya
+R054 Barang 54 67.500 Tidak
+R055 Barang 55 68.750 Ya
+R056 Barang 56 70.000 Tidak
+R057 Barang 57 71.250 Ya
+R058 Barang 58 72.500 Tidak
+R059 Barang 59 73.750 Ya
+R060 Barang 60 75.000 Tidak
+R061 Barang 61 76.250 Ya

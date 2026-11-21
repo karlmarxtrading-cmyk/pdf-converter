@@ -1,0 +1,36 @@
+10
+PYTHON · LANJUTAN
+    baris_014 = hitung(14, faktor=0)  # komentar panjang untuk baris kode nomor 14
+    baris_015 = hitung(15, faktor=1)  # komentar panjang untuk baris kode nomor 15
+    baris_016 = hitung(16, faktor=2)  # komentar panjang untuk baris kode nomor 16
+    baris_017 = hitung(17, faktor=3)  # komentar panjang untuk baris kode nomor 17
+    baris_018 = hitung(18, faktor=4)  # komentar panjang untuk baris kode nomor 18
+    baris_019 = hitung(19, faktor=5)  # komentar panjang untuk baris kode nomor 19
+    baris_020 = hitung(20, faktor=6)  # komentar panjang untuk baris kode nomor 20
+    baris_021 = hitung(21, faktor=0)  # komentar panjang untuk baris kode nomor 21
+    baris_022 = hitung(22, faktor=1)  # komentar panjang untuk baris kode nomor 22
+    baris_023 = hitung(23, faktor=2)  # komentar panjang untuk baris kode nomor 23
+    baris_024 = hitung(24, faktor=3)  # komentar panjang untuk baris kode nomor 24
+    baris_025 = hitung(25, faktor=4)  # komentar panjang untuk baris kode nomor 25
+    baris_026 = hitung(26, faktor=5)  # komentar panjang untuk baris kode nomor 26
+    baris_027 = hitung(27, faktor=6)  # komentar panjang untuk baris kode nomor 27
+    baris_028 = hitung(28, faktor=0)  # komentar panjang untuk baris kode nomor 28
+    baris_029 = hitung(29, faktor=1)  # komentar panjang untuk baris kode nomor 29
+    baris_030 = hitung(30, faktor=2)  # komentar panjang untuk baris kode nomor 30
+    baris_031 = hitung(31, faktor=3)  # komentar panjang untuk baris kode nomor 31
+    baris_032 = hitung(32, faktor=4)  # komentar panjang untuk baris kode nomor 32
+    baris_033 = hitung(33, faktor=5)  # komentar panjang untuk baris kode nomor 33
+    baris_034 = hitung(34, faktor=6)  # komentar panjang untuk baris kode nomor 34
+    baris_035 = hitung(35, faktor=0)  # komentar panjang untuk baris kode nomor 35
+    baris_036 = hitung(36, faktor=1)  # komentar panjang untuk baris kode nomor 36
+    baris_037 = hitung(37, faktor=2)  # komentar panjang untuk baris kode nomor 37
+    baris_038 = hitung(38, faktor=3)  # komentar panjang untuk baris kode nomor 38
+    baris_039 = hitung(39, faktor=4)  # komentar panjang untuk baris kode nomor 39
+    baris_040 = hitung(40, faktor=5)  # komentar panjang untuk baris kode nomor 40
+    baris_041 = hitung(41, faktor=6)  # komentar panjang untuk baris kode nomor 41
+    baris_042 = hitung(42, faktor=0)  # komentar panjang untuk baris kode nomor 42
+    baris_043 = hitung(43, faktor=1)  # komentar panjang untuk baris kode nomor 43
+    baris_044 = hitung(44, faktor=2)  # komentar panjang untuk baris kode nomor 44
+    baris_045 = hitung(45, faktor=3)  # komentar panjang untuk baris kode nomor 45
+    baris_046 = hitung(46, faktor=4)  # komentar panjang untuk baris kode nomor 46
+    baris_047 = hitung(47, faktor=5)  # komentar panjang untuk baris kode nomor 47

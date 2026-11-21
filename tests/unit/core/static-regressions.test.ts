@@ -164,11 +164,14 @@ describe('QA-02 anggaran piksel/dekode dari header sebelum dekode', async () => 
 describe('gambar data: inline (regresi lintas-browser)', () => {
   it('rujukan data: lolos pemeriksaan keutuhan tanpa menduplikasi base64', async () => {
     const { renderBody, checkRenderIntegrity } = await import('../../../src/core/index');
-    const url = 'data:image/png;base64,' + 'iVBORw0KGgo'.repeat(20);
+    // A real 1×1 PNG: the previous repeated-base64 fixture had no valid raster header.
+    const payload = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII=';
+    const url = 'data:image/png;base64,' + payload;
     const src = `Teks ![grafik](${url} "Judul") akhir.\n`;
     const r = await renderBody(src, { assets: [], allowExternalImages: false, template: 'BUS-01' });
     const rep = checkRenderIntegrity(src, r);
     expect(rep.issues.filter((i) => i.severity === 'error')).toEqual([]);
-    expect((r.html.match(/iVBORw0KGgo/g) ?? []).length).toBe(20); // hanya di src
+    expect(r.issues.some((i) => i.blocking)).toBe(false);
+    expect(r.html.split(payload).length - 1).toBe(1); // hanya di src
   });
 });

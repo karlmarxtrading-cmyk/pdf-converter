@@ -1,0 +1,132 @@
+14
+PYTHON
+ · 
+LANJUTAN
+    b
+aris_015 = hitung(
+15
+, faktor=
+1
+)  
+# komentar 
+panjang untuk baris kode nomor 15
+    b
+aris_016 = hitung(
+16
+, faktor=
+2
+)  
+# komentar 
+panjang untuk baris kode nomor 16
+    b
+aris_017 = hitung(
+17
+, faktor=
+3
+)  
+# komentar 
+panjang untuk baris kode nomor 17
+    b
+aris_018 = hitung(
+18
+, faktor=
+4
+)  
+# komentar 
+panjang untuk baris kode nomor 18
+    b
+aris_019 = hitung(
+19
+, faktor=
+5
+)  
+# komentar 
+panjang untuk baris kode nomor 19
+    b
+aris_020 = hitung(
+20
+, faktor=
+6
+)  
+# komentar 
+panjang untuk baris kode nomor 20
+    b
+aris_021 = hitung(
+21
+, faktor=
+0
+)  
+# komentar 
+panjang untuk baris kode nomor 21
+    b
+aris_022 = hitung(
+22
+, faktor=
+1
+)  
+# komentar 
+panjang untuk baris kode nomor 22
+    b
+aris_023 = hitung(
+23
+, faktor=
+2
+)  
+# komentar 
+panjang untuk baris kode nomor 23
+    b
+aris_024 = hitung(
+24
+, faktor=
+3
+)  
+# komentar 
+panjang untuk baris kode nomor 24
+    b
+aris_025 = hitung(
+25
+, faktor=
+4
+)  
+# komentar 
+panjang untuk baris kode nomor 25
+    b
+aris_026 = hitung(
+26
+, faktor=
+5
+)  
+# komentar 
+panjang untuk baris kode nomor 26
+    b
+aris_027 = hitung(
+27
+, faktor=
+6
+)  
+# komentar 
+panjang untuk baris kode nomor 27
+    b
+aris_028 = hitung(
+28
+, faktor=
+0
+)  
+# komentar 
+panjang untuk baris kode nomor 28
+    b
+aris_029 = hitung(
+29
+, faktor=
+1
+)  
+# komentar 
+panjang untuk baris kode nomor 29
+    b
+aris_030 = hitung(
+30
+, faktor=
+2
+)  
+# komentar 
+panjang untuk baris kode nomor 30

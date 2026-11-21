@@ -1,0 +1,17 @@
+{
+  "at": "2026-11-21T10:02:44.963493+00:00",
+  "candidateSha256": "680c8b5c6cb1ca3948e19c17857682ab6711d3a2fb70430565692f8a0feadd79",
+  "command": [
+    "npm",
+    "run",
+    "test:e2e"
+  ],
+  "exitCode": 1,
+  "status": "BLOCKED_BY_ENVIRONMENT",
+  "browserSuiteExecuted": false,
+  "nativePrint": "NOT_RUN",
+  "firefox": "NOT_RUN",
+  "webkit": "NOT_RUN",
+  "cloudflareOwner": "NOT_RUN",
+  "note": "No browser success is inferred from historical RC3 evidence. Launch failure prevents execution of candidate UI scenarios."
+}

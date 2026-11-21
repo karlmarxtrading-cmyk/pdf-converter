@@ -1,0 +1,191 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+ RUN  v5.1.0 /workspace/scratch/69a766e93112/paperforma_rc3_review/candidate
+
+ ✓ tests/unit/core/storage-boundary.test.ts > F-01 runtime boundaries > rejects malformed numeric settings even when manifest and settings copy are internally consistent 70ms
+ ✓ tests/unit/core/storage-boundary.test.ts > F-01 runtime boundaries > checks nested reference bounds, uniqueness, settings and legacy imports 31ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > control: literal trigonometry in a simple table renders once 176ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M01: literal TeX in a caption / merged HTML table renders 98ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M02: literal TeX spanning harmless inline formatting is recognized 32ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M03: math inside link label retains formula and URL 68ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M04: display mode reaches nested phrasing: | Mode | Rumus |
+|---|---|
+| Display | \[x^2+y^2=1\] | 59ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M04: display mode reaches nested phrasing: **\[x^2+y^2=1\]** 22ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M05: indented code remains exact: print("$5", "\(x\)", "\[y\]", "$z$") 24ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M05: indented code remains exact: print("\(x\)", "\[y\]") 42ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M06: raw HTML code remains exact: print("$5", "\(x\)", "\[y\]", "$z$") 18ms
+ ✓ tests/unit/core/portable-regressions.test.ts > CR-01 portable archive budgets > restores 135,011 bytes of repetitive exercise text, including a legacy high compression ratio 321ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M06: raw HTML code remains exact: print("\(x\)", "\[y\]") 19ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M07: display matrices may close after an even backslash run 1ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M08: image references containing literal dollars stay resolvable 9ms
+ ✓ tests/unit/core/render.test.ts > Rumus & mata uang > SEM-01 rumus inline sah tampil; $100/$250 dan \$ tetap literal; tanda minus benar [fx:02_rumus_dan_mata_uang.md] 507ms
+ ✓ tests/unit/core/integrity.test.ts > CODE-04 token berurutan > CODE-04 distinguishes reordered operands, repeated tokens and reversed roles (authored regression pairs) 13ms
+ ✓ tests/unit/core/integrity.test.ts > CODE-04 token berurutan > SEM-01 IMP-10 fixture pasangan pembanding: render utuh lolos; mutasi tanda/urutan/minus terdeteksi per blok [fx:16_urutan_dan_operator.md] 373ms
+ ✓ tests/unit/core/render.test.ts > Rumus & mata uang > SEM-02 display math (pecahan, integral, matriks, aligned) dirender; sumber LaTeX tersimpan di data-tex & anotasi [fx:02_rumus_dan_mata_uang.md] 176ms
+ ✓ tests/unit/core/render.test.ts > Rumus & mata uang > SEM-03 LaTeX invalid, delimiter tak tertutup, command tak didukung → fallback sumber terlihat + issue berbaris [fx:02_rumus_dan_mata_uang.md] 78ms
+ ✓ tests/unit/core/render.test.ts > Tabel > SEM-04 sel = teks: nol di depan, koma desimal, negatif, persen utuh; 72 sel data tetap [fx:04_tabel_lebar.md] 85ms
+ ✓ tests/unit/core/render.test.ts > Tabel > SEM-06 tabel 60 baris: tepat 60 baris data, ROW_001..ROW_060 unik [fx:03_tabel_60_baris.md] 106ms
+ ✓ tests/unit/core/static-regressions.test.ts > EN-003 karakter Private Use literal dipertahankan > scanMath tidak memakai karakter yang ada di sumber sebagai sentinel 18ms
+ ✓ tests/unit/core/static-regressions.test.ts > EN-003 karakter Private Use literal dipertahankan > paragraf: karakter sumber tetap sama dan integrity lulus 302ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > teks biasa/Markdown ChatGPT (\(…\), \[…\], $…$, $$…$$, matriks, integral, tabel, daftar) 881ms
+ ✓ tests/unit/core/static-regressions.test.ts > EN-003 karakter Private Use literal dipertahankan > heading: karakter sumber tetap sama dan integrity lulus 77ms
+ ✓ tests/unit/core/static-regressions.test.ts > EN-003 karakter Private Use literal dipertahankan > kode fence: karakter sumber tetap sama dan integrity lulus 63ms
+ ✓ tests/unit/core/render-acceptance.test.ts > RC3 import → model → output > F-06 retains exact formulas in caption, colspan, rowspan and footer 1063ms
+ ✓ tests/unit/core/render.test.ts > Tabel > SEM-05 sel kurang/berlebih: tidak ada sel dibuang/digeser; issue berbaris; perbaikan diff dapat dibatalkan 38ms
+ ✓ tests/unit/core/render.test.ts > Kode > SEM-08 kode tidak dieksekusi; tab, indentasi, baris panjang, HTML literal, triple backtick utuh [fx:14_blok_panjang.md] 241ms
+ ✓ tests/unit/core/static-regressions.test.ts > EN-003 karakter Private Use literal dipertahankan > kode inline: karakter sumber tetap sama dan integrity lulus 52ms
+ ✓ tests/unit/core/static-regressions.test.ts > EN-003 karakter Private Use literal dipertahankan > tabel: karakter sumber tetap sama dan integrity lulus 62ms
+ ✓ tests/unit/core/render.test.ts > Kode > mermaid → <pre class="pf-mermaid" data-src> untuk lapisan DOM 15ms
+ ✓ tests/unit/core/render.test.ts > Catatan kaki, tautan, judul > SEM-09 rujukan berulang, definisi hilang ditandai, id stabil & backref; token sitasi AI tidak dikarang URL [fx:10_catatan_kaki_dan_sitasi.md] 36ms
+ ✓ tests/unit/core/render.test.ts > Catatan kaki, tautan, judul > SEM-10 tautan: persen, Unicode, query, fragment tidak di-encode ulang/dipotong; javascript:/vbscript:/data: diblokir [fx:13_heading_dan_tautan.md] 32ms
+ ✓ tests/unit/core/render.test.ts > Catatan kaki, tautan, judul > SEM-12 heading berulang → id unik & stabil; H1→H3 dilaporkan; idPrefix namespace (IMP-12) [fx:13_heading_dan_tautan.md] 77ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > HTML clipboard dengan delimiter literal → Markdown tanpa escape ganda, makna rumus sama 353ms
+ ✓ tests/unit/core/static-regressions.test.ts > EN-003 karakter Private Use literal dipertahankan > atribut alt/judul tautan: karakter sumber tetap sama dan integrity lulus 38ms
+ ✓ tests/unit/core/static-regressions.test.ts > EN-003 karakter Private Use literal dipertahankan > rumus: karakter sumber tetap sama dan integrity lulus 48ms
+ ✓ tests/unit/core/static-regressions.test.ts > EN-003 karakter Private Use literal dipertahankan > mata uang dan pembatas \( \) \[ \] tetap benar bersama PUA, astral dan CRLF 98ms
+ ✓ tests/unit/core/render.test.ts > Aset > AST-01 path relatif dengan spasi & Unicode; ./ dan %20 ter-resolve; dimensi dipakai [fx:11_aset_lokal_dan_hilang.md] 70ms
+ ✓ tests/unit/core/render.test.ts > Aset > AST-03 gambar hilang → placeholder + issue; setelah aset ditambahkan issue selesai [fx:11_aset_lokal_dan_hilang.md] 90ms
+ ✓ tests/unit/core/static-regressions.test.ts > EN-003 karakter Private Use literal dipertahankan > integrity gagal bila satu literal PUA diubah/dihapus pada keluaran 30ms
+ ✓ tests/unit/core/static-regressions.test.ts > EN-003 karakter Private Use literal dipertahankan > oracle independen menghitung dari sumber mentah, bukan dari parser 33ms
+ ✓ tests/unit/core/render-acceptance.test.ts > RC3 import → model → output > F-07 ZIP member path binds resolution/preflight/export to the selected markdown, also after restore 427ms
+ ✓ tests/unit/core/integrity.test.ts > CODE-04 token berurutan > urutan blok, blok hilang, kode, rumus, sel tabel, tautan, aset, catatan kaki — semua terdeteksi [fx:01_dokumen_pendek.md] [fx:02_rumus_dan_mata_uang.md] [fx:10_catatan_kaki_dan_sitasi.md] 941ms
+ ✓ tests/unit/core/static-regressions.test.ts > EN-003 karakter Private Use literal dipertahankan > roundtrip snapshot mempertahankan PUA di sumber 112ms
+ ✓ tests/unit/core/static-regressions.test.ts > EN-011 percakapan HTML clipboard > penyebutan literal nama atribut di paragraf/kode tidak menghasilkan 0 pesan 18ms
+ ✓ tests/unit/core/static-regressions.test.ts > EN-011 percakapan HTML clipboard > struktur ChatGPT asli tetap dikenali per peran 41ms
+ ✓ tests/unit/core/render.test.ts > Aset > AST-04 gambar eksternal: tanpa izin TIDAK ada src (tidak ada request); dengan izin https dimuat no-referrer [fx:11_aset_lokal_dan_hilang.md] 139ms
+ ✓ tests/unit/core/static-regressions.test.ts > EN-011 percakapan HTML clipboard > teks pembuka/penutup di luar wrapper dipertahankan sebagai pesan unknown dengan issue 6ms
+ ✓ tests/unit/core/static-regressions.test.ts > EN-011 percakapan HTML clipboard > input nonkosong yang tidak dapat dikenali memberi issue blocking, bukan sukses kosong 0ms
+ ✓ tests/unit/core/static-regressions.test.ts > QA-02 anggaran piksel/dekode dari header sebelum dekode > header PNG 24 byte yang mengklaim 100000×100000 ditolak 1ms
+ ✓ tests/unit/core/static-regressions.test.ts > QA-02 anggaran piksel/dekode dari header sebelum dekode > tepat di bawah batas diterima, di atas batas ditolak 1ms
+ ✓ tests/unit/core/static-regressions.test.ts > QA-02 anggaran piksel/dekode dari header sebelum dekode > JPEG rusak tanpa marker SOF ditolak sebagai dimensi tak terbaca 0ms
+ ✓ tests/unit/core/static-regressions.test.ts > QA-02 anggaran piksel/dekode dari header sebelum dekode > SVG dengan width/height ekstrem ditolak; viewBox besar tanpa ukuran tetap diterima 14ms
+ ✓ tests/unit/core/static-regressions.test.ts > QA-02 anggaran piksel/dekode dari header sebelum dekode > total piksel proyek dibatasi; proyek semula tetap utuh 5ms
+ ✓ tests/unit/core/static-regressions.test.ts > gambar data: inline (regresi lintas-browser) > rujukan data: lolos pemeriksaan keutuhan tanpa menduplikasi base64 43ms
+ ✓ tests/unit/core/render.test.ts > Aset > AST-01 SVG aset disanitasi: skrip, handler, foreignObject, href eksternal dibuang; tidak dapat menjalankan kode 52ms
+ ✓ tests/unit/core/render.test.ts > Keamanan > HTM-05 SEC-01 script/onerror/javascript:/iframe/form/style/name dibuang & DILAPORKAN; teks aman & instruksi tetap konten [fx:15_input_keamanan.md] 108ms
+ ✓ tests/unit/core/render-acceptance.test.ts > RC3 import → model → output > F-08 rewrites explicit IDs, Unicode, duplicates and footnotes, while retaining link integrity 168ms
+ ✓ tests/unit/core/render.test.ts > Keamanan > IMP-01 dokumen pendek: tiga bagian, nilai, dan sentinel utuh [fx:01_dokumen_pendek.md] 20ms
+ ✓ tests/unit/core/render.test.ts > Keamanan > SEM-11 skrip Unicode dideteksi untuk resolver font; glyph tidak dihapus [fx:12_unicode_dan_font.md] 11ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > HTML clipboard KaTeX (markup ChatGPT) → TeX dari anotasi, spasi di sekitar rumus utuh 505ms
+ ✓ tests/unit/core/render-acceptance.test.ts > RC3 import → model → output > F-08 resolves a cross-message target and keeps identically named local headings scoped 149ms
+ ✓ tests/unit/core/render-acceptance.test.ts > RC3 import → model → output > F-09 output labels follow document language en; preserve user text 96ms
+ ✓ tests/unit/core/integrity.test.ts > CODE-04 token berurutan > SEM-04 SEM-06 matriks sel tabel sel-demi-sel; 60 baris & tabel lebar lolos [fx:03_tabel_60_baris.md] [fx:04_tabel_lebar.md] 451ms
+ ✓ tests/unit/core/render-acceptance.test.ts > RC3 import → model → output > F-09 output labels follow document language id; preserve user text 80ms
+ ✓ tests/unit/core/integrity.test.ts > CODE-04 token berurutan > SEM-02 sel/kode/rumus panjang & tabel malformed tidak menimbulkan positif palsu [fx:14_blok_panjang.md] 75ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > impor percakapan ChatGPT (data-message-author-role) mempertahankan rumus 431ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > MathML alttext dan MathJax v2 math/tex dipakai sebagai TeX; tanpa TeX → peringatan, teks tidak hilang 13ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > delimiter literal terbelah <br> (display multi-baris) dan di sel tabel tetap rumus 33ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > delimiter yang memang tidak membentuk rumus tidak dikarang menjadi rumus 17ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Harga $5 dan $10. → 0 rumus 8ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Harga $5 dan diskon 10$ saja. → 0 rumus 8ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Total $1.250 untuk 3 item$ ini. → 0 rumus 12ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Nilai $2x + 3y$ benar. → 1 rumus 9ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Hasil $3 \times 4$ = 12. → 1 rumus 38ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Rumus $5 \text{ dan } 10$ di sini. → 1 rumus 12ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Energi $E=mc^2$. → 1 rumus 9ms
+ ✓ tests/unit/core/math-einstein.test.ts > mode display untuk \[…\] dan $$…$$ satu baris > \[\boxed{E_0=mc^2}\]
+ 37ms
+ ✓ tests/unit/core/math-einstein.test.ts > mode display untuk \[…\] dan $$…$$ satu baris > $$E=mc^2$$
+ 22ms
+ ✓ tests/unit/core/math-einstein.test.ts > mode display untuk \[…\] dan $$…$$ satu baris > Energi diam adalah \[E_0=mc^2\] untuk benda diam.
+ 21ms
+ ✓ tests/unit/core/math-einstein.test.ts > mode display untuk \[…\] dan $$…$$ satu baris > Inline \(E_0\) saja.
+ 25ms
+ ✓ tests/unit/core/assets-zip.test.ts > Aset > AST-02 CODE-03 nama/ukuran/MIME sama, isi beda → id, data URL, dan cache memakai isi terbaru [fx:pengganti_A/chart.png] [fx:pengganti_B/chart.png] 38ms
+ ✓ tests/unit/core/assets-zip.test.ts > Aset > PF-004 MIME dari magic bytes & dimensi; ekstensi palsu ditolak [fx:assets/chart.png] 3ms
+ ✓ tests/unit/core/assets-zip.test.ts > Aset > cache data URL berbatas dengan pembuangan LRU 21ms
+ ✓ tests/unit/core/assets-zip.test.ts > Aset > AST-08 anggaran total proyek pada AssetStore: transaksi addMany rollback utuh 16ms
+ ✓ tests/unit/core/assets-zip.test.ts > ZIP > AST-05 folder bertingkat, dua naskah, gambar terkait, berkas tak didukung: pemilihan eksplisit, berkas dilaporkan [fx:assets/chart.png] 15ms
+ ✓ tests/unit/core/assets-zip.test.ts > ZIP > CODE-17 semua naskah dikembalikan (tidak dibatasi 6) 19ms
+ ✓ tests/unit/core/assets-zip.test.ts > ZIP > AST-06 ../, path absolut, backslash, duplikat kanonik, symlink → ditolak dengan pesan; proyek tidak berubah 14ms
+ ✓ tests/unit/core/assets-zip.test.ts > ZIP > AST-07 ZIP bomb: rasio, jumlah entri, total terekstrak, ukuran per berkas, ukuran deklarasi palsu → dihentikan sebelum/saat inflate 169ms
+ ✓ tests/unit/core/assets-zip.test.ts > ZIP > AST-08 impor ZIP berulang melewati total proyek: transaksi terakhir rollback utuh, aset lama tidak rusak [fx:assets/chart.png] 30ms
+ ✓ tests/unit/core/projects-storage.test.ts > Paket proyek > OPS-07 ekspor → impor .pfproj utuh: sumber, input mentah, aset, setting, brand kit, hash identik [fx:11_aset_lokal_dan_hilang.md] [fx:assets/chart.png] 197ms
+ ✓ tests/unit/core/projects-storage.test.ts > Paket proyek > OPS-08 paket rusak/diubah/tanpa manifest/skema lebih baru ditolak tanpa mengganti proyek aktif 96ms
+ ✓ tests/unit/core/projects-storage.test.ts > Paket proyek > OPS-08 migrasi draf 1.0.0 → v2 eksplisit & dapat dibatalkan; draf asli disimpan [fx:01_dokumen_pendek.md] [fx:assets/chart.png] 8ms
+ ✓ tests/unit/core/projects-storage.test.ts > Paket proyek > UX-10 riwayat revisi terbatas & berurutan; proyek lama tidak dimutasi 233ms
+ ✓ tests/unit/core/projects-storage.test.ts > Paket proyek > PF-032 brand kit divalidasi; logo harus aset proyek 4ms
+ ✓ tests/unit/core/projects-storage.test.ts > Penyimpanan > OPS-06 status simpan jujur: pending ≠ saved; quota/unavailable/failed dilaporkan apa adanya (memori) 10ms
+ ✓ tests/unit/core/projects-storage.test.ts > Penyimpanan > CODE-10 hapus: blocked/failed BUKAN sukses; autosave terlambat tidak menghidupkan proyek terhapus 33ms
+ ✓ tests/unit/core/projects-storage.test.ts > Penyimpanan > OPS-06 OPS-07 IndexedDB (fake-indexeddb): simpan/muat/daftar, tombstone, deleteAll blocked oleh koneksi lain dilaporkan jujur 64ms
+ ✓ tests/unit/core/projects-storage.test.ts > Penyimpanan > OPS-08 draf baseline 1.0.0 dibaca dari IndexedDB lama tanpa diubah 5ms
+ ✓ tests/unit/core/wrapper-clipboard.test.ts > IMP-02 pembungkus > IMP-02 fence luar ````markdown dengan fence kode dalam: terdeteksi, dilepas hanya eksplisit, isi utuh, undo memulihkan [fx:05_wrapper_dan_kode.md] 14ms
+ ✓ tests/unit/core/wrapper-clipboard.test.ts > IMP-02 pembungkus > IMP-02 varian 3/5 backtick dan tilde; fence dalam yang menutup lebih awal ditandai; teks di luar → ambiguous 2ms
+ ✓ tests/unit/core/wrapper-clipboard.test.ts > Clipboard HTML → Markdown > IMP-04 SEM-07 fixture 08: LaTeX diambil sekali dari anotasi (tidak duplikat), tabel rowspan dipertahankan sebagai HTML + issue, sentinel utuh [fx:08_clipboard_rich_math_tabel.json] 59ms
+ ✓ tests/unit/core/wrapper-clipboard.test.ts > Clipboard HTML → Markdown > IMP-04 heading, daftar bertingkat, tebal/miring, tautan, kode, tabel → GFM; script/handler tidak ikut dan dilaporkan 126ms
+ ✓ tests/unit/core/wrapper-clipboard.test.ts > Clipboard HTML → Markdown > IMP-14 CODE-06 markup melebihi batas byte ditolak UTUH sebelum konversi (tanpa slice), walau teks kecil 8ms
+ ✓ tests/unit/core/wrapper-clipboard.test.ts > Clipboard HTML → Markdown > MathML tanpa anotasi ditandai; KaTeX display menghasilkan $$ 14ms
+ ✓ tests/unit/core/curation-publication.test.ts > F-02/F-03/F-10 canonical conversation publication > honours editor content even for conflicting legacy messages 147ms
+ ✓ tests/unit/core/curation-publication.test.ts > F-02/F-03/F-10 canonical conversation publication > rejects empty, duplicate, stale and unsupported references before composing 48ms
+ ✓ tests/unit/core/curation-publication.test.ts > F-02/F-03/F-10 canonical conversation publication > commits and restores an edited composition with its original source-map offsets and block order 138ms
+stdout | tests/unit/core/storage-boundary.test.ts > F-04 one MiB, 100 small edits, source provenance, conversation and logo round-trip losslessly
+F-04 {"edits":100,"rawBytes":1048576,"historyCount":100,"portableUnpacked":4390177,"archiveBytes":15031}
+
+ ✓ tests/unit/core/storage-boundary.test.ts > F-04 one MiB, 100 small edits, source provenance, conversation and logo round-trip losslessly 5376ms
+ ✓ tests/unit/core/portable-regressions.test.ts > CR-01 portable archive budgets > restores 90 full revisions with project metadata larger than 5 MiB 4226ms
+ ✓ tests/unit/core/curation-publication.test.ts > F-02/F-03/F-10 canonical conversation publication > scopes duplicate fragment names to the message that supplied each edited-document link 82ms
+ ✓ tests/unit/core/storage-boundary.test.ts > F-05 retries, concurrent branches and deletion use the actual loaded base 43ms
+ ✓ tests/unit/core/budget-hash.test.ts > InputBudget > IMP-13 multibyte UTF-8 tepat di bawah / sama / satu byte di atas batas; ditolak utuh; sumber aktif tidak berubah 17ms
+ ✓ tests/unit/core/budget-hash.test.ts > InputBudget > CODE-05 file.size diperiksa SEBELUM arrayBuffer(); berkas besar tidak dibaca 12ms
+ ✓ tests/unit/core/budget-hash.test.ts > InputBudget > checkBudget satu konfigurasi untuk semua jalur (asset, zip, totalProject, ekspor) 1ms
+ ✓ tests/unit/core/budget-hash.test.ts > InputBudget > IMP-01 BOM dipertahankan, CRLF dan karakter Indonesia tidak diubah [fx:01_dokumen_pendek.md] 3ms
+ ✓ tests/unit/core/budget-hash.test.ts > Hash & snapshot (PF-015) > sha256Hex: vektor standar; fallback murni-JS identik dengan WebCrypto 58ms
+ ✓ tests/unit/core/budget-hash.test.ts > Hash & snapshot (PF-015) > canonicalJson: urutan kunci stabil, undefined dihilangkan, NaN/bytes ditolak 2ms
+ ✓ tests/unit/core/curation-publication.test.ts > F-02/F-03/F-10 canonical conversation publication > serialises the original rich direct paste after later edits and backup/restore 45ms
+ ✓ tests/unit/core/curation-publication.test.ts > F-02/F-03/F-10 canonical conversation publication > retains a valid raw HTML origin for a converted block 17ms
+ ✓ tests/unit/core/curation-publication.test.ts > F-02/F-03/F-10 canonical conversation publication > visible labels appear once and hidden roles remain semantic in both presentation layers 116ms
+ ✓ tests/unit/core/budget-hash.test.ts > Hash & snapshot (PF-015) > empat hash berbeda; renderInputHash berubah bila bytes aset berganti dengan path/ukuran sama (AST-02) 35ms
+ ✓ tests/unit/core/budget-hash.test.ts > Hash & snapshot (PF-015) > HTM-07 snapshot beku & independen dari edit berikutnya 4ms
+ ✓ tests/unit/core/budget-hash.test.ts > Hash & snapshot (PF-015) > OPS-03 RevisionGuard: hanya revisi terbaru dipublikasikan; render lama dibatalkan/diabaikan 44ms
+ ✓ tests/unit/core/budget-hash.test.ts > Offset UTF-16 ↔ UTF-8 (05 §6) > emoji, combining, dan Indonesia: tiga satuan berbeda dan konversi bolak-balik [fx:12_unicode_dan_font.md] 9ms
+ ✓ tests/unit/core/portable-regressions.test.ts > CR-01 portable archive budgets > rejects export and restore consistently at the unpacked limit and preserves the original 43ms
+ ✓ tests/unit/core/portable-regressions.test.ts > CR-01 portable archive budgets > preserves a UTF-8 BOM when restoring source.md 16ms
+ ✓ tests/unit/core/portable-regressions.test.ts > CR-03 CRC32 before commit > rejects a damaged checksum for a price in a stored entry 2ms
+ ✓ tests/unit/core/portable-regressions.test.ts > CR-03 CRC32 before commit > rejects a damaged checksum for a price in a deflate entry 3ms
+ ✓ tests/unit/core/portable-regressions.test.ts > CR-02 verifies caption, footer totals, cells and spans in a raw HTML table 271ms
+ ✓ tests/unit/core/portable-regressions.test.ts > CR-02 HTML clipboard import preserves caption, footer and links for a table without merged cells 51ms
+ ✓ tests/unit/core/undo-project.test.ts > transaksi proyek: teks → margin → templat → brand → aset → Undo/Redo > setiap langkah dapat diurungkan dan diulang dengan seluruh keadaannya 42ms
+ ✓ tests/unit/core/undo-project.test.ts > transaksi proyek: teks → margin → templat → brand → aset → Undo/Redo > ketikan beruntun digabung; retensi dibatasi tanpa menyentuh sumber aktif 29ms
+ ✓ tests/unit/core/undo-project.test.ts > pemulihan revisi mencakup pengaturan, templat, brand dan aset > restoreRevisionChanges memulihkan keadaan non-teks; aset hilang dilaporkan 3ms
+ ✓ tests/unit/core/undo-project.test.ts > pemulihan revisi mencakup pengaturan, templat, brand dan aset > revisi RC3 tanpa keadaan dipulihkan sebagai teks saja dan diberi label 1ms
+ ✓ tests/unit/core/paste.test.ts > PasteLedger > IMP-05 A → B (rich) → C diketik; konversi B hanya mengganti rentang B; A dan C utuh; undo/redo satu unit [fx:07_transaksi_multi_paste.json] 57ms
+ ✓ tests/unit/core/paste.test.ts > PasteLedger > IMP-05 rebase saat mengetik di tempat lain; fragmen yang diedit menjadi usang dan konversi ditolak 1ms
+ ✓ tests/unit/core/paste.test.ts > PasteLedger > UX-03 tiga operasi berbeda: sisip di kursor (ganti seleksi), tambah sebagai pesan, ganti seluruh sumber hanya dengan konfirmasi 4ms
+ ✓ tests/unit/core/paste.test.ts > PasteLedger > syncFromText dari textarea = satu transaksi edit; paste di tengah blok kode tidak mengubah sekitarnya 1ms
+ ✓ tests/unit/core/paste.test.ts > IMP-03 > IMP-03 teks biasa (spasi, paragraf, kutipan, emoji, rupiah, URL) dipertahankan byte-demi-byte 1ms
+ ✓ tests/unit/core/conversation.test.ts > Parser percakapan > IMP-06 label di code fence & blockquote bukan batas pesan; empat pesan; isi contoh utuh [fx:06_percakapan_empat_pesan.txt] 22ms
+ ✓ tests/unit/core/conversation.test.ts > Parser percakapan > IMP-07 peran ID/EN, timestamp hanya bila literal, tanpa nama model rekaan 2ms
+ ✓ tests/unit/core/conversation.test.ts > Parser percakapan > IMP-08 ambigu: teks tanpa label, nama tak standar, UI chrome — semua dipertahankan & ditandai; peran/batas dapat diperbaiki 6ms
+ ✓ tests/unit/core/conversation.test.ts > Parser percakapan > IMP-11 revisi & duplikasi: enam pesan; duplikat hanya SARAN; -5 dan 5 tidak tertukar; keep-both [fx:09_revisi_dan_duplikasi.txt] 190ms
+ ✓ tests/unit/core/conversation.test.ts > Parser percakapan > IMP-09 pilih pesan 2, 4, 6 → transkrip: hanya itu, urutan ditetapkan, label tertulis, provenance tersimpan [fx:09_revisi_dan_duplikasi.txt] 73ms
+ ✓ tests/unit/core/conversation.test.ts > Parser percakapan > IMP-10 dokumen terkurasi dari beberapa jawaban + atur ulang dua bagian: tanpa kalimat baru, peta blok → sumber dapat ditelusuri [fx:06_percakapan_empat_pesan.txt] 37ms
+ ✓ tests/unit/core/conversation.test.ts > Parser percakapan > IMP-12 gabung dokumen dengan heading & footnote id sama → namespace stabil; tautan menuju blok benar 58ms
+ ✓ tests/unit/core/conversation.test.ts > Parser percakapan > mode source-appendix dan answer; ringkasan impor; jalur HTML data-message-author-role 68ms
+ ✓ tests/unit/core/conversation.test.ts > Parser percakapan > offset UTF-16 sourceRef ↔ byte UTF-8 dengan emoji dan combining 3ms
+ ✓ tests/unit/core/preflight.test.ts > Preflight > CODE-09 PF-014 gambar eksternal & hilang: tidak pernah "lengkap" untuk PDF; salinan disematkan → lengkap [fx:11_aset_lokal_dan_hilang.md] [fx:assets/chart.png] 263ms
+ ✓ tests/unit/core/preflight.test.ts > Preflight > empat status: Siap / Perlu diperiksa / Perlu diperbaiki / Belum diperiksa; hasil usang → Belum diperiksa [fx:01_dokumen_pendek.md] [fx:13_heading_dan_tautan.md] 153ms
+ ✓ tests/unit/core/rc4-asset-integrity.test.ts > PF-AUD-2026 asset recovery and resource admission > PF-AUD-A03 undo replacement restores the original bytes at the same path without duplicate paths 32ms
+ ✓ tests/unit/core/rc4-asset-integrity.test.ts > PF-AUD-2026 asset recovery and resource admission > PF-AUD-A04 persistent history restores distinct filename aliases with identical image bytes 11ms
+ ✓ tests/unit/core/rc4-asset-integrity.test.ts > PF-AUD-2026 asset recovery and resource admission > PF-AUD-A04 legacy history with hash-only aliases must not introduce duplicate paths 5ms
+ ✓ tests/unit/core/rc4-asset-integrity.test.ts > PF-AUD-2026 asset recovery and resource admission > PF-AUD-A05 total image pixels are enforced at the project boundary 3ms
+ ✓ tests/unit/core/rc4-asset-integrity.test.ts > PF-AUD-2026 asset recovery and resource admission > PF-AUD-A05 ordinary ZIP rejects a cumulative pixel overload before returning accepted assets 10ms
+ ✓ tests/unit/core/rc4-asset-integrity.test.ts > PF-AUD-2026 asset recovery and resource admission > PF-AUD-A05 the storage boundary also rejects cumulative pixel overload 3ms
+ ✓ tests/unit/core/rc4-asset-integrity.test.ts > PF-AUD-2026 asset recovery and resource admission > PF-AUD-A06 malformed history state safely degrades to text-only recovery 2ms
+ ✓ tests/unit/core/rc4-asset-integrity.test.ts > PF-AUD-2026 asset recovery and resource admission > PF-AUD-A04 portable round-trip keeps asset aliases and full history restores validly 57ms
+ ✓ tests/unit/core/rc4-asset-integrity.test.ts > PF-AUD-2026 asset recovery and resource admission > PF-AUD-A03 undo can be committed conditionally without consuming the entry on admission failure 2ms
+ ✓ tests/unit/core/storage-boundary.test.ts > F-04 rejects a mutation atomically and migrates recoverable RC2 full-snapshot IndexedDB history 1845ms
+ ✓ tests/unit/core/storage-boundary.test.ts > F-04/OPS-02 fast admission and exact export agree at UTF-8, JSON escape and ZIP accounting boundaries 35ms
+ ✓ tests/unit/core/rc3-compat.test.ts > kompatibilitas proyek RC3 > impor, render, ekspor ulang, impor lagi 136ms
+ ✓ tests/unit/core/rc3-compat.test.ts > kompatibilitas proyek RC3 > paket rusak ditolak tanpa menyentuh apa pun 1ms
+ ✓ tests/unit/core/index.test.ts > CoreApi > core default export memenuhi CoreApi dan bekerja ujung-ke-ujung (render → snapshot) [fx:01_dokumen_pendek.md] 124ms
+ ✓ tests/unit/core/asset-replace.test.ts > penggantian aset bernama & berukuran sama > identitas berbasis isi: render memakai byte baru, aset lama tidak muncul lagi 98ms
+
+ Test Files  21 passed (21)
+      Tests  169 passed (169)
+   Start at  16:25:30
+   Duration  10.90s (environment 38%, tests 36%, import 21%, transform 5%)
+
+    Isolate  21 workers spawned · ~1.70s startup each (spawn + environment, per file)
+             at least ~2.77s faster with isolate: false — reuses workers across files instead of one per file
+

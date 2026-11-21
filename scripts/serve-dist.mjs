@@ -3,7 +3,7 @@
 // Pemakaian: node scripts/serve-dist.mjs [dir=dist] [port=4173]
 import { createServer } from 'node:http';
 import { existsSync, readFileSync, statSync } from 'node:fs';
-import { extname, join, normalize } from 'node:path';
+import { extname, join, relative, resolve, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.json': 'application/json', '.txt': 'text/plain; charset=utf-8', '.png': 'image/png', '.ico': 'image/x-icon', '.wasm': 'application/wasm' };
@@ -19,14 +19,17 @@ export function parseHeaders(text) {
 }
 
 export function startServer(dir = 'dist', port = 4173) {
-  const base = join(process.cwd(), dir);
+  const base = resolve(dir);
   const rules = existsSync(join(base, '_headers')) ? parseHeaders(readFileSync(join(base, '_headers'), 'utf8')) : [];
   const server = createServer((req, res) => {
-    const url = new URL(req.url, 'http://x');
-    let path = decodeURIComponent(url.pathname);
+    let path;
+    try { path = decodeURIComponent(new URL(req.url, 'http://x').pathname); }
+    catch { res.writeHead(400); res.end('Bad request'); return; }
     if (req.method !== 'GET' && req.method !== 'HEAD') { res.writeHead(405, { Allow: 'GET, HEAD' }); res.end(); return; }
-    let file = normalize(join(base, path));
-    if (!file.startsWith(base)) { res.writeHead(400); res.end(); return; }
+    if (path.includes('\0') || path.includes('\\')) { res.writeHead(400); res.end(); return; }
+    let file = resolve(base, '.' + path);
+    const rel = relative(base, file);
+    if (rel === '..' || rel.startsWith('../') || rel.startsWith('..\\') || isAbsolute(rel)) { res.writeHead(400); res.end(); return; }
     if (existsSync(file) && statSync(file).isDirectory()) { file = join(file, 'index.html'); path = path.replace(/\/?$/, '/index.html'); }
     else if (!existsSync(file) && existsSync(file + '.html')) { file += '.html'; path += '.html'; }
     let status = 200;

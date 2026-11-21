@@ -1,0 +1,74 @@
+[
+  {
+    "name": "local-image",
+    "ok": true,
+    "issues": [],
+    "renderIssues": [],
+    "html": "<table data-pf-raw-table=\"1\" data-block-id=\"b-fe372c70\" data-line=\"1\"><caption>Image</caption><tbody><tr><td><img alt=\"Important description\" data-asset-id=\"a\" data-src-path=\"a.png\" decoding=\"async\" src=\"data:image/png;base64,AQ==\"></td></tr></tbody></table>",
+    "corruptAltAccepted": true
+  },
+  {
+    "name": "data-image",
+    "ok": true,
+    "issues": [],
+    "renderIssues": [],
+    "html": "<table data-pf-raw-table=\"1\" data-block-id=\"b-fe372c70\" data-line=\"1\"><caption>Data</caption><tbody><tr><td><img src=\"data:image/png;base64,iVBORw0KGgo=\" alt=\"Chart\" data-src-path=\"data:#b9764a8c:34\"></td></tr></tbody></table>",
+    "corruptAltAccepted": null
+  },
+  {
+    "name": "external-image",
+    "ok": true,
+    "issues": [],
+    "renderIssues": [
+      "IMAGE_EXTERNAL_BLOCKED"
+    ],
+    "html": "<table data-pf-raw-table=\"1\" data-block-id=\"b-fe372c70\" data-line=\"1\"><tbody><tr><td><span class=\"pf-img-placeholder pf-img-external\" role=\"img\" aria-label=\"Gambar eksternal belum dimuat: Chart\" data-src=\"https://example.com/a.png\"><span class=\"pf-ui-label\">Gambar eksternal belum dimuat: Chart</span></span></td></tr></tbody></table>",
+    "corruptAltAccepted": null
+  },
+  {
+    "name": "fragment-link",
+    "ok": true,
+    "issues": [],
+    "renderIssues": [],
+    "html": "<table data-pf-raw-table=\"1\" data-block-id=\"b-fe372c70\" data-line=\"1\"><caption id=\"u-anchor\">T</caption><tbody><tr><td><a href=\"#u-anchor\" data-source-href=\"#anchor\">Go</a></td></tr></tbody></table>",
+    "corruptAltAccepted": null
+  },
+  {
+    "name": "blocked-link",
+    "ok": true,
+    "issues": [],
+    "renderIssues": [
+      "SECURITY_UNSAFE_LINK"
+    ],
+    "html": "<table data-pf-raw-table=\"1\" data-block-id=\"b-fe372c70\" data-line=\"1\"><tbody><tr><td><a data-blocked-href=\"javascript:alert(1)\" class=\"pf-link-blocked\">Read</a></td></tr></tbody></table>",
+    "corruptAltAccepted": null
+  },
+  {
+    "name": "source-metadata-forgery",
+    "ok": true,
+    "issues": [],
+    "renderIssues": [
+      "SECURITY_ATTRIBUTE_REMOVED"
+    ],
+    "html": "<table data-pf-raw-table=\"1\" data-block-id=\"b-fe372c70\" data-line=\"1\"><tbody><tr><td><img alt=\"Chart\" data-asset-id=\"a\" data-src-path=\"a.png\" decoding=\"async\" src=\"data:image/png;base64,AQ==\"><a href=\"https://example.com/a\" rel=\"noopener noreferrer\">Read</a></td></tr></tbody></table>",
+    "corruptAltAccepted": null
+  },
+  {
+    "name": "newline-formula",
+    "ok": true,
+    "issues": [],
+    "renderIssues": [],
+    "html": "<table data-pf-raw-table=\"1\" data-block-id=\"b-fe372c70\" data-line=\"1\"><caption>C</caption><tbody><tr><td><div class=\"pf-math pf-math-display\" data-tex=\"\\begin{matrix} a &amp; b \\\\\nc &amp; d\\end{matrix}\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mtable rowspacing=\"0.16em\" columnalign=\"center center\" columnspacing=\"1em\"><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mi>a</mi></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mi>b</mi></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mi>c</mi></mstyle></mtd><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mi>d</mi></mstyle></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{matrix} a &amp; b \\\\\nc &amp; d\\end{matrix}</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:2.4em;vertical-align:-0.95em;\"></span><span class=\"mord\"><span class=\"mtable\"><span class=\"col-align-c\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:1.45em;\"><span style=\"top:-3.61em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">a</span></span></span><span style=\"top:-2.41em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">c</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.95em;\"><span></span></span></span></span></span><span class=\"arraycolsep\" style=\"width:0.5em;\"></span><span class=\"arraycolsep\" style=\"width:0.5em;\"></span><span class=\"col-align-c\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:1.45em;\"><span style=\"top:-3.61em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">b</span></span></span><span style=\"top:-2.41em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">d</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.95em;\"><span></span></span></span></span></span></span></span></span></span></span></span></div></td></tr></tbody></table>",
+    "corruptAltAccepted": null
+  },
+  {
+    "name": "formula-forgery",
+    "ok": false,
+    "issues": [
+      "INTEGRITY_RAW_TABLE_CHANGED"
+    ],
+    "renderIssues": [],
+    "html": "<table data-pf-raw-table=\"1\" data-block-id=\"b-fe372c70\" data-line=\"1\"><tbody><tr><td><span>Actual</span></td></tr></tbody></table>",
+    "corruptAltAccepted": null
+  }
+]

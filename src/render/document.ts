@@ -336,7 +336,8 @@ export function tocHtml(toc: TocEntry[], depth: number, mode: ComposeMode, label
 
 function coverHtml(snapshot: Snapshot, labels: DocLabels, logo?: string): string {
   const s = snapshot.settings; const st = resolveStyle(s, snapshot.brandKit);
-  if (!s.cover) return '';
+  // PF-R4-07: an empty default cover would consume a page without adding visible document content.
+  if (!s.cover || (!logo && ![s.title, s.subtitle, s.author, s.dateText, st.orgName].some(text => text?.trim()))) return '';
   const by = [s.author].filter(Boolean).map((x) => `<span>${escapeHtml(x!)}</span>`).join('');
   return `<header class="pf-cover" data-pf-generated="" aria-label="${escapeHtml(labels.cover)}"><div class="pf-cover-inner">`
     + (st.orgName ? `<p class="pf-cover-kind">${escapeHtml(st.orgName)}</p>` : '')

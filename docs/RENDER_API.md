@@ -1,4 +1,4 @@
-# RENDER_API — modul `src/render` (PaperForma 2.0.0-rc.3)
+# RENDER_API — modul `src/render` (PaperForma 3.0.0-rc.4)
 
 Impor dari `src/render/index.ts`. Modul ringan: Paged.js, Mermaid, CSS KaTeX, dan berkas font hanya dimuat dengan
 `import()` dinamis saat ekspor/paginasi dipanggil (landing tidak memuat font ekspor — PF-029).
@@ -73,7 +73,7 @@ const manifest = await localPrintManifest(session.result, settings); // hashOf:'
 
 ## 4. Font (PF-029, SEM-11)
 
-`planFonts({html, settings, mode})` → `{faces, missing, issues}`: subset woff2 minimal (unicode-range ∩ cmap nyata dari
+`planFonts({html, settings, mode, brandKit?})` → `{faces, missing, issues}`: subset woff2 minimal (unicode-range ∩ cmap nyata dari
 `font-coverage.generated.ts`), weight/style yang dipakai templat dan markup, KaTeX hanya kelas yang dirujuk. Karakter di
 luar font bawaan (Arab, Ibrani, Thai, Devanagari, CJK, emoji…) → issue `FONT_GLYPH_NOT_BUNDLED` (warning, scope `font`) —
 aksara tersebut TIDAK diklaim didukung. Manifest font: `family, weight, style, subset, file, bytes, sha256, license 'OFL-1.1', pkg, version`.
@@ -83,3 +83,12 @@ Regenerasi tabel cakupan: `node src/render/tools/gen-font-coverage.mjs`.
 
 `prepareBody`/`composeDocument` (pembangun dokumen layar/cetak — pratinjau HTML di aplikasi dapat memakai `composeDocument(..., {mode:'screen'})` dalam iframe sandbox), `docLabels(lang)`, `staticChecks(html, …)`.
 Label yang ditulis ke dokumen (Daftar Isi/Contents, lanjutan/continued, peran pembicara) mengikuti `settings.contentLang`, bukan bahasa UI.
+
+## Tambahan audit RC4
+
+- `loadFonts(plan, source, {signal?, timeoutMs?})` menerima pembatalan dan deadline, default 15.000 ms. Pemanggilan dua argumen lama tetap valid. `FontLoadOptions` diekspor; `HtmlExportRequest.fontTimeoutMs` dapat mengatur deadline ekspor. Font gagal atau macet tidak menghasilkan berkas final yang seolah berhasil.
+- Perencana font menyertakan teks organisasi/footer BrandKit dan teks fallback dalam KaTeX. Varian Main BoldItalic, Fraktur Bold dan SansSerif Bold/Italic dipilih sesuai markup. Aksara yang tidak dibundel tetap diberi peringatan.
+- `ContentInventory.codeText` mempertahankan indentasi dan spasi kode. Marker kode/baris menjaga reassembly fragmen halaman yang sah; tidak menghapus seluruh whitespace kode untuk membuat perbandingan lulus.
+- Fragmen URL malformed ditangani sebagai tautan rusak, bukan exception URIError.
+- Oracle pengujian PDF membandingkan prosa di sekitar rumus/gambar, caption, tanda negatif dan urutan. Font Type 3 tidak diloloskan melalui pengecualian umum. Bila qpdf tidak tersedia, pemeriksaan content-stream dengan pypdf dicatat sebagai cakupan berbeda, bukan pengganti identik qpdf.
+- API ekspor HTML dan persiapan payload sudah diuji pada korpus 21 rumus trig dengan font nyata. Keberhasilan Node/jsdom tersebut tidak membuktikan paginasi visual atau PDF native kandidat; periksa keputusan aktif di RELEASE_REPORT.md.

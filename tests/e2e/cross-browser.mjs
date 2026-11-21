@@ -9,6 +9,7 @@ import { startServer } from '../../scripts/serve-dist.mjs';
 import { CHROME } from './lib.mjs';
 import { generateStress } from '../../scripts/generate-stress.mjs';
 import { candidateSha256, distTreeSha256 } from '../../scripts/fingerprint.mjs';
+import { crossBrowserGate } from '../../scripts/result-gates.mjs';
 
 const FIREFOX = process.env.PF_FIREFOX || '/opt/ff/root/bin/FirefoxApp/firefox';
 const WK_DRIVER = process.env.PF_WEBKIT_DRIVER || '/usr/bin/WebKitWebDriver';
@@ -106,10 +107,9 @@ for (const [kind, make] of [['chromium', () => puppeteerDriver('chrome')], ['fir
 }
 await new Promise((r) => server.close(r));
 // HTML isi yang dirender harus identik di semua mesin (mesin dokumen deterministik)
-const digests = [...new Set(results.filter((r) => r.steps?.digest).map((r) => r.steps.digest.sha256))];
+const gate = crossBrowserGate(results);
 const out = { tool: 'tests/e2e/cross-browser.mjs', candidateSha256: candidateSha256(), distQaTreeSha256: distTreeSha256('dist-qa'), at: new Date().toISOString(),
-  note: 'Mesin otomatis di Linux headless/Xvfb. WebKitGTK bukan Safari; tidak ada perangkat fisik atau pembaca layar.', renderedHtmlIdenticalAcrossEngines: digests.length === 1, results };
+  note: 'Mesin otomatis di Linux headless/Xvfb. WebKitGTK bukan Safari; tidak ada perangkat fisik atau pembaca layar.', ...gate, results };
 writeFileSync('evidence/cross-browser.json', JSON.stringify(out, null, 2));
-const fail = results.some((r) => r.status === 'fail') || digests.length > 1;
-console.log(JSON.stringify({ engines: results.map((r) => `${r.engine}:${r.status}`), identicalHtml: digests.length === 1 }));
-process.exit(fail ? 1 : 0);
+console.log(JSON.stringify({ engines: results.map((r) => `${r.engine}:${r.status}`), ...gate }));
+process.exit(gate.exitCode);

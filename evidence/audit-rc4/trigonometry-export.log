@@ -1,0 +1,9 @@
+
+ RUN  v5.1.0 /workspace/scratch/69a766e93112/paperforma_rc3_review/candidate
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  16:32:01
+   Duration  3.37s (environment 40%, tests 39%, import 14%, transform 7%)
+

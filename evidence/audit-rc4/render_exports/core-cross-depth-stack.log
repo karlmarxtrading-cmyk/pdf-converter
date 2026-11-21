@@ -1,0 +1,11 @@
+RangeError: Maximum call stack size exceeded
+    at one (file:///workspace/scratch/69a766e93112/paperforma_rc3_review/candidate/node_modules/hast-util-from-parse5/lib/index.js:70:7)
+    at all (file:///workspace/scratch/69a766e93112/paperforma_rc3_review/candidate/node_modules/hast-util-from-parse5/lib/index.js:155:48)
+    at element (file:///workspace/scratch/69a766e93112/paperforma_rc3_review/candidate/node_modules/hast-util-from-parse5/lib/index.js:193:46)
+    at one (file:///workspace/scratch/69a766e93112/paperforma_rc3_review/candidate/node_modules/hast-util-from-parse5/lib/index.js:132:16)
+    at all (file:///workspace/scratch/69a766e93112/paperforma_rc3_review/candidate/node_modules/hast-util-from-parse5/lib/index.js:155:48)
+    at element (file:///workspace/scratch/69a766e93112/paperforma_rc3_review/candidate/node_modules/hast-util-from-parse5/lib/index.js:193:46)
+    at one (file:///workspace/scratch/69a766e93112/paperforma_rc3_review/candidate/node_modules/hast-util-from-parse5/lib/index.js:132:16)
+    at all (file:///workspace/scratch/69a766e93112/paperforma_rc3_review/candidate/node_modules/hast-util-from-parse5/lib/index.js:155:48)
+    at element (file:///workspace/scratch/69a766e93112/paperforma_rc3_review/candidate/node_modules/hast-util-from-parse5/lib/index.js:193:46)
+    at one (file:///workspace/scratch/69a766e93112/paperforma_rc3_review/candidate/node_modules/hast-util-from-parse5/lib/index.js:132:16)

@@ -1,0 +1,164 @@
+[
+  {
+    "path": "src/core/math.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": "d0d0bbf9055a0dc9b5c75d7fa20f98e062cec8be6b63198edc58abf2c26fd67e",
+    "candidate_sha256": "10869198ef41ad9e8a8dc38f24d30a5686a088e0c944404e90cfcf892bd8efce",
+    "original_lines": 217,
+    "candidate_lines": 225,
+    "changed": true
+  },
+  {
+    "path": "src/core/markdown.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": "4e3eea889ea278cad5bcab6bf3d4eda87ec2d7819f397c6ec90294f66e323295",
+    "candidate_sha256": "f102be8d2ed8f496ce38b976ca2c132b93dd89fa3b239357be044ce4a0847bc8",
+    "original_lines": 196,
+    "candidate_lines": 231,
+    "changed": true
+  },
+  {
+    "path": "src/core/clipboard.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": "53368838ad28a69bbef09b36c891493a28070d1385246c7a66f0cbfd212678d3",
+    "candidate_sha256": "7e1076457d9641451d9fd5057f6bd42c00c98daf74c2882cf965a90fd160cb98",
+    "original_lines": 285,
+    "candidate_lines": 356,
+    "changed": true
+  },
+  {
+    "path": "src/core/render.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": "d270d871931e5cf4c94c84a0801509d45849421adc38b1b53db31520b1cb23d5",
+    "candidate_sha256": "982f9aec86b0d01a147846c349b4c29f266c6ecee2b8c7e1ace7d849e304d246",
+    "original_lines": 774,
+    "candidate_lines": 828,
+    "changed": true
+  },
+  {
+    "path": "src/core/conversation.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": "8fb6270843ae6134a2e9460789912af7554c7e70c473b8a2185ba107b301e4c6",
+    "candidate_sha256": "874f97b8cdef8d16c069e7c5dd78d6b6ffdcb2f29198f85cbda7c4e2621653dc",
+    "original_lines": 544,
+    "candidate_lines": 549,
+    "changed": true
+  },
+  {
+    "path": "src/core/chars.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": "d118a600adc85123fe5f7b5208580f59c6342b513bf7f2154caab9a60d6505d1",
+    "candidate_sha256": "d118a600adc85123fe5f7b5208580f59c6342b513bf7f2154caab9a60d6505d1",
+    "original_lines": 43,
+    "candidate_lines": 43,
+    "changed": false
+  },
+  {
+    "path": "src/core/integrity.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": "92f9bd997017e48c6d765d701d2633a8063de52152d6de976ed1db59b5680ddf",
+    "candidate_sha256": "e1b363f31012890d6e223f754235429832b2d6a48919d73400798191d010b710",
+    "original_lines": 322,
+    "candidate_lines": 337,
+    "changed": true
+  },
+  {
+    "path": "src/core/offsets.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": "767ef54a218099ee1d1994a2189aca0bd73e90194e75fabe6268d9c486a34366",
+    "candidate_sha256": "767ef54a218099ee1d1994a2189aca0bd73e90194e75fabe6268d9c486a34366",
+    "original_lines": 50,
+    "candidate_lines": 50,
+    "changed": false
+  },
+  {
+    "path": "src/core/preflight.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": "bcb1871b6c91db8e2526e57b2d5f482ade0bd5ef02d239bc8890406ed4fc4dab",
+    "candidate_sha256": "cd04a233087f84cccfa1e5fa6d34b7b9ed166040ef704c2595986c810e659a85",
+    "original_lines": 164,
+    "candidate_lines": 169,
+    "changed": true
+  },
+  {
+    "path": "src/core/repair.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": "1733555bceec4039789c51d9ef267e73ad7e7091ef5dca26ff2053163a002a3b",
+    "candidate_sha256": "1733555bceec4039789c51d9ef267e73ad7e7091ef5dca26ff2053163a002a3b",
+    "original_lines": 57,
+    "candidate_lines": 57,
+    "changed": false
+  },
+  {
+    "path": "src/core/sanitize.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": "5ce20cb5b77125968425f5f1e98efa314630347ffc2e785e1c09da6b30d439f1",
+    "candidate_sha256": "5ce20cb5b77125968425f5f1e98efa314630347ffc2e785e1c09da6b30d439f1",
+    "original_lines": 70,
+    "candidate_lines": 70,
+    "changed": false
+  },
+  {
+    "path": "src/core/wrapper.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": "c242e55f2ded0a4da7c31344f376251b0b91964001b60c28c8ed24950cafe528",
+    "candidate_sha256": "c242e55f2ded0a4da7c31344f376251b0b91964001b60c28c8ed24950cafe528",
+    "original_lines": 82,
+    "candidate_lines": 82,
+    "changed": false
+  },
+  {
+    "path": "src/core/util.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": "eae0f244fcdf4c8dbc3d32991b6ff115abb34e76affc050d88872de37e8c5d6e",
+    "candidate_sha256": "eae0f244fcdf4c8dbc3d32991b6ff115abb34e76affc050d88872de37e8c5d6e",
+    "original_lines": 95,
+    "candidate_lines": 95,
+    "changed": false
+  },
+  {
+    "path": "src/core/contracts.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": "b5414e803b5c166e276d73d32e5aff535fc4312a1f1268bc6de1cbd5b9ca0c1e",
+    "candidate_sha256": "ed71bebff7f041bfe1854fc254abc6a5769439ac38c2e45859eaf812d56acb81",
+    "original_lines": 143,
+    "candidate_lines": 148,
+    "changed": true
+  },
+  {
+    "path": "src/core/limits.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": "ad0b8fb66d74f26c9bc244852f384f336552dc083cce08dd1000a9af36d184ac",
+    "candidate_sha256": "678ce312c1820ef7c5a6c90132100761f149658cfbc9db4e47469225da529bcb",
+    "original_lines": 158,
+    "candidate_lines": 185,
+    "changed": true
+  },
+  {
+    "path": "src/core/html.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": null,
+    "candidate_sha256": "35c235bdea0083a212a5ca38c8551555aea27b8237b8774e4578b373d8a6d162",
+    "original_lines": 0,
+    "candidate_lines": 21,
+    "changed": true
+  },
+  {
+    "path": "src/core/index.ts",
+    "inspection": "manual source review + relevant automated tests",
+    "original_sha256": "58d033b08e448b601c304a97493c5543113d0a58a96d68123efe72bff16446e6",
+    "candidate_sha256": "58d033b08e448b601c304a97493c5543113d0a58a96d68123efe72bff16446e6",
+    "original_lines": 48,
+    "candidate_lines": 48,
+    "changed": false
+  },
+  {
+    "path": "src/core/assets.ts",
+    "inspection": "manual source review of entire module; inline data-image admission implementation; existing asset-owner changes separately reviewed by UI/storage agent",
+    "original_sha256": "b10783a83bad2bd27648c91a150068302971e72a5374b4328f814e78912b2784",
+    "candidate_sha256": "93fe664e5b868393f76df01c137881937718914f256b85d05bbaaee1c3ac0acd",
+    "original_lines": 317,
+    "candidate_lines": 361,
+    "changed": true
+  }
+]

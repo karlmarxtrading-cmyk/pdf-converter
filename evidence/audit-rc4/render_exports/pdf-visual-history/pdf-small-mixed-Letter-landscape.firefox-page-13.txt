@@ -1,0 +1,211 @@
+12
+PYTHON
+ · 
+LANJUTAN
+    b
+aris_082 = hitung(
+82
+, faktor=
+5
+)  
+# komentar panjang untuk baris kode nomor 82
+    b
+aris_083 = hitung(
+83
+, faktor=
+6
+)  
+# komentar panjang untuk baris kode nomor 83
+    b
+aris_084 = hitung(
+84
+, faktor=
+0
+)  
+# komentar panjang untuk baris kode nomor 84
+    b
+aris_085 = hitung(
+85
+, faktor=
+1
+)  
+# komentar panjang untuk baris kode nomor 85
+    b
+aris_086 = hitung(
+86
+, faktor=
+2
+)  
+# komentar panjang untuk baris kode nomor 86
+    b
+aris_087 = hitung(
+87
+, faktor=
+3
+)  
+# komentar panjang untuk baris kode nomor 87
+    b
+aris_088 = hitung(
+88
+, faktor=
+4
+)  
+# komentar panjang untuk baris kode nomor 88
+    b
+aris_089 = hitung(
+89
+, faktor=
+5
+)  
+# komentar panjang untuk baris kode nomor 89
+    b
+aris_090 = hitung(
+90
+, faktor=
+6
+)  
+# komentar panjang untuk baris kode nomor 90
+    b
+aris_091 = hitung(
+91
+, faktor=
+0
+)  
+# komentar panjang untuk baris kode nomor 91
+    b
+aris_092 = hitung(
+92
+, faktor=
+1
+)  
+# komentar panjang untuk baris kode nomor 92
+    b
+aris_093 = hitung(
+93
+, faktor=
+2
+)  
+# komentar panjang untuk baris kode nomor 93
+    b
+aris_094 = hitung(
+94
+, faktor=
+3
+)  
+# komentar panjang untuk baris kode nomor 94
+    b
+aris_095 = hitung(
+95
+, faktor=
+4
+)  
+# komentar panjang untuk baris kode nomor 95
+    b
+aris_096 = hitung(
+96
+, faktor=
+5
+)  
+# komentar panjang untuk baris kode nomor 96
+    b
+aris_097 = hitung(
+97
+, faktor=
+6
+)  
+# komentar panjang untuk baris kode nomor 97
+    b
+aris_098 = hitung(
+98
+, faktor=
+0
+)  
+# komentar panjang untuk baris kode nomor 98
+    b
+aris_099 = hitung(
+99
+, faktor=
+1
+)  
+# komentar panjang untuk baris kode nomor 99
+    b
+aris_100 = hitung(
+100
+, faktor=
+2
+)  
+# komentar panjang untuk baris kode nomor 100
+    b
+aris_101 = hitung(
+101
+, faktor=
+3
+)  
+# komentar panjang untuk baris kode nomor 101
+    b
+aris_102 = hitung(
+102
+, faktor=
+4
+)  
+# komentar panjang untuk baris kode nomor 102
+    b
+aris_103 = hitung(
+103
+, faktor=
+5
+)  
+# komentar panjang untuk baris kode nomor 103
+    b
+aris_104 = hitung(
+104
+, faktor=
+6
+)  
+# komentar panjang untuk baris kode nomor 104
+    b
+aris_105 = hitung(
+105
+, faktor=
+0
+)  
+# komentar panjang untuk baris kode nomor 105
+    b
+aris_106 = hitung(
+106
+, faktor=
+1
+)  
+# komentar panjang untuk baris kode nomor 106
+    b
+aris_107 = hitung(
+107
+, faktor=
+2
+)  
+# komentar panjang untuk baris kode nomor 107
+    b
+aris_108 = hitung(
+108
+, faktor=
+3
+)  
+# komentar panjang untuk baris kode nomor 108
+    b
+aris_109 = hitung(
+109
+, faktor=
+4
+)  
+# komentar panjang untuk baris kode nomor 109
+    b
+aris_110 = hitung(
+110
+, faktor=
+5
+)  
+# komentar panjang untuk baris kode nomor 110
+P
+enutup
+D
+okumen selesai. Kata terakhir: PENUTUP-AKHIR-DOKUMEN.

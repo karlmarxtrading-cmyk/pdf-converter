@@ -31,8 +31,10 @@ export function undoFieldsOf(p: Project): UndoFields {
  * aset tidak mengubah keluaran); `redo` mengembalikan daftar persisnya.
  */
 export function changesFor(state: UndoFields, current?: Pick<Project, 'assets'>): Partial<Project> {
-  const ids = new Set(state.assets.map((a) => a.id));
-  const keep = current ? current.assets.filter((a) => !ids.has(a.id)) : [];
+  // PF-AUD-A03: the same path may now contain different bytes. The restored path wins;
+  // the displaced bytes remain in the redo snapshot, not a duplicate project path.
+  const paths = new Set(state.assets.map((a) => a.path.normalize('NFC')));
+  const keep = current ? current.assets.filter((a) => !paths.has(a.path.normalize('NFC'))) : [];
   return { source: state.source, settings: state.settings, name: state.name, assets: [...state.assets, ...keep], brandKit: state.brandKit, conversation: state.conversation, sourcePath: state.sourcePath };
 }
 

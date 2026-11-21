@@ -12,7 +12,7 @@ import { LIMITS, assertBudget, BudgetError, checkBudget, utf8Length, type Budget
 import { extractZipFiles, importZip, readCentralDirectory } from './zip';
 import { createAssetRecord } from './assets';
 import { TEMPLATES, templateDefaultSettings } from '../render/templates';
-import { validateProject } from './schema';
+import { validateProject, validateSettings, validateKit } from './schema';
 import { inheritSaveBase } from './save-base';
 import { randomId, nowIso } from './util';
 
@@ -72,7 +72,7 @@ function reverseDelta(next: string, previous: string): NonNullable<HistoryEntry[
 
 /** Serialisasi keadaan non-teks proyek (deterministik; tanpa byte aset). */
 export function historyStateJson(p: Pick<Project, 'name' | 'settings' | 'brandKit' | 'assets' | 'sourcePath' | 'conversation'>): string {
-  const st: HistoryState = { name: p.name, settings: p.settings, assetIds: p.assets.map((a) => a.id) };
+  const st: HistoryState = { name: p.name, settings: p.settings, assetIds: p.assets.map((a) => a.id), assetRefs: p.assets.map(({ id, path }) => ({ id, path })) };
   if (p.brandKit) st.brandKit = p.brandKit;
   if (p.sourcePath !== undefined) st.sourcePath = p.sourcePath;
   if (p.conversation) st.conversation = p.conversation;
@@ -84,7 +84,19 @@ export function historyEntryState(p: Project, revision: number): { source: strin
   const source = historySource(p, revision);
   const entry = p.history.find((h) => h.revision === revision);
   if (!entry?.stateJson) return { source };
-  try { return { source, state: JSON.parse(entry.stateJson) as HistoryState }; } catch { return { source }; }
+  try {
+    const state = JSON.parse(entry.stateJson) as HistoryState;
+    // PF-AUD-A06: legacy/untrusted history JSON is data, not an unchecked restoration object.
+    if (!state || Array.isArray(state) || typeof state !== 'object' || typeof state.name !== 'string' || state.name.length > 1024 ||
+        !Array.isArray(state.assetIds) || state.assetIds.some(id => typeof id !== 'string' || !/^[0-9a-f]{64}$/.test(id))) return { source };
+    validateSettings(state.settings);
+    if (state.assetRefs !== undefined && (!Array.isArray(state.assetRefs) || state.assetRefs.length !== state.assetIds.length ||
+        state.assetRefs.some((ref, i) => !ref || typeof ref.path !== 'string' || !ref.path || ref.path.length > 8192 || ref.id !== state.assetIds[i]) ||
+        new Set(state.assetRefs.map(ref => ref.path.normalize('NFC'))).size !== state.assetRefs.length)) return { source };
+    if (state.brandKit) validateKit(state.brandKit, state.assetIds.map(id => ({ id } as AssetRecord)));
+    if (state.sourcePath !== undefined && typeof state.sourcePath !== 'string') return { source };
+    return { source, state };
+  } catch { return { source }; }
 }
 
 /**
@@ -94,13 +106,27 @@ export function historyEntryState(p: Project, revision: number): { source: strin
 export function restoreRevisionChanges(p: Project, revision: number): { changes: Partial<Project>; scope: 'full' | 'text-only'; missingAssetIds: string[] } {
   const { source, state } = historyEntryState(p, revision);
   if (!state) return { changes: { source }, scope: 'text-only', missingAssetIds: [] };
-  const byId = new Map(p.assets.map((a) => [a.id, a]));
-  const missingAssetIds = state.assetIds.filter((id) => !byId.has(id));
+  const byId = new Map<string, AssetRecord[]>();
+  for (const a of p.assets) byId.set(a.id, [...(byId.get(a.id) ?? []), a]);
+  const missingAssetIds: string[] = [];
+  const restored: AssetRecord[] = [];
+  const used = new Set<string>();
+  const refs = state.assetRefs ?? state.assetIds.map(id => ({ id, path: undefined }));
+  for (const ref of refs) {
+    const aliases = byId.get(ref.id) ?? [];
+    // Old states contain only hashes. Match each alias once in project order, never duplicate a path.
+    const found = ref.path ? aliases.find(a => a.path === ref.path) ?? aliases[0] : aliases.find(a => !used.has(a.path));
+    if (!found) { missingAssetIds.push(ref.id); continue; }
+    const asset = ref.path && found.path !== ref.path ? { ...found, path: ref.path } : found;
+    if (used.has(asset.path)) { missingAssetIds.push(ref.id); continue; }
+    restored.push(asset); used.add(asset.path);
+  }
   // Aset revisi lama yang masih ada dipulihkan; aset yang ditambahkan sesudahnya DIPERTAHANKAN agar byte-nya tidak hilang
   // (aset tanpa rujukan tidak mengubah keluaran).
-  const restored = state.assetIds.filter((id) => byId.has(id)).map((id) => byId.get(id)!);
-  const assets = [...restored, ...p.assets.filter((a) => !state.assetIds.includes(a.id))];
-  const changes: Partial<Project> = { source, name: state.name, settings: state.settings, brandKit: state.brandKit, sourcePath: state.sourcePath, conversation: state.conversation, assets };
+  const assets = [...restored, ...p.assets.filter((a) => !used.has(a.path))];
+  const brandKit = state.brandKit?.logoAssetId && !assets.some(a => a.id === state.brandKit!.logoAssetId)
+    ? { ...state.brandKit, logoAssetId: undefined } : state.brandKit;
+  const changes: Partial<Project> = { source, name: state.name, settings: state.settings, brandKit, sourcePath: state.sourcePath, conversation: state.conversation, assets };
   return { changes, scope: 'full', missingAssetIds };
 }
 

@@ -1,0 +1,268 @@
+{
+  "schema_version": 1,
+  "at": "2026-11-21T10:00:35.431537+00:00",
+  "scope": "Complete original file reads: all 1170 lines of scenarios.mjs and all 13 previously unrecorded core test files. Readonly accounting followed by root-authorized test-only harness hardening. No runtime changes.",
+  "files": [
+    {
+      "archive_path": "repository/tests/e2e/scenarios.mjs",
+      "original_sha256": "07e4fd81b95cf4ad95e86c44fdd3cdf8fa18a36724d42838ae559dc299a8b548",
+      "original_bytes": 81909,
+      "original_lines": 1170,
+      "manual_complete_read": true,
+      "reviewer": "rc3_math_core",
+      "candidate_sha256": "5603d1e2e0b656d3263b0ae1f57e8af3d10f66ce3bbd89be1159ea12db1bf3f4",
+      "candidate_lines": 1217,
+      "candidate_changed": true,
+      "review_status": "MANUAL_SOURCE_REVIEW_NOT_FRESHLY_EXECUTED",
+      "execution_note": "No browser execution in this review. Candidate syntax and lint passed; fresh browser remains NOT_RUN.",
+      "evidence": [
+        "evidence/math_core/TEST_SOURCE_REVIEW.md",
+        "evidence/math_core/scenarios-node-check.txt",
+        "evidence/math_core/scenarios-lint.txt"
+      ]
+    },
+    {
+      "archive_path": "repository/tests/unit/core/budget-hash.test.ts",
+      "original_sha256": "a7377616f2ad33e6a615f757ae75865d7afd739707de476badc05f9d19e995d6",
+      "original_bytes": 8971,
+      "original_lines": 132,
+      "manual_complete_read": true,
+      "reviewer": "rc3_math_core",
+      "candidate_sha256": "a7377616f2ad33e6a615f757ae75865d7afd739707de476badc05f9d19e995d6",
+      "candidate_lines": 132,
+      "candidate_changed": false,
+      "review_status": "MANUAL_REVIEW_AND_TEST_EXECUTED",
+      "execution_note": "Original and candidate unit suites were executed by integrator earlier; this final step adds complete manual source review only.",
+      "evidence": [
+        "evidence/math_core/TEST_SOURCE_REVIEW.md",
+        "evidence/baseline-unit-recheck.log",
+        "evidence/candidate-test.log"
+      ]
+    },
+    {
+      "archive_path": "repository/tests/unit/core/conversation.test.ts",
+      "original_sha256": "f0ac01df1659f396a5684cdb48e5890176f5f12202cbd4aeef27608650cc2a37",
+      "original_bytes": 13369,
+      "original_lines": 164,
+      "manual_complete_read": true,
+      "reviewer": "rc3_math_core",
+      "candidate_sha256": "f0ac01df1659f396a5684cdb48e5890176f5f12202cbd4aeef27608650cc2a37",
+      "candidate_lines": 164,
+      "candidate_changed": false,
+      "review_status": "MANUAL_REVIEW_AND_TEST_EXECUTED",
+      "execution_note": "Original and candidate unit suites were executed by integrator earlier; this final step adds complete manual source review only.",
+      "evidence": [
+        "evidence/math_core/TEST_SOURCE_REVIEW.md",
+        "evidence/baseline-unit-recheck.log",
+        "evidence/candidate-test.log"
+      ]
+    },
+    {
+      "archive_path": "repository/tests/unit/core/curation-publication.test.ts",
+      "original_sha256": "aa4919d9c95b44bc874a55046a914fab88dafc1b755356544a3d3fb5fc4ad1c6",
+      "original_bytes": 7126,
+      "original_lines": 105,
+      "manual_complete_read": true,
+      "reviewer": "rc3_math_core",
+      "candidate_sha256": "aa4919d9c95b44bc874a55046a914fab88dafc1b755356544a3d3fb5fc4ad1c6",
+      "candidate_lines": 105,
+      "candidate_changed": false,
+      "review_status": "MANUAL_REVIEW_AND_TEST_EXECUTED",
+      "execution_note": "Original and candidate unit suites were executed by integrator earlier; this final step adds complete manual source review only.",
+      "evidence": [
+        "evidence/math_core/TEST_SOURCE_REVIEW.md",
+        "evidence/baseline-unit-recheck.log",
+        "evidence/candidate-test.log"
+      ]
+    },
+    {
+      "archive_path": "repository/tests/unit/core/index.test.ts",
+      "original_sha256": "f29e7a847081cd181a2191e8297b7fa9a4bc114afe2372ef1eae9cf52397b86e",
+      "original_bytes": 1304,
+      "original_lines": 21,
+      "manual_complete_read": true,
+      "reviewer": "rc3_math_core",
+      "candidate_sha256": "f29e7a847081cd181a2191e8297b7fa9a4bc114afe2372ef1eae9cf52397b86e",
+      "candidate_lines": 21,
+      "candidate_changed": false,
+      "review_status": "MANUAL_REVIEW_AND_TEST_EXECUTED",
+      "execution_note": "Original and candidate unit suites were executed by integrator earlier; this final step adds complete manual source review only.",
+      "evidence": [
+        "evidence/math_core/TEST_SOURCE_REVIEW.md",
+        "evidence/baseline-unit-recheck.log",
+        "evidence/candidate-test.log"
+      ]
+    },
+    {
+      "archive_path": "repository/tests/unit/core/integrity.test.ts",
+      "original_sha256": "c28546284ca2fea661530a2b0c11c504792689760da10b1c1606cb8dd2f565ae",
+      "original_bytes": 5362,
+      "original_lines": 71,
+      "manual_complete_read": true,
+      "reviewer": "rc3_math_core",
+      "candidate_sha256": "c28546284ca2fea661530a2b0c11c504792689760da10b1c1606cb8dd2f565ae",
+      "candidate_lines": 71,
+      "candidate_changed": false,
+      "review_status": "MANUAL_REVIEW_AND_TEST_EXECUTED",
+      "execution_note": "Original and candidate unit suites were executed by integrator earlier; this final step adds complete manual source review only.",
+      "evidence": [
+        "evidence/math_core/TEST_SOURCE_REVIEW.md",
+        "evidence/baseline-unit-recheck.log",
+        "evidence/candidate-test.log"
+      ]
+    },
+    {
+      "archive_path": "repository/tests/unit/core/math-einstein.test.ts",
+      "original_sha256": "9072ded766dd6b8e7ce92ee64250ab2905fccb9acf4b5c2f99292152c47418b4",
+      "original_bytes": 8895,
+      "original_lines": 128,
+      "manual_complete_read": true,
+      "reviewer": "rc3_math_core",
+      "candidate_sha256": "9072ded766dd6b8e7ce92ee64250ab2905fccb9acf4b5c2f99292152c47418b4",
+      "candidate_lines": 128,
+      "candidate_changed": false,
+      "review_status": "MANUAL_REVIEW_AND_TEST_EXECUTED",
+      "execution_note": "Original and candidate unit suites were executed by integrator earlier; this final step adds complete manual source review only.",
+      "evidence": [
+        "evidence/math_core/TEST_SOURCE_REVIEW.md",
+        "evidence/baseline-unit-recheck.log",
+        "evidence/candidate-test.log"
+      ]
+    },
+    {
+      "archive_path": "repository/tests/unit/core/portable-regressions.test.ts",
+      "original_sha256": "f1774c20a87c87c8d2b9385da7e361085b9f644287358ea844a8ef33123368a4",
+      "original_bytes": 6577,
+      "original_lines": 113,
+      "manual_complete_read": true,
+      "reviewer": "rc3_math_core",
+      "candidate_sha256": "f1774c20a87c87c8d2b9385da7e361085b9f644287358ea844a8ef33123368a4",
+      "candidate_lines": 113,
+      "candidate_changed": false,
+      "review_status": "MANUAL_REVIEW_AND_TEST_EXECUTED",
+      "execution_note": "Original and candidate unit suites were executed by integrator earlier; this final step adds complete manual source review only.",
+      "evidence": [
+        "evidence/math_core/TEST_SOURCE_REVIEW.md",
+        "evidence/baseline-unit-recheck.log",
+        "evidence/candidate-test.log"
+      ]
+    },
+    {
+      "archive_path": "repository/tests/unit/core/preflight.test.ts",
+      "original_sha256": "29f88d3e820732bc3e504164b6f21ebb54450cae482c4fdd3b831a91e0d645f6",
+      "original_bytes": 5075,
+      "original_lines": 64,
+      "manual_complete_read": true,
+      "reviewer": "rc3_math_core",
+      "candidate_sha256": "29f88d3e820732bc3e504164b6f21ebb54450cae482c4fdd3b831a91e0d645f6",
+      "candidate_lines": 64,
+      "candidate_changed": false,
+      "review_status": "MANUAL_REVIEW_AND_TEST_EXECUTED",
+      "execution_note": "Original and candidate unit suites were executed by integrator earlier; this final step adds complete manual source review only.",
+      "evidence": [
+        "evidence/math_core/TEST_SOURCE_REVIEW.md",
+        "evidence/baseline-unit-recheck.log",
+        "evidence/candidate-test.log"
+      ]
+    },
+    {
+      "archive_path": "repository/tests/unit/core/rc3-compat.test.ts",
+      "original_sha256": "f06c9f85a62408fc933ba50168bc3605b78eea255b473698530405464911062c",
+      "original_bytes": 2002,
+      "original_lines": 35,
+      "manual_complete_read": true,
+      "reviewer": "rc3_math_core",
+      "candidate_sha256": "f06c9f85a62408fc933ba50168bc3605b78eea255b473698530405464911062c",
+      "candidate_lines": 35,
+      "candidate_changed": false,
+      "review_status": "MANUAL_REVIEW_AND_TEST_EXECUTED",
+      "execution_note": "Original and candidate unit suites were executed by integrator earlier; this final step adds complete manual source review only.",
+      "evidence": [
+        "evidence/math_core/TEST_SOURCE_REVIEW.md",
+        "evidence/baseline-unit-recheck.log",
+        "evidence/candidate-test.log"
+      ]
+    },
+    {
+      "archive_path": "repository/tests/unit/core/render-acceptance.test.ts",
+      "original_sha256": "c8881945a3765bcbe76f8ad8aa3f7f20ec0fae061f836f629a0ef081f92d6fcf",
+      "original_bytes": 6773,
+      "original_lines": 96,
+      "manual_complete_read": true,
+      "reviewer": "rc3_math_core",
+      "candidate_sha256": "c8881945a3765bcbe76f8ad8aa3f7f20ec0fae061f836f629a0ef081f92d6fcf",
+      "candidate_lines": 96,
+      "candidate_changed": false,
+      "review_status": "MANUAL_REVIEW_AND_TEST_EXECUTED",
+      "execution_note": "Original and candidate unit suites were executed by integrator earlier; this final step adds complete manual source review only.",
+      "evidence": [
+        "evidence/math_core/TEST_SOURCE_REVIEW.md",
+        "evidence/baseline-unit-recheck.log",
+        "evidence/candidate-test.log"
+      ]
+    },
+    {
+      "archive_path": "repository/tests/unit/core/render.test.ts",
+      "original_sha256": "e3b0fff5c3c96cbe3aeac6a7931564088abd71940fb2be116f4c8d6c6210401b",
+      "original_bytes": 18134,
+      "original_lines": 242,
+      "manual_complete_read": true,
+      "reviewer": "rc3_math_core",
+      "candidate_sha256": "e3b0fff5c3c96cbe3aeac6a7931564088abd71940fb2be116f4c8d6c6210401b",
+      "candidate_lines": 242,
+      "candidate_changed": false,
+      "review_status": "MANUAL_REVIEW_AND_TEST_EXECUTED",
+      "execution_note": "Original and candidate unit suites were executed by integrator earlier; this final step adds complete manual source review only.",
+      "evidence": [
+        "evidence/math_core/TEST_SOURCE_REVIEW.md",
+        "evidence/baseline-unit-recheck.log",
+        "evidence/candidate-test.log"
+      ]
+    },
+    {
+      "archive_path": "repository/tests/unit/core/static-regressions.test.ts",
+      "original_sha256": "7636b3d818651ecf4b86cd0ba64ce6856e1da2288a34d6288d73299ef2bdc3d4",
+      "original_bytes": 9858,
+      "original_lines": 174,
+      "manual_complete_read": true,
+      "reviewer": "rc3_math_core",
+      "candidate_sha256": "c4a1a7d091a236da84fdc377f1b3ea32f93751ba7b9a0997324e7f015425c41c",
+      "candidate_lines": 177,
+      "candidate_changed": true,
+      "review_status": "MANUAL_REVIEW_AND_TEST_EXECUTED",
+      "execution_note": "Original and candidate unit suites were executed by integrator earlier; this final step adds complete manual source review only.",
+      "evidence": [
+        "evidence/math_core/TEST_SOURCE_REVIEW.md",
+        "evidence/baseline-unit-recheck.log",
+        "evidence/candidate-test.log"
+      ]
+    },
+    {
+      "archive_path": "repository/tests/unit/core/wrapper-clipboard.test.ts",
+      "original_sha256": "0d444cfc95fec6b4825c4a3be4185a6658c194a7295a7c7741077bc0fe30a386",
+      "original_bytes": 6602,
+      "original_lines": 87,
+      "manual_complete_read": true,
+      "reviewer": "rc3_math_core",
+      "candidate_sha256": "0d444cfc95fec6b4825c4a3be4185a6658c194a7295a7c7741077bc0fe30a386",
+      "candidate_lines": 87,
+      "candidate_changed": false,
+      "review_status": "MANUAL_REVIEW_AND_TEST_EXECUTED",
+      "execution_note": "Original and candidate unit suites were executed by integrator earlier; this final step adds complete manual source review only.",
+      "evidence": [
+        "evidence/math_core/TEST_SOURCE_REVIEW.md",
+        "evidence/baseline-unit-recheck.log",
+        "evidence/candidate-test.log"
+      ]
+    }
+  ],
+  "summary": {
+    "files": 14,
+    "bytes": 181957,
+    "lines": 2602,
+    "manual_complete_read": 14,
+    "browser_execution": "NOT_RUN",
+    "candidate_syntax_check": "PASS",
+    "candidate_lint": "PASS"
+  }
+}

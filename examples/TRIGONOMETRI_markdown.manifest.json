@@ -1,0 +1,263 @@
+{
+  "kind": "Node/jsdom API integration with real WOFF2 fonts",
+  "browserVisualTest": "NOT_RUN",
+  "nativePdfTest": "NOT_RUN",
+  "formulas": 21,
+  "export": {
+    "kind": "html-standalone",
+    "snapshot": {
+      "projectId": "p-test",
+      "revision": 1,
+      "rawSourceHash": "c1a044fb86bfa492cb242443cca0bccdfb8f81316037141571251fee7c3106dc",
+      "contentSnapshotHash": "828e32de9c5d78e83076ec28ac63d85773db04395847cf819bb4603a43a7db9b",
+      "renderInputHash": "230940faf1029d29dac4062c7da0a7f01c9b861f92a50952b59eb2fdba433c19",
+      "templateId": "EDU-01",
+      "templateVersion": "2.0.0",
+      "rendererVersion": "pf-render-3.0.0-rc.4"
+    },
+    "outputHash": "061c63406a15467b253547a287d93174a4c1a7700b3a050f9f7f2b6eb3e9e5e6",
+    "bytes": 385105,
+    "createdAt": "2026-11-21T10:02:15.917Z",
+    "issueCount": 0,
+    "settings": {
+      "template": "EDU-01",
+      "paper": "A4",
+      "orientation": "portrait",
+      "contentLang": "id",
+      "inkSaver": false
+    },
+    "profile": "standalone",
+    "scripts": "none",
+    "network": "none",
+    "fonts": [
+      {
+        "family": "Source Serif 4",
+        "weight": 400,
+        "style": "normal",
+        "subset": "greek",
+        "file": "source-serif-4-greek-400-normal.woff2",
+        "bytes": 7924,
+        "sha256": "dafafcc62255d676e0a998bb3c926d3ba60c1f8e99638518dbc41a9f8c1b42e3",
+        "license": "OFL-1.1",
+        "pkg": "@fontsource/source-serif-4",
+        "version": "5.3.1"
+      },
+      {
+        "family": "Source Serif 4",
+        "weight": 400,
+        "style": "normal",
+        "subset": "latin",
+        "file": "source-serif-4-latin-400-normal.woff2",
+        "bytes": 20088,
+        "sha256": "02194deb92d3975dd30e11a3824a1f1db32b48c93654e60560cb81ce8e7b5f95",
+        "license": "OFL-1.1",
+        "pkg": "@fontsource/source-serif-4",
+        "version": "5.3.1"
+      },
+      {
+        "family": "Source Serif 4",
+        "weight": 700,
+        "style": "normal",
+        "subset": "greek",
+        "file": "source-serif-4-greek-700-normal.woff2",
+        "bytes": 8408,
+        "sha256": "de5b4bdd920dff4f38ab1158a287f66000e4f6d3f7da5b7f251d5610fe338e7e",
+        "license": "OFL-1.1",
+        "pkg": "@fontsource/source-serif-4",
+        "version": "5.3.1"
+      },
+      {
+        "family": "Source Serif 4",
+        "weight": 700,
+        "style": "normal",
+        "subset": "latin",
+        "file": "source-serif-4-latin-700-normal.woff2",
+        "bytes": 21716,
+        "sha256": "7691c51bc286a9014db0048277d2c3f2ad0a90b533dc8adfb16cb22a95390d39",
+        "license": "OFL-1.1",
+        "pkg": "@fontsource/source-serif-4",
+        "version": "5.3.1"
+      },
+      {
+        "family": "Inter",
+        "weight": 700,
+        "style": "normal",
+        "subset": "greek",
+        "file": "inter-greek-700-normal.woff2",
+        "bytes": 7920,
+        "sha256": "737c6c91cd60372d30e6540096ada83c89c9b4613cd7472e3366bf2e07ad99f1",
+        "license": "OFL-1.1",
+        "pkg": "@fontsource/inter",
+        "version": "5.3.0"
+      },
+      {
+        "family": "Inter",
+        "weight": 700,
+        "style": "normal",
+        "subset": "latin",
+        "file": "inter-latin-700-normal.woff2",
+        "bytes": 24356,
+        "sha256": "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+        "license": "OFL-1.1",
+        "pkg": "@fontsource/inter",
+        "version": "5.3.0"
+      },
+      {
+        "family": "Inter",
+        "weight": 400,
+        "style": "normal",
+        "subset": "greek",
+        "file": "inter-greek-400-normal.woff2",
+        "bytes": 7776,
+        "sha256": "c15ddd00a9927b56f5c655a41f976f79bd848a20cce91fc14227751872a1cc27",
+        "license": "OFL-1.1",
+        "pkg": "@fontsource/inter",
+        "version": "5.3.0"
+      },
+      {
+        "family": "Inter",
+        "weight": 400,
+        "style": "normal",
+        "subset": "latin",
+        "file": "inter-latin-400-normal.woff2",
+        "bytes": 23664,
+        "sha256": "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+        "license": "OFL-1.1",
+        "pkg": "@fontsource/inter",
+        "version": "5.3.0"
+      },
+      {
+        "family": "Inter",
+        "weight": 600,
+        "style": "normal",
+        "subset": "greek",
+        "file": "inter-greek-600-normal.woff2",
+        "bytes": 7944,
+        "sha256": "9c5a897f9d9fcfe60d90631d766ae62b4bf1edd76633fa7a4b2f8c87e036789b",
+        "license": "OFL-1.1",
+        "pkg": "@fontsource/inter",
+        "version": "5.3.0"
+      },
+      {
+        "family": "Inter",
+        "weight": 600,
+        "style": "normal",
+        "subset": "latin",
+        "file": "inter-latin-600-normal.woff2",
+        "bytes": 24452,
+        "sha256": "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+        "license": "OFL-1.1",
+        "pkg": "@fontsource/inter",
+        "version": "5.3.0"
+      },
+      {
+        "family": "KaTeX_Main",
+        "weight": 400,
+        "style": "normal",
+        "subset": "katex",
+        "file": "KaTeX_Main-Regular.woff2",
+        "bytes": 26272,
+        "sha256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+        "license": "OFL-1.1",
+        "pkg": "katex",
+        "version": "0.19.1"
+      },
+      {
+        "family": "KaTeX_Math",
+        "weight": 400,
+        "style": "italic",
+        "subset": "katex",
+        "file": "KaTeX_Math-Italic.woff2",
+        "bytes": 16440,
+        "sha256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+        "license": "OFL-1.1",
+        "pkg": "katex",
+        "version": "0.19.1"
+      },
+      {
+        "family": "KaTeX_Size1",
+        "weight": 400,
+        "style": "normal",
+        "subset": "katex",
+        "file": "KaTeX_Size1-Regular.woff2",
+        "bytes": 5468,
+        "sha256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+        "license": "OFL-1.1",
+        "pkg": "katex",
+        "version": "0.19.1"
+      },
+      {
+        "family": "KaTeX_Size2",
+        "weight": 400,
+        "style": "normal",
+        "subset": "katex",
+        "file": "KaTeX_Size2-Regular.woff2",
+        "bytes": 5208,
+        "sha256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+        "license": "OFL-1.1",
+        "pkg": "katex",
+        "version": "0.19.1"
+      },
+      {
+        "family": "KaTeX_Size3",
+        "weight": 400,
+        "style": "normal",
+        "subset": "katex",
+        "file": "KaTeX_Size3-Regular.woff2",
+        "bytes": 3624,
+        "sha256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+        "license": "OFL-1.1",
+        "pkg": "katex",
+        "version": "0.19.1"
+      },
+      {
+        "family": "KaTeX_Size4",
+        "weight": 400,
+        "style": "normal",
+        "subset": "katex",
+        "file": "KaTeX_Size4-Regular.woff2",
+        "bytes": 4928,
+        "sha256": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0",
+        "license": "OFL-1.1",
+        "pkg": "katex",
+        "version": "0.19.1"
+      }
+    ],
+    "checks": [
+      {
+        "name": "no-scripts",
+        "status": "pass",
+        "detail": "0"
+      },
+      {
+        "name": "no-network-resources",
+        "status": "pass",
+        "detail": "0"
+      },
+      {
+        "name": "internal-anchors",
+        "status": "pass",
+        "detail": "1 links, 0 broken, 0 duplicate"
+      },
+      {
+        "name": "fonts-embedded",
+        "status": "pass",
+        "detail": "16 subset tersemat"
+      },
+      {
+        "name": "glyph-coverage",
+        "status": "pass"
+      },
+      {
+        "name": "size-budget",
+        "status": "pass",
+        "detail": "385105 / 26214400 B"
+      },
+      {
+        "name": "integrity",
+        "status": "pass",
+        "detail": "sumber → keluaran utuh"
+      }
+    ]
+  }
+}

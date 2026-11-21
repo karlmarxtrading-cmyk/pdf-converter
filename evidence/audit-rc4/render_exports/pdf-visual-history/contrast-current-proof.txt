@@ -1,0 +1,12 @@
+
+.pf-doc td.pf-repeat-key, .pf-doc th.pf-repeat-key { background: #f1f4f8; }
+
+.pf-t-BUS-01 th { background: #245b75; color: #fff; border-bottom: 0; }
+
+.pf-t-BUS-01 tbody tr:nth-child(even) td { background: #f1f4f8; }
+
+.pf-ink-saver .pf-t-BUS-01 th { background: none; color: var(--pf-ink); border-top: 1.5px solid var(--pf-ink); border-bottom: 1.5px solid var(--pf-ink); }
+normal rgb(255, 255, 255) rgb(36, 91, 117)
+repeat rgb(255, 255, 255) rgb(241, 244, 248)
+oddkey rgb(0, 0, 0) rgb(241, 244, 248)
+even rgb(0, 0, 0) rgb(241, 244, 248)

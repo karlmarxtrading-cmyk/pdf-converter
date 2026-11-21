@@ -1,0 +1,20 @@
+{
+  "original": {
+    "files": 281,
+    "bytes": 9644515,
+    "maxFileBytes": 1513070,
+    "mainEntry": "main-nB6KPqXH.js",
+    "mainBytes": 1307725,
+    "mainGzipBytes": 409645,
+    "note": "Entry JS only, not measured network startup or Core Web Vitals."
+  },
+  "candidate": {
+    "files": 281,
+    "bytes": 9648088,
+    "maxFileBytes": 1513070,
+    "mainEntry": "main-doLqWopj.js",
+    "mainBytes": 1311382,
+    "mainGzipBytes": 411800,
+    "note": "Entry JS only, not measured network startup or Core Web Vitals."
+  }
+}

@@ -3,9 +3,9 @@
  "specVersion": "1.5-subset",
  "app": {
   "name": "paperforma",
-  "version": "3.0.0-rc.3"
+  "version": "3.0.0-rc.4"
  },
- "lockfileSha256": "9171ae624ad2421e15f1e31b3d6edca45ba04591dd7f5d3fe33c857021e4adf3",
+ "lockfileSha256": "644bda5170373c049a995c58cc7d074f078be27c872a7d121061f4948057cf69",
  "counts": {
   "total": 438,
   "runtime": 255,
@@ -2650,7 +2650,7 @@
    "version": "8.0.4",
    "license": "MIT",
    "scope": "required",
-   "direct": false,
+   "direct": true,
    "integrity": "sha512-Yq7XlXor0Cpb71sI2E0zpv8QxQ5a6rfhDEETk4bcgrFX2SvJAY2PHocWwFtL6U9qyfiyByW3wZ6sZEfP2kW81g==",
    "resolved": "https://registry.npmjs.org/hast-util-from-parse5/-/hast-util-from-parse5-8.0.4.tgz"
   },
@@ -3580,7 +3580,7 @@
    "version": "8.1.1",
    "license": "MIT",
    "scope": "required",
-   "direct": false,
+   "direct": true,
    "integrity": "sha512-EcR/6WDcU7b2N3vQSxKALCk9lXGtUMQxXio008OEMBE0kavu/7JLfBEeFPzi43nMqVDSbEn3QCK+BMCc9zO//w==",
    "resolved": "https://registry.npmjs.org/parse5/-/parse5-8.1.1.tgz"
   },
@@ -4210,7 +4210,7 @@
    "version": "6.0.3",
    "license": "MIT",
    "scope": "required",
-   "direct": false,
+   "direct": true,
    "integrity": "sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==",
    "resolved": "https://registry.npmjs.org/vfile/-/vfile-6.0.3.tgz"
   },

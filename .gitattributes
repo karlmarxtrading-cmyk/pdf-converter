@@ -1,0 +1,13 @@
+# Keep source/build inputs reproducible on Windows and Linux.
+* text=auto eol=lf
+fixtures/** -text
+evidence/** -text
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.woff2 binary
+*.pdf binary
+*.zip binary
+*.pfproj binary

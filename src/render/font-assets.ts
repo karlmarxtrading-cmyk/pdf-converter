@@ -24,7 +24,8 @@ export const browserFontSource: FontSource = (spec: FontFaceSpec) => {
   if (!load) return Promise.reject(new Error(`berkas font tidak dibundel: ${spec.file}`));
   const p = (async () => {
     const url = (await load()) as string;
-    const res = await fetch(url);
+    // A stalled shared font fetch must not poison preview/export retries forever.
+    const res = await fetch(url, { signal: AbortSignal.timeout(15000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return new Uint8Array(await res.arrayBuffer());
   })();

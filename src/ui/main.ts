@@ -22,6 +22,7 @@ import { $, $$, announce, choiceDialog, confirmDialog, downloadBytes, el, fmtByt
 import { SAMPLE_MD, SAMPLE_CONVERSATION } from './samples';
 import { EngineClient, EngineError, assetMeta, type WorkerLike } from '../engine/client';
 import { detectCompat } from './compat';
+import { reviewDiff } from './review-diff';
 
 type Target = 'html' | 'print';
 type ViewStatus = 'idle' | 'processing' | 'ready' | 'failed';
@@ -43,6 +44,8 @@ function qaEngineOptions(): ConstructorParameters<typeof EngineClient>[0] {
 
 const S = {
   project: C.createProject({ name: '', template: 'BUS-01' }) as Project,
+  /** PF-AUD-A01: invalidates pending imports even when the same project is reopened. */
+  projectGeneration: 0,
   /** pelacak fragmen tempelan (konversi per fragmen); teks otoritatif = project.source */
   ledger: new C.PasteLedger(''),
   undo: new C.ProjectUndo(),
@@ -351,25 +354,29 @@ async function convertFragment(fragId: string): Promise<void> {
 }
 
 /* ---------------- undo/redo transaksi proyek (UI-06) ---------------- */
-function applyUndoState(entry: C.UndoEntry, label: 'undo' | 'redo'): void {
+function applyUndoState(entry: C.UndoEntry, label: 'undo' | 'redo'): boolean {
   const changes = C.changesFor(entry.state, S.project);
-  if (!commit(changes, label, { record: false })) return;
+  if (!commit(changes, label, { record: false })) return false;
   S.ledger = new C.PasteLedger(S.project.source);
   setEditorFromProject();
   if (S.project.brandKit) rememberKit(S.project.brandKit);
   S.brandDraft = null;
   syncSettingsUi(); renderAssets(); renderConversationPanel(); renderBrandEditor();
   announce(`${t(label === 'undo' ? 'ws.undo' : 'ws.redo')}: ${entry.label}`);
+  return true;
 }
 async function doUndo(): Promise<void> {
-  const e = S.undo.undo(S.project);
+  const before = S.project, e = S.undo.peekUndo();
   if (!e) { if (S.prevProject) return restorePrevProject(); announce(pick('Tidak ada yang dapat diurungkan.', 'Nothing to undo.')); return; }
-  applyUndoState(e, 'undo');
+  // PF-AUD-A03: only consume a history entry after project admission succeeds.
+  if (applyUndoState(e, 'undo')) S.undo.undo(before);
+  updateUndoButtons();
 }
 async function doRedo(): Promise<void> {
-  const e = S.undo.redo(S.project);
+  const before = S.project, e = S.undo.peekRedo();
   if (!e) { announce(pick('Tidak ada yang dapat diulang.', 'Nothing to redo.')); return; }
-  applyUndoState(e, 'redo');
+  if (applyUndoState(e, 'redo')) S.undo.redo(before);
+  updateUndoButtons();
 }
 function restorePrevProject(): void {
   const p = S.prevProject; if (!p) return; S.prevProject = null;
@@ -413,6 +420,7 @@ function updatePasteRich(): void {
 }
 
 async function submitPaste(): Promise<void> {
+  const owner = S.project, ledger = S.ledger;
   const plain = $<HTMLTextAreaElement>('#paste-area').value;
   const repr = ($<HTMLInputElement>('input[name=paste-repr]:checked')).value;
   const html = pasteHtmlValid() && repr === 'markdown' ? S.paste.html! : undefined;
@@ -423,6 +431,7 @@ async function submitPaste(): Promise<void> {
   const bp = C.checkTextBudget('paste', plain); if (!bp.ok) { err(pick(bp.message, bp.messageEn)); return; }
   if (rawHtml) { const bh = C.checkTextBudget('pasteHtml', rawHtml); if (!bh.ok) { err(pick(bh.message, bh.messageEn)); return; } }
   const input = await C.makeInputRecord(rawHtml ? 'paste-html' : 'paste-plain', plain, { rawHtml, name: S.paste.mode });
+  if (S.project !== owner || S.ledger !== ledger) { err(t('export.stale')); return; }
 
   if (S.paste.mode === 'conversation') {
     const parsed = C.parseClipboardConversation({ plain, html }, input.id);
@@ -436,6 +445,7 @@ async function submitPaste(): Promise<void> {
       $<HTMLDialogElement>('#dlg-paste').close('ok');
       if (!(await confirmDialog(pick(`${parsed.conversation.messages.length} pesan dikenali dengan ${warn.length} catatan. Terapkan?`, `${parsed.conversation.messages.length} messages recognised with ${warn.length} notes. Apply?`), list))) return;
     } else $<HTMLDialogElement>('#dlg-paste').close('ok');
+    if (S.project !== owner || S.ledger !== ledger) { notify('warning', t('export.stale')); return; }
     if (!commit({ inputs: [...S.project.inputs, input], conversation: { ...parsed.conversation, editable: true } }, 'import-conversation', { render: false })) return;
     goWorkspace();
     const sum = C.importSummary(parsed.conversation);
@@ -454,6 +464,7 @@ async function submitPaste(): Promise<void> {
     const ok = await showDiff(plain, conv.markdown, pick('Teks biasa (−) dibandingkan hasil konversi Markdown (+). Tidak ada yang diterapkan sebelum Anda menyetujuinya; bila ditolak, teks biasa yang dipakai.', 'Plain text (−) compared with the Markdown conversion (+). Nothing is applied until you approve; if you decline, the plain text is used.'), conv.issues);
     if (ok) text = conv.markdown;
   } else $<HTMLDialogElement>('#dlg-paste').close('ok');
+  if (S.project !== owner || S.ledger !== ledger) { notify('warning', t('export.stale')); return; }
   const payload = { plain: text };
   const ed = editor();
   let r: C.LedgerResult<{ fragment: C.PasteFragment }>;
@@ -496,14 +507,17 @@ async function openFiles(files: File[]): Promise<void> {
 }
 
 async function importMarkdownFile(f: File): Promise<void> {
+  const owner = S.project, ledger = S.ledger;
   const t0 = performance.now();
   const r = await C.readFileWithinBudget(f, 'markdown');
+  if (S.project !== owner || S.ledger !== ledger) return;
   if (!r.ok) { notify('error', pick(r.budget.message, r.budget.messageEn)); return; }
   const dec = C.decodeUtf8Strict(r.bytes);
   if (!dec.ok) { notify('error', pick(`${f.name} bukan teks UTF-8 yang valid. Simpan ulang sebagai UTF-8.`, `${f.name} is not valid UTF-8 text. Re-save it as UTF-8.`)); return; }
   const input = await C.makeInputRecord('markdown-file', dec.text, { name: f.name });
+  if (S.project !== owner || S.ledger !== ledger) return;
   const replace = !S.project.source || (await confirmDialog(pick(`Ganti seluruh sumber dengan ${f.name}? Anda dapat mengurungkannya.`, `Replace the entire source with ${f.name}? You can undo this.`)));
-  if (!replace) return;
+  if (!replace || S.project !== owner || S.ledger !== ledger) return;
   const lr = S.ledger.replaceAll({ plain: dec.text }, { confirmed: true });
   if (!lr.ok) { notify('error', pick(lr.message, lr.messageEn)); return; }
   goWorkspace();
@@ -514,9 +528,10 @@ async function importMarkdownFile(f: File): Promise<void> {
 }
 
 async function importZipFile(f: File): Promise<void> {
-  const rb = await C.readFileWithinBudget(f, 'zip');
-  if (!rb.ok) { notify('error', pick(rb.budget.message, rb.budget.messageEn)); return; }
   const owner = S.project;
+  const rb = await C.readFileWithinBudget(f, 'zip');
+  if (owner !== S.project) return;
+  if (!rb.ok) { notify('error', pick(rb.budget.message, rb.budget.messageEn)); return; }
   const r = await C.importZipIntoProject(owner, rb.bytes);
   if (owner !== S.project) return;
   if (!r.ok) { notify('error', pick(r.message, r.messageEn)); return; }
@@ -549,38 +564,72 @@ async function importZipFile(f: File): Promise<void> {
 
 async function addAssetFiles(files: File[]): Promise<void> {
   const owner = S.project.projectId;
+  const generation = S.projectGeneration;
+  const originalPaths = new Map(S.project.assets.map(a => [a.path, a]));
   const msgs: string[] = [];
   let assets = [...S.project.assets];
+  const additions = new Map<string, AssetRecord>();
   let added = 0;
   for (const f of files) {
     const rb = await C.readFileWithinBudget(f, 'asset');
-    if (owner !== S.project.projectId) return;
+    if (owner !== S.project.projectId || generation !== S.projectGeneration) return;
     if (!rb.ok) { msgs.push(f.name + ': ' + pick(rb.budget.message, rb.budget.messageEn)); continue; }
     // QA-02: anggaran piksel diperiksa dari header di AssetStore (termasuk total proyek) sebelum dekode apa pun
     const store = new C.AssetStore(assets);
     const res = await store.add(rb.bytes, f.name, 'upload');
+    if (owner !== S.project.projectId || generation !== S.projectGeneration) return;
     if (!res.ok) { msgs.push(f.name + ': ' + pick(res.message, res.messageEn)); continue; }
     if (res.replaced && res.replaced.id !== res.asset.id) C.evictAsset(res.replaced.id);
-    assets = store.list(); added++;
+    assets = store.list(); additions.set(res.asset.path, res.asset); added++;
   }
-  if (added && !commit({ assets }, 'add-images')) return;
+  // PF-AUD-A01: merge against the latest project. Independent concurrent batches survive;
+  // a competing replacement of the same path requires a retry instead of overwriting it.
+  const latest = new Map(S.project.assets.map(a => [a.path, a]));
+  for (const [path, asset] of additions) {
+    if (latest.get(path) !== originalPaths.get(path)) {
+      notify('warning', pick(`Gambar ${path} telah berubah saat unggahan diproses. Unggah ulang agar perubahan terbaru tidak tertimpa.`, `Image ${path} changed while the upload was processing. Upload again so the latest change is not overwritten.`));
+      return;
+    }
+    latest.set(path, asset);
+  }
+  if (added && !commit({ assets: [...latest.values()] }, 'add-images')) return;
   goWorkspace();
   renderAssets();
   if (msgs.length) notify('error', msgs.join(' · ')); else notify('success', pick(`${added} gambar ditambahkan.`, `${added} image(s) added.`));
 }
 
-async function replaceAsset(id: string, f: File): Promise<void> {
+async function replaceAsset(path: string, f: File): Promise<void> {
   const owner = S.project.projectId;
-  const old = S.project.assets.find((a) => a.id === id); if (!old) return;
+  const generation = S.projectGeneration;
+  // PF-AUD-A02: content IDs are shared by aliases; the clicked filename is the selection identity.
+  const old = S.project.assets.find((a) => a.path === path); if (!old) return;
   const rb = await C.readFileWithinBudget(f, 'asset');
+  if (owner !== S.project.projectId || generation !== S.projectGeneration) return;
   if (!rb.ok) { notify('error', pick(rb.budget.message, rb.budget.messageEn)); return; }
   const rec = await C.createAssetRecord(rb.bytes, old.path, 'upload');
   if (!rec.ok) { notify('error', pick(rec.message, rec.messageEn)); return; }
-  if (owner !== S.project.projectId || !S.project.assets.includes(old)) return;
-  const brandKit = S.project.brandKit?.logoAssetId === id ? { ...S.project.brandKit, logoAssetId: rec.asset.id } : S.project.brandKit;
+  if (owner !== S.project.projectId || generation !== S.projectGeneration || !S.project.assets.includes(old)) return;
+  const brandKit = S.project.brandKit?.logoAssetId === old.id && !S.project.assets.some(a => a !== old && a.id === old.id)
+    ? { ...S.project.brandKit, logoAssetId: rec.asset.id } : S.project.brandKit;
   if (!commit({ assets: S.project.assets.map((a) => (a === old ? rec.asset : a)), brandKit }, 'replace-image')) return;
   renderAssets();
   notify('success', pick(`Gambar ${old.path} diganti (sha256 ${rec.asset.id.slice(0, 12)}…). Urungkan untuk mengembalikan.`, `Image ${old.path} replaced (sha256 ${rec.asset.id.slice(0, 12)}…). Undo to revert.`));
+}
+
+/** PF-AUD-A01: the same ownership rule covers remote-copy and brand image pickers. */
+async function importAssetAtPath(f: File, path: string, origin: AssetRecord['origin'], owner: string, generation: number): Promise<AssetRecord | undefined> {
+  const current = () => S.project.projectId === owner && S.projectGeneration === generation;
+  if (!current()) return;
+  const previous = S.project.assets.find(a => a.path === path);
+  const rb = await C.readFileWithinBudget(f, 'asset');
+  if (!current()) return;
+  if (!rb.ok) { notify('error', pick(rb.budget.message, rb.budget.messageEn)); return; }
+  const r = await C.createAssetRecord(rb.bytes, path, origin);
+  if (!current()) return;
+  if (!r.ok) { notify('error', pick(r.message, r.messageEn)); return; }
+  if (S.project.assets.find(a => a.path === path) !== previous) { notify('warning', t('export.stale')); return; }
+  const assets = S.project.assets.filter(a => a.path !== path).concat(r.asset);
+  if (commit({ assets }, origin === 'brand' ? 'brand-logo' : 'external-copy')) return r.asset;
 }
 
 async function importBundleFile(f: File): Promise<void> {
@@ -642,6 +691,7 @@ function loadProject(p: Project, msg?: string, opts: { keepPrev?: boolean } = {}
   }
   if (!opts.keepPrev && hasContent()) S.prevProject = S.project;
   S.exportGuard.activate(p.projectId);
+  S.projectGeneration++;
   delete $<HTMLInputElement>('#file-replace').dataset.replace;
   S.project = p;
   S.undo.clear();
@@ -779,7 +829,7 @@ async function refresh(): Promise<void> {
 const fontUrlCache = new Map<string, string>();
 /** Font pratinjau: kegagalan dicatat sebagai issue lingkup font (EN-007), bukan ditelan. */
 async function previewFonts(html: string, settings: Settings, brandKit?: BrandKit): Promise<{ css: string; issues: Issue[] }> {
-  const plan = R.planFonts({ html, settings, mode: 'screen', headingFont: brandKit?.headingFont });
+  const plan = R.planFonts({ html, settings, mode: 'screen', headingFont: brandKit?.headingFont, brandKit });
   const { browserFontSource } = await import('../render/font-assets');
   const css: string[] = [];
   const issues: Issue[] = [...plan.issues];
@@ -963,10 +1013,10 @@ function updateReadiness(): void {
   const row = (label: string, status: string, text: string, hint?: string) => el('div', { class: 'ready-row' },
     el('span', { class: 'ready-target', text: label }), el('span', { class: `pill ${status}`, text }), hint ? el('span', { class: 'hint', text: hint }) : null);
   if (!hasContent()) { box.append(el('p', { class: 'hint', text: t('empty.desc') })); }
-  else if (v.status === 'processing' || v.revision !== S.project.revision) {
-    box.append(row(t('target.html'), 'unchecked', t('status.processing')), row(t('target.print'), 'unchecked', t('status.processing')));
-  } else if (v.status === 'failed') {
+  else if (v.status === 'failed') {
     box.append(row(t('target.html'), 'fix', t('status.failed'), v.error), row(t('target.print'), 'fix', t('status.failed')));
+  } else if (v.status === 'processing' || v.revision !== S.project.revision) {
+    box.append(row(t('target.html'), 'unchecked', t('status.processing')), row(t('target.print'), 'unchecked', t('status.processing')));
   } else {
     const h = S.reports.html, p = S.reports.print;
     const layoutState = S.layout.hash === v.hash ? S.layout.status : 'none';
@@ -1072,15 +1122,28 @@ async function repairIssue(it: Issue): Promise<void> {
 }
 
 async function showDiff(before: string, after: string, desc: string, issues: { message: string; messageEn?: string; severity?: string }[] = []): Promise<boolean> {
-  const { diffLines } = await import('diff');
+  const result = await reviewDiff(before, after);
   const view = $('#diff-view'); view.replaceChildren();
-  for (const part of diffLines(before, after)) {
-    const lines = part.value.replace(/\n$/, '').split('\n');
-    const cls = part.added ? 'add' : part.removed ? 'del' : '';
-    const shown = !cls && lines.length > 6 ? [...lines.slice(0, 3), null, ...lines.slice(-3)] : lines;
-    for (const l of shown) view.append(l === null ? el('div', { class: 'gap', text: '⋯' }) : el('div', { class: cls, text: l }));
+  view.classList.toggle('diff-full', result.kind === 'full');
+  if (result.kind === 'full') {
+    // PF-AUD-U02: two complete read-only texts instead of unbounded diff computation/DOM rows.
+    // The approval button still controls whether the caller applies the conversion.
+    for (const [text, label, filename] of [[before, t('repair.before'), 'before.txt'], [after, t('repair.after'), 'after.md']] as const) {
+      const pane = el('textarea', { readonly: true, 'aria-label': label, wrap: 'off', rows: '14', spellcheck: 'false' });
+      pane.value = text;
+      const save = el('button', { type: 'button', class: 'btn btn-secondary btn-sm', text: t('repair.download') });
+      save.addEventListener('click', () => downloadBytes(new TextEncoder().encode(text), filename, 'text/plain;charset=utf-8'));
+      view.append(el('section', {}, el('strong', { text: label }), pane, save));
+    }
+  } else {
+    for (const part of result.parts) {
+      const lines = part.value.replace(/\n$/, '').split('\n');
+      const cls = part.added ? 'add' : part.removed ? 'del' : '';
+      const shown = !cls && lines.length > 6 ? [...lines.slice(0, 3), null, ...lines.slice(-3)] : lines;
+      for (const l of shown) view.append(l === null ? el('div', { class: 'gap', text: '⋯' }) : el('div', { class: cls, text: l }));
+    }
   }
-  $('#diff-desc').textContent = desc;
+  $('#diff-desc').textContent = desc + (result.kind === 'full' ? ' ' + t('repair.full') : '');
   // UI-07: issue konversi (mis. CLIPBOARD_PLAIN_MISMATCH) tampil sebelum persetujuan
   const box = $('#diff-issues'); box.replaceChildren();
   const relevant = issues.filter((i) => i.severity !== 'info');
@@ -1101,14 +1164,14 @@ function renderAssets(): void {
     // pengguna mengunggah salinan yang sah, lalu salinan dipetakan ke URL asli.
     const up = el('button', { type: 'button', class: 'btn btn-secondary btn-sm', text: pick('Unggah salinan…', 'Upload copy…') });
     up.addEventListener('click', () => {
+      const owner = S.project.projectId, generation = S.projectGeneration;
       const fi = $<HTMLInputElement>('#file-logo');
       fi.onchange = async () => {
         const f = fi.files?.[0]; fi.value = ''; fi.onchange = null; if (!f) return;
-        const rb = await C.readFileWithinBudget(f, 'asset'); if (!rb.ok) { notify('error', pick(rb.budget.message, rb.budget.messageEn)); return; }
-        const store = new C.AssetStore(S.project.assets);
-        const r = await C.embedRemoteCopy(store, ext.url, rb.bytes);
-        if (!r.ok) { notify('error', pick(r.message, r.messageEn)); return; }
-        commit({ assets: store.list() }, 'external-copy'); renderAssets();
+        if (!/^https:\/\//i.test(ext.url)) return;
+        const rec = await importAssetAtPath(f, ext.url, 'remote-copy', owner, generation);
+        if (!rec) return;
+        renderAssets();
         notify('success', pick(`Salinan untuk ${ext.url} ditambahkan; gambar ini akan masuk cetak dan HTML mandiri.`, `Copy for ${ext.url} added; this image will be included in print and standalone HTML.`));
       };
       fi.click();
@@ -1119,7 +1182,7 @@ function renderAssets(): void {
   for (const a of S.project.assets) {
     const img = el('img', { alt: '', src: C.assetDataUrl(a) });
     const rep = el('button', { type: 'button', class: 'btn btn-quiet btn-sm', text: t('assets.replace') });
-    rep.addEventListener('click', () => { const fi = $<HTMLInputElement>('#file-replace'); fi.dataset.replace = a.id; fi.click(); });
+    rep.addEventListener('click', () => { const fi = $<HTMLInputElement>('#file-replace'); fi.dataset.replace = a.path; fi.click(); });
     const del = el('button', { type: 'button', class: 'btn btn-quiet btn-sm', text: t('assets.remove') });
     // Byte aset tetap dirujuk oleh undo (tanpa duplikasi) sehingga penghapusan dapat diurungkan
     del.addEventListener('click', () => { commit({ assets: S.project.assets.filter((x) => x !== a) }, 'remove-image'); renderAssets(); });
@@ -1353,13 +1416,13 @@ function renderBrandEditor(): void {
   const logoInfo = el('span', { class: 'hint', text: logoId ? `sha256 ${logoId.slice(0, 10)}…` : '—' });
   const logoBtn = el('button', { type: 'button', class: 'btn btn-secondary btn-sm', text: t('brand.logo') });
   logoBtn.addEventListener('click', () => {
+    const owner = S.project.projectId, generation = S.projectGeneration;
     const fi = $<HTMLInputElement>('#file-logo');
     fi.onchange = async () => {
       const f = fi.files?.[0]; fi.value = ''; fi.onchange = null; if (!f) return;
-      const rb = await C.readFileWithinBudget(f, 'asset'); if (!rb.ok) { notify('error', pick(rb.budget.message, rb.budget.messageEn)); return; }
-      const rec = await C.createAssetRecord(rb.bytes, `brand/${f.name}`, 'brand'); if (!rec.ok) { notify('error', pick(rec.message, rec.messageEn)); return; }
-      logoId = rec.asset.id; logoInfo.textContent = `sha256 ${logoId.slice(0, 10)}…`; sync();
-      if (!S.project.assets.some((a) => a.id === rec.asset.id)) commit({ assets: [...S.project.assets, rec.asset] }, 'brand-logo');
+      const rec = await importAssetAtPath(f, `brand/${f.name}`, 'brand', owner, generation);
+      if (!rec || !logoInfo.isConnected) return;
+      logoId = rec.id; logoInfo.textContent = `sha256 ${logoId.slice(0, 10)}…`; sync();
     };
     fi.click();
   });

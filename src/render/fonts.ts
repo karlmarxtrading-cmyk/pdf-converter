@@ -5,7 +5,7 @@
  * dan manifest font (family, weight, style, subset, bytes, sha256, lisensi OFL-1.1).
  * Murni (tanpa DOM/jaringan); pemuatan bytes melalui FontSource yang disuntikkan.
  */
-import type { Issue, Settings } from '../core/contracts';
+import type { BrandKit, Issue, Settings } from '../core/contracts';
 import { FONT_COVERAGE, KATEX_FONT_INFO, KATEX_SYMBOL_COVERAGE, type Range } from './font-coverage.generated';
 import { getTemplate } from './templates';
 import { bytesToBase64, sha256Hex } from './util';
@@ -78,9 +78,12 @@ export function textForFonts(html: string): string {
   const P = (globalThis as { DOMParser?: typeof DOMParser }).DOMParser;
   if (P) {
     const doc = new P().parseFromString(`<!doctype html><body>${html}`, 'text/html');
+    // PF-R4-03: KaTeX delegates unsupported script glyphs to fallback fonts.
+    // Inspect that visible text before removing duplicate MathML/KaTeX content.
+    const mathFallback = [...doc.querySelectorAll('.katex [class*="_fallback"]')].map(n => n.textContent ?? '').join(' ');
     doc.querySelectorAll('.katex, script, style, template, annotation').forEach((n) => n.remove());
-    return (doc.body.textContent ?? '') + ' ' + [...doc.querySelectorAll('[alt],[title],[aria-label],[data-lang]')]
-      .map((e) => `${e.getAttribute('alt') ?? ''} ${e.getAttribute('aria-label') ?? ''} ${e.getAttribute('data-lang') ?? ''}`).join(' ');
+    return mathFallback + ' ' + (doc.body.textContent ?? '') + ' ' + [...doc.querySelectorAll('[alt],[title],[aria-label],[data-lang]')]
+      .map((e) => `${e.getAttribute('alt') ?? ''} ${e.getAttribute('title') ?? ''} ${e.getAttribute('aria-label') ?? ''} ${e.getAttribute('data-lang') ?? ''}`).join(' ');
   }
   return html.replace(/<math[\s\S]*?<\/math>/g, ' ').replace(/<annotation[\s\S]*?<\/annotation>/g, ' ').replace(/<[^>]+>/g, ' ')
     .replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (m, e: string) => (e[0] === '#' ? String.fromCodePoint(parseInt(e[1] === 'x' || e[1] === 'X' ? e.slice(2) : e.slice(1), e[1] === 'x' || e[1] === 'X' ? 16 : 10)) : ({ amp: '&', lt: '<', gt: '>', quot: '"', nbsp: ' ', apos: "'" } as Record<string, string>)[e] ?? m));
@@ -108,11 +111,15 @@ function katexFiles(f: FontFeatures, textCps: Set<number>): string[] {
     if (has('mathbf', 'textbf', 'boldsymbol', 'mathboldsf')) out.add('KaTeX_Main-Bold');
     if (has('boldsymbol')) out.add('KaTeX_Math-BoldItalic');
     if (has('textit', 'mathit')) out.add('KaTeX_Main-Italic');
+    if (has('textbf') && has('textit')) out.add('KaTeX_Main-BoldItalic');
     if (has('amsrm', 'mathbb', 'textbb')) out.add('KaTeX_AMS-Regular');
     if (has('mathcal')) out.add('KaTeX_Caligraphic-Regular');
     if (has('mathfrak', 'textfrak')) out.add('KaTeX_Fraktur-Regular');
+    if (has('mathboldfrak', 'textboldfrak')) out.add('KaTeX_Fraktur-Bold');
     if (has('mathscr', 'textscr')) out.add('KaTeX_Script-Regular');
     if (has('mathsf', 'textsf')) out.add('KaTeX_SansSerif-Regular');
+    if (has('mathboldsf', 'textboldsf') || (has('textsf') && has('textbf'))) out.add('KaTeX_SansSerif-Bold');
+    if (has('mathsfit', 'mathitsf', 'textitsf') || (has('textsf') && has('textit'))) out.add('KaTeX_SansSerif-Italic');
     if (has('mathtt', 'texttt')) out.add('KaTeX_Typewriter-Regular');
     if (has('size1', 'small-op')) out.add('KaTeX_Size1-Regular');
     if (has('size2', 'large-op')) out.add('KaTeX_Size2-Regular');
@@ -134,6 +141,8 @@ function katexFiles(f: FontFeatures, textCps: Set<number>): string[] {
 export interface PlanInput {
   html: string; settings: Settings; extraText?: string; mode: 'screen' | 'print';
   headingFont?: 'inter' | 'source-serif-4'; bodyFont?: 'inter' | 'source-serif-4'; cover?: boolean;
+  /** PF-R4-02: generated brand/header/footer text is part of the output too. */
+  brandKit?: BrandKit;
 }
 
 /** Rencana font minimal; tidak menyentuh jaringan. */
@@ -143,7 +152,7 @@ export function planFonts(input: PlanInput): FontPlan {
   const body: FamilyKey = input.bodyFont ?? settings.bodyFont;
   const head: FamilyKey = input.headingFont ?? tpl.headingFont;
   const f = detectFeatures(input.html);
-  const text = textForFonts(input.html) + ' ' + [settings.title, settings.subtitle, settings.author, settings.dateText, settings.header, settings.footer, input.extraText].filter(Boolean).join(' ') + ' 0123456789';
+  const text = textForFonts(input.html) + ' ' + [settings.title, settings.subtitle, settings.author, settings.dateText, settings.header, settings.footer, input.brandKit?.orgName, input.brandKit?.footerText, input.brandKit?.name, input.extraText].filter(Boolean).join(' ') + ' 0123456789';
   const cps = new Set<number>();
   for (const ch of text) cps.add(ch.codePointAt(0)!);
 
@@ -187,14 +196,35 @@ export function planFonts(input: PlanInput): FontPlan {
   return { faces, missing, issues, distinctCodepoints: cps.size };
 }
 
-export async function loadFonts(plan: FontPlan, source: FontSource): Promise<{ fonts: LoadedFont[]; issues: Issue[] }> {
+export interface FontLoadOptions { signal?: AbortSignal; timeoutMs?: number }
+
+/** PF-R4-04: stop waiting on a hung source on cancellation or deadline. No final bytes are delivered. */
+export async function loadFonts(plan: FontPlan, source: FontSource, options: FontLoadOptions = {}): Promise<{ fonts: LoadedFont[]; issues: Issue[] }> {
   const issues: Issue[] = []; const fonts: LoadedFont[] = [];
+  const signal = options.signal;
+  const abortReason = () => signal?.reason instanceof Error ? signal.reason : new DOMException('Dibatalkan', 'AbortError');
+  if (signal?.aborted) throw abortReason();
+  const timeoutMs = options.timeoutMs ?? 15000;
+  const bounded = <T,>(job: () => Promise<T>): Promise<T> => new Promise((resolve, reject) => {
+    let done = false;
+    const cleanup = () => { clearTimeout(timer); signal?.removeEventListener('abort', onAbort); };
+    const finish = (run: () => void) => { if (done) return; done = true; cleanup(); run(); };
+    const onAbort = () => finish(() => reject(abortReason()));
+    const timer = setTimeout(() => finish(() => reject(new Error(`batas waktu font ${timeoutMs} ms`))), timeoutMs);
+    signal?.addEventListener('abort', onAbort, { once: true });
+    if (signal?.aborted) { onAbort(); return; }
+    Promise.resolve().then(job).then(value => finish(() => resolve(value)), error => finish(() => reject(error)));
+  });
   await Promise.all(plan.faces.map(async (spec) => {
     try {
-      const bytes = await source(spec);
+      const bytes = await bounded(() => source(spec));
+      if (signal?.aborted) throw abortReason();
       if (bytes.length < 12 || bytes[0] !== 0x77 || bytes[1] !== 0x4f || bytes[2] !== 0x46 || bytes[3] !== 0x32) throw new Error('bukan WOFF2');
-      fonts.push({ spec, bytes, sha256: await sha256Hex(bytes) });
+      const sha256 = await sha256Hex(bytes);
+      if (signal?.aborted) throw abortReason();
+      fonts.push({ spec, bytes, sha256 });
     } catch (e) {
+      if (signal?.aborted) throw abortReason();
       issues.push({ id: `font-load-${spec.file}`, code: 'FONT_LOAD_FAILED', severity: 'error', scope: 'font', blocking: true, message: `Font ${spec.family} ${spec.weight} ${spec.style} (${spec.subset}) gagal dimuat: ${(e as Error).message}` });
     }
   }));

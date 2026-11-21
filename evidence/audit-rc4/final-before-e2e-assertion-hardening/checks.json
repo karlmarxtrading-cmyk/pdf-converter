@@ -1,0 +1,110 @@
+{
+  "at": "2026-11-21T09:53:15.648870+00:00",
+  "commands": [
+    {
+      "name": "typecheck",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "seconds": 2.069,
+      "log": "typecheck.log"
+    },
+    {
+      "name": "lint",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exitCode": 0,
+      "seconds": 0.424,
+      "log": "lint.log"
+    },
+    {
+      "name": "tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exitCode": 0,
+      "seconds": 16.824,
+      "log": "tests.log"
+    },
+    {
+      "name": "build-production",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "seconds": 40.377,
+      "log": "build-production.log"
+    },
+    {
+      "name": "build-qa",
+      "command": [
+        "npm",
+        "run",
+        "build:qa"
+      ],
+      "exitCode": 0,
+      "seconds": 43.792,
+      "log": "build-qa.log"
+    },
+    {
+      "name": "verify-static",
+      "command": [
+        "npm",
+        "run",
+        "verify:static"
+      ],
+      "exitCode": 0,
+      "seconds": 0.393,
+      "log": "verify-static.log"
+    },
+    {
+      "name": "release-gate",
+      "command": [
+        "npm",
+        "run",
+        "test:gate"
+      ],
+      "exitCode": 0,
+      "seconds": 3.532,
+      "log": "release-gate.log"
+    },
+    {
+      "name": "http",
+      "command": [
+        "npm",
+        "run",
+        "verify:http",
+        "--",
+        "--local"
+      ],
+      "exitCode": 0,
+      "seconds": 0.755,
+      "log": "http.log"
+    },
+    {
+      "name": "secrets",
+      "command": [
+        "npm",
+        "run",
+        "scan:secrets"
+      ],
+      "exitCode": 0,
+      "seconds": 0.504,
+      "log": "secrets.log"
+    }
+  ],
+  "pass": true,
+  "fingerprint": {
+    "candidateSha256": "e069c0a3202ac5e9fdb2c6dd0d1f67fd098fb953832aafb0c6ac7fd9452698b8",
+    "distTreeSha256": "03e0a565c52b2a514eb01e878e7f0ca3c31a1a7cc04b9a4a8c90dc53d2390a1d"
+  }
+}

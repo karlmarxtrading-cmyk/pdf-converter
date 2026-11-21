@@ -9,7 +9,7 @@ export {
 } from './templates';
 export type { TemplateDef, TemplateTokens, TemplateCapabilities, ApplyTemplateResult, SettingGroup, ResolvedStyle } from './templates';
 export { planFonts, loadFonts, fontFaceCss, fontManifest, isCoveredByBundledFonts, scriptOf } from './fonts';
-export type { FontPlan, FontFaceSpec, FontManifestEntry, FontSource, LoadedFont, MissingGlyphs } from './fonts';
+export type { FontPlan, FontFaceSpec, FontManifestEntry, FontSource, FontLoadOptions, LoadedFont, MissingGlyphs } from './fonts';
 export { prepareBody, composeDocument, documentStyles, tocEntries } from './document';
 export type { PreparedBody, PrepareOptions, ComposeOptions, ComposedDocument, ComposeMode } from './document';
 export { exportHtml, ExportGuard, StaleExportError, ExportBlockedError, REQUIRED_CHECKS, REVIEW_CHECKS, staticChecks, ENHANCEMENT_JS } from './exports';

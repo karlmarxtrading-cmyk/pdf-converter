@@ -5,8 +5,8 @@
  * Ukuran anggaran: byte UTF-8.
  */
 export const SCHEMA_VERSION = 2;
-export const APP_VERSION = '3.0.0-rc.3';
-export const RENDERER_VERSION = 'pf-render-2.0.0';
+export const APP_VERSION = '3.0.0-rc.4';
+export const RENDERER_VERSION = 'pf-render-3.0.0-rc.4';
 
 export type TemplateId = 'EDU-01' | 'BUS-01' | 'EDT-01' | 'CON-01';
 export type Paper = 'A4' | 'A5' | 'Letter' | 'Legal';
@@ -89,7 +89,12 @@ export interface Project {
 }
 
 /** Keadaan proyek selain teks sumber yang dicatat per revisi; aset dirujuk lewat id (hash isi). */
-export interface HistoryState { name: string; settings: Settings; brandKit?: BrandKit; assetIds: string[]; sourcePath?: string; conversation?: Conversation }
+export interface HistoryState {
+  name: string; settings: Settings; brandKit?: BrandKit; assetIds: string[];
+  /** PF-AUD-A04: content hashes can have multiple filename aliases. Older states have only assetIds. */
+  assetRefs?: { id: string; path: string }[];
+  sourcePath?: string; conversation?: Conversation;
+}
 
 export interface Snapshot {
   projectId: string; revision: number; createdAt: string;
@@ -123,7 +128,7 @@ export interface ExportManifest {
 export interface Limits {
   markdownBytes: number; pasteBytes: number; pasteHtmlBytes: number; assetBytes: number; totalProjectBytes: number;
   zipBytes: number; zipEntries: number; zipMaxDepth: number; zipMaxRatio: number; zipUnpackedBytes: number;
-  mathChars: number; maxNodes: number; maxTableCells: number; standaloneHtmlBytes: number; pdfPayloadBytes: number;
+  mathChars: number; maxNodes: number; maxNesting: number; maxTableCells: number; standaloneHtmlBytes: number; pdfPayloadBytes: number;
 }
 export interface RenderOptions {
   assets: AssetRecord[]; allowExternalImages: boolean; template: TemplateId; sourcePath?: string;

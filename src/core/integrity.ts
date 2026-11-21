@@ -11,7 +11,7 @@ import { structuredConversation } from './conversation';
 import { DROP_WITH_CONTENT } from './sanitize';
 import type { RenderedBody } from './contracts';
 import { parseMarkdown, blockModels, orderedTokens, type BlockModel } from './markdown';
-import { mkIssue, numberIssues, parseInert, type CoreIssue } from './util';
+import { mkIssue, numberIssues, parseInert, imageRefKey, type CoreIssue } from './util';
 
 export const INTEGRITY_SCOPE = {
   id: 'Memeriksa keutuhan format: semua blok sumber tersaji berurutan dengan token, tanda, angka, sel tabel, rumus, kode, tautan, aset, dan catatan kaki yang sama. TIDAK memeriksa kebenaran fakta atau matematika.',
@@ -46,7 +46,7 @@ export interface RenderedBlock {
 }
 
 /** Canonical cell structure for a raw HTML table, including section, text, caption and merged cells. */
-function rawTableSignature(table: HTMLTableElement): string {
+function rawTableSignature(table: HTMLTableElement, rendered = false): string {
   const text = (el: Element) => {
     const clone = el.cloneNode(true) as Element;
     for (const formula of clone.querySelectorAll('code[data-pf-formula], .pf-math[data-tex]')) {
@@ -57,10 +57,22 @@ function rawTableSignature(table: HTMLTableElement): string {
     clone.querySelectorAll([...DROP_WITH_CONTENT, '.pf-img-placeholder', 'img'].join(',')).forEach(n => n.remove());
     return (clone.textContent ?? '').replace(/\s+/g, ' ').trim();
   };
+  // RC4-I01: identical visible labels do not imply identical references. Keep order and exact source URLs.
+  const references = (el: Element) => {
+    const safe = el.cloneNode(true) as Element;
+    safe.querySelectorAll([...DROP_WITH_CONTENT].join(',')).forEach(n => n.remove());
+    return {
+      links: [...safe.querySelectorAll('a')].map(a => rendered ? a.getAttribute('data-source-href') ?? a.getAttribute('href') ?? a.getAttribute('data-blocked-href') : a.getAttribute('href')).filter(h => h !== null),
+      images: [...safe.querySelectorAll(rendered ? 'img, .pf-img-placeholder' : 'img')].map(img => rendered
+        ? img.getAttribute('data-src-path') ?? img.getAttribute('data-src') ?? img.getAttribute('data-blocked-src') ?? imageRefKey(img.getAttribute('src') ?? '')
+        : imageRefKey(img.getAttribute('src') ?? '')),
+    };
+  };
   return JSON.stringify({
     caption: table.caption ? text(table.caption) : null,
+    captionReferences: table.caption ? references(table.caption) : null,
     sections: [table.tHead, ...table.tBodies, table.tFoot].filter(s => s !== null).map(s => [
-      s.tagName, [...s.rows].map(row => [...row.cells].map(cell => [cell.tagName, cell.scope, cell.colSpan, cell.rowSpan, text(cell)]))
+      s.tagName, [...s.rows].map(row => [...row.cells].map(cell => [cell.tagName, cell.scope, cell.colSpan, cell.rowSpan, text(cell), references(cell)]))
     ]),
   });
 }
@@ -98,7 +110,7 @@ export function extractRenderedBlocks(html: string | Document | Element): Render
     if (el.tagName === 'PRE') { rb.code = el.querySelector('code')?.textContent ?? el.textContent ?? ''; rb.text = rb.code; out.push(rb); continue; }
     if (el.classList.contains('pf-math') && el.hasAttribute('data-tex')) { rb.math = [el.getAttribute('data-tex')!]; rb.text = rb.math[0]!; out.push(rb); continue; }
     if (el.tagName === 'TABLE') {
-      if (el.hasAttribute('data-pf-raw-table')) rb.rawTableSignature = rawTableSignature(el as HTMLTableElement);
+      if (el.hasAttribute('data-pf-raw-table')) rb.rawTableSignature = rawTableSignature(el as HTMLTableElement, true);
       rb.cells = Array.from(el.querySelectorAll('tr')).map((tr) => Array.from(tr.querySelectorAll('th,td')).filter((c) => !c.classList.contains('pf-cell-missing')).map((c) => {
         const a = { parts: [] as string[], links: rb.links, images: rb.images, fnRefs: rb.fnRefs, math: rb.math }; flattenDom(c, a); return a.parts.join('').replace(/\s+/g, ' ').trim();
       }));
@@ -143,12 +155,15 @@ export function compareBlockModels(expected: BlockModel[], actual: RenderedBlock
   const exp = expected.filter((m) => { if (SKIP[m.kind] && !m.rawTableHtml) { skipped.push({ id: m.id, kind: m.kind, reason: SKIP[m.kind]! }); return false; } return true; });
   const body = exp.filter((m) => m.kind !== 'footnoteDefinition');
   const defs = exp.filter((m) => m.kind === 'footnoteDefinition');
+  // RC4-P02: membership must not rescan every source block for every rendered block.
+  const bodyIds = new Set(body.map(m => m.id));
+  const expectedIds = new Set(expected.map(m => m.id));
   // urutan blok
-  const actOrder = actual.map((a) => a.id).filter((id) => body.some((m) => m.id === id));
+  const actOrder = actual.map((a) => a.id).filter((id) => bodyIds.has(id));
   const expOrder = body.map((m) => m.id).filter((id) => actById.has(id));
   const ord = compareTokens(expOrder, actOrder);
   if (!ord.equal) issues.push(mkIssue('INTEGRITY_BLOCK_ORDER', 'error', 'integrity', { id: `Urutan blok keluaran berbeda dari sumber mulai blok ke-${ord.index + 1}.`, en: `Output block order differs from the source starting at block ${ord.index + 1}.` }, { blocking: true, ...(ord.expected ? { blockId: ord.expected } : {}) }));
-  for (const a of actual) if (!expected.some((m) => m.id === a.id)) issues.push(mkIssue('INTEGRITY_BLOCK_UNEXPECTED', 'warning', 'integrity', { id: `Keluaran memuat blok ${a.id} yang tidak ada di sumber.`, en: `Output contains block ${a.id} that is not in the source.` }, { blockId: a.id }));
+  for (const a of actual) if (!expectedIds.has(a.id)) issues.push(mkIssue('INTEGRITY_BLOCK_UNEXPECTED', 'warning', 'integrity', { id: `Keluaran memuat blok ${a.id} yang tidak ada di sumber.`, en: `Output contains block ${a.id} that is not in the source.` }, { blockId: a.id }));
   for (const m of exp) {
     const a = actById.get(m.id);
     const where = { line: m.line, blockId: m.id };

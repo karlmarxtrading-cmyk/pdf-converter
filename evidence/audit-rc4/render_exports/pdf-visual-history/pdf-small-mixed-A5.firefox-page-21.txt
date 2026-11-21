@@ -1,0 +1,14 @@
+20
+P
+enutup
+D
+okumen selesai. Kata terakhir: PENUTUP-AKHIR-DOKUMEN.
+Catatan kaki
+1. 
+Catatan kaki pertama dengan tautan 
+sumber
+. 
+↩
+2. 
+Catatan kaki kedua. 
+↩

@@ -8,7 +8,7 @@
 import { Inflate } from 'fflate';
 import type { AssetRecord, Limits } from './contracts';
 import { LIMITS, checkBudget, decodeUtf8Strict, type BudgetResult } from './limits';
-import { createAssetRecord, IMAGE_EXT } from './assets';
+import { createAssetRecord, IMAGE_EXT, IMAGE_BUDGET, pixelsOf } from './assets';
 
 export interface ZipEntryInfo {
   name: string; crc32: number; method: number; flags: number; compressedSize: number; uncompressedSize: number;
@@ -234,7 +234,15 @@ export async function importZip(bytes: Uint8Array, opts: ZipImportOptions = {}):
     } else {
       const r = await createAssetRecord(data, path, 'zip', limits);
       if (!r.ok) rejected.push({ path, code: 'ASSET_REJECTED', message: r.message, messageEn: r.messageEn });
-      else assets.push(r.asset);
+      else {
+        assets.push(r.asset);
+        // PF-AUD-A05: compressed image files may be tiny but unsafe to decode together.
+        if (assets.reduce((total, a) => total + pixelsOf(a), 0) > IMAGE_BUDGET.maxTotalPixels) return {
+          ok: false, fatal: { path, code: 'ASSET_REJECTED',
+            message: `Total piksel gambar dalam ZIP melewati ${IMAGE_BUDGET.maxTotalPixels / 1e6} MP. Perkecil gambar; proyek tidak diubah.`,
+            messageEn: `Total image pixels in the ZIP exceed ${IMAGE_BUDGET.maxTotalPixels / 1e6} MP. Resize the images; the project was not changed.` },
+        };
+      }
     }
   }
   markdown.sort((a, b) => a.path.localeCompare(b.path));

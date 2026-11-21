@@ -1,0 +1,111 @@
+6
+Kolom 1
+Kolom 2
+Kolom 3
+Kolom 4
+Kolom 5
+Kolom 6
+Kolom 7
+Kolom 8
+Kolom 9
+Kolom 10
+Kolom 11
+Kolom 12
+v4.1
+v4.2
+v4.3
+v4.4
+v4.5
+v4.6
+v4.7
+v4.8
+v4.9
+v4.10
+v4.11
+v4.12
+v5.1
+v5.2
+v5.3
+v5.4
+v5.5
+v5.6
+v5.7
+v5.8
+v5.9
+v5.10
+v5.11
+v5.12
+T
+abel panjang
+Kode
+Nama
+Nilai (Rp)
+Aktif
+R001
+Barang 1
+1.250
+Ya
+R002
+Barang 2
+2.500
+Tidak
+R003
+Barang 3
+3.750
+Ya
+R004
+Barang 4
+5.000
+Tidak
+R005
+Barang 5
+6.250
+Ya
+R006
+Barang 6
+7.500
+Tidak
+R007
+Barang 7
+8.750
+Ya
+R008
+Barang 8
+10.000
+Tidak
+R009
+Barang 9
+11.250
+Ya
+R010
+Barang 10
+12.500
+Tidak
+R011
+Barang 11
+13.750
+Ya
+R012
+Barang 12
+15.000
+Tidak
+R013
+Barang 13
+16.250
+Ya
+R014
+Barang 14
+17.500
+Tidak
+R015
+Barang 15
+18.750
+Ya
+R016
+Barang 16
+20.000
+Tidak
+R017
+Barang 17
+21.250
+Ya

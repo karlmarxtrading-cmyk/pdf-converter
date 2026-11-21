@@ -4,12 +4,15 @@
 // Alur: buka studio → tempel dokumen Einstein seperti dari ChatGPT (text/plain + text/html berdelimiter literal, dan
 // text/html KaTeX) lewat ClipboardEvent sungguhan → setujui konversi → periksa pratinjau: 11 rumus KaTeX, TeX sama
 // dengan sumber, tidak ada \(…\) / \[…\] / \boxed mentah, mata uang & kode utuh; lalu tempel teks biasa ke editor.
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import puppeteer from 'puppeteer-core';
+import { deploymentMathPass } from './result-gates.mjs';
+import { findChromium } from './browser-path.mjs';
 
 const base = (process.argv[2] || '').replace(/\/$/, '');
+const expectedVersion = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')).version;
 if (!/^https?:\/\//.test(base)) { console.error('Pemakaian: node scripts/verify-deployment-math.mjs <URL deployment>'); process.exit(2); }
-const CHROME = process.env.CHROME_PATH || ['/usr/bin/google-chrome', '/usr/bin/chromium', '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'C:/Program Files/Google/Chrome/Application/chrome.exe'].find((p) => existsSync(p));
+const CHROME = findChromium();
 if (!CHROME) { console.error('Chrome tidak ditemukan; set CHROME_PATH.'); process.exit(2); }
 const md = readFileSync(new URL('../fixtures/einstein/einstein.md', import.meta.url), 'utf8');
 const htmlL = readFileSync(new URL('../fixtures/einstein/chatgpt-literal.html', import.meta.url), 'utf8');
@@ -54,8 +57,8 @@ async function run(name, act) {
     rec.version = await p.evaluate(() => document.querySelector('meta[name="pf-version"]')?.content ?? null);
   } catch (e) { rec.error = String(e?.message || e).slice(0, 300); }
   rec.pageErrors = errs.slice(0, 3);
-  rec.pass = !rec.error && JSON.stringify(rec.display) === JSON.stringify([false, false, true, false, true, false, true, true, false, false, false]) && rec.katex === EXPECTED.length && rec.errors === 0 && !rec.raw?.length && JSON.stringify(rec.tex) === JSON.stringify(EXPECTED) && rec.currency && rec.code;
-  console.log(`${rec.pass ? '✓' : '✗'} ${name}: katex=${rec.katex} raw=${(rec.raw ?? []).join(' ') || '-'} ${rec.error ?? ''}`);
+  rec.pass = deploymentMathPass(rec, { version: expectedVersion, tex: EXPECTED, display: [false, false, true, false, true, false, true, true, false, false, false] });
+  console.log(`${rec.pass ? '✓' : '✗'} ${name}: version=${rec.version ?? 'MISSING'} expected=${expectedVersion} katex=${rec.katex} raw=${(rec.raw ?? []).join(' ') || '-'} ${rec.error ?? ''}`);
   results.push(rec); await ctx.close();
 }
 const viaDialog = (plain, html) => async (p) => {
@@ -68,7 +71,7 @@ await run('chatgpt-html-literal', viaDialog(md, htmlL));
 await run('chatgpt-html-katex', viaDialog(md, htmlK));
 await run('plain-text-editor', (p) => paste(p, '#editor', md, null));
 await browser.close();
-const out = { tool: 'scripts/verify-deployment-math.mjs', url: base, at: new Date().toISOString(), chrome: CHROME, pass: results.every((r) => r.pass), results };
+const out = { tool: 'scripts/verify-deployment-math.mjs', url: base, expectedVersion, at: new Date().toISOString(), chrome: CHROME, pass: results.every((r) => r.pass), results };
 writeFileSync('evidence/deployment-math.json', JSON.stringify(out, null, 2));
 console.log(out.pass ? 'LULUS' : 'GAGAL');
 process.exit(out.pass ? 0 : 1);

@@ -1,0 +1,22 @@
+Title:           PaperForma RC4 — Laporan Audit Teknis
+Subject:         Audit source, integritas isi, dan bukti pengujian
+Keywords:        
+Author:          Audit teknis PaperForma dengan ChatGPT Work
+Creator:         (unspecified)
+Producer:        ReportLab PDF Library - (opensource)
+CreationDate:    Sat Jan  1 07:00:00 2000 +07
+ModDate:         Sat Jan  1 07:00:00 2000 +07
+Custom Metadata: no
+Metadata Stream: no
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           7
+Encrypted:       no
+Page size:       595.276 x 841.89 pts (A4)
+Page rot:        0
+File size:       164908 bytes
+Optimized:       no
+PDF version:     1.4

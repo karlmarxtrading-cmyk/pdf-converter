@@ -1,0 +1,44 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> paperforma@3.0.0-rc.3 test
+> vitest run
+
+
+ RUN  v5.1.0 /workspace/scratch/69a766e93112/paperforma_rc3_review/baseline
+
+ ❯ tests/unit/core/render-acceptance.test.ts (6 tests | 1 failed) 1993ms
+   ❯ RC3 import → model → output (6)
+     × F-06 retains exact formulas in caption, colspan, rowspan and footer 721ms
+ ❯ tests/unit/render/static-export.test.ts (12 tests | 1 failed) 1134ms
+   ❯ QA-01 validator akhir ekspor HTML (10)
+     × font tersedia: ketiga profil lulus semua pemeriksaan wajib dan menyerahkan byte 90ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/render/static-export.test.ts > QA-01 validator akhir ekspor HTML > font tersedia: ketiga profil lulus semua pemeriksaan wajib dan menyerahkan byte
+Error: Denied ID /workspace/scratch/69a766e93112/paperforma_rc3_review/candidate/node_modules/katex/dist/katex.min.css?raw
+  File: /workspace/scratch/69a766e93112/paperforma_rc3_review/candidate/node_modules/katex/dist/katex.min.css?raw
+ ❯ loadAndTransform ../candidate/node_modules/vite/dist/node/chunks/config.js:22864:33
+ ❯ doTransform ../candidate/node_modules/vite/dist/node/chunks/config.js:22841:17
+ ❯ fetchModule ../candidate/node_modules/vite/dist/node/chunks/config.js:34243:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/unit/core/render-acceptance.test.ts > RC3 import → model → output > F-06 retains exact formulas in caption, colspan, rowspan and footer
+Error: Denied ID /workspace/scratch/69a766e93112/paperforma_rc3_review/candidate/node_modules/katex/dist/katex.min.css?raw
+  File: /workspace/scratch/69a766e93112/paperforma_rc3_review/candidate/node_modules/katex/dist/katex.min.css?raw
+ ❯ loadAndTransform ../candidate/node_modules/vite/dist/node/chunks/config.js:22864:33
+ ❯ doTransform ../candidate/node_modules/vite/dist/node/chunks/config.js:22841:17
+ ❯ fetchModule ../candidate/node_modules/vite/dist/node/chunks/config.js:34243:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 28 passed (30)
+      Tests  2 failed | 253 passed (255)
+   Start at  16:22:24
+   Duration  14.85s (environment 39%, tests 29%, import 21%, transform 11%)
+
+    Isolate  30 workers spawned · ~1.73s startup each (spawn + environment, per file)
+             at least ~4.76s faster with isolate: false — reuses workers across files instead of one per file
+

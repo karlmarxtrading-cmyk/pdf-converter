@@ -1,104 +1,81 @@
-# Deploy: GitHub → Cloudflare Pages (PaperForma 3.0.0-rc.3)
+# Deploy PaperForma 3.0.0-rc.4 ke Cloudflare Pages
 
-PaperForma adalah **situs statis murni**. Publish root (`dist/`) berisi HTML, JS (termasuk satu Web Worker modul
-`assets/engine.worker-*.js`), CSS, font, gambar, `_headers`, `404.html`, panduan dan lisensi. Tidak ada `_worker.js`,
-`functions/`, `_routes.json`, Wrangler, binding (D1/R2/KV/DO/Queues/Browser Run), cron atau secret.
-`scripts/verify-static-release.mjs` menggagalkan build bila salah satunya muncul, bila bundel Worker hilang, atau bila CSP hilang
-(dibuktikan oleh `evidence/release-gate.json`).
+## Keputusan dan susunan folder
 
-> Status: langkah 1–2 dan seluruh build/uji telah dijalankan **lokal** dari ZIP rilis (lihat `evidence/`). Deploy ke akun
-> Cloudflare nyata **belum** dilakukan — tidak ada akses akun di lingkungan pembuatan rilis ini. Langkah 3 wajib dijalankan
-> setelah deploy pertama sebelum menyatakan rilis produksi.
+Paket dapat dimasukkan ke repository dan dibangun sebagai situs statis. Rilis publik tetap memerlukan pemeriksaan browser/PDF dan URL Cloudflare nyata. Audit ini tidak mengubah repo GitHub atau akun Cloudflare Anda.
 
-## 1. Repository GitHub
+Ekstrak ZIP. Salin **isi `repository/`** ke root checkout repo; `package.json`, `package-lock.json`, `index.html`, `src/` dan `public/` harus sejajar di root. Jangan menimpa atau menghapus `.git` dari checkout yang sudah ada. `dist/` dalam ZIP adalah hasil pembanding; `.gitignore` mengecualikannya karena Pages membangun ulang dari sumber.
+
+## Verifikasi lokal sebelum push
+
+Node 24.22.3 dan npm >=11.6.0 <12 diperlukan. Audit menggunakan npm 11.19.1. Bila muncul EBADENGINE, perbaiki versi Node melalui installer/manajer versi yang benar-benar terpasang. Perintah `nvm` hanya bekerja bila NVM sudah dipasang; jangan menghapus aturan engines.
 
 ```bash
-unzip PAPERFORMA_STATIC_PRODUCTION_RELEASE.zip
-cd repository
-git init && git add -A && git commit -m "PaperForma 3.0.0-rc.3"
-git branch -M main
-git remote add origin git@github.com:<akun>/<repo>.git
-git push -u origin main
+node -v
+npm -v
+npm ci
+npm run typecheck
+npm run lint
+npm test
+npm run build
+npm run verify:http -- --local
 ```
 
-`.gitignore` sudah mengecualikan `node_modules/`, `dist/`, `dist-qa/`, `*.build-manifest.json`, `.env*`. Pages membangun
-`dist/` sendiri; salinan `dist/` di ZIP hanya untuk pembanding hash (lihat §4).
+`npm ci` memakai lockfile; peringatan deprecated tidak sama dengan kerentanan yang terkonfirmasi. Peringatan kebijakan install scripts harus dibaca; jangan menyetujui semua skrip secara otomatis. `npm audit` pada lingkungan lain/tanggal lain dapat berubah.
 
-## 2. Proyek Cloudflare Pages
+Tinjau `git status --short` dan `git diff --stat` sebelum commit/push ke repo yang benar. Repo yang pernah Anda gunakan: `karlmarxtrading-cmyk/performa`. Tidak diperlukan repository baru atau force push untuk rilis ini.
 
-Dashboard Cloudflare → **Workers & Pages** → **Create** → **Pages** → **Connect to Git** → pilih repository.
+## Pengaturan Pages
 
-| Pengaturan | Nilai | Dasar |
-|---|---|---|
-| Framework preset | None | aplikasi Vite tanpa adaptor |
-| Production branch | `main` | |
-| Build command | `npm run build` | menjalankan SBOM → Vite → `verify-static-release` (gagal = deploy gagal) |
-| Build output directory | `dist` | |
-| Root directory | (kosong) | |
-| Variabel lingkungan | `NODE_VERSION` = `24.22.3` | build image v3 Pages menerima versi Node apa pun lewat `NODE_VERSION` atau `.node-version` (berkas ini sudah ada); bawaan image adalah Node 22 |
-| Functions, bindings, secrets | tidak ada | |
+| Pengaturan | Nilai |
+|---|---|
+| Framework preset | None |
+| Branch produksi | branch yang memang terhubung ke proyek Anda, biasanya `main` |
+| Root directory | kosong bila `package.json` ada di root repo |
+| Node | `NODE_VERSION=24.22.3` (juga ada `.node-version`) |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Functions/binding/secret | tidak diperlukan |
 
-Build image Pages memasang dependensi dari `package-lock.json` sebelum build command. Versi Node dipin tepat
-(`.node-version`, `engines.node`, `.npmrc` `engine-strict=true`). Untuk reproduksi persis seperti bukti rilis ini gunakan
-build command `npx -y npm@11.9.0 ci && npm run build` (npm yang dipakai saat bukti dibuat). Pastikan proyek memakai
-**build system v3** (Settings → Build → Build system version).
+Untuk kontrol instalasi eksplisit dalam build command dapat digunakan `npm ci && npm run build`; Pages juga memiliki langkah instalasi dependensi. Pastikan log build menunjukkan Node/npm dalam rentang engines, instalasi sukses, verifier statis lulus dan fingerprint kandidat tercetak. Jangan mengirim root source atau `dist-qa` sebagai publish directory.
 
-Tidak diperlukan pengaturan header di dashboard: `public/_headers` disalin ke `dist/_headers` dan memuat CSP
-(`default-src 'self'`, `worker-src 'self' blob:`, `connect-src 'self'`), `X-Content-Type-Options`, `Referrer-Policy`,
-`Cross-Origin-Opener-Policy`, serta cache `immutable` untuk `/assets/*`.
+Jika proyek lama menampilkan koneksi Git terputus, pulihkan koneksi repo/branch dari pengaturan proyek yang sama dan jalankan deployment baru. Pastikan commit deployment sama dengan commit yang baru dikirim. HTTP 200 saja tidak membuktikan versi benar.
 
-## 3. Verifikasi setelah deploy (wajib — belum dilakukan untuk kandidat ini)
+## Verifikasi preview yang sebenarnya
+
+Jalankan dari checkout **kandidat yang sama dengan build yang hendak diperiksa**, setelah `npm run build`:
 
 ```bash
-BASE=https://<proyek>.pages.dev
-curl -sI $BASE/ | grep -iE 'content-security-policy|x-content-type-options|referrer-policy|cache-control'
-curl -sI $BASE/print.html | grep -i content-security-policy
-W=$(curl -s $BASE/ | grep -o 'assets/main-[^"]*\.js' | head -1); curl -s $BASE/$W | grep -o 'engine\.worker-[A-Za-z0-9_-]*\.js' | head -1
-curl -sI $BASE/assets/<engine.worker-...>.js | grep -iE 'content-type|cache-control'   # text/javascript + immutable
-curl -s -o /dev/null -w '%{http_code}\n' $BASE/api/pdf        # 404
-curl -s -o /dev/null -w '%{http_code}\n' $BASE/tidak-ada      # 404 (404.html)
+npm run verify:http -- https://NAMA-PROYEK.pages.dev
+npm run verify:deployment -- https://NAMA-PROYEK.pages.dev
 ```
 
-Verifikasi rumus otomatis terhadap URL nyata (Chrome lokal diperlukan):
+`verify:http` membandingkan SHA-256 seluruh berkas publik dengan `dist` lokal, versi `pf-version`, MIME, CSP, nosniff, cache, halaman cetak dan 404. Perubahan byte oleh transformasi edge akan terdeteksi; selidiki sebabnya, jangan otomatis mengabaikan kegagalan.
+
+`verify:deployment` memakai browser nyata dan menguji tiga jalur rumus Einstein: HTML literal, HTML KaTeX dan editor teks. Versi harus tepat `3.0.0-rc.4`; rumus/mode harus sama; tidak boleh ada teks TeX mentah tak semestinya atau page error. Browser yang tidak tersedia adalah kegagalan/tes belum dijalankan, bukan kelulusan.
+
+Pada Windows, deteksi browser mencari Chrome/Edge pada lokasi umum. Jalur khusus di Git Bash:
 
 ```bash
-npm ci && npm run verify:deployment -- $BASE     # harus "LULUS"; hasil di evidence/deployment-math.json + PNG
-curl -s $BASE/ | grep pf-version                   # harus 3.0.0-rc.3 (bukan deployment lama/cache)
+PF_CHROME='C:/Program Files/Google/Chrome/Application/chrome.exe' npm run verify:deployment -- https://NAMA-PROYEK.pages.dev
 ```
 
-Lalu di browser (Chrome/Edge, Firefox, Safari):
-1. Buka `/` → studio → **Coba contoh**. Status di bawah editor harus berpindah "tahap 1/5 … 5/5" lalu "Revisi … kata";
-   tidak boleh ada banner kompatibilitas (kecuali browser memang tidak mendukung fitur yang disebut).
-2. **Periksa halaman** → verifikasi isi harus "pass".
-3. **Periksa dan ekspor → HTML mandiri** → buka berkas hasil tanpa jaringan.
-4. **Cetak / Simpan PDF** → Siapkan cetak → Buka dialog cetak → "Simpan sebagai PDF" → buka PDF: jumlah halaman sama
-   dengan laporan, teks dapat dicari, nomor halaman dan daftar isi sesuai.
-5. Simpan proyek, muat ulang tab, pastikan proyek pulih.
+Sesuaikan hanya bila file itu benar-benar ada. Di PowerShell, gunakan `$env:PF_CHROME` dengan path executable aktual.
 
-Untuk mengulang uji otomatis terhadap URL nyata, jalankan server lokal tidak diperlukan: arahkan skrip uji ke URL
-(`tests/e2e/lib.mjs` memakai `launch({ dir })` → ganti `base` dengan URL Pages) — atau cukup ikuti daftar manual di atas
-dan simpan hasilnya di `evidence/hosting/`.
+## Pemeriksaan manusia sebelum rilis umum
 
-Catatan: Pages dapat mengalihkan `/print.html` → `/print` (pretty URL). Aplikasi memuat halaman cetak lewat URL relatif yang
-tetap dilayani; tetap uji di domain Anda.
+1. Buka fixture trig 21 rumus dan Einstein, bandingkan struktur rumus, pecahan, akar, matriks, angka dan teks kode dengan sumber. Gunakan penempelan nyata dari aplikasi sumber yang akan didukung.
+2. Ekspor HTML mandiri, buka luring, pastikan font/gambar/tautan tersedia.
+3. Periksa halaman → siapkan cetak → dialog **Simpan sebagai PDF**. Ukuran kertas harus cocok, skala 100%, header/footer browser mati, grafik latar aktif. Buka PDF tersimpan: teks dapat dicari, isi/tabel/kode lengkap, tidak ada sampul kosong tak disengaja, jumlah halaman sesuai.
+4. Uji simpan/reload proyek, dua tab, undo/redo gambar, pembatalan ekspor dan kegagalan font. Coba Chrome/Edge, Firefox, Safari serta perangkat sasaran.
+5. Simpan `.pfproj` sebelum perpindahan origin atau rollback. Data IndexedDB terikat origin; `pages.dev` dan custom domain berbeda penyimpanan.
 
-## 4. Mencocokkan build Pages dengan build yang diserahkan
+## Cache, pembaruan, rollback
 
-Build deterministik: `dist.build-manifest.json` (dan `evidence/dist.build-manifest.json`) mencatat `distTreeSha256` —
-SHA-256 atas daftar `path\0sha256(isi)` seluruh berkas `dist/` yang diurutkan (`scripts/fingerprint.mjs`). Untuk
-membandingkan, unduh artefak deploy atau bangun ulang lokal dengan Node 24.22.3 + npm 11.9.0 lalu jalankan
-`node scripts/fingerprint.mjs`.
+`public/_headers` menjadi `dist/_headers`; dokumen utama dan URL `/print` menggunakan `no-cache`, aset berhash menggunakan `immutable`. Tidak ada service worker. Tab lama dapat masih memegang aset dari deployment lama; simpan proyek dan muat ulang jika chunk baru gagal dimuat. Fallback Worker menjaga analisis tetap dapat dilakukan, tetapi kecepatan dapat turun.
 
-## 5. Domain, cache, pembaruan
+Rollback mengembalikan build situs, bukan mengembalikan penyimpanan browser pengguna. Lakukan cadangan `.pfproj` terlebih dahulu; uji pembukaan cadangan pada versi tujuan. Gunakan deployment sebelumnya yang telah diverifikasi. Jangan menghapus proyek Cloudflare hanya untuk mengganti versi aplikasi.
 
-- Domain final belum ditetapkan → `canonical`, `og:url`, `robots.txt`, `sitemap.xml` sengaja tidak dibuat (ST-QA-42).
-- `/assets/*` berhash + `immutable`; `index.html`/`print.html` `no-cache`. Tab yang masih terbuka saat versi baru dideploy
-  tetap memakai chunk lama yang sudah dimuat; chunk yang belum pernah dimuat (mis. Worker bila belum dipakai) dapat hilang
-  dari deploy baru → klien gagal memuat Worker → aplikasi otomatis memakai fallback thread utama dan menampilkan
-  pemberitahuan; muat ulang halaman memulihkan. (ST-QA-43 belum diuji di hosting nyata.)
-- Proyek di IndexedDB terikat origin (`*.pages.dev` ≠ domain final). Pindahkan lewat paket `.pfproj` (docs/MIGRATION.md).
+## Rujukan konfigurasi
 
-## 6. Rollback
-
-Pages → Deployments → pilih deploy sebelumnya → **Rollback to this deployment**. Tidak ada data server; data pengguna tetap
-di perangkat masing-masing.
+Diperiksa 21 November 2026: [Build configuration](https://developers.cloudflare.com/pages/configuration/build-configuration/), [Build image / Node override](https://developers.cloudflare.com/pages/configuration/build-image/), [Custom headers](https://developers.cloudflare.com/pages/configuration/headers/). Dokumen provider tidak membuktikan deployment milik Anda telah diuji; bukti URL aktual tetap diperlukan.

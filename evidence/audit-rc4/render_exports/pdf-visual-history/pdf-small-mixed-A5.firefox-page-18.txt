@@ -1,0 +1,132 @@
+17
+PYTHON
+ · 
+LANJUTAN
+    b
+aris_063 = hitung(
+63
+, faktor=
+0
+)  
+# komentar 
+panjang untuk baris kode nomor 63
+    b
+aris_064 = hitung(
+64
+, faktor=
+1
+)  
+# komentar 
+panjang untuk baris kode nomor 64
+    b
+aris_065 = hitung(
+65
+, faktor=
+2
+)  
+# komentar 
+panjang untuk baris kode nomor 65
+    b
+aris_066 = hitung(
+66
+, faktor=
+3
+)  
+# komentar 
+panjang untuk baris kode nomor 66
+    b
+aris_067 = hitung(
+67
+, faktor=
+4
+)  
+# komentar 
+panjang untuk baris kode nomor 67
+    b
+aris_068 = hitung(
+68
+, faktor=
+5
+)  
+# komentar 
+panjang untuk baris kode nomor 68
+    b
+aris_069 = hitung(
+69
+, faktor=
+6
+)  
+# komentar 
+panjang untuk baris kode nomor 69
+    b
+aris_070 = hitung(
+70
+, faktor=
+0
+)  
+# komentar 
+panjang untuk baris kode nomor 70
+    b
+aris_071 = hitung(
+71
+, faktor=
+1
+)  
+# komentar 
+panjang untuk baris kode nomor 71
+    b
+aris_072 = hitung(
+72
+, faktor=
+2
+)  
+# komentar 
+panjang untuk baris kode nomor 72
+    b
+aris_073 = hitung(
+73
+, faktor=
+3
+)  
+# komentar 
+panjang untuk baris kode nomor 73
+    b
+aris_074 = hitung(
+74
+, faktor=
+4
+)  
+# komentar 
+panjang untuk baris kode nomor 74
+    b
+aris_075 = hitung(
+75
+, faktor=
+5
+)  
+# komentar 
+panjang untuk baris kode nomor 75
+    b
+aris_076 = hitung(
+76
+, faktor=
+6
+)  
+# komentar 
+panjang untuk baris kode nomor 76
+    b
+aris_077 = hitung(
+77
+, faktor=
+0
+)  
+# komentar 
+panjang untuk baris kode nomor 77
+    b
+aris_078 = hitung(
+78
+, faktor=
+1
+)  
+# komentar 
+panjang untuk baris kode nomor 78

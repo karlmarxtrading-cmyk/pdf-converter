@@ -22,6 +22,7 @@ export const LIMITS: Limits = Object.freeze({
   zipUnpackedBytes: 30 * MiB,
   mathChars: 10_000,
   maxNodes: 400_000,
+  maxNesting: 256,
   maxTableCells: 50_000,
   standaloneHtmlBytes: 25 * MiB,
   pdfPayloadBytes: 45 * MiB,
@@ -30,12 +31,12 @@ export const LIMITS: Limits = Object.freeze({
 export type BudgetKind =
   | 'markdown' | 'paste' | 'pasteHtml' | 'asset' | 'totalProject'
   | 'zip' | 'zipEntries' | 'zipDepth' | 'zipRatio' | 'zipUnpacked'
-  | 'math' | 'nodes' | 'tableCells' | 'standaloneHtml' | 'pdfPayload';
+  | 'math' | 'nodes' | 'nesting' | 'tableCells' | 'standaloneHtml' | 'pdfPayload';
 
 const KIND_TO_LIMIT: Record<BudgetKind, keyof Limits> = {
   markdown: 'markdownBytes', paste: 'pasteBytes', pasteHtml: 'pasteHtmlBytes', asset: 'assetBytes',
   totalProject: 'totalProjectBytes', zip: 'zipBytes', zipEntries: 'zipEntries', zipDepth: 'zipMaxDepth',
-  zipRatio: 'zipMaxRatio', zipUnpacked: 'zipUnpackedBytes', math: 'mathChars', nodes: 'maxNodes',
+  zipRatio: 'zipMaxRatio', zipUnpacked: 'zipUnpackedBytes', math: 'mathChars', nodes: 'maxNodes', nesting: 'maxNesting',
   tableCells: 'maxTableCells', standaloneHtml: 'standaloneHtmlBytes', pdfPayload: 'pdfPayloadBytes',
 };
 
@@ -52,12 +53,13 @@ const KIND_LABEL: Record<BudgetKind, Bilingual> = {
   zipUnpacked: { id: 'Ukuran ZIP setelah diekstrak', en: 'ZIP unpacked size' },
   math: { id: 'Panjang rumus', en: 'Formula length' },
   nodes: { id: 'Jumlah elemen dokumen', en: 'Document node count' },
+  nesting: { id: 'Kedalaman struktur dokumen', en: 'Document nesting depth' },
   tableCells: { id: 'Jumlah sel tabel', en: 'Table cell count' },
   standaloneHtml: { id: 'HTML mandiri', en: 'Standalone HTML' },
   pdfPayload: { id: 'Muatan PDF', en: 'PDF payload' },
 };
 
-const COUNT_KINDS = new Set<BudgetKind>(['zipEntries', 'zipDepth', 'zipRatio', 'math', 'nodes', 'tableCells']);
+const COUNT_KINDS = new Set<BudgetKind>(['zipEntries', 'zipDepth', 'zipRatio', 'math', 'nodes', 'nesting', 'tableCells']);
 
 export interface BudgetResult {
   ok: boolean; kind: BudgetKind; limitKey: keyof Limits;
@@ -119,6 +121,31 @@ export class BudgetError extends Error {
 export function assertBudget(kind: BudgetKind, actual: number, limits: Limits = LIMITS): void {
   if (Number.isFinite(actual) && actual >= 0 && actual <= limits[KIND_TO_LIMIT[kind]]) return;
   throw new BudgetError(checkBudget(kind, actual, limits));
+}
+
+/** RC4-R01: iterative admission runs before recursive transforms, so deep small files cannot overflow the stack.
+ * The entire input is rejected on failure; no AST subtree or source text is truncated.
+ */
+export function checkTreeBudget(tree: unknown, limits: Limits = LIMITS): BudgetResult | null {
+  const stack: { node: unknown; depth: number }[] = [{ node: tree, depth: 0 }];
+  let count = 0;
+  while (stack.length) {
+    const { node, depth } = stack.pop()!;
+    if (++count > limits.maxNodes) return checkBudget('nodes', count, limits);
+    if (depth > limits.maxNesting) return checkBudget('nesting', depth, limits);
+    if (node && typeof node === 'object') {
+      const children = 'children' in node ? node.children : 'childNodes' in node ? node.childNodes : undefined;
+      if (Array.isArray(children)) for (const child of children) stack.push({ node: child, depth: depth + 1 });
+      // HTML <template> has a separate fragment; the recursive HAST converter also visits it.
+      if ('content' in node && node.content && typeof node.content === 'object') stack.push({ node: node.content, depth: depth + 1 });
+    }
+  }
+  return null;
+}
+
+export function assertTreeBudget(tree: unknown, limits: Limits = LIMITS): void {
+  const result = checkTreeBudget(tree, limits);
+  if (result) throw new BudgetError(result);
 }
 
 /** Anggaran string (paste/markdown): ukuran dihitung dalam byte UTF-8, bukan jumlah karakter. */

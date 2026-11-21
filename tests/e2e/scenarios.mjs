@@ -64,9 +64,16 @@ async function closePublish(p) { await p.evaluate(() => { const d = document.que
 /** Hapus IndexedDB/localStorage origin dari halaman tanpa aplikasi (tidak ada koneksi DB yang menahan penghapusan). */
 async function wipeStorage(ctx) {
   const w = await ctx.env.browser.newPage();
-  await w.goto(ctx.env.base + '/404.html');
-  await w.evaluate(() => new Promise((res) => { localStorage.clear(); const r = indexedDB.deleteDatabase('paperforma2'); r.onsuccess = r.onerror = r.onblocked = () => res(null); }));
-  await w.close();
+  try {
+    await w.goto(ctx.env.base + '/404.html');
+    await w.evaluate(() => new Promise((res, reject) => {
+      localStorage.clear();
+      const r = indexedDB.deleteDatabase('paperforma2');
+      r.onsuccess = () => res(null);
+      r.onerror = () => reject(r.error ?? new Error('IndexedDB cleanup failed'));
+      r.onblocked = () => reject(new Error('IndexedDB cleanup blocked by an open connection'));
+    }));
+  } finally { if (!w.isClosed()) await w.close(); }
 }
 const terminalSave = (p) => p.waitForFunction(() => !['pending'].includes(window.__pf.state().save), { timeout: 20000, polling: 100 });
 const bodyText = (p) => p.evaluate(() => document.body.innerText);
@@ -198,9 +205,16 @@ export const SCENARIOS = [
       const dl = await downloads(p);
       await p.click('#empty-state [data-action=sample]');
       await ctx.waitReady(p);
+      await p.waitForFunction(() => !!document.querySelector('#live-frame').contentDocument?.querySelector('#pf-content')?.textContent.trim(), { timeout: 30000 });
+      const expectedContent = await p.evaluate(() => document.querySelector('#live-frame').contentDocument.querySelector('#pf-content').textContent.replace(/\s+/g, ' ').trim());
+      assert(expectedContent.length > 0, 'isi contoh untuk perbandingan ekspor kosong');
       const out = {};
       for (const kind of ['html-standalone', 'html-zip', 'html-publication']) {
         await openPublish(p, kind);
+        if (kind === 'html-publication') for (const selector of ['#pub-online', '#pub-enhance']) {
+          if (await p.$eval(selector, (input) => input.checked)) await p.click(selector);
+          assert(!(await p.$eval(selector, (input) => input.checked)), `${selector} harus mati untuk uji ekspor luring tanpa skrip`);
+        }
         await p.click('#pub-go');
         const r = await publishResult(p);
         assert(/banner-ok/.test(r.cls), `${kind} gagal: ${r.text}`);
@@ -216,12 +230,27 @@ export const SCENARIOS = [
       await v.setRequestInterception(true);
       const blocked = [];
       v.on('request', (r) => { if (/^(file|data|blob):/.test(r.url())) r.continue(); else { blocked.push(r.url()); r.abort(); } });
+      const offlineMetrics = async () => {
+        await v.evaluate(() => document.fonts.ready);
+        return v.evaluate((expected) => {
+          const content = document.querySelector('#pf-content')?.textContent.replace(/\s+/g, ' ').trim() ?? '';
+          return { overflow: document.documentElement.scrollWidth - window.innerWidth, h1: document.querySelector('h1')?.textContent,
+            scripts: document.scripts.length, fonts: [...document.fonts].filter((f) => f.status === 'loaded').length,
+            fontErrors: [...document.fonts].filter((f) => f.status === 'error').length, contentChars: content.length, contentMatches: content === expected };
+        }, expectedContent);
+      };
+      const assertOffline = (m, label) => {
+        assert(m.overflow <= 1, `${label}: overflow horizontal ${m.overflow}px`);
+        assert(m.fonts > 0 && m.fontErrors === 0, `${label}: font luring belum berhasil dimuat ${JSON.stringify(m)}`);
+        assert(m.scripts === 0, `${label}: ekspor tanpa enhancement memuat skrip`);
+        assert(m.h1?.trim() && m.contentChars > 0 && m.contentMatches, `${label}: isi dokumen berbeda dari pratinjau`);
+      };
       for (const w of [320, 390, 768, 1440]) {
         await v.setViewport({ width: w, height: 800 });
         await v.goto('file://' + htmlFile, { waitUntil: 'load' });
-        const m = await v.evaluate(() => ({ overflow: document.documentElement.scrollWidth - window.innerWidth, h1: document.querySelector('h1')?.textContent, fonts: [...document.fonts].filter((f) => f.status === 'loaded').length }));
+        const m = await offlineMetrics();
         out[`standalone_${w}`] = m;
-        assert(m.overflow <= 1, `overflow horizontal ${m.overflow}px pada ${w}px`);
+        assertOffline(m, `standalone ${w}px`);
       }
       assert(!blocked.length, 'HTML mandiri meminta jaringan: ' + blocked.join(','));
       // ZIP: ekstrak aman dan buka index.html via file://
@@ -234,9 +263,9 @@ export const SCENARIOS = [
         for (const [n, b] of Object.entries(entries)) { const f = join(dir, n); execFileSync('mkdir', ['-p', join(f, '..')]); writeFileSync(f, b); }
         await v.setViewport({ width: 390, height: 800 });
         await v.goto('file://' + join(dir, 'index.html'), { waitUntil: 'load' });
-        const m = await v.evaluate(() => ({ overflow: document.documentElement.scrollWidth - window.innerWidth, scripts: document.scripts.length, fonts: [...document.fonts].filter((f) => f.status === 'loaded').length }));
+        const m = await offlineMetrics();
         out[z.split('/').pop()] = { files: names.length, manifestFiles: man.files.length, kind: man.kind ?? man.manifest?.kind, ...m };
-        assert(m.overflow <= 1, 'ZIP overflow horizontal');
+        assertOffline(m, z.split('/').pop());
       }
       assert(!blocked.length, 'ZIP meminta jaringan: ' + blocked.join(','));
       await v.close(); await p.close();
@@ -486,20 +515,35 @@ export const SCENARIOS = [
       const found = await p.$$eval('#issue-list .issue', (l) => l.length);
       assert(found === 1, 'pencarian tidak tepat: ' + found);
       // > 20 revisi
+      const historyBeforeEdits = (await ctx.state(p)).history;
       for (let i = 0; i < 26; i++) await p.evaluate((i) => { const ed = document.querySelector('#editor'); ed.value = `# Rev ${i}\n`; ed.dispatchEvent(new Event('input', { bubbles: true })); }, i);
       await ctx.waitReady(p);
+      const storedHistory = (await ctx.state(p)).history;
+      assert(storedHistory > 20 && storedHistory === historyBeforeEdits + 26, `riwayat tidak mencatat 26 revisi: ${historyBeforeEdits} → ${storedHistory}`);
       await p.click('#src-menu-btn'); await p.click('#src-menu [data-action=history]');
       await p.waitForSelector('#dlg-history[open]');
+      const visitedHistory = [];
+      const collectHistory = async () => {
+        const revisions = await p.$$eval('#history-list li', (items) => items.map((item) => /^rev (\d+) /.exec(item.textContent ?? '')?.[1] ?? ''));
+        assert(revisions.length && revisions.every(Boolean), 'halaman riwayat kosong atau identitas revisi tidak terbaca');
+        visitedHistory.push(...revisions);
+      };
       let hp = 1;
-      while (!(await p.$eval('#history-next', (b) => b.disabled))) { await p.click('#history-next'); hp++; }
+      await collectHistory();
+      while (!(await p.$eval('#history-next', (b) => b.disabled))) {
+        await p.click('#history-next'); hp++;
+        assert(hp <= storedHistory, 'navigasi riwayat tidak mencapai halaman terakhir');
+        await collectHistory();
+      }
+      assert(visitedHistory.length === storedHistory && new Set(visitedHistory).size === storedHistory, `riwayat tidak seluruhnya terjangkau sekali: ${visitedHistory.length}/${storedHistory}`);
       const oldestText = await p.$$eval('#history-list li', (l) => l.at(-1).textContent);
       const btns = await p.$$('#history-list li button');
       await btns.at(-1).click();
       await ctx.waitReady(p);
       const s = await ctx.state(p);
-      assert(s.source.startsWith('# Banyak tautan rusak') || s.source === '', 'revisi awal tidak dipulihkan: ' + s.source.slice(0, 40));
+      assert(s.source === lines.join('\n'), 'isi lengkap revisi awal tidak dipulihkan: ' + s.source.slice(0, 40));
       await p.close();
-      return { issueTotal: Number(m[1]), issuePages: pages, lastPage: last, historyPages: hp, oldest: oldestText.slice(0, 80) };
+      return { issueTotal: Number(m[1]), issuePages: pages, lastPage: last, historyPages: hp, storedHistory, visitedHistory: visitedHistory.length, oldest: oldestText.slice(0, 80) };
     },
   },
   {
@@ -530,6 +574,8 @@ export const SCENARIOS = [
       await p.close({ runBeforeUnload: true });
       await ctx.sleep(800);
       assert(dialog === 'beforeunload', 'beforeunload tidak dipicu untuk perubahan belum tersimpan');
+      // Dismiss menjaga halaman tetap terbuka; tutup paksa hanya untuk cleanup pengujian setelah assertion.
+      if (!p.isClosed()) await p.close();
       // reload tab baru: tawaran lanjutkan proyek terakhir dari IndexedDB
       const q = await ctx.page(ctx.env, { lang: 'id' });
       await ctx.openStudio(q, ctx.env.base);
@@ -614,6 +660,7 @@ export const SCENARIOS = [
       await p.keyboard.press('Escape');
       // skip link dan fokus kembali setelah dialog
       const focusBack = await p.evaluate(() => document.activeElement?.getAttribute('data-action'));
+      assert(focusBack === 'publish', 'fokus tidak kembali ke tombol ekspor setelah Escape: ' + focusBack);
       await p.close();
       const all = Object.values(res).flat();
       assert(!all.length, 'pelanggaran axe WCAG 2 A/AA: ' + JSON.stringify(all));
@@ -865,7 +912,7 @@ export const SCENARIOS = [
     },
   },
   {
-    id: 'E27', matrix: ['ST-QA-27', 'ST-QA-28', 'ST-QA-53'], title: 'Keyboard saja, zoom 200 %, tema gelap (axe), layar 320 px: alur inti dapat dijalankan',
+    id: 'E27', matrix: ['ST-QA-27', 'ST-QA-28', 'ST-QA-53'], title: 'Keyboard saja, emulasi viewport/DPR setara 200 % (bukan zoom native), tema gelap (axe), layar 320 px: alur inti dapat dijalankan',
     async run(ctx) {
       const axe = readFileSync('node_modules/axe-core/axe.min.js', 'utf8');
       const out = {};
@@ -893,8 +940,8 @@ export const SCENARIOS = [
         assert(positiveTabindex === 0, 'tabindex positif ditemukan');
         out.keyboard = { tabsToEditor: tabs, shiftTabsToExport: back, focusInDialog: inDialog, focusReturned: returned };
       }
-      // 2) zoom 200 % (1366 px CSS → 683 px, DPR 2) dan 320 px: tanpa gulir horizontal, kontrol utama terlihat
-      for (const [name, vp] of [['zoom200', { width: 683, height: 450, deviceScaleFactor: 2 }], ['w320', { width: 320, height: 640, deviceScaleFactor: 2 }]]) {
+      // 2) Emulasi viewport/DPR: 1366 → 683 CSS px dengan DPR 2. Tidak mengubah zoom native browser.
+      for (const [name, vp] of [['viewportEquivalent200', { width: 683, height: 450, deviceScaleFactor: 2 }], ['w320', { width: 320, height: 640, deviceScaleFactor: 2 }]]) {
         const p = await ctx.page(ctx.env, { lang: 'id' });
         await p.setViewport(vp);
         await p.goto(ctx.env.base + '/', { waitUntil: 'load' });
@@ -909,7 +956,7 @@ export const SCENARIOS = [
         await p.close();
         assert(landing <= 1 && studioX <= 1, `${name}: gulir horizontal ${landing}/${studioX}px`);
         assert(visible.every(Boolean), `${name}: kontrol utama tidak terlihat ${visible}`);
-        out[name] = { landingOverflowPx: landing, studioOverflowPx: studioX, controlsVisible: visible };
+        out[name] = { landingOverflowPx: landing, studioOverflowPx: studioX, controlsVisible: visible, method: 'viewport/deviceScaleFactor emulation', nativeZoomTested: false };
       }
       // 3) tema gelap: axe tanpa pelanggaran di studio + dialog
       {

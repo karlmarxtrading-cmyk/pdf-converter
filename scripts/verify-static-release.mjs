@@ -18,6 +18,13 @@ for (const f of files) {
   if (!qa && f.endsWith('.map')) fail.push(`source map di build produksi: ${f}`);
 }
 const text = (f) => readFileSync(join(base, f), 'utf8');
+const packageVersion = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')).version;
+if (files.includes('index.html')) {
+  const index = text('index.html');
+  const version = /<meta\s+name="pf-version"\s+content="([^"]+)"/i.exec(index)?.[1];
+  if (version !== packageVersion) fail.push(`versi HTML ${version ?? '(hilang)'} tidak cocok dengan package ${packageVersion}`);
+  if (/<script\b[^>]*src="\/src\//i.test(index)) fail.push('HTML menunjuk entry source /src/, bukan bundel produksi');
+}
 const js = files.filter((f) => f.endsWith('.js'));
 const html = files.filter((f) => f.endsWith('.html'));
 const all = [...js, ...html].map((f) => [f, text(f)]);
@@ -38,6 +45,11 @@ for (const f of html) {
   const s = text(f);
   const ext = /<(script|link|img|iframe)\b[^>]*\b(src|href)="(https?:)?\/\//i.exec(s);
   if (ext) fail.push(`sumber daya eksternal di ${f}: ${ext[0].slice(0, 80)}`);
+  for (const match of s.matchAll(/<(?:script|link|img)\b[^>]*\b(?:src|href)="([^"]+)"/gi)) {
+    const url = new URL(match[1], 'https://static.invalid/' + f);
+    if (url.origin !== 'https://static.invalid' || !url.pathname.startsWith('/assets/')) continue;
+    if (!files.includes(decodeURIComponent(url.pathname.slice(1)))) fail.push(`aset HTML hilang: ${f} → ${url.pathname}`);
+  }
 }
 const headers = text('_headers');
 for (const h of ['Content-Security-Policy', "connect-src 'self'", 'X-Content-Type-Options: nosniff', 'Referrer-Policy: no-referrer', 'frame-ancestors']) if (!headers.includes(h)) fail.push(`_headers tanpa ${h}`);

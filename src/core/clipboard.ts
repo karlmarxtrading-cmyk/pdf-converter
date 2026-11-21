@@ -6,7 +6,6 @@
  *  - skrip/handler/gaya tidak pernah ikut; semua perubahan dicatat di laporan konversi.
  */
 import { unified } from 'unified';
-import rehypeParse from 'rehype-parse';
 import rehypeRemark from 'rehype-remark';
 import rehypeStringify from 'rehype-stringify';
 import remarkStringify from 'remark-stringify';
@@ -19,6 +18,7 @@ import { scanMath } from './math';
 import type { Element, Root as HRoot, RootContent as HContent, Properties } from 'hast';
 import type { Limits } from './contracts';
 import { LIMITS, checkTextBudget, type BudgetResult } from './limits';
+import { parseHtmlWithinBudget } from './html';
 import { classifyUrl, DROP_WITH_CONTENT } from './sanitize';
 import { orderedTokens } from './markdown';
 import { mkIssue, numberIssues, type CoreIssue } from './util';
@@ -62,6 +62,70 @@ function mathNode(tex: string, display: boolean): Element {
   return { type: 'element', tagName: display ? 'div' : 'span', properties: { dataPfMath: display ? 'display' : 'inline', dataTex: tex }, children: [{ type: 'text', value: tex || ' ' }] };
 }
 const isMathNode = (n: HContent | Element): n is Element => n.type === 'element' && typeof n.properties?.dataPfMath === 'string';
+
+/** RC4-M01/02/03: read delimiters across harmless inline wrappers before Markdown escaping.
+ * Only the matched formula loses presentation wrappers; every outside fragment keeps its original markup.
+ * Code, links, images and block boundaries are never joined into a formula. Link labels are visited separately.
+ */
+const MATH_TEXT_WRAPPERS = new Set(['span', 'strong', 'b', 'em', 'i', 'u', 's', 'del', 'mark', 'small']);
+function protectHtmlLiteralMath(parent: HRoot | Element): number {
+  const textCache = new WeakMap<HContent, string | null>();
+  const literal = (n: HContent): string | null => {
+    if (textCache.has(n)) return textCache.get(n)!;
+    if (n.type === 'text') return n.value;
+    if (n.type !== 'element' || typeof n.properties?.dataPfMath === 'string') return null;
+    if (n.tagName === 'br') return '\n';
+    if (!MATH_TEXT_WRAPPERS.has(n.tagName)) return null;
+    const parts = n.children.map(c => literal(c as HContent));
+    const value = parts.some(s => s === null) ? null : parts.join('');
+    textCache.set(n, value);
+    return value;
+  };
+  const rangeCache = new WeakMap<HContent[], number[]>();
+  const slice = (nodes: HContent[], start: number, end: number): HContent[] => {
+    const out: HContent[] = [];
+    if (start >= end) return out;
+    let ends = rangeCache.get(nodes);
+    if (!ends) { let total = 0; ends = nodes.map(n => total += literal(n)!.length); rangeCache.set(nodes, ends); }
+    let lo = 0, hi = ends.length;
+    while (lo < hi) { const mid = (lo + hi) >>> 1; if (ends[mid]! <= start) lo = mid + 1; else hi = mid; }
+    let pos = lo ? ends[lo - 1]! : 0;
+    for (let k = lo; k < nodes.length && pos < end; k++) {
+      const n = nodes[k]!;
+      const value = literal(n)!;
+      const a = Math.max(0, start - pos), b = Math.min(value.length, end - pos);
+      if (a < b) {
+        if (a === 0 && b === value.length) out.push(n);
+        else if (n.type === 'text') out.push({ ...n, value: value.slice(a, b) });
+        else if (n.type === 'element') out.push({ ...n, children: slice(n.children as HContent[], a, b) as Element['children'] });
+      }
+      pos += value.length;
+      if (pos >= end) break;
+    }
+    return out;
+  };
+  const out: HContent[] = [];
+  const nodes = parent.children as HContent[];
+  let count = 0, i = 0;
+  while (i < nodes.length) {
+    if (literal(nodes[i]!) === null) { out.push(nodes[i++]!); continue; }
+    let j = i, value = '';
+    while (j < nodes.length) { const t = literal(nodes[j]!); if (t === null) break; value += t; j++; }
+    const run = nodes.slice(i, j), spans = scanMath(value).spans;
+    if (!spans.length) { out.push(...run); i = j; continue; }
+    let pos = 0;
+    for (const span of spans) {
+      out.push(...slice(run, pos, span.start));
+      const node = mathNode(span.tex, span.display);
+      node.properties.dataPfLiteral = value.slice(span.start, span.end);
+      out.push(node); pos = span.end; count++;
+    }
+    out.push(...slice(run, pos, value.length));
+    i = j;
+  }
+  parent.children = out as typeof parent.children;
+  return count;
+}
 /** alttext MathML hanya dipakai sebagai TeX bila jelas berbentuk TeX (perintah \, ^, _ atau kurung kurawal). */
 function texLike(s: string): boolean { return /\\[A-Za-z]+|[\^_{}]/.test(s); }
 
@@ -100,13 +164,16 @@ function cleanTable(el: Element): Element {
 export function htmlToMarkdown(html: string, opts: { plain?: string; limits?: Limits } = {}): ClipboardResult {
   const budget = checkTextBudget('pasteHtml', html, opts.limits ?? LIMITS);
   if (!budget.ok) return { ok: false, code: 'BUDGET_EXCEEDED', budget, message: `${budget.message} Gunakan impor berkas atau tempel teks biasa.`, messageEn: `${budget.messageEn} Use file import or paste plain text.` };
-  const tree = unified().use(rehypeParse, { fragment: true }).parse(html) as HRoot;
+  const parsed = parseHtmlWithinBudget(html, opts.limits ?? LIMITS);
+  if (!parsed.ok) return { ok: false, code: 'BUDGET_EXCEEDED', budget: parsed.budget, message: parsed.budget.message, messageEn: parsed.budget.messageEn };
+  const tree = parsed.tree;
   const changes = new Map<string, ConversionChange>();
   const note = (kind: ConversionChange['kind'], detail: string) => { const k = `${kind}|${detail}`; const c = changes.get(k); if (c) c.count++; else changes.set(k, { kind, detail, count: 1 }); };
   const issues: CoreIssue[] = [];
-  let math = 0, tables = 0, merged = 0;
+  let math = 0, tables = 0, merged = 0, htmlLiteralMath = 0;
 
-  const walk = (parent: HRoot | Element): void => {
+  const walk = (parent: HRoot | Element, inCode = false): void => {
+    inCode ||= parent.type === 'element' && ['pre', 'code', 'kbd', 'samp'].includes(parent.tagName);
     const out: HContent[] = [];
     const texScriptSibling = (parent.children as HContent[]).some((x) => x.type === 'element' && x.tagName === 'script' && /^math\/tex\b/i.test(String(x.properties?.type ?? '')));
     for (const n of parent.children as HContent[]) {
@@ -115,10 +182,11 @@ export function htmlToMarkdown(html: string, opts: { plain?: string; limits?: Li
       const tag = n.tagName.toLowerCase();
       // Internal conversion nodes can only be created below, never supplied by the clipboard.
       if (tag === 'pf-rawtable' || typeof n.properties?.dataPfMath === 'string') { delete n.properties.dataPfMath; delete n.properties.dataTex; }
-      if (tag === 'pf-rawtable') { walk(n); out.push(...n.children); continue; }
+      delete n.properties.dataPfLiteral;
+      if (tag === 'pf-rawtable') { walk(n, inCode); out.push(...n.children); continue; }
       const c = cls(n);
       // MathJax v2: <script type="math/tex[; mode=display]"> menyimpan sumber TeX (data, tidak dijalankan)
-      if (tag === 'script' && /^math\/tex\b/i.test(String(n.properties?.type ?? ''))) {
+      if (!inCode && tag === 'script' && /^math\/tex\b/i.test(String(n.properties?.type ?? ''))) {
         const tex = n.children.map((x) => (x.type === 'text' ? x.value : '')).join('');
         math++; note('math-from-mathjax-script', 'LaTeX diambil dari skrip data MathJax (tidak dijalankan)');
         out.push(mathNode(tex.trim(), /mode\s*=\s*display/i.test(String(n.properties?.type))));
@@ -126,7 +194,7 @@ export function htmlToMarkdown(html: string, opts: { plain?: string; limits?: Li
       }
       // tampilan visual MathJax v2/v3 bila sumber TeX tersedia sebagai saudara (skrip math/tex) → jangan diduplikasi
       if (texScriptSibling && (c.some((x) => /^(MathJax|MJX)/.test(x)) || tag === 'mjx-container')) continue;
-      if (c.includes('katex') || c.includes('katex-display') || tag === 'math' || c.includes('MathJax')) {
+      if (!inCode && (c.includes('katex') || c.includes('katex-display') || tag === 'math' || c.includes('MathJax'))) {
         const display = c.includes('katex-display') || String(n.properties?.display ?? '') === 'block';
         const tex = findAnnotation(n);
         if (tex !== null) {
@@ -171,13 +239,14 @@ export function htmlToMarkdown(html: string, opts: { plain?: string; limits?: Li
       if (tag === 'table') {
         tables++;
         const mergedCells = hasMerge(n);
+        walk(n, inCode);
         const sections = n.children.filter((c): c is Element => c.type === 'element');
+        const needsRawMath = (el: Element): boolean => (isMathNode(el) && /[|\n]/.test(String(el.properties.dataTex))) || el.children.some(c => c.type === 'element' && needsRawMath(c));
         const structured = sections.some(s => s.tagName === 'caption' || s.tagName === 'tfoot' ||
           (s.tagName === 'thead' && s.children.filter(c => c.type === 'element' && c.tagName === 'tr').length > 1)) ||
-          sections.filter(s => s.tagName === 'tbody').length > 1;
+          sections.filter(s => s.tagName === 'tbody').length > 1 || needsRawMath(n);
         if (mergedCells || structured) {
           if (mergedCells) merged++;
-          walk(n);
           const cleaned = cleanTable(n);
           const htmlTable = unified().use(rehypeStringify).stringify({ type: 'root', children: [cleaned] })
             // A blank line terminates a raw Markdown HTML block. Character references preserve exact cell/TeX text.
@@ -186,28 +255,30 @@ export function htmlToMarkdown(html: string, opts: { plain?: string; limits?: Li
             note('merged-table-as-html', 'tabel dengan rowspan/colspan dipertahankan sebagai blok HTML tabel');
             issues.push(mkIssue('TABLE_MERGED_CELLS_HTML', 'warning', 'table', { id: 'Tabel dengan sel gabungan (rowspan/colspan) tidak dapat diwakili tabel Markdown; dipertahankan sebagai blok HTML tabel tersanitasi. Periksa sebelum ekspor.', en: 'A table with merged cells (rowspan/colspan) cannot be represented as a Markdown table; it was kept as a sanitized HTML table block. Review before export.' }, { detail: { kind: 'merged-cells' } }));
           } else {
-            note('structured-table-as-html', 'Judul, kelompok baris dan footer tabel disimpan dalam HTML.');
+            note('structured-table-as-html', 'Struktur tabel dan rumus yang tidak dapat diwakili tabel Markdown disimpan dalam HTML.');
           }
           out.push({ type: 'element', tagName: 'pf-rawtable', properties: { dataHtml: htmlTable }, children: [] });
           continue;
         }
+        out.push(n); continue;
       }
-      walk(n);
+      walk(n, inCode);
       out.push(n);
     }
     parent.children = out as typeof parent.children;
+    if (!inCode) htmlLiteralMath += protectHtmlLiteralMath(parent);
   };
   walk(tree);
 
   hoistDisplayMath(tree);
   const mdast = unified().use(rehypeRemark, {
     handlers: {
-      span: (state, node: Element) => (isMathNode(node) ? { type: 'inlineMath', value: String(node.properties.dataTex ?? '') } : defaultHandlers.span!(state, node)),
-      div: (state, node: Element) => (isMathNode(node) ? { type: 'math', value: String(node.properties.dataTex ?? '') } : defaultHandlers.div!(state, node)),
+      span: (state, node: Element) => (isMathNode(node) ? (typeof node.properties.dataPfLiteral === 'string' ? { type: 'html', value: node.properties.dataPfLiteral } : { type: 'inlineMath', value: String(node.properties.dataTex ?? '') }) : defaultHandlers.span!(state, node)),
+      div: (state, node: Element) => (isMathNode(node) ? (typeof node.properties.dataPfLiteral === 'string' ? { type: 'html', value: node.properties.dataPfLiteral } : { type: 'math', value: String(node.properties.dataTex ?? '') }) : defaultHandlers.div!(state, node)),
       'pf-rawtable': (_state, node: Element) => ({ type: 'html', value: String(node.properties?.dataHtml ?? '') }),
     },
   }).runSync(tree) as MRoot;
-  const literal = protectLiteralMath(mdast);
+  const literal = htmlLiteralMath + protectLiteralMath(mdast);
   if (literal) { math += literal; note('math-literal-delimiters', 'Delimiter rumus di teks (\\(…\\), \\[…\\], $…$, $$…$$) dipertahankan apa adanya, tidak di-escape'); }
   const markdown = unified().use(remarkGfm).use(remarkMath).use(remarkStringify, { bullet: '-', fences: true, rule: '-', emphasis: '*', strong: '*', listItemIndent: 'one' })
     .stringify(mdast as never) as unknown as string;
@@ -260,7 +331,7 @@ function protectLiteralMath(root: MRoot): number {
     while (i < kids.length) {
       const k = kids[i]!;
       if (k.type !== 'text' && k.type !== 'break') {
-        if ('children' in k && k.type !== 'link' && k.type !== 'linkReference') visit(k as MParent, inTable || k.type === 'tableCell');
+        if ('children' in k) visit(k as MParent, inTable || k.type === 'tableCell');
         out.push(k); i++; continue;
       }
       let j = i; let str = '';

@@ -4,13 +4,14 @@
  * "Tidak ada masalah" TIDAK sama dengan "semua aspek diperiksa": kategori yang belum dijalankan tetap "Belum diperiksa".
  */
 import type { Issue, RenderedBody, Snapshot } from './contracts';
-import { unified } from 'unified';
-import rehypeParse from 'rehype-parse';
 import type { Element, Root as HtmlRoot } from 'hast';
 import type { Nodes } from 'mdast';
 import { DROP_WITH_CONTENT } from './sanitize';
 import { structuredConversation } from './conversation';
 import { parseMarkdown } from './markdown';
+import { restorerFor } from './math';
+import { parseHtmlWithinBudget } from './html';
+import { BudgetError } from './limits';
 import { resolveAsset, type AssetPreflight, type ExternalImageRef } from './assets';
 import type { IntegrityReport } from './integrity';
 
@@ -62,23 +63,27 @@ export interface PreflightOptions {
 interface ImageRef { url: string; alt: string; line: number }
 
 function imageReferences(source: string): ImageRef[] {
-  const tree = parseMarkdown(source).tree;
+  const parsed = parseMarkdown(source);
+  const tree = parsed.tree;
+  const restore = restorerFor(parsed.scan);
   const definitions = new Map<string, string>();
   const collect = (n: Nodes) => {
-    if (n.type === 'definition' && !definitions.has(n.identifier)) definitions.set(n.identifier, n.url);
+    if (n.type === 'definition' && !definitions.has(n.identifier)) definitions.set(n.identifier, restore(n.url));
     if ('children' in n) n.children.forEach(collect);
   };
   collect(tree);
   const images: ImageRef[] = [];
   const visit = (n: Nodes) => {
     const line = n.position?.start.line ?? 0;
-    if (n.type === 'image') images.push({ url: n.url, alt: n.alt ?? '', line });
+    if (n.type === 'image') images.push({ url: restore(n.url), alt: restore(n.alt ?? ''), line });
     if (n.type === 'imageReference') {
       const url = definitions.get(n.identifier);
-      if (url !== undefined) images.push({ url, alt: n.alt ?? '', line });
+      if (url !== undefined) images.push({ url, alt: restore(n.alt ?? ''), line });
     }
     if (n.type === 'html' && /<img\b/i.test(n.value)) {
-      const html = unified().use(rehypeParse, { fragment: true }).parse(n.value);
+      const parsedHtml = parseHtmlWithinBudget(restore(n.value));
+      if (!parsedHtml.ok) throw new BudgetError(parsedHtml.budget);
+      const html = parsedHtml.tree;
       const raw = (parent: HtmlRoot | Element) => {
         for (const el of parent.children) {
           if (el.type !== 'element' || DROP_WITH_CONTENT.has(el.tagName)) continue;

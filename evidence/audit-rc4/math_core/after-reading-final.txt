@@ -1,0 +1,65 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+ RUN  v5.1.0 /workspace/scratch/69a766e93112/paperforma_rc3_review/candidate
+
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > control: literal trigonometry in a simple table renders once 100ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M01: literal TeX in a caption / merged HTML table renders 64ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M02: literal TeX spanning harmless inline formatting is recognized 17ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M03: math inside link label retains formula and URL 27ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M04: display mode reaches nested phrasing: | Mode | Rumus |
+|---|---|
+| Display | \[x^2+y^2=1\] | 21ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M04: display mode reaches nested phrasing: **\[x^2+y^2=1\]** 18ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M05: indented code remains exact: print("$5", "\(x\)", "\[y\]", "$z$") 15ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M05: indented code remains exact: print("\(x\)", "\[y\]") 10ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M06: raw HTML code remains exact: print("$5", "\(x\)", "\[y\]", "$z$") 5ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M06: raw HTML code remains exact: print("\(x\)", "\[y\]") 5ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M07: display matrices may close after an even backslash run 0ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M08: image references containing literal dollars stay resolvable 3ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M08: rendered image lookup also restores a literal dollar before resolution 8ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M09: HTML table preserves an absolute-value formula and multiline matrix 66ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M10: code, escaped delimiters and unsafe markup remain data in clipboard 32ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M10: kbd remains literal code with its surrounding spaces 16ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-M10: samp remains literal code with its surrounding spaces 14ms
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-I01: raw table integrity detects changed image / link references even when text stays equal 63ms
+ × tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-R01: deeply nested HTML is rejected whole with an explicit depth budget 23ms
+   → Maximum call stack size exceeded
+ ✓ tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-R01: depth boundary is inclusive and ordinary nesting still works 7ms
+ × tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-R01: raw HTML render and conversation import share the structural guard 40ms
+   → expected RangeError: Maximum call stack size excee… to be an instance of BudgetError
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-R01: deeply nested HTML is rejected whole with an explicit depth budget
+RangeError: Maximum call stack size exceeded
+ ❯ one node_modules/hast-util-from-parse5/lib/index.js:68:13
+ ❯ all node_modules/hast-util-from-parse5/lib/index.js:155:48
+ ❯ element node_modules/hast-util-from-parse5/lib/index.js:193:46
+ ❯ one node_modules/hast-util-from-parse5/lib/index.js:132:16
+ ❯ all node_modules/hast-util-from-parse5/lib/index.js:155:48
+ ❯ element node_modules/hast-util-from-parse5/lib/index.js:193:46
+ ❯ one node_modules/hast-util-from-parse5/lib/index.js:132:16
+ ❯ all node_modules/hast-util-from-parse5/lib/index.js:155:48
+ ❯ element node_modules/hast-util-from-parse5/lib/index.js:193:46
+ ❯ one node_modules/hast-util-from-parse5/lib/index.js:132:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/unit/core/rc4-reading-regressions.test.ts > RC4-CORE reading regression audit > RC4-R01: raw HTML render and conversation import share the structural guard
+AssertionError: expected RangeError: Maximum call stack size excee… to be an instance of BudgetError
+ ❯ tests/unit/core/rc4-reading-regressions.test.ts:118:41
+    116|   it('RC4-R01: raw HTML render and conversation import share the struc…
+    117|     const source='<div>'.repeat(1800)+'<div data-message-author-role="…
+    118|     await expect(renderBody(source,opts)).rejects.toBeInstanceOf(Budge…
+       |                                         ^
+    119|     const result=parseClipboardConversation({html:source,plain:'KEEP'}…
+    120|     expect(result.issues.some(i=>i.code==='BUDGET_EXCEEDED'&&i.blockin…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 19 passed (21)
+   Start at  16:33:30
+   Duration  4.22s (environment 64%, tests 14%, import 11%, transform 10%)
+

@@ -1,0 +1,374 @@
+{
+  "priority_definition": "Prioritas audit internal: P1 integritas/ketersediaan/klaim gate penting; bukan skor CVSS/CVE.",
+  "findings": [
+    {
+      "id": "RC4-M01",
+      "area": "Core",
+      "priority": "P2",
+      "problem": "Rumus literal di caption/tabel HTML gabungan sel tidak terbaca.",
+      "fix": "Lindungi TeX pada struktur HTML sebelum serialisasi Markdown.",
+      "evidence": "math_core/CORE_AUDIT.md; baseline-final-regressions.txt; after-inline-image-budget.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "RC4-M02",
+      "area": "Core",
+      "priority": "P2",
+      "problem": "Delimiter rumus yang terpisah oleh strong/em tidak dikenali.",
+      "fix": "Gabungkan rangkaian teks inline aman; pertahankan markup di luar formula.",
+      "evidence": "math_core/CORE_AUDIT.md; baseline-final-regressions.txt; after-inline-image-budget.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "RC4-M03",
+      "area": "Core",
+      "priority": "P2",
+      "problem": "Rumus pada label tautan tertinggal sebagai teks.",
+      "fix": "Parse label formula tanpa mengubah URL tautan.",
+      "evidence": "math_core/CORE_AUDIT.md; baseline-final-regressions.txt; after-inline-image-budget.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "RC4-M04",
+      "area": "Core",
+      "priority": "P2",
+      "problem": "Display math dalam sel/emphasis/daftar berubah menjadi inline.",
+      "fix": "Propagasikan mode dari delimiter sumber ke seluruh subtree phrasing.",
+      "evidence": "math_core/CORE_AUDIT.md; baseline-final-regressions.txt; after-inline-image-budget.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "RC4-M05",
+      "area": "Core",
+      "priority": "P1",
+      "problem": "Contoh kode berindentasi dapat berubah delimiter/sentinel.",
+      "fix": "Pulihkan literal dari sumber asli; CommonMark menentukan batas kode.",
+      "evidence": "math_core/CORE_AUDIT.md; baseline-final-regressions.txt; after-inline-image-budget.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "RC4-M06",
+      "area": "Core",
+      "priority": "P1",
+      "problem": "Contoh TeX pada HTML code dapat berubah.",
+      "fix": "Lindungi pre/code/kbd/samp dari transformasi matematika.",
+      "evidence": "math_core/CORE_AUDIT.md; baseline-final-regressions.txt; after-inline-image-budget.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "RC4-M08",
+      "area": "Core",
+      "priority": "P2",
+      "problem": "Nama gambar yang memuat dolar gagal dicocokkan.",
+      "fix": "Pulihkan sentinel sebelum lookup aset dan preflight.",
+      "evidence": "math_core/CORE_AUDIT.md; baseline-final-regressions.txt; after-inline-image-budget.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "RC4-M09",
+      "area": "Core",
+      "priority": "P2",
+      "problem": "Pemisah vertikal dan matriks multibaris merusak tabel impor.",
+      "fix": "Pertahankan tabel berisiko sebagai HTML aman yang menyimpan TeX.",
+      "evidence": "math_core/CORE_AUDIT.md; baseline-final-regressions.txt; after-inline-image-budget.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "RC4-I01",
+      "area": "Core",
+      "priority": "P2",
+      "problem": "Oracle raw-table dapat meloloskan URL tautan/gambar yang berubah.",
+      "fix": "Bandingkan referensi dan urutan, selain sel/caption/colspan/rowspan.",
+      "evidence": "math_core/CORE_AUDIT.md; baseline-final-regressions.txt; after-inline-image-budget.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "RC4-R01",
+      "area": "Core",
+      "priority": "P1",
+      "problem": "HTML kecil dengan nesting ekstrem menghasilkan RangeError.",
+      "fix": "Admission iteratif parse5 sebelum konversi rekursif; maxNesting 256.",
+      "evidence": "math_core/CORE_AUDIT.md; baseline-final-regressions.txt; after-inline-image-budget.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "RC4-R02",
+      "area": "Core",
+      "priority": "P1",
+      "problem": "Gambar inline dapat melewati batas piksel dan agregat proyek.",
+      "fix": "Periksa byte base64/MIME/header sebelum img, batas 40 MP dan agregat unik 200 MP.",
+      "evidence": "math_core/CORE_AUDIT.md; baseline-final-regressions.txt; after-inline-image-budget.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-R4-01",
+      "area": "Render/PDF",
+      "priority": "P2",
+      "problem": "Fragmen URL malformed melempar URIError.",
+      "fix": "Pertahankan pemeriksaan tautan dan laporkan target rusak tanpa crash.",
+      "evidence": "render_exports/RENDER_AUDIT.md; render_exports/final-visual-regression-unit.json",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-R4-02",
+      "area": "Render/PDF",
+      "priority": "P2",
+      "problem": "Teks organisasi/footer BrandKit luput dari font plan.",
+      "fix": "Sertakan metadata brand pada preview, HTML dan payload cetak.",
+      "evidence": "render_exports/RENDER_AUDIT.md; render_exports/final-visual-regression-unit.json",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-R4-03",
+      "area": "Render/PDF",
+      "priority": "P2",
+      "problem": "Font KaTeX bold/italic dan fallback Unicode tertentu luput.",
+      "fix": "Tambahkan pemetaan varian serta pemeriksaan glyph teks di dalam KaTeX.",
+      "evidence": "render_exports/RENDER_AUDIT.md; render_exports/final-visual-regression-unit.json",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-R4-04",
+      "area": "Render/PDF",
+      "priority": "P1",
+      "problem": "Pemasok font yang macet dapat menggantung ekspor/pembatalan.",
+      "fix": "Signal/deadline sampai load font, default 15 detik dan retry cache gagal.",
+      "evidence": "render_exports/RENDER_AUDIT.md; render_exports/final-visual-regression-unit.json",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-R4-05",
+      "area": "Render/PDF",
+      "priority": "P1",
+      "problem": "Oracle paginasi mengabaikan perubahan whitespace kode.",
+      "fix": "Inventaris kode persis per identitas baris dan reassembly fragmen yang sah.",
+      "evidence": "render_exports/RENDER_AUDIT.md; render_exports/final-visual-regression-unit.json",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-R4-06",
+      "area": "Render/PDF",
+      "priority": "P2",
+      "problem": "Oracle PDF melewatkan prosa sekitar rumus, caption, minus dan urutan.",
+      "fix": "Periksa fragmen prosa/caption, tanda, urutan, gambar, anotasi dan font lebih ketat.",
+      "evidence": "render_exports/RENDER_AUDIT.md; render_exports/final-visual-regression-unit.json",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-R4-07",
+      "area": "Render/PDF",
+      "priority": "P2",
+      "problem": "Dokumen tanpa metadata dapat membuat sampul kosong.",
+      "fix": "Jangan keluarkan sampul jika seluruh metadata terlihat kosong dan tidak ada logo.",
+      "evidence": "render_exports/RENDER_AUDIT.md; render_exports/final-visual-regression-unit.json",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-R4-08",
+      "area": "Render/PDF",
+      "priority": "P2",
+      "problem": "Judul kolom kunci tabel terpecah dapat putih di atas abu-abu pucat.",
+      "fix": "Batasi latar penanda kolom kunci pada td; th mempertahankan warna templat.",
+      "evidence": "render_exports/RENDER_AUDIT.md; render_exports/final-visual-regression-unit.json",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-AUD-A01",
+      "area": "UI/data",
+      "priority": "P1",
+      "problem": "Impor async dapat masuk ke proyek lain setelah pengguna berpindah proyek.",
+      "fix": "Token generasi/proyek dan penggabungan batch terbaru sebelum commit.",
+      "evidence": "ui_storage/AUDIT_UI_STORAGE.md; ui_storage/before-ui-actual-selectors.txt; ui_storage/after-final-focus.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-AUD-A02",
+      "area": "UI/data",
+      "priority": "P1",
+      "problem": "Dua path dengan byte identik membuat penggantian memilih alias salah.",
+      "fix": "Target penggantian berdasarkan path yang dipilih.",
+      "evidence": "ui_storage/AUDIT_UI_STORAGE.md; ui_storage/before-ui-actual-selectors.txt; ui_storage/after-final-focus.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-AUD-A03",
+      "area": "UI/data",
+      "priority": "P1",
+      "problem": "Undo penggantian gambar dapat menyisakan path ganda/menghabiskan history saat gagal.",
+      "fix": "Gabung berdasarkan path; pindahkan stack hanya setelah commit diterima.",
+      "evidence": "ui_storage/AUDIT_UI_STORAGE.md; ui_storage/before-ui-actual-selectors.txt; ui_storage/after-final-focus.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-AUD-A04",
+      "area": "UI/data",
+      "priority": "P2",
+      "problem": "Riwayat hash saja tidak menjaga alias nama aset.",
+      "fix": "Simpan pasangan id/path baru, dukung riwayat legacy tanpa mengarang data.",
+      "evidence": "ui_storage/AUDIT_UI_STORAGE.md; ui_storage/before-ui-actual-selectors.txt; ui_storage/after-final-focus.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-AUD-A05",
+      "area": "UI/data",
+      "priority": "P2",
+      "problem": "ZIP/proyek dapat melewati anggaran agregat 200 MP.",
+      "fix": "Terapkan pada impor dan validator proyek bersama, tolak atomik.",
+      "evidence": "ui_storage/AUDIT_UI_STORAGE.md; ui_storage/before-ui-actual-selectors.txt; ui_storage/after-final-focus.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-AUD-A06",
+      "area": "UI/data",
+      "priority": "P2",
+      "problem": "JSON riwayat berbentuk salah dapat menggagalkan pemulihan.",
+      "fix": "Validasi bentuk; fallback ke pemulihan sumber yang dijelaskan.",
+      "evidence": "ui_storage/AUDIT_UI_STORAGE.md; ui_storage/before-ui-actual-selectors.txt; ui_storage/after-final-focus.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-AUD-U01",
+      "area": "UI/data",
+      "priority": "P2",
+      "problem": "Render gagal tetap berlabel memproses karena pratinjau lama.",
+      "fix": "Prioritaskan status gagal atas ketidakcocokan revisi pratinjau.",
+      "evidence": "ui_storage/AUDIT_UI_STORAGE.md; ui_storage/before-ui-actual-selectors.txt; ui_storage/after-final-focus.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-AUD-U02",
+      "area": "UI/data",
+      "priority": "P2",
+      "problem": "Diff besar mengunci UI dan membangun DOM tanpa batas.",
+      "fix": "Diff async berbatas; dua teks lengkap dan unduhan jika terlalu besar.",
+      "evidence": "ui_storage/AUDIT_UI_STORAGE.md; ui_storage/before-ui-actual-selectors.txt; ui_storage/after-final-focus.txt",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-E4-01",
+      "area": "Worker",
+      "priority": "P2",
+      "problem": "Abort listener dapat tertinggal sesudah pekerjaan selesai.",
+      "fix": "Lepas listener pada semua jalur settle.",
+      "evidence": "engine-before.log; engine-after.log; tests/unit/engine/lifecycle-regressions.test.ts",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-E4-02",
+      "area": "Worker",
+      "priority": "P2",
+      "problem": "Fallback dapat menyelesaikan hasil setelah dispose.",
+      "fix": "Generasi disposal dan pemeriksaan stale/deadline di batas fase.",
+      "evidence": "engine-before.log; engine-after.log; tests/unit/engine/lifecycle-regressions.test.ts",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-E4-03",
+      "area": "Worker",
+      "priority": "P2",
+      "problem": "Pesan/error Worker lama atau postMessage gagal dapat mencemari pekerjaan baru.",
+      "fix": "Ikat callback ke instans Worker aktif dan bersihkan kegagalan kirim.",
+      "evidence": "engine-before.log; engine-after.log; tests/unit/engine/lifecycle-regressions.test.ts",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-E4-04",
+      "area": "Worker",
+      "priority": "P2",
+      "problem": "ID pembatalan terlambat dapat bertambah tanpa batas.",
+      "fix": "Catat pembatalan hanya untuk pekerjaan yang masih aktif.",
+      "evidence": "engine-before.log; engine-after.log; tests/unit/engine/lifecycle-regressions.test.ts",
+      "verification_scope": "Unit/Node/jsdom; browser baru belum diuji"
+    },
+    {
+      "id": "PF-D4-01",
+      "area": "Release tooling",
+      "priority": "P1",
+      "problem": "Pemeriksa deployment dapat menerima rumus benar dari versi lama/null.",
+      "fix": "Wajibkan versi tepat dan tidak ada page error.",
+      "evidence": "final/release-gate.log; final/http.log; final/tests.log",
+      "verification_scope": "Node/HTTP/static actual; browser deployment belum dijalankan"
+    },
+    {
+      "id": "PF-D4-02",
+      "area": "Release tooling",
+      "priority": "P2",
+      "problem": "Runner performa dapat keluar sukses setelah paginasi/PDF gagal.",
+      "fix": "Kelulusan mencakup status, halaman, PDF dan error; exit code mengikuti hasil.",
+      "evidence": "final/release-gate.log; final/http.log; final/tests.log",
+      "verification_scope": "Node/HTTP/static actual; browser deployment belum dijalankan"
+    },
+    {
+      "id": "PF-D4-03",
+      "area": "Release tooling",
+      "priority": "P2",
+      "problem": "Runner lintas-browser dapat menganggap mesin yang hilang sebagai kelulusan.",
+      "fix": "Wajibkan setiap engine unik dengan digest dan status pass; unknown/duplikat gagal.",
+      "evidence": "final/release-gate.log; final/http.log; final/tests.log",
+      "verification_scope": "Node/HTTP/static actual; browser deployment belum dijalankan"
+    },
+    {
+      "id": "PF-D4-04",
+      "area": "Release tooling",
+      "priority": "P2",
+      "problem": "Server uji dapat crash pada URL malformed/keluar root dengan prefix path.",
+      "fix": "Decode defensif, validasi containment path dan respons 400.",
+      "evidence": "final/release-gate.log; final/http.log; final/tests.log",
+      "verification_scope": "Node/HTTP/static actual; browser deployment belum dijalankan"
+    },
+    {
+      "id": "PF-D4-05",
+      "area": "Release tooling",
+      "priority": "P2",
+      "problem": "Verifier statis belum menolak identitas hilang/source HTML/aset entry hilang.",
+      "fix": "Tambahkan tiga injeksi gate dan pemeriksaan metadata/aset.",
+      "evidence": "final/release-gate.log; final/http.log; final/tests.log",
+      "verification_scope": "Node/HTTP/static actual; browser deployment belum dijalankan"
+    },
+    {
+      "id": "PF-D4-06",
+      "area": "Release tooling",
+      "priority": "P2",
+      "problem": "Identitas build/HTTP kurang kuat terhadap deployment lama.",
+      "fix": "Renderer version baru, cache HTML pretty URL, verifier hash HTTP seluruh berkas.",
+      "evidence": "final/release-gate.log; final/http.log; final/tests.log",
+      "verification_scope": "Node/HTTP/static actual; browser deployment belum dijalankan"
+    },
+    {
+      "id": "RC4-P01",
+      "area": "Performance",
+      "priority": "P2",
+      "problem": "KaTeX yang identik diproses berulang dalam dokumen.",
+      "fix": "Cache per pekerjaan dan terbatas, tanpa cache isi pengguna antarproyek.",
+      "evidence": "performance-core-final.json; snapshot-performance.json",
+      "verification_scope": "Mikrobenchmark Node, bukan waktu website/PDF seluruhnya"
+    },
+    {
+      "id": "RC4-P02",
+      "area": "Performance",
+      "priority": "P2",
+      "problem": "Pemeriksaan keanggotaan blok menggunakan pencarian kuadratik.",
+      "fix": "Gunakan Set untuk identitas blok.",
+      "evidence": "performance-core-final.json; snapshot-performance.json",
+      "verification_scope": "Mikrobenchmark Node, bukan waktu website/PDF seluruhnya"
+    },
+    {
+      "id": "RC4-P03",
+      "area": "Performance",
+      "priority": "P2",
+      "problem": "Baris mata uang memindai sisa paragraf berulang.",
+      "fix": "Prakomputasi batas akhir paragraf.",
+      "evidence": "performance-core-final.json; snapshot-performance.json",
+      "verification_scope": "Mikrobenchmark Node, bukan waktu website/PDF seluruhnya"
+    },
+    {
+      "id": "PF-AUD-P01",
+      "area": "Performance",
+      "priority": "P2",
+      "problem": "Snapshot menyalin riwayat tak diperlukan dan meng-hash aset dua kali.",
+      "fix": "Salin bidang identitas render dan hash sekali per buffer snapshot.",
+      "evidence": "performance-core-final.json; snapshot-performance.json",
+      "verification_scope": "Mikrobenchmark Node, bukan waktu website/PDF seluruhnya"
+    }
+  ]
+}

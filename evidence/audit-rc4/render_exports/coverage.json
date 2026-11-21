@@ -1,0 +1,254 @@
+[
+  {
+    "path": "src/render/css.ts",
+    "bytes": 36756,
+    "sha256": "2e978863e9c8fa531ffd8e09b4d8fda34641bbde381363f5f6d76b0e364f2242",
+    "changed": true,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/document.ts",
+    "bytes": 27475,
+    "sha256": "d42708707caddda358638970bc00fe6d4d191ad093acf6dc4eec358002594fe0",
+    "changed": true,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/exports.ts",
+    "bytes": 23225,
+    "sha256": "f888bce25fc89c2313845c0f80e3f819a40a4644badab5dfc99d4bff76a4a8b5",
+    "changed": true,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/font-assets.ts",
+    "bytes": 1911,
+    "sha256": "9283c9017d6b2c03c13336489682f8d0b9107aa1ace4a8d0ee9996668e444dc6",
+    "changed": true,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/font-coverage.generated.ts",
+    "bytes": 10872,
+    "sha256": "b05c6b625452ef422f1c61756525c4c6c1406f753e8cd9b6668ec71655e4f066",
+    "changed": false,
+    "review": "regenerated from bundled WOFF2 cmap; byte-identical to RC3"
+  },
+  {
+    "path": "src/render/fonts.ts",
+    "bytes": 19110,
+    "sha256": "d12fda8d60a33ad50ff49e3dd8e107eb08a507f30f9478175d91d3faae011e49",
+    "changed": true,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/index.ts",
+    "bytes": 1895,
+    "sha256": "cf7781a5cee5aabb8e51c51480bdae4c3d8d6982d9e425de7ab76d9eecf044bc",
+    "changed": true,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/labels.ts",
+    "bytes": 3445,
+    "sha256": "07335b18c37e05c09a6a21b35e22a9db3bc0d0d78ed780456903d97a001cf3ad",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/local-manifest.ts",
+    "bytes": 2131,
+    "sha256": "94770db6eaf31a4105ebbf8c8bd126006ccaa829c039cebd07bb9a83403b626f",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/paginate-error.ts",
+    "bytes": 338,
+    "sha256": "ad02005f60fe0a2e4c4bc36235ea2ba0809f09f144fb26f7f9984d9da7b1ad7d",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/paginate.ts",
+    "bytes": 64761,
+    "sha256": "71ca95daa3f73dcdd42545de1776e8a968fa323a7c70471430a8b7a18ecd04f0",
+    "changed": true,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/print-client.ts",
+    "bytes": 6690,
+    "sha256": "68e78a6ba434b510fc2b9de1f9cc7b3a88735ecafd06d3916b7cd7593f05750f",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/print-entry.ts",
+    "bytes": 3098,
+    "sha256": "058e8eef9c4ec1b1efa90b29f839011dd0e1de6b70b0e066aea6e4455ab68725",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/print-payload.ts",
+    "bytes": 4309,
+    "sha256": "1d55173e928d6871863e556c80eec7b00e5d577cba4d67aaf08c11644c56e3da",
+    "changed": true,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/print-types.ts",
+    "bytes": 3177,
+    "sha256": "8f3a623eecc67067008acf4af8402bd26f9f1fc4de9ac2280396174ff9d5230b",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/shims.d.ts",
+    "bytes": 188,
+    "sha256": "68b02aaaa45335ffab6c783ccda29138ebebdf78802c8bb76b53e8ce85f7c3c6",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/templates.ts",
+    "bytes": 11927,
+    "sha256": "94be3ebd12e2593660b0d788b14e8ecd10044ab8154eaa3218ab0509ce8123b8",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/tools/gen-font-coverage.mjs",
+    "bytes": 6315,
+    "sha256": "3f5bac977114bdaa72d49fff460fafab7770c6489d9661046be1e31be487a0cb",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "src/render/util.ts",
+    "bytes": 1766,
+    "sha256": "5559f0bb3201dad6a14f8f48b309ba5a910208b7fa20c312ff653873996d55a6",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "tests/e2e/inspect-pdf.py",
+    "bytes": 1105,
+    "sha256": "9ccfbed24c32bf5a83cc6d5dfc258f2045003ecfe60c493af351fb0ccd22338f",
+    "changed": true,
+    "review": "source and test review"
+  },
+  {
+    "path": "tests/e2e/pdf-engine-eval.mjs",
+    "bytes": 7203,
+    "sha256": "a56cdf2a4952dcb59bed127faa7ef8c736039fe43cf224a0551b668fc2dc85f6",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "tests/e2e/pdf-oracle.mjs",
+    "bytes": 3803,
+    "sha256": "19426f46373a9c7a72ce746f87462154bc99065e10cafcf7858ec4708aca430a",
+    "changed": true,
+    "review": "source and test review"
+  },
+  {
+    "path": "tests/e2e/pdf-oracle.test.mjs",
+    "bytes": 2051,
+    "sha256": "e999dd2329072d4ee12a2189cb4f146d2b92af97dce26acc7538f94ec73043f6",
+    "changed": true,
+    "review": "source and test review"
+  },
+  {
+    "path": "tests/e2e/pdf-verify.mjs",
+    "bytes": 14807,
+    "sha256": "637728dbb56c84af8ca6c321e6640a2eeb58bb19501c991afb68687ac9428168",
+    "changed": true,
+    "review": "source and test review"
+  },
+  {
+    "path": "tests/e2e/stress-pages.mjs",
+    "bytes": 1911,
+    "sha256": "57ae1249e4040febfe80ec2eb534664fdce9baac1b16d0012cff57ad43157e88",
+    "changed": true,
+    "review": "source and test review"
+  },
+  {
+    "path": "tests/unit/render/audit-rc4.test.ts",
+    "bytes": 6111,
+    "sha256": "7fae29b398c2cb6ea7a0249cad66935a04742c1df9eb433577a869cc6d563749",
+    "changed": true,
+    "review": "source and test review"
+  },
+  {
+    "path": "tests/unit/render/blank-cover.test.ts",
+    "review": "source and test review",
+    "bytes": 2087,
+    "sha256": "00f9f28a7afd0c1467e4e3fef0e3f5036e6e66faf0e3e92d8fb595755a04e72c",
+    "changed": true
+  },
+  {
+    "path": "tests/unit/render/exports.test.ts",
+    "bytes": 11318,
+    "sha256": "f3afc40a47ec828b50d971eb88708ca7bcc46ba25b3fb38ead5e1d0c935ab957",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "tests/unit/render/fonts.test.ts",
+    "bytes": 3267,
+    "sha256": "d2e707209406e62e69aa3026e24d238c9568346d0370edfc282ac932ff161ad6",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "tests/unit/render/helpers.ts",
+    "bytes": 2521,
+    "sha256": "9298238ffbc09da5df54b49503a576ff2036e14221b9b1e7783c22315e43353e",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "tests/unit/render/inventory.test.ts",
+    "bytes": 2524,
+    "sha256": "4866cd1beaf228d8549264fce519d1ac734e24722cd526dff9f196b440c7f878",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "tests/unit/render/pagination-regressions.test.ts",
+    "bytes": 9113,
+    "sha256": "209e854ab9ce351d1657c333004d385c198177fefe77eda015967962140c77ae",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "tests/unit/render/static-export.test.ts",
+    "bytes": 5769,
+    "sha256": "f23f8a05f34f82904b5c9c5f17bc9a6717c297020d82f2e790c1a03036ddfced",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "tests/unit/render/table-contrast.test.ts",
+    "review": "source and test review",
+    "bytes": 1902,
+    "sha256": "4147f9000376989a242740589e4a8ff04b72f9b51b5eb2e52d767be14e92217a",
+    "changed": true
+  },
+  {
+    "path": "tests/unit/render/templates.test.ts",
+    "bytes": 3569,
+    "sha256": "35e5ea815b39cf8bd2926ac15a3e1d3e47cae342cc9ffe54b1356d81a89c0bfe",
+    "changed": false,
+    "review": "source and test review"
+  },
+  {
+    "path": "tests/unit/render/trigonometry-export.test.ts",
+    "review": "source and test review",
+    "bytes": 3586,
+    "sha256": "5d43cf26f4bbdec52696d76503a1fbb9f5e41733c38c74528c83bc18ebe2a7ef",
+    "changed": true
+  }
+]

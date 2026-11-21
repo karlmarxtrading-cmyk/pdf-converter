@@ -1,0 +1,10 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+ RUN  v5.1.0 /workspace/scratch/69a766e93112/paperforma_rc3_review/candidate
+
+
+ Test Files  2 passed (2)
+      Tests  12 passed (12)
+   Start at  16:25:24
+   Duration  1.23s (transform 66%, import 18%, tests 15%, worker 1%)
+

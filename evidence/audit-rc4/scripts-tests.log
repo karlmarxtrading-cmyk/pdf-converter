@@ -1,0 +1,12 @@
+✔ deployment rejects old/missing versions and page errors even when all formulas render (1.652553ms)
+✔ performance runner fails after pagination, PDF, or console errors (0.366241ms)
+✔ cross-browser success requires every supported engine and matching document digests (0.766937ms)
+✔ local Pages simulator rejects malformed paths and sibling-directory traversal, then remains usable (70.383409ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 298.674558

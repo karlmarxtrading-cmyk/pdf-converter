@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.0.0-rc.4 — 2026-11-21 (audit dan perbaikan)
+
+Perbaikan pembacaan math kompleks, pelestarian literal kode, admission HTML/gambar, aset/undo/riwayat, abort Worker/font, sampul kosong dan header tabel, oracle PDF serta release/deployment gate. Tiga hotspot core dioptimalkan dan snapshot dikurangi pekerjaan berulang. Korpus trig 21 formula dan contoh HTML nyata disertakan.
+
+332 tes Vitest +8 tes Node lulus; build produksi/QA, gate mutasi dan HTTP lokal lulus. Browser/PDF baru diblokir lingkungan; tidak ada klaim produksi penuh. Detail: docs/AUDIT_RC4.md dan docs/RELEASE_REPORT.md. Hasil sebelum RC4 di bawah adalah histori.
+
+
 ## 3.0.0-rc.3 — 2026-11-21 (perbaikan mesin matematika)
 
 Laporan: rumus LaTeX tampil sebagai teks mentah di https://performa-cwd.pages.dev (rc.2), mis. `\[\boxed{E_0=mc^2}\]`,

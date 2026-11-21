@@ -1,0 +1,8 @@
+{
+  "baseline": "Unmodified RC3 application rebuilt with independent npm ci; audit regression tests were added separately.",
+  "originalFiles": 281,
+  "rebuiltFiles": 281,
+  "changed": [],
+  "extra": [],
+  "pass": true
+}

@@ -68,12 +68,14 @@ export function scanMath(src: string): MathScan {
   const fenced = fencedLines(lines);
   const lineIdx = (pos: number): number => { let lo = 0, hi = lineStart.length - 1; while (lo < hi) { const mid = (lo + hi + 1) >> 1; if (lineStart[mid]! <= pos) lo = mid; else hi = mid - 1; } return lo; };
   const inFenced = (pos: number) => fenced.has(lineIdx(pos));
-  /** akhir paragraf: posisi awal baris kosong berikutnya */
-  const paraEnd = (pos: number): number => {
-    let i = lineIdx(pos) + 1;
-    while (i < lines.length && lines[i]!.trim() !== '' && !fenced.has(i)) i++;
-    return i < lines.length ? lineStart[i]! : src.length;
-  };
+  // RC4-P03: compute boundaries once; thousands of currency lines otherwise rescan the remaining paragraph.
+  const paragraphEnds: number[] = Array.from({ length: lines.length }, () => src.length);
+  let boundary = src.length;
+  for (let l = lines.length - 1; l >= 0; l--) {
+    paragraphEnds[l] = boundary;
+    if (lines[l]!.trim() === '' || fenced.has(l)) boundary = lineStart[l]!;
+  }
+  const paraEnd = (pos: number): number => paragraphEnds[lineIdx(pos)]!;
   const spans: MathSpan[] = [];
   const literal: number[] = [];
   const issues: MathScanIssue[] = [];
@@ -95,10 +97,16 @@ export function scanMath(src: string): MathScan {
       }
       i = close > 0 ? close : j; continue;
     }
-    if (ch === '<' && src.startsWith('<code data-pf-formula="', i)) {
-      const open = /^<code data-pf-formula="(?:inline|display)">/.exec(src.slice(i, i + 40));
-      const end = open ? src.indexOf('</code>', i + open[0].length) : -1;
-      if (end >= 0) { i = end + 7; continue; }
+    // RC4-M06: raw HTML code is literal too; rewriting delimiters here would corrupt the sample.
+    if (ch === '<') {
+      const open = /^<(code|pre|kbd|samp)\b(?:"[^"]*"|'[^']*'|[^'">])*>/i.exec(src.slice(i));
+      if (open) {
+        const close = new RegExp(`</${open[1]}\\s*>`, 'ig');
+        close.lastIndex = i + open[0].length;
+        const end = close.exec(src);
+        i = end ? end.index + end[0].length : n;
+        continue;
+      }
     }
     if (ch === '<' && src.startsWith('<!--', i)) { const e = src.indexOf('-->', i + 4); i = e < 0 ? n : e + 3; continue; }
     if (ch === '\\') {

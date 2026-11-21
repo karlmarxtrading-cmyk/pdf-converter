@@ -1,59 +1,61 @@
-# PaperForma 3 — studio dokumen statis
+# PaperForma 3.0.0-rc.4 — audit dan perbaikan mesin dokumen
 
-PaperForma menyusun materi Markdown, teks, percakapan AI, ZIP (naskah + gambar) dan proyek `.pfproj` menjadi dokumen
-rapi, lalu menyimpannya sebagai **HTML** (mandiri, ZIP, publikasi) atau mencetaknya ke **PDF lewat dialog cetak browser**.
-Semua pemrosesan berjalan di browser. Tidak ada akun, harga, paket, kuota, backend API, telemetry, atau pengiriman isi dokumen.
+PaperForma mengolah Markdown, teks UTF-8, HTML clipboard, percakapan, ZIP naskah + gambar dan proyek `.pfproj` menjadi HTML atau halaman cetak. PDF disimpan melalui dialog cetak browser. Pemrosesan dokumen berjalan di perangkat pengguna, tanpa akun atau backend.
 
-Versi: `3.0.0-rc.3` — kandidat rilis (perbaikan mesin matematika: rumus dari ChatGPT tidak lagi tampil mentah). Semua gerbang yang dapat dijalankan otomatis lulus; dialog cetak native, Safari/perangkat
-fisik, pembaca layar dan hosting Cloudflare nyata belum diverifikasi (lihat `docs/RELEASE_REPORT.md`, `docs/KNOWN_LIMITS.md`).
+**Status: kandidat yang telah diperbaiki dan diuji pada tingkat kode, ekspor HTML, paket dan HTTP lokal. Belum disertifikasi untuk produksi umum.** Pengujian browser/PDF baru tidak dapat dijalankan di lingkungan audit; hasil browser RC3 disimpan sebagai bukti historis. Keputusan lengkap dan hasil aktual: [docs/RELEASE_REPORT.md](docs/RELEASE_REPORT.md).
 
-Analisis dokumen berjalan di **Web Worker** (MESIN-36) sehingga editor tetap responsif; paginasi diverifikasi isi per blok,
-heading, baris tabel, nomor halaman dan daftar isi sebelum cetak diizinkan.
+## Yang diperbaiki
 
-## Menjalankan
+- Rumus literal di tabel kompleks/caption, label tautan, markup inline terpecah dan mode display di sel/daftar/emphasis.
+- Delimiter serta indentasi contoh kode tetap literal; URL gambar bertanda dolar tetap dikenali.
+- Batas struktur HTML dan gambar inline sebelum pekerjaan berisiko; data tidak dipotong diam-diam.
+- Font BrandKit/KaTeX, pembatalan dan timeout ekspor, keutuhan spasi kode setelah paginasi, dan oracle PDF.
+- Pergantian proyek saat impor aset berlangsung, alias nama gambar, undo/redo, pemulihan riwayat dan dialog perbandingan besar.
+- Tiga hotspot CPU dan pekerjaan snapshot berulang; angka pengukuran dengan batasnya ada di [docs/PERFORMANCE_REPORT.md](docs/PERFORMANCE_REPORT.md).
+- Pemeriksa versi, hasil uji, aset build dan HTTP deployment. Website lama atau berkas yang tidak sama dengan `dist` akan dilaporkan gagal.
 
-Prasyarat: Node **24.22.3** dan npm **11.9.0** (`engine-strict=true`). Tidak ada kredensial atau variabel lingkungan yang dibutuhkan.
+## Jalankan
+
+Node **24.22.3**, npm **>=11.6.0 <12**. Audit ini memakai npm **11.19.1**. Versi Node dipin; jangan menonaktifkan `engine-strict` untuk menutupi EBADENGINE.
 
 ```bash
-npm ci                 # dari package-lock.json
-npm run typecheck      # tsc --noEmit
-npm run lint           # oxlint (correctness, nol peringatan)
-npm test               # vitest: unit + integrasi + regresi audit + Worker tanpa DOM
-npm run build          # SBOM/notice → vite build → verifikasi statis → dist/
-npm run preview        # server lokal ala Cloudflare Pages (dist/, _headers, 404) di http://127.0.0.1:4173
-npm run build:qa       # dist-qa/ dengan kait QA (window.__pf) untuk E2E; JANGAN dideploy
-npm run test:e2e       # Chrome headless (puppeteer-core) terhadap dist-qa → evidence/e2e-results.json
-npm run test:smoke     # build produksi dist/ di Chrome → evidence/static-smoke.json
-npm run test:gate      # verifier harus menolak dist yang dirusak
-npm run test:pdf       # PDF nyata dari mesin cetak Chrome (+ Firefox bila PF_FIREFOX) diperiksa poppler/qpdf
-npm run test:browsers  # alur inti di Chromium, Firefox, WebKitGTK (bila tersedia)
-npm run test:perf      # matriks performa 10–1.000 halaman
+node -v
+npm -v
+npm ci
+npm run typecheck
+npm run lint
+npm test
+npm run build
+npm run verify:http -- --local
+npm run preview
 ```
 
-E2E memerlukan Chrome/Chromium lokal (`PF_CHROME=/path/ke/chrome` bila tidak di `/usr/bin/google-chrome`).
+Buka `http://127.0.0.1:4173/`. Build yang dipublikasikan adalah **`dist`**, bukan `index.html` sumber di root. Build QA di `dist-qa` memuat kait pengujian dan tidak boleh dipublikasikan.
 
-## Deploy (GitHub → Cloudflare Pages)
+## Uji kasus gambar pengguna
 
-Build command `npm run build`, output directory `dist`, root `/`, environment `NODE_VERSION=24.22.3`.
-Tanpa Functions, Cloudflare Worker, binding, atau secret (Web Worker browser adalah aset statis biasa). Rincian, verifikasi pasca-deploy dan rollback: `docs/DEPLOY_CLOUDFLARE.md`.
+Buka `fixtures/trigonometry/trigonometry.md` melalui **Buka berkas**. Dua ekspor HTML mandiri hasil API aktual ada di `examples/`. Korpus berisi 21 rumus dan mempertahankan tulisan “Drag point P”/“Beri masukan”. Ini transkripsi sintetis dari tangkapan layar, bukan salinan clipboard asli. Grafik interaktif yang tidak ikut dalam masukan tidak direkonstruksi atau dikarang.
 
-## Struktur
+## Deploy GitHub → Cloudflare Pages
 
-| Path | Isi |
-|---|---|
-| `src/engine/` | MESIN-36: Web Worker analisis (protokol, klien dengan batal/timeout/penolakan hasil usang, fallback) |
-| `src/core/` | Mesin murni: impor, tempel, percakapan, Markdown/GFM, matematika, sanitasi, integritas, aset, ZIP, proyek, riwayat, undo, penyimpanan IndexedDB, preflight |
-| `src/render/` | Templat, font, Mermaid, komposisi HTML, ekspor HTML/ZIP, paginasi Paged.js, persiapan cetak lokal |
-| `src/ui/` | Aplikasi (beranda + studio), i18n ID/EN, tema |
-| `public/` | `_headers` (CSP & keamanan), `404.html`, panduan, lisensi |
-| `scripts/` | build, verifikasi statis, fingerprint, SBOM, server lokal ala Pages, generator stres |
-| `tests/unit/` | vitest (jsdom) |
-| `tests/e2e/` | skenario browser nyata dan smoke produksi |
-| `fixtures/` | korpus, fixture proyek RC3 |
-| `evidence/` | hasil uji aktual kandidat ini (ditulis oleh perintah di atas) |
-| `release/` | SBOM dan notice pihak ketiga hasil `scripts/sbom.mjs` |
+Salin **isi folder `repository` dari ZIP** ke root checkout sehingga `package.json` berada di root. Pertahankan folder `.git` milik checkout yang sudah ada. Gunakan Node `24.22.3`, build command `npm run build`, output `dist`. Petunjuk lengkap: [docs/DEPLOY_CLOUDFLARE.md](docs/DEPLOY_CLOUDFLARE.md).
 
-## Dokumen
+Sesudah preview deployment aktif:
 
-`docs/RELEASE_REPORT.md` · `docs/PERFORMANCE_REPORT.md` · `docs/DEPLOY_CLOUDFLARE.md` · `docs/KNOWN_LIMITS.md` · `docs/PRIVACY.md` · `docs/TESTING.md` · `docs/ACCEPTANCE.md` ·
-`docs/MIGRATION.md` · `docs/RECOVERY.md` · `docs/CORE_API.md` · `docs/RENDER_API.md` · `docs/TEMPLATES.md` · `CHANGELOG.md`.
+```bash
+npm run verify:http -- https://NAMA-PROYEK.pages.dev
+npm run verify:deployment -- https://NAMA-PROYEK.pages.dev
+```
+
+Perintah kedua memerlukan Chrome/Chromium/Edge lokal; bila perlu atur `PF_CHROME` ke executable browser. Pemeriksa HTTP tidak memerlukan browser dan tidak menyatakan PDF telah diuji.
+
+## Struktur bukti
+
+- `evidence/audit-rc4/`: pemeriksaan baru, reproduksi sebelum/perbaikan, pengukuran dan inventaris seluruh ZIP masukan.
+- `evidence/history/rc3/` dan `docs/history/rc3/`: bukti/dokumen asli, **bukan** status kandidat RC4.
+- `dist.build-manifest.json`: identitas sumber dan hasil produksi.
+- `docs/AUDIT_RC4.md`: temuan, keputusan teknis, risiko yang tersisa.
+- `docs/TESTING.md`: pengujian yang dapat diulang dan alur manual sebelum rilis.
+- `docs/KNOWN_LIMITS.md`: batas format, font, kapasitas, browser dan PDF.
+
+Tidak ada klaim “membaca setiap format” atau “tercepat di dunia”. Jika format/glyph tidak didukung atau integritas tidak dapat dibuktikan, aplikasi melaporkan kondisi itu; sumber asli dipertahankan.

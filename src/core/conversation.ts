@@ -9,7 +9,6 @@
  * Offset = indeks UTF-16 pada rawPlain (atau rawHtml untuk jalur HTML).
  */
 import { unified } from 'unified';
-import rehypeParse from 'rehype-parse';
 import rehypeStringify from 'rehype-stringify';
 import type { Element, Root as HRoot } from 'hast';
 import type { Nodes as MdNode } from 'mdast';
@@ -21,6 +20,8 @@ import { htmlToMarkdown } from './clipboard';
 import { mkIssue, numberIssues, lineOf, type CoreIssue } from './util';
 import type { DocumentPart } from './render';
 import { speakerDisplay } from './render';
+import { checkTextBudget } from './limits';
+import { parseHtmlWithinBudget } from './html';
 
 const LABEL_ROLES: [RegExp, Role][] = [
   [/^(user|pengguna|anda|you|kamu|saya|me|human|penanya|siswa|murid)$/i, 'user'],
@@ -146,7 +147,11 @@ export function parseClipboardConversation(clip: { plain: string; html?: string 
     return { ...r, issues, usedHtml: false };
   };
   if (!clip.html || !/data-message-author-role/i.test(clip.html)) return plainFallback();
-  const tree = unified().use(rehypeParse, { fragment: true }).parse(clip.html) as HRoot;
+  const size = checkTextBudget('pasteHtml', clip.html);
+  if (!size.ok) return plainFallback([mkIssue('BUDGET_EXCEEDED', 'error', 'input', { id: size.message, en: size.messageEn }, { blocking: true })]);
+  const parsed = parseHtmlWithinBudget(clip.html);
+  if (!parsed.ok) return plainFallback([mkIssue('BUDGET_EXCEEDED', 'error', 'input', { id: parsed.budget.message, en: parsed.budget.messageEn }, { blocking: true })]);
+  const tree = parsed.tree;
   type Seg = { kind: 'wrapper'; el: Element } | { kind: 'gap'; nodes: HRoot['children'] };
   const segs: Seg[] = [];
   let gap: HRoot['children'] = [];

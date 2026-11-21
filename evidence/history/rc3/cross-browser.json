@@ -1,0 +1,178 @@
+{
+  "tool": "tests/e2e/cross-browser.mjs",
+  "candidateSha256": "82397ea41b8253c9c0b6678ea9d879effeb44e6b1f8f37b3b692c341ec7a5465",
+  "distQaTreeSha256": "557d52a65d99bc80266b368993c7f4276b38ff868bed04e56e756693abd40370",
+  "at": "2026-11-21T05:51:42.635Z",
+  "note": "Mesin otomatis di Linux headless/Xvfb. WebKitGTK bukan Safari; tidak ada perangkat fisik atau pembaca layar.",
+  "renderedHtmlIdenticalAcrossEngines": true,
+  "results": [
+    {
+      "engine": "chromium",
+      "browser": "Chromium Chrome/153.0.8010.12",
+      "steps": {
+        "landing": true,
+        "studioMs": 466,
+        "preview": {
+          "engine": {
+            "mode": "worker",
+            "started": 2,
+            "completed": 2,
+            "staleDropped": 0,
+            "cancelled": 0,
+            "timeouts": 0,
+            "errors": 0,
+            "respawns": 0,
+            "lastMs": 250,
+            "lastPhase": "references"
+          },
+          "integrityErrors": [],
+          "reports": {
+            "html": "review",
+            "print": "unchecked"
+          },
+          "liveHasEnd": true
+        },
+        "digest": {
+          "length": 51334,
+          "sha256": "2aaf1fa889e904b138c028fd8cefce3d1dc4c8b97157b83987d73e67cb3f6caa"
+        },
+        "layout": {
+          "status": "done",
+          "pages": 11,
+          "verification": {
+            "status": "pass",
+            "inventory": 0,
+            "structure": 0
+          },
+          "blocking": [],
+          "ms": 1109
+        },
+        "large": {
+          "status": "done",
+          "pages": 87,
+          "verification": "pass",
+          "ms": 4383
+        },
+        "storage": {
+          "idb": true,
+          "save": "off",
+          "worker": true
+        }
+      },
+      "errors": [],
+      "status": "pass"
+    },
+    {
+      "engine": "firefox",
+      "browser": "Firefox firefox/160.0",
+      "steps": {
+        "landing": true,
+        "studioMs": 692,
+        "preview": {
+          "engine": {
+            "mode": "worker",
+            "started": 2,
+            "completed": 2,
+            "staleDropped": 0,
+            "cancelled": 0,
+            "timeouts": 0,
+            "errors": 0,
+            "respawns": 0,
+            "lastMs": 262,
+            "lastPhase": "references"
+          },
+          "integrityErrors": [],
+          "reports": {
+            "html": "review",
+            "print": "unchecked"
+          },
+          "liveHasEnd": true
+        },
+        "digest": {
+          "length": 51334,
+          "sha256": "2aaf1fa889e904b138c028fd8cefce3d1dc4c8b97157b83987d73e67cb3f6caa"
+        },
+        "layout": {
+          "status": "done",
+          "pages": 12,
+          "verification": {
+            "status": "pass",
+            "inventory": 0,
+            "structure": 0
+          },
+          "blocking": [],
+          "ms": 5756
+        },
+        "large": {
+          "status": "done",
+          "pages": 87,
+          "verification": "pass",
+          "ms": 5891
+        },
+        "storage": {
+          "idb": true,
+          "save": "off",
+          "worker": true
+        }
+      },
+      "errors": [],
+      "status": "pass"
+    },
+    {
+      "engine": "webkit",
+      "browser": "WebKitGTK 2.52.6 (MiniBrowser)",
+      "steps": {
+        "landing": true,
+        "studioMs": 868,
+        "preview": {
+          "integrityErrors": [],
+          "reports": {
+            "html": "review",
+            "print": "unchecked"
+          },
+          "engine": {
+            "errors": 0,
+            "started": 1,
+            "mode": "worker",
+            "staleDropped": 0,
+            "lastPhase": "references",
+            "completed": 1,
+            "cancelled": 0,
+            "respawns": 0,
+            "timeouts": 0,
+            "lastMs": 418
+          },
+          "liveHasEnd": true
+        },
+        "digest": {
+          "length": 51334,
+          "sha256": "2aaf1fa889e904b138c028fd8cefce3d1dc4c8b97157b83987d73e67cb3f6caa"
+        },
+        "layout": {
+          "status": "done",
+          "blocking": [],
+          "pages": 13,
+          "verification": {
+            "status": "pass",
+            "inventory": 0,
+            "structure": 0
+          },
+          "ms": 3932
+        },
+        "large": {
+          "status": "done",
+          "pages": 87,
+          "verification": "pass",
+          "ms": 17256
+        },
+        "storage": {
+          "save": "off",
+          "worker": true,
+          "idb": true
+        }
+      },
+      "errors": [],
+      "status": "pass"
+    }
+  ]
+}

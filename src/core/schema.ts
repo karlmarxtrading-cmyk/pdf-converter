@@ -2,6 +2,7 @@ import type { AssetRecord, BrandKit, Project, Settings, SourceRef } from './cont
 import { SCHEMA_VERSION } from './contracts';
 import { LIMITS, utf8Length, assertBudget } from './limits';
 import { canonicalZipPath } from './zip';
+import { IMAGE_BUDGET, pixelsOf } from './assets';
 
 function requireField(condition: unknown, path: string): asserts condition {
   if (!condition) throw new TypeError('Invalid project field: ' + path);
@@ -61,6 +62,8 @@ export function validateProject(p: Project): void {
     paths.push(path);
   }
   requireField(unique(paths), 'asset.paths');
+  // PF-AUD-A05: all admission paths (ZIP, bundle, replacement, storage and undo) share this gate.
+  requireField(p.assets.reduce((total, a) => total + pixelsOf(a), 0) <= IMAGE_BUDGET.maxTotalPixels, 'asset.totalPixels');
   if (p.brandKit !== undefined) validateKit(p.brandKit, p.assets);
   requireField(p.settings.brandKitId === undefined || p.brandKit?.id === p.settings.brandKitId, 'settings.brandKitId reference');
   const inputs = new Map(p.inputs.map(i => [i.id, i]));
