@@ -1,0 +1,176 @@
+
+ RUN  v5.1.0 /workspace/scratch/f618a6a5515b/math-reference
+
+ ❯ tests/unit/core/rc5-math.test.ts (8 tests | 7 failed) 310ms
+   ❯ RC5 TeX and table acceptance (8)
+     × retains column boundaries, absolute values, a TeX norm and a conditional probability 95ms
+     × retains dollars inside TeX, currency prose, code, link target and the following formula 26ms
+     × recovers a legacy visual/script pair without dropping a neighboring independent equation 22ms
+     × preserves the CommonMark destination and title when they look like delimited TeX 15ms
+     × keeps a currency-bearing KaTeX annotation inline 14ms
+     × shows the source and missing closer for \( on the correct line 11ms
+     × shows the source and missing closer for \[ on the correct line 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/core/rc5-math.test.ts > RC5 TeX and table acceptance > retains column boundaries, absolute values, a TeX norm and a conditional probability
+AssertionError: expected [ 5, 5, 5, 5 ] to deeply equal [ 3, 3, 3, 3 ]
+
+- Expected
++ Received
+
+  [
+-   3,
+-   3,
+-   3,
+-   3,
++   5,
++   5,
++   5,
++   5,
+  ]
+
+ ❯ tests/unit/core/rc5-math.test.ts:20:70
+     18|     const result = await renderBody(source, options);
+     19|     const doc = dom(result.html);
+     20|     expect([...doc.querySelectorAll('tr')].map(r => r.cells.length)).t…
+       |                                                                      ^
+     21|     expect(formulas(doc)).toEqual([
+     22|       {tex: String.raw`\left|x\right|`, display: false},
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  tests/unit/core/rc5-math.test.ts > RC5 TeX and table acceptance > retains dollars inside TeX, currency prose, code, link target and the following formula
+AssertionError: expected [ { tex: '\text{USD }\', …(1) }, …(1) ] to deeply equal [ { …(2) }, …(1) ]
+
+- Expected
++ Received
+
+  [
+    {
+      "display": false,
+-     "tex": "\\text{USD }\\$5 + \\$2",
++     "tex": "\\text{USD }\\",
+    },
+    {
+      "display": false,
+-     "tex": "z^2",
++     "tex": " dan ",
+    },
+  ]
+
+ ❯ tests/unit/core/rc5-math.test.ts:35:27
+     33|     const result = await renderBody(source, options);
+     34|     const doc = dom(result.html);
+     35|     expect(formulas(doc)).toEqual([{tex: String.raw`\text{USD }\$5 + \…
+       |                           ^
+     36|     expect(doc.body.textContent).toContain('Harga $5 dan $10.');
+     37|     expect(doc.querySelector('code')?.textContent).toBe('$x$');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  tests/unit/core/rc5-math.test.ts > RC5 TeX and table acceptance > recovers a legacy visual/script pair without dropping a neighboring independent equation
+AssertionError: expected [ { tex: 'E=mc^2', display: false } ] to deeply equal [ Array(2) ]
+
+- Expected
++ Received
+
+  [
+    {
+      "display": false,
+-     "tex": "a+b",
+-   },
+-   {
+-     "display": false,
+      "tex": "E=mc^2",
+    },
+  ]
+
+ ❯ tests/unit/core/rc5-math.test.ts:48:27
+     46|     const result = await renderBody(converted.markdown, options);
+     47|     const doc = dom(result.html);
+     48|     expect(formulas(doc)).toEqual([{tex: 'a+b', display: false}, {tex:…
+       |                           ^
+     49|     expect(doc.body.textContent).toContain('séparé');
+     50|     expect(doc.body.textContent).not.toContain('DUPLICATE');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  tests/unit/core/rc5-math.test.ts > RC5 TeX and table acceptance > preserves the CommonMark destination and title when they look like delimited TeX
+AssertionError: expected 'https://example.test/vol$1$' to be 'https://example.test/vol(1)' // Object.is equality
+
+Expected: "https://example.test/vol(1)"
+Received: "https://example.test/vol$1$"
+
+ ❯ tests/unit/core/rc5-math.test.ts:57:58
+     55|     const result = await renderBody(source, options);
+     56|     const doc = dom(result.html);
+     57|     expect(doc.querySelector('a')?.getAttribute('href')).toBe('https:/…
+       |                                                          ^
+     58|     expect(doc.querySelector('a')?.getAttribute('title')).toBe('see [2…
+     59|     expect(formulas(doc)).toEqual([{tex: 'z', display: false}, {tex: '…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  tests/unit/core/rc5-math.test.ts > RC5 TeX and table acceptance > keeps a currency-bearing KaTeX annotation inline
+AssertionError: expected [ { tex: '\text{USD }\$5', …(1) } ] to deeply equal [ { tex: '\text{USD }\$5', …(1) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "display": false,
++     "display": true,
+      "tex": "\\text{USD }\\$5",
+    },
+  ]
+
+ ❯ tests/unit/core/rc5-math.test.ts:69:27
+     67|     const result = await renderBody(clip.markdown, options);
+     68|     const doc = dom(result.html);
+     69|     expect(formulas(doc)).toEqual([{tex, display: false}]);
+       |                           ^
+     70|     expect(doc.querySelector('.pf-math')?.previousSibling?.textContent…
+     71|     expect(doc.querySelector('.pf-math')?.nextSibling?.textContent).to…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  tests/unit/core/rc5-math.test.ts > RC5 TeX and table acceptance > shows the source and missing closer for \( on the correct line
+AssertionError: expected 'Rumus (\frac{1}{2}' to be 'Rumus \(\frac{1}{2}' // Object.is equality
+
+Expected: "Rumus \(\frac{1}{2}"
+Received: "Rumus (\frac{1}{2}"
+
+ ❯ tests/unit/core/rc5-math.test.ts:81:60
+     79|     const doc = dom(result.html);
+     80|     expect(doc.querySelector('pre code')?.textContent).toBe(broken);
+     81|     expect(doc.querySelector('p:last-child')?.textContent).toBe('Rumus…
+       |                                                            ^
+     82|     const issues = result.issues.filter(i => i.code === 'MATH_UNTERMIN…
+     83|     expect(issues).toHaveLength(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+ FAIL  tests/unit/core/rc5-math.test.ts > RC5 TeX and table acceptance > shows the source and missing closer for \[ on the correct line
+AssertionError: expected 'Rumus [\frac{1}{2}' to be 'Rumus \[\frac{1}{2}' // Object.is equality
+
+Expected: "Rumus \[\frac{1}{2}"
+Received: "Rumus [\frac{1}{2}"
+
+ ❯ tests/unit/core/rc5-math.test.ts:81:60
+     79|     const doc = dom(result.html);
+     80|     expect(doc.querySelector('pre code')?.textContent).toBe(broken);
+     81|     expect(doc.querySelector('p:last-child')?.textContent).toBe('Rumus…
+       |                                                            ^
+     82|     const issues = result.issues.filter(i => i.code === 'MATH_UNTERMIN…
+     83|     expect(issues).toHaveLength(1);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/7]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  7 failed | 1 passed (8)
+   Start at  19:20:34
+   Duration  2.89s (environment 41%, transform 33%, import 14%, tests 12%)
+

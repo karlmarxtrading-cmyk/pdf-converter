@@ -1,3 +1,0 @@
-small 11 [["A: Chrome print engine",307,354746,11,0.929],["B1-jspdf-html",2813,4441411,11,0],["B2-raster",2430,3225101,11,0]]
-medium 63 [["A: Chrome print engine",1366,778022,63,0.992],["B1-jspdf-html",25646,15450498,63,0],["B2-raster",27163,30300140,63,0]]
-large 196 [["A: Chrome print engine",2344,1638805,196,0.999],["B1-jspdf-html",100747,null,null,"timeout setelah 115 halaman"],["B2-raster",100418,null,null,"timeout setelah 103 halaman"]]

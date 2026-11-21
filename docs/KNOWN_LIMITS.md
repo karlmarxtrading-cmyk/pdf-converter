@@ -1,18 +1,6 @@
-# Batas dan status belum terverifikasi — 3.0.0-rc.4
+# Cakupan dukungan RC5
 
-Keputusan aktif ada di `RELEASE_REPORT.md`. Laporan RC3 berada di `history/rc3/`; hasil lama tidak digunakan untuk mengklaim pengujian browser kandidat baru.
-
-## Verifikasi yang masih terbuka
-
-| Area | Status kandidat RC4 | Yang dibutuhkan |
-|---|---|---|
-| Browser hidup / E2E | BLOCKED_BY_ENVIRONMENT | Chromium terminal gagal karena socket/process sandbox EPERM. Browser terpisah tidak menjangkau server lokal. Tidak dilakukan bypass. Jalankan suite pada lingkungan browser yang mendukung. |
-| Paginasi visual / PDF baru | NOT_RUN | Buka fixture, paginasi, simpan PDF, periksa halaman dan teks. Keutuhan Node/jsdom bukan pembuktian layout browser. |
-| Dialog cetak native | NOT_RUN | Chrome/Edge, Firefox, Safari dan konfigurasi kertas/skala aktual. |
-| Clipboard asli | NOT_RUN | Data HTML/plain dari sumber pengguna; fixture trig hanya transkripsi sintetis tangkapan layar. |
-| Safari, ponsel fisik, pembaca layar | NOT_RUN | Perangkat dan teknologi bantu sasaran. |
-| Cloudflare pemilik | NOT_RUN | Jalankan verify:http + verify:deployment ke URL preview yang benar. |
-| Usability | NOT_RUN | Pengguna nyata; tidak ada skor atau peserta yang dikarang. |
+Status browser, hasil PDF baru dan deployment kandidat tercatat di [laporan rilis](RELEASE_REPORT.md).
 
 ## Batas format dan isi
 
@@ -26,7 +14,7 @@ Keputusan aktif ada di `RELEASE_REPORT.md`. Laporan RC3 berada di `history/rc3/`
 
 - Aplikasi menyiapkan HTML berhalaman dan membuka dialog cetak browser. Aplikasi tidak menerima byte PDF final dan tidak tahu apakah pengguna benar-benar menyimpan. Tidak ada dukungan tersertifikasi PDF/A, PDF/UA, CMYK atau tagging aksesibel lengkap.
 - Paginasi Paged.js membutuhkan DOM dan tetap berjalan pada thread utama. Dokumen besar masih dapat tersendat. Web Worker digunakan untuk analisis, bukan memindahkan seluruh pekerjaan layout ke thread lain.
-- Pengukuran RC4 yang baru adalah mikrobenchmark Node berpasangan, bukan Core Web Vitals, browser/perangkat fisik, atau waktu PDF menyeluruh. Median yang membaik tidak membuktikan semua tail latency membaik; seluruh sampel dan p95 disertakan.
+- Pengukuran RC4 terdahulu adalah mikrobenchmark Node berpasangan, bukan Core Web Vitals, browser/perangkat fisik, atau waktu PDF menyeluruh. Median yang membaik tidak membuktikan semua tail latency membaik; seluruh sampel dan p95 disertakan.
 - Batas masukan (5 MiB teks, batas ZIP/aset/proyek, 256 kedalaman struktur) adalah batas admission, bukan kapasitas yang dijamin pada setiap perangkat. Input berlebih ditolak utuh.
 - Gambar: 16.384 px/sisi, 40 MP/gambar, 200 MP agregat; header diperiksa sebelum dekode. Jalur inline dan proyek sekarang menerapkan admission. Jumlah frame animasi GIF/WebP, kompleksitas semua SVG/Mermaid dan konsumsi memori decoder lengkap belum dibuktikan. Data header valid tidak berarti semua byte gambar valid.
 - Jika isi halaman berubah atau terpotong, cetak harus diblokir. Oracle terbaru lebih ketat terhadap kode/tanda minus/prosa sekeliling rumus; beberapa fixture PDF lama yang sebelumnya diloloskan bisa gagal ketika diperiksa ulang dengan aturan baru. Itu alasan memperbaiki hasil, bukan melemahkan pemeriksa.

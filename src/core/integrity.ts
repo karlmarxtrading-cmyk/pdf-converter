@@ -10,7 +10,7 @@
 import { structuredConversation } from './conversation';
 import { DROP_WITH_CONTENT } from './sanitize';
 import type { RenderedBody } from './contracts';
-import { parseMarkdown, blockModels, orderedTokens, type BlockModel } from './markdown';
+import { parseMarkdown, blockModels, orderedTokens, type ParsedMarkdown, type BlockModel } from './markdown';
 import { mkIssue, numberIssues, parseInert, imageRefKey, type CoreIssue } from './util';
 
 export const INTEGRITY_SCOPE = {
@@ -317,7 +317,13 @@ export function privateUseConservation(sources: string[] | [string, number][], r
 /** Model sumber yang dihitung terpisah dari render (di Worker bila tersedia). */
 export interface IntegrityExpectation { blocks: BlockModel[]; pua: [string, number][] }
 
+/** Ordinary document independently parsed and budget-checked by the analysis job. */
+export function integrityFromParsed(parsed: ParsedMarkdown, idPrefix?: string): IntegrityExpectation {
+  return { blocks: blockModels(parsed, idPrefix), pua: privateUseCounts([parsed.source]) };
+}
+
 export function integrityExpectation(source: string, opts: { idPrefix?: string; conversation?: import('./contracts').Conversation } = {}): IntegrityExpectation {
+  if (!opts.conversation) return integrityFromParsed(parseMarkdown(source), opts.idPrefix);
   return { blocks: expectedBlocksFor(source, opts), pua: privateUseCounts(integritySources(source, opts.conversation)) };
 }
 

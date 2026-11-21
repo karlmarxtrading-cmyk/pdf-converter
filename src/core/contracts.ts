@@ -5,8 +5,8 @@
  * Ukuran anggaran: byte UTF-8.
  */
 export const SCHEMA_VERSION = 2;
-export const APP_VERSION = '3.0.0-rc.4';
-export const RENDERER_VERSION = 'pf-render-3.0.0-rc.4';
+export const APP_VERSION = '3.0.0-rc.5';
+export const RENDERER_VERSION = 'pf-render-3.0.0-rc.5';
 
 export type TemplateId = 'EDU-01' | 'BUS-01' | 'EDT-01' | 'CON-01';
 export type Paper = 'A4' | 'A5' | 'Letter' | 'Legal';

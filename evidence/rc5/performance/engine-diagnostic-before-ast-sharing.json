@@ -1,0 +1,764 @@
+{
+  "diagnostic": true,
+  "at": "2026-11-21T12:22:01.386Z",
+  "node": "v24.22.3",
+  "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+  "logicalCpu": 1,
+  "moduleInputs": {
+    "baseline": {
+      "src/core/assets.ts": "93fe664e5b868393f76df01c137881937718914f256b85d05bbaaee1c3ac0acd",
+      "src/core/chars.ts": "d118a600adc85123fe5f7b5208580f59c6342b513bf7f2154caab9a60d6505d1",
+      "src/core/clipboard.ts": "7e1076457d9641451d9fd5057f6bd42c00c98daf74c2882cf965a90fd160cb98",
+      "src/core/contracts.ts": "ed71bebff7f041bfe1854fc254abc6a5769439ac38c2e45859eaf812d56acb81",
+      "src/core/conversation.ts": "874f97b8cdef8d16c069e7c5dd78d6b6ffdcb2f29198f85cbda7c4e2621653dc",
+      "src/core/hash.ts": "3a159c89eb264601325f2dbfcde2336360da3f4dbf09ec22b16d0273e735a086",
+      "src/core/html.ts": "35c235bdea0083a212a5ca38c8551555aea27b8237b8774e4578b373d8a6d162",
+      "src/core/integrity.ts": "e1b363f31012890d6e223f754235429832b2d6a48919d73400798191d010b710",
+      "src/core/limits.ts": "678ce312c1820ef7c5a6c90132100761f149658cfbc9db4e47469225da529bcb",
+      "src/core/markdown.ts": "f102be8d2ed8f496ce38b976ca2c132b93dd89fa3b239357be044ce4a0847bc8",
+      "src/core/math.ts": "10869198ef41ad9e8a8dc38f24d30a5686a088e0c944404e90cfcf892bd8efce",
+      "src/core/preflight.ts": "cd04a233087f84cccfa1e5fa6d34b7b9ed166040ef704c2595986c810e659a85",
+      "src/core/render.ts": "982f9aec86b0d01a147846c349b4c29f266c6ecee2b8c7e1ace7d849e304d246",
+      "src/core/sanitize.ts": "5ce20cb5b77125968425f5f1e98efa314630347ffc2e785e1c09da6b30d439f1",
+      "src/core/util.ts": "eae0f244fcdf4c8dbc3d32991b6ff115abb34e76affc050d88872de37e8c5d6e",
+      "src/core/wrapper.ts": "c242e55f2ded0a4da7c31344f376251b0b91964001b60c28c8ed24950cafe528",
+      "src/engine/analyze.ts": "ce325fad494138eaa5195aa91354cdc4a1813111879d187eafa44471708e6048",
+      "src/engine/client.ts": "a0fb662f04eebdc081b150dd618af09079eb5aeee421d7984fe0a2fc75d32711",
+      "src/engine/protocol.ts": "165959e7908ac3b55a1a67b41ae61b0c18d31c26b505b17f91d1ba1a0af7fe7a",
+      "src/render/labels.ts": "07335b18c37e05c09a6a21b35e22a9db3bc0d0d78ed780456903d97a001cf3ad",
+      "src/render/templates.ts": "94be3ebd12e2593660b0d788b14e8ecd10044ab8154eaa3218ab0509ce8123b8",
+      "src/engine/handler.ts": "96c4043b6d7dc58abe8f778316d6de15a980f5c32103d7be7ccaad68ed89cc69"
+    },
+    "candidate": {
+      "src/core/assets.ts": "8a78d75856652b4dec9ded29885c5fb0090e19cc25a30668b542ea0e2525be3b",
+      "src/core/chars.ts": "d118a600adc85123fe5f7b5208580f59c6342b513bf7f2154caab9a60d6505d1",
+      "src/core/clipboard.ts": "19e8015ff036b5d013bcfd4d3f67ebf64a7fe46b957fe3fa068e904dc8bfb31e",
+      "src/core/contracts.ts": "aadc2a6bb491ced9e3b64329e47b9f842a80c72484f5c960e125ac4cd5998894",
+      "src/core/conversation.ts": "874f97b8cdef8d16c069e7c5dd78d6b6ffdcb2f29198f85cbda7c4e2621653dc",
+      "src/core/hash.ts": "f676002968d753fe756872b89295a84216bee46f2f15fa7c96dffaec46e089aa",
+      "src/core/html.ts": "35c235bdea0083a212a5ca38c8551555aea27b8237b8774e4578b373d8a6d162",
+      "src/core/integrity.ts": "e1b363f31012890d6e223f754235429832b2d6a48919d73400798191d010b710",
+      "src/core/limits.ts": "9e1fd7ef39bb778f10add1bbedd69296e24832de30bf8b328a163ae05444e104",
+      "src/core/markdown.ts": "9f39d376ea56c65aebbad42bfd784567dd88b98e205c59c5f865ddd1831214f1",
+      "src/core/math.ts": "37e2fe37ff1821cf12ec170646ec733c27c065336cc106385e67e054d57cdef7",
+      "src/core/preflight.ts": "cd04a233087f84cccfa1e5fa6d34b7b9ed166040ef704c2595986c810e659a85",
+      "src/core/render.ts": "ec61064eda138d745d8ebb4671e9d8a2ce55ab2dae47f816b7b93a31017d20e1",
+      "src/core/sanitize.ts": "5ce20cb5b77125968425f5f1e98efa314630347ffc2e785e1c09da6b30d439f1",
+      "src/core/tex-renderer.ts": "ab4f7d08789cbd58fc49daf630e870bf2089146046b5ecf3ea3e1b1f0e2ba193",
+      "src/core/util.ts": "eae0f244fcdf4c8dbc3d32991b6ff115abb34e76affc050d88872de37e8c5d6e",
+      "src/core/wrapper.ts": "c242e55f2ded0a4da7c31344f376251b0b91964001b60c28c8ed24950cafe528",
+      "src/engine/analyze.ts": "ce325fad494138eaa5195aa91354cdc4a1813111879d187eafa44471708e6048",
+      "src/engine/client.ts": "a0fb662f04eebdc081b150dd618af09079eb5aeee421d7984fe0a2fc75d32711",
+      "src/engine/protocol.ts": "165959e7908ac3b55a1a67b41ae61b0c18d31c26b505b17f91d1ba1a0af7fe7a",
+      "src/render/labels.ts": "07335b18c37e05c09a6a21b35e22a9db3bc0d0d78ed780456903d97a001cf3ad",
+      "src/render/templates.ts": "94be3ebd12e2593660b0d788b14e8ecd10044ab8154eaa3218ab0509ce8123b8",
+      "src/engine/handler.ts": "96c4043b6d7dc58abe8f778316d6de15a980f5c32103d7be7ccaad68ed89cc69"
+    }
+  },
+  "rows": [
+    {
+      "sections": 6,
+      "transport": "thread",
+      "measuredPairs": 20,
+      "warmupPairs": 1,
+      "sourceBytes": 30374,
+      "sourceSha256": "bb5547084f36c12e948e5fd17767adb21da1a6364c642aa366cd8628aee8f6b1",
+      "tables": 6,
+      "tableDataRows": 48,
+      "math": 48,
+      "images": 0,
+      "samples": {
+        "baseline": [
+          {
+            "wall": 220.38959999999997,
+            "chars": 0.2126060000000507,
+            "render": 113.9669899999999,
+            "integrityModel": 31.986167000000023,
+            "references": 61.824509000000035,
+            "threadCpu": 99.569
+          },
+          {
+            "wall": 337.8976349999998,
+            "chars": 0.1944109999999455,
+            "render": 120.29782299999988,
+            "integrityModel": 143.36281499999996,
+            "references": 64.62952299999961,
+            "threadCpu": 233.104
+          },
+          {
+            "wall": 199.75446499999998,
+            "chars": 0.1805280000003222,
+            "render": 117.21628099999998,
+            "integrityModel": 51.297133999999915,
+            "references": 22.571130999999696,
+            "threadCpu": 115.671
+          },
+          {
+            "wall": 197.56668699999955,
+            "chars": 0.24635899999975663,
+            "render": 68.81508599999961,
+            "integrityModel": 81.31593500000054,
+            "references": 27.83906399999978,
+            "threadCpu": 96.757
+          },
+          {
+            "wall": 109.475367,
+            "chars": 2.6787500000000364,
+            "render": 41.90715999999975,
+            "integrityModel": 31.35923400000047,
+            "references": 21.67571399999997,
+            "threadCpu": 70.398
+          },
+          {
+            "wall": 111.48418299999958,
+            "chars": 0.333505000000514,
+            "render": 39.94600100000025,
+            "integrityModel": 22.86127899999974,
+            "references": 32.20431700000063,
+            "threadCpu": 83.33
+          },
+          {
+            "wall": 133.87570799999958,
+            "chars": 0.14805499999965832,
+            "render": 65.67700200000036,
+            "integrityModel": 22.551013999999668,
+            "references": 28.355508000000555,
+            "threadCpu": 101.194
+          },
+          {
+            "wall": 230.4197490000006,
+            "chars": 0.2335060000004887,
+            "render": 168.8999759999997,
+            "integrityModel": 22.294764999999643,
+            "references": 18.165705000000344,
+            "threadCpu": 196.699
+          },
+          {
+            "wall": 167.5827879999997,
+            "chars": 0.14278199999989738,
+            "render": 66.40328899999986,
+            "integrityModel": 26.44438100000025,
+            "references": 51.76514599999973,
+            "threadCpu": 124.757
+          },
+          {
+            "wall": 169.21744899999976,
+            "chars": 0.20081500000014785,
+            "render": 38.73624600000039,
+            "integrityModel": 73.23649899999964,
+            "references": 22.224489000000176,
+            "threadCpu": 95.752
+          },
+          {
+            "wall": 146.02922000000035,
+            "chars": 2.3042259999992893,
+            "render": 71.23638099999971,
+            "integrityModel": 33.821648000000096,
+            "references": 22.20663599999989,
+            "threadCpu": 90.901
+          },
+          {
+            "wall": 129.78789300000062,
+            "chars": 0.1754879999998593,
+            "render": 61.64279299999998,
+            "integrityModel": 20.393769000000248,
+            "references": 24.933359999999993,
+            "threadCpu": 86.436
+          },
+          {
+            "wall": 111.00482800000009,
+            "chars": 0.1486059999997451,
+            "render": 38.08507800000007,
+            "integrityModel": 31.383405999999923,
+            "references": 23.864951000000474,
+            "threadCpu": 88.107
+          },
+          {
+            "wall": 96.78818200000023,
+            "chars": 0.19852799999989656,
+            "render": 46.47625499999958,
+            "integrityModel": 18.209646000000248,
+            "references": 15.568945999999414,
+            "threadCpu": 76.131
+          },
+          {
+            "wall": 109.2277210000002,
+            "chars": 0.13846800000010262,
+            "render": 40.90767499999947,
+            "integrityModel": 24.557483000000502,
+            "references": 24.411517000000458,
+            "threadCpu": 70.013
+          },
+          {
+            "wall": 160.07155499999953,
+            "chars": 0.2738129999997909,
+            "render": 71.27754499999992,
+            "integrityModel": 19.44062699999995,
+            "references": 41.64573199999995,
+            "threadCpu": 93.273
+          },
+          {
+            "wall": 221.54356600000028,
+            "chars": 0.2336650000006557,
+            "render": 147.83286399999997,
+            "integrityModel": 23.20203700000002,
+            "references": 19.06200600000011,
+            "threadCpu": 105.802
+          },
+          {
+            "wall": 122.21882000000005,
+            "chars": 0.20183600000018487,
+            "render": 36.525448000000324,
+            "integrityModel": 34.95490400000017,
+            "references": 19.01090000000113,
+            "threadCpu": 75.301
+          },
+          {
+            "wall": 129.47108599999956,
+            "chars": 0.3030530000014551,
+            "render": 48.471315999999206,
+            "integrityModel": 31.003527999999278,
+            "references": 31.526076000000103,
+            "threadCpu": 110.032
+          },
+          {
+            "wall": 100.20804600000156,
+            "chars": 0.15267300000050454,
+            "render": 43.191140000000814,
+            "integrityModel": 17.648086000001058,
+            "references": 23.25343200000134,
+            "threadCpu": 67.84
+          }
+        ],
+        "candidate": [
+          {
+            "wall": 210.39118300000018,
+            "chars": 0.2536159999999654,
+            "render": 107.33917900000006,
+            "integrityModel": 52.13222599999972,
+            "references": 41.93943199999967,
+            "threadCpu": 94.898
+          },
+          {
+            "wall": 165.90848099999994,
+            "chars": 0.2367669999998725,
+            "render": 70.46827799999983,
+            "integrityModel": 60.02530200000001,
+            "references": 27.180643000000146,
+            "threadCpu": 121.54
+          },
+          {
+            "wall": 180.143642,
+            "chars": 0.267996999999923,
+            "render": 80.16699200000039,
+            "integrityModel": 51.23333999999977,
+            "references": 39.98159100000021,
+            "threadCpu": 106.416
+          },
+          {
+            "wall": 192.93075399999998,
+            "chars": 0.34088500000007116,
+            "render": 85.70095399999991,
+            "integrityModel": 66.80470100000002,
+            "references": 31.944180000000415,
+            "threadCpu": 127.015
+          },
+          {
+            "wall": 100.22251400000005,
+            "chars": 0.16400400000020454,
+            "render": 50.21024699999998,
+            "integrityModel": 22.648025000000416,
+            "references": 18.96340599999985,
+            "threadCpu": 74.194
+          },
+          {
+            "wall": 197.65769799999998,
+            "chars": 0.2654439999996612,
+            "render": 57.4283889999997,
+            "integrityModel": 85.81083699999999,
+            "references": 42.53375899999992,
+            "threadCpu": 110.742
+          },
+          {
+            "wall": 183.7389409999996,
+            "chars": 2.5134309999994002,
+            "render": 87.90070599999945,
+            "integrityModel": 29.64078100000006,
+            "references": 45.60115700000006,
+            "threadCpu": 119.315
+          },
+          {
+            "wall": 149.77822299999934,
+            "chars": 2.6795350000002145,
+            "render": 70.0956129999995,
+            "integrityModel": 21.304133000000547,
+            "references": 27.940765999999712,
+            "threadCpu": 99.486
+          },
+          {
+            "wall": 128.91049099999964,
+            "chars": 0.11838499999976193,
+            "render": 58.58474399999977,
+            "integrityModel": 29.828637000000526,
+            "references": 21.420516999999563,
+            "threadCpu": 99.048
+          },
+          {
+            "wall": 115.81973500000004,
+            "chars": 0.102085999999872,
+            "render": 36.45440099999996,
+            "integrityModel": 18.9735610000007,
+            "references": 23.481055999999626,
+            "threadCpu": 86.356
+          },
+          {
+            "wall": 122.77386600000045,
+            "chars": 0.1143050000000585,
+            "render": 61.11831399999937,
+            "integrityModel": 20.142204000000675,
+            "references": 25.837346000000252,
+            "threadCpu": 77.045
+          },
+          {
+            "wall": 104.54438600000049,
+            "chars": 0.10172199999942677,
+            "render": 37.992221999999856,
+            "integrityModel": 20.596773000000212,
+            "references": 23.888434000000416,
+            "threadCpu": 76.819
+          },
+          {
+            "wall": 155.10776499999974,
+            "chars": 0.18576699999994162,
+            "render": 46.47323000000051,
+            "integrityModel": 39.58504399999947,
+            "references": 43.20600699999977,
+            "threadCpu": 113.649
+          },
+          {
+            "wall": 130.41145900000083,
+            "chars": 0.22758299999986775,
+            "render": 62.621415999999954,
+            "integrityModel": 22.64817800000037,
+            "references": 16.307144999999764,
+            "threadCpu": 93.699
+          },
+          {
+            "wall": 137.6858430000002,
+            "chars": 0.1038619999999355,
+            "render": 39.59696199999962,
+            "integrityModel": 32.39272299999993,
+            "references": 41.73992499999986,
+            "threadCpu": 71.597
+          },
+          {
+            "wall": 132.25906699999996,
+            "chars": 0.16811599999982718,
+            "render": 54.0015740000008,
+            "integrityModel": 31.406878000000688,
+            "references": 26.331560999999965,
+            "threadCpu": 88.187
+          },
+          {
+            "wall": 113.24508199999946,
+            "chars": 0.11673900000005233,
+            "render": 43.51887499999975,
+            "integrityModel": 35.53605900000002,
+            "references": 16.46614899999986,
+            "threadCpu": 70.127
+          },
+          {
+            "wall": 81.81901500000095,
+            "chars": 0.17030199999953766,
+            "render": 26.062314999999217,
+            "integrityModel": 20.897517999999764,
+            "references": 18.823620999999548,
+            "threadCpu": 64.76
+          },
+          {
+            "wall": 109.66042299999935,
+            "chars": 0.15527300000030664,
+            "render": 53.03933899999902,
+            "integrityModel": 20.518087000000378,
+            "references": 17.372288999999,
+            "threadCpu": 86.958
+          },
+          {
+            "wall": 133.91739400000006,
+            "chars": 0.14561700000012934,
+            "render": 68.85168700000031,
+            "integrityModel": 22.348485999998957,
+            "references": 21.204687999999805,
+            "threadCpu": 83.404
+          }
+        ]
+      },
+      "warmup": {
+        "candidate": {
+          "wall": 1075.669656,
+          "chars": 2.6038740000001326,
+          "render": 426.65270699999996,
+          "integrityModel": 129.1539019999998,
+          "references": 70.50175100000001,
+          "threadCpu": 286.387
+        },
+        "baseline": {
+          "wall": 921.7634250000001,
+          "chars": 3.4203010000001086,
+          "render": 267.46367299999974,
+          "integrityModel": 111.44902900000034,
+          "references": 104.7372220000002,
+          "threadCpu": 230.874
+        }
+      },
+      "resultSignature": "416e31ebe7e36555e94502bc2a52496aef9596fb41eb7a7a84008a79c6586eca",
+      "stats": {
+        "baseline": {
+          "wall": {
+            "n": 20,
+            "median": 139.95246399999996,
+            "p95": 230.4197490000006,
+            "min": 96.78818200000023,
+            "max": 337.8976349999998
+          },
+          "chars": {
+            "n": 20,
+            "median": 0.20132550000016636,
+            "p95": 2.3042259999992893,
+            "min": 0.13846800000010262,
+            "max": 2.6787500000000364
+          },
+          "render": {
+            "n": 20,
+            "median": 63.65989750000017,
+            "p95": 147.83286399999997,
+            "min": 36.525448000000324,
+            "max": 168.8999759999997
+          },
+          "integrityModel": {
+            "n": 20,
+            "median": 28.723954499999763,
+            "p95": 81.31593500000054,
+            "min": 17.648086000001058,
+            "max": 143.36281499999996
+          },
+          "references": {
+            "n": 20,
+            "median": 24.138234000000466,
+            "p95": 61.824509000000035,
+            "min": 15.568945999999414,
+            "max": 64.62952299999961
+          },
+          "threadCpu": {
+            "n": 20,
+            "median": 94.51249999999999,
+            "p95": 196.699,
+            "min": 67.84,
+            "max": 233.104
+          }
+        },
+        "candidate": {
+          "wall": {
+            "n": 20,
+            "median": 133.0882305,
+            "p95": 197.65769799999998,
+            "min": 81.81901500000095,
+            "max": 210.39118300000018
+          },
+          "chars": {
+            "n": 20,
+            "median": 0.16920899999968242,
+            "p95": 2.5134309999994002,
+            "min": 0.10172199999942677,
+            "max": 2.6795350000002145
+          },
+          "render": {
+            "n": 20,
+            "median": 58.006566499999735,
+            "p95": 87.90070599999945,
+            "min": 26.062314999999217,
+            "max": 107.33917900000006
+          },
+          "integrityModel": {
+            "n": 20,
+            "median": 29.734709000000294,
+            "p95": 66.80470100000002,
+            "min": 18.9735610000007,
+            "max": 85.81083699999999
+          },
+          "references": {
+            "n": 20,
+            "median": 26.08445350000011,
+            "p95": 43.20600699999977,
+            "min": 16.307144999999764,
+            "max": 45.60115700000006
+          },
+          "threadCpu": {
+            "n": 20,
+            "median": 90.943,
+            "p95": 121.54,
+            "min": 64.76,
+            "max": 127.015
+          }
+        }
+      }
+    },
+    {
+      "sections": 59,
+      "transport": "fallback",
+      "measuredPairs": 8,
+      "warmupPairs": 1,
+      "sourceBytes": 298068,
+      "sourceSha256": "3b75e440995976f93ebba3f60661f455a53bb5cd222458d5e0100affd332a044",
+      "tables": 59,
+      "tableDataRows": 472,
+      "math": 472,
+      "images": 0,
+      "samples": {
+        "baseline": [
+          {
+            "wall": 1282.0171949999985,
+            "chars": 16.098582999999053,
+            "render": 625.2541799999999,
+            "integrityModel": 378.3367469999994,
+            "references": 249.01520999999957,
+            "threadCpu": 883.812
+          },
+          {
+            "wall": 1173.5532170000006,
+            "chars": 3.189610999999786,
+            "render": 415.59124300000076,
+            "integrityModel": 287.0634100000025,
+            "references": 423.4921429999995,
+            "threadCpu": 830.443
+          },
+          {
+            "wall": 1107.2837450000006,
+            "chars": 4.274340999996639,
+            "render": 367.9877610000003,
+            "integrityModel": 482.4097980000006,
+            "references": 231.24584500000128,
+            "threadCpu": 929.114
+          },
+          {
+            "wall": 1388.8026050000008,
+            "chars": 6.216897999998764,
+            "render": 727.7003360000017,
+            "integrityModel": 273.83660299999974,
+            "references": 356.35502799999813,
+            "threadCpu": 1009.321
+          },
+          {
+            "wall": 1453.3627879999985,
+            "chars": 1.7371600000005856,
+            "render": 616.555180000003,
+            "integrityModel": 294.2079229999981,
+            "references": 524.3872599999995,
+            "threadCpu": 976.988
+          },
+          {
+            "wall": 1274.7357260000026,
+            "chars": 6.793681999999535,
+            "render": 709.1036399999975,
+            "integrityModel": 281.2490179999986,
+            "references": 253.63245900000038,
+            "threadCpu": 1032.547
+          },
+          {
+            "wall": 1479.0669450000023,
+            "chars": 1.379652999999962,
+            "render": 491.181996000003,
+            "integrityModel": 575.4203870000019,
+            "references": 269.6243259999974,
+            "threadCpu": 963.504
+          },
+          {
+            "wall": 915.3720549999998,
+            "chars": 5.075028999999631,
+            "render": 346.0229900000013,
+            "integrityModel": 295.15515999999843,
+            "references": 255.34597000000213,
+            "threadCpu": 712.616
+          }
+        ],
+        "candidate": [
+          {
+            "wall": 1580.343796000001,
+            "chars": 3.6352630000001227,
+            "render": 662.5480990000015,
+            "integrityModel": 380.5130310000004,
+            "references": 522.9437569999991,
+            "threadCpu": 1106.828
+          },
+          {
+            "wall": 1281.0964600000007,
+            "chars": 3.395781999999599,
+            "render": 573.3012419999995,
+            "integrityModel": 381.0831109999999,
+            "references": 300.64068300000145,
+            "threadCpu": 986.21
+          },
+          {
+            "wall": 1087.6206360000033,
+            "chars": 3.6132030000007944,
+            "render": 381.0669909999997,
+            "integrityModel": 402.56136799999877,
+            "references": 290.87908400000015,
+            "threadCpu": 761.587
+          },
+          {
+            "wall": 1329.3385009999984,
+            "chars": 2.358817000000272,
+            "render": 682.149426,
+            "integrityModel": 314.3509449999983,
+            "references": 320.5690429999995,
+            "threadCpu": 1060.465
+          },
+          {
+            "wall": 1632.0360120000005,
+            "chars": 1.1919589999997697,
+            "render": 366.0472899999986,
+            "integrityModel": 752.054293000001,
+            "references": 488.9080549999999,
+            "threadCpu": 1317.956
+          },
+          {
+            "wall": 1278.9921839999988,
+            "chars": 0.836330000001908,
+            "render": 577.4990670000007,
+            "integrityModel": 259.9889089999997,
+            "references": 418.9772669999984,
+            "threadCpu": 901.131
+          },
+          {
+            "wall": 1060.4199970000009,
+            "chars": 1.568848999999318,
+            "render": 423.67595300000175,
+            "integrityModel": 313.00853300000017,
+            "references": 315.27554299999974,
+            "threadCpu": 828.019
+          },
+          {
+            "wall": 1691.4363459999986,
+            "chars": 1.485233999999764,
+            "render": 396.2943090000008,
+            "integrityModel": 408.6727450000035,
+            "references": 868.0688429999973,
+            "threadCpu": 1205.242
+          }
+        ]
+      },
+      "warmup": {
+        "candidate": {
+          "wall": 1892.052740000001,
+          "chars": 3.3974939999989147,
+          "render": 994.6174159999991,
+          "integrityModel": 512.3651729999983,
+          "references": 365.68855000000076,
+          "threadCpu": 1057.069
+        },
+        "baseline": {
+          "wall": 1191.9200850000016,
+          "chars": 3.514445999999225,
+          "render": 540.1183919999985,
+          "integrityModel": 329.15234299999975,
+          "references": 289.6070060000002,
+          "threadCpu": 856.226
+        }
+      },
+      "resultSignature": "15dd5bd89d6da8d099d005071688be77e17cd55854a2653044e3136e89a434ae",
+      "stats": {
+        "baseline": {
+          "wall": {
+            "n": 8,
+            "median": 1278.3764605000006,
+            "p95": 1479.0669450000023,
+            "min": 915.3720549999998,
+            "max": 1479.0669450000023
+          },
+          "chars": {
+            "n": 8,
+            "median": 4.674684999998135,
+            "p95": 16.098582999999053,
+            "min": 1.379652999999962,
+            "max": 16.098582999999053
+          },
+          "render": {
+            "n": 8,
+            "median": 553.868588000003,
+            "p95": 727.7003360000017,
+            "min": 346.0229900000013,
+            "max": 727.7003360000017
+          },
+          "integrityModel": {
+            "n": 8,
+            "median": 294.6815414999983,
+            "p95": 575.4203870000019,
+            "min": 273.83660299999974,
+            "max": 575.4203870000019
+          },
+          "references": {
+            "n": 8,
+            "median": 262.48514799999975,
+            "p95": 524.3872599999995,
+            "min": 231.24584500000128,
+            "max": 524.3872599999995
+          },
+          "threadCpu": {
+            "n": 8,
+            "median": 946.309,
+            "p95": 1032.547,
+            "min": 712.616,
+            "max": 1032.547
+          }
+        },
+        "candidate": {
+          "wall": {
+            "n": 8,
+            "median": 1305.2174804999995,
+            "p95": 1691.4363459999986,
+            "min": 1060.4199970000009,
+            "max": 1691.4363459999986
+          },
+          "chars": {
+            "n": 8,
+            "median": 1.963832999999795,
+            "p95": 3.6352630000001227,
+            "min": 0.836330000001908,
+            "max": 3.6352630000001227
+          },
+          "render": {
+            "n": 8,
+            "median": 498.48859750000065,
+            "p95": 682.149426,
+            "min": 366.0472899999986,
+            "max": 682.149426
+          },
+          "integrityModel": {
+            "n": 8,
+            "median": 380.79807100000016,
+            "p95": 752.054293000001,
+            "min": 259.9889089999997,
+            "max": 752.054293000001
+          },
+          "references": {
+            "n": 8,
+            "median": 369.77315499999895,
+            "p95": 868.0688429999973,
+            "min": 290.87908400000015,
+            "max": 868.0688429999973
+          },
+          "threadCpu": {
+            "n": 8,
+            "median": 1023.3375,
+            "p95": 1317.956,
+            "min": 761.587,
+            "max": 1317.956
+          }
+        }
+      }
+    }
+  ],
+  "baselineLockSha256": "644bda5170373c049a995c58cc7d074f078be27c872a7d121061f4948057cf69",
+  "candidateLockSha256": "1208fe4068b26894f5d4b4b94a90ce5191bc3b3d3d50d9e95fefdf5bde8a98e2"
+}

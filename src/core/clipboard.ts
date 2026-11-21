@@ -56,10 +56,39 @@ function findAnnotation(el: Element): string | null {
   return found;
 }
 
+/** MathJax 2 places its optional preview and rendered element immediately before a TeX script.
+ * Only discard that representation; another complete equation can share the same paragraph. */
+function mathJaxDuplicates(children: HContent[]): Set<HContent> {
+  const duplicates = new Set<HContent>();
+  for (let i = 0; i < children.length; i++) {
+    const script = children[i]!;
+    if (script.type !== 'element' || script.tagName !== 'script' || !/^math\/tex\b/i.test(String(script.properties.type ?? ''))) continue;
+    const tex = script.children.map(c => c.type === 'text' ? c.value : '').join('').trim();
+    let visualFound = false;
+    for (let j = i - 1; j >= 0; j--) {
+      const sibling = children[j]!;
+      if (sibling.type === 'comment' || (sibling.type === 'text' && !sibling.value.trim())) continue;
+      if (sibling.type !== 'element') break;
+      const classes = cls(sibling);
+      if (classes.includes('MathJax_Preview')) { duplicates.add(sibling); break; }
+      if (visualFound || !(sibling.tagName === 'mjx-container' || classes.some(c => /^(MathJax|MJX)(?:$|[-_])/.test(c)))) break;
+      const annotation = findAnnotation(sibling);
+      if (annotation !== null && annotation.trim() !== tex) break;
+      duplicates.add(sibling);
+      visualFound = true;
+    }
+  }
+  return duplicates;
+}
+
 /** Penanda rumus internal: span (inline) / div (display) agar spasi di sekitarnya tidak hilang saat minifikasi whitespace. */
 function mathNode(tex: string, display: boolean): Element {
   // anak teks (TeX) membuat elemen tidak kosong sehingga spasi di sekitarnya dipertahankan; handler hanya membaca dataTex
-  return { type: 'element', tagName: display ? 'div' : 'span', properties: { dataPfMath: display ? 'display' : 'inline', dataTex: tex }, children: [{ type: 'text', value: tex || ' ' }] };
+  const properties: Properties = { dataPfMath: display ? 'display' : 'inline', dataTex: tex };
+  // remark-stringify otherwise wraps an inline equation containing a dollar in double
+  // dollars, which the PaperForma input contract explicitly designates as display math.
+  if (!display && tex.includes('$') && !tex.includes('\\)')) properties.dataPfLiteral = '\\(' + tex + '\\)';
+  return { type: 'element', tagName: display ? 'div' : 'span', properties, children: [{ type: 'text', value: tex || ' ' }] };
 }
 const isMathNode = (n: HContent | Element): n is Element => n.type === 'element' && typeof n.properties?.dataPfMath === 'string';
 
@@ -175,7 +204,7 @@ export function htmlToMarkdown(html: string, opts: { plain?: string; limits?: Li
   const walk = (parent: HRoot | Element, inCode = false): void => {
     inCode ||= parent.type === 'element' && ['pre', 'code', 'kbd', 'samp'].includes(parent.tagName);
     const out: HContent[] = [];
-    const texScriptSibling = (parent.children as HContent[]).some((x) => x.type === 'element' && x.tagName === 'script' && /^math\/tex\b/i.test(String(x.properties?.type ?? '')));
+    const pairedVisuals = inCode ? undefined : mathJaxDuplicates(parent.children as HContent[]);
     for (const n of parent.children as HContent[]) {
       if (n.type === 'comment' || n.type === 'doctype') continue;
       if (n.type !== 'element') { out.push(n); continue; }
@@ -193,8 +222,8 @@ export function htmlToMarkdown(html: string, opts: { plain?: string; limits?: Li
         continue;
       }
       // tampilan visual MathJax v2/v3 bila sumber TeX tersedia sebagai saudara (skrip math/tex) → jangan diduplikasi
-      if (texScriptSibling && (c.some((x) => /^(MathJax|MJX)/.test(x)) || tag === 'mjx-container')) continue;
-      if (!inCode && (c.includes('katex') || c.includes('katex-display') || tag === 'math' || c.includes('MathJax'))) {
+      if (pairedVisuals?.has(n)) continue;
+      if (!inCode && (c.includes('katex') || c.includes('katex-display') || tag === 'math' || tag === 'mjx-container' || c.includes('MathJax'))) {
         const display = c.includes('katex-display') || String(n.properties?.display ?? '') === 'block';
         const tex = findAnnotation(n);
         if (tex !== null) {

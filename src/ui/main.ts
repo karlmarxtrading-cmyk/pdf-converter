@@ -115,14 +115,15 @@ async function boot(): Promise<void> {
   initFlow(); renderCompat();
   initMenu($<HTMLButtonElement>('#src-menu-btn'), $('#src-menu'));
   buildGoalCards();
-  lazyLanding();
   await initStorage();
   initRouter(() => { void refresh(); });
+  // Observe examples after the initial route has hidden the landing page for studio links.
+  lazyLanding();
   updateTitle();
   updateSaveUi();
   updateUndoButtons();
   onLangChange(() => {
-    updateTitle(); buildGoalCards(); rebuildFormatCardsIfShown(); renderChecks(); updateReadiness(); renderConversationPanel(); renderAssets();
+    updateTitle(); rebuildFormatCardsIfShown(); renderChecks(); updateReadiness(); renderConversationPanel(); renderAssets();
     renderBrandEditor(); updateSaveUi(); syncPrefControls(); syncSettingsUi(); updateRenderState(); refreshPublishDialog();
   });
 }
@@ -395,6 +396,8 @@ function openPaste(mode: 'answer' | 'conversation', src: HTMLElement): void {
   S.paste = { mode, html: null, plainAtPaste: '' };
   $('#dlg-paste-title').textContent = t(mode === 'answer' ? 'paste.title' : 'paste.conv.title');
   const pa = $<HTMLTextAreaElement>('#paste-area'); pa.value = '';
+  const rich = $<HTMLInputElement>('input[name=paste-repr][value=markdown]');
+  rich.disabled = false; rich.checked = true;
   $('#paste-rich').hidden = true; $('#paste-error').hidden = true; $('#paste-size').textContent = '0 B';
   $('#paste-mode-wrap').hidden = !S.project.source.length || mode === 'conversation';
   ($<HTMLInputElement>('input[name=paste-mode][value=insert]')).checked = true; $('#paste-replace-warn').hidden = true;
@@ -648,8 +651,11 @@ async function importBundleFile(f: File): Promise<void> {
 /* =============================== proyek =============================== */
 function hasContent(p: Project = S.project): boolean { return !!(p.source.trim() || p.conversation || p.assets.length || p.inputs.length); }
 /** UI-01: perubahan yang belum tersimpan di perangkat DAN belum diminta sebagai cadangan .pfproj */
+function hasWorkToSave(): boolean {
+  return S.project.revision > 0 || S.project.source.length > 0 || hasContent();
+}
 function isDirty(): boolean {
-  if (!hasContent()) return false;
+  if (!hasWorkToSave()) return false;
   const p = S.project;
   if (S.saveEnabled && S.save.savedProjectId === p.projectId && S.save.savedRevision === p.revision) return false;
   if (S.save.bundleProjectId === p.projectId && S.save.bundleRevision === p.revision) return false;
@@ -692,6 +698,10 @@ function loadProject(p: Project, msg?: string, opts: { keepPrev?: boolean } = {}
   if (!opts.keepPrev && hasContent()) S.prevProject = S.project;
   S.exportGuard.activate(p.projectId);
   S.projectGeneration++;
+  // A reopened bundle can have the same ID/revision as a different local branch.
+  S.save.savedProjectId = ''; S.save.savedRevision = -1;
+  S.save.bundleProjectId = ''; S.save.bundleRevision = -1;
+  S.save.lastNotified = ''; S.save.status = 'idle';
   delete $<HTMLInputElement>('#file-replace').dataset.replace;
   S.project = p;
   S.undo.clear();
@@ -839,7 +849,12 @@ async function previewFonts(html: string, settings: Settings, brandKit?: BrandKi
       try {
         const b = await browserFontSource(spec);
         if (b.length < 12 || b[0] !== 0x77 || b[1] !== 0x4f || b[2] !== 0x46 || b[3] !== 0x32) throw new Error('bukan WOFF2');
-        url = URL.createObjectURL(new Blob([b as BlobPart], { type: 'font/woff2' })); fontUrlCache.set(spec.file, url);
+        // The hero, template cards and editor may finish the same fetch together.
+        url = fontUrlCache.get(spec.file);
+        if (!url) {
+          url = URL.createObjectURL(new Blob([b as BlobPart], { type: 'font/woff2' }));
+          fontUrlCache.set(spec.file, url);
+        }
       } catch (e) {
         issues.push({ id: `font-load-${spec.file}`, code: 'FONT_LOAD_FAILED', severity: 'error', scope: 'font', blocking: true, message: `Font ${spec.family} ${spec.weight} ${spec.style} (${spec.subset}) gagal dimuat: ${(e as Error).message}` });
         return;
@@ -1320,23 +1335,26 @@ function buildGoalCards(): void {
   const g = $('#goal-grid'); g.replaceChildren();
   for (const tp of R.listTemplates()) {
     const b = el('button', { type: 'button', class: 'goal', role: 'radio', 'aria-checked': String(S.project.settings.template === tp.id), 'data-tpl': tp.id }, el('strong', { text: `${pick(tp.name.id, tp.name.en)}` }), el('span', { text: `${tp.id} · ${tp.tokens.paper}` }));
-    b.addEventListener('click', () => selectGoal(tp.id));
-    b.addEventListener('keydown', (e) => { const all = $$<HTMLButtonElement>('.goal', g); const i = all.indexOf(b); if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); all[(i + 1) % all.length]!.focus(); } if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); all[(i - 1 + all.length) % all.length]!.focus(); } });
+    b.addEventListener('click', () => applyTemplateAction(S.project.settings.followTemplateDefaults, tp.id));
+    b.addEventListener('keydown', (e) => {
+      const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+      if (!step) return;
+      e.preventDefault();
+      const radios = $$<HTMLButtonElement>('.goal', g);
+      const next = radios[(radios.indexOf(b) + step + radios.length) % radios.length]!;
+      next.focus();
+      next.click();
+    });
     b.tabIndex = S.project.settings.template === tp.id ? 0 : -1;
     g.append(b);
   }
 }
-let pendingGoal: TemplateId | null = null;
-function selectGoal(id: TemplateId): void {
-  pendingGoal = id;
-  $$('.goal').forEach((b) => { const on = b.dataset.tpl === id; b.setAttribute('aria-checked', String(on)); (b as HTMLButtonElement).tabIndex = on ? 0 : -1; });
-  applyTemplateAction(S.project.settings.followTemplateDefaults);
-}
-function applyTemplateAction(full: boolean): void {
-  const id = pendingGoal ?? S.project.settings.template;
+function applyTemplateAction(full: boolean, id: TemplateId = S.project.settings.template): void {
+  const restoreFocus = $('#goal-grid').contains(document.activeElement);
   const res = R.applyTemplate({ ...S.project.settings, followTemplateDefaults: full }, id);
-  commit({ settings: res.settings }, full ? 'template-full' : 'template-style');
-  syncSettingsUi(); buildGoalCards();
+  if (!commit({ settings: res.settings }, full ? 'template-full' : 'template-style')) return;
+  syncSettingsUi();
+  if (restoreFocus) $('#goal-grid [aria-checked=true]').focus();
   // UX-06: jelaskan apa yang diterapkan dan apa yang dipertahankan
   if (res.kept.length) announce(pick(`Dipertahankan: ${res.kept.join(', ')}`, `Kept: ${res.kept.join(', ')}`));
   notify('info', full ? pick(`Rekomendasi ${id} diterapkan: ${res.applied.join(', ') || '—'}.`, `${id} recommendation applied: ${res.applied.join(', ') || '—'}.`) : pick(`Gaya ${id} diterapkan; pengaturan Anda dipertahankan: ${res.kept.join(', ') || '—'}.`, `${id} style applied; your settings kept: ${res.kept.join(', ') || '—'}.`));
@@ -1453,6 +1471,21 @@ function renderBrandEditor(): void {
 
 
 /* =============================== penyimpanan (UI-01) =============================== */
+async function openStoredProject(projectId: string): Promise<void> {
+  const storage = S.storage, owner = S.project;
+  if (!storage || !(await guardUnsaved()) || owner !== S.project) return;
+  const full = await storage.load(projectId);
+  if (storage !== S.storage || owner !== S.project) return;
+  if (!full) { notify('error', pick('Proyek tidak dapat dibaca.', 'Project could not be read.')); return; }
+  const dialog = $<HTMLDialogElement>('#dlg-projects');
+  if (dialog.open) dialog.close();
+  loadProject(full);
+  if (full === S.project) {
+    S.save.savedRevision = full.revision; S.save.savedProjectId = full.projectId;
+    updateSaveUi();
+  }
+}
+
 async function initStorage(): Promise<void> {
   let enabled = false; try { enabled = localStorage.getItem('pf.store.enabled') === '1'; } catch { /* diblokir */ }
   if (enabled) await toggleLocalSave(true, true);
@@ -1463,7 +1496,7 @@ async function initStorage(): Promise<void> {
       const list = await S.storage.list();
       const last = [...list].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0];
       if (last) notify('info', pick(`Proyek terakhir di perangkat ini: “${last.name || last.projectId}” (rev ${last.revision}).`, `Last project on this device: “${last.name || last.projectId}” (rev ${last.revision}).`), [
-        { label: pick('Lanjutkan', 'Continue'), run: () => void (async () => { const full = await S.storage!.load(last.projectId); if (full) { loadProject(full); S.save.savedRevision = full.revision; S.save.savedProjectId = full.projectId; updateSaveUi(); } else notify('error', pick('Proyek tidak dapat dibaca.', 'Project could not be read.')); })() },
+        { label: pick('Lanjutkan', 'Continue'), run: () => void openStoredProject(last.projectId) },
       ], { sticky: true });
     } catch { /* daftar tidak terbaca: status penyimpanan sudah melaporkan */ }
   }
@@ -1471,15 +1504,19 @@ async function initStorage(): Promise<void> {
   try {
     const legacy = await C.readLegacyDraft();
     if (legacy && C.isLegacyDraftV1(legacy)) notify('info', pick('Ditemukan draf dari PaperForma 1.0. Buka sebagai proyek baru? Draf asli tidak diubah.', 'A draft from PaperForma 1.0 was found. Open it as a new project? The original draft is not changed.'), [
-      { label: pick('Buka draf lama', 'Open old draft'), run: () => void (async () => { const m = await C.migrateV1Draft(legacy); loadProject(m.project, pick(`Draf dimigrasi (${m.changes.length} perubahan bidang). ${m.warnings.join(' ')}`, `Draft migrated (${m.changes.length} field changes). ${m.warnings.join(' ')}`)); })() },
+      { label: pick('Buka draf lama', 'Open old draft'), run: () => void (async () => { const owner = S.project; if (!(await guardUnsaved()) || owner !== S.project) return; const m = await C.migrateV1Draft(legacy); if (owner !== S.project) return; loadProject(m.project, pick(`Draf dimigrasi (${m.changes.length} perubahan bidang). ${m.warnings.join(' ')}`, `Draft migrated (${m.changes.length} field changes). ${m.warnings.join(' ')}`)); })() },
     ], { sticky: true });
   } catch { /* IndexedDB tidak tersedia */ }
 }
 
+let savePreferenceRequest = 0;
 async function toggleLocalSave(on: boolean, silent = false): Promise<void> {
+  const request = ++savePreferenceRequest;
   const cb = $<HTMLInputElement>('#opt-localsave');
   if (!on) {
-    await S.autosave?.flush(); S.autosave?.cancel();
+    await S.autosave?.flush();
+    if (request !== savePreferenceRequest) return;
+    S.autosave?.cancel();
     S.saveEnabled = false; S.autosave = null; cb.checked = false;
     try { localStorage.setItem('pf.store.enabled', '0'); } catch { /* ignore */ }
     updateSaveUi(); renderStorageState();
@@ -1487,7 +1524,9 @@ async function toggleLocalSave(on: boolean, silent = false): Promise<void> {
     return;
   }
   const st = new C.IdbProjectStorage();
-  if (!(await st.available())) {
+  const available = await st.available();
+  if (request !== savePreferenceRequest) { await st.close(); return; }
+  if (!available) {
     cb.checked = false; S.saveEnabled = false; S.save.status = 'unavailable'; updateSaveUi(); renderStorageState();
     notify('error', pick('Penyimpanan perangkat tidak tersedia (mode privat atau diblokir). Simpan paket kerja (.pfproj) sebagai cadangan.', 'Device storage is unavailable (private mode or blocked). Save a work bundle (.pfproj) as a backup.'), [{ label: t('ws.menu.savebundle'), run: () => void saveBundle() }]);
     return;
@@ -1496,22 +1535,26 @@ async function toggleLocalSave(on: boolean, silent = false): Promise<void> {
   S.autosave = new C.AutosaveController(st, 1000, (s, r) => onSaveStatus(s, r));
   try { localStorage.setItem('pf.store.enabled', '1'); } catch { /* ignore */ }
   const storedKits = await st.listBrandKits();
+  if (request !== savePreferenceRequest) return;
   for (const { storedLogo, ...kit } of storedKits) {
     if (!S.brandKits.some((b) => b.id === kit.id)) S.brandKits.push(kit);
     if (storedLogo && storedLogo.id === kit.logoAssetId && !S.brandLogos.has(kit.id)) S.brandLogos.set(kit.id, storedLogo);
   }
   syncSettingsUi(); renderStorageState();
-  if (hasContent()) S.autosave.schedule(S.project);
+  if (hasWorkToSave()) S.autosave.schedule(S.project);
 }
 
 function onSaveStatus(s: C.SaveStatus, r: C.SaveResult | null): void {
   S.save.status = s;
+  if (s === 'rejected-deleted' || s === 'conflict') {
+    S.save.savedRevision = -1; S.save.savedProjectId = '';
+  }
   if (s === 'saved' && r?.revision !== undefined) { S.save.savedRevision = r.revision; S.save.savedProjectId = S.project.projectId; }
   updateSaveUi(); renderStorageState();
 }
 
 function saveUiState(): SaveUi {
-  if (!hasContent()) return 'empty';
+  if (!hasWorkToSave()) return 'empty';
   const p = S.project;
   if (S.saveEnabled) {
     const st = S.save.status;
@@ -1545,7 +1588,7 @@ function updateSaveUi(): void {
   if (['failed', 'quota', 'blocked', 'conflict', 'deleted'].includes(st) && S.save.lastNotified !== `${st}:${S.project.revision}`) {
     S.save.lastNotified = `${st}:${S.project.revision}`;
     const msg = st === 'conflict' ? pick('Proyek ini juga diubah di tab lain. Kedua versi tersedia di Penyimpanan & proyek; simpan paket kerja agar tidak ada yang hilang.', 'This project was also changed in another tab. Both versions are in Storage & projects; save a work bundle so nothing is lost.')
-      : st === 'deleted' ? pick('Proyek ini dihapus di tab lain. Perubahan di tab ini BELUM disimpan; simpan paket kerja.', 'This project was deleted in another tab. Changes in this tab are NOT saved; save a work bundle.')
+      : st === 'deleted' ? pick('Proyek ini telah dihapus dari penyimpanan perangkat. Sumber masih terbuka. Simpan paket kerja untuk mempertahankannya.', 'This project was deleted from device storage. Its source is still open. Save a work bundle to keep it.')
       : st === 'quota' ? pick('Penyimpanan perangkat penuh; proyek BELUM disimpan. Isi tetap ada di halaman ini; simpan paket kerja sebagai cadangan.', 'Device storage is full; the project was NOT saved. Content is still on this page; save a work bundle as a backup.')
       : pick('Proyek GAGAL disimpan di perangkat. Isi tetap ada di halaman ini; simpan paket kerja sebagai cadangan.', 'The project was NOT saved on this device. Content is still on this page; save a work bundle as a backup.');
     notify('error', msg, [{ label: t('ws.menu.savebundle'), run: () => void saveBundle() }]);
@@ -1566,16 +1609,19 @@ function renderStorageState(): void {
 async function clearLocal(): Promise<void> {
   if (!(await confirmDialog(t('confirm.clear')))) return;
   const st = S.storage ?? new C.IdbProjectStorage();
-  S.autosave?.cancel();
+  ++savePreferenceRequest;
   await S.autosave?.flush();
+  S.autosave?.cancel();
+  S.saveEnabled = false; S.autosave = null; $<HTMLInputElement>('#opt-localsave').checked = false;
+  try { localStorage.removeItem('pf.store.enabled'); } catch { /* ignore */ }
+  S.save.savedRevision = -1; S.save.savedProjectId = ''; S.save.status = 'idle';
+  updateSaveUi(); renderStorageState();
   const r = await st.deleteAll();
   if (r.status === 'deleted' || r.status === 'not-found') {
-    try { localStorage.removeItem('pf.store.enabled'); } catch { /* ignore */ }
-    S.saveEnabled = false; S.autosave = null; S.brandKits = []; S.brandLogos.clear(); $<HTMLInputElement>('#opt-localsave').checked = false;
-    S.save.savedRevision = -1; S.save.savedProjectId = ''; S.save.status = 'idle';
+    S.brandKits = []; S.brandLogos.clear();
     syncSettingsUi(); updateSaveUi(); renderStorageState(); void renderProjectList();
     notify('success', pick('Semua data PaperForma di perangkat ini telah dihapus. Proyek yang sedang terbuka tetap di halaman sampai Anda menutupnya.', 'All PaperForma data on this device was deleted. The open project stays on the page until you close it.'));
-  } else notify('error', r.status === 'blocked' ? pick('Penghapusan diblokir oleh tab PaperForma lain yang masih terbuka. Tutup tab lain lalu coba lagi. Data BELUM terhapus.', 'Deletion was blocked by another open PaperForma tab. Close other tabs and retry. Data was NOT deleted.') : pick(`Penghapusan gagal (${r.status}). Data BELUM terhapus.`, `Deletion failed (${r.status}). Data was NOT deleted.`), [{ label: t('export.retry'), run: () => void clearLocal() }]);
+  } else notify('error', r.status === 'blocked' ? pick('Penghapusan menunggu koneksi penyimpanan lain ditutup. Simpan otomatis dimatikan. Tutup tab lain lalu coba lagi untuk memastikan penghapusan selesai.', 'Deletion is waiting for another storage connection to close. Autosave is off. Close other tabs and retry to confirm completion.') : pick(`Penghapusan belum dapat dipastikan (${r.status}). Simpan otomatis dimatikan. Coba lagi.`, `Deletion could not be confirmed (${r.status}). Autosave is off. Try again.`), [{ label: t('export.retry'), run: () => void clearLocal() }]);
 }
 
 async function renderProjectList(): Promise<void> {
@@ -1586,13 +1632,7 @@ async function renderProjectList(): Promise<void> {
   if (!list.length) ul.append(el('li', { class: 'hint', text: t('projects.empty') }));
   for (const p of list) {
     const open = el('button', { type: 'button', class: 'btn btn-secondary btn-sm', text: t('projects.open') });
-    open.addEventListener('click', async () => {
-      if (p.projectId !== S.project.projectId && !(await guardUnsaved())) return;
-      const full = await S.storage!.load(p.projectId);
-      if (!full) { notify('error', pick('Proyek tidak dapat dibaca.', 'Project could not be read.')); return; }
-      $<HTMLDialogElement>('#dlg-projects').close();
-      loadProject(full); S.save.savedRevision = full.revision; S.save.savedProjectId = full.projectId; updateSaveUi();
-    });
+    open.addEventListener('click', () => void openStoredProject(p.projectId));
     const del = el('button', { type: 'button', class: 'btn btn-danger btn-sm', text: t('projects.delete') });
     del.addEventListener('click', async () => {
       if (!(await confirmDialog(pick(`Hapus proyek “${p.name || p.projectId}” dari perangkat ini?`, `Delete project “${p.name || p.projectId}” from this device?`)))) return;

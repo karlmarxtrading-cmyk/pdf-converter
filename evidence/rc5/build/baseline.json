@@ -1,0 +1,20 @@
+{
+  "filename": "PAPERFORMA_STATIC_3.0.0-rc.4_AUDITED_DEPLOY.zip",
+  "bytes": 19642521,
+  "sha256": "3b8c833b720c799664d03c4c293bf9645d2a5cc63c3ccd46ba340c6435870074",
+  "entries": 906,
+  "checkedAgainstProvidedSHA256SUMS": 905,
+  "crc": "PASS",
+  "baseline": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.4",
+    "profile": "production",
+    "candidateSha256": "680c8b5c6cb1ca3948e19c17857682ab6711d3a2fb70430565692f8a0feadd79",
+    "distTreeSha256": "03e0a565c52b2a514eb01e878e7f0ca3c31a1a7cc04b9a4a8c90dc53d2390a1d",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  }
+}

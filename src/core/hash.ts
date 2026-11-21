@@ -164,7 +164,7 @@ function hashRenderParts(p: RenderInputParts, assets: { path: string; mime: stri
   }));
 }
 
-/** Salinan dalam (bytes aset ikut disalin) agar snapshot tidak terpengaruh edit berikutnya. */
+/** Salin metadata bertingkat yang hanya memuat nilai JSON. */
 function cloneDeep<T>(v: T): T {
   if (typeof structuredClone === 'function') return structuredClone(v);
   return JSON.parse(JSON.stringify(v)) as T;
@@ -177,35 +177,51 @@ export interface SnapshotOptions { templateVersion?: string; rendererVersion?: s
  * asset.id di snapshot = sha256 bytes aktual (id yang salah diperbaiki di salinan, tidak di proyek).
  */
 export async function makeSnapshot(project: Project, opts: SnapshotOptions = {}): Promise<Snapshot> {
-  // PF-AUD-P01: clone only fields needed by the render identity, not the entire revision history.
-  // This synchronous copy precedes every await, so external mutations cannot alter in-flight snapshots.
-  const p = cloneDeep({ projectId: project.projectId, revision: project.revision, source: project.source,
-    sourcePath: project.sourcePath, settings: project.settings, assets: project.assets,
-    inputs: project.inputs, brandKit: project.brandKit, conversation: project.conversation });
+  // Capture all mutable fields synchronously. Strings and scalar input metadata are immutable.
+  const p = {
+    projectId: project.projectId, revision: project.revision, source: project.source, sourcePath: project.sourcePath,
+    inputs: project.inputs.map(input => ({ ...input })),
+    ...cloneDeep({ settings: project.settings, brandKit: project.brandKit, conversation: project.conversation }),
+  };
+  // Aliases of the same view share a private copy. A ZIP subarray must not retain or
+  // clone unrelated bytes from the same archive buffer.
+  const copies = new Map<Uint8Array, Uint8Array>();
+  const assets = project.assets.map(asset => {
+    let bytes = copies.get(asset.bytes);
+    if (!bytes) {
+      bytes = new Uint8Array(asset.bytes);
+      copies.set(asset.bytes, bytes);
+    }
+    return { ...asset, bytes };
+  });
   const hashes = new Map<Uint8Array, string>();
-  for (const a of p.assets) {
-    let digest = hashes.get(a.bytes);
-    if (!digest) { digest = await sha256Hex(a.bytes); hashes.set(a.bytes, digest); }
-    a.id = digest;
+  const pending = copies.values();
+  async function hashAssets(): Promise<void> {
+    for (const bytes of pending) hashes.set(bytes, await sha256Hex(bytes));
   }
+  // Two workers bound the number of native digest copies in flight. Process
+  // independent source identities alongside them without caching across revisions.
+  const [rawSourceHash, contentSnapshotHash] = await Promise.all([
+    computeRawSourceHash(p.inputs, p.source), computeContentSnapshotHash(p.source, p.conversation),
+    ...Array.from({ length: Math.min(2, copies.size) }, () => hashAssets()),
+  ]);
+  for (const asset of assets) asset.id = hashes.get(asset.bytes)!;
   const templateVersion = opts.templateVersion ?? TEMPLATE_VERSION;
   const rendererVersion = opts.rendererVersion ?? RENDERER_VERSION;
-  const rawSourceHash = await computeRawSourceHash(p.inputs, p.source);
-  const contentSnapshotHash = await computeContentSnapshotHash(p.source, p.conversation);
   // Older ZIP projects recorded the selected member on the raw input only.
   const lastInput = p.inputs.at(-1);
   const sourcePath = p.sourcePath ?? (lastInput?.kind === 'zip' && lastInput.rawPlain === p.source ? lastInput.name : undefined);
-  const renderAssets = p.assets.map(({ path, mime, id }) => ({ path, mime, sha256: id }))
+  const renderAssets = assets.map(({ path, mime, id }) => ({ path, mime, sha256: id }))
     .sort((a, b) => a.path < b.path ? -1 : a.path > b.path ? 1 : a.sha256 < b.sha256 ? -1 : 1);
   const renderInputHash = await hashRenderParts({
-    sourcePath, contentSnapshotHash, assets: p.assets, settings: p.settings, brandKit: p.brandKit,
+    sourcePath, contentSnapshotHash, assets, settings: p.settings, brandKit: p.brandKit,
     templateId: p.settings.template, templateVersion, rendererVersion,
   }, renderAssets);
   const snap: Snapshot = {
     projectId: p.projectId, revision: p.revision, createdAt: (opts.now ?? (() => new Date().toISOString()))(),
     rawSourceHash, contentSnapshotHash, renderInputHash,
     templateId: p.settings.template, templateVersion, rendererVersion,
-    source: p.source, ...(sourcePath ? { sourcePath } : {}), settings: p.settings, assets: p.assets,
+    source: p.source, ...(sourcePath ? { sourcePath } : {}), settings: p.settings, assets,
   };
   if (p.brandKit) snap.brandKit = p.brandKit;
   if (p.conversation) snap.conversation = p.conversation;

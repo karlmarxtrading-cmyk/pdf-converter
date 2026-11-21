@@ -308,16 +308,24 @@ export class AutosaveController {
     return this.writes;
   }
   cancel(): void { if (this.timer) clearTimeout(this.timer); this.timer = null; this.pendingProject = null; this.activeProject = null; this.generation++; this.set('idle', null); }
-  /** Batalkan autosave terjadwal lalu hapus; status hapus diteruskan apa adanya. */
+  /** Serialize deletion with saves. A failed deletion must leave pending edits recoverable. */
   async deleteProject(id: string): Promise<DeleteResult> {
-    this.deleted.add(id);
-    if (this.activeProject?.projectId === id) {
-      if (this.timer) clearTimeout(this.timer);
-      this.timer = null; this.pendingProject = null; this.activeProject = null;
-      this.set('idle', null);
-    }
-    const r = await this.storage.delete(id);
-    if (r.status !== 'deleted' && r.status !== 'not-found') this.deleted.delete(id);
-    return r;
+    if (this.pendingProject?.projectId === id) void this.flush();
+    const deletion = this.writes.then(async (): Promise<DeleteResult> => {
+      let result: DeleteResult;
+      try { result = await this.storage.delete(id); }
+      catch (error) { return { status: 'failed', error: String(error) }; }
+      if (result.status === 'deleted' || result.status === 'not-found') {
+        this.deleted.add(id);
+        if (this.activeProject?.projectId === id) {
+          if (this.timer) clearTimeout(this.timer);
+          this.timer = null; this.pendingProject = null;
+          this.set('rejected-deleted', { status: 'rejected-deleted', at: now() });
+        }
+      }
+      return result;
+    });
+    this.writes = deletion.then(() => null);
+    return deletion;
   }
 }

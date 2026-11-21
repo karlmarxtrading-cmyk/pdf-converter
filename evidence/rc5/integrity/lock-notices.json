@@ -1,0 +1,14 @@
+{
+  "at": "2026-11-21T12:22:33.497Z",
+  "app": "3.0.0-rc.5",
+  "scope": "Installed lockfile consistency, runtime notice coverage by package/version marker, and integrity fields. Does not establish legal conclusions or independently review upstream code.",
+  "lockfileSha256": "1208fe4068b26894f5d4b4b94a90ce5191bc3b3d3d50d9e95fefdf5bde8a98e2",
+  "sbomSha256": "7e87805380cdcb48377ff32ff5d993f96a90327f289ef1ff2e61b675ea00e7e9",
+  "total": 438,
+  "runtime": 255,
+  "nonSHA512": 0,
+  "reportedUnknownLicense": 0,
+  "publicNoticesSha256": "ca9640eaa6282ee413a802b7727e50e892c084d99584a36a7c3399e39716fec0",
+  "fontNoticesSha256": "6eab34d6ac00af0c30483bbf668c78a1c4fc73e8e2caf22fbb9b3527e583b3be",
+  "status": "PASS"
+}

@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.0-rc.5
+
+- Rumus yang memuat pipe atau dolar terlindungi dalam tabel dan clipboard. Anotasi MathJax serta konten di sekitarnya dipertahankan. Formula tidak lengkap memiliki petunjuk lokasi.
+- Salinan aset saat snapshot hanya mengambil byte yang terlihat; digest aset berjalan dengan konkurensi terbatas.
+- Pemuatan modul KaTeX mengikuti isi dokumen. Pratinjau dan ekspor menggunakan indeks URL font yang sama serta berbagi hasil pengambilan font.
+- Perbaikan alur simpan/hapus, pengulangan cetak, pemilihan format lewat keyboard dan pilihan sumber saat menempel.
+- Verifikasi deployment mengecek keterkaitan antara source, build manifest dan seluruh berkas produksi. Keputusan dan bukti rilis tercatat dalam docs/RELEASE_REPORT.md.
+
 ## 3.0.0-rc.4 — 2026-11-21 (audit dan perbaikan)
 
 Perbaikan pembacaan math kompleks, pelestarian literal kode, admission HTML/gambar, aset/undo/riwayat, abort Worker/font, sampul kosong dan header tabel, oracle PDF serta release/deployment gate. Tiga hotspot core dioptimalkan dan snapshot dikurangi pekerjaan berulang. Korpus trig 21 formula dan contoh HTML nyata disertakan.

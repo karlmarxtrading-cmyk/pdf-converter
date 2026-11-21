@@ -20,4 +20,25 @@ describe('PF-AUD-P01 immutable snapshot efficiency',()=>{
   const expected=await computeRenderInputHash({ contentSnapshotHash:await computeContentSnapshotHash('before'),assets:snap.assets,settings:snap.settings,templateId:snap.templateId,templateVersion:snap.templateVersion,rendererVersion:snap.rendererVersion });
   expect(snap.renderInputHash).toBe(expected);expect(snap.assets[0]!.bytes).not.toBe(p.assets[0]!.bytes);
  });
+ it('copies only visible asset bytes and keeps identical views isolated from later revisions', async () => {
+   const backing = new Uint8Array(8192).fill(0x7f);
+   const first = backing.subarray(16, 20);
+   const second = backing.subarray(18, 22);
+   const asset = { id: 'obsolete', path: 'a.png', mime: 'image/png', bytes: first, origin: 'upload' as const };
+   const p = createProject({ source: 'before' });
+   p.assets = [asset, { ...asset, path: 'alias.png' }, { ...asset, path: 'b.png', bytes: second }];
+   const pending = makeSnapshot(p);
+   backing.fill(3);
+   p.assets[1]!.path = 'renamed.png';
+   const snap = await pending;
+   expect(snap.assets.map(a => a.path)).toEqual(['a.png', 'alias.png', 'b.png']);
+   for (const a of snap.assets) {
+     expect(a.bytes.buffer.byteLength).toBe(4);
+     expect([...a.bytes]).toEqual([127, 127, 127, 127]);
+   }
+   expect(snap.assets[0]!.bytes).toBe(snap.assets[1]!.bytes);
+   expect(snap.assets[0]!.id).toBe(snap.assets[2]!.id);
+   expect((await makeSnapshot(p)).assets[0]!.id).not.toBe(snap.assets[0]!.id);
+ });
+
 });

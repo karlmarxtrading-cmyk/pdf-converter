@@ -14,17 +14,15 @@
  * karakter yang memang dibuat pemindaian tersebut. Bila tidak ada pasangan bebas (sumber memuat
  * seluruh 6.400 titik kode PUA), penyamaran dimatikan dan pemulihan menjadi identitas.
  */
-import katex from 'katex';
-import { LIMITS } from './limits';
-import { escapeHtml, lineOf } from './util';
+import { lineOf } from './util';
 
 /** Sentinel bawaan (dipakai bila sumber tidak memuatnya). Sentinel aktual per pemindaian ada di `MathScan.sentinels`. */
 export const PUA_DOLLAR = '\uE001';
 export const PUA_FILL = '\uE004';
 
 export interface MathSpan { start: number; end: number; tex: string; display: boolean; delim: '$' | '$$' | '\\(' | '\\[' ; line: number }
-export interface MathScanIssue { code: 'MATH_UNTERMINATED' | 'MATH_SUSPECT_UNTERMINATED'; line: number; snippet: string }
-export interface MathSentinels { dollar: string; fill: string }
+export interface MathScanIssue { code: 'MATH_UNTERMINATED' | 'MATH_SUSPECT_UNTERMINATED'; line: number; snippet: string; offset?: number; closer?: string }
+export interface MathSentinels { dollar: string; fill: string; pipe?: string; slash?: string }
 export interface MathScan {
   spans: MathSpan[]; literalDollars: number[]; issues: MathScanIssue[]; parseCopy: string;
   /** true bila sumber memuat karakter Private Use (informasi; tidak lagi mematikan perlindungan mata uang). */
@@ -33,15 +31,25 @@ export interface MathScan {
   sentinels: MathSentinels | null;
 }
 
-/** Pilih dua titik kode Private Use yang tidak ada di `src`. */
+/** Reserve markers absent from the source. Dollar and padding have priority if the PUA is almost full. */
 export function chooseSentinels(src: string): MathSentinels | null {
-  const preferred = [0xE001, 0xE004];
   const used = new Set<number>();
-  for (let i = 0; i < src.length; i++) { const c = src.charCodeAt(i); if (c >= 0xE000 && c <= 0xF8FF) used.add(c); }
-  if (!used.has(preferred[0]!) && !used.has(preferred[1]!)) return { dollar: String.fromCharCode(preferred[0]!), fill: String.fromCharCode(preferred[1]!) };
+  for (let i = 0; i < src.length; i++) {
+    const c = src.charCodeAt(i);
+    if (c >= 0xE000 && c <= 0xF8FF) used.add(c);
+  }
   const free: number[] = [];
-  for (let c = 0xF8FF; c >= 0xE000 && free.length < 2; c--) if (!used.has(c)) free.push(c);
-  return free.length === 2 ? { dollar: String.fromCharCode(free[0]!), fill: String.fromCharCode(free[1]!) } : null;
+  for (const preferred of [0xE001, 0xE004, 0xE005, 0xE006]) if (!used.has(preferred)) free.push(preferred);
+  for (let c = 0xF8FF; c >= 0xE000 && free.length < 4; c--) {
+    if (!used.has(c) && !free.includes(c)) free.push(c);
+  }
+  if (free.length < 2) return null;
+  return {
+    dollar: String.fromCharCode(free[0]!),
+    fill: String.fromCharCode(free[1]!),
+    pipe: free[2] === undefined ? undefined : String.fromCharCode(free[2]),
+    slash: free[3] === undefined ? undefined : String.fromCharCode(free[3]),
+  };
 }
 
 function fencedLines(lines: string[]): Set<number> {
@@ -80,6 +88,15 @@ export function scanMath(src: string): MathScan {
   const literal: number[] = [];
   const issues: MathScanIssue[] = [];
   const n = src.length;
+  // Several incomplete expressions may share the same next closing token (or have none).
+  const nextClosing = new Map<string, number>();
+  const nextCloser = (token: string, from: number): number => {
+    const last = nextClosing.get(token);
+    if (last !== undefined && (last === -1 || last >= from)) return last;
+    const offset = src.indexOf(token, from);
+    nextClosing.set(token, offset);
+    return offset;
+  };
   let i = 0;
   while (i < n) {
     if (inFenced(i)) { const nl = src.indexOf('\n', i); i = nl < 0 ? n : nl + 1; continue; }
@@ -116,7 +133,7 @@ export function scanMath(src: string): MathScan {
         const limit = nx === '(' ? paraEnd(i) : n;
         let p = i + 2, m = -1;
         while (p < limit) {
-          const t = src.indexOf(closer, p);
+          const t = nextCloser(closer, p);
           if (t < 0 || t >= limit || inFenced(t)) break;
           let bs = 0, r = t - 1; while (r >= 0 && src[r] === '\\') { bs++; r--; }
           if (bs % 2 === 1) p = t + 1; else { m = t; break; }
@@ -124,6 +141,12 @@ export function scanMath(src: string): MathScan {
         if (m > i + 2) {
           spans.push({ start: i, end: m + 2, tex: src.slice(i + 2, m), display: nx === '[', delim: nx === '(' ? '\\(' : '\\[', line: lineIdx(i) + 1 });
           i = m + 2; continue;
+        }
+        // CommonMark also uses \( as a literal parenthesis. Diagnose only a definite
+        // TeX command after an unmatched opener, leaving ordinary punctuation alone.
+        if (m < 0 && /^\s*\\[A-Za-z]/.test(src.slice(i + 2, i + 82))) {
+          issues.push({ code: 'MATH_UNTERMINATED', line: lineIdx(i) + 1, offset: i, closer,
+            snippet: lines[lineIdx(i)]!.trim().slice(0, 80) });
         }
       }
       i += 2; continue;
@@ -179,7 +202,20 @@ export function scanMath(src: string): MathScan {
   if (!sentinels) return { spans, literalDollars: literal, issues, parseCopy: src, puaConflict, sentinels: null };
   const arr = src.split('');
   for (const p of literal) arr[p] = sentinels.dollar;
+  if (sentinels.slash) {
+    for (const issue of issues) if (issue.offset !== undefined) arr[issue.offset] = sentinels.slash;
+  }
   for (const s of spans) {
+    // GFM splits tables on bars before parsing inline math. The math tokenizer also
+    // treats a dollar inside \text{…} or \$ as a delimiter. Shield the formula payload
+    // after the scanner has established its boundaries; offsets and source stay intact.
+    if (/[|$]/.test(s.tex)) {
+      const contentStart = s.start + s.delim.length;
+      for (let k = contentStart; k < contentStart + s.tex.length; k++) {
+        if (src[k] === '$') arr[k] = sentinels.dollar;
+        if (src[k] === '|' && sentinels.pipe) arr[k] = sentinels.pipe;
+      }
+    }
     if (s.delim === '\\(') { arr[s.start] = sentinels.fill; arr[s.start + 1] = '$'; arr[s.end - 2] = '$'; arr[s.end - 1] = sentinels.fill; }
     else if (s.delim === '\\[') { arr[s.start] = '$'; arr[s.start + 1] = '$'; arr[s.end - 2] = '$'; arr[s.end - 1] = '$'; }
   }
@@ -193,6 +229,8 @@ export function scanMath(src: string): MathScan {
 export function restorePua(s: string, scan?: Pick<MathScan, 'sentinels'> | null): string {
   const z = scan?.sentinels;
   if (!z) return s;
+  if (z.slash && s.includes(z.slash)) s = s.split(z.slash).join('\\');
+  if (z.pipe && s.includes(z.pipe)) s = s.split(z.pipe).join('|');
   if (s.indexOf(z.dollar) < 0 && s.indexOf(z.fill) < 0) return s;
   return s.split(z.dollar).join('$').split(z.fill).join('');
 }
@@ -202,24 +240,5 @@ export function restorerFor(scan?: Pick<MathScan, 'sentinels'> | null): (s: stri
   return (s: string) => restorePua(s, scan);
 }
 
-export interface KatexResult { ok: boolean; html: string; error?: string }
-
-/** KaTeX dengan trust:false, maxExpand terbatas; kegagalan → fallback terlihat berisi sumber. */
-export function renderTex(tex: string, display: boolean): KatexResult {
-  if (tex.length > LIMITS.mathChars) {
-    return { ok: false, error: `MATH_TOO_LONG:${tex.length}`, html: fallbackHtml(tex, display) };
-  }
-  try {
-    const html = katex.renderToString(tex, { displayMode: display, throwOnError: true, output: 'htmlAndMathml', trust: false, strict: 'ignore', maxExpand: 1000, maxSize: 50 });
-    return { ok: true, html };
-  } catch (e) {
-    return { ok: false, error: String((e as Error)?.message ?? e).slice(0, 300), html: fallbackHtml(tex, display) };
-  }
-}
-
-function fallbackHtml(tex: string, display: boolean): string {
-  const d = display ? '$$' : '$';
-  return `<code class="pf-math-src">${escapeHtml(d + tex + d)}</code>`;
-}
-
+export { renderTex, type KatexResult } from './tex-renderer';
 export { lineOf };

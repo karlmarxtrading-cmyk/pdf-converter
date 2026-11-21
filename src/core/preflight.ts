@@ -8,7 +8,7 @@ import type { Element, Root as HtmlRoot } from 'hast';
 import type { Nodes } from 'mdast';
 import { DROP_WITH_CONTENT } from './sanitize';
 import { structuredConversation } from './conversation';
-import { parseMarkdown } from './markdown';
+import { parseMarkdown, type ParsedMarkdown } from './markdown';
 import { restorerFor } from './math';
 import { parseHtmlWithinBudget } from './html';
 import { BudgetError } from './limits';
@@ -62,8 +62,7 @@ export interface PreflightOptions {
 
 interface ImageRef { url: string; alt: string; line: number }
 
-function imageReferences(source: string): ImageRef[] {
-  const parsed = parseMarkdown(source);
+function imageReferences(parsed: ParsedMarkdown): ImageRef[] {
   const tree = parsed.tree;
   const restore = restorerFor(parsed.scan);
   const definitions = new Map<string, string>();
@@ -100,7 +99,7 @@ function imageReferences(source: string): ImageRef[] {
 }
 
 export function listExternalImages(source: string, assets: Snapshot['assets'] = []): ExternalImageRef[] {
-  return imageReferences(source).filter(ref => /^https?:\/\//i.test(ref.url)).map(ref => ({
+  return imageReferences(parseMarkdown(source)).filter(ref => /^https?:\/\//i.test(ref.url)).map(ref => ({
     ...ref, resolvedAssetId: resolveAsset(assets, ref.url)?.id,
   }));
 }
@@ -110,11 +109,17 @@ export function assetPreflight(snapshot: Pick<Snapshot, 'source' | 'sourcePath' 
   const sources = conv && conv.outputMode !== 'answer'
     ? [...(conv.outputMode === 'source-appendix' ? [snapshot.source] : []), ...conv.messages.filter(m => m.selected).map(m => m.markdown)]
     : [snapshot.source];
+  return preflightImageSources(sources, snapshot.assets, snapshot.sourcePath);
+}
+
+/** Resolve references from job-local, validated trees or parse each conversation message on demand. */
+export function preflightImageSources(sources: Iterable<string | ParsedMarkdown>, assets: Snapshot['assets'], sourcePath?: string): AssetPreflight {
   const resolved: string[] = []; const missing: { path: string; line: number }[] = []; let total = 0;
   const external: ExternalImageRef[] = [];
   for (const src of sources) {
-    for (const ref of imageReferences(src)) {
-      const asset = resolveAsset(snapshot.assets, ref.url, snapshot.sourcePath);
+    const parsed = typeof src === 'string' ? parseMarkdown(src) : src;
+    for (const ref of imageReferences(parsed)) {
+      const asset = resolveAsset(assets, ref.url, sourcePath);
       if (/^https?:\/\//i.test(ref.url)) external.push({ ...ref, resolvedAssetId: asset?.id });
       else if (!/^data:/i.test(ref.url)) {
         total++;

@@ -1,0 +1,1062 @@
+{
+  "tool": "tests/e2e/perf-matrix.mjs",
+  "candidateSha256": "9263951462ed4545e626a877f3ff196d6db5ff2e427585330972da4e8e9551a3",
+  "distQaTreeSha256": "32d4c5bef8fb2b12c48419c9462c8880c9fe82418cc006bcc4ec941d948f7ff1",
+  "at": "2026-11-21T12:39:18.423Z",
+  "browser": "Chrome headless (lihat evidence/toolchain.txt)",
+  "env": "Kontainer Linux, CPU bersama; bukan perangkat referensi. Angka untuk perbandingan relatif antar-kandidat.",
+  "baselineRc1": {
+    "sections": 115,
+    "pages": 196,
+    "layoutWallMs": 9256,
+    "previewMs": 2942,
+    "mainThreadLongestTaskMs": 888,
+    "source": "evidence RC1 stress-115.json + profil awal sesi ini"
+  },
+  "rows": [
+    {
+      "sections": 1,
+      "pages": 3,
+      "reps": 2,
+      "allVerified": true,
+      "failures": [],
+      "summary": {
+        "previewMs": {
+          "n": 2,
+          "median": 437,
+          "min": 430,
+          "max": 443
+        },
+        "workerParseRenderMs": {
+          "n": 2,
+          "median": 37,
+          "min": 34,
+          "max": 39
+        },
+        "workerCharsMs": {
+          "n": 2,
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "workerIntegrityModelMs": {
+          "n": 2,
+          "median": 11,
+          "min": 10,
+          "max": 11
+        },
+        "workerReferencesMs": {
+          "n": 2,
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "analyzeWallMs": {
+          "n": 2,
+          "median": 51,
+          "min": 48,
+          "max": 53
+        },
+        "mainFinishMs": {
+          "n": 2,
+          "median": 6,
+          "min": 5,
+          "max": 6
+        },
+        "mainIntegrityMs": {
+          "n": 2,
+          "median": 4,
+          "min": 4,
+          "max": 4
+        },
+        "composeMs": {
+          "n": 2,
+          "median": 34,
+          "min": 32,
+          "max": 35
+        },
+        "layoutWallMs": {
+          "n": 2,
+          "median": 593,
+          "min": 573,
+          "max": 613
+        },
+        "paginatePassesMs": {
+          "n": 2,
+          "median": 167,
+          "min": 148,
+          "max": 185
+        },
+        "contentVerifyMs": {
+          "n": 2,
+          "median": 39,
+          "min": 37,
+          "max": 41
+        },
+        "flattenMs": {
+          "n": 2,
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "printReadyMs": {
+          "n": 2,
+          "median": 1030,
+          "min": 1003,
+          "max": 1056
+        },
+        "pdfExportMs": {
+          "n": 2,
+          "median": 147,
+          "min": 115,
+          "max": 179
+        },
+        "pdfBytes": {
+          "n": 2,
+          "median": 37540,
+          "min": 37540,
+          "max": 37540
+        },
+        "reeditPreviewMs": {
+          "n": 2,
+          "median": 382,
+          "min": 345,
+          "max": 418
+        },
+        "peakJsHeapMiB": {
+          "n": 2,
+          "median": 19,
+          "min": 15,
+          "max": 23
+        },
+        "heapAfterGcMiB": {
+          "n": 2,
+          "median": 7,
+          "min": 6.7,
+          "max": 8.2
+        },
+        "maxEventLoopGapMs": {
+          "preview": {
+            "n": 2,
+            "median": 60,
+            "min": 41,
+            "max": 78
+          },
+          "layout": {
+            "n": 2,
+            "median": 93,
+            "min": 86,
+            "max": 99
+          },
+          "reedit": {
+            "n": 2,
+            "median": 82,
+            "min": 70,
+            "max": 94
+          }
+        },
+        "longTaskMaxMs": {
+          "preview": {
+            "n": 2,
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "layout": {
+            "n": 2,
+            "median": 63,
+            "min": 52,
+            "max": 74
+          }
+        }
+      },
+      "cancel": {
+        "ms": 17,
+        "outcome": "Halaman siap dicetak3 halaman · rev 2 · verifikasi isi: passSHA-256 HTML terpagi",
+        "sessionLeft": null
+      },
+      "runs": [
+        {
+          "sections": 1,
+          "rep": 1,
+          "sourceBytes": 4921,
+          "previewMs": 443,
+          "workerParseRenderMs": 39,
+          "workerCharsMs": 0,
+          "workerIntegrityModelMs": 11,
+          "workerReferencesMs": 0,
+          "analyzeWallMs": 53,
+          "mainFinishMs": 5,
+          "mainIntegrityMs": 4,
+          "composeMs": 35,
+          "layoutWallMs": 613,
+          "printReadyMs": 1056,
+          "layoutStatus": "done",
+          "pages": 3,
+          "verification": "pass",
+          "blocking": [],
+          "paginatePassesMs": 185,
+          "contentVerifyMs": 41,
+          "flattenMs": 3,
+          "layoutTotalMs": 291,
+          "forcedBreaks": 0,
+          "pdfExportMs": 179,
+          "pdfBytes": 37540,
+          "reeditPreviewMs": 418,
+          "cancelToIdleMs": 17,
+          "cancelOutcome": "Halaman siap dicetak3 halaman · rev 2 · verifikasi isi: passSHA-256 HTML terpagi",
+          "printSessionAfterCancel": null,
+          "heapAfterGcMiB": 8.2,
+          "peakJsHeapMiB": 23,
+          "maxEventLoopGapMs": {
+            "preview": 78,
+            "layout": 99,
+            "reedit": 94
+          },
+          "longTasks": {
+            "preview": {
+              "count": 0,
+              "maxMs": 0
+            },
+            "layout": {
+              "count": 1,
+              "maxMs": 74
+            }
+          },
+          "engineMode": "worker",
+          "errors": []
+        },
+        {
+          "sections": 1,
+          "rep": 2,
+          "sourceBytes": 4921,
+          "previewMs": 430,
+          "workerParseRenderMs": 34,
+          "workerCharsMs": 0,
+          "workerIntegrityModelMs": 10,
+          "workerReferencesMs": 0,
+          "analyzeWallMs": 48,
+          "mainFinishMs": 6,
+          "mainIntegrityMs": 4,
+          "composeMs": 32,
+          "layoutWallMs": 573,
+          "printReadyMs": 1003,
+          "layoutStatus": "done",
+          "pages": 3,
+          "verification": "pass",
+          "blocking": [],
+          "paginatePassesMs": 148,
+          "contentVerifyMs": 37,
+          "flattenMs": 3,
+          "layoutTotalMs": 248,
+          "forcedBreaks": 0,
+          "pdfExportMs": 115,
+          "pdfBytes": 37540,
+          "reeditPreviewMs": 345,
+          "heapAfterGcMiB": 6.7,
+          "peakJsHeapMiB": 15,
+          "maxEventLoopGapMs": {
+            "preview": 41,
+            "layout": 86,
+            "reedit": 70
+          },
+          "longTasks": {
+            "preview": {
+              "count": 0,
+              "maxMs": 0
+            },
+            "layout": {
+              "count": 1,
+              "maxMs": 52
+            }
+          },
+          "engineMode": "worker",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "sections": 6,
+      "pages": 12,
+      "reps": 2,
+      "allVerified": true,
+      "failures": [],
+      "summary": {
+        "previewMs": {
+          "n": 2,
+          "median": 541,
+          "min": 538,
+          "max": 543
+        },
+        "workerParseRenderMs": {
+          "n": 2,
+          "median": 79,
+          "min": 77,
+          "max": 81
+        },
+        "workerCharsMs": {
+          "n": 2,
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "workerIntegrityModelMs": {
+          "n": 2,
+          "median": 32,
+          "min": 28,
+          "max": 36
+        },
+        "workerReferencesMs": {
+          "n": 2,
+          "median": 1,
+          "min": 0,
+          "max": 1
+        },
+        "analyzeWallMs": {
+          "n": 2,
+          "median": 116,
+          "min": 112,
+          "max": 120
+        },
+        "mainFinishMs": {
+          "n": 2,
+          "median": 9,
+          "min": 9,
+          "max": 9
+        },
+        "mainIntegrityMs": {
+          "n": 2,
+          "median": 9,
+          "min": 8,
+          "max": 9
+        },
+        "composeMs": {
+          "n": 2,
+          "median": 27,
+          "min": 24,
+          "max": 30
+        },
+        "layoutWallMs": {
+          "n": 2,
+          "median": 1062,
+          "min": 1056,
+          "max": 1068
+        },
+        "paginatePassesMs": {
+          "n": 2,
+          "median": 530,
+          "min": 445,
+          "max": 614
+        },
+        "contentVerifyMs": {
+          "n": 2,
+          "median": 82,
+          "min": 78,
+          "max": 86
+        },
+        "flattenMs": {
+          "n": 2,
+          "median": 5,
+          "min": 5,
+          "max": 5
+        },
+        "printReadyMs": {
+          "n": 2,
+          "median": 1603,
+          "min": 1599,
+          "max": 1606
+        },
+        "pdfExportMs": {
+          "n": 2,
+          "median": 277,
+          "min": 259,
+          "max": 294
+        },
+        "pdfBytes": {
+          "n": 2,
+          "median": 108967,
+          "min": 108967,
+          "max": 108967
+        },
+        "reeditPreviewMs": {
+          "n": 2,
+          "median": 436,
+          "min": 430,
+          "max": 441
+        },
+        "peakJsHeapMiB": {
+          "n": 2,
+          "median": 20,
+          "min": 16,
+          "max": 23
+        },
+        "heapAfterGcMiB": {
+          "n": 2,
+          "median": 7,
+          "min": 5.6,
+          "max": 8.8
+        },
+        "maxEventLoopGapMs": {
+          "preview": {
+            "n": 2,
+            "median": 48,
+            "min": 48,
+            "max": 48
+          },
+          "layout": {
+            "n": 2,
+            "median": 97,
+            "min": 69,
+            "max": 124
+          },
+          "reedit": {
+            "n": 2,
+            "median": 110,
+            "min": 100,
+            "max": 119
+          }
+        },
+        "longTaskMaxMs": {
+          "preview": {
+            "n": 2,
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "layout": {
+            "n": 2,
+            "median": 62,
+            "min": 55,
+            "max": 68
+          }
+        }
+      },
+      "cancel": {
+        "ms": 106,
+        "outcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
+        "sessionLeft": null
+      },
+      "runs": [
+        {
+          "sections": 6,
+          "rep": 1,
+          "sourceBytes": 29096,
+          "previewMs": 543,
+          "workerParseRenderMs": 77,
+          "workerCharsMs": 1,
+          "workerIntegrityModelMs": 28,
+          "workerReferencesMs": 0,
+          "analyzeWallMs": 112,
+          "mainFinishMs": 9,
+          "mainIntegrityMs": 9,
+          "composeMs": 24,
+          "layoutWallMs": 1056,
+          "printReadyMs": 1599,
+          "layoutStatus": "done",
+          "pages": 12,
+          "verification": "pass",
+          "blocking": [],
+          "paginatePassesMs": 614,
+          "contentVerifyMs": 86,
+          "flattenMs": 5,
+          "layoutTotalMs": 792,
+          "forcedBreaks": 0,
+          "pdfExportMs": 259,
+          "pdfBytes": 108967,
+          "reeditPreviewMs": 441,
+          "cancelToIdleMs": 106,
+          "cancelOutcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
+          "printSessionAfterCancel": null,
+          "heapAfterGcMiB": 8.8,
+          "peakJsHeapMiB": 23,
+          "maxEventLoopGapMs": {
+            "preview": 48,
+            "layout": 124,
+            "reedit": 119
+          },
+          "longTasks": {
+            "preview": {
+              "count": 0,
+              "maxMs": 0
+            },
+            "layout": {
+              "count": 4,
+              "maxMs": 68
+            }
+          },
+          "engineMode": "worker",
+          "errors": []
+        },
+        {
+          "sections": 6,
+          "rep": 2,
+          "sourceBytes": 29096,
+          "previewMs": 538,
+          "workerParseRenderMs": 81,
+          "workerCharsMs": 1,
+          "workerIntegrityModelMs": 36,
+          "workerReferencesMs": 1,
+          "analyzeWallMs": 120,
+          "mainFinishMs": 9,
+          "mainIntegrityMs": 8,
+          "composeMs": 30,
+          "layoutWallMs": 1068,
+          "printReadyMs": 1606,
+          "layoutStatus": "done",
+          "pages": 12,
+          "verification": "pass",
+          "blocking": [],
+          "paginatePassesMs": 445,
+          "contentVerifyMs": 78,
+          "flattenMs": 5,
+          "layoutTotalMs": 617,
+          "forcedBreaks": 0,
+          "pdfExportMs": 294,
+          "pdfBytes": 108967,
+          "reeditPreviewMs": 430,
+          "heapAfterGcMiB": 5.6,
+          "peakJsHeapMiB": 16,
+          "maxEventLoopGapMs": {
+            "preview": 48,
+            "layout": 69,
+            "reedit": 100
+          },
+          "longTasks": {
+            "preview": {
+              "count": 0,
+              "maxMs": 0
+            },
+            "layout": {
+              "count": 1,
+              "maxMs": 55
+            }
+          },
+          "engineMode": "worker",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "sections": 30,
+      "pages": 52,
+      "reps": 2,
+      "allVerified": true,
+      "failures": [],
+      "summary": {
+        "previewMs": {
+          "n": 2,
+          "median": 1301,
+          "min": 1293,
+          "max": 1309
+        },
+        "workerParseRenderMs": {
+          "n": 2,
+          "median": 244,
+          "min": 237,
+          "max": 251
+        },
+        "workerCharsMs": {
+          "n": 2,
+          "median": 2,
+          "min": 2,
+          "max": 2
+        },
+        "workerIntegrityModelMs": {
+          "n": 2,
+          "median": 121,
+          "min": 111,
+          "max": 131
+        },
+        "workerReferencesMs": {
+          "n": 2,
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "analyzeWallMs": {
+          "n": 2,
+          "median": 375,
+          "min": 354,
+          "max": 396
+        },
+        "mainFinishMs": {
+          "n": 2,
+          "median": 23,
+          "min": 21,
+          "max": 24
+        },
+        "mainIntegrityMs": {
+          "n": 2,
+          "median": 31,
+          "min": 17,
+          "max": 45
+        },
+        "composeMs": {
+          "n": 2,
+          "median": 54,
+          "min": 36,
+          "max": 72
+        },
+        "layoutWallMs": {
+          "n": 2,
+          "median": 2685,
+          "min": 2594,
+          "max": 2776
+        },
+        "paginatePassesMs": {
+          "n": 2,
+          "median": 1926,
+          "min": 1875,
+          "max": 1977
+        },
+        "contentVerifyMs": {
+          "n": 2,
+          "median": 236,
+          "min": 225,
+          "max": 246
+        },
+        "flattenMs": {
+          "n": 2,
+          "median": 19,
+          "min": 18,
+          "max": 19
+        },
+        "printReadyMs": {
+          "n": 2,
+          "median": 3986,
+          "min": 3887,
+          "max": 4085
+        },
+        "pdfExportMs": {
+          "n": 2,
+          "median": 1649,
+          "min": 1391,
+          "max": 1907
+        },
+        "pdfBytes": {
+          "n": 2,
+          "median": 445769,
+          "min": 445769,
+          "max": 445769
+        },
+        "reeditPreviewMs": {
+          "n": 2,
+          "median": 1129,
+          "min": 1077,
+          "max": 1180
+        },
+        "peakJsHeapMiB": {
+          "n": 2,
+          "median": 23,
+          "min": 21,
+          "max": 25
+        },
+        "heapAfterGcMiB": {
+          "n": 2,
+          "median": 8,
+          "min": 5.7,
+          "max": 9.4
+        },
+        "maxEventLoopGapMs": {
+          "preview": {
+            "n": 2,
+            "median": 119,
+            "min": 111,
+            "max": 127
+          },
+          "layout": {
+            "n": 2,
+            "median": 178,
+            "min": 177,
+            "max": 179
+          },
+          "reedit": {
+            "n": 2,
+            "median": 640,
+            "min": 604,
+            "max": 676
+          }
+        },
+        "longTaskMaxMs": {
+          "preview": {
+            "n": 2,
+            "median": 90,
+            "min": 67,
+            "max": 112
+          },
+          "layout": {
+            "n": 2,
+            "median": 166,
+            "min": 164,
+            "max": 167
+          }
+        }
+      },
+      "cancel": {
+        "ms": 90,
+        "outcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
+        "sessionLeft": null
+      },
+      "runs": [
+        {
+          "sections": 30,
+          "rep": 1,
+          "sourceBytes": 145136,
+          "previewMs": 1309,
+          "workerParseRenderMs": 251,
+          "workerCharsMs": 2,
+          "workerIntegrityModelMs": 131,
+          "workerReferencesMs": 1,
+          "analyzeWallMs": 396,
+          "mainFinishMs": 24,
+          "mainIntegrityMs": 17,
+          "composeMs": 36,
+          "layoutWallMs": 2776,
+          "printReadyMs": 4085,
+          "layoutStatus": "done",
+          "pages": 52,
+          "verification": "pass",
+          "blocking": [],
+          "paginatePassesMs": 1977,
+          "contentVerifyMs": 246,
+          "flattenMs": 18,
+          "layoutTotalMs": 2461,
+          "forcedBreaks": 0,
+          "pdfExportMs": 1907,
+          "pdfBytes": 445769,
+          "reeditPreviewMs": 1077,
+          "cancelToIdleMs": 90,
+          "cancelOutcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
+          "printSessionAfterCancel": null,
+          "heapAfterGcMiB": 9.4,
+          "peakJsHeapMiB": 25,
+          "maxEventLoopGapMs": {
+            "preview": 111,
+            "layout": 177,
+            "reedit": 604
+          },
+          "longTasks": {
+            "preview": {
+              "count": 2,
+              "maxMs": 67
+            },
+            "layout": {
+              "count": 5,
+              "maxMs": 164
+            }
+          },
+          "engineMode": "worker",
+          "errors": []
+        },
+        {
+          "sections": 30,
+          "rep": 2,
+          "sourceBytes": 145136,
+          "previewMs": 1293,
+          "workerParseRenderMs": 237,
+          "workerCharsMs": 2,
+          "workerIntegrityModelMs": 111,
+          "workerReferencesMs": 1,
+          "analyzeWallMs": 354,
+          "mainFinishMs": 21,
+          "mainIntegrityMs": 45,
+          "composeMs": 72,
+          "layoutWallMs": 2594,
+          "printReadyMs": 3887,
+          "layoutStatus": "done",
+          "pages": 52,
+          "verification": "pass",
+          "blocking": [],
+          "paginatePassesMs": 1875,
+          "contentVerifyMs": 225,
+          "flattenMs": 19,
+          "layoutTotalMs": 2308,
+          "forcedBreaks": 0,
+          "pdfExportMs": 1391,
+          "pdfBytes": 445769,
+          "reeditPreviewMs": 1180,
+          "heapAfterGcMiB": 5.7,
+          "peakJsHeapMiB": 21,
+          "maxEventLoopGapMs": {
+            "preview": 127,
+            "layout": 179,
+            "reedit": 676
+          },
+          "longTasks": {
+            "preview": {
+              "count": 2,
+              "maxMs": 112
+            },
+            "layout": {
+              "count": 4,
+              "maxMs": 167
+            }
+          },
+          "engineMode": "worker",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "sections": 59,
+      "pages": 101,
+      "reps": 2,
+      "allVerified": true,
+      "failures": [],
+      "summary": {
+        "previewMs": {
+          "n": 2,
+          "median": 1979,
+          "min": 1921,
+          "max": 2036
+        },
+        "workerParseRenderMs": {
+          "n": 2,
+          "median": 321,
+          "min": 310,
+          "max": 331
+        },
+        "workerCharsMs": {
+          "n": 2,
+          "median": 3,
+          "min": 2,
+          "max": 3
+        },
+        "workerIntegrityModelMs": {
+          "n": 2,
+          "median": 189,
+          "min": 185,
+          "max": 192
+        },
+        "workerReferencesMs": {
+          "n": 2,
+          "median": 2,
+          "min": 1,
+          "max": 2
+        },
+        "analyzeWallMs": {
+          "n": 2,
+          "median": 529,
+          "min": 517,
+          "max": 541
+        },
+        "mainFinishMs": {
+          "n": 2,
+          "median": 35,
+          "min": 34,
+          "max": 35
+        },
+        "mainIntegrityMs": {
+          "n": 2,
+          "median": 29,
+          "min": 25,
+          "max": 32
+        },
+        "composeMs": {
+          "n": 2,
+          "median": 97,
+          "min": 43,
+          "max": 151
+        },
+        "layoutWallMs": {
+          "n": 2,
+          "median": 5004,
+          "min": 4941,
+          "max": 5066
+        },
+        "paginatePassesMs": {
+          "n": 2,
+          "median": 3690,
+          "min": 3641,
+          "max": 3738
+        },
+        "contentVerifyMs": {
+          "n": 2,
+          "median": 450,
+          "min": 374,
+          "max": 525
+        },
+        "flattenMs": {
+          "n": 2,
+          "median": 18,
+          "min": 16,
+          "max": 19
+        },
+        "printReadyMs": {
+          "n": 2,
+          "median": 6982,
+          "min": 6862,
+          "max": 7102
+        },
+        "pdfExportMs": {
+          "n": 2,
+          "median": 3060,
+          "min": 2918,
+          "max": 3202
+        },
+        "pdfBytes": {
+          "n": 2,
+          "median": 857010,
+          "min": 857010,
+          "max": 857010
+        },
+        "reeditPreviewMs": {
+          "n": 2,
+          "median": 1859,
+          "min": 1837,
+          "max": 1881
+        },
+        "peakJsHeapMiB": {
+          "n": 2,
+          "median": 33,
+          "min": 30,
+          "max": 35
+        },
+        "heapAfterGcMiB": {
+          "n": 2,
+          "median": 8,
+          "min": 6.1,
+          "max": 9.7
+        },
+        "maxEventLoopGapMs": {
+          "preview": {
+            "n": 2,
+            "median": 249,
+            "min": 221,
+            "max": 277
+          },
+          "layout": {
+            "n": 2,
+            "median": 549,
+            "min": 445,
+            "max": 653
+          },
+          "reedit": {
+            "n": 2,
+            "median": 1179,
+            "min": 918,
+            "max": 1440
+          }
+        },
+        "longTaskMaxMs": {
+          "preview": {
+            "n": 2,
+            "median": 159,
+            "min": 121,
+            "max": 196
+          },
+          "layout": {
+            "n": 2,
+            "median": 506,
+            "min": 440,
+            "max": 572
+          }
+        }
+      },
+      "cancel": {
+        "ms": 90,
+        "outcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
+        "sessionLeft": null
+      },
+      "runs": [
+        {
+          "sections": 59,
+          "rep": 1,
+          "sourceBytes": 285351,
+          "previewMs": 1921,
+          "workerParseRenderMs": 331,
+          "workerCharsMs": 2,
+          "workerIntegrityModelMs": 192,
+          "workerReferencesMs": 1,
+          "analyzeWallMs": 541,
+          "mainFinishMs": 34,
+          "mainIntegrityMs": 32,
+          "composeMs": 151,
+          "layoutWallMs": 4941,
+          "printReadyMs": 6862,
+          "layoutStatus": "done",
+          "pages": 101,
+          "verification": "pass",
+          "blocking": [],
+          "paginatePassesMs": 3641,
+          "contentVerifyMs": 525,
+          "flattenMs": 19,
+          "layoutTotalMs": 4573,
+          "forcedBreaks": 0,
+          "pdfExportMs": 3202,
+          "pdfBytes": 857010,
+          "reeditPreviewMs": 1881,
+          "cancelToIdleMs": 90,
+          "cancelOutcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
+          "printSessionAfterCancel": null,
+          "heapAfterGcMiB": 9.7,
+          "peakJsHeapMiB": 35,
+          "maxEventLoopGapMs": {
+            "preview": 221,
+            "layout": 653,
+            "reedit": 918
+          },
+          "longTasks": {
+            "preview": {
+              "count": 1,
+              "maxMs": 196
+            },
+            "layout": {
+              "count": 10,
+              "maxMs": 572
+            }
+          },
+          "engineMode": "worker",
+          "errors": []
+        },
+        {
+          "sections": 59,
+          "rep": 2,
+          "sourceBytes": 285351,
+          "previewMs": 2036,
+          "workerParseRenderMs": 310,
+          "workerCharsMs": 3,
+          "workerIntegrityModelMs": 185,
+          "workerReferencesMs": 2,
+          "analyzeWallMs": 517,
+          "mainFinishMs": 35,
+          "mainIntegrityMs": 25,
+          "composeMs": 43,
+          "layoutWallMs": 5066,
+          "printReadyMs": 7102,
+          "layoutStatus": "done",
+          "pages": 101,
+          "verification": "pass",
+          "blocking": [],
+          "paginatePassesMs": 3738,
+          "contentVerifyMs": 374,
+          "flattenMs": 16,
+          "layoutTotalMs": 4443,
+          "forcedBreaks": 0,
+          "pdfExportMs": 2918,
+          "pdfBytes": 857010,
+          "reeditPreviewMs": 1837,
+          "heapAfterGcMiB": 6.1,
+          "peakJsHeapMiB": 30,
+          "maxEventLoopGapMs": {
+            "preview": 277,
+            "layout": 445,
+            "reedit": 1440
+          },
+          "longTasks": {
+            "preview": {
+              "count": 2,
+              "maxMs": 121
+            },
+            "layout": {
+              "count": 8,
+              "maxMs": 440
+            }
+          },
+          "engineMode": "worker",
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

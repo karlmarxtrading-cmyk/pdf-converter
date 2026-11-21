@@ -1,4 +1,5 @@
 import { docLabels } from './labels';
+import { IMAGE_BUDGET } from '../core/limits';
 /**
  * Paginasi dengan Paged.js 0.4.3 (dipatok) — PF-028, PDF-01…12.
  * Hanya berjalan di halaman cetak (print.html / harness QA). Alur:
@@ -94,16 +95,70 @@ async function awaitFonts(doc: Document, payload: PrintPayload): Promise<Issue[]
   return issues;
 }
 
-/** PDF-10: gambar wajib harus dapat didekode dalam batas waktu. */
-async function awaitImages(root: ParentNode, timeoutMs: number): Promise<Issue[]> {
-  const imgs = [...root.querySelectorAll('img')];
-  const results = await Promise.race([
-    Promise.all(imgs.map((img) => (img.complete && img.naturalWidth ? Promise.resolve(true) : img.decode().then(() => true, () => false)))),
-    sleep(timeoutMs),
-  ]);
-  if (results === 'timeout') return [{ id: 'pdf-image-timeout', code: 'IMAGE_TIMEOUT', severity: 'error', scope: 'asset', blocking: true, message: `Gambar belum siap dalam ${timeoutMs} ms; PDF tidak dibuat agar tidak ada gambar yang hilang diam-diam.` }];
-  const bad = imgs.filter((_, i) => !results[i]);
-  return bad.length ? [{ id: 'pdf-image-failed', code: 'IMAGE_LOAD_FAILED', severity: 'error', scope: 'asset', blocking: true, message: `${bad.length} gambar tidak dapat didekode (${bad.slice(0, 3).map((b) => b.getAttribute('alt') || 'tanpa alt').join(', ')}).` }] : [];
+/** Decode each unique print image in an inertly parsed document before creating live page DOM. */
+export async function awaitImages(doc: Document, body: string, timeoutMs: number, signal?: AbortSignal): Promise<Issue[]> {
+  const aborted = () => new PaginationError({ code: 'ABORTED', message: 'Paginasi dibatalkan.' }, []);
+  if (signal?.aborted) throw aborted();
+  const template = doc.createElement('template');
+  template.innerHTML = body;
+  const unique = new Map<string, string>();
+  for (const img of template.content.querySelectorAll('img')) {
+    const src = img.getAttribute('src') ?? '';
+    if (!unique.has(src)) unique.set(src, img.alt || 'tanpa alt');
+  }
+  if (!unique.size) return [];
+
+  const pending = unique.entries();
+  const active = new Set<HTMLImageElement>();
+  const issues: Issue[] = [];
+  let stopped = false, totalPixels = 0;
+  let finishFailure: (() => void) | undefined;
+  const fail = (code: string, message: string) => {
+    if (!stopped) issues.push({ id: 'pdf-image-failed', code, severity: 'error', scope: 'asset', blocking: true, message });
+    stopped = true; finishFailure?.();
+  };
+  async function decodeNext(): Promise<void> {
+    for (let next = pending.next(); !next.done && !stopped; next = pending.next()) {
+      const [src, label] = next.value;
+      const img = doc.createElement('img');
+      img.decoding = 'async'; img.referrerPolicy = 'no-referrer';
+      active.add(img);
+      try {
+        if (!src) throw new Error('src');
+        img.src = src;
+        await img.decode();
+        if (stopped) return;
+        const pixels = img.naturalWidth * img.naturalHeight;
+        totalPixels += pixels;
+        if ((!pixels && !src.startsWith('data:image/svg+xml')) ||
+            Math.max(img.naturalWidth, img.naturalHeight) > IMAGE_BUDGET.maxDimension ||
+            pixels > IMAGE_BUDGET.maxPixels || totalPixels > IMAGE_BUDGET.maxTotalPixels) {
+          fail('IMAGE_PIXELS_EXCEEDED', `Dimensi hasil dekode gambar “${label}” (${img.naturalWidth}×${img.naturalHeight}) atau total piksel dokumen tidak sesuai batas cetak. Perkecil gambar sebelum mencetak.`);
+        }
+      } catch {
+        fail('IMAGE_LOAD_FAILED', `Gambar “${label}” tidak dapat didekode. Periksa berkas gambar sebelum mencetak.`);
+      } finally { active.delete(img); }
+    }
+  }
+
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  let onAbort: (() => void) | undefined;
+  const interrupted = new Promise<void>((resolve, reject) => {
+    finishFailure = resolve;
+    timer = setTimeout(() => {
+      fail('IMAGE_TIMEOUT', `Gambar belum siap dalam ${timeoutMs} ms. Periksa ukuran dan kondisi berkas gambar sebelum mencetak.`);
+    }, timeoutMs);
+    onAbort = () => { stopped = true; reject(aborted()); };
+    signal?.addEventListener('abort', onAbort, { once: true });
+  });
+  try {
+    await Promise.race([Promise.all([decodeNext(), decodeNext()]), interrupted]);
+    return issues;
+  } finally {
+    stopped = true; clearTimeout(timer);
+    if (onAbort) signal?.removeEventListener('abort', onAbort);
+    for (const img of active) img.removeAttribute('src');
+  }
 }
 
 /** Apakah sel tabel hanya muat dengan mematahkan kata/angka di tengah (mis. "-5,25%" → "-5,25" / "%")? */
@@ -777,8 +832,7 @@ export async function paginate(payload: PrintPayload, o: PaginateOptions): Promi
 
   s = performance.now();
   o.onProgress?.({ phase: 'images' });
-  const probe = doc.createElement('div'); probe.innerHTML = payload.bodyInner;
-  const iIssues = await awaitImages(probe, payload.options.imageTimeoutMs); mark('images', s);
+  const iIssues = await awaitImages(doc, payload.bodyInner, payload.options.imageTimeoutMs, o.signal); mark('images', s);
   if (iIssues.length) fail(iIssues[0]!.code === 'IMAGE_TIMEOUT' ? 'IMAGE_TIMEOUT' : 'IMAGE_LOAD_FAILED', iIssues[0]!.message, [...issues, ...iIssues]);
   aborted();
 

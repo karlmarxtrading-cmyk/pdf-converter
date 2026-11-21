@@ -1,6 +1,0 @@
-npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
-
-> paperforma@3.0.0-rc.4 verify:http
-> node scripts/verify-http.mjs --local
-
-LULUS HTTP: 285/285; 280 berkas dibandingkan; versi 3.0.0-rc.4

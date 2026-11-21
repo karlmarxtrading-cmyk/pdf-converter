@@ -1,0 +1,207 @@
+[
+  {
+    "path": "fixtures/rc5/calculus.md",
+    "rc4": null,
+    "rc5": "3dce3f93765126b33c5b8c8fb9bf9c196c409d152337e9815e485515610583a1"
+  },
+  {
+    "path": "fixtures/rc5/mixed-mathjax.html",
+    "rc4": null,
+    "rc5": "540f1d259938890b5cbfaba068c28f4c18718832553ec4191e42c6500d1c4bfd"
+  },
+  {
+    "path": "fixtures/rc5/table-norms.md",
+    "rc4": null,
+    "rc5": "cd5c8e55f02efb29f2d88009c7bd85f12d588fdd06c1d4c8fa5db97b9501628e"
+  },
+  {
+    "path": "index.html",
+    "rc4": "224cb2de1ad2b0b9a1acc6d74f4ea6943c6b322fa3e5688061fb16488247b911",
+    "rc5": "747e61cc2385748f91dc17fd42bfd6ef9e0cc5642864d7b795fccfbb517ff7b1"
+  },
+  {
+    "path": "package-lock.json",
+    "rc4": "644bda5170373c049a995c58cc7d074f078be27c872a7d121061f4948057cf69",
+    "rc5": "1208fe4068b26894f5d4b4b94a90ce5191bc3b3d3d50d9e95fefdf5bde8a98e2"
+  },
+  {
+    "path": "package.json",
+    "rc4": "7a41595307f2fbb621df981e39484db223fd1cde396f7eaac107e6139b8002eb",
+    "rc5": "1b21b00e0baeb5cd20825780da81a16df53f4a00ba6b044550f1227bd5faf765"
+  },
+  {
+    "path": "public/licenses/THIRD_PARTY_NOTICES.txt",
+    "rc4": "38e985dd98c154337efb7fe3ea90974a73eab40341d88cb6077d1f23d66199cc",
+    "rc5": "ca9640eaa6282ee413a802b7727e50e892c084d99584a36a7c3399e39716fec0"
+  },
+  {
+    "path": "scripts/deployment-identity.mjs",
+    "rc4": null,
+    "rc5": "91f88ee0007fc41cf38ab544f7dc311ac881521880d1435f37fe4a114bfd9625"
+  },
+  {
+    "path": "scripts/verify-archive.py",
+    "rc4": null,
+    "rc5": "db071a911afcb0eb6c22543887330d57d667232ce34cffd6782db5b20be5fbae"
+  },
+  {
+    "path": "scripts/verify-deployment-math.mjs",
+    "rc4": "e9da5610c5bffadf8ab0c06223be2b5149283c4130a60a3f7823e75d87e8dd6b",
+    "rc5": "e8b2eef0075acc90482951a1bf9bc8a2a5481e456560cdaba806cab6ffcb3514"
+  },
+  {
+    "path": "scripts/verify-http.mjs",
+    "rc4": "f6968af0c1885abfed8ff7076ea8ac91f62d93c1f6bce0b947c7d5d8b1d42e4e",
+    "rc5": "1e12390b031fba2067d8f67efe3430c7c9099635a9991d27802c28f5fa6eed10"
+  },
+  {
+    "path": "src/core/assets.ts",
+    "rc4": "93fe664e5b868393f76df01c137881937718914f256b85d05bbaaee1c3ac0acd",
+    "rc5": "8a78d75856652b4dec9ded29885c5fb0090e19cc25a30668b542ea0e2525be3b"
+  },
+  {
+    "path": "src/core/clipboard.ts",
+    "rc4": "7e1076457d9641451d9fd5057f6bd42c00c98daf74c2882cf965a90fd160cb98",
+    "rc5": "19e8015ff036b5d013bcfd4d3f67ebf64a7fe46b957fe3fa068e904dc8bfb31e"
+  },
+  {
+    "path": "src/core/contracts.ts",
+    "rc4": "ed71bebff7f041bfe1854fc254abc6a5769439ac38c2e45859eaf812d56acb81",
+    "rc5": "aadc2a6bb491ced9e3b64329e47b9f842a80c72484f5c960e125ac4cd5998894"
+  },
+  {
+    "path": "src/core/hash.ts",
+    "rc4": "3a159c89eb264601325f2dbfcde2336360da3f4dbf09ec22b16d0273e735a086",
+    "rc5": "f676002968d753fe756872b89295a84216bee46f2f15fa7c96dffaec46e089aa"
+  },
+  {
+    "path": "src/core/integrity.ts",
+    "rc4": "e1b363f31012890d6e223f754235429832b2d6a48919d73400798191d010b710",
+    "rc5": "afe17d5c31fe03de9d3559c4035ebe620a9d112f3ae0d6af3e48c15808afdda5"
+  },
+  {
+    "path": "src/core/limits.ts",
+    "rc4": "678ce312c1820ef7c5a6c90132100761f149658cfbc9db4e47469225da529bcb",
+    "rc5": "9e1fd7ef39bb778f10add1bbedd69296e24832de30bf8b328a163ae05444e104"
+  },
+  {
+    "path": "src/core/markdown.ts",
+    "rc4": "f102be8d2ed8f496ce38b976ca2c132b93dd89fa3b239357be044ce4a0847bc8",
+    "rc5": "9f39d376ea56c65aebbad42bfd784567dd88b98e205c59c5f865ddd1831214f1"
+  },
+  {
+    "path": "src/core/math.ts",
+    "rc4": "10869198ef41ad9e8a8dc38f24d30a5686a088e0c944404e90cfcf892bd8efce",
+    "rc5": "37e2fe37ff1821cf12ec170646ec733c27c065336cc106385e67e054d57cdef7"
+  },
+  {
+    "path": "src/core/preflight.ts",
+    "rc4": "cd04a233087f84cccfa1e5fa6d34b7b9ed166040ef704c2595986c810e659a85",
+    "rc5": "1263dbdde6d9a33525ed1c3534f1fb2f6a8e48845aa0433d4f54032041a552f7"
+  },
+  {
+    "path": "src/core/render.ts",
+    "rc4": "982f9aec86b0d01a147846c349b4c29f266c6ecee2b8c7e1ace7d849e304d246",
+    "rc5": "ec61064eda138d745d8ebb4671e9d8a2ce55ab2dae47f816b7b93a31017d20e1"
+  },
+  {
+    "path": "src/core/storage.ts",
+    "rc4": "5631544b20cb052454aac97716a90b49679257ad50a1d82e2a32dea776e7a9a6",
+    "rc5": "7df2a709ace86a37c2c301150889b393a19666dc08f840e115dc6f000c3824dd"
+  },
+  {
+    "path": "src/core/tex-renderer.ts",
+    "rc4": null,
+    "rc5": "ab4f7d08789cbd58fc49daf630e870bf2089146046b5ecf3ea3e1b1f0e2ba193"
+  },
+  {
+    "path": "src/engine/analyze.ts",
+    "rc4": "ce325fad494138eaa5195aa91354cdc4a1813111879d187eafa44471708e6048",
+    "rc5": "0f8b821e7046c268fa9721e786cbb6911dca700970d2485ab5cde5422d0a591c"
+  },
+  {
+    "path": "src/render/font-assets.ts",
+    "rc4": "9283c9017d6b2c03c13336489682f8d0b9107aa1ace4a8d0ee9996668e444dc6",
+    "rc5": "b44292bf926ba0434af5c42fc586a459c5d5243de233c4fffa57f92d20e69543"
+  },
+  {
+    "path": "src/render/paginate.ts",
+    "rc4": "71ca95daa3f73dcdd42545de1776e8a968fa323a7c70471430a8b7a18ecd04f0",
+    "rc5": "d339157e1517824f3ffc19d6a73c138015c5ca1791860e38ceaa5fa5d37d600f"
+  },
+  {
+    "path": "src/render/print-client.ts",
+    "rc4": "68e78a6ba434b510fc2b9de1f9cc7b3a88735ecafd06d3916b7cd7593f05750f",
+    "rc5": "514d89c2588f025f95ea0ea0a08b60e2b364ccc1f307d295ba39522079269448"
+  },
+  {
+    "path": "src/ui/i18n.ts",
+    "rc4": "840475b0086bd50402f70ee3d3ab3923971d30073d605762091313e3fb95ee6d",
+    "rc5": "42de47d7dd9a91ba33e747a9ee9d2e854b64a8fd9effdad25dcea34d6cf1b340"
+  },
+  {
+    "path": "src/ui/main.ts",
+    "rc4": "cb9295e4e30025a96ef6b0e67601026ba6697cbde570cb319bab35b603e55f70",
+    "rc5": "45800dc0d4b7860923f667c9164de633272b48564cf92e914ae76ef7245e1757"
+  },
+  {
+    "path": "tests/e2e/pdf-verify.mjs",
+    "rc4": "637728dbb56c84af8ca6c321e6640a2eeb58bb19501c991afb68687ac9428168",
+    "rc5": "49b47c270bf9eedbb54a7d3331d5fbbf4a64eacebf39e929bf81ec005b0f138b"
+  },
+  {
+    "path": "tests/e2e/startup-comparison.mjs",
+    "rc4": null,
+    "rc5": "264abc0e5901b041efd3db3f0f924248af6d30db6321ef9bb338a4989a5159ff"
+  },
+  {
+    "path": "tests/scripts/static-server.test.mjs",
+    "rc4": "9ecc8d48dda4b97b6dcf26399a19df6e00bacff95145754520ef21d0c7934a6d",
+    "rc5": "7af89839884dc0629a9466c127772a271868400bc36cd2331482859cce326b44"
+  },
+  {
+    "path": "tests/unit/core/autosave-delete.test.ts",
+    "rc4": null,
+    "rc5": "0e437244f415daf51f615a3393789ad54ee521291d7d3a63b011f38d8207400f"
+  },
+  {
+    "path": "tests/unit/core/rc5-math.test.ts",
+    "rc4": null,
+    "rc5": "aa4770d52c150fa6ef71983fd1973e43e9c0f3275d2d1651b47a3df7e2e115f6"
+  },
+  {
+    "path": "tests/unit/core/snapshot-efficiency.test.ts",
+    "rc4": "3f75579c5e84e950c4be54fdc98c9b4a26867ecc3fd9741ad452571ff58f41c7",
+    "rc5": "9ff6e9e1949ed0a57b09215a63fe3ba37723960b6d5e15684314fb7fbe82aadf"
+  },
+  {
+    "path": "tests/unit/engine/shared-source.test.ts",
+    "rc4": null,
+    "rc5": "312e43b51fe4ee7601d887bfc42a393b2ef2cdc4f9a26a9cea732f8d28ac8c38"
+  },
+  {
+    "path": "tests/unit/render/print-images.test.ts",
+    "rc4": null,
+    "rc5": "880bc1bfa1e19fbddaaf925d8eea820e2e9083c2d711ec1735e8fdd0a4ea01ac"
+  },
+  {
+    "path": "tests/unit/render/print-session.test.ts",
+    "rc4": null,
+    "rc5": "9189f99966fc61e72495fd1dbdf6a6a4977f28615f242e831a5370ec21d72583"
+  },
+  {
+    "path": "tests/unit/ui/save-recovery.test.ts",
+    "rc4": null,
+    "rc5": "6843aa4eb9754dd6030df2f12158b098ea14e5225860be18bfde7009f2deb083"
+  },
+  {
+    "path": "tests/unit/ui/studio-controls.test.ts",
+    "rc4": null,
+    "rc5": "eedc088287182026cbe5840988b2d6c049242415c4ff9b7a0a11bf4c5d5084b8"
+  },
+  {
+    "path": "vite.config.ts",
+    "rc4": "1afa1f0d44a53f063f3526fc0bdb0669f2730b1414e5922a696bcab44297b2c1",
+    "rc5": "ba7597def20a3981b335ef1715ea9e08cf531ac44c4bbaa65b5c31f1534d39a5"
+  }
+]

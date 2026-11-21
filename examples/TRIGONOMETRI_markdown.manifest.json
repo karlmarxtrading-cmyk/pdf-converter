@@ -10,14 +10,14 @@
       "revision": 1,
       "rawSourceHash": "c1a044fb86bfa492cb242443cca0bccdfb8f81316037141571251fee7c3106dc",
       "contentSnapshotHash": "828e32de9c5d78e83076ec28ac63d85773db04395847cf819bb4603a43a7db9b",
-      "renderInputHash": "230940faf1029d29dac4062c7da0a7f01c9b861f92a50952b59eb2fdba433c19",
+      "renderInputHash": "e743d1f18b36444a28e2acc5bdd9424a35395e9da934e9a1894a2f070b76d8b8",
       "templateId": "EDU-01",
       "templateVersion": "2.0.0",
-      "rendererVersion": "pf-render-3.0.0-rc.4"
+      "rendererVersion": "pf-render-3.0.0-rc.5"
     },
-    "outputHash": "061c63406a15467b253547a287d93174a4c1a7700b3a050f9f7f2b6eb3e9e5e6",
+    "outputHash": "51a619409c267143be1012daa048a6e67c94972f45b4e9e73ec927a53999e0e9",
     "bytes": 385105,
-    "createdAt": "2026-11-21T10:02:15.917Z",
+    "createdAt": "2026-11-21T12:22:15.618Z",
     "issueCount": 0,
     "settings": {
       "template": "EDU-01",

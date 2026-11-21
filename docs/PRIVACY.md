@@ -14,4 +14,4 @@
 - Hosting (Cloudflare Pages) dapat mencatat log akses HTTP standar (alamat IP, URL berkas statis, user agent) sesuai
   kebijakan penyedia. URL tidak memuat isi dokumen.
 
-Skenario kanari E18 dirancang untuk memeriksa kebocoran teks dokumen ke URL permintaan, origin lain, atau konsol. Hasil yang dikemas dari RC3 bersifat historis; E18 pada kandidat RC4 belum dapat dijalankan dalam audit ini. Lihat RELEASE_REPORT.md.
+Skenario kanari E18 dirancang untuk memeriksa kebocoran teks dokumen ke URL permintaan, origin lain, atau konsol. Hasil RC5 tersedia dalam ringkasan browser di `evidence/rc5/browser/`.

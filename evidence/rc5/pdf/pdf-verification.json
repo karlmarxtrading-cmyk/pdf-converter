@@ -1,0 +1,627 @@
+{
+  "tool": "tests/e2e/pdf-verify.mjs",
+  "candidateSha256": "9263951462ed4545e626a877f3ff196d6db5ff2e427585330972da4e8e9551a3",
+  "distQaTreeSha256": "32d4c5bef8fb2b12c48419c9462c8880c9fe82418cc006bcc4ec941d948f7ff1",
+  "at": "2026-11-21T12:37:49.280Z",
+  "note": "PDF dihasilkan oleh mesin cetak browser headless dari HTML datar yang sama dengan yang dibuka dialog cetak. Dialog cetak native TIDAK diuji di sini.",
+  "summary": {
+    "total": 8,
+    "pass": 4,
+    "fail": 4
+  },
+  "results": [
+    {
+      "id": "small-mixed-A4",
+      "sourceBytes": 25289,
+      "paper": "A4",
+      "orientation": "portrait",
+      "previewMs": 1013,
+      "layoutMs": 1885,
+      "appVerification": {
+        "status": "pass",
+        "pages": 10,
+        "inventory": [],
+        "structure": [],
+        "lostBlocks": 0
+      },
+      "layoutStatus": "done",
+      "blockingIssues": [],
+      "pages": 10,
+      "meta": {
+        "externalTargets": [
+          "https://contoh.id/laporan",
+          "https://example.org/docs",
+          "https://contoh.id/sumber"
+        ],
+        "internalLinks": 13,
+        "rasterImages": 2,
+        "title": "Laporan Uji Campuran PaperForma",
+        "pages": 10,
+        "glyphNotBundledReported": true
+      },
+      "engines": [
+        {
+          "engine": "Chrome Chrome/156.0.8078.79",
+          "ms": 651,
+          "file": "evidence/pdf/small-mixed-A4.chrome.pdf",
+          "bytes": 359871,
+          "checks": {
+            "pypdfReadable": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": false,
+            "rasterImagesPresent": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [
+            "ada font Type 3 (glyph sintetis)"
+          ],
+          "pages": 10,
+          "pdfVersion": "1.4",
+          "structureInspector": "pypdf strict reader + page streams",
+          "qpdf": "NOT_RUN: qpdf unavailable; pypdf strict reader is a narrower check",
+          "fonts": 15,
+          "type3Fonts": [
+            "JAAAAA+NotoColorEmoji",
+            "JAAAAA+NotoColorEmoji"
+          ],
+          "unsupportedGlyphsReported": true,
+          "images": 2,
+          "linkAnnots": {
+            "uri": 3,
+            "internal": 14
+          },
+          "rawOrderMatches": 1,
+          "text": {
+            "pagesChecked": 10,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 1
+          },
+          "visualReview": {
+            "formulas": 3,
+            "status": "NOT_RUN",
+            "note": "Text/annotation checks do not prove equation glyph geometry or visual clipping."
+          },
+          "status": "fail"
+        }
+      ],
+      "status": "fail"
+    },
+    {
+      "id": "trigonometry-A4",
+      "sourceBytes": 1488,
+      "paper": "A4",
+      "orientation": "portrait",
+      "previewMs": 579,
+      "layoutMs": 908,
+      "appVerification": {
+        "status": "pass",
+        "pages": 3,
+        "inventory": [],
+        "structure": [],
+        "lostBlocks": 0
+      },
+      "layoutStatus": "done",
+      "blockingIssues": [],
+      "pages": 3,
+      "meta": {
+        "externalTargets": [],
+        "internalLinks": 4,
+        "rasterImages": 0,
+        "title": "Trigonometri: korpus pemeriksaan",
+        "pages": 3,
+        "glyphNotBundledReported": false
+      },
+      "engines": [
+        {
+          "engine": "Chrome Chrome/156.0.8078.79",
+          "ms": 244,
+          "file": "evidence/pdf/trigonometry-A4.chrome.pdf",
+          "bytes": 61373,
+          "checks": {
+            "pypdfReadable": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "rasterImagesPresent": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 3,
+          "pdfVersion": "1.4",
+          "structureInspector": "pypdf strict reader + page streams",
+          "qpdf": "NOT_RUN: qpdf unavailable; pypdf strict reader is a narrower check",
+          "fonts": 7,
+          "type3Fonts": [],
+          "unsupportedGlyphsReported": false,
+          "images": 0,
+          "linkAnnots": {
+            "uri": 0,
+            "internal": 4
+          },
+          "text": {
+            "pagesChecked": 3,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 1
+          },
+          "visualReview": {
+            "formulas": 21,
+            "status": "NOT_RUN",
+            "note": "Text/annotation checks do not prove equation glyph geometry or visual clipping."
+          },
+          "status": "pass"
+        }
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "einstein-A4",
+      "sourceBytes": 946,
+      "paper": "A4",
+      "orientation": "portrait",
+      "previewMs": 434,
+      "layoutMs": 769,
+      "appVerification": {
+        "status": "pass",
+        "pages": 1,
+        "inventory": [],
+        "structure": [],
+        "lostBlocks": 0
+      },
+      "layoutStatus": "done",
+      "blockingIssues": [],
+      "pages": 1,
+      "meta": {
+        "externalTargets": [],
+        "internalLinks": 0,
+        "rasterImages": 0,
+        "title": "Relativitas khusus Einstein",
+        "pages": 1,
+        "glyphNotBundledReported": false
+      },
+      "engines": [
+        {
+          "engine": "Chrome Chrome/156.0.8078.79",
+          "ms": 110,
+          "file": "evidence/pdf/einstein-A4.chrome.pdf",
+          "bytes": 51245,
+          "checks": {
+            "pypdfReadable": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "rasterImagesPresent": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 1,
+          "pdfVersion": "1.4",
+          "structureInspector": "pypdf strict reader + page streams",
+          "qpdf": "NOT_RUN: qpdf unavailable; pypdf strict reader is a narrower check",
+          "fonts": 8,
+          "type3Fonts": [],
+          "unsupportedGlyphsReported": false,
+          "images": 0,
+          "linkAnnots": {
+            "uri": 0,
+            "internal": 0
+          },
+          "text": {
+            "pagesChecked": 1,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 0
+          },
+          "visualReview": {
+            "formulas": 11,
+            "status": "NOT_RUN",
+            "note": "Text/annotation checks do not prove equation glyph geometry or visual clipping."
+          },
+          "status": "pass"
+        }
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "small-mixed-Letter-landscape",
+      "sourceBytes": 25289,
+      "paper": "Letter",
+      "orientation": "landscape",
+      "previewMs": 837,
+      "layoutMs": 1450,
+      "appVerification": {
+        "status": "pass",
+        "pages": 13,
+        "inventory": [],
+        "structure": [],
+        "lostBlocks": 0
+      },
+      "layoutStatus": "done",
+      "blockingIssues": [],
+      "pages": 13,
+      "meta": {
+        "externalTargets": [
+          "https://contoh.id/laporan",
+          "https://example.org/docs",
+          "https://contoh.id/sumber"
+        ],
+        "internalLinks": 13,
+        "rasterImages": 2,
+        "title": "Laporan Uji Campuran PaperForma",
+        "pages": 13,
+        "glyphNotBundledReported": true
+      },
+      "engines": [
+        {
+          "engine": "Chrome Chrome/156.0.8078.79",
+          "ms": 639,
+          "file": "evidence/pdf/small-mixed-Letter-landscape.chrome.pdf",
+          "bytes": 366507,
+          "checks": {
+            "pypdfReadable": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": false,
+            "rasterImagesPresent": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [
+            "ada font Type 3 (glyph sintetis)"
+          ],
+          "pages": 13,
+          "pdfVersion": "1.4",
+          "structureInspector": "pypdf strict reader + page streams",
+          "qpdf": "NOT_RUN: qpdf unavailable; pypdf strict reader is a narrower check",
+          "fonts": 15,
+          "type3Fonts": [
+            "JAAAAA+NotoColorEmoji",
+            "JAAAAA+NotoColorEmoji"
+          ],
+          "unsupportedGlyphsReported": true,
+          "images": 2,
+          "linkAnnots": {
+            "uri": 3,
+            "internal": 14
+          },
+          "text": {
+            "pagesChecked": 13,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 1
+          },
+          "visualReview": {
+            "formulas": 3,
+            "status": "NOT_RUN",
+            "note": "Text/annotation checks do not prove equation glyph geometry or visual clipping."
+          },
+          "status": "fail"
+        }
+      ],
+      "status": "fail"
+    },
+    {
+      "id": "small-mixed-A5",
+      "sourceBytes": 25289,
+      "paper": "A5",
+      "orientation": "portrait",
+      "previewMs": 1118,
+      "layoutMs": 1917,
+      "appVerification": {
+        "status": "pass",
+        "pages": 20,
+        "inventory": [],
+        "structure": [],
+        "lostBlocks": 0
+      },
+      "layoutStatus": "done",
+      "blockingIssues": [],
+      "pages": 20,
+      "meta": {
+        "externalTargets": [
+          "https://contoh.id/laporan",
+          "https://example.org/docs",
+          "https://contoh.id/sumber"
+        ],
+        "internalLinks": 13,
+        "rasterImages": 2,
+        "title": "Laporan Uji Campuran PaperForma",
+        "pages": 20,
+        "glyphNotBundledReported": true
+      },
+      "engines": [
+        {
+          "engine": "Chrome Chrome/156.0.8078.79",
+          "ms": 1135,
+          "file": "evidence/pdf/small-mixed-A5.chrome.pdf",
+          "bytes": 383140,
+          "checks": {
+            "pypdfReadable": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": false,
+            "rasterImagesPresent": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [
+            "ada font Type 3 (glyph sintetis)"
+          ],
+          "pages": 20,
+          "pdfVersion": "1.4",
+          "structureInspector": "pypdf strict reader + page streams",
+          "qpdf": "NOT_RUN: qpdf unavailable; pypdf strict reader is a narrower check",
+          "fonts": 15,
+          "type3Fonts": [
+            "JAAAAA+NotoColorEmoji",
+            "JAAAAA+NotoColorEmoji"
+          ],
+          "unsupportedGlyphsReported": true,
+          "images": 2,
+          "linkAnnots": {
+            "uri": 3,
+            "internal": 15
+          },
+          "text": {
+            "pagesChecked": 20,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 1
+          },
+          "visualReview": {
+            "formulas": 3,
+            "status": "NOT_RUN",
+            "note": "Text/annotation checks do not prove equation glyph geometry or visual clipping."
+          },
+          "status": "fail"
+        }
+      ],
+      "status": "fail"
+    },
+    {
+      "id": "medium-30",
+      "sourceBytes": 170427,
+      "paper": "A4",
+      "orientation": "portrait",
+      "previewMs": 2108,
+      "layoutMs": 4493,
+      "appVerification": {
+        "status": "pass",
+        "pages": 62,
+        "inventory": [],
+        "structure": [],
+        "lostBlocks": 0
+      },
+      "layoutStatus": "done",
+      "blockingIssues": [],
+      "pages": 62,
+      "meta": {
+        "externalTargets": [
+          "https://contoh.id/laporan",
+          "https://example.org/docs",
+          "https://contoh.id/sumber"
+        ],
+        "internalLinks": 44,
+        "rasterImages": 2,
+        "title": "Laporan Uji Campuran PaperForma",
+        "pages": 62,
+        "glyphNotBundledReported": true
+      },
+      "engines": [
+        {
+          "engine": "Chrome Chrome/156.0.8078.79",
+          "ms": 1759,
+          "file": "evidence/pdf/medium-30.chrome.pdf",
+          "bytes": 786488,
+          "checks": {
+            "pypdfReadable": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": false,
+            "rasterImagesPresent": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [
+            "ada font Type 3 (glyph sintetis)"
+          ],
+          "pages": 62,
+          "pdfVersion": "1.4",
+          "structureInspector": "pypdf strict reader + page streams",
+          "qpdf": "NOT_RUN: qpdf unavailable; pypdf strict reader is a narrower check",
+          "fonts": 15,
+          "type3Fonts": [
+            "JAAAAA+NotoColorEmoji",
+            "JAAAAA+NotoColorEmoji"
+          ],
+          "unsupportedGlyphsReported": true,
+          "images": 2,
+          "linkAnnots": {
+            "uri": 3,
+            "internal": 45
+          },
+          "rawOrderMatches": 1,
+          "text": {
+            "pagesChecked": 62,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 1
+          },
+          "visualReview": {
+            "formulas": 3,
+            "status": "NOT_RUN",
+            "note": "Text/annotation checks do not prove equation glyph geometry or visual clipping."
+          },
+          "status": "fail"
+        }
+      ],
+      "status": "fail"
+    },
+    {
+      "id": "large-115",
+      "sourceBytes": 556111,
+      "paper": "A4",
+      "orientation": "portrait",
+      "previewMs": 2978,
+      "layoutMs": 12457,
+      "appVerification": {
+        "status": "pass",
+        "pages": 195,
+        "inventory": [],
+        "structure": [],
+        "lostBlocks": 0
+      },
+      "layoutStatus": "done",
+      "blockingIssues": [],
+      "pages": 195,
+      "meta": {
+        "externalTargets": [],
+        "internalLinks": 116,
+        "rasterImages": 0,
+        "title": "Dokumen sintetis untuk uji panjang",
+        "pages": 195,
+        "glyphNotBundledReported": false
+      },
+      "engines": [
+        {
+          "engine": "Chrome Chrome/156.0.8078.79",
+          "ms": 5270,
+          "file": "evidence/pdf/large-115.chrome.pdf",
+          "bytes": 1650023,
+          "checks": {
+            "pypdfReadable": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "rasterImagesPresent": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 195,
+          "pdfVersion": "1.4",
+          "structureInspector": "pypdf strict reader + page streams",
+          "qpdf": "NOT_RUN: qpdf unavailable; pypdf strict reader is a narrower check",
+          "fonts": 3,
+          "type3Fonts": [],
+          "unsupportedGlyphsReported": false,
+          "images": 0,
+          "linkAnnots": {
+            "uri": 0,
+            "internal": 116
+          },
+          "text": {
+            "pagesChecked": 195,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 1
+          },
+          "visualReview": {
+            "formulas": 0,
+            "status": "NOT_RUN",
+            "note": "Text/annotation checks do not prove equation glyph geometry or visual clipping."
+          },
+          "status": "pass"
+        }
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "memory-repeat-layout",
+      "rounds": [
+        {
+          "round": 1,
+          "verifiedLayout": true,
+          "usedMiB": 14.2,
+          "iframes": 3
+        },
+        {
+          "round": 2,
+          "verifiedLayout": true,
+          "usedMiB": 14.6,
+          "iframes": 3
+        },
+        {
+          "round": 3,
+          "verifiedLayout": true,
+          "usedMiB": 14.9,
+          "iframes": 3
+        },
+        {
+          "round": 4,
+          "verifiedLayout": true,
+          "usedMiB": 15.2,
+          "iframes": 3
+        },
+        {
+          "round": 5,
+          "verifiedLayout": true,
+          "usedMiB": 15.5,
+          "iframes": 3
+        },
+        {
+          "round": 6,
+          "verifiedLayout": true,
+          "usedMiB": 15.8,
+          "iframes": 3
+        }
+      ],
+      "growthMiBRound2to6": 1.2,
+      "status": "pass"
+    }
+  ]
+}

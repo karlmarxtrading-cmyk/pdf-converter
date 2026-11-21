@@ -1,0 +1,21 @@
+{
+  "observedAt": "2026-11-21T12:16:40.087Z",
+  "target": "https://performa-cwd.pages.dev/",
+  "githubHead": "c44b27f466f8a6483552df3d47b17fc61f458759",
+  "deployedVersion": "3.0.0-rc.4",
+  "deployedEntrySha256": "8509213d91589ed7b112dbfdd244b16f0bdb32f598ec72e2058357d17838bc2a",
+  "rc4Source": "680c8b5c6cb1ca3948e19c17857682ab6711d3a2fb70430565692f8a0feadd79",
+  "rc4HttpChecks": {
+    "passed": 285,
+    "total": 285,
+    "publicFilesCompared": 280
+  },
+  "reproducedOnOriginalRC4": {
+    "procedure": "Append a comment to source index.html, keeping same RC4 package version, manifest and dist. Run node scripts/verify-http.mjs --local.",
+    "unchangedManifestSource": "680c8b5c6cb1ca3948e19c17857682ab6711d3a2fb70430565692f8a0feadd79",
+    "mutatedSource": "d63984800f9c82ec5c490dcc6ee0a62d2544b37b1270ffaabb0a1c00fea36c3e",
+    "incorrectVerifierResult": true,
+    "checksPassed": 285
+  },
+  "deploymentChangedByThisRun": false
+}

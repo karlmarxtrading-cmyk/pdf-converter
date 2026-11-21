@@ -1,3 +1,0 @@
-{"case":"repeated-math-400","outputsEqual":true,"baselineMedian":123.89249199999995,"candidateMedian":70.65246200000001}
-{"case":"block-membership-8000","outputsEqual":true,"baselineMedian":574.0640809999995,"candidateMedian":7.7067839999999705}
-{"case":"currency-lines-10000","outputsEqual":true,"baselineMedian":683.9914989999997,"candidateMedian":16.39174699999967}

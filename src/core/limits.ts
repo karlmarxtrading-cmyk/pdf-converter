@@ -9,6 +9,14 @@ import { formatBytes, type Bilingual } from './util';
 
 const MiB = 1024 * 1024;
 
+/**
+ * QA-02: anggaran dekode gambar, diperiksa dari HEADER sebelum gambar pernah didekode (tidak ada <img>/bitmap/canvas).
+ * Angka ini batas keselamatan memori (RGBA 4 byte/piksel): 40 MP ≈ 160 MiB per gambar; total proyek 200 MP.
+ * Ini bukan kapasitas yang dijamin untuk semua perangkat; perangkat bermemori kecil dapat gagal lebih awal dan
+ * kegagalan itu dilaporkan tanpa mengubah sumber.
+ */
+export const IMAGE_BUDGET = Object.freeze({ maxDimension: 16_384, maxPixels: 40_000_000, maxTotalPixels: 200_000_000 });
+
 export const LIMITS: Limits = Object.freeze({
   markdownBytes: 5 * MiB,
   pasteBytes: 5 * MiB,

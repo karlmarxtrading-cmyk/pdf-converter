@@ -1,0 +1,89 @@
+[
+  {
+    "indexDeclared": [
+      {
+        "path": "index.html",
+        "bytes": 32333,
+        "gzip9": 6534
+      },
+      {
+        "path": "assets/main-doLqWopj.js",
+        "bytes": 1311382,
+        "gzip9": 411800
+      },
+      {
+        "path": "assets/paginate-error-B2kWKKv3.js",
+        "bytes": 9252,
+        "gzip9": 3822
+      },
+      {
+        "path": "assets/_commonjsHelpers-Cpj98o6Y.js",
+        "bytes": 236,
+        "gzip9": 179
+      },
+      {
+        "path": "assets/main-Yl4gEbVd.css",
+        "bytes": 23365,
+        "gzip9": 5745
+      }
+    ],
+    "indexDeclaredGzip9": 428080,
+    "worker": [
+      {
+        "path": "assets/engine.worker-CCRqm8IN.js",
+        "bytes": 914736,
+        "gzip9": 283521
+      }
+    ],
+    "onDemandTeX": []
+  },
+  {
+    "indexDeclared": [
+      {
+        "path": "index.html",
+        "bytes": 32333,
+        "gzip9": 6530
+      },
+      {
+        "path": "assets/main-Dteurh3s.js",
+        "bytes": 1045141,
+        "gzip9": 333011
+      },
+      {
+        "path": "assets/paginate-error-Dmgrgk1h.js",
+        "bytes": 14734,
+        "gzip9": 6211
+      },
+      {
+        "path": "assets/_commonjsHelpers-Cpj98o6Y.js",
+        "bytes": 236,
+        "gzip9": 179
+      },
+      {
+        "path": "assets/main-Yl4gEbVd.css",
+        "bytes": 23365,
+        "gzip9": 5745
+      }
+    ],
+    "indexDeclaredGzip9": 351676,
+    "worker": [
+      {
+        "path": "assets/engine.worker-C1ieoNok.js",
+        "bytes": 652603,
+        "gzip9": 206431
+      }
+    ],
+    "onDemandTeX": [
+      {
+        "path": "assets/tex-renderer-B8QSyZr1.js",
+        "bytes": 528,
+        "gzip9": 379
+      },
+      {
+        "path": "assets/tex-renderer-DohugvCX.js",
+        "bytes": 262285,
+        "gzip9": 77374
+      }
+    ]
+  }
+]

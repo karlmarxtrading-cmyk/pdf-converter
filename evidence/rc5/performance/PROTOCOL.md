@@ -1,0 +1,18 @@
+# Protokol snapshot RC4–RC5
+
+Anggaran ditetapkan sebelum perubahan implementasi. Pada fixture RC4 dengan sepuluh buffer independen 1 MiB, sasaran median dan p95 turun sedikitnya 10% masing-masing. Untuk riwayat besar dan teks kecil, tandai regresi bila p95 bertambah lebih dari 15% **dan** lebih dari 1 ms. Ketiga hash harus identik pada setiap pasangan dengan versi renderer dan templat yang disamakan.
+
+Profil awal memisahkan salinan sinkron, digest aset, identitas sumber mentah, identitas isi dan sisa biaya snapshot. Pengukuran komponen ini independen dari perbandingan penuh. Perbandingan penuh menjalankan fixture deterministik yang sama untuk kedua versi pada satu proses Node, 4 pasangan pemanasan dan 40 pasangan terukur, urutan AB/BA berselang. Semua sampel disimpan, tanpa membuang pencilan. Laporkan sampel pertama (runtime segar per skenario), median, p95 nearest-rank, minimum dan maksimum. Tidak memaksa GC. Catat runtime, CPU, sidik jari komponen. Ukuran dan riwayat mengikuti snapshot-benchmark.mjs RC4. Skenario tambahan “subview” menggunakan jendela byte kecil dari alokasi besar untuk menilai apakah snapshot menahan data di luar aset. Buffer beraset dalam benchmark merupakan fixture pengukuran penyalinan dan hashing; gambar asli diuji terpisah melalui alur browser/PDF. Angka Node tidak mewakili waktu cetak browser.
+
+## Analisis pekerja dan jalur cadangan
+
+Gunakan data generate-stress 1, 6, 30, 59 bagian (keluarga beban yang kira-kira mewakili 1, 10, 50, 100 halaman pada generator asli) ditambah delapan ekspresi matematika per bagian. Hitung byte, baris tabel, rumus, dan jumlah bagian persis. Naskah ini tidak dipaginasi dalam tolok ukur Node. Ukur kelas EngineClient sebenarnya, lewat worker_threads dengan adapter antarmuka Web Worker dan secara terpisah via factory null. Biaya wall mencakup transfer pesan untuk worker. Nilai chars, render, integrityModel dan references dikeluarkan oleh kode produksi. Cek isi serta mode setiap rumus, keluaran KaTeX, model integritas, dan hitungan tabel. Satu pasangan pemanasan per jalur dan ukuran, AB/BA bergantian, 20 pasangan terukur untuk 1 dan 6 bagian, 4 untuk 30 dan 59 bagian. P95 empiris pada n=4 adalah maksimum, sehingga tidak dipakai menetapkan tail latency populasi. Tandai kenaikan median di atas 20% dan 20 ms untuk penyelidikan. Pengujian ini berhenti di hasil analisis yang dapat dikirim ke thread UI, sebelum sanitasi DOM akhir atau tata letak.
+
+## Uji diagnostik dua regresi matriks
+
+Hasil antara tetap disimpan di engine-before-ast-sharing.json. Setelah mendapatkan kenaikan median pada thread 6 bagian dan fallback 59 bagian, ukur ulang hanya dua baris tersebut. Di Linux, pakai CPU bernomor terendah dari daftar yang diizinkan untuk menghilangkan perbedaan penempatan thread antara kedua kandidat. Balik urutan awal. Catat CPU thread selain wall time. Tetapkan 20 pasangan untuk 6 bagian, 8 pasangan untuk 59 bagian, dan satu pemanasan, tanpa menghapus hasil primer. Data diagnostik tidak mengganti gate yang ditentukan.
+
+
+## Optimasi sesudah investigasi
+
+Sebelum optimasi, profil memperlihatkan fase rujukan memanggil parser Markdown lagi pada naskah biasa. RC5 membangun AST tervalidasi tersendiri untuk pemeriksaan keutuhan, lalu memberikan AST itu kepada pemeriksa rujukan dalam pekerjaan yang sama. Renderer tetap mengurai sumber secara independen; percakapan terstruktur menggunakan pemeriksaan per pesan. Setelah perubahan ini, jalankan kembali seluruh matriks yang sudah ditetapkan dengan aturan 20 / 20 / 4 / 4 pasangan dan batas kenaikan median 20% serta 20 ms yang sama. Mulai sesudah build, lint dan unit test sehingga tidak bersaing dengan tugas tersebut pada awal pengukuran. Laporkan semua baris serta sisa regresi.

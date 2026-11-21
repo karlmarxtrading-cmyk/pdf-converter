@@ -1,0 +1,38 @@
+{
+  "verifiedAt": "2026-11-21T12:27:57.127Z",
+  "candidateSha256": "9263951462ed4545e626a877f3ff196d6db5ff2e427585330972da4e8e9551a3",
+  "productionDistTreeSha256": "0987e2ef814b844374f84b2ff26a5be4b4c675fc2dff12423e9cea0a7b69a1cd",
+  "comparison": "Benchmark runner input hashes and final compiled release manifest checked against working sources. Snapshot runner passes equal renderer/template versions explicitly for hash parity; engine runner uses application source with locked packages in Node.",
+  "snapshotComponents": {
+    "src/core/hash.ts": "f676002968d753fe756872b89295a84216bee46f2f15fa7c96dffaec46e089aa",
+    "src/core/contracts.ts": "aadc2a6bb491ced9e3b64329e47b9f842a80c72484f5c960e125ac4cd5998894",
+    "src/render/templates.ts": "94be3ebd12e2593660b0d788b14e8ecd10044ab8154eaa3218ab0509ce8123b8"
+  },
+  "engineComponents": {
+    "src/core/assets.ts": "8a78d75856652b4dec9ded29885c5fb0090e19cc25a30668b542ea0e2525be3b",
+    "src/core/chars.ts": "d118a600adc85123fe5f7b5208580f59c6342b513bf7f2154caab9a60d6505d1",
+    "src/core/clipboard.ts": "19e8015ff036b5d013bcfd4d3f67ebf64a7fe46b957fe3fa068e904dc8bfb31e",
+    "src/core/contracts.ts": "aadc2a6bb491ced9e3b64329e47b9f842a80c72484f5c960e125ac4cd5998894",
+    "src/core/conversation.ts": "874f97b8cdef8d16c069e7c5dd78d6b6ffdcb2f29198f85cbda7c4e2621653dc",
+    "src/core/hash.ts": "f676002968d753fe756872b89295a84216bee46f2f15fa7c96dffaec46e089aa",
+    "src/core/html.ts": "35c235bdea0083a212a5ca38c8551555aea27b8237b8774e4578b373d8a6d162",
+    "src/core/integrity.ts": "afe17d5c31fe03de9d3559c4035ebe620a9d112f3ae0d6af3e48c15808afdda5",
+    "src/core/limits.ts": "9e1fd7ef39bb778f10add1bbedd69296e24832de30bf8b328a163ae05444e104",
+    "src/core/markdown.ts": "9f39d376ea56c65aebbad42bfd784567dd88b98e205c59c5f865ddd1831214f1",
+    "src/core/math.ts": "37e2fe37ff1821cf12ec170646ec733c27c065336cc106385e67e054d57cdef7",
+    "src/core/preflight.ts": "1263dbdde6d9a33525ed1c3534f1fb2f6a8e48845aa0433d4f54032041a552f7",
+    "src/core/render.ts": "ec61064eda138d745d8ebb4671e9d8a2ce55ab2dae47f816b7b93a31017d20e1",
+    "src/core/sanitize.ts": "5ce20cb5b77125968425f5f1e98efa314630347ffc2e785e1c09da6b30d439f1",
+    "src/core/tex-renderer.ts": "ab4f7d08789cbd58fc49daf630e870bf2089146046b5ecf3ea3e1b1f0e2ba193",
+    "src/core/util.ts": "eae0f244fcdf4c8dbc3d32991b6ff115abb34e76affc050d88872de37e8c5d6e",
+    "src/core/wrapper.ts": "c242e55f2ded0a4da7c31344f376251b0b91964001b60c28c8ed24950cafe528",
+    "src/engine/analyze.ts": "0f8b821e7046c268fa9721e786cbb6911dca700970d2485ab5cde5422d0a591c",
+    "src/engine/client.ts": "a0fb662f04eebdc081b150dd618af09079eb5aeee421d7984fe0a2fc75d32711",
+    "src/engine/protocol.ts": "165959e7908ac3b55a1a67b41ae61b0c18d31c26b505b17f91d1ba1a0af7fe7a",
+    "src/render/labels.ts": "07335b18c37e05c09a6a21b35e22a9db3bc0d0d78ed780456903d97a001cf3ad",
+    "src/render/templates.ts": "94be3ebd12e2593660b0d788b14e8ecd10044ab8154eaa3218ab0509ce8123b8",
+    "src/engine/handler.ts": "96c4043b6d7dc58abe8f778316d6de15a980f5c32103d7be7ccaad68ed89cc69"
+  },
+  "componentBenchmarkBuild": "11e800988402cfa171bc86a591ffdba08bf9c0c532319454180175549d151460",
+  "finalCheck": "Every measured component file was hashed again after the studio landing example scheduling change; all were identical. The browser benchmarks were rerun on the new production build."
+}

@@ -1,61 +1,45 @@
-# PaperForma 3.0.0-rc.4 — audit dan perbaikan mesin dokumen
+# PaperForma 3.0.0-rc.5
 
-PaperForma mengolah Markdown, teks UTF-8, HTML clipboard, percakapan, ZIP naskah + gambar dan proyek `.pfproj` menjadi HTML atau halaman cetak. PDF disimpan melalui dialog cetak browser. Pemrosesan dokumen berjalan di perangkat pengguna, tanpa akun atau backend.
+Studio dokumen statis untuk menyiapkan materi, memeriksa rumus dan mengunduh HTML mandiri atau mencetak PDF. Seluruh isi naskah diproses di perangkat pengguna. Pilih **Buka berkas** untuk Markdown, teks UTF-8, paket proyek atau arsip naskah dengan gambar. Gunakan **Tempel** untuk materi percakapan dan HTML clipboard. Periksa pratinjau dan panel temuan sebelum mengekspor.
 
-**Status: kandidat yang telah diperbaiki dan diuji pada tingkat kode, ekspor HTML, paket dan HTTP lokal. Belum disertifikasi untuk produksi umum.** Pengujian browser/PDF baru tidak dapat dijalankan di lingkungan audit; hasil browser RC3 disimpan sebagai bukti historis. Keputusan lengkap dan hasil aktual: [docs/RELEASE_REPORT.md](docs/RELEASE_REPORT.md).
+**Kandidat untuk staging.** [Keputusan rilis dan gate A–H](docs/RELEASE_REPORT.md) merinci apa yang telah dibuktikan dari paket ini. Buka [contoh trigonometri mandiri](examples/TRIGONOMETRI_markdown.html) untuk melihat hasil 21 rumus, atau buka sumbernya di aplikasi dari `fixtures/trigonometry/trigonometry.md`. Contoh PDF dan pemeriksaan halaman tersedia di `evidence/rc5/pdf/`.
 
-## Yang diperbaiki
+## Ekstrak dan jalankan
 
-- Rumus literal di tabel kompleks/caption, label tautan, markup inline terpecah dan mode display di sel/daftar/emphasis.
-- Delimiter serta indentasi contoh kode tetap literal; URL gambar bertanda dolar tetap dikenali.
-- Batas struktur HTML dan gambar inline sebelum pekerjaan berisiko; data tidak dipotong diam-diam.
-- Font BrandKit/KaTeX, pembatalan dan timeout ekspor, keutuhan spasi kode setelah paginasi, dan oracle PDF.
-- Pergantian proyek saat impor aset berlangsung, alias nama gambar, undo/redo, pemulihan riwayat dan dialog perbandingan besar.
-- Tiga hotspot CPU dan pekerjaan snapshot berulang; angka pengukuran dengan batasnya ada di [docs/PERFORMANCE_REPORT.md](docs/PERFORMANCE_REPORT.md).
-- Pemeriksa versi, hasil uji, aset build dan HTTP deployment. Website lama atau berkas yang tidak sama dengan `dist` akan dilaporkan gagal.
+Ekstrak ZIP ke folder kosong. Di root folder terdapat `package.json`, `src/` dan `dist/`. Pakai Node **24.22.3** dan npm **11.6.0 hingga sebelum 12**. Di Git Bash, PowerShell, macOS atau Linux, jalankan:
 
-## Jalankan
-
-Node **24.22.3**, npm **>=11.6.0 <12**. Audit ini memakai npm **11.19.1**. Versi Node dipin; jangan menonaktifkan `engine-strict` untuk menutupi EBADENGINE.
-
-```bash
-node -v
-npm -v
+```sh
 npm ci
-npm run typecheck
-npm run lint
-npm test
 npm run build
-npm run verify:http -- --local
 npm run preview
 ```
 
-Buka `http://127.0.0.1:4173/`. Build yang dipublikasikan adalah **`dist`**, bukan `index.html` sumber di root. Build QA di `dist-qa` memuat kait pengujian dan tidak boleh dipublikasikan.
+Buka `http://127.0.0.1:4173/`. Untuk menguji hasil ZIP tanpa menginstal dependensi proyek, jalankan `node scripts/serve-dist.mjs dist 4173` jika Node sudah terpasang. Halaman aplikasi memerlukan HTTP(S). HTML mandiri hasil ekspor membawa font dan gambar lokal di dalam satu berkas.
 
-## Uji kasus gambar pengguna
+## GitHub dan Cloudflare Pages
 
-Buka `fixtures/trigonometry/trigonometry.md` melalui **Buka berkas**. Dua ekspor HTML mandiri hasil API aktual ada di `examples/`. Korpus berisi 21 rumus dan mempertahankan tulisan “Drag point P”/“Beri masukan”. Ini transkripsi sintetis dari tangkapan layar, bukan salinan clipboard asli. Grafik interaktif yang tidak ikut dalam masukan tidak direkonstruksi atau dikarang.
+Masukkan isi folder hasil ekstraksi ke **root checkout**. Langkah Windows untuk membuat branch preview, memeriksa perubahan dan rollback ada di [panduan deploy](docs/DEPLOY_CLOUDFLARE.md). Cloudflare Pages menggunakan `npm run build`, output `dist`, dan variabel `NODE_VERSION=24.22.3`. Folder `dist/` yang disertakan berguna untuk membandingkan hasil build atau mencoba situs secara lokal. Pada alur Git, Pages membangunnya kembali. Hanya isi `dist/` yang disajikan kepada pengunjung.
 
-## Deploy GitHub → Cloudflare Pages
+## Verifikasi
 
-Salin **isi folder `repository` dari ZIP** ke root checkout sehingga `package.json` berada di root. Pertahankan folder `.git` milik checkout yang sudah ada. Gunakan Node `24.22.3`, build command `npm run build`, output `dist`. Petunjuk lengkap: [docs/DEPLOY_CLOUDFLARE.md](docs/DEPLOY_CLOUDFLARE.md).
-
-Sesudah preview deployment aktif:
-
-```bash
-npm run verify:http -- https://NAMA-PROYEK.pages.dev
-npm run verify:deployment -- https://NAMA-PROYEK.pages.dev
+```sh
+npm run typecheck
+npm run lint
+npm test
+npm run verify:http -- --local
 ```
 
-Perintah kedua memerlukan Chrome/Chromium/Edge lokal; bila perlu atur `PF_CHROME` ke executable browser. Pemeriksa HTTP tidak memerlukan browser dan tidak menyatakan PDF telah diuji.
+`SHA256SUMS` mencatat semua berkas lain dalam ZIP. Dengan Python 3.11+ dan Node/npm yang sesuai, perintah berikut mengekstrak arsip yang dipilih ke folder bersih, memeriksa seluruh checksum, menginstal dependensi, menjalankan tes, lalu membandingkan setiap byte hasil build.
 
-## Struktur bukti
+```sh
+python scripts/verify-archive.py ../PAPERFORMA_STATIC_3.0.0-rc.5.zip
+```
 
-- `evidence/audit-rc4/`: pemeriksaan baru, reproduksi sebelum/perbaikan, pengukuran dan inventaris seluruh ZIP masukan.
-- `evidence/history/rc3/` dan `docs/history/rc3/`: bukti/dokumen asli, **bukan** status kandidat RC4.
-- `dist.build-manifest.json`: identitas sumber dan hasil produksi.
-- `docs/AUDIT_RC4.md`: temuan, keputusan teknis, risiko yang tersisa.
-- `docs/TESTING.md`: pengujian yang dapat diulang dan alur manual sebelum rilis.
-- `docs/KNOWN_LIMITS.md`: batas format, font, kapasitas, browser dan PDF.
+## Format dan penyimpanan
 
-Tidak ada klaim “membaca setiap format” atau “tercepat di dunia”. Jika format/glyph tidak didukung atau integritas tidak dapat dibuktikan, aplikasi melaporkan kondisi itu; sumber asli dipertahankan.
+Markdown/GFM, TeX KaTeX, HTML clipboard yang disanitasi, gambar lokal dan proyek `.pfproj` memiliki jalur impor tersendiri. HTML yang sudah dirender memerlukan anotasi TeX untuk memulihkan rumus secara persis. Label widget yang tersalin tetap menjadi teks. PDF, DOCX dan OCR sebagai input berada di luar cakupan. Pada alur cetak, PaperForma menyiapkan halaman, lalu pengguna memilih tujuan **Simpan sebagai PDF** pada dialog browser. Untuk pindah domain atau perangkat, unduh cadangan `.pfproj` terlebih dahulu.
+
+- [Batas dukungan](docs/KNOWN_LIMITS.md)
+- [Performa dan data sampel](docs/PERFORMANCE_REPORT.md)
+- [Pengujian dan reproduksi](docs/TESTING.md)
+- [Pemulihan data](docs/RECOVERY.md)

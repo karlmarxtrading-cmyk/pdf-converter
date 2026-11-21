@@ -4,10 +4,11 @@
  * dibuktikan oleh tests/unit/engine/worker-handler.test.ts yang berjalan di lingkungan Node tanpa DOM.
  */
 import { renderStage1, type CoreRenderOptions, type RenderStage1 } from '../core/render';
-import { integrityExpectation, type IntegrityExpectation } from '../core/integrity';
+import { integrityFromParsed, integrityExpectation, type IntegrityExpectation } from '../core/integrity';
 import { analyzeChars, type CharAnalysis } from '../core/chars';
 import type { CoreIssue } from '../core/util';
-import { assetPreflight } from '../core/preflight';
+import { assetPreflight, preflightImageSources } from '../core/preflight';
+import { parseMarkdown } from '../core/markdown';
 import type { AssetPreflight } from '../core/assets';
 export type { CharAnalysis };
 import type { AssetRecord } from '../core/contracts';
@@ -39,12 +40,19 @@ export async function analyze(input: AnalyzeInput, hooks: PhaseHooks = {}): Prom
   await hooks.checkpoint?.();
   t = now();
   await hooks.onPhase?.('integrity-model', 2);
-  const expected = integrityExpectation(input.source, { ...(input.options.idPrefix ? { idPrefix: input.options.idPrefix } : {}), ...(input.options.conversation ? { conversation: input.options.conversation } : {}) });
+  // A fresh, independently validated tree is the oracle. Do not reuse the renderer's
+  // tree or retain it across jobs. Conversation projections keep their per-message paths.
+  const { conversation, idPrefix, sourcePath } = input.options;
+  const parsed = conversation ? undefined : parseMarkdown(input.source);
+  const expected = parsed ? integrityFromParsed(parsed, idPrefix) : integrityExpectation(input.source, { conversation, idPrefix });
   timings.integrityModel = now() - t;
   await hooks.checkpoint?.();
   t = now();
   await hooks.onPhase?.('references', 3);
-  const assets = assetPreflight({ source: input.source, sourcePath: input.options.sourcePath, assets: input.options.assets as unknown as AssetRecord[], conversation: input.options.conversation });
+  const metadata = input.options.assets as AssetRecord[];
+  const assets = parsed
+    ? preflightImageSources([parsed], metadata, sourcePath)
+    : assetPreflight({ source: input.source, sourcePath, assets: metadata, conversation });
   timings.references = now() - t;
   return { stage1, expected, assets, chars, issues: [], timings };
 }

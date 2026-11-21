@@ -69,26 +69,37 @@ export async function preparePrint(payload: PrintPayload, o: Omit<FrameOptions, 
   const { result, frame } = await paginateInFrame(payload, { ...o, keepFrame: true });
   if (result.status !== 'ok' || !frame) { frame?.remove(); throw new PaginationError(result.failure ?? { code: 'BLOCKING_ISSUES', message: 'Dokumen memiliki masalah penghalang.' }, result.issues); }
   let state: PrintLifecycle = 'prepared';
+  type Outcome = 'returned' | 'unknown';
+  let pending: Promise<Outcome> | null = null;
+  let settle: ((outcome: Outcome) => void) | null = null;
   let detach: (() => void) | null = null;
+  const finish = (outcome: Outcome) => {
+    const resolve = settle;
+    pending = null;
+    settle = null;
+    resolve?.(outcome);
+  };
   const session: PrintSession = {
     result, frame,
     get state() { return state; },
     print(opts = {}) {
       const w = frame.contentWindow;
       if (!w || state === 'disposed') return Promise.resolve('unknown');
-      return new Promise((resolve) => {
-        const set = (s: PrintLifecycle) => { state = s; session.onState?.(s); };
-        const onAfter = () => { detach?.(); set('returned'); resolve('returned'); };
-        // Pada sebagian peramban window.print() memblok sampai dialog ditutup; afterprint lalu terkirim sinkron/segera.
-        // Bila tidak ada afterprint dalam batas waktu, status 'unknown' — frame TETAP dipertahankan untuk cetak ulang.
-        const timer = setTimeout(() => { if (state === 'dialog-requested') { set('unknown'); resolve('unknown'); } }, opts.unknownAfterMs ?? 120_000);
-        detach = () => { w.removeEventListener('afterprint', onAfter); clearTimeout(timer); detach = null; };
-        w.addEventListener('afterprint', onAfter, { once: true });
-        set('dialog-requested');
-        try { w.focus(); w.print(); } catch { detach?.(); set('unknown'); resolve('unknown'); }
-      });
+      if (pending) return pending;
+      // A retry replaces a late-afterprint listener from a previously timed out request.
+      detach?.();
+      const request = new Promise<Outcome>((resolve) => { settle = resolve; });
+      pending = request;
+      const set = (s: PrintLifecycle) => { state = s; session.onState?.(s); };
+      const onAfter = () => { detach?.(); finish('returned'); set('returned'); };
+      const timer = setTimeout(() => { finish('unknown'); set('unknown'); }, opts.unknownAfterMs ?? 120_000);
+      detach = () => { w.removeEventListener('afterprint', onAfter); clearTimeout(timer); detach = null; };
+      w.addEventListener('afterprint', onAfter, { once: true });
+      set('dialog-requested');
+      try { w.focus(); w.print(); } catch { detach?.(); finish('unknown'); set('unknown'); }
+      return request;
     },
-    dispose() { if (state === 'disposed') return; detach?.(); frame.remove(); state = 'disposed'; session.onState?.('disposed'); },
+    dispose() { if (state === 'disposed') return; detach?.(); finish('unknown'); frame.remove(); state = 'disposed'; session.onState?.('disposed'); },
   };
   return session;
 }

@@ -1,8 +1,8 @@
-# Pengujian PaperForma 3.0.0-rc.4
+# Pengujian PaperForma 3.0.0-rc.5
 
 ## Prinsip bukti
 
-`candidateSha256` meliputi sumber, konfigurasi, lockfile, public, skrip, tes dan fixture. `docs/` dan laporan tidak masuk hash kandidat; seluruh file paket tetap mendapat checksum. Hasil browser RC3 dipisahkan di `evidence/history/rc3`. Jangan mengganti label NOT_RUN dengan PASS hanya karena kode sudah diperbaiki.
+`candidateSha256` meliputi sumber, konfigurasi, lockfile, public, skrip, tes dan fixture. `docs/` dan laporan tidak masuk hash kandidat; seluruh file paket tetap mendapat checksum. Bukti baru RC5 disimpan di `evidence/rc5`. Jangan mengganti label NOT_RUN dengan PASS hanya karena kode sudah diperbaiki.
 
 ## Perintah
 
@@ -19,7 +19,7 @@ npm run scan:secrets
 npm run verify:http -- --local
 ```
 
-`npm test` menjalankan Vitest dan tes Node untuk oracle PDF, result gate dan server. Tes Node/jsdom tidak mengukur CSS layout browser. Gate rilis memiliki kontrol bersih dan 12 mutasi yang wajib ditolak. Log final dan metadata aktual ada di `evidence/audit-rc4` serta `RELEASE_REPORT.md`.
+`npm test` menjalankan Vitest dan tes Node untuk oracle PDF, result gate dan server. Tes Node/jsdom tidak mengukur CSS layout browser. Gate rilis memiliki kontrol bersih dan 12 mutasi yang wajib ditolak. Log final dan metadata aktual ada di `evidence/rc5` serta `RELEASE_REPORT.md`.
 
 Browser nyata dibutuhkan untuk:
 
@@ -68,3 +68,5 @@ Pada PowerShell, set `$env:PF_EXAMPLE_DIR='examples'` dahulu. File contoh adalah
 Paginasi boleh memecah baris/halaman dan mengulang header tabel yang ditandai. Teks prosa dinormalisasi untuk perubahan presentasi yang terdokumentasi; kode tetap dibandingkan termasuk spasi/indentasi menggunakan penanda per baris. Jumlah/urutan blok, angka, formula, tautan dan gambar tetap diuji.
 
 Oracle PDF mengambil fragmen prosa di sekitar math/gambar serta caption, memerlukan urutan yang benar, dan tidak menghilangkan tanda minus hanya agar angka cocok. Karakter tanpa glyph hanya dikecualikan bila caller memberi keputusan eksplisit. Font Type 3 atau anotasi/gambar hilang tidak mendapat kelulusan umum. Validasi PDF ini lebih ketat daripada oracle historis.
+
+Perintah `npm test` memeriksa logika dokumen dan antarmuka terkontrol. Untuk menguji arsip akhir termasuk pengunduhan dependensi, build dan perbandingan dist di folder sementara, gunakan perintah verifikasi ZIP dalam README. Pastikan Python 3.11+ dan Node yang sesuai tersedia.

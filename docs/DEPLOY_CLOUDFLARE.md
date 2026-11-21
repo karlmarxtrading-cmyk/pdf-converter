@@ -1,81 +1,92 @@
-# Deploy PaperForma 3.0.0-rc.4 ke Cloudflare Pages
+# GitHub → Cloudflare Pages
 
-## Keputusan dan susunan folder
+## Isi ZIP dan folder untuk build
 
-Paket dapat dimasukkan ke repository dan dibangun sebagai situs statis. Rilis publik tetap memerlukan pemeriksaan browser/PDF dan URL Cloudflare nyata. Audit ini tidak mengubah repo GitHub atau akun Cloudflare Anda.
+Ekstrak arsip ke satu folder. Buka folder yang berisi `package.json`, `package-lock.json`, `src/` dan `dist/` sejajar. Folder itu merupakan root proyek. `dist/` berisi situs yang sudah dibangun. Pada alur integrasi Git, Pages mengambil source dari GitHub dan menerbitkan hasil `npm run build` dari `dist/`. Aturan `.gitignore` mengecualikan `dist/`, `node_modules/` dan manifest build lokal.
 
-Ekstrak ZIP. Salin **isi `repository/`** ke root checkout repo; `package.json`, `package-lock.json`, `index.html`, `src/` dan `public/` harus sejajar di root. Jangan menimpa atau menghapus `.git` dari checkout yang sudah ada. `dist/` dalam ZIP adalah hasil pembanding; `.gitignore` mengecualikannya karena Pages membangun ulang dari sumber.
-
-## Verifikasi lokal sebelum push
-
-Node 24.22.3 dan npm >=11.6.0 <12 diperlukan. Audit menggunakan npm 11.19.1. Bila muncul EBADENGINE, perbaiki versi Node melalui installer/manajer versi yang benar-benar terpasang. Perintah `nvm` hanya bekerja bila NVM sudah dipasang; jangan menghapus aturan engines.
+Prasyarat untuk build ialah Node **24.22.3** dan npm **>=11.6.0 <12**. Pertahankan `engine-strict`. Langkah berikut dapat dijalankan dari root proyek di Git Bash Windows.
 
 ```bash
 node -v
 npm -v
-npm ci
-npm run typecheck
-npm run lint
-npm test
-npm run build
-npm run verify:http -- --local
+npm ci && npm run typecheck && npm run lint && npm test && npm run build && npm run verify:http -- --local
 ```
 
-`npm ci` memakai lockfile; peringatan deprecated tidak sama dengan kerentanan yang terkonfirmasi. Peringatan kebijakan install scripts harus dibaca; jangan menyetujui semua skrip secara otomatis. `npm audit` pada lingkungan lain/tanggal lain dapat berubah.
+Untuk melihat hasilnya, jalankan `npm run preview` dan buka `http://127.0.0.1:4173`. Aplikasi memerlukan HTTP(S) untuk modul dan Worker. HTML mandiri yang diunduh dari aplikasi dapat dibuka sebagai berkas.
 
-Tinjau `git status --short` dan `git diff --stat` sebelum commit/push ke repo yang benar. Repo yang pernah Anda gunakan: `karlmarxtrading-cmyk/performa`. Tidak diperlukan repository baru atau force push untuk rilis ini.
+## Mengirim source tanpa menimpa pekerjaan di GitHub
 
-## Pengaturan Pages
+Repository tujuan adalah `https://github.com/karlmarxtrading-cmyk/performa`. Pada pemeriksaan 21 November 2026, branch `main` menunjuk ke `c44b27f466f8a6483552df3d47b17fc61f458759`. ZIP RC4 dan commit ini memiliki isi identik pada semua 616 path yang sama. Daftar perbedaan, termasuk bukti lama yang hanya ada di repository, tersimpan di `evidence/rc5/deployment/github-vs-rc4.json`.
+
+Buka Git Bash di folder hasil ekstraksi. Nama folder checkout di bawah harus belum dipakai. Blok memakai subshell agar kegagalan di tengah menghentikan penyalinan tanpa menutup terminal.
+
+```bash
+(
+  set -euo pipefail
+  pf_source="$PWD"
+  test -f "$pf_source/package.json"
+  cd ..
+  git clone https://github.com/karlmarxtrading-cmyk/performa.git performa-rc5-review
+  cd performa-rc5-review
+  test "$(git rev-parse HEAD)" = c44b27f466f8a6483552df3d47b17fc61f458759 || {
+    echo 'GitHub sudah berubah sejak pemeriksaan. Bandingkan commit baru sebelum memasukkan kandidat.'
+    exit 1
+  }
+  git switch -c paperforma-rc5
+  tar -C "$pf_source" --exclude=./node_modules --exclude=./.git --exclude=./dist-qa -cf - . | tar -xf -
+  git status --short
+)
+```
+
+Pada clone baru, `git status` dapat menampilkan source, pengujian dan laporan yang berubah. File ekstra dari commit lama dapat tetap terlacak. Jika HEAD telah maju, buat branch dari HEAD terbaru dan rekonsiliasi perubahannya dengan kandidat. Ketika perubahan dalam branch sudah sesuai:
+
+```bash
+cd ../performa-rc5-review
+git add -A && git diff --cached --stat
+git commit -m "Update PaperForma release candidate" && git push -u origin paperforma-rc5
+```
+
+Aktifkan preview untuk branch ini di Pages. Penggabungan ke branch produksi dilakukan setelah preview memiliki identitas build dan hasil ekspor yang sesuai.
+
+## Pengaturan di Cloudflare Pages
 
 | Pengaturan | Nilai |
 |---|---|
+| Proyek | Pages dengan integrasi Git ke karlmarxtrading-cmyk/performa |
 | Framework preset | None |
-| Branch produksi | branch yang memang terhubung ke proyek Anda, biasanya `main` |
-| Root directory | kosong bila `package.json` ada di root repo |
-| Node | `NODE_VERSION=24.22.3` (juga ada `.node-version`) |
-| Build command | `npm run build` |
-| Build output directory | `dist` |
-| Functions/binding/secret | tidak diperlukan |
+| Branch produksi | Branch yang terhubung ke produksi, misalnya main |
+| Root directory | Kosong jika package.json ada di root repository |
+| Environment variable preview dan production | NODE_VERSION = 24.22.3 |
+| Build command | npm run build |
+| Build output directory | dist |
 
-Untuk kontrol instalasi eksplisit dalam build command dapat digunakan `npm ci && npm run build`; Pages juga memiliki langkah instalasi dependensi. Pastikan log build menunjukkan Node/npm dalam rentang engines, instalasi sukses, verifier statis lulus dan fingerprint kandidat tercetak. Jangan mengirim root source atau `dist-qa` sebagai publish directory.
+Pastikan log menunjukkan Node/npm sesuai engines, dependensi lockfile terpasang, pemeriksaan statis lulus dan manifest produksi tercetak. Cocokkan commit di halaman deployment dengan commit sumber. `dist-qa` digunakan untuk pengujian internal.
 
-Jika proyek lama menampilkan koneksi Git terputus, pulihkan koneksi repo/branch dari pengaturan proyek yang sama dan jalankan deployment baru. Pastikan commit deployment sama dengan commit yang baru dikirim. HTTP 200 saja tidak membuktikan versi benar.
+## Memeriksa preview dan produksi
 
-## Verifikasi preview yang sebenarnya
-
-Jalankan dari checkout **kandidat yang sama dengan build yang hendak diperiksa**, setelah `npm run build`:
+Dari checkout commit yang persis sama, jalankan `npm ci && npm run build`. Setel `PF_URL` ke URL **preview untuk commit tersebut** di halaman Deployments. Setelah promosi, ulangi terhadap URL publik proyek.
 
 ```bash
-npm run verify:http -- https://NAMA-PROYEK.pages.dev
-npm run verify:deployment -- https://NAMA-PROYEK.pages.dev
+PF_URL='https://performa-cwd.pages.dev'
+npm run verify:http -- "$PF_URL" && npm run verify:deployment -- "$PF_URL"
 ```
 
-`verify:http` membandingkan SHA-256 seluruh berkas publik dengan `dist` lokal, versi `pf-version`, MIME, CSP, nosniff, cache, halaman cetak dan 404. Perubahan byte oleh transformasi edge akan terdeteksi; selidiki sebabnya, jangan otomatis mengabaikan kegagalan.
+`verify:http` memeriksa kecocokan manifest, fingerprint source, pohon produksi dan konten publik. Kemudian ia membandingkan byte, metadata versi, MIME, CSP, cache, halaman cetak dan 404. Ia menulis `evidence/http-verification-<host>.json` atau `evidence/http-verification-local.json`.
 
-`verify:deployment` memakai browser nyata dan menguji tiga jalur rumus Einstein: HTML literal, HTML KaTeX dan editor teks. Versi harus tepat `3.0.0-rc.4`; rumus/mode harus sama; tidak boleh ada teks TeX mentah tak semestinya atau page error. Browser yang tidak tersedia adalah kegagalan/tes belum dijalankan, bukan kelulusan.
-
-Pada Windows, deteksi browser mencari Chrome/Edge pada lokasi umum. Jalur khusus di Git Bash:
+`verify:deployment` menggunakan Chromium melalui Puppeteer. Halaman awal harus identik dengan `dist/index.html`. Pemeriksaan mencoba tiga jalur rumus Einstein menggunakan event clipboard terprogram, memeriksa 11 isi persamaan, mode display, kode, mata uang dan error browser, kemudian menulis `evidence/deployment-math-<host>/results.json`. Untuk path Chrome khusus di Windows Git Bash:
 
 ```bash
-PF_CHROME='C:/Program Files/Google/Chrome/Application/chrome.exe' npm run verify:deployment -- https://NAMA-PROYEK.pages.dev
+PF_CHROME='C:/Program Files/Google/Chrome/Application/chrome.exe' npm run verify:deployment -- "$PF_URL"
 ```
 
-Sesuaikan hanya bila file itu benar-benar ada. Di PowerShell, gunakan `$env:PF_CHROME` dengan path executable aktual.
+Di PowerShell, setel `$env:PF_CHROME` ke lokasi executable yang terpasang. Bandingkan versi aktual dengan `package.json`. Jika pemeriksaan gagal karena versi atau hash HTML berbeda, periksa commit, branch, root/output dan cache deployment sebelum menyelidiki parser.
 
-## Pemeriksaan manusia sebelum rilis umum
+## Hasil pengguna dan rollback
 
-1. Buka fixture trig 21 rumus dan Einstein, bandingkan struktur rumus, pecahan, akar, matriks, angka dan teks kode dengan sumber. Gunakan penempelan nyata dari aplikasi sumber yang akan didukung.
-2. Ekspor HTML mandiri, buka luring, pastikan font/gambar/tautan tersedia.
-3. Periksa halaman → siapkan cetak → dialog **Simpan sebagai PDF**. Ukuran kertas harus cocok, skala 100%, header/footer browser mati, grafik latar aktif. Buka PDF tersimpan: teks dapat dicari, isi/tabel/kode lengkap, tidak ada sampul kosong tak disengaja, jumlah halaman sesuai.
-4. Uji simpan/reload proyek, dua tab, undo/redo gambar, pembatalan ekspor dan kegagalan font. Coba Chrome/Edge, Firefox, Safari serta perangkat sasaran.
-5. Simpan `.pfproj` sebelum perpindahan origin atau rollback. Data IndexedDB terikat origin; `pages.dev` dan custom domain berbeda penyimpanan.
+Di URL preview, tempel materi dari aplikasi asal atau buka `fixtures/trigonometry/trigonometry.md`, lalu periksa tabel, rumus, kode dan gambar. Unduh HTML dan buka luring. Untuk PDF, siapkan halaman cetak kemudian pilih **Simpan sebagai PDF** dalam dialog browser. Gunakan ukuran kertas sesuai proyek, skala 100%, matikan header/footer browser dan aktifkan grafik latar. Periksa halaman awal/akhir serta baris tabel yang melewati batas halaman.
 
-## Cache, pembaruan, rollback
+Data proyek tersimpan per origin di browser. Ekspor cadangan `.pfproj` sebelum perpindahan domain atau rollback, lalu uji bahwa versi tujuan dapat membuka cadangan itu. Tab lama yang kehilangan chunk dapat dipulihkan dengan menyimpan proyek dan memuat ulang. Dokumen utama dan halaman cetak meminta validasi cache kembali. Aset berhash memakai cache immutable.
 
-`public/_headers` menjadi `dist/_headers`; dokumen utama dan URL `/print` menggunakan `no-cache`, aset berhash menggunakan `immutable`. Tidak ada service worker. Tab lama dapat masih memegang aset dari deployment lama; simpan proyek dan muat ulang jika chunk baru gagal dimuat. Fallback Worker menjaga analisis tetap dapat dilakukan, tetapi kecepatan dapat turun.
+Untuk rollback, buka proyek Pages → **Deployments** → menu **…** pada deployment produksi sebelumnya yang masih tersedia → **Rollback to this deployment**. Lakukan verifikasi terhadap source dari deployment tujuan. Rollback mengganti build yang disajikan. Cadangan proyek pengguna tetap dikelola di browser masing-masing.
 
-Rollback mengembalikan build situs, bukan mengembalikan penyimpanan browser pengguna. Lakukan cadangan `.pfproj` terlebih dahulu; uji pembukaan cadangan pada versi tujuan. Gunakan deployment sebelumnya yang telah diverifikasi. Jangan menghapus proyek Cloudflare hanya untuk mengganti versi aplikasi.
-
-## Rujukan konfigurasi
-
-Diperiksa 21 November 2026: [Build configuration](https://developers.cloudflare.com/pages/configuration/build-configuration/), [Build image / Node override](https://developers.cloudflare.com/pages/configuration/build-image/), [Custom headers](https://developers.cloudflare.com/pages/configuration/headers/). Dokumen provider tidak membuktikan deployment milik Anda telah diuji; bukti URL aktual tetap diperlukan.
+Rujukan Cloudflare, diperiksa 21 November 2026: [build dan root](https://developers.cloudflare.com/pages/configuration/build-configuration/), [versi Node](https://developers.cloudflare.com/pages/configuration/build-image/), [rollback](https://developers.cloudflare.com/pages/configuration/rollbacks/).

@@ -3,9 +3,9 @@
  "specVersion": "1.5-subset",
  "app": {
   "name": "paperforma",
-  "version": "3.0.0-rc.4"
+  "version": "3.0.0-rc.5"
  },
- "lockfileSha256": "644bda5170373c049a995c58cc7d074f078be27c872a7d121061f4948057cf69",
+ "lockfileSha256": "1208fe4068b26894f5d4b4b94a90ce5191bc3b3d3d50d9e95fefdf5bde8a98e2",
  "counts": {
   "total": 438,
   "runtime": 255,

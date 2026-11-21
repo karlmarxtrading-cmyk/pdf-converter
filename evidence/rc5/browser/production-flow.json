@@ -1,0 +1,219 @@
+{
+  "distTreeSha256": "0987e2ef814b844374f84b2ff26a5be4b4c675fc2dff12423e9cea0a7b69a1cd",
+  "browser": "Chrome/156.0.8078.79",
+  "checks": {
+    "formatRadiogroupAndUndo": {
+      "status": "PASS",
+      "details": {
+        "original": "BUS-01",
+        "updated": "EDT-01",
+        "focusPreserved": true
+      }
+    },
+    "trustedRichClipboardAndStaleChoice": {
+      "status": "PASS",
+      "details": {
+        "newDialog": {
+          "enabled": true,
+          "checked": true
+        },
+        "isTrusted": true,
+        "clipboard": "Chromium headless clipboard API + keyboard Control+v"
+      }
+    },
+    "html-zip": {
+      "status": "PASS",
+      "details": {
+        "entries": 17,
+        "texAndReadingOrderMatch": true,
+        "external": [],
+        "fontsLoaded": 7,
+        "fontErrors": 0,
+        "scripts": 0,
+        "overflow": 0,
+        "method": "ordinary local static HTTP origin, requests to any other origin disallowed"
+      }
+    },
+    "html-publication": {
+      "status": "PASS",
+      "details": {
+        "entries": 17,
+        "texAndReadingOrderMatch": true,
+        "external": [],
+        "fontsLoaded": 7,
+        "fontErrors": 0,
+        "scripts": 0,
+        "overflow": 0,
+        "method": "ordinary local static HTTP origin, requests to any other origin disallowed"
+      }
+    },
+    "standaloneMathOffline": {
+      "status": "PASS",
+      "details": {
+        "origin": "in-memory document in an offline tab (no file URL)",
+        "bytes": 328035,
+        "sha256": "0715b189e7055724d79915b885e8fcf2d559c878e3c4b7f3bf013f9d48518e3d",
+        "sourceRoute": "normal file input",
+        "formulaSequence": [
+          [
+            "\\sin\\theta=\\frac{\\text{sisi depan}}{\\text{sisi miring}}",
+            false
+          ],
+          [
+            "\\cos\\theta=\\frac{\\text{sisi samping}}{\\text{sisi miring}}",
+            false
+          ],
+          [
+            "\\tan\\theta=\\frac{\\text{sisi depan}}{\\text{sisi samping}}",
+            false
+          ],
+          [
+            "\\csc\\theta=\\frac{1}{\\sin\\theta}",
+            false
+          ],
+          [
+            "\\sec\\theta=\\frac{1}{\\cos\\theta}",
+            false
+          ],
+          [
+            "\\cot\\theta=\\frac{1}{\\tan\\theta}",
+            false
+          ],
+          [
+            "\\sin^2(x) + \\cos^2(x) = 1",
+            false
+          ],
+          [
+            "\\sin^2(\\text{35}^\\circ)+\\cos^2(\\text{35}^\\circ)\\approx \\text{0,329}+\\text{0,671}=1",
+            false
+          ],
+          [
+            "\\theta",
+            false
+          ],
+          [
+            "1+\\tan^2\\theta=\\sec^2\\theta",
+            true
+          ],
+          [
+            "1+\\cot^2\\theta=\\csc^2\\theta",
+            true
+          ],
+          [
+            "\\tan\\theta=\\frac{\\sin\\theta}{\\cos\\theta}",
+            true
+          ],
+          [
+            "\\cot\\theta=\\frac{\\cos\\theta}{\\sin\\theta}",
+            true
+          ],
+          [
+            "x^2 + y^2 = 1",
+            false
+          ],
+          [
+            "P(\\text{45}^\\circ)=(\\cos \\text{45}^\\circ,\\sin \\text{45}^\\circ)=(\\frac{\\sqrt{2}}{2},\\frac{\\sqrt{2}}{2})",
+            false
+          ],
+          [
+            "\\theta",
+            false
+          ],
+          [
+            "\\theta",
+            false
+          ],
+          [
+            "P,\\bigl(\\frac{\\sqrt{2}}{2},\\frac{\\sqrt{2}}{2}\\bigr)",
+            false
+          ],
+          [
+            "x=\\cos\\theta",
+            true
+          ],
+          [
+            "y=\\sin\\theta",
+            true
+          ],
+          [
+            "x^2+y^2=1",
+            true
+          ]
+        ],
+        "tableRowsAndColumns": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "external": [],
+        "views": [
+          {
+            "width": 320,
+            "scripts": 0,
+            "overflow": 0,
+            "fonts": [
+              "Inter",
+              "Inter",
+              "Inter",
+              "Inter",
+              "KaTeX_Main",
+              "KaTeX_Math",
+              "KaTeX_Size1"
+            ],
+            "fontErrors": 0
+          },
+          {
+            "width": 390,
+            "scripts": 0,
+            "overflow": 0,
+            "fonts": [
+              "Inter",
+              "Inter",
+              "Inter",
+              "Inter",
+              "KaTeX_Main",
+              "KaTeX_Math",
+              "KaTeX_Size1"
+            ],
+            "fontErrors": 0
+          },
+          {
+            "width": 768,
+            "scripts": 0,
+            "overflow": 0,
+            "fonts": [
+              "Inter",
+              "Inter",
+              "Inter",
+              "Inter",
+              "KaTeX_Main",
+              "KaTeX_Math",
+              "KaTeX_Size1"
+            ],
+            "fontErrors": 0
+          },
+          {
+            "width": 1440,
+            "scripts": 0,
+            "overflow": 0,
+            "fonts": [
+              "Inter",
+              "Inter",
+              "Inter",
+              "Inter",
+              "KaTeX_Main",
+              "KaTeX_Math",
+              "KaTeX_Size1"
+            ],
+            "fontErrors": 0
+          }
+        ]
+      }
+    }
+  },
+  "pass": true
+}

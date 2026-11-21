@@ -1,0 +1,18 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> paperforma@3.0.0-rc.5 test:gate
+> node tests/e2e/release-gate.mjs
+
+✓ bersih (kontrol): verifier lulus
+✓ panggilan backend /api/pdf: verifier gagal
+✓ teks harga di HTML: verifier gagal
+✓ kait QA di build produksi: verifier gagal
+✓ _worker.js: verifier gagal
+✓ functions/: verifier gagal
+✓ print.html hilang: verifier gagal
+✓ _headers tanpa CSP: verifier gagal
+✓ Worker analisis hilang: verifier gagal
+✓ sumber daya eksternal: verifier gagal
+✓ identitas versi hilang: verifier gagal
+✓ HTML source belum dibangun: verifier gagal
+✓ aset entry hilang: verifier gagal

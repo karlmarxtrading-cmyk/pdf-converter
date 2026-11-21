@@ -1,0 +1,160 @@
+{
+  "distQA": "32d4c5bef8fb2b12c48419c9462c8880c9fe82418cc006bcc4ec941d948f7ff1",
+  "method": "PyMuPDF get_fonts and get_texttrace. Page numbers refer to physical pages.",
+  "files": [
+    {
+      "file": "einstein-A4.chrome.pdf",
+      "sha256": "2862527fe39cd0e865e604d3ad002a66e48061c6d392be83ea486d9ca1ed9347",
+      "pages": 1,
+      "fonts": {
+        "AAAAAA+Inter-Regular": "Type0",
+        "BAAAAA+Inter-Bold": "Type0",
+        "CAAAAA+Inter-SemiBold": "Type0",
+        "DAAAAA+JetBrainsMono-Regular": "Type0",
+        "EAAAAA+KaTeX_Math-Italic": "Type0",
+        "FAAAAA+KaTeX_Main-Regular": "Type0",
+        "GAAAAA+KaTeX_Size3-Regular": "Type0",
+        "HAAAAA+KaTeX_Size1-Regular": "Type0"
+      },
+      "type3CharacterRunsByPhysicalPage": {}
+    },
+    {
+      "file": "large-115.chrome.pdf",
+      "sha256": "2156253b756099ce841109403d75a49d834d5175ca329bc02de13ccdb639fb37",
+      "pages": 195,
+      "fonts": {
+        "AAAAAA+Inter-Regular": "Type0",
+        "BAAAAA+Inter-Bold": "Type0",
+        "CAAAAA+Inter-SemiBold": "Type0"
+      },
+      "type3CharacterRunsByPhysicalPage": {}
+    },
+    {
+      "file": "medium-30.chrome.pdf",
+      "sha256": "ca5b0bf478e03d3d59694ccf1cb2a0301da52f79302a247180202dd61541b37f",
+      "pages": 62,
+      "fonts": {
+        "AAAAAA+Inter-Regular": "Type0",
+        "BAAAAA+Inter-Bold": "Type0",
+        "CAAAAA+Inter-SemiBold": "Type0",
+        "DAAAAA+Inter-Italic": "Type0",
+        "EAAAAA+JetBrainsMono-Regular": "Type0",
+        "FAAAAA+Inter-Regular": "Type0",
+        "GAAAAA+Inter-Regular": "Type0",
+        "HAAAAA+Inter-Regular": "Type0",
+        "IAAAAA+Inter-Regular": "Type0",
+        "": "Type3",
+        "KAAAAA+KaTeX_Main-Regular": "Type0",
+        "LAAAAA+KaTeX_Math-Italic": "Type0",
+        "MAAAAA+KaTeX_Size1-Regular": "Type0",
+        "NAAAAA+KaTeX_Size2-Regular": "Type0"
+      },
+      "type3CharacterRunsByPhysicalPage": {
+        "5": [
+          "😀",
+          "🚀",
+          "👩‍💻"
+        ]
+      }
+    },
+    {
+      "file": "small-mixed-A4.chrome.pdf",
+      "sha256": "21951fdcec0bc69f51893f7819e750be1de41f2c184842aa3cba6c323f135810",
+      "pages": 10,
+      "fonts": {
+        "AAAAAA+Inter-Regular": "Type0",
+        "BAAAAA+Inter-Bold": "Type0",
+        "CAAAAA+Inter-SemiBold": "Type0",
+        "DAAAAA+Inter-Italic": "Type0",
+        "EAAAAA+JetBrainsMono-Regular": "Type0",
+        "FAAAAA+Inter-Regular": "Type0",
+        "GAAAAA+Inter-Regular": "Type0",
+        "HAAAAA+Inter-Regular": "Type0",
+        "IAAAAA+Inter-Regular": "Type0",
+        "": "Type3",
+        "KAAAAA+KaTeX_Main-Regular": "Type0",
+        "LAAAAA+KaTeX_Math-Italic": "Type0",
+        "MAAAAA+KaTeX_Size1-Regular": "Type0",
+        "NAAAAA+KaTeX_Size2-Regular": "Type0"
+      },
+      "type3CharacterRunsByPhysicalPage": {
+        "4": [
+          "😀",
+          "🚀",
+          "👩‍💻"
+        ]
+      }
+    },
+    {
+      "file": "small-mixed-A5.chrome.pdf",
+      "sha256": "bd2b38db9c34103424a0fd944625c52f63c8618705ed9a53ac03208f9f8237d7",
+      "pages": 20,
+      "fonts": {
+        "AAAAAA+Inter-Regular": "Type0",
+        "BAAAAA+Inter-Bold": "Type0",
+        "CAAAAA+Inter-SemiBold": "Type0",
+        "DAAAAA+Inter-Italic": "Type0",
+        "EAAAAA+JetBrainsMono-Regular": "Type0",
+        "FAAAAA+Inter-Regular": "Type0",
+        "GAAAAA+Inter-Regular": "Type0",
+        "HAAAAA+Inter-Regular": "Type0",
+        "IAAAAA+Inter-Regular": "Type0",
+        "": "Type3",
+        "KAAAAA+KaTeX_Main-Regular": "Type0",
+        "LAAAAA+KaTeX_Math-Italic": "Type0",
+        "MAAAAA+KaTeX_Size1-Regular": "Type0",
+        "NAAAAA+KaTeX_Size2-Regular": "Type0"
+      },
+      "type3CharacterRunsByPhysicalPage": {
+        "6": [
+          "😀",
+          "🚀",
+          "👩‍💻"
+        ]
+      }
+    },
+    {
+      "file": "small-mixed-Letter-landscape.chrome.pdf",
+      "sha256": "5aac0b368da413300f68707ee8d3a769b20bd94c326fb5c86b306b0bcd4e2d1a",
+      "pages": 13,
+      "fonts": {
+        "AAAAAA+Inter-Regular": "Type0",
+        "BAAAAA+Inter-Bold": "Type0",
+        "CAAAAA+Inter-SemiBold": "Type0",
+        "DAAAAA+Inter-Italic": "Type0",
+        "EAAAAA+JetBrainsMono-Regular": "Type0",
+        "FAAAAA+Inter-Regular": "Type0",
+        "GAAAAA+Inter-Regular": "Type0",
+        "HAAAAA+Inter-Regular": "Type0",
+        "IAAAAA+Inter-Regular": "Type0",
+        "": "Type3",
+        "KAAAAA+KaTeX_Main-Regular": "Type0",
+        "LAAAAA+KaTeX_Math-Italic": "Type0",
+        "MAAAAA+KaTeX_Size1-Regular": "Type0",
+        "NAAAAA+KaTeX_Size2-Regular": "Type0"
+      },
+      "type3CharacterRunsByPhysicalPage": {
+        "4": [
+          "😀",
+          "🚀",
+          "👩‍💻"
+        ]
+      }
+    },
+    {
+      "file": "trigonometry-A4.chrome.pdf",
+      "sha256": "05fd9c627b175d27b5147ecbcb01faf971b21df3afa3444d87da928cefd21723",
+      "pages": 3,
+      "fonts": {
+        "AAAAAA+Inter-Regular": "Type0",
+        "BAAAAA+Inter-Bold": "Type0",
+        "CAAAAA+Inter-SemiBold": "Type0",
+        "DAAAAA+Inter-Regular": "Type0",
+        "EAAAAA+KaTeX_Main-Regular": "Type0",
+        "FAAAAA+KaTeX_Math-Italic": "Type0",
+        "GAAAAA+KaTeX_Size1-Regular": "Type0"
+      },
+      "type3CharacterRunsByPhysicalPage": {}
+    }
+  ]
+}

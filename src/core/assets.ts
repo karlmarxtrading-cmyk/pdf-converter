@@ -8,7 +8,7 @@
 import DOMPurify from 'dompurify';
 import type { AssetRecord, Limits, Project, Snapshot } from './contracts';
 import { sha256Hex, sha256HexSync } from './hash';
-import { LIMITS, checkBudget, type BudgetResult } from './limits';
+import { IMAGE_BUDGET, LIMITS, checkBudget, type BudgetResult } from './limits';
 import { fnv1a } from './util';
 
 export type SniffedMime = 'image/png' | 'image/jpeg' | 'image/gif' | 'image/webp' | 'image/svg+xml';
@@ -187,13 +187,7 @@ export type AddAssetResult =
   | { ok: true; asset: AssetRecord; replaced?: AssetRecord; svgRemoved?: string[] }
   | { ok: false; code: 'BUDGET_EXCEEDED' | 'UNSUPPORTED_TYPE' | 'INVALID_PATH' | 'SVG_UNSAFE' | 'IMAGE_DIMENSIONS_UNREADABLE' | 'IMAGE_PIXELS_EXCEEDED'; message: string; messageEn: string; budget?: BudgetResult };
 
-/**
- * QA-02: anggaran dekode gambar, diperiksa dari HEADER sebelum gambar pernah didekode (tidak ada <img>/bitmap/canvas).
- * Angka ini batas keselamatan memori (RGBA 4 byte/piksel): 40 MP ≈ 160 MiB per gambar; total proyek 200 MP.
- * Ini bukan kapasitas yang dijamin untuk semua perangkat; perangkat bermemori kecil dapat gagal lebih awal dan
- * kegagalan itu dilaporkan tanpa mengubah sumber.
- */
-export const IMAGE_BUDGET = Object.freeze({ maxDimension: 16_384, maxPixels: 40_000_000, maxTotalPixels: 200_000_000 });
+export { IMAGE_BUDGET } from './limits';
 
 export function pixelsOf(a: Pick<AssetRecord, 'mime' | 'width' | 'height'>): number {
   return a.mime === 'image/svg+xml' || !a.width || !a.height ? 0 : a.width * a.height;

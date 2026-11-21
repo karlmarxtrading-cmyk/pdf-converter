@@ -1,0 +1,81 @@
+{
+  "tool": "tests/e2e/cross-browser.mjs",
+  "candidateSha256": "9263951462ed4545e626a877f3ff196d6db5ff2e427585330972da4e8e9551a3",
+  "distQaTreeSha256": "32d4c5bef8fb2b12c48419c9462c8880c9fe82418cc006bcc4ec941d948f7ff1",
+  "at": "2026-11-21T12:38:17.973Z",
+  "note": "Mesin otomatis di Linux headless/Xvfb. WebKitGTK bukan Safari; tidak ada perangkat fisik atau pembaca layar.",
+  "pass": false,
+  "missing": [
+    "firefox",
+    "webkit"
+  ],
+  "failed": [],
+  "renderedHtmlIdenticalAcrossEngines": null,
+  "exitCode": 2,
+  "results": [
+    {
+      "engine": "chromium",
+      "browser": "Chromium Chrome/156.0.8078.79",
+      "steps": {
+        "landing": true,
+        "studioMs": 345,
+        "preview": {
+          "engine": {
+            "mode": "worker",
+            "started": 2,
+            "completed": 2,
+            "staleDropped": 0,
+            "cancelled": 0,
+            "timeouts": 0,
+            "errors": 0,
+            "respawns": 0,
+            "lastMs": 219,
+            "lastPhase": "references"
+          },
+          "integrityErrors": [],
+          "reports": {
+            "html": "review",
+            "print": "unchecked"
+          },
+          "liveHasEnd": true
+        },
+        "digest": {
+          "length": 51452,
+          "sha256": "1851a00316e8056f8c145012635ab3f0d95aef35733fe37e81a6dac880068d46"
+        },
+        "layout": {
+          "status": "done",
+          "pages": 10,
+          "verification": {
+            "status": "pass",
+            "inventory": 0,
+            "structure": 0
+          },
+          "blocking": [],
+          "ms": 1493
+        },
+        "large": {
+          "status": "done",
+          "pages": 86,
+          "verification": "pass",
+          "ms": 4397
+        },
+        "storage": {
+          "idb": true,
+          "save": "off",
+          "worker": true
+        }
+      },
+      "errors": [],
+      "status": "pass"
+    },
+    {
+      "engine": "firefox",
+      "status": "not-available"
+    },
+    {
+      "engine": "webkit",
+      "status": "not-available"
+    }
+  ]
+}

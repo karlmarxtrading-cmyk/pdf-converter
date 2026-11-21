@@ -1,6 +1,6 @@
 {
   "name": "paperforma",
-  "version": "3.0.0-rc.4",
+  "version": "3.0.0-rc.5",
   "private": true,
   "type": "module",
   "description": "PaperForma — studio dokumen statis: materi Markdown/teks/percakapan diolah di browser menjadi HTML dan cetak PDF lewat dialog cetak browser. Tanpa akun, tanpa harga, tanpa backend.",

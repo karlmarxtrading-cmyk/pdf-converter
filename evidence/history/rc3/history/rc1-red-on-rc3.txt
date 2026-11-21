@@ -1,4 +1,0 @@
-Red-check: tests/unit/core/static-regressions.test.ts (EN-003/EN-011 cases; oracle-only case removed because RC3 lacks the API)
-run against unmodified RC3 source (fingerprint d569d9a4...), Node 24.22.3 / npm 11.9.0, vitest 5.1.0, 2026-11-20
-Result: 14 failed | 1 passed (15) — the only passing case is "struktur ChatGPT asli tetap dikenali per peran" (expected to pass on RC3).
-Same file against the target source: 16 passed.

@@ -58,27 +58,52 @@ export function parseMarkdown(source: string): ParsedMarkdown {
  * Ordinary prose, math and fenced-code documents stay on the single-parse path.
  */
 function restoreLiteralNodes(tree: Root, source: string, scan: MathScan): void {
-  const changed: (MdNodes & { value: string })[] = [];
+  const restore = restorerFor(scan);
+  type ResourceNode = Extract<MdNodes, { type: 'image' | 'link' | 'definition' }>;
+  type LiteralNode = Extract<MdNodes, { type: 'code' | 'html' }>;
+  const changed: (ResourceNode | LiteralNode)[] = [];
+  const literalRanges: [number, number][] = [];
   const collect = (n: MdNodes): void => {
-    if ((n.type === 'code' || n.type === 'html') && n.position) {
-      const a = n.position.start.offset ?? 0, b = n.position.end.offset ?? 0;
-      if (source.slice(a, b) !== scan.parseCopy.slice(a, b)) changed.push(n);
+    if (n.type === 'math' || n.type === 'inlineMath') n.value = restore(n.value);
+    if (n.type === 'code' || n.type === 'html' || n.type === 'link' || n.type === 'image' || n.type === 'definition') {
+      const start = n.position?.start.offset ?? 0, end = n.position?.end.offset ?? 0;
+      if (n.type === 'code' || n.type === 'html') {
+        if (scan.issues.length) literalRanges.push([start, end]);
+        if (source.slice(start, end) !== scan.parseCopy.slice(start, end)) changed.push(n);
+      } else if (/[\\$\uE000-\uF8FF]/.test(n.url + (n.title ?? '') + (n.type === 'image' ? n.alt ?? '' : ''))) {
+        if (source.slice(start, end) !== scan.parseCopy.slice(start, end)) changed.push(n);
+      }
     }
     if ('children' in n) n.children.forEach(collect);
   };
   collect(tree);
+  if (literalRanges.length) {
+    let range = 0;
+    scan.issues = scan.issues.filter(issue => {
+      if (issue.offset === undefined) return true;
+      while (range < literalRanges.length && literalRanges[range]![1] <= issue.offset) range++;
+      return range === literalRanges.length || issue.offset < literalRanges[range]![0];
+    });
+  }
   if (!changed.length) return;
   const original = processor.parse(source) as Root;
-  const byPosition = new Map<string, string>();
+  assertTreeBudget(original);
+  const byPosition = new Map<string, ResourceNode | LiteralNode>();
   const key = (n: MdNodes) => `${n.type}:${n.position?.start.offset}:${n.position?.end.offset}`;
   const index = (n: MdNodes): void => {
-    if (n.type === 'code' || n.type === 'html') byPosition.set(key(n), n.value);
+    if (n.type === 'code' || n.type === 'html' || n.type === 'link' || n.type === 'image' || n.type === 'definition') byPosition.set(key(n), n);
     if ('children' in n) n.children.forEach(index);
   };
   index(original);
   for (const n of changed) {
-    const value = byPosition.get(key(n));
-    if (value !== undefined) n.value = value;
+    const orig = byPosition.get(key(n));
+    if (!orig) continue;
+    if ('value' in n && 'value' in orig) n.value = orig.value;
+    if ('url' in n && 'url' in orig) {
+      n.url = orig.url;
+      n.title = orig.title;
+      if (n.type === 'image' && orig.type === 'image') n.alt = orig.alt;
+    }
   }
 }
 

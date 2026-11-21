@@ -15,7 +15,7 @@ import type { Element, ElementContent, Root as HRoot, RootContent as HContent, P
 import type { Root, RootContent, Table, FootnoteDefinition, Nodes as MdNodes } from 'mdast';
 import type { AssetRecord, BlockInfo, Conversation, FootnoteEntry, Issue, Message, RenderOptions, RenderedBody, Role, Snapshot, TocEntry } from './contracts';
 import { parseMarkdown, blockModelOf, BlockIdAllocator, type BlockModel, type Frontmatter } from './markdown';
-import { renderTex, restorerFor } from './math';
+import { restorerFor } from './math';
 import { classifyUrl, DROP_WITH_CONTENT, UNWRAP, USER_ATTRS, ALLOWED_TAGS, purifyToBody } from './sanitize';
 import { assetDataUrl, resolveAsset, inspectInlineImage, IMAGE_BUDGET, pixelsOf, type InlineImageInspection } from './assets';
 import { detectWrapper } from './wrapper';
@@ -539,7 +539,7 @@ function renderOneParsed(source: string, parsed: ReturnType<typeof parseMarkdown
   }
   for (const si of parsed.scan.issues) {
     ctx.issues.push(mkIssue(si.code, 'warning', 'math', si.code === 'MATH_UNTERMINATED'
-      ? { id: `Pembatas rumus $$ di baris ${si.line + ctx.lineOffset} tidak ditutup; teks ditampilkan apa adanya.`, en: `Math delimiter $$ at line ${si.line + ctx.lineOffset} is not closed; text is shown as-is.` }
+      ? { id: `Rumus di baris ${si.line + ctx.lineOffset} belum ditutup. Tambahkan ${si.closer ?? '$$'} pada akhir rumus.`, en: `The formula at line ${si.line + ctx.lineOffset} is not closed. Add ${si.closer ?? '$$'} at the end of the formula.` }
       : { id: `Kemungkinan rumus tidak ditutup di baris ${si.line + ctx.lineOffset}: "${si.snippet}". Teks ditampilkan apa adanya dan perlu diperiksa.`, en: `Possibly unclosed formula at line ${si.line + ctx.lineOffset}: "${si.snippet}". Text is shown as-is and needs review.` }, { line: si.line + ctx.lineOffset, detail: { snippet: si.snippet } }));
   }
   if (parsed.scan.puaConflict) ctx.issues.push(mkIssue('INPUT_PRIVATE_USE_CHARS', 'info', 'input', parsed.scan.sentinels
@@ -743,11 +743,23 @@ export async function renderStage1(source: string, options: RenderOptions | Core
   // karakter kendali/tak terlihat dilaporkan (tidak diubah)
   ctx.issues.push(...charIssues(analyzeChars(source)));
   // KaTeX (trust:false) dirender di tahap 1 — murni string, aman di Worker; disisipkan setelah sanitasi di tahap 2
+  const slots = await renderMathSlots(ctx.slots);
+  const scripts = detectScripts(conv && conv.outputMode !== 'answer' ? selectedMessages(conv).map((m) => m.markdown).join('\n') + source : source);
+  return {
+    html, post: [...ctx.post], assetSrc: [...ctx.assetSrc], slots, inputId: ctx.inputId,
+    toc: ctx.toc, footnotes: ctx.footnotes, blocks: ctx.blocks, issues: ctx.issues, stats: ctx.stats, scripts, mermaidPending: ctx.stats.mermaid > 0,
+    ...(ctx.frontmatter ? { frontmatter: ctx.frontmatter } : {}),
+  };
+}
+
+async function renderMathSlots(slots: Ctx['slots']): Promise<RenderStage1['slots']> {
+  if (!slots.length) return [];
+  const { renderTex } = await import('./tex-renderer');
   // RC4-P01: repeated formulas in one document share the same deterministic KaTeX result. This cache is
   // job-local (never retained between projects), includes display mode, and caps retained markup at 2 MiB.
   const mathCache = new Map<string, ReturnType<typeof renderTex>>();
   let mathCacheUnits = 0;
-  const slots: RenderStage1['slots'] = ctx.slots.map((s) => {
+  return slots.map((s) => {
     const key = `${s.display ? 'display' : 'inline'}\u0000${s.tex}`;
     let r = mathCache.get(key);
     if (!r) {
@@ -757,12 +769,6 @@ export async function renderStage1(source: string, options: RenderOptions | Core
     }
     return { key: s.key, tex: s.tex, line: s.line, ok: r.ok, html: r.html, ...(r.error ? { error: r.error } : {}), ...(s.blockId ? { blockId: s.blockId } : {}), ...(s.messageId ? { messageId: s.messageId } : {}) };
   });
-  const scripts = detectScripts(conv && conv.outputMode !== 'answer' ? selectedMessages(conv).map((m) => m.markdown).join('\n') + source : source);
-  return {
-    html, post: [...ctx.post], assetSrc: [...ctx.assetSrc], slots, inputId: ctx.inputId,
-    toc: ctx.toc, footnotes: ctx.footnotes, blocks: ctx.blocks, issues: ctx.issues, stats: ctx.stats, scripts, mermaidPending: ctx.stats.mermaid > 0,
-    ...(ctx.frontmatter ? { frontmatter: ctx.frontmatter } : {}),
-  };
 }
 
 /** Hasil tahap 1 render (tanpa DOM, dapat diklon terstruktur antar-thread). */

@@ -4,10 +4,13 @@
 import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { extname, join, resolve } from 'node:path';
-import { candidateSha256, root } from './fingerprint.mjs';
+import { root } from './fingerprint.mjs';
+import { deploymentIdentity } from './deployment-identity.mjs';
 import { startServer } from './serve-dist.mjs';
 
 const dir = resolve(root, process.argv[3] || 'dist');
+const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
+const identity = deploymentIdentity(dir, pkg);
 const localServer = process.argv[2] === '--local' ? await startServer(dir, 0) : null;
 const target = localServer ? `http://127.0.0.1:${localServer.address().port}/` : process.argv[2] || 'http://127.0.0.1:4173/';
 const base = new URL(target);
@@ -15,7 +18,6 @@ if (!['http:', 'https:'].includes(base.protocol) || base.username || base.passwo
   throw Error('Gunakan URL http(s) tanpa kredensial, query, atau fragmen.');
 }
 base.pathname = base.pathname.replace(/\/?$/, '/');
-const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
 const sha = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const paths = [];
 function walk(at = '') {
@@ -85,10 +87,11 @@ async function worker() {
 try { await Promise.all(Array.from({ length: 4 }, worker)); }
 finally { if (localServer) await new Promise((done) => localServer.close(done)); }
 const result = { tool: 'scripts/verify-http.mjs', at: new Date().toISOString(), base: base.href,
-  candidateSha256: candidateSha256(), version: pkg.version, filesCompared: paths.length,
+  ...identity, expectedFiles: paths.length, filesCompared: results.filter((row, i) => jobs[i].file === jobs[i].path && row.sha256).length,
   pass: results.every((r) => r.pass), limitations: 'HTTP/bytes only; browser rendering, Worker execution, clipboard and PDF are not tested.', results };
 mkdirSync(join(root, 'evidence'), { recursive: true });
-writeFileSync(join(root, 'evidence/http-verification.json'), JSON.stringify(result, null, 2) + '\n');
-console.log(`${result.pass ? 'LULUS' : 'GAGAL'} HTTP: ${results.filter((r) => r.pass).length}/${results.length}; ${paths.length} berkas dibandingkan; versi ${pkg.version}`);
+const scope = localServer ? 'local' : encodeURIComponent(base.host);
+writeFileSync(join(root, 'evidence', `http-verification-${scope}.json`), JSON.stringify(result, null, 2) + '\n');
+console.log(`${result.pass ? 'LULUS' : 'GAGAL'} HTTP: ${results.filter((r) => r.pass).length}/${results.length}; ${result.filesCompared}/${paths.length} berkas dibandingkan; versi ${pkg.version}`);
 for (const r of results.filter((x) => !x.pass)) console.log(r.path, r.errors.join('; '));
 process.exitCode = result.pass ? 0 : 1;

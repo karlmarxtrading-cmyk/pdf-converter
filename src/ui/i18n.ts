@@ -93,7 +93,7 @@ const D = {
   'store.status.off': ['Belum disimpan', 'Not saved'], 'store.status.empty': ['Kosong', 'Empty'], 'store.status.bundle': ['Cadangan diminta', 'Backup requested'],
   'store.status.pending': ['Menyimpan…', 'Saving…'], 'store.status.saved': ['Tersimpan di perangkat', 'Saved on device'],
   'store.status.failed': ['Gagal disimpan', 'Save failed'], 'store.status.quota': ['Penyimpanan penuh', 'Storage full'], 'store.status.blocked': ['Penyimpanan diblokir', 'Storage blocked'], 'store.status.unavailable': ['Penyimpanan tidak tersedia', 'Storage unavailable'],
-  'store.status.conflict': ['Konflik dua tab', 'Two-tab conflict'], 'store.status.deleted': ['Dihapus di tab lain', 'Deleted in another tab'],
+  'store.status.conflict': ['Konflik dua tab', 'Two-tab conflict'], 'store.status.deleted': ['Dihapus dari perangkat', 'Deleted from device storage'],
   'checks.all': ['Semua', 'All'], 'checks.error': ['Perlu diperbaiki', 'Must fix'], 'checks.warning': ['Perlu diperiksa', 'Review'], 'checks.info': ['Info', 'Info'],
   'checks.filter': ['Saring temuan', 'Filter findings'], 'checks.category': ['Kategori', 'Category'], 'checks.search': ['Cari', 'Search'], 'checks.anycat': ['Semua kategori', 'All categories'],
   'checks.none': ['Tidak ada temuan pada pemeriksaan yang dijalankan.', 'No findings in the checks that were run.'],

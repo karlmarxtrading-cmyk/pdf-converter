@@ -1,4 +1,4 @@
-# RENDER_API — modul `src/render` (PaperForma 3.0.0-rc.4)
+# RENDER_API — modul `src/render` (PaperForma 3.0.0-rc.5)
 
 Impor dari `src/render/index.ts`. Modul ringan: Paged.js, Mermaid, CSS KaTeX, dan berkas font hanya dimuat dengan
 `import()` dinamis saat ekspor/paginasi dipanggil (landing tidak memuat font ekspor — PF-029).

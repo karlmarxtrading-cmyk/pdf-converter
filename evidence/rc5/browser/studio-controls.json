@@ -1,0 +1,24 @@
+{
+  "runner": "Vitest 5.1.0 + jsdom, full studio entry and index.html; visibility observer suppressed, modal open/close boundary simulated",
+  "fixture": "tests/unit/ui/studio-controls.test.ts",
+  "suiteSha256": "eedc088287182026cbe5840988b2d6c049242415c4ff9b7a0a11bf4c5d5084b8",
+  "rc4ReleaseArchiveSha256": "3b8c833b720c799664d03c4c293bf9645d2a5cc63c3ccd46ba340c6435870074",
+  "results": [
+    {
+      "case": "edit a rich paste until stale, close and reopen the paste dialog with new valid rich clipboard",
+      "rc4": "FAIL: conversion radio still unchecked",
+      "rc5": "PASS"
+    },
+    {
+      "case": "move a selected document template with arrows through both ends of the group",
+      "rc4": "FAIL: destination aria-checked=false",
+      "rc5": "PASS: selected template and focused button agree after redraw"
+    },
+    {
+      "case": "select EDU, undo to BUS and then apply recommendations",
+      "rc4": "FAIL: stale EDU settings reapplied",
+      "rc5": "PASS: recommendations use displayed BUS template"
+    }
+  ],
+  "command": "node node_modules/vitest/vitest.mjs run tests/unit/ui/studio-controls.test.ts"
+}

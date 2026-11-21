@@ -1,0 +1,9 @@
+
+ RUN  v5.1.0 /workspace/scratch/f618a6a5515b/candidate
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  19:22:13
+   Duration  3.36s (tests 50%, environment 35%, import 11%, transform 5%)
+

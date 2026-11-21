@@ -1,6 +1,6 @@
 # PaperForma 3 — Core API (`src/core`)
 
-Status API: 3.0.0-rc.4 (statis). Pemilik: modul core. Konsumen: `src/render`, `src/ui`.
+Status API: 3.0.0-rc.5 (statis). Pemilik: modul core. Konsumen: `src/render`, `src/ui`.
 
 Tambahan 3.0: `verdictOf`/`classifyIssue` (`verdict.ts`), `ProjectUndo`/`changesFor` (`undo.ts`), `restoreRevisionChanges`/`historyEntryState` (riwayat dengan `stateJson`), `privateUseConservation` (oracle PUA), `chooseSentinels`/`restorePua(s, scan)` (sentinel per pemindaian), `IMAGE_BUDGET`, preflight target `'html' | 'print' | 'pdf'` + `identity`.
 Impor: `import core, { … } from '../core'` (berkas `src/core/index.ts`). Objek default `core` mengimplementasikan

@@ -1,0 +1,7523 @@
+{
+  "tool": "tests/e2e/startup-comparison.mjs",
+  "budget": {
+    "samples": 20,
+    "maxMedianRatio": 1.2,
+    "maxP95Ratio": 1.25,
+    "maxBodyBytesRatio": 1.01
+  },
+  "method": "Two untimed warmups, alternating AB/BA, same headless browser and viewport. Cold: new isolated context with empty HTTP cache. Warm: normal reload in same context. Startup from /#/workspace (empty editor) until first HTML preview is ready. Record all local requests until 250ms network idle after frame fonts. HTTP server has no compression. Body bytes exclude HTTP headers. Timings are not mobile or Cloudflare production.",
+  "node": "v24.22.3",
+  "platform": "linux-x64",
+  "cores": 9,
+  "fixtures": {
+    "rc4": {
+      "indexSha256": "8509213d91589ed7b112dbfdd244b16f0bdb32f598ec72e2058357d17838bc2a",
+      "assetsSha256": "4ac9d63634edfd742983959964f77d8195d74580b0f5ab75097e53d630d4e2aa"
+    },
+    "candidate": {
+      "indexSha256": "60c9694dda7cd06ab971773ee1e0c52e42b6037de91d25ccdaa4148387ced8ba",
+      "assetsSha256": "29acd4f84880fd5d9bde0fed6d424eb5d5062642d945102b45e99cc3c28f9e83"
+    }
+  },
+  "runs": [
+    {
+      "label": "rc4",
+      "rep": 1,
+      "phase": "cold",
+      "readyMs": 599,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        117,
+        106,
+        64
+      ],
+      "longestTaskMs": 117
+    },
+    {
+      "label": "rc4",
+      "rep": 1,
+      "phase": "warm",
+      "readyMs": 325,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        51
+      ],
+      "longestTaskMs": 51
+    },
+    {
+      "label": "candidate",
+      "rep": 1,
+      "phase": "cold",
+      "readyMs": 1016,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        125,
+        105,
+        84,
+        51,
+        74
+      ],
+      "longestTaskMs": 125
+    },
+    {
+      "label": "candidate",
+      "rep": 1,
+      "phase": "warm",
+      "readyMs": 351,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [],
+      "longestTaskMs": 0
+    },
+    {
+      "label": "candidate",
+      "rep": 2,
+      "phase": "cold",
+      "readyMs": 660,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        113,
+        158,
+        50
+      ],
+      "longestTaskMs": 158
+    },
+    {
+      "label": "candidate",
+      "rep": 2,
+      "phase": "warm",
+      "readyMs": 370,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [],
+      "longestTaskMs": 0
+    },
+    {
+      "label": "rc4",
+      "rep": 2,
+      "phase": "cold",
+      "readyMs": 585,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        121,
+        105,
+        60
+      ],
+      "longestTaskMs": 121
+    },
+    {
+      "label": "rc4",
+      "rep": 2,
+      "phase": "warm",
+      "readyMs": 484,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        56,
+        91
+      ],
+      "longestTaskMs": 91
+    },
+    {
+      "label": "rc4",
+      "rep": 3,
+      "phase": "cold",
+      "readyMs": 795,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        121,
+        105,
+        74
+      ],
+      "longestTaskMs": 121
+    },
+    {
+      "label": "rc4",
+      "rep": 3,
+      "phase": "warm",
+      "readyMs": 495,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        54,
+        63
+      ],
+      "longestTaskMs": 63
+    },
+    {
+      "label": "candidate",
+      "rep": 3,
+      "phase": "cold",
+      "readyMs": 614,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        113,
+        84,
+        85
+      ],
+      "longestTaskMs": 113
+    },
+    {
+      "label": "candidate",
+      "rep": 3,
+      "phase": "warm",
+      "readyMs": 428,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        50
+      ],
+      "longestTaskMs": 50
+    },
+    {
+      "label": "candidate",
+      "rep": 4,
+      "phase": "cold",
+      "readyMs": 623,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        101,
+        79,
+        51
+      ],
+      "longestTaskMs": 101
+    },
+    {
+      "label": "candidate",
+      "rep": 4,
+      "phase": "warm",
+      "readyMs": 686,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        83
+      ],
+      "longestTaskMs": 83
+    },
+    {
+      "label": "rc4",
+      "rep": 4,
+      "phase": "cold",
+      "readyMs": 663,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        125,
+        96,
+        64
+      ],
+      "longestTaskMs": 125
+    },
+    {
+      "label": "rc4",
+      "rep": 4,
+      "phase": "warm",
+      "readyMs": 406,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        58
+      ],
+      "longestTaskMs": 58
+    },
+    {
+      "label": "rc4",
+      "rep": 5,
+      "phase": "cold",
+      "readyMs": 592,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        136,
+        108,
+        66
+      ],
+      "longestTaskMs": 136
+    },
+    {
+      "label": "rc4",
+      "rep": 5,
+      "phase": "warm",
+      "readyMs": 365,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [],
+      "longestTaskMs": 0
+    },
+    {
+      "label": "candidate",
+      "rep": 5,
+      "phase": "cold",
+      "readyMs": 607,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        99,
+        80,
+        118
+      ],
+      "longestTaskMs": 118
+    },
+    {
+      "label": "candidate",
+      "rep": 5,
+      "phase": "warm",
+      "readyMs": 336,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [],
+      "longestTaskMs": 0
+    },
+    {
+      "label": "candidate",
+      "rep": 6,
+      "phase": "cold",
+      "readyMs": 530,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        94,
+        86,
+        55
+      ],
+      "longestTaskMs": 94
+    },
+    {
+      "label": "candidate",
+      "rep": 6,
+      "phase": "warm",
+      "readyMs": 1107,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        88,
+        170
+      ],
+      "longestTaskMs": 170
+    },
+    {
+      "label": "rc4",
+      "rep": 6,
+      "phase": "cold",
+      "readyMs": 907,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        127,
+        108,
+        81
+      ],
+      "longestTaskMs": 127
+    },
+    {
+      "label": "rc4",
+      "rep": 6,
+      "phase": "warm",
+      "readyMs": 638,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        53,
+        73
+      ],
+      "longestTaskMs": 73
+    },
+    {
+      "label": "rc4",
+      "rep": 7,
+      "phase": "cold",
+      "readyMs": 1170,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        160,
+        105,
+        75
+      ],
+      "longestTaskMs": 160
+    },
+    {
+      "label": "rc4",
+      "rep": 7,
+      "phase": "warm",
+      "readyMs": 423,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        52,
+        58
+      ],
+      "longestTaskMs": 58
+    },
+    {
+      "label": "candidate",
+      "rep": 7,
+      "phase": "cold",
+      "readyMs": 590,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        154,
+        77,
+        50
+      ],
+      "longestTaskMs": 154
+    },
+    {
+      "label": "candidate",
+      "rep": 7,
+      "phase": "warm",
+      "readyMs": 378,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [],
+      "longestTaskMs": 0
+    },
+    {
+      "label": "candidate",
+      "rep": 8,
+      "phase": "cold",
+      "readyMs": 536,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        98,
+        91,
+        51
+      ],
+      "longestTaskMs": 98
+    },
+    {
+      "label": "candidate",
+      "rep": 8,
+      "phase": "warm",
+      "readyMs": 438,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        51
+      ],
+      "longestTaskMs": 51
+    },
+    {
+      "label": "rc4",
+      "rep": 8,
+      "phase": "cold",
+      "readyMs": 610,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        129,
+        97,
+        61
+      ],
+      "longestTaskMs": 129
+    },
+    {
+      "label": "rc4",
+      "rep": 8,
+      "phase": "warm",
+      "readyMs": 449,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        112
+      ],
+      "longestTaskMs": 112
+    },
+    {
+      "label": "rc4",
+      "rep": 9,
+      "phase": "cold",
+      "readyMs": 633,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        124,
+        118,
+        84
+      ],
+      "longestTaskMs": 124
+    },
+    {
+      "label": "rc4",
+      "rep": 9,
+      "phase": "warm",
+      "readyMs": 395,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        56,
+        53
+      ],
+      "longestTaskMs": 56
+    },
+    {
+      "label": "candidate",
+      "rep": 9,
+      "phase": "cold",
+      "readyMs": 656,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        105,
+        87,
+        64
+      ],
+      "longestTaskMs": 105
+    },
+    {
+      "label": "candidate",
+      "rep": 9,
+      "phase": "warm",
+      "readyMs": 367,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [],
+      "longestTaskMs": 0
+    },
+    {
+      "label": "candidate",
+      "rep": 10,
+      "phase": "cold",
+      "readyMs": 638,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        153,
+        91,
+        71
+      ],
+      "longestTaskMs": 153
+    },
+    {
+      "label": "candidate",
+      "rep": 10,
+      "phase": "warm",
+      "readyMs": 368,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [],
+      "longestTaskMs": 0
+    },
+    {
+      "label": "rc4",
+      "rep": 10,
+      "phase": "cold",
+      "readyMs": 601,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        109,
+        96,
+        61
+      ],
+      "longestTaskMs": 109
+    },
+    {
+      "label": "rc4",
+      "rep": 10,
+      "phase": "warm",
+      "readyMs": 408,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        52
+      ],
+      "longestTaskMs": 52
+    },
+    {
+      "label": "rc4",
+      "rep": 11,
+      "phase": "cold",
+      "readyMs": 596,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        124,
+        99,
+        74
+      ],
+      "longestTaskMs": 124
+    },
+    {
+      "label": "rc4",
+      "rep": 11,
+      "phase": "warm",
+      "readyMs": 464,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        68,
+        53,
+        68
+      ],
+      "longestTaskMs": 68
+    },
+    {
+      "label": "candidate",
+      "rep": 11,
+      "phase": "cold",
+      "readyMs": 502,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        97,
+        67
+      ],
+      "longestTaskMs": 97
+    },
+    {
+      "label": "candidate",
+      "rep": 11,
+      "phase": "warm",
+      "readyMs": 330,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [],
+      "longestTaskMs": 0
+    },
+    {
+      "label": "candidate",
+      "rep": 12,
+      "phase": "cold",
+      "readyMs": 548,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        108,
+        83,
+        54
+      ],
+      "longestTaskMs": 108
+    },
+    {
+      "label": "candidate",
+      "rep": 12,
+      "phase": "warm",
+      "readyMs": 367,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [],
+      "longestTaskMs": 0
+    },
+    {
+      "label": "rc4",
+      "rep": 12,
+      "phase": "cold",
+      "readyMs": 761,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        179,
+        139,
+        74
+      ],
+      "longestTaskMs": 179
+    },
+    {
+      "label": "rc4",
+      "rep": 12,
+      "phase": "warm",
+      "readyMs": 431,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        70
+      ],
+      "longestTaskMs": 70
+    },
+    {
+      "label": "rc4",
+      "rep": 13,
+      "phase": "cold",
+      "readyMs": 668,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        120,
+        103,
+        62
+      ],
+      "longestTaskMs": 120
+    },
+    {
+      "label": "rc4",
+      "rep": 13,
+      "phase": "warm",
+      "readyMs": 422,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        53
+      ],
+      "longestTaskMs": 53
+    },
+    {
+      "label": "candidate",
+      "rep": 13,
+      "phase": "cold",
+      "readyMs": 542,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        100,
+        83,
+        62
+      ],
+      "longestTaskMs": 100
+    },
+    {
+      "label": "candidate",
+      "rep": 13,
+      "phase": "warm",
+      "readyMs": 405,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [],
+      "longestTaskMs": 0
+    },
+    {
+      "label": "candidate",
+      "rep": 14,
+      "phase": "cold",
+      "readyMs": 548,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        100,
+        75,
+        50
+      ],
+      "longestTaskMs": 100
+    },
+    {
+      "label": "candidate",
+      "rep": 14,
+      "phase": "warm",
+      "readyMs": 346,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [],
+      "longestTaskMs": 0
+    },
+    {
+      "label": "rc4",
+      "rep": 14,
+      "phase": "cold",
+      "readyMs": 583,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        111,
+        103,
+        67
+      ],
+      "longestTaskMs": 111
+    },
+    {
+      "label": "rc4",
+      "rep": 14,
+      "phase": "warm",
+      "readyMs": 407,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        61
+      ],
+      "longestTaskMs": 61
+    },
+    {
+      "label": "rc4",
+      "rep": 15,
+      "phase": "cold",
+      "readyMs": 662,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        157,
+        98,
+        64
+      ],
+      "longestTaskMs": 157
+    },
+    {
+      "label": "rc4",
+      "rep": 15,
+      "phase": "warm",
+      "readyMs": 419,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        61
+      ],
+      "longestTaskMs": 61
+    },
+    {
+      "label": "candidate",
+      "rep": 15,
+      "phase": "cold",
+      "readyMs": 530,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        101,
+        83
+      ],
+      "longestTaskMs": 101
+    },
+    {
+      "label": "candidate",
+      "rep": 15,
+      "phase": "warm",
+      "readyMs": 353,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [],
+      "longestTaskMs": 0
+    },
+    {
+      "label": "candidate",
+      "rep": 16,
+      "phase": "cold",
+      "readyMs": 531,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        100,
+        81
+      ],
+      "longestTaskMs": 100
+    },
+    {
+      "label": "candidate",
+      "rep": 16,
+      "phase": "warm",
+      "readyMs": 511,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        64,
+        64,
+        56
+      ],
+      "longestTaskMs": 64
+    },
+    {
+      "label": "rc4",
+      "rep": 16,
+      "phase": "cold",
+      "readyMs": 706,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        155,
+        146,
+        75
+      ],
+      "longestTaskMs": 155
+    },
+    {
+      "label": "rc4",
+      "rep": 16,
+      "phase": "warm",
+      "readyMs": 380,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        59
+      ],
+      "longestTaskMs": 59
+    },
+    {
+      "label": "rc4",
+      "rep": 17,
+      "phase": "cold",
+      "readyMs": 646,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        133,
+        108,
+        70
+      ],
+      "longestTaskMs": 133
+    },
+    {
+      "label": "rc4",
+      "rep": 17,
+      "phase": "warm",
+      "readyMs": 415,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        63
+      ],
+      "longestTaskMs": 63
+    },
+    {
+      "label": "candidate",
+      "rep": 17,
+      "phase": "cold",
+      "readyMs": 595,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        104,
+        86
+      ],
+      "longestTaskMs": 104
+    },
+    {
+      "label": "candidate",
+      "rep": 17,
+      "phase": "warm",
+      "readyMs": 350,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [],
+      "longestTaskMs": 0
+    },
+    {
+      "label": "candidate",
+      "rep": 18,
+      "phase": "cold",
+      "readyMs": 582,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        120,
+        84
+      ],
+      "longestTaskMs": 120
+    },
+    {
+      "label": "candidate",
+      "rep": 18,
+      "phase": "warm",
+      "readyMs": 375,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [],
+      "longestTaskMs": 0
+    },
+    {
+      "label": "rc4",
+      "rep": 18,
+      "phase": "cold",
+      "readyMs": 570,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        109,
+        98,
+        63
+      ],
+      "longestTaskMs": 109
+    },
+    {
+      "label": "rc4",
+      "rep": 18,
+      "phase": "warm",
+      "readyMs": 440,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        73,
+        56
+      ],
+      "longestTaskMs": 73
+    },
+    {
+      "label": "rc4",
+      "rep": 19,
+      "phase": "cold",
+      "readyMs": 585,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        118,
+        100,
+        62
+      ],
+      "longestTaskMs": 118
+    },
+    {
+      "label": "rc4",
+      "rep": 19,
+      "phase": "warm",
+      "readyMs": 447,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        65
+      ],
+      "longestTaskMs": 65
+    },
+    {
+      "label": "candidate",
+      "rep": 19,
+      "phase": "cold",
+      "readyMs": 622,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        125,
+        83,
+        83
+      ],
+      "longestTaskMs": 125
+    },
+    {
+      "label": "candidate",
+      "rep": 19,
+      "phase": "warm",
+      "readyMs": 356,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [],
+      "longestTaskMs": 0
+    },
+    {
+      "label": "candidate",
+      "rep": 20,
+      "phase": "cold",
+      "readyMs": 606,
+      "responseBodyBytes": 2321043,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-BpgZGIZc.js",
+          "status": 200,
+          "bytes": 1045141
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-Dmgrgk1h.js",
+          "status": 200,
+          "bytes": 14734
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/tex-renderer-B8QSyZr1.js",
+          "status": 200,
+          "bytes": 528
+        },
+        {
+          "url": "/assets/katex-C-g2SbSj.js",
+          "status": 200,
+          "bytes": 262055
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/font-assets-CPaV9xxU.js",
+          "status": 200,
+          "bytes": 14745
+        },
+        {
+          "url": "/assets/engine.worker-C1ieoNok.js",
+          "status": 200,
+          "bytes": 652603
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        100,
+        85,
+        105
+      ],
+      "longestTaskMs": 105
+    },
+    {
+      "label": "candidate",
+      "rep": 20,
+      "phase": "warm",
+      "readyMs": 351,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [],
+      "longestTaskMs": 0
+    },
+    {
+      "label": "rc4",
+      "rep": 20,
+      "phase": "cold",
+      "readyMs": 590,
+      "responseBodyBytes": 2585260,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/assets/main-doLqWopj.js",
+          "status": 200,
+          "bytes": 1311382
+        },
+        {
+          "url": "/assets/main-Yl4gEbVd.css",
+          "status": 200,
+          "bytes": 23365
+        },
+        {
+          "url": "/assets/paginate-error-B2kWKKv3.js",
+          "status": 200,
+          "bytes": 9252
+        },
+        {
+          "url": "/assets/_commonjsHelpers-Cpj98o6Y.js",
+          "status": 200,
+          "bytes": 236
+        },
+        {
+          "url": "/assets/font-assets-CdrOIHoN.js",
+          "status": 200,
+          "bytes": 17600
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        },
+        {
+          "url": "/assets/engine.worker-CCRqm8IN.js",
+          "status": 200,
+          "bytes": 914736
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-CfcOfZXz.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-Buz-D1WU.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-BmijZNFf.js",
+          "status": 200,
+          "bytes": 78
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-O3LrBRVL.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-DL33ut4a.js",
+          "status": 200,
+          "bytes": 74
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-CGK6Cbg5.js",
+          "status": 200,
+          "bytes": 73
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-BHXCnnFb.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-Bu1esYe4.js",
+          "status": 200,
+          "bytes": 75
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DGZNJ8Tx.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-nXkfkErZ.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-rsH7Sz2z.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-BsSEiccf.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-CFAISUOi.js",
+          "status": 200,
+          "bytes": 87
+        },
+        {
+          "url": "/assets/inter-latin-400-normal-C38fXH4l.woff2",
+          "status": 200,
+          "bytes": 23664
+        },
+        {
+          "url": "/assets/inter-latin-600-normal-LgqL8muc.woff2",
+          "status": 200,
+          "bytes": 24452
+        },
+        {
+          "url": "/assets/inter-latin-700-normal-Yt3aPRUw.woff2",
+          "status": 200,
+          "bytes": 24356
+        },
+        {
+          "url": "/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+          "status": 200,
+          "bytes": 21168
+        },
+        {
+          "url": "/assets/KaTeX_Main-Regular-B22Nviop.woff2",
+          "status": 200,
+          "bytes": 26272
+        },
+        {
+          "url": "/assets/KaTeX_Math-Italic-t53AETM-.woff2",
+          "status": 200,
+          "bytes": 16440
+        },
+        {
+          "url": "/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+          "status": 200,
+          "bytes": 5208
+        },
+        {
+          "url": "/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2",
+          "status": 200,
+          "bytes": 3624
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2",
+          "status": 200,
+          "bytes": 20088
+        },
+        {
+          "url": "/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2",
+          "status": 200,
+          "bytes": 21716
+        },
+        {
+          "url": "/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2",
+          "status": 200,
+          "bytes": 20092
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-normal-DouSKlru.woff2",
+          "status": 200,
+          "bytes": 21532
+        },
+        {
+          "url": "/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2",
+          "status": 200,
+          "bytes": 21588
+        },
+        {
+          "url": "/assets/katex.min-DDtwLco6.js",
+          "status": 200,
+          "bytes": 24826
+        }
+      ],
+      "longTasks": [
+        118,
+        106,
+        63
+      ],
+      "longestTaskMs": 118
+    },
+    {
+      "label": "rc4",
+      "rep": 20,
+      "phase": "warm",
+      "readyMs": 417,
+      "responseBodyBytes": 32610,
+      "requests": [
+        {
+          "url": "/",
+          "status": 200,
+          "bytes": 32333
+        },
+        {
+          "url": "/favicon.svg",
+          "status": 200,
+          "bytes": 277
+        }
+      ],
+      "longTasks": [
+        55
+      ],
+      "longestTaskMs": 55
+    }
+  ],
+  "browser": "Chrome/156.0.8078.79",
+  "summary": {
+    "cold": {
+      "rc4": {
+        "readyMs": {
+          "n": 20,
+          "min": 570,
+          "median": 621.5,
+          "p95": 907,
+          "max": 1170
+        },
+        "responseBodyBytes": {
+          "n": 20,
+          "min": 2585260,
+          "median": 2585260,
+          "p95": 2585260,
+          "max": 2585260
+        },
+        "longestTaskMs": {
+          "n": 20,
+          "min": 109,
+          "median": 124,
+          "p95": 160,
+          "max": 179
+        }
+      },
+      "candidate": {
+        "readyMs": {
+          "n": 20,
+          "min": 502,
+          "median": 592.5,
+          "p95": 660,
+          "max": 1016
+        },
+        "responseBodyBytes": {
+          "n": 20,
+          "min": 2321043,
+          "median": 2321043,
+          "p95": 2321043,
+          "max": 2321043
+        },
+        "longestTaskMs": {
+          "n": 20,
+          "min": 94,
+          "median": 105,
+          "p95": 154,
+          "max": 158
+        }
+      },
+      "withinBudget": true
+    },
+    "warm": {
+      "rc4": {
+        "readyMs": {
+          "n": 20,
+          "min": 325,
+          "median": 420.5,
+          "p95": 495,
+          "max": 638
+        },
+        "responseBodyBytes": {
+          "n": 20,
+          "min": 32610,
+          "median": 32610,
+          "p95": 32610,
+          "max": 32610
+        },
+        "longestTaskMs": {
+          "n": 20,
+          "min": 0,
+          "median": 61,
+          "p95": 91,
+          "max": 112
+        }
+      },
+      "candidate": {
+        "readyMs": {
+          "n": 20,
+          "min": 330,
+          "median": 367.5,
+          "p95": 686,
+          "max": 1107
+        },
+        "responseBodyBytes": {
+          "n": 20,
+          "min": 32610,
+          "median": 32610,
+          "p95": 32610,
+          "max": 32610
+        },
+        "longestTaskMs": {
+          "n": 20,
+          "min": 0,
+          "median": 0,
+          "p95": 83,
+          "max": 170
+        }
+      },
+      "withinBudget": false
+    }
+  },
+  "status": "FAIL"
+}

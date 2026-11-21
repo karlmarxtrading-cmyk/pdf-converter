@@ -1,0 +1,20 @@
+{
+  "archive": "PAPERFORMA_RC5_BUILD_VERIFICATION.zip",
+  "zipBytes": 5495776,
+  "zipSha256": "6ad061395a3570ebf4087f2f8f27bc2bfcc24a638ef6764373384ba6d04ad3fd",
+  "verifiedChecksums": 482,
+  "identicalDistFiles": 180,
+  "build": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.5",
+    "profile": "production",
+    "candidateSha256": "9263951462ed4545e626a877f3ff196d6db5ff2e427585330972da4e8e9551a3",
+    "distTreeSha256": "0987e2ef814b844374f84b2ff26a5be4b4c675fc2dff12423e9cea0a7b69a1cd",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "status": "PASS"
+}

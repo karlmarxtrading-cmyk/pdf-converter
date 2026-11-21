@@ -1,0 +1,29 @@
+{
+  "candidateBuild": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.5",
+    "profile": "production",
+    "candidateSha256": "9263951462ed4545e626a877f3ff196d6db5ff2e427585330972da4e8e9551a3",
+    "distTreeSha256": "0987e2ef814b844374f84b2ff26a5be4b4c675fc2dff12423e9cea0a7b69a1cd",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "environment": "Chromium desktop, Linux, profil managed; served over loopback",
+  "input": "# Relativitas khusus Einstein\n\nEnergi diam memenuhi $E_0=mc^2$. PENUTUP-RC5-92639514",
+  "run": "Editor → Check and export → Print / Save PDF → Prepare print → Open print dialog",
+  "application": "PASS",
+  "pageCount": 1,
+  "paper": "A4 portrait",
+  "template": "BUS-01",
+  "mathCount": 1,
+  "pageInventory": "pass",
+  "pageStructureDifferences": 0,
+  "overflow": false,
+  "blankPages": false,
+  "paginatedHtmlSha256": "1a5ce44522e322adcc73f5283ef69aacda58a0882fe8f5a0babfe73045669df9",
+  "nativeSave": "BLOCKED",
+  "observation": "Aplikasi menampilkan Print dialog requested. Tidak muncul dialog tujuan PDF. Menu Chromium menunjukkan Print…/Ctrl+P berwarna abu-abu dan Managed by your organization. Tidak ada PDF yang disimpan melalui dialog native. Sampel PDF lain memakai mesin cetak otomatis terpisah."
+}
