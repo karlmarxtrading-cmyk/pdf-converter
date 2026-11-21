@@ -1,7 +1,7 @@
 {
   "tool": "tests/e2e/release-gate.mjs",
-  "candidateSha256": "5e649307531114cbec6ac54c3ac23864acd79abe170f9da77d692371c8be9136",
-  "at": "2026-11-21T02:28:40.988Z",
+  "candidateSha256": "82397ea41b8253c9c0b6678ea9d879effeb44e6b1f8f37b3b692c341ec7a5465",
+  "at": "2026-11-21T05:48:37.540Z",
   "pass": true,
   "results": [
     {

@@ -1,5 +1,5 @@
 // Skenario E2E. Setiap skenario mengembalikan detail terukur; kegagalan melempar Error dengan alasan spesifik.
-import { mkdtempSync, readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { execFileSync } from 'node:child_process';
@@ -31,6 +31,24 @@ async function downloads(p) {
     },
     list: () => readdirSync(dir),
   };
+}
+const EINSTEIN_TEX = ['m', 'E_0', '\\boxed{E_0=mc^2}', 'v', '\\gamma=\\frac{1}{\\sqrt{1-\\frac{v^2}{c^2}}}', 'E=\\gamma mc^2', '\\Delta E = \\Delta m\\, c^2',
+  "\\begin{pmatrix} ct' \\\\ x' \\end{pmatrix} = \\begin{pmatrix} \\gamma & -\\gamma\\beta \\\\ -\\gamma\\beta & \\gamma \\end{pmatrix} \\begin{pmatrix} ct \\\\ x \\end{pmatrix}",
+  '\\tau = \\int_{t_1}^{t_2} \\sqrt{1-\\frac{v(t)^2}{c^2}}\\,dt', 'E_0=mc^2', 'p=\\gamma m v'];
+const EINSTEIN_DISPLAY = [false, false, true, false, true, false, true, true, false, false, false];
+/** Rumus di pratinjau: jumlah KaTeX, galat, TeX, sisa mentah di teks terlihat, mata uang & kode utuh. */
+async function previewMath(p) {
+  return p.evaluate(() => {
+    const d = document.querySelector('#live-frame').contentDocument;
+    const vis = d.body.cloneNode(true); vis.querySelectorAll('.pf-math, pre, code').forEach((n) => n.remove());
+    const t = vis.textContent;
+    return { katex: d.querySelectorAll('.pf-math .katex').length, errors: d.querySelectorAll('.pf-math-error').length,
+      tex: [...d.querySelectorAll('.pf-math[data-tex]')].map((e) => e.getAttribute('data-tex').replace(/\s+/g, ' ').trim()),
+      display: [...d.querySelectorAll('.pf-math[data-tex]')].map((e) => !!e.querySelector('.katex-display')),
+      raw: ['\\(', '\\)', '\\[', '\\]', '\\boxed', '\\frac', '$$', '$E'].filter((x) => t.includes(x)),
+      currencyText: /\$5 untuk versi hitam-putih dan \$10 untuk versi berwarna/.test(t.replace(/\s+/g, ' ')),
+      codeLiteral: (d.querySelector('pre')?.textContent ?? '').includes('echo "\\(x\\) tetap teks, $HOME juga"') };
+  });
 }
 async function loadSource(ctx, p, text) { await ctx.setSource(p, text); await ctx.waitReady(p, 120000); }
 async function openPublish(p, kind) {
@@ -786,9 +804,11 @@ export const SCENARIOS = [
         await ctx.sleep(1400); // debounce dokumen besar 1,2 s → pekerjaan baru dimulai saat yang lama masih berjalan
       }
       await ctx.waitReady(p, 180000);
+      // iframe pratinjau dokumen ±540 halaman memuat srcdoc baru secara asinkron: tunggu (maks 60 s) — gagal bila tidak pernah tampil
+      const shown = await p.waitForFunction(() => /PENANDA-AKHIR-3/.test(document.querySelector('#live-frame').contentDocument?.body?.textContent ?? ''), { timeout: 60000, polling: 250 }).then(() => true, () => false);
       const s = await ctx.state(p);
       const e = await p.evaluate(() => window.__pf.engine());
-      const live = await liveText(p);
+      const live = shown ? await liveText(p) : '';
       const integ = s.issues.filter((i) => i.scope === 'integrity' && i.severity === 'error');
       await p.close();
       assert(e.mode === 'worker', 'mode mesin bukan worker: ' + e.mode + ' ' + (e.reason ?? ''));
@@ -1006,6 +1026,145 @@ export const SCENARIOS = [
         assert(sb.view.hash === hashA, 'renderInputHash berbeda antar origin');
         return { originA: ctx.env.base, originB: baseB, bundleBytes: statSync(bundle).size, identicalRenderInputHash: true };
       } finally { await new Promise((r) => serverB.close(r)); }
+    },
+  },
+  {
+    id: 'E32', matrix: ['MATH-EINSTEIN', 'ST-QA-12', 'ST-QA-06'], title: 'Rumus Einstein dari ChatGPT: tempel HTML KaTeX, HTML berdelimiter literal, teks biasa, impor percakapan → pratinjau KaTeX, tanpa teks mentah',
+    async run(ctx) {
+      mkdirSync('evidence/math', { recursive: true });
+      const md = readFileSync('fixtures/einstein/einstein.md', 'utf8');
+      const htmlK = readFileSync('fixtures/einstein/chatgpt-katex.html', 'utf8');
+      const htmlL = readFileSync('fixtures/einstein/chatgpt-literal.html', 'utf8');
+      const htmlC = readFileSync('fixtures/einstein/chatgpt-conversation.html', 'utf8');
+      const out = {};
+      const pasteEvent = (sel, plain, html) => (p) => p.evaluate((sel, plain, html) => {
+        const t = document.querySelector(sel); t.focus();
+        const dt = new DataTransfer(); dt.setData('text/plain', plain); if (html) dt.setData('text/html', html);
+        const ev = new ClipboardEvent('paste', { clipboardData: dt, bubbles: true, cancelable: true });
+        const handled = !t.dispatchEvent(ev);
+        if (!handled) { t.value = plain; t.dispatchEvent(new Event('input', { bubbles: true })); }
+      }, sel, plain, html);
+      const viaDialog = async (p, plain, html) => {
+        await p.click('#empty-state [data-action=paste]'); await p.waitForSelector('#dlg-paste[open]');
+        await pasteEvent('#paste-area', plain, html)(p);
+        await ctx.sleep(80);
+        const enabled = await p.$eval('input[name=paste-repr][value=markdown]', (i) => !i.disabled);
+        assert(enabled, 'opsi konversi HTML→Markdown tidak aktif');
+        await p.click('input[name=paste-repr][value=markdown]');
+        await p.click('#paste-ok');
+        await p.waitForSelector('#dlg-diff[open]', { timeout: 15000 });
+        const issues = await p.$eval('#diff-issues', (e) => e.textContent.trim());
+        await p.click('#dlg-diff button[value=apply]');
+        return issues;
+      };
+      const cases = [
+        ['dialog-html-katex', async (p) => viaDialog(p, md, htmlK)],
+        // salinan tombol "copy": text/plain Markdown + text/html berisi delimiter literal
+        ['dialog-html-literal', async (p) => viaDialog(p, md, htmlL)],
+        ['editor-plain', async (p) => { await pasteEvent('#editor', md, null)(p); }],
+        ['editor-html-convert', async (p) => {
+          await pasteEvent('#editor', md, htmlL)(p);
+          await p.waitForFunction(() => [...document.querySelectorAll('#notices .notice-actions button')].some((b) => /Markdown/.test(b.textContent)), { timeout: 10000 });
+          await p.evaluate(() => [...document.querySelectorAll('#notices .notice-actions button')].find((b) => /Markdown/.test(b.textContent)).click());
+          await p.waitForSelector('#dlg-diff[open]'); await p.click('#dlg-diff button[value=apply]');
+        }],
+        ['conversation-import', async (p) => {
+          await p.click('#empty-state [data-action=paste-conv]'); await p.waitForSelector('#dlg-paste[open]');
+          await pasteEvent('#paste-area', 'Jelaskan E=mc^2 dan faktor Lorentz.\n\n' + md, htmlC)(p);
+          await ctx.sleep(80);
+          await p.click('#paste-ok');
+          const c = await p.$('#dlg-confirm[open]'); if (c) await p.click('#dlg-confirm button[value=ok]');
+          await p.waitForFunction(() => document.querySelectorAll('#conv-panel .msg').length >= 2, { timeout: 15000 });
+          await p.evaluate(() => document.querySelectorAll('#conv-panel .msg input[type=checkbox]').forEach((cb) => { if (!cb.checked) cb.click(); }));
+          await p.evaluate(() => [...document.querySelectorAll('#conv-panel button')].find((b) => /Buat dokumen|Build document/.test(b.textContent)).click());
+          const c2 = await p.$('#dlg-confirm[open]'); if (c2) await p.click('#dlg-confirm button[value=ok]');
+          await p.waitForFunction(() => /PENUTUP-EINSTEIN/.test(window.__pf.state().source), { timeout: 15000 });
+        }],
+      ];
+      for (const [name, act] of cases) {
+        await wipeStorage(ctx);
+        const p = await studio(ctx);
+        const note = await act(p);
+        await p.waitForFunction(() => /PENUTUP-EINSTEIN/.test(window.__pf.state().source), { timeout: 20000 });
+        await ctx.waitReady(p, 120000);
+        await p.waitForFunction(() => /PENUTUP-EINSTEIN/.test(document.querySelector('#live-frame').contentDocument?.body?.textContent ?? ''), { timeout: 30000 });
+        const m = await previewMath(p);
+        const src = (await ctx.state(p)).source;
+        const shot = `evidence/math/${name}.png`;
+        await p.evaluate(() => { const d = document.querySelector('#live-frame').contentDocument; d.querySelector('.pf-math-display')?.scrollIntoView({ block: 'center' }); });
+        const fr = await p.$('#live-frame'); await fr.screenshot({ path: shot });
+        await p.close();
+        out[name] = { ...m, sourceHasDoubleEscape: /\\\\\(|\\\\\[|\\\$E/.test(src), diffNotes: note || '', screenshot: shot };
+        assert(m.katex === EINSTEIN_TEX.length && m.errors === 0, `${name}: ${m.katex} rumus KaTeX, ${m.errors} galat`);
+        assert(!m.raw.length, `${name}: teks mentah tersisa ${m.raw.join(' ')}`);
+        assert(JSON.stringify(m.tex) === JSON.stringify(EINSTEIN_TEX), `${name}: TeX berbeda ${JSON.stringify(m.tex)}`);
+        assert(JSON.stringify(m.display) === JSON.stringify(EINSTEIN_DISPLAY), `${name}: mode display/inline salah ${JSON.stringify(m.display)}`);
+        assert(!out[name].sourceHasDoubleEscape, `${name}: sumber memuat backslash ganda`);
+        assert(m.currencyText && m.codeLiteral, `${name}: mata uang/kode berubah`);
+      }
+      await wipeStorage(ctx);
+      return out;
+    },
+  },
+  {
+    id: 'E33', matrix: ['MATH-EINSTEIN', 'ST-QA-16', 'ST-QA-19'], title: 'Rumus Einstein di HTML ekspor (luring, file://) dan di dokumen cetak/PDF: KaTeX dirender, font KaTeX tersemat, tanpa TeX mentah',
+    async run(ctx) {
+      mkdirSync('evidence/math', { recursive: true });
+      await wipeStorage(ctx);
+      const p = await studio(ctx);
+      const dl = await downloads(p);
+      await loadSource(ctx, p, readFileSync('fixtures/einstein/einstein.md', 'utf8'));
+      // HTML mandiri
+      await openPublish(p, 'html-standalone'); await p.click('#pub-go');
+      const r = await publishResult(p); assert(/banner-ok/.test(r.cls), 'ekspor HTML gagal: ' + r.text); await closePublish(p);
+      for (let i = 0; i < 100 && !dl.list().some((f) => f.endsWith('.html')); i++) await ctx.sleep(100);
+      const htmlFile = join(dl.dir, dl.list().find((f) => f.endsWith('.html')));
+      const v = await ctx.env.browser.newPage();
+      await v.setRequestInterception(true);
+      const blocked = []; v.on('request', (q) => { if (/^(file|data|blob):/.test(q.url())) q.continue(); else { blocked.push(q.url()); q.abort(); } });
+      await v.setViewport({ width: 900, height: 1200 });
+      await v.goto('file://' + htmlFile, { waitUntil: 'load' }); await v.evaluate(() => document.fonts.ready);
+      const exp = await v.evaluate(() => {
+        const vis = document.body.cloneNode(true); vis.querySelectorAll('.pf-math, pre, code, script, style').forEach((n) => n.remove());
+        return { katex: document.querySelectorAll('.pf-math .katex').length, tex: [...document.querySelectorAll('.pf-math[data-tex]')].map((e) => e.getAttribute('data-tex').replace(/\s+/g, ' ').trim()),
+          display: [...document.querySelectorAll('.pf-math[data-tex]')].map((e) => !!e.querySelector('.katex-display')),
+          raw: ['\\(', '\\[', '\\boxed', '\\frac', '$$'].filter((x) => vis.textContent.includes(x)),
+          katexFonts: [...document.fonts].filter((f) => /KaTeX/.test(f.family) && f.status === 'loaded').map((f) => f.family), boxed: !!document.querySelector('.pf-math .boxpad, .pf-math .fbox, .pf-math .stretchy.fbox') };
+      });
+      await v.evaluate(() => document.querySelector('.pf-math-display')?.scrollIntoView({ block: 'start' }));
+      await v.screenshot({ path: 'evidence/math/export-html.png' });
+      await v.close();
+      assert(!blocked.length, 'HTML ekspor meminta jaringan');
+      assert(exp.katex === EINSTEIN_TEX.length && !exp.raw.length && JSON.stringify(exp.tex) === JSON.stringify(EINSTEIN_TEX), 'HTML ekspor: ' + JSON.stringify(exp));
+      assert(JSON.stringify(exp.display) === JSON.stringify(EINSTEIN_DISPLAY), 'HTML ekspor: mode display salah ' + JSON.stringify(exp.display));
+      assert(exp.katexFonts.length >= 2, 'font KaTeX tidak termuat luring: ' + exp.katexFonts);
+      assert(exp.boxed, '\\boxed tidak dirender sebagai kotak');
+      // cetak: paginasi terverifikasi → HTML datar → mesin cetak Chrome (= "Simpan sebagai PDF")
+      await p.click('#t-checks'); await p.click('#p-checks .layout-btn');
+      await p.waitForFunction(() => ['done', 'failed'].includes(window.__pf.state().layout.status), { timeout: 120000 });
+      const flat = await p.evaluate(() => window.__pf.flattened());
+      assert(flat && flat.verification.status === 'pass', 'verifikasi paginasi: ' + JSON.stringify(flat?.verification));
+      const q = await ctx.env.browser.newPage();
+      await q.setContent(flat.html, { waitUntil: 'load' }); await q.evaluate(() => document.fonts.ready);
+      const printed = await q.evaluate(() => ({ katex: document.querySelectorAll('.pagedjs_page .pf-math .katex').length, errors: document.querySelectorAll('.pf-math-error').length, display: [...document.querySelectorAll('.pagedjs_page .pf-math[data-tex]')].map((e) => !!e.querySelector('.katex-display')) }));
+      const pdf = join(dl.dir, 'einstein.pdf');
+      writeFileSync(pdf, await q.pdf({ preferCSSPageSize: true, printBackground: true }));
+      await q.close(); await p.close();
+      const text = execFileSync('pdftotext', ['-enc', 'UTF-8', pdf, '-'], { encoding: 'utf8' });
+      const fonts = execFileSync('pdffonts', [pdf], { encoding: 'utf8' });
+      execFileSync('pdftoppm', ['-png', '-r', '80', '-f', '2', '-l', '3', pdf, 'evidence/math/pdf-page']);
+      writeFileSync('evidence/math/einstein.chrome.pdf', readFileSync(pdf));
+      // kode yang SENGAJA literal (blok bash & kode sebaris) dikeluarkan dulu; sisa teks tidak boleh memuat TeX mentah
+      const nows = (x) => x.replace(/\s+/g, '');
+      const prose = nows(text).replace(nows('echo "\\(x\\) tetap teks, $HOME juga"'), '').replace('\\[a\\]', '');
+      const rawPdf = ['\\(', '\\[', '\\boxed', '\\frac', '\\gamma', '\\sqrt', '$$'].filter((x) => prose.includes(x));
+      const katexPdfFonts = [...new Set(fonts.split('\n').filter((l) => /KaTeX/.test(l)).map((l) => l.split(/\s+/)[0].replace(/^[A-Z]{6}\+/, '')))];
+      assert(printed.katex === EINSTEIN_TEX.length && printed.errors === 0 && JSON.stringify(printed.display) === JSON.stringify(EINSTEIN_DISPLAY), 'cetak: ' + JSON.stringify(printed));
+      assert(!rawPdf.length, 'PDF memuat TeX mentah: ' + rawPdf.join(' '));
+      assert(katexPdfFonts.length >= 2, 'font KaTeX tidak tersemat di PDF');
+      assert(/PENUTUP-EINSTEIN/.test(text) && /\$5/.test(text) && /\$10/.test(text), 'teks/mata uang hilang di PDF');
+      await wipeStorage(ctx);
+      return { exportHtml: exp, print: printed, pages: flat.pages, pdfKatexFonts: katexPdfFonts, pdfRawTex: rawPdf, evidence: ['evidence/math/export-html.png', 'evidence/math/pdf-page-*.png', 'evidence/math/einstein.chrome.pdf'] };
     },
   },
 ];

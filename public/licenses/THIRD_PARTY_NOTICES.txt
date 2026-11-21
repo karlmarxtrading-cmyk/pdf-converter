@@ -1,4 +1,4 @@
-# Third-party notices — PaperForma 3.0.0-rc.2
+# Third-party notices — PaperForma 3.0.0-rc.3
 
 elkjs 0.12.1 is distributed unmodified under EPL-2.0. Source and build instructions for this release (tag 0.12.1): https://github.com/kieler/elkjs/tree/624ae90aa37110033a8af59c5ccbb292708b4317
 Source archive: https://github.com/kieler/elkjs/archive/624ae90aa37110033a8af59c5ccbb292708b4317.tar.gz
@@ -6118,7 +6118,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ---
 
-## hast-util-to-mdast@10.1.3 — MIT
+## hast-util-to-mdast@10.1.4 — MIT
 
 (The MIT License)
 

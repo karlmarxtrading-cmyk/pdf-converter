@@ -1,8 +1,8 @@
 {
   "tool": "tests/e2e/perf-matrix.mjs",
-  "candidateSha256": "5e649307531114cbec6ac54c3ac23864acd79abe170f9da77d692371c8be9136",
-  "distQaTreeSha256": "0cab71021b0fc20695b4b514515d173ed12aa4ac7c4881b156ce672a6f37b1e0",
-  "at": "2026-11-21T02:46:33.600Z",
+  "candidateSha256": "82397ea41b8253c9c0b6678ea9d879effeb44e6b1f8f37b3b692c341ec7a5465",
+  "distQaTreeSha256": "557d52a65d99bc80266b368993c7f4276b38ff868bed04e56e756693abd40370",
+  "at": "2026-11-21T06:08:26.907Z",
   "browser": "Chrome headless (lihat evidence/toolchain.txt)",
   "env": "Kontainer Linux, CPU bersama; bukan perangkat referensi. Angka untuk perbandingan relatif antar-kandidat.",
   "baselineRc1": {
@@ -23,85 +23,85 @@
       "summary": {
         "previewMs": {
           "n": 5,
-          "median": 380,
-          "min": 373,
-          "max": 396,
-          "p95": 396
+          "median": 426,
+          "min": 374,
+          "max": 471,
+          "p95": 471
         },
         "workerParseRenderMs": {
           "n": 5,
           "median": 42,
-          "min": 35,
-          "max": 43,
-          "p95": 43
+          "min": 38,
+          "max": 57,
+          "p95": 57
         },
         "workerCharsMs": {
           "n": 5,
           "median": 1,
           "min": 1,
-          "max": 4,
-          "p95": 4
+          "max": 1,
+          "p95": 1
         },
         "workerIntegrityModelMs": {
           "n": 5,
-          "median": 15,
-          "min": 14,
-          "max": 18,
-          "p95": 18
+          "median": 24,
+          "min": 23,
+          "max": 27,
+          "p95": 27
         },
         "workerReferencesMs": {
           "n": 5,
-          "median": 14,
-          "min": 10,
-          "max": 19,
-          "p95": 19
+          "median": 16,
+          "min": 12,
+          "max": 21,
+          "p95": 21
         },
         "analyzeWallMs": {
           "n": 5,
-          "median": 74,
-          "min": 65,
-          "max": 84,
-          "p95": 84
+          "median": 82,
+          "min": 80,
+          "max": 103,
+          "p95": 103
         },
         "mainFinishMs": {
+          "n": 5,
+          "median": 3,
+          "min": 2,
+          "max": 4,
+          "p95": 4
+        },
+        "mainIntegrityMs": {
+          "n": 5,
+          "median": 3,
+          "min": 3,
+          "max": 4,
+          "p95": 4
+        },
+        "composeMs": {
           "n": 5,
           "median": 4,
           "min": 2,
           "max": 5,
           "p95": 5
         },
-        "mainIntegrityMs": {
-          "n": 5,
-          "median": 3,
-          "min": 3,
-          "max": 8,
-          "p95": 8
-        },
-        "composeMs": {
-          "n": 5,
-          "median": 4,
-          "min": 3,
-          "max": 5,
-          "p95": 5
-        },
         "layoutWallMs": {
           "n": 5,
-          "median": 546,
-          "min": 541,
-          "max": 607,
-          "p95": 607
+          "median": 549,
+          "min": 545,
+          "max": 564,
+          "p95": 564
         },
         "paginatePassesMs": {
           "n": 5,
-          "median": 291,
-          "min": 287,
-          "max": 316,
-          "p95": 316
+          "median": 293,
+          "min": 283,
+          "max": 307,
+          "p95": 307
         },
         "contentVerifyMs": {
           "n": 5,
-          "median": 45,
-          "min": 39,
+          "median": 42,
+          "min": 42,
           "max": 51,
           "p95": 51
         },
@@ -114,17 +114,17 @@
         },
         "printReadyMs": {
           "n": 5,
-          "median": 932,
-          "min": 918,
-          "max": 995,
-          "p95": 995
+          "median": 974,
+          "min": 919,
+          "max": 1035,
+          "p95": 1035
         },
         "pdfExportMs": {
           "n": 5,
-          "median": 175,
-          "min": 146,
-          "max": 180,
-          "p95": 180
+          "median": 165,
+          "min": 126,
+          "max": 189,
+          "p95": 189
         },
         "pdfBytes": {
           "n": 5,
@@ -135,17 +135,17 @@
         },
         "reeditPreviewMs": {
           "n": 5,
-          "median": 342,
-          "min": 328,
-          "max": 368,
-          "p95": 368
+          "median": 338,
+          "min": 326,
+          "max": 355,
+          "p95": 355
         },
         "peakJsHeapMiB": {
           "n": 5,
-          "median": 34,
-          "min": 26,
-          "max": 38,
-          "p95": 38
+          "median": 27,
+          "min": 25,
+          "max": 34,
+          "p95": 34
         },
         "heapAfterGcMiB": {
           "n": 5,
@@ -158,23 +158,23 @@
           "preview": {
             "n": 5,
             "median": 55,
-            "min": 39,
-            "max": 68,
-            "p95": 68
+            "min": 40,
+            "max": 89,
+            "p95": 89
           },
           "layout": {
             "n": 5,
-            "median": 53,
-            "min": 47,
-            "max": 63,
-            "p95": 63
+            "median": 43,
+            "min": 42,
+            "max": 81,
+            "p95": 81
           },
           "reedit": {
             "n": 5,
-            "median": 121,
-            "min": 98,
-            "max": 138,
-            "p95": 138
+            "median": 119,
+            "min": 93,
+            "max": 189,
+            "p95": 189
           }
         },
         "longTaskMaxMs": {
@@ -189,13 +189,13 @@
             "n": 5,
             "median": 0,
             "min": 0,
-            "max": 0,
-            "p95": 0
+            "max": 54,
+            "p95": 54
           }
         }
       },
       "cancel": {
-        "ms": 14,
+        "ms": 20,
         "outcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
         "sessionLeft": null
       },
@@ -204,38 +204,38 @@
           "sections": 3,
           "rep": 1,
           "sourceBytes": 14591,
-          "previewMs": 388,
-          "workerParseRenderMs": 42,
-          "workerCharsMs": 4,
-          "workerIntegrityModelMs": 18,
-          "workerReferencesMs": 19,
-          "analyzeWallMs": 84,
-          "mainFinishMs": 5,
-          "mainIntegrityMs": 3,
-          "composeMs": 5,
-          "layoutWallMs": 607,
-          "printReadyMs": 995,
+          "previewMs": 471,
+          "workerParseRenderMs": 38,
+          "workerCharsMs": 1,
+          "workerIntegrityModelMs": 24,
+          "workerReferencesMs": 16,
+          "analyzeWallMs": 80,
+          "mainFinishMs": 3,
+          "mainIntegrityMs": 4,
+          "composeMs": 4,
+          "layoutWallMs": 564,
+          "printReadyMs": 1035,
           "layoutStatus": "done",
           "pages": 8,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 316,
-          "contentVerifyMs": 45,
-          "flattenMs": 3,
-          "layoutTotalMs": 420,
+          "paginatePassesMs": 301,
+          "contentVerifyMs": 51,
+          "flattenMs": 4,
+          "layoutTotalMs": 422,
           "forcedBreaks": 0,
-          "pdfExportMs": 180,
+          "pdfExportMs": 126,
           "pdfBytes": 63062,
-          "reeditPreviewMs": 342,
-          "cancelToIdleMs": 14,
+          "reeditPreviewMs": 338,
+          "cancelToIdleMs": 20,
           "cancelOutcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
           "printSessionAfterCancel": null,
           "heapAfterGcMiB": 13.4,
-          "peakJsHeapMiB": 26,
+          "peakJsHeapMiB": 27,
           "maxEventLoopGapMs": {
-            "preview": 55,
-            "layout": 63,
-            "reedit": 138
+            "preview": 89,
+            "layout": 59,
+            "reedit": 152
           },
           "longTasks": {
             "preview": {
@@ -254,35 +254,35 @@
           "sections": 3,
           "rep": 2,
           "sourceBytes": 14591,
-          "previewMs": 380,
-          "workerParseRenderMs": 40,
+          "previewMs": 470,
+          "workerParseRenderMs": 57,
           "workerCharsMs": 1,
-          "workerIntegrityModelMs": 14,
-          "workerReferencesMs": 18,
-          "analyzeWallMs": 74,
-          "mainFinishMs": 2,
-          "mainIntegrityMs": 3,
+          "workerIntegrityModelMs": 23,
+          "workerReferencesMs": 21,
+          "analyzeWallMs": 103,
+          "mainFinishMs": 4,
+          "mainIntegrityMs": 4,
           "composeMs": 5,
-          "layoutWallMs": 552,
-          "printReadyMs": 932,
+          "layoutWallMs": 549,
+          "printReadyMs": 1019,
           "layoutStatus": "done",
           "pages": 8,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 291,
-          "contentVerifyMs": 39,
-          "flattenMs": 3,
-          "layoutTotalMs": 383,
+          "paginatePassesMs": 307,
+          "contentVerifyMs": 42,
+          "flattenMs": 2,
+          "layoutTotalMs": 407,
           "forcedBreaks": 0,
-          "pdfExportMs": 146,
+          "pdfExportMs": 153,
           "pdfBytes": 63062,
-          "reeditPreviewMs": 341,
+          "reeditPreviewMs": 326,
           "heapAfterGcMiB": 10.4,
-          "peakJsHeapMiB": 30,
+          "peakJsHeapMiB": 27,
           "maxEventLoopGapMs": {
-            "preview": 41,
-            "layout": 61,
-            "reedit": 98
+            "preview": 51,
+            "layout": 81,
+            "reedit": 93
           },
           "longTasks": {
             "preview": {
@@ -290,8 +290,8 @@
               "maxMs": 0
             },
             "layout": {
-              "count": 0,
-              "maxMs": 0
+              "count": 1,
+              "maxMs": 54
             }
           },
           "engineMode": "worker",
@@ -301,35 +301,35 @@
           "sections": 3,
           "rep": 3,
           "sourceBytes": 14591,
-          "previewMs": 396,
-          "workerParseRenderMs": 43,
+          "previewMs": 374,
+          "workerParseRenderMs": 42,
           "workerCharsMs": 1,
-          "workerIntegrityModelMs": 17,
-          "workerReferencesMs": 10,
-          "analyzeWallMs": 75,
+          "workerIntegrityModelMs": 24,
+          "workerReferencesMs": 12,
+          "analyzeWallMs": 81,
           "mainFinishMs": 2,
-          "mainIntegrityMs": 8,
+          "mainIntegrityMs": 3,
           "composeMs": 4,
-          "layoutWallMs": 541,
-          "printReadyMs": 937,
+          "layoutWallMs": 545,
+          "printReadyMs": 919,
           "layoutStatus": "done",
           "pages": 8,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 287,
-          "contentVerifyMs": 51,
-          "flattenMs": 4,
-          "layoutTotalMs": 391,
+          "paginatePassesMs": 292,
+          "contentVerifyMs": 47,
+          "flattenMs": 3,
+          "layoutTotalMs": 386,
           "forcedBreaks": 0,
-          "pdfExportMs": 176,
+          "pdfExportMs": 173,
           "pdfBytes": 63062,
-          "reeditPreviewMs": 328,
+          "reeditPreviewMs": 333,
           "heapAfterGcMiB": 10.4,
-          "peakJsHeapMiB": 38,
+          "peakJsHeapMiB": 27,
           "maxEventLoopGapMs": {
-            "preview": 68,
-            "layout": 53,
-            "reedit": 134
+            "preview": 40,
+            "layout": 43,
+            "reedit": 119
           },
           "longTasks": {
             "preview": {
@@ -348,35 +348,35 @@
           "sections": 3,
           "rep": 4,
           "sourceBytes": 14591,
-          "previewMs": 373,
-          "workerParseRenderMs": 43,
+          "previewMs": 426,
+          "workerParseRenderMs": 41,
           "workerCharsMs": 1,
-          "workerIntegrityModelMs": 14,
-          "workerReferencesMs": 13,
-          "analyzeWallMs": 72,
-          "mainFinishMs": 4,
+          "workerIntegrityModelMs": 24,
+          "workerReferencesMs": 15,
+          "analyzeWallMs": 82,
+          "mainFinishMs": 2,
           "mainIntegrityMs": 3,
-          "composeMs": 3,
-          "layoutWallMs": 545,
-          "printReadyMs": 918,
+          "composeMs": 2,
+          "layoutWallMs": 548,
+          "printReadyMs": 974,
           "layoutStatus": "done",
           "pages": 8,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 299,
-          "contentVerifyMs": 40,
+          "paginatePassesMs": 283,
+          "contentVerifyMs": 42,
           "flattenMs": 3,
-          "layoutTotalMs": 387,
+          "layoutTotalMs": 375,
           "forcedBreaks": 0,
-          "pdfExportMs": 175,
+          "pdfExportMs": 189,
           "pdfBytes": 63062,
-          "reeditPreviewMs": 363,
+          "reeditPreviewMs": 347,
           "heapAfterGcMiB": 10.3,
           "peakJsHeapMiB": 34,
           "maxEventLoopGapMs": {
-            "preview": 39,
-            "layout": 47,
-            "reedit": 120
+            "preview": 61,
+            "layout": 42,
+            "reedit": 189
           },
           "longTasks": {
             "preview": {
@@ -395,35 +395,35 @@
           "sections": 3,
           "rep": 5,
           "sourceBytes": 14591,
-          "previewMs": 379,
-          "workerParseRenderMs": 35,
+          "previewMs": 396,
+          "workerParseRenderMs": 45,
           "workerCharsMs": 1,
-          "workerIntegrityModelMs": 15,
-          "workerReferencesMs": 14,
-          "analyzeWallMs": 65,
-          "mainFinishMs": 4,
+          "workerIntegrityModelMs": 27,
+          "workerReferencesMs": 17,
+          "analyzeWallMs": 91,
+          "mainFinishMs": 3,
           "mainIntegrityMs": 3,
-          "composeMs": 3,
-          "layoutWallMs": 546,
-          "printReadyMs": 925,
+          "composeMs": 2,
+          "layoutWallMs": 553,
+          "printReadyMs": 949,
           "layoutStatus": "done",
           "pages": 8,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 287,
-          "contentVerifyMs": 46,
-          "flattenMs": 2,
-          "layoutTotalMs": 383,
+          "paginatePassesMs": 293,
+          "contentVerifyMs": 42,
+          "flattenMs": 3,
+          "layoutTotalMs": 387,
           "forcedBreaks": 0,
-          "pdfExportMs": 168,
+          "pdfExportMs": 165,
           "pdfBytes": 63062,
-          "reeditPreviewMs": 368,
+          "reeditPreviewMs": 355,
           "heapAfterGcMiB": 10.4,
-          "peakJsHeapMiB": 35,
+          "peakJsHeapMiB": 25,
           "maxEventLoopGapMs": {
-            "preview": 64,
-            "layout": 48,
-            "reedit": 121
+            "preview": 55,
+            "layout": 42,
+            "reedit": 116
           },
           "longTasks": {
             "preview": {
@@ -449,108 +449,108 @@
       "summary": {
         "previewMs": {
           "n": 5,
-          "median": 1086,
-          "min": 1081,
-          "max": 1202,
-          "p95": 1202
+          "median": 1180,
+          "min": 1140,
+          "max": 1400,
+          "p95": 1400
         },
         "workerParseRenderMs": {
           "n": 5,
-          "median": 177,
-          "min": 163,
-          "max": 194,
-          "p95": 194
+          "median": 189,
+          "min": 176,
+          "max": 248,
+          "p95": 248
         },
         "workerCharsMs": {
           "n": 5,
-          "median": 1,
-          "min": 1,
-          "max": 6,
-          "p95": 6
+          "median": 2,
+          "min": 2,
+          "max": 4,
+          "p95": 4
         },
         "workerIntegrityModelMs": {
           "n": 5,
-          "median": 112,
-          "min": 102,
-          "max": 118,
-          "p95": 118
+          "median": 123,
+          "min": 99,
+          "max": 148,
+          "p95": 148
         },
         "workerReferencesMs": {
           "n": 5,
-          "median": 76,
-          "min": 65,
-          "max": 82,
-          "p95": 82
+          "median": 81,
+          "min": 63,
+          "max": 119,
+          "p95": 119
         },
         "analyzeWallMs": {
           "n": 5,
-          "median": 372,
-          "min": 354,
-          "max": 395,
-          "p95": 395
+          "median": 405,
+          "min": 348,
+          "max": 527,
+          "p95": 527
         },
         "mainFinishMs": {
           "n": 5,
-          "median": 10,
-          "min": 8,
-          "max": 12,
-          "p95": 12
+          "median": 13,
+          "min": 9,
+          "max": 17,
+          "p95": 17
         },
         "mainIntegrityMs": {
           "n": 5,
           "median": 14,
-          "min": 10,
-          "max": 21,
-          "p95": 21
+          "min": 12,
+          "max": 19,
+          "p95": 19
         },
         "composeMs": {
           "n": 5,
           "median": 14,
-          "min": 13,
-          "max": 20,
-          "p95": 20
+          "min": 14,
+          "max": 19,
+          "p95": 19
         },
         "layoutWallMs": {
           "n": 5,
-          "median": 2219,
-          "min": 2082,
-          "max": 2605,
-          "p95": 2605
+          "median": 2601,
+          "min": 2548,
+          "max": 2656,
+          "p95": 2656
         },
         "paginatePassesMs": {
           "n": 5,
-          "median": 1695,
-          "min": 1665,
-          "max": 1716,
-          "p95": 1716
+          "median": 1737,
+          "min": 1715,
+          "max": 1789,
+          "p95": 1789
         },
         "contentVerifyMs": {
           "n": 5,
-          "median": 144,
+          "median": 180,
           "min": 123,
-          "max": 211,
-          "p95": 211
+          "max": 227,
+          "p95": 227
         },
         "flattenMs": {
           "n": 5,
-          "median": 7,
-          "min": 6,
-          "max": 10,
-          "p95": 10
+          "median": 8,
+          "min": 7,
+          "max": 9,
+          "p95": 9
         },
         "printReadyMs": {
           "n": 5,
-          "median": 3300,
-          "min": 3168,
-          "max": 3773,
-          "p95": 3773
+          "median": 3752,
+          "min": 3736,
+          "max": 4001,
+          "p95": 4001
         },
         "pdfExportMs": {
           "n": 5,
-          "median": 736,
-          "min": 701,
-          "max": 756,
-          "p95": 756
+          "median": 795,
+          "min": 764,
+          "max": 1029,
+          "p95": 1029
         },
         "pdfBytes": {
           "n": 5,
@@ -561,46 +561,46 @@
         },
         "reeditPreviewMs": {
           "n": 5,
-          "median": 979,
-          "min": 946,
-          "max": 1344,
-          "p95": 1344
+          "median": 1204,
+          "min": 1055,
+          "max": 1446,
+          "p95": 1446
         },
         "peakJsHeapMiB": {
           "n": 5,
-          "median": 38,
-          "min": 30,
-          "max": 41,
-          "p95": 41
+          "median": 37,
+          "min": 29,
+          "max": 42,
+          "p95": 42
         },
         "heapAfterGcMiB": {
           "n": 5,
-          "median": 10.9,
+          "median": 12.5,
           "min": 10.7,
-          "max": 15.6,
-          "p95": 15.6
+          "max": 15.5,
+          "p95": 15.5
         },
         "maxEventLoopGapMs": {
           "preview": {
             "n": 5,
-            "median": 59,
-            "min": 52,
-            "max": 81,
-            "p95": 81
+            "median": 89,
+            "min": 56,
+            "max": 112,
+            "p95": 112
           },
           "layout": {
             "n": 5,
-            "median": 116,
-            "min": 97,
-            "max": 138,
-            "p95": 138
+            "median": 114,
+            "min": 84,
+            "max": 150,
+            "p95": 150
           },
           "reedit": {
             "n": 5,
-            "median": 341,
-            "min": 273,
-            "max": 532,
-            "p95": 532
+            "median": 415,
+            "min": 306,
+            "max": 557,
+            "p95": 557
           }
         },
         "longTaskMaxMs": {
@@ -608,20 +608,20 @@
             "n": 5,
             "median": 0,
             "min": 0,
-            "max": 0,
-            "p95": 0
+            "max": 52,
+            "p95": 52
           },
           "layout": {
             "n": 5,
-            "median": 71,
-            "min": 65,
-            "max": 112,
-            "p95": 112
+            "median": 95,
+            "min": 74,
+            "max": 123,
+            "p95": 123
           }
         }
       },
       "cancel": {
-        "ms": 74,
+        "ms": 50,
         "outcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
         "sessionLeft": null
       },
@@ -630,38 +630,38 @@
           "sections": 28,
           "rep": 1,
           "sourceBytes": 135466,
-          "previewMs": 1109,
-          "workerParseRenderMs": 178,
-          "workerCharsMs": 1,
-          "workerIntegrityModelMs": 105,
-          "workerReferencesMs": 65,
-          "analyzeWallMs": 354,
-          "mainFinishMs": 8,
-          "mainIntegrityMs": 11,
-          "composeMs": 14,
-          "layoutWallMs": 2127,
-          "printReadyMs": 3236,
+          "previewMs": 1180,
+          "workerParseRenderMs": 189,
+          "workerCharsMs": 4,
+          "workerIntegrityModelMs": 123,
+          "workerReferencesMs": 81,
+          "analyzeWallMs": 405,
+          "mainFinishMs": 11,
+          "mainIntegrityMs": 14,
+          "composeMs": 19,
+          "layoutWallMs": 2572,
+          "printReadyMs": 3752,
           "layoutStatus": "done",
           "pages": 49,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 1665,
-          "contentVerifyMs": 132,
-          "flattenMs": 6,
-          "layoutTotalMs": 1924,
+          "paginatePassesMs": 1758,
+          "contentVerifyMs": 179,
+          "flattenMs": 9,
+          "layoutTotalMs": 2082,
           "forcedBreaks": 0,
-          "pdfExportMs": 720,
+          "pdfExportMs": 1029,
           "pdfBytes": 410574,
-          "reeditPreviewMs": 951,
-          "cancelToIdleMs": 74,
+          "reeditPreviewMs": 1352,
+          "cancelToIdleMs": 50,
           "cancelOutcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
           "printSessionAfterCancel": null,
-          "heapAfterGcMiB": 14,
-          "peakJsHeapMiB": 38,
+          "heapAfterGcMiB": 14.1,
+          "peakJsHeapMiB": 37,
           "maxEventLoopGapMs": {
-            "preview": 78,
-            "layout": 97,
-            "reedit": 340
+            "preview": 89,
+            "layout": 113,
+            "reedit": 310
           },
           "longTasks": {
             "preview": {
@@ -669,8 +669,8 @@
               "maxMs": 0
             },
             "layout": {
-              "count": 1,
-              "maxMs": 65
+              "count": 3,
+              "maxMs": 95
             }
           },
           "engineMode": "worker",
@@ -680,35 +680,35 @@
           "sections": 28,
           "rep": 2,
           "sourceBytes": 135466,
-          "previewMs": 1081,
-          "workerParseRenderMs": 194,
-          "workerCharsMs": 6,
-          "workerIntegrityModelMs": 117,
-          "workerReferencesMs": 72,
-          "analyzeWallMs": 395,
-          "mainFinishMs": 10,
-          "mainIntegrityMs": 14,
-          "composeMs": 13,
-          "layoutWallMs": 2219,
-          "printReadyMs": 3300,
+          "previewMs": 1140,
+          "workerParseRenderMs": 179,
+          "workerCharsMs": 2,
+          "workerIntegrityModelMs": 99,
+          "workerReferencesMs": 71,
+          "analyzeWallMs": 364,
+          "mainFinishMs": 13,
+          "mainIntegrityMs": 16,
+          "composeMs": 14,
+          "layoutWallMs": 2656,
+          "printReadyMs": 3796,
           "layoutStatus": "done",
           "pages": 49,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 1687,
-          "contentVerifyMs": 144,
+          "paginatePassesMs": 1789,
+          "contentVerifyMs": 123,
           "flattenMs": 7,
-          "layoutTotalMs": 1958,
+          "layoutTotalMs": 2041,
           "forcedBreaks": 0,
-          "pdfExportMs": 754,
+          "pdfExportMs": 764,
           "pdfBytes": 410574,
-          "reeditPreviewMs": 979,
-          "heapAfterGcMiB": 10.7,
-          "peakJsHeapMiB": 36,
+          "reeditPreviewMs": 1062,
+          "heapAfterGcMiB": 10.9,
+          "peakJsHeapMiB": 39,
           "maxEventLoopGapMs": {
-            "preview": 53,
-            "layout": 105,
-            "reedit": 518
+            "preview": 66,
+            "layout": 84,
+            "reedit": 306
           },
           "longTasks": {
             "preview": {
@@ -716,8 +716,8 @@
               "maxMs": 0
             },
             "layout": {
-              "count": 2,
-              "maxMs": 71
+              "count": 3,
+              "maxMs": 74
             }
           },
           "engineMode": "worker",
@@ -727,44 +727,44 @@
           "sections": 28,
           "rep": 3,
           "sourceBytes": 135466,
-          "previewMs": 1202,
-          "workerParseRenderMs": 177,
-          "workerCharsMs": 1,
-          "workerIntegrityModelMs": 112,
-          "workerReferencesMs": 76,
-          "analyzeWallMs": 372,
-          "mainFinishMs": 12,
-          "mainIntegrityMs": 15,
-          "composeMs": 20,
-          "layoutWallMs": 2571,
-          "printReadyMs": 3773,
+          "previewMs": 1400,
+          "workerParseRenderMs": 248,
+          "workerCharsMs": 2,
+          "workerIntegrityModelMs": 148,
+          "workerReferencesMs": 119,
+          "analyzeWallMs": 527,
+          "mainFinishMs": 17,
+          "mainIntegrityMs": 19,
+          "composeMs": 18,
+          "layoutWallMs": 2601,
+          "printReadyMs": 4001,
           "layoutStatus": "done",
           "pages": 49,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 1706,
-          "contentVerifyMs": 199,
-          "flattenMs": 10,
-          "layoutTotalMs": 2064,
+          "paginatePassesMs": 1715,
+          "contentVerifyMs": 180,
+          "flattenMs": 9,
+          "layoutTotalMs": 2039,
           "forcedBreaks": 0,
-          "pdfExportMs": 736,
+          "pdfExportMs": 795,
           "pdfBytes": 410574,
-          "reeditPreviewMs": 1344,
-          "heapAfterGcMiB": 10.9,
-          "peakJsHeapMiB": 30,
+          "reeditPreviewMs": 1446,
+          "heapAfterGcMiB": 12.5,
+          "peakJsHeapMiB": 29,
           "maxEventLoopGapMs": {
-            "preview": 81,
-            "layout": 138,
-            "reedit": 341
+            "preview": 112,
+            "layout": 114,
+            "reedit": 436
           },
           "longTasks": {
             "preview": {
-              "count": 0,
-              "maxMs": 0
+              "count": 1,
+              "maxMs": 52
             },
             "layout": {
-              "count": 1,
-              "maxMs": 112
+              "count": 2,
+              "maxMs": 106
             }
           },
           "engineMode": "worker",
@@ -774,35 +774,35 @@
           "sections": 28,
           "rep": 4,
           "sourceBytes": 135466,
-          "previewMs": 1083,
-          "workerParseRenderMs": 163,
-          "workerCharsMs": 1,
-          "workerIntegrityModelMs": 118,
-          "workerReferencesMs": 82,
-          "analyzeWallMs": 375,
-          "mainFinishMs": 10,
-          "mainIntegrityMs": 21,
-          "composeMs": 13,
-          "layoutWallMs": 2605,
-          "printReadyMs": 3688,
+          "previewMs": 1143,
+          "workerParseRenderMs": 176,
+          "workerCharsMs": 4,
+          "workerIntegrityModelMs": 99,
+          "workerReferencesMs": 63,
+          "analyzeWallMs": 348,
+          "mainFinishMs": 14,
+          "mainIntegrityMs": 12,
+          "composeMs": 14,
+          "layoutWallMs": 2602,
+          "printReadyMs": 3745,
           "layoutStatus": "done",
           "pages": 49,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 1695,
-          "contentVerifyMs": 211,
-          "flattenMs": 7,
-          "layoutTotalMs": 2071,
+          "paginatePassesMs": 1737,
+          "contentVerifyMs": 189,
+          "flattenMs": 8,
+          "layoutTotalMs": 2119,
           "forcedBreaks": 0,
-          "pdfExportMs": 756,
+          "pdfExportMs": 789,
           "pdfBytes": 410574,
-          "reeditPreviewMs": 946,
-          "heapAfterGcMiB": 10.7,
-          "peakJsHeapMiB": 41,
+          "reeditPreviewMs": 1204,
+          "heapAfterGcMiB": 15.5,
+          "peakJsHeapMiB": 42,
           "maxEventLoopGapMs": {
-            "preview": 59,
-            "layout": 118,
-            "reedit": 532
+            "preview": 94,
+            "layout": 150,
+            "reedit": 415
           },
           "longTasks": {
             "preview": {
@@ -810,8 +810,8 @@
               "maxMs": 0
             },
             "layout": {
-              "count": 1,
-              "maxMs": 112
+              "count": 4,
+              "maxMs": 123
             }
           },
           "engineMode": "worker",
@@ -821,35 +821,35 @@
           "sections": 28,
           "rep": 5,
           "sourceBytes": 135466,
-          "previewMs": 1086,
-          "workerParseRenderMs": 177,
-          "workerCharsMs": 1,
-          "workerIntegrityModelMs": 102,
-          "workerReferencesMs": 77,
-          "analyzeWallMs": 364,
+          "previewMs": 1188,
+          "workerParseRenderMs": 218,
+          "workerCharsMs": 2,
+          "workerIntegrityModelMs": 124,
+          "workerReferencesMs": 81,
+          "analyzeWallMs": 432,
           "mainFinishMs": 9,
-          "mainIntegrityMs": 10,
+          "mainIntegrityMs": 13,
           "composeMs": 14,
-          "layoutWallMs": 2082,
-          "printReadyMs": 3168,
+          "layoutWallMs": 2548,
+          "printReadyMs": 3736,
           "layoutStatus": "done",
           "pages": 49,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 1716,
-          "contentVerifyMs": 123,
-          "flattenMs": 6,
-          "layoutTotalMs": 1984,
+          "paginatePassesMs": 1715,
+          "contentVerifyMs": 227,
+          "flattenMs": 7,
+          "layoutTotalMs": 2070,
           "forcedBreaks": 0,
-          "pdfExportMs": 701,
+          "pdfExportMs": 899,
           "pdfBytes": 410574,
-          "reeditPreviewMs": 1197,
-          "heapAfterGcMiB": 15.6,
-          "peakJsHeapMiB": 41,
+          "reeditPreviewMs": 1055,
+          "heapAfterGcMiB": 10.7,
+          "peakJsHeapMiB": 30,
           "maxEventLoopGapMs": {
-            "preview": 52,
-            "layout": 116,
-            "reedit": 273
+            "preview": 56,
+            "layout": 115,
+            "reedit": 557
           },
           "longTasks": {
             "preview": {
@@ -858,7 +858,7 @@
             },
             "layout": {
               "count": 2,
-              "maxMs": 66
+              "maxMs": 84
             }
           },
           "engineMode": "worker",
@@ -875,108 +875,108 @@
       "summary": {
         "previewMs": {
           "n": 5,
-          "median": 1878,
-          "min": 1771,
-          "max": 1955,
-          "p95": 1955
+          "median": 2111,
+          "min": 1846,
+          "max": 2245,
+          "p95": 2245
         },
         "workerParseRenderMs": {
           "n": 5,
-          "median": 266,
-          "min": 243,
-          "max": 330,
-          "p95": 330
+          "median": 315,
+          "min": 270,
+          "max": 359,
+          "p95": 359
         },
         "workerCharsMs": {
           "n": 5,
-          "median": 2,
+          "median": 4,
           "min": 2,
-          "max": 4,
-          "p95": 4
+          "max": 7,
+          "p95": 7
         },
         "workerIntegrityModelMs": {
           "n": 5,
-          "median": 155,
-          "min": 149,
-          "max": 177,
-          "p95": 177
+          "median": 222,
+          "min": 172,
+          "max": 267,
+          "p95": 267
         },
         "workerReferencesMs": {
           "n": 5,
-          "median": 165,
-          "min": 136,
-          "max": 188,
-          "p95": 188
+          "median": 232,
+          "min": 149,
+          "max": 260,
+          "p95": 260
         },
         "analyzeWallMs": {
           "n": 5,
-          "median": 605,
-          "min": 566,
-          "max": 683,
-          "p95": 683
+          "median": 736,
+          "min": 651,
+          "max": 873,
+          "p95": 873
         },
         "mainFinishMs": {
           "n": 5,
-          "median": 21,
-          "min": 17,
-          "max": 26,
-          "p95": 26
-        },
-        "mainIntegrityMs": {
-          "n": 5,
-          "median": 31,
-          "min": 26,
+          "median": 29,
+          "min": 21,
           "max": 33,
           "p95": 33
         },
+        "mainIntegrityMs": {
+          "n": 5,
+          "median": 37,
+          "min": 29,
+          "max": 43,
+          "p95": 43
+        },
         "composeMs": {
           "n": 5,
-          "median": 24,
-          "min": 22,
-          "max": 29,
-          "p95": 29
+          "median": 32,
+          "min": 30,
+          "max": 37,
+          "p95": 37
         },
         "layoutWallMs": {
           "n": 5,
-          "median": 4289,
-          "min": 4109,
-          "max": 4305,
-          "p95": 4305
+          "median": 4613,
+          "min": 4105,
+          "max": 4729,
+          "p95": 4729
         },
         "paginatePassesMs": {
           "n": 5,
-          "median": 3393,
-          "min": 3350,
-          "max": 3440,
-          "p95": 3440
+          "median": 3443,
+          "min": 3426,
+          "max": 3571,
+          "p95": 3571
         },
         "contentVerifyMs": {
           "n": 5,
-          "median": 286,
-          "min": 245,
-          "max": 317,
-          "p95": 317
+          "median": 329,
+          "min": 247,
+          "max": 424,
+          "p95": 424
         },
         "flattenMs": {
           "n": 5,
-          "median": 12,
-          "min": 11,
-          "max": 13,
-          "p95": 13
+          "median": 18,
+          "min": 13,
+          "max": 21,
+          "p95": 21
         },
         "printReadyMs": {
           "n": 5,
-          "median": 6127,
-          "min": 5987,
-          "max": 6241,
-          "p95": 6241
+          "median": 6644,
+          "min": 6350,
+          "max": 6855,
+          "p95": 6855
         },
         "pdfExportMs": {
           "n": 5,
-          "median": 1568,
-          "min": 1495,
-          "max": 1591,
-          "p95": 1591
+          "median": 1766,
+          "min": 1636,
+          "max": 2032,
+          "p95": 2032
         },
         "pdfBytes": {
           "n": 5,
@@ -987,17 +987,17 @@
         },
         "reeditPreviewMs": {
           "n": 5,
-          "median": 1716,
-          "min": 1582,
-          "max": 2282,
-          "p95": 2282
+          "median": 1828,
+          "min": 1749,
+          "max": 2348,
+          "p95": 2348
         },
         "peakJsHeapMiB": {
           "n": 5,
-          "median": 41,
+          "median": 44,
           "min": 39,
-          "max": 46,
-          "p95": 46
+          "max": 49,
+          "p95": 49
         },
         "heapAfterGcMiB": {
           "n": 5,
@@ -1009,45 +1009,45 @@
         "maxEventLoopGapMs": {
           "preview": {
             "n": 5,
-            "median": 102,
-            "min": 93,
-            "max": 118,
-            "p95": 118
+            "median": 125,
+            "min": 119,
+            "max": 155,
+            "p95": 155
           },
           "layout": {
             "n": 5,
-            "median": 189,
-            "min": 146,
-            "max": 259,
-            "p95": 259
+            "median": 225,
+            "min": 203,
+            "max": 292,
+            "p95": 292
           },
           "reedit": {
             "n": 5,
-            "median": 597,
-            "min": 475,
-            "max": 639,
-            "p95": 639
+            "median": 616,
+            "min": 555,
+            "max": 648,
+            "p95": 648
           }
         },
         "longTaskMaxMs": {
           "preview": {
             "n": 5,
-            "median": 76,
-            "min": 67,
-            "max": 78,
-            "p95": 78
+            "median": 91,
+            "min": 75,
+            "max": 106,
+            "p95": 106
           },
           "layout": {
             "n": 5,
-            "median": 134,
-            "min": 125,
-            "max": 169,
-            "p95": 169
+            "median": 211,
+            "min": 143,
+            "max": 242,
+            "p95": 242
           }
         }
       },
       "cancel": {
-        "ms": 35,
+        "ms": 88,
         "outcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
         "sessionLeft": null
       },
@@ -1056,47 +1056,47 @@
           "sections": 57,
           "rep": 1,
           "sourceBytes": 275681,
-          "previewMs": 1878,
-          "workerParseRenderMs": 267,
-          "workerCharsMs": 2,
-          "workerIntegrityModelMs": 177,
-          "workerReferencesMs": 145,
-          "analyzeWallMs": 605,
-          "mainFinishMs": 21,
-          "mainIntegrityMs": 33,
-          "composeMs": 24,
-          "layoutWallMs": 4109,
-          "printReadyMs": 5987,
+          "previewMs": 2242,
+          "workerParseRenderMs": 355,
+          "workerCharsMs": 4,
+          "workerIntegrityModelMs": 267,
+          "workerReferencesMs": 235,
+          "analyzeWallMs": 873,
+          "mainFinishMs": 33,
+          "mainIntegrityMs": 40,
+          "composeMs": 37,
+          "layoutWallMs": 4613,
+          "printReadyMs": 6855,
           "layoutStatus": "done",
           "pages": 99,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 3393,
-          "contentVerifyMs": 245,
-          "flattenMs": 12,
-          "layoutTotalMs": 3846,
+          "paginatePassesMs": 3490,
+          "contentVerifyMs": 247,
+          "flattenMs": 21,
+          "layoutTotalMs": 4048,
           "forcedBreaks": 0,
-          "pdfExportMs": 1495,
+          "pdfExportMs": 1766,
           "pdfBytes": 821403,
-          "reeditPreviewMs": 2282,
-          "cancelToIdleMs": 35,
+          "reeditPreviewMs": 1778,
+          "cancelToIdleMs": 88,
           "cancelOutcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
           "printSessionAfterCancel": null,
           "heapAfterGcMiB": 14.9,
-          "peakJsHeapMiB": 41,
+          "peakJsHeapMiB": 39,
           "maxEventLoopGapMs": {
-            "preview": 93,
-            "layout": 146,
-            "reedit": 639
+            "preview": 125,
+            "layout": 225,
+            "reedit": 555
           },
           "longTasks": {
             "preview": {
               "count": 1,
-              "maxMs": 76
+              "maxMs": 106
             },
             "layout": {
-              "count": 4,
-              "maxMs": 134
+              "count": 5,
+              "maxMs": 211
             }
           },
           "engineMode": "worker",
@@ -1106,44 +1106,44 @@
           "sections": 57,
           "rep": 2,
           "sourceBytes": 275681,
-          "previewMs": 1771,
-          "workerParseRenderMs": 243,
-          "workerCharsMs": 4,
-          "workerIntegrityModelMs": 152,
-          "workerReferencesMs": 165,
-          "analyzeWallMs": 574,
-          "mainFinishMs": 20,
-          "mainIntegrityMs": 26,
-          "composeMs": 24,
-          "layoutWallMs": 4305,
-          "printReadyMs": 6076,
+          "previewMs": 2056,
+          "workerParseRenderMs": 276,
+          "workerCharsMs": 7,
+          "workerIntegrityModelMs": 207,
+          "workerReferencesMs": 209,
+          "analyzeWallMs": 709,
+          "mainFinishMs": 29,
+          "mainIntegrityMs": 32,
+          "composeMs": 30,
+          "layoutWallMs": 4588,
+          "printReadyMs": 6644,
           "layoutStatus": "done",
           "pages": 99,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 3440,
-          "contentVerifyMs": 286,
-          "flattenMs": 11,
-          "layoutTotalMs": 3923,
+          "paginatePassesMs": 3443,
+          "contentVerifyMs": 345,
+          "flattenMs": 18,
+          "layoutTotalMs": 4068,
           "forcedBreaks": 0,
-          "pdfExportMs": 1560,
+          "pdfExportMs": 1641,
           "pdfBytes": 821403,
-          "reeditPreviewMs": 1684,
+          "reeditPreviewMs": 2348,
           "heapAfterGcMiB": 11.4,
-          "peakJsHeapMiB": 39,
+          "peakJsHeapMiB": 45,
           "maxEventLoopGapMs": {
-            "preview": 118,
-            "layout": 189,
-            "reedit": 573
+            "preview": 119,
+            "layout": 203,
+            "reedit": 616
           },
           "longTasks": {
             "preview": {
-              "count": 2,
-              "maxMs": 68
+              "count": 1,
+              "maxMs": 88
             },
             "layout": {
-              "count": 4,
-              "maxMs": 133
+              "count": 5,
+              "maxMs": 196
             }
           },
           "engineMode": "worker",
@@ -1153,44 +1153,44 @@
           "sections": 57,
           "rep": 3,
           "sourceBytes": 275681,
-          "previewMs": 1955,
-          "workerParseRenderMs": 330,
+          "previewMs": 2245,
+          "workerParseRenderMs": 359,
           "workerCharsMs": 2,
-          "workerIntegrityModelMs": 149,
-          "workerReferencesMs": 188,
-          "analyzeWallMs": 683,
-          "mainFinishMs": 17,
-          "mainIntegrityMs": 28,
-          "composeMs": 25,
-          "layoutWallMs": 4172,
-          "printReadyMs": 6127,
+          "workerIntegrityModelMs": 241,
+          "workerReferencesMs": 260,
+          "analyzeWallMs": 873,
+          "mainFinishMs": 24,
+          "mainIntegrityMs": 37,
+          "composeMs": 33,
+          "layoutWallMs": 4105,
+          "printReadyMs": 6350,
           "layoutStatus": "done",
           "pages": 99,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 3397,
-          "contentVerifyMs": 252,
-          "flattenMs": 11,
-          "layoutTotalMs": 3836,
+          "paginatePassesMs": 3435,
+          "contentVerifyMs": 253,
+          "flattenMs": 13,
+          "layoutTotalMs": 3953,
           "forcedBreaks": 0,
-          "pdfExportMs": 1568,
+          "pdfExportMs": 1636,
           "pdfBytes": 821403,
-          "reeditPreviewMs": 1716,
+          "reeditPreviewMs": 1749,
           "heapAfterGcMiB": 11.2,
-          "peakJsHeapMiB": 41,
+          "peakJsHeapMiB": 42,
           "maxEventLoopGapMs": {
-            "preview": 95,
-            "layout": 236,
-            "reedit": 598
+            "preview": 155,
+            "layout": 231,
+            "reedit": 648
           },
           "longTasks": {
             "preview": {
-              "count": 1,
-              "maxMs": 67
+              "count": 2,
+              "maxMs": 91
             },
             "layout": {
-              "count": 4,
-              "maxMs": 125
+              "count": 2,
+              "maxMs": 143
             }
           },
           "engineMode": "worker",
@@ -1200,44 +1200,44 @@
           "sections": 57,
           "rep": 4,
           "sourceBytes": 275681,
-          "previewMs": 1952,
-          "workerParseRenderMs": 264,
-          "workerCharsMs": 2,
-          "workerIntegrityModelMs": 171,
-          "workerReferencesMs": 165,
-          "analyzeWallMs": 609,
-          "mainFinishMs": 23,
-          "mainIntegrityMs": 31,
-          "composeMs": 29,
-          "layoutWallMs": 4289,
-          "printReadyMs": 6241,
+          "previewMs": 1846,
+          "workerParseRenderMs": 315,
+          "workerCharsMs": 7,
+          "workerIntegrityModelMs": 172,
+          "workerReferencesMs": 149,
+          "analyzeWallMs": 651,
+          "mainFinishMs": 21,
+          "mainIntegrityMs": 29,
+          "composeMs": 31,
+          "layoutWallMs": 4646,
+          "printReadyMs": 6492,
           "layoutStatus": "done",
           "pages": 99,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 3380,
-          "contentVerifyMs": 317,
-          "flattenMs": 12,
-          "layoutTotalMs": 3908,
+          "paginatePassesMs": 3426,
+          "contentVerifyMs": 329,
+          "flattenMs": 20,
+          "layoutTotalMs": 4022,
           "forcedBreaks": 0,
-          "pdfExportMs": 1591,
+          "pdfExportMs": 2032,
           "pdfBytes": 821403,
-          "reeditPreviewMs": 2240,
+          "reeditPreviewMs": 1929,
           "heapAfterGcMiB": 11.3,
-          "peakJsHeapMiB": 45,
+          "peakJsHeapMiB": 49,
           "maxEventLoopGapMs": {
-            "preview": 102,
-            "layout": 185,
-            "reedit": 597
+            "preview": 130,
+            "layout": 221,
+            "reedit": 637
           },
           "longTasks": {
             "preview": {
               "count": 2,
-              "maxMs": 78
+              "maxMs": 75
             },
             "layout": {
-              "count": 2,
-              "maxMs": 152
+              "count": 4,
+              "maxMs": 215
             }
           },
           "engineMode": "worker",
@@ -1247,44 +1247,44 @@
           "sections": 57,
           "rep": 5,
           "sourceBytes": 275681,
-          "previewMs": 1847,
-          "workerParseRenderMs": 266,
+          "previewMs": 2111,
+          "workerParseRenderMs": 270,
           "workerCharsMs": 2,
-          "workerIntegrityModelMs": 155,
-          "workerReferencesMs": 136,
-          "analyzeWallMs": 566,
-          "mainFinishMs": 26,
-          "mainIntegrityMs": 32,
-          "composeMs": 22,
-          "layoutWallMs": 4300,
-          "printReadyMs": 6147,
+          "workerIntegrityModelMs": 222,
+          "workerReferencesMs": 232,
+          "analyzeWallMs": 736,
+          "mainFinishMs": 32,
+          "mainIntegrityMs": 43,
+          "composeMs": 32,
+          "layoutWallMs": 4729,
+          "printReadyMs": 6840,
           "layoutStatus": "done",
           "pages": 99,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 3350,
-          "contentVerifyMs": 308,
-          "flattenMs": 13,
-          "layoutTotalMs": 3873,
+          "paginatePassesMs": 3571,
+          "contentVerifyMs": 424,
+          "flattenMs": 18,
+          "layoutTotalMs": 4269,
           "forcedBreaks": 0,
-          "pdfExportMs": 1588,
+          "pdfExportMs": 1811,
           "pdfBytes": 821403,
-          "reeditPreviewMs": 1582,
-          "heapAfterGcMiB": 11.2,
-          "peakJsHeapMiB": 46,
+          "reeditPreviewMs": 1828,
+          "heapAfterGcMiB": 11.3,
+          "peakJsHeapMiB": 44,
           "maxEventLoopGapMs": {
-            "preview": 104,
-            "layout": 259,
-            "reedit": 475
+            "preview": 119,
+            "layout": 292,
+            "reedit": 563
           },
           "longTasks": {
             "preview": {
-              "count": 1,
-              "maxMs": 77
+              "count": 2,
+              "maxMs": 105
             },
             "layout": {
-              "count": 2,
-              "maxMs": 169
+              "count": 6,
+              "maxMs": 242
             }
           },
           "engineMode": "worker",
@@ -1301,108 +1301,108 @@
       "summary": {
         "previewMs": {
           "n": 5,
-          "median": 2610,
-          "min": 2441,
-          "max": 2878,
-          "p95": 2878
+          "median": 2696,
+          "min": 2534,
+          "max": 2917,
+          "p95": 2917
         },
         "workerParseRenderMs": {
           "n": 5,
-          "median": 447,
-          "min": 416,
-          "max": 493,
-          "p95": 493
+          "median": 471,
+          "min": 403,
+          "max": 546,
+          "p95": 546
         },
         "workerCharsMs": {
           "n": 5,
           "median": 3,
           "min": 3,
-          "max": 12,
-          "p95": 12
+          "max": 5,
+          "p95": 5
         },
         "workerIntegrityModelMs": {
           "n": 5,
-          "median": 285,
-          "min": 275,
-          "max": 300,
-          "p95": 300
+          "median": 287,
+          "min": 242,
+          "max": 382,
+          "p95": 382
         },
         "workerReferencesMs": {
           "n": 5,
-          "median": 250,
-          "min": 231,
-          "max": 286,
-          "p95": 286
+          "median": 294,
+          "min": 249,
+          "max": 360,
+          "p95": 360
         },
         "analyzeWallMs": {
           "n": 5,
-          "median": 997,
-          "min": 963,
-          "max": 1105,
-          "p95": 1105
+          "median": 1089,
+          "min": 992,
+          "max": 1222,
+          "p95": 1222
         },
         "mainFinishMs": {
           "n": 5,
-          "median": 38,
-          "min": 34,
-          "max": 45,
-          "p95": 45
+          "median": 45,
+          "min": 36,
+          "max": 60,
+          "p95": 60
         },
         "mainIntegrityMs": {
           "n": 5,
-          "median": 50,
-          "min": 49,
-          "max": 53,
-          "p95": 53
+          "median": 52,
+          "min": 50,
+          "max": 65,
+          "p95": 65
         },
         "composeMs": {
           "n": 5,
-          "median": 40,
-          "min": 39,
-          "max": 43,
-          "p95": 43
+          "median": 45,
+          "min": 45,
+          "max": 69,
+          "p95": 69
         },
         "layoutWallMs": {
           "n": 5,
-          "median": 8415,
-          "min": 8376,
-          "max": 8487,
-          "p95": 8487
+          "median": 8904,
+          "min": 8744,
+          "max": 9597,
+          "p95": 9597
         },
         "paginatePassesMs": {
           "n": 5,
-          "median": 6858,
-          "min": 6797,
-          "max": 6863,
-          "p95": 6863
+          "median": 7228,
+          "min": 7071,
+          "max": 7649,
+          "p95": 7649
         },
         "contentVerifyMs": {
           "n": 5,
-          "median": 511,
-          "min": 473,
-          "max": 696,
-          "p95": 696
+          "median": 665,
+          "min": 504,
+          "max": 748,
+          "p95": 748
         },
         "flattenMs": {
           "n": 5,
-          "median": 24,
-          "min": 19,
-          "max": 24,
-          "p95": 24
+          "median": 32,
+          "min": 25,
+          "max": 39,
+          "p95": 39
         },
         "printReadyMs": {
           "n": 5,
-          "median": 10986,
-          "min": 10856,
-          "max": 11365,
-          "p95": 11365
+          "median": 11659,
+          "min": 11424,
+          "max": 12514,
+          "p95": 12514
         },
         "pdfExportMs": {
           "n": 5,
-          "median": 3107,
-          "min": 2949,
-          "max": 3405,
-          "p95": 3405
+          "median": 3460,
+          "min": 2872,
+          "max": 3734,
+          "p95": 3734
         },
         "pdfBytes": {
           "n": 5,
@@ -1413,67 +1413,67 @@
         },
         "reeditPreviewMs": {
           "n": 5,
-          "median": 2326,
-          "min": 2264,
-          "max": 3440,
-          "p95": 3440
+          "median": 2467,
+          "min": 2332,
+          "max": 3788,
+          "p95": 3788
         },
         "peakJsHeapMiB": {
           "n": 5,
-          "median": 60,
+          "median": 57,
           "min": 54,
-          "max": 73,
-          "p95": 73
+          "max": 79,
+          "p95": 79
         },
         "heapAfterGcMiB": {
           "n": 5,
-          "median": 12.2,
+          "median": 12.3,
           "min": 12.2,
-          "max": 16.6,
-          "p95": 16.6
+          "max": 16.9,
+          "p95": 16.9
         },
         "maxEventLoopGapMs": {
           "preview": {
             "n": 5,
-            "median": 188,
-            "min": 144,
-            "max": 326,
-            "p95": 326
+            "median": 195,
+            "min": 166,
+            "max": 280,
+            "p95": 280
           },
           "layout": {
             "n": 5,
-            "median": 446,
-            "min": 315,
-            "max": 537,
-            "p95": 537
+            "median": 533,
+            "min": 460,
+            "max": 628,
+            "p95": 628
           },
           "reedit": {
             "n": 5,
-            "median": 1131,
-            "min": 1082,
-            "max": 1183,
-            "p95": 1183
+            "median": 1163,
+            "min": 1076,
+            "max": 1353,
+            "p95": 1353
           }
         },
         "longTaskMaxMs": {
           "preview": {
             "n": 5,
-            "median": 130,
-            "min": 125,
-            "max": 163,
-            "p95": 163
+            "median": 147,
+            "min": 135,
+            "max": 168,
+            "p95": 168
           },
           "layout": {
             "n": 5,
-            "median": 274,
-            "min": 244,
-            "max": 408,
-            "p95": 408
+            "median": 393,
+            "min": 287,
+            "max": 498,
+            "p95": 498
           }
         }
       },
       "cancel": {
-        "ms": 69,
+        "ms": 78,
         "outcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
         "sessionLeft": null
       },
@@ -1482,47 +1482,47 @@
           "sections": 116,
           "rep": 1,
           "sourceBytes": 560946,
-          "previewMs": 2441,
-          "workerParseRenderMs": 438,
-          "workerCharsMs": 3,
-          "workerIntegrityModelMs": 275,
-          "workerReferencesMs": 231,
-          "analyzeWallMs": 963,
-          "mainFinishMs": 37,
-          "mainIntegrityMs": 53,
-          "composeMs": 40,
-          "layoutWallMs": 8415,
-          "printReadyMs": 10856,
+          "previewMs": 2917,
+          "workerParseRenderMs": 456,
+          "workerCharsMs": 4,
+          "workerIntegrityModelMs": 322,
+          "workerReferencesMs": 294,
+          "analyzeWallMs": 1089,
+          "mainFinishMs": 42,
+          "mainIntegrityMs": 65,
+          "composeMs": 69,
+          "layoutWallMs": 9597,
+          "printReadyMs": 12514,
           "layoutStatus": "done",
           "pages": 198,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 6858,
-          "contentVerifyMs": 511,
-          "flattenMs": 24,
-          "layoutTotalMs": 7736,
+          "paginatePassesMs": 7649,
+          "contentVerifyMs": 748,
+          "flattenMs": 32,
+          "layoutTotalMs": 8877,
           "forcedBreaks": 0,
-          "pdfExportMs": 3146,
+          "pdfExportMs": 2872,
           "pdfBytes": 1653548,
-          "reeditPreviewMs": 2326,
-          "cancelToIdleMs": 69,
+          "reeditPreviewMs": 2467,
+          "cancelToIdleMs": 78,
           "cancelOutcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
           "printSessionAfterCancel": null,
-          "heapAfterGcMiB": 16.6,
-          "peakJsHeapMiB": 57,
+          "heapAfterGcMiB": 16.9,
+          "peakJsHeapMiB": 79,
           "maxEventLoopGapMs": {
-            "preview": 212,
-            "layout": 522,
-            "reedit": 1082
+            "preview": 257,
+            "layout": 533,
+            "reedit": 1076
           },
           "longTasks": {
             "preview": {
               "count": 3,
-              "maxMs": 130
+              "maxMs": 168
             },
             "layout": {
-              "count": 5,
-              "maxMs": 274
+              "count": 7,
+              "maxMs": 498
             }
           },
           "engineMode": "worker",
@@ -1532,44 +1532,44 @@
           "sections": 116,
           "rep": 2,
           "sourceBytes": 560946,
-          "previewMs": 2878,
-          "workerParseRenderMs": 484,
-          "workerCharsMs": 12,
-          "workerIntegrityModelMs": 300,
-          "workerReferencesMs": 286,
-          "analyzeWallMs": 1105,
-          "mainFinishMs": 34,
-          "mainIntegrityMs": 49,
-          "composeMs": 39,
-          "layoutWallMs": 8487,
-          "printReadyMs": 11365,
+          "previewMs": 2755,
+          "workerParseRenderMs": 403,
+          "workerCharsMs": 3,
+          "workerIntegrityModelMs": 280,
+          "workerReferencesMs": 291,
+          "analyzeWallMs": 992,
+          "mainFinishMs": 36,
+          "mainIntegrityMs": 52,
+          "composeMs": 51,
+          "layoutWallMs": 8904,
+          "printReadyMs": 11659,
           "layoutStatus": "done",
           "pages": 198,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 6863,
-          "contentVerifyMs": 587,
-          "flattenMs": 24,
-          "layoutTotalMs": 7828,
+          "paginatePassesMs": 7200,
+          "contentVerifyMs": 504,
+          "flattenMs": 39,
+          "layoutTotalMs": 8228,
           "forcedBreaks": 0,
-          "pdfExportMs": 3080,
+          "pdfExportMs": 3423,
           "pdfBytes": 1653548,
-          "reeditPreviewMs": 2264,
-          "heapAfterGcMiB": 12.2,
-          "peakJsHeapMiB": 64,
+          "reeditPreviewMs": 2470,
+          "heapAfterGcMiB": 12.3,
+          "peakJsHeapMiB": 57,
           "maxEventLoopGapMs": {
-            "preview": 326,
-            "layout": 412,
-            "reedit": 1107
+            "preview": 280,
+            "layout": 484,
+            "reedit": 1195
           },
           "longTasks": {
             "preview": {
               "count": 2,
-              "maxMs": 163
+              "maxMs": 135
             },
             "layout": {
-              "count": 8,
-              "maxMs": 273
+              "count": 6,
+              "maxMs": 328
             }
           },
           "engineMode": "worker",
@@ -1579,44 +1579,44 @@
           "sections": 116,
           "rep": 3,
           "sourceBytes": 560946,
-          "previewMs": 2654,
-          "workerParseRenderMs": 416,
-          "workerCharsMs": 3,
-          "workerIntegrityModelMs": 292,
-          "workerReferencesMs": 256,
-          "analyzeWallMs": 980,
-          "mainFinishMs": 39,
-          "mainIntegrityMs": 50,
-          "composeMs": 42,
-          "layoutWallMs": 8381,
-          "printReadyMs": 11035,
+          "previewMs": 2696,
+          "workerParseRenderMs": 546,
+          "workerCharsMs": 5,
+          "workerIntegrityModelMs": 287,
+          "workerReferencesMs": 360,
+          "analyzeWallMs": 1222,
+          "mainFinishMs": 45,
+          "mainIntegrityMs": 52,
+          "composeMs": 45,
+          "layoutWallMs": 8744,
+          "printReadyMs": 11440,
           "layoutStatus": "done",
           "pages": 198,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 6841,
-          "contentVerifyMs": 696,
-          "flattenMs": 23,
-          "layoutTotalMs": 7913,
+          "paginatePassesMs": 7228,
+          "contentVerifyMs": 727,
+          "flattenMs": 35,
+          "layoutTotalMs": 8511,
           "forcedBreaks": 0,
-          "pdfExportMs": 3107,
+          "pdfExportMs": 3460,
           "pdfBytes": 1653548,
-          "reeditPreviewMs": 3440,
-          "heapAfterGcMiB": 12.3,
-          "peakJsHeapMiB": 73,
+          "reeditPreviewMs": 3788,
+          "heapAfterGcMiB": 12.4,
+          "peakJsHeapMiB": 54,
           "maxEventLoopGapMs": {
-            "preview": 188,
-            "layout": 315,
-            "reedit": 1148
+            "preview": 195,
+            "layout": 628,
+            "reedit": 1163
           },
           "longTasks": {
             "preview": {
               "count": 2,
-              "maxMs": 127
+              "maxMs": 139
             },
             "layout": {
               "count": 7,
-              "maxMs": 308
+              "maxMs": 481
             }
           },
           "engineMode": "worker",
@@ -1626,44 +1626,44 @@
           "sections": 116,
           "rep": 4,
           "sourceBytes": 560946,
-          "previewMs": 2610,
-          "workerParseRenderMs": 447,
+          "previewMs": 2677,
+          "workerParseRenderMs": 471,
           "workerCharsMs": 3,
-          "workerIntegrityModelMs": 280,
-          "workerReferencesMs": 250,
-          "analyzeWallMs": 997,
-          "mainFinishMs": 45,
+          "workerIntegrityModelMs": 382,
+          "workerReferencesMs": 297,
+          "analyzeWallMs": 1174,
+          "mainFinishMs": 54,
           "mainIntegrityMs": 50,
-          "composeMs": 43,
-          "layoutWallMs": 8376,
-          "printReadyMs": 10986,
+          "composeMs": 45,
+          "layoutWallMs": 9436,
+          "printReadyMs": 12113,
           "layoutStatus": "done",
           "pages": 198,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 6858,
-          "contentVerifyMs": 473,
-          "flattenMs": 19,
-          "layoutTotalMs": 7676,
+          "paginatePassesMs": 7605,
+          "contentVerifyMs": 644,
+          "flattenMs": 25,
+          "layoutTotalMs": 8699,
           "forcedBreaks": 0,
-          "pdfExportMs": 3405,
+          "pdfExportMs": 3474,
           "pdfBytes": 1653548,
-          "reeditPreviewMs": 2337,
+          "reeditPreviewMs": 2332,
           "heapAfterGcMiB": 12.2,
           "peakJsHeapMiB": 54,
           "maxEventLoopGapMs": {
-            "preview": 157,
-            "layout": 537,
-            "reedit": 1183
+            "preview": 166,
+            "layout": 568,
+            "reedit": 1107
           },
           "longTasks": {
             "preview": {
               "count": 2,
-              "maxMs": 135
+              "maxMs": 147
             },
             "layout": {
-              "count": 7,
-              "maxMs": 244
+              "count": 6,
+              "maxMs": 287
             }
           },
           "engineMode": "worker",
@@ -1673,44 +1673,44 @@
           "sections": 116,
           "rep": 5,
           "sourceBytes": 560946,
-          "previewMs": 2464,
-          "workerParseRenderMs": 493,
-          "workerCharsMs": 7,
-          "workerIntegrityModelMs": 285,
-          "workerReferencesMs": 241,
-          "analyzeWallMs": 1038,
-          "mainFinishMs": 38,
-          "mainIntegrityMs": 51,
-          "composeMs": 39,
-          "layoutWallMs": 8437,
-          "printReadyMs": 10901,
+          "previewMs": 2534,
+          "workerParseRenderMs": 500,
+          "workerCharsMs": 3,
+          "workerIntegrityModelMs": 242,
+          "workerReferencesMs": 249,
+          "analyzeWallMs": 1022,
+          "mainFinishMs": 60,
+          "mainIntegrityMs": 62,
+          "composeMs": 45,
+          "layoutWallMs": 8890,
+          "printReadyMs": 11424,
           "layoutStatus": "done",
           "pages": 198,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 6797,
-          "contentVerifyMs": 510,
-          "flattenMs": 24,
-          "layoutTotalMs": 7791,
+          "paginatePassesMs": 7071,
+          "contentVerifyMs": 665,
+          "flattenMs": 30,
+          "layoutTotalMs": 8237,
           "forcedBreaks": 0,
-          "pdfExportMs": 2949,
+          "pdfExportMs": 3734,
           "pdfBytes": 1653548,
-          "reeditPreviewMs": 2326,
+          "reeditPreviewMs": 2398,
           "heapAfterGcMiB": 12.2,
-          "peakJsHeapMiB": 60,
+          "peakJsHeapMiB": 75,
           "maxEventLoopGapMs": {
-            "preview": 144,
-            "layout": 446,
-            "reedit": 1131
+            "preview": 183,
+            "layout": 460,
+            "reedit": 1353
           },
           "longTasks": {
             "preview": {
-              "count": 1,
-              "maxMs": 125
+              "count": 2,
+              "maxMs": 168
             },
             "layout": {
               "count": 8,
-              "maxMs": 408
+              "maxMs": 393
             }
           },
           "engineMode": "worker",
@@ -1727,93 +1727,93 @@
       "summary": {
         "previewMs": {
           "n": 3,
-          "median": 4183,
-          "min": 4013,
-          "max": 4279
+          "median": 4507,
+          "min": 4353,
+          "max": 4687
         },
         "workerParseRenderMs": {
           "n": 3,
-          "median": 999,
-          "min": 910,
-          "max": 1043
+          "median": 1239,
+          "min": 1060,
+          "max": 1292
         },
         "workerCharsMs": {
           "n": 3,
-          "median": 7,
+          "median": 6,
           "min": 6,
-          "max": 9
+          "max": 14
         },
         "workerIntegrityModelMs": {
           "n": 3,
-          "median": 608,
-          "min": 572,
-          "max": 685
+          "median": 664,
+          "min": 664,
+          "max": 879
         },
         "workerReferencesMs": {
           "n": 3,
-          "median": 529,
-          "min": 519,
-          "max": 571
+          "median": 659,
+          "min": 587,
+          "max": 726
         },
         "analyzeWallMs": {
           "n": 3,
-          "median": 2193,
-          "min": 2079,
-          "max": 2302
+          "median": 2646,
+          "min": 2555,
+          "max": 2746
         },
         "mainFinishMs": {
           "n": 3,
-          "median": 99,
+          "median": 101,
           "min": 95,
-          "max": 118
+          "max": 159
         },
         "mainIntegrityMs": {
           "n": 3,
-          "median": 224,
-          "min": 218,
-          "max": 293
+          "median": 191,
+          "min": 191,
+          "max": 215
         },
         "composeMs": {
           "n": 3,
-          "median": 107,
-          "min": 94,
-          "max": 168
+          "median": 149,
+          "min": 118,
+          "max": 162
         },
         "layoutWallMs": {
           "n": 3,
-          "median": 24236,
-          "min": 23082,
-          "max": 24314
+          "median": 27718,
+          "min": 26403,
+          "max": 32330
         },
         "paginatePassesMs": {
           "n": 3,
-          "median": 20545,
-          "min": 19520,
-          "max": 21254
+          "median": 23147,
+          "min": 22998,
+          "max": 27410
         },
         "contentVerifyMs": {
           "n": 3,
-          "median": 1592,
-          "min": 1550,
-          "max": 1809
+          "median": 1766,
+          "min": 1741,
+          "max": 2032
         },
         "flattenMs": {
           "n": 3,
-          "median": 54,
-          "min": 50,
-          "max": 55
+          "median": 58,
+          "min": 56,
+          "max": 98
         },
         "printReadyMs": {
           "n": 3,
-          "median": 28249,
-          "min": 27361,
-          "max": 28497
+          "median": 32225,
+          "min": 30756,
+          "max": 37017
         },
         "pdfExportMs": {
           "n": 3,
-          "median": 8660,
-          "min": 8288,
-          "max": 8771
+          "median": 8668,
+          "min": 8606,
+          "max": 9366
         },
         "pdfBytes": {
           "n": 3,
@@ -1823,59 +1823,59 @@
         },
         "reeditPreviewMs": {
           "n": 3,
-          "median": 4192,
-          "min": 4094,
-          "max": 4195
+          "median": 4557,
+          "min": 4211,
+          "max": 4682
         },
         "peakJsHeapMiB": {
           "n": 3,
-          "median": 100,
-          "min": 90,
+          "median": 91,
+          "min": 86,
           "max": 102
         },
         "heapAfterGcMiB": {
           "n": 3,
-          "median": 15,
+          "median": 15.1,
           "min": 15,
-          "max": 20.5
+          "max": 20.4
         },
         "maxEventLoopGapMs": {
           "preview": {
             "n": 3,
-            "median": 503,
-            "min": 451,
-            "max": 530
+            "median": 475,
+            "min": 430,
+            "max": 557
           },
           "layout": {
             "n": 3,
-            "median": 929,
-            "min": 857,
-            "max": 1103
+            "median": 1083,
+            "min": 980,
+            "max": 1194
           },
           "reedit": {
             "n": 3,
-            "median": 2672,
-            "min": 1930,
-            "max": 2825
+            "median": 1970,
+            "min": 1786,
+            "max": 3349
           }
         },
         "longTaskMaxMs": {
           "preview": {
             "n": 3,
-            "median": 481,
-            "min": 420,
-            "max": 495
+            "median": 441,
+            "min": 416,
+            "max": 531
           },
           "layout": {
             "n": 3,
-            "median": 748,
-            "min": 666,
-            "max": 759
+            "median": 894,
+            "min": 748,
+            "max": 1047
           }
         }
       },
       "cancel": {
-        "ms": 61,
+        "ms": 73,
         "outcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
         "sessionLeft": null
       },
@@ -1884,47 +1884,47 @@
           "sections": 292,
           "rep": 1,
           "sourceBytes": 1411906,
-          "previewMs": 4183,
-          "workerParseRenderMs": 999,
-          "workerCharsMs": 7,
-          "workerIntegrityModelMs": 685,
-          "workerReferencesMs": 571,
-          "analyzeWallMs": 2302,
-          "mainFinishMs": 99,
-          "mainIntegrityMs": 224,
-          "composeMs": 107,
-          "layoutWallMs": 24314,
-          "printReadyMs": 28497,
+          "previewMs": 4687,
+          "workerParseRenderMs": 1292,
+          "workerCharsMs": 6,
+          "workerIntegrityModelMs": 664,
+          "workerReferencesMs": 726,
+          "analyzeWallMs": 2746,
+          "mainFinishMs": 159,
+          "mainIntegrityMs": 215,
+          "composeMs": 149,
+          "layoutWallMs": 32330,
+          "printReadyMs": 37017,
           "layoutStatus": "done",
           "pages": 496,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 21254,
-          "contentVerifyMs": 1809,
-          "flattenMs": 55,
-          "layoutTotalMs": 24012,
+          "paginatePassesMs": 27410,
+          "contentVerifyMs": 2032,
+          "flattenMs": 98,
+          "layoutTotalMs": 30448,
           "forcedBreaks": 0,
-          "pdfExportMs": 8771,
+          "pdfExportMs": 9366,
           "pdfBytes": 4200332,
-          "reeditPreviewMs": 4192,
-          "cancelToIdleMs": 61,
+          "reeditPreviewMs": 4682,
+          "cancelToIdleMs": 73,
           "cancelOutcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
           "printSessionAfterCancel": null,
-          "heapAfterGcMiB": 20.5,
-          "peakJsHeapMiB": 90,
+          "heapAfterGcMiB": 20.4,
+          "peakJsHeapMiB": 86,
           "maxEventLoopGapMs": {
-            "preview": 451,
-            "layout": 1103,
-            "reedit": 1930
+            "preview": 557,
+            "layout": 1194,
+            "reedit": 1970
           },
           "longTasks": {
             "preview": {
-              "count": 3,
-              "maxMs": 420
+              "count": 2,
+              "maxMs": 531
             },
             "layout": {
-              "count": 14,
-              "maxMs": 748
+              "count": 32,
+              "maxMs": 1047
             }
           },
           "engineMode": "worker",
@@ -1934,44 +1934,44 @@
           "sections": 292,
           "rep": 2,
           "sourceBytes": 1411906,
-          "previewMs": 4279,
-          "workerParseRenderMs": 1043,
-          "workerCharsMs": 9,
-          "workerIntegrityModelMs": 572,
-          "workerReferencesMs": 529,
-          "analyzeWallMs": 2193,
+          "previewMs": 4507,
+          "workerParseRenderMs": 1060,
+          "workerCharsMs": 6,
+          "workerIntegrityModelMs": 879,
+          "workerReferencesMs": 659,
+          "analyzeWallMs": 2646,
           "mainFinishMs": 95,
-          "mainIntegrityMs": 293,
-          "composeMs": 94,
-          "layoutWallMs": 23082,
-          "printReadyMs": 27361,
+          "mainIntegrityMs": 191,
+          "composeMs": 162,
+          "layoutWallMs": 27718,
+          "printReadyMs": 32225,
           "layoutStatus": "done",
           "pages": 496,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 19520,
-          "contentVerifyMs": 1550,
-          "flattenMs": 50,
-          "layoutTotalMs": 21894,
+          "paginatePassesMs": 23147,
+          "contentVerifyMs": 1741,
+          "flattenMs": 58,
+          "layoutTotalMs": 25908,
           "forcedBreaks": 0,
-          "pdfExportMs": 8288,
+          "pdfExportMs": 8668,
           "pdfBytes": 4200332,
-          "reeditPreviewMs": 4094,
-          "heapAfterGcMiB": 15,
-          "peakJsHeapMiB": 102,
+          "reeditPreviewMs": 4211,
+          "heapAfterGcMiB": 15.1,
+          "peakJsHeapMiB": 91,
           "maxEventLoopGapMs": {
-            "preview": 503,
-            "layout": 929,
-            "reedit": 2825
+            "preview": 475,
+            "layout": 980,
+            "reedit": 3349
           },
           "longTasks": {
             "preview": {
-              "count": 3,
-              "maxMs": 481
+              "count": 2,
+              "maxMs": 441
             },
             "layout": {
-              "count": 13,
-              "maxMs": 666
+              "count": 31,
+              "maxMs": 894
             }
           },
           "engineMode": "worker",
@@ -1981,44 +1981,44 @@
           "sections": 292,
           "rep": 3,
           "sourceBytes": 1411906,
-          "previewMs": 4013,
-          "workerParseRenderMs": 910,
-          "workerCharsMs": 6,
-          "workerIntegrityModelMs": 608,
-          "workerReferencesMs": 519,
-          "analyzeWallMs": 2079,
-          "mainFinishMs": 118,
-          "mainIntegrityMs": 218,
-          "composeMs": 168,
-          "layoutWallMs": 24236,
-          "printReadyMs": 28249,
+          "previewMs": 4353,
+          "workerParseRenderMs": 1239,
+          "workerCharsMs": 14,
+          "workerIntegrityModelMs": 664,
+          "workerReferencesMs": 587,
+          "analyzeWallMs": 2555,
+          "mainFinishMs": 101,
+          "mainIntegrityMs": 191,
+          "composeMs": 118,
+          "layoutWallMs": 26403,
+          "printReadyMs": 30756,
           "layoutStatus": "done",
           "pages": 496,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 20545,
-          "contentVerifyMs": 1592,
-          "flattenMs": 54,
-          "layoutTotalMs": 23020,
+          "paginatePassesMs": 22998,
+          "contentVerifyMs": 1766,
+          "flattenMs": 56,
+          "layoutTotalMs": 25630,
           "forcedBreaks": 0,
-          "pdfExportMs": 8660,
+          "pdfExportMs": 8606,
           "pdfBytes": 4200332,
-          "reeditPreviewMs": 4195,
+          "reeditPreviewMs": 4557,
           "heapAfterGcMiB": 15,
-          "peakJsHeapMiB": 100,
+          "peakJsHeapMiB": 102,
           "maxEventLoopGapMs": {
-            "preview": 530,
-            "layout": 857,
-            "reedit": 2672
+            "preview": 430,
+            "layout": 1083,
+            "reedit": 1786
           },
           "longTasks": {
             "preview": {
-              "count": 2,
-              "maxMs": 495
+              "count": 3,
+              "maxMs": 416
             },
             "layout": {
-              "count": 16,
-              "maxMs": 759
+              "count": 18,
+              "maxMs": 748
             }
           },
           "engineMode": "worker",
@@ -2035,93 +2035,93 @@
       "summary": {
         "previewMs": {
           "n": 2,
-          "median": 7081,
-          "min": 6865,
-          "max": 7296
+          "median": 7330,
+          "min": 7248,
+          "max": 7412
         },
         "workerParseRenderMs": {
           "n": 2,
-          "median": 1930,
-          "min": 1895,
-          "max": 1964
+          "median": 1974,
+          "min": 1859,
+          "max": 2089
         },
         "workerCharsMs": {
           "n": 2,
-          "median": 10,
-          "min": 9,
-          "max": 10
+          "median": 12,
+          "min": 10,
+          "max": 14
         },
         "workerIntegrityModelMs": {
           "n": 2,
-          "median": 1244,
-          "min": 1129,
-          "max": 1359
+          "median": 1338,
+          "min": 1336,
+          "max": 1339
         },
         "workerReferencesMs": {
           "n": 2,
-          "median": 1215,
-          "min": 1202,
-          "max": 1228
+          "median": 1249,
+          "min": 1229,
+          "max": 1268
         },
         "analyzeWallMs": {
           "n": 2,
-          "median": 4473,
-          "min": 4339,
-          "max": 4607
+          "median": 4649,
+          "min": 4554,
+          "max": 4744
         },
         "mainFinishMs": {
           "n": 2,
-          "median": 170,
-          "min": 165,
-          "max": 174
+          "median": 188,
+          "min": 156,
+          "max": 219
         },
         "mainIntegrityMs": {
           "n": 2,
-          "median": 653,
-          "min": 649,
-          "max": 657
+          "median": 697,
+          "min": 585,
+          "max": 809
         },
         "composeMs": {
           "n": 2,
-          "median": 228,
-          "min": 187,
-          "max": 268
+          "median": 233,
+          "min": 211,
+          "max": 254
         },
         "layoutWallMs": {
           "n": 2,
-          "median": 80075,
-          "min": 77165,
-          "max": 82985
+          "median": 98459,
+          "min": 95097,
+          "max": 101820
         },
         "paginatePassesMs": {
           "n": 2,
-          "median": 72832,
-          "min": 68870,
-          "max": 76793
+          "median": 92028,
+          "min": 88558,
+          "max": 95498
         },
         "contentVerifyMs": {
           "n": 2,
-          "median": 3173,
-          "min": 3045,
-          "max": 3300
+          "median": 2866,
+          "min": 2736,
+          "max": 2996
         },
         "flattenMs": {
           "n": 2,
-          "median": 120,
-          "min": 102,
-          "max": 138
+          "median": 111,
+          "min": 106,
+          "max": 116
         },
         "printReadyMs": {
           "n": 2,
-          "median": 87156,
-          "min": 84030,
-          "max": 90281
+          "median": 105789,
+          "min": 102345,
+          "max": 109232
         },
         "pdfExportMs": {
           "n": 2,
-          "median": 22508,
-          "min": 21914,
-          "max": 23101
+          "median": 24257,
+          "min": 23497,
+          "max": 25017
         },
         "pdfBytes": {
           "n": 2,
@@ -2131,59 +2131,59 @@
         },
         "reeditPreviewMs": {
           "n": 2,
-          "median": 7463,
-          "min": 7458,
-          "max": 7467
+          "median": 7668,
+          "min": 7572,
+          "max": 7764
         },
         "peakJsHeapMiB": {
           "n": 2,
-          "median": 145,
-          "min": 135,
-          "max": 154
+          "median": 165,
+          "min": 154,
+          "max": 176
         },
         "heapAfterGcMiB": {
           "n": 2,
-          "median": 25,
-          "min": 19.8,
-          "max": 29.6
+          "median": 23,
+          "min": 17.1,
+          "max": 29.7
         },
         "maxEventLoopGapMs": {
           "preview": {
             "n": 2,
-            "median": 1097,
-            "min": 1052,
-            "max": 1142
+            "median": 1153,
+            "min": 1029,
+            "max": 1276
           },
           "layout": {
             "n": 2,
-            "median": 2072,
-            "min": 1943,
-            "max": 2200
+            "median": 2644,
+            "min": 2378,
+            "max": 2910
           },
           "reedit": {
             "n": 2,
-            "median": 3750,
-            "min": 3511,
-            "max": 3988
+            "median": 4165,
+            "min": 3697,
+            "max": 4633
           }
         },
         "longTaskMaxMs": {
           "preview": {
             "n": 2,
-            "median": 1056,
-            "min": 1014,
-            "max": 1097
+            "median": 1109,
+            "min": 996,
+            "max": 1222
           },
           "layout": {
             "n": 2,
-            "median": 1957,
-            "min": 1885,
-            "max": 2028
+            "median": 2013,
+            "min": 1755,
+            "max": 2271
           }
         }
       },
       "cancel": {
-        "ms": 100,
+        "ms": 177,
         "outcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
         "sessionLeft": null
       },
@@ -2192,47 +2192,47 @@
           "sections": 585,
           "rep": 1,
           "sourceBytes": 2828561,
-          "previewMs": 6865,
-          "workerParseRenderMs": 1895,
+          "previewMs": 7412,
+          "workerParseRenderMs": 1859,
           "workerCharsMs": 10,
-          "workerIntegrityModelMs": 1129,
-          "workerReferencesMs": 1228,
-          "analyzeWallMs": 4339,
-          "mainFinishMs": 165,
-          "mainIntegrityMs": 649,
-          "composeMs": 187,
-          "layoutWallMs": 77165,
-          "printReadyMs": 84030,
+          "workerIntegrityModelMs": 1336,
+          "workerReferencesMs": 1268,
+          "analyzeWallMs": 4554,
+          "mainFinishMs": 219,
+          "mainIntegrityMs": 809,
+          "composeMs": 211,
+          "layoutWallMs": 101820,
+          "printReadyMs": 109232,
           "layoutStatus": "done",
           "pages": 992,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 68870,
-          "contentVerifyMs": 3045,
-          "flattenMs": 138,
-          "layoutTotalMs": 74224,
+          "paginatePassesMs": 95498,
+          "contentVerifyMs": 2996,
+          "flattenMs": 106,
+          "layoutTotalMs": 100742,
           "forcedBreaks": 0,
-          "pdfExportMs": 23101,
+          "pdfExportMs": 25017,
           "pdfBytes": 8447116,
-          "reeditPreviewMs": 7467,
-          "cancelToIdleMs": 100,
+          "reeditPreviewMs": 7572,
+          "cancelToIdleMs": 177,
           "cancelOutcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
           "printSessionAfterCancel": null,
-          "heapAfterGcMiB": 29.6,
-          "peakJsHeapMiB": 135,
+          "heapAfterGcMiB": 29.7,
+          "peakJsHeapMiB": 154,
           "maxEventLoopGapMs": {
-            "preview": 1052,
-            "layout": 1943,
-            "reedit": 3988
+            "preview": 1276,
+            "layout": 2378,
+            "reedit": 4633
           },
           "longTasks": {
             "preview": {
               "count": 2,
-              "maxMs": 1014
+              "maxMs": 1222
             },
             "layout": {
-              "count": 236,
-              "maxMs": 1885
+              "count": 838,
+              "maxMs": 1755
             }
           },
           "engineMode": "worker",
@@ -2242,44 +2242,44 @@
           "sections": 585,
           "rep": 2,
           "sourceBytes": 2828561,
-          "previewMs": 7296,
-          "workerParseRenderMs": 1964,
-          "workerCharsMs": 9,
-          "workerIntegrityModelMs": 1359,
-          "workerReferencesMs": 1202,
-          "analyzeWallMs": 4607,
-          "mainFinishMs": 174,
-          "mainIntegrityMs": 657,
-          "composeMs": 268,
-          "layoutWallMs": 82985,
-          "printReadyMs": 90281,
+          "previewMs": 7248,
+          "workerParseRenderMs": 2089,
+          "workerCharsMs": 14,
+          "workerIntegrityModelMs": 1339,
+          "workerReferencesMs": 1229,
+          "analyzeWallMs": 4744,
+          "mainFinishMs": 156,
+          "mainIntegrityMs": 585,
+          "composeMs": 254,
+          "layoutWallMs": 95097,
+          "printReadyMs": 102345,
           "layoutStatus": "done",
           "pages": 992,
           "verification": "pass",
           "blocking": [],
-          "paginatePassesMs": 76793,
-          "contentVerifyMs": 3300,
-          "flattenMs": 102,
-          "layoutTotalMs": 81916,
+          "paginatePassesMs": 88558,
+          "contentVerifyMs": 2736,
+          "flattenMs": 116,
+          "layoutTotalMs": 93929,
           "forcedBreaks": 0,
-          "pdfExportMs": 21914,
+          "pdfExportMs": 23497,
           "pdfBytes": 8447116,
-          "reeditPreviewMs": 7458,
-          "heapAfterGcMiB": 19.8,
-          "peakJsHeapMiB": 154,
+          "reeditPreviewMs": 7764,
+          "heapAfterGcMiB": 17.1,
+          "peakJsHeapMiB": 176,
           "maxEventLoopGapMs": {
-            "preview": 1142,
-            "layout": 2200,
-            "reedit": 3511
+            "preview": 1029,
+            "layout": 2910,
+            "reedit": 3697
           },
           "longTasks": {
             "preview": {
               "count": 3,
-              "maxMs": 1097
+              "maxMs": 996
             },
             "layout": {
-              "count": 400,
-              "maxMs": 2028
+              "count": 677,
+              "maxMs": 2271
             }
           },
           "engineMode": "worker",

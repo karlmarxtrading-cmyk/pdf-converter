@@ -69,7 +69,7 @@ nav.toc ol{columns:2;gap:24px}code{font-size:.9em}
 <li>Gunakan ukuran kertas dan orientasi yang sama dengan dokumen, skala 100%. Matikan header/footer bawaan browser; aktifkan grafik latar bila tersedia.</li>
 <li>Simpan. PaperForma tidak dapat melihat apakah berkas disimpan atau dibatalkan — periksa berkas Anda. Tekan “Cetak lagi” bila perlu.</li>
 </ol>
-<p class="note">PaperForma tidak membuat berkas PDF sendiri. Generator PDF di browser (jsPDF, html2canvas) telah diuji: hasilnya berupa gambar halaman tanpa teks yang dapat dicari, 4–40× lebih besar, dan gagal pada dokumen ±200 halaman. Karena itu PDF dibuat oleh mesin cetak browser Anda dari halaman yang sudah diverifikasi.</p>
+<p class="note">PaperForma tidak membuat berkas PDF sendiri. Generator PDF di browser (jsPDF, html2canvas) telah diuji: hasilnya berupa gambar halaman tanpa teks yang dapat dicari, 9–39× lebih besar, dan gagal pada dokumen ±200 halaman. Karena itu PDF dibuat oleh mesin cetak browser Anda dari halaman yang sudah diverifikasi.</p>
 <p class="note">Diuji otomatis untuk rilis ini (Linux): Chrome 153 dan Firefox 160 — halaman diperiksa dan PDF dari mesin cetaknya diverifikasi teks per halaman; WebKitGTK 2.52 — halaman diperiksa. Dialog cetak native, Safari macOS/iOS dan perangkat seluler belum diuji manual.</p>
 
 <h2 id="simpan">Menyimpan proyek</h2>
@@ -81,6 +81,15 @@ nav.toc ol{columns:2;gap:24px}code{font-size:.9em}
 <h2 id="undo">Urungkan dan riwayat</h2>
 <p><strong>Urungkan/Ulangi</strong> (Ctrl/⌘+Z, Ctrl/⌘+Shift+Z atau Ctrl+Y) mencakup teks, pengaturan, templat, brand kit, percakapan dan gambar. <strong>Riwayat revisi</strong> menyimpan hingga 100 revisi (6 MiB) dan memulihkan revisi sebagai revisi baru. Input asli tidak pernah ditimpa; lihat lewat <strong>Lihat sumber mentah</strong>.</p>
 
+<h2 id="rumus">Rumus matematika</h2>
+<p>Rumus dirender dengan KaTeX (tersimpan di situs, tanpa jaringan). Delimiter yang dikenali:</p>
+<ul>
+<li>Inline: <code>$E_0$</code> atau <code>\(E_0\)</code>.</li>
+<li>Display (baris sendiri, di tengah): <code>$$…$$</code> atau <code>\[…\]</code> — boleh satu baris atau beberapa baris.</li>
+<li>Perintah KaTeX standar: <code>\boxed</code>, <code>\frac</code>, <code>\sqrt</code>, <code>\gamma</code>, <code>\Delta</code>, <code>\int</code>, <code>pmatrix</code>/<code>bmatrix</code>, dan lainnya.</li>
+</ul>
+<p><strong>Dari ChatGPT</strong>: tempel langsung ke editor (teks biasa), atau lewat <strong>Tempel</strong> dengan pilihan “Ubah ke Markdown”. Keduanya mempertahankan rumus: TeX diambil dari anotasi KaTeX, atribut MathML, skrip MathJax, atau delimiter <code>\(…\)</code>/<code>\[…\]</code> di teks — backslash tidak digandakan.</p>
+<p>Mata uang (<code>$5 dan $10</code>) dan isi kode (<code>`$PATH`</code>, blok kode) tidak dianggap rumus. Rumus yang tidak dapat dirender ditampilkan sebagai sumber LaTeX apa adanya dan dilaporkan di Pemeriksaan.</p>
 <h2 id="batas">Batas</h2>
 <ul>
 <li>Masukan yang melewati batas ukuran ditolak utuh, tidak dipotong.</li>

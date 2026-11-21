@@ -1,4 +1,4 @@
-# Deploy: GitHub → Cloudflare Pages (PaperForma 3.0.0-rc.2)
+# Deploy: GitHub → Cloudflare Pages (PaperForma 3.0.0-rc.3)
 
 PaperForma adalah **situs statis murni**. Publish root (`dist/`) berisi HTML, JS (termasuk satu Web Worker modul
 `assets/engine.worker-*.js`), CSS, font, gambar, `_headers`, `404.html`, panduan dan lisensi. Tidak ada `_worker.js`,
@@ -15,7 +15,7 @@ PaperForma adalah **situs statis murni**. Publish root (`dist/`) berisi HTML, JS
 ```bash
 unzip PAPERFORMA_STATIC_PRODUCTION_RELEASE.zip
 cd repository
-git init && git add -A && git commit -m "PaperForma 3.0.0-rc.2"
+git init && git add -A && git commit -m "PaperForma 3.0.0-rc.3"
 git branch -M main
 git remote add origin git@github.com:<akun>/<repo>.git
 git push -u origin main
@@ -57,6 +57,13 @@ W=$(curl -s $BASE/ | grep -o 'assets/main-[^"]*\.js' | head -1); curl -s $BASE/$
 curl -sI $BASE/assets/<engine.worker-...>.js | grep -iE 'content-type|cache-control'   # text/javascript + immutable
 curl -s -o /dev/null -w '%{http_code}\n' $BASE/api/pdf        # 404
 curl -s -o /dev/null -w '%{http_code}\n' $BASE/tidak-ada      # 404 (404.html)
+```
+
+Verifikasi rumus otomatis terhadap URL nyata (Chrome lokal diperlukan):
+
+```bash
+npm ci && npm run verify:deployment -- $BASE     # harus "LULUS"; hasil di evidence/deployment-math.json + PNG
+curl -s $BASE/ | grep pf-version                   # harus 3.0.0-rc.3 (bukan deployment lama/cache)
 ```
 
 Lalu di browser (Chrome/Edge, Firefox, Safari):

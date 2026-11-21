@@ -46,7 +46,37 @@ export function parseMarkdown(source: string): ParsedMarkdown {
   const masked = fm ? fm.raw.replace(/[^\n]/g, ' ') + source.slice(fm.raw.length) : source;
   const scan = scanMath(masked);
   const tree = processor.runSync(processor.parse(scan.parseCopy)) as Root;
+  promoteDisplayMath(tree, scan);
   return fm ? { tree, scan, source, frontmatter: fm } : { tree, scan, source };
+}
+
+/**
+ * \[…\] dan $$…$$ dalam SATU baris dibaca remark-math sebagai inlineMath (matematika teks). Mode display ditentukan
+ * pemindai (scanMath) dari delimiter sumber: rumus display yang sendirian di paragrafnya menjadi blok `math`; yang berada
+ * di tengah kalimat ditandai `data.pfDisplay` (dirender display di dalam paragraf). Dipakai bersama oleh render, model
+ * keutuhan dan Worker sehingga semua jalur sepakat.
+ */
+function promoteDisplayMath(tree: Root, scan: { spans: { start: number; display: boolean }[] }): void {
+  const displayAt = new Set(scan.spans.filter((s) => s.display).map((s) => s.start));
+  if (!displayAt.size) return;
+  const isDisplay = (n: { type: string; position?: { start: { offset?: number } } }) => n.type === 'inlineMath' && displayAt.has(n.position?.start.offset ?? -1);
+  const visit = (parent: { children: unknown[] }): void => {
+    parent.children = parent.children.map((c) => {
+      const n = c as { type: string; children?: unknown[]; value?: string; position?: { start: { offset?: number } }; data?: Record<string, unknown> };
+      if (n.type === 'paragraph' && n.children) {
+        const meaningful = n.children.filter((k) => { const x = k as { type: string; value?: string }; return !(x.type === 'break' || (x.type === 'text' && !x.value?.trim())); });
+        if (meaningful.length === 1 && isDisplay(meaningful[0] as never)) {
+          const m = meaningful[0] as { value: string; position?: unknown };
+          return { type: 'math', value: m.value, position: n.position ?? m.position, data: n.data };
+        }
+        for (const k of n.children) if (isDisplay(k as never)) { const x = k as { data?: Record<string, unknown> }; x.data = { ...x.data, pfDisplay: true }; }
+        return n;
+      }
+      if (n.children) visit(n as { children: unknown[] });
+      return n;
+    });
+  };
+  visit(tree as unknown as { children: unknown[] });
 }
 
 /* ---------------- token berurutan ---------------- */

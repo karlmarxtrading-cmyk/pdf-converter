@@ -4,7 +4,7 @@ PaperForma menyusun materi Markdown, teks, percakapan AI, ZIP (naskah + gambar) 
 rapi, lalu menyimpannya sebagai **HTML** (mandiri, ZIP, publikasi) atau mencetaknya ke **PDF lewat dialog cetak browser**.
 Semua pemrosesan berjalan di browser. Tidak ada akun, harga, paket, kuota, backend API, telemetry, atau pengiriman isi dokumen.
 
-Versi: `3.0.0-rc.2` — kandidat rilis. Semua gerbang yang dapat dijalankan otomatis lulus; dialog cetak native, Safari/perangkat
+Versi: `3.0.0-rc.3` — kandidat rilis (perbaikan mesin matematika: rumus dari ChatGPT tidak lagi tampil mentah). Semua gerbang yang dapat dijalankan otomatis lulus; dialog cetak native, Safari/perangkat
 fisik, pembaca layar dan hosting Cloudflare nyata belum diverifikasi (lihat `docs/RELEASE_REPORT.md`, `docs/KNOWN_LIMITS.md`).
 
 Analisis dokumen berjalan di **Web Worker** (MESIN-36) sehingga editor tetap responsif; paginasi diverifikasi isi per blok,

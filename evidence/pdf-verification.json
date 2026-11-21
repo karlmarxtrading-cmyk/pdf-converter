@@ -1,12 +1,12 @@
 {
   "tool": "tests/e2e/pdf-verify.mjs",
-  "candidateSha256": "5e649307531114cbec6ac54c3ac23864acd79abe170f9da77d692371c8be9136",
-  "distQaTreeSha256": "0cab71021b0fc20695b4b514515d173ed12aa4ac7c4881b156ce672a6f37b1e0",
-  "at": "2026-11-21T02:30:41.308Z",
+  "candidateSha256": "82397ea41b8253c9c0b6678ea9d879effeb44e6b1f8f37b3b692c341ec7a5465",
+  "distQaTreeSha256": "557d52a65d99bc80266b368993c7f4276b38ff868bed04e56e756693abd40370",
+  "at": "2026-11-21T05:50:47.147Z",
   "note": "PDF dihasilkan oleh mesin cetak browser headless dari HTML datar yang sama dengan yang dibuka dialog cetak. Dialog cetak native TIDAK diuji di sini.",
   "summary": {
-    "total": 6,
-    "pass": 6,
+    "total": 7,
+    "pass": 7,
     "fail": 0
   },
   "results": [
@@ -15,8 +15,8 @@
       "sourceBytes": 25289,
       "paper": "A4",
       "orientation": "portrait",
-      "previewMs": 821,
-      "layoutMs": 1113,
+      "previewMs": 715,
+      "layoutMs": 1182,
       "appVerification": {
         "status": "pass",
         "pages": 11,
@@ -38,7 +38,7 @@
       "engines": [
         {
           "engine": "Chrome Chrome/153.0.8010.12",
-          "ms": 288,
+          "ms": 260,
           "file": "evidence/pdf/small-mixed-A4.chrome.pdf",
           "bytes": 354746,
           "checks": {
@@ -81,7 +81,7 @@
         },
         {
           "engine": "Firefox firefox/160.0",
-          "ms": 5358,
+          "ms": 5372,
           "file": "evidence/pdf/small-mixed-A4.firefox.pdf",
           "bytes": 460683,
           "checks": {
@@ -127,12 +127,119 @@
       "status": "pass"
     },
     {
+      "id": "einstein-A4",
+      "sourceBytes": 946,
+      "paper": "A4",
+      "orientation": "portrait",
+      "previewMs": 406,
+      "layoutMs": 410,
+      "appVerification": {
+        "status": "pass",
+        "pages": 2,
+        "inventory": [],
+        "structure": [],
+        "lostBlocks": 0
+      },
+      "layoutStatus": "done",
+      "blockingIssues": [],
+      "pages": 2,
+      "meta": {
+        "externalLinks": 0,
+        "internalLinks": 0,
+        "images": 0,
+        "title": "Relativitas khusus Einstein",
+        "pages": 2,
+        "glyphNotBundledReported": false
+      },
+      "engines": [
+        {
+          "engine": "Chrome Chrome/153.0.8010.12",
+          "ms": 84,
+          "file": "evidence/pdf/einstein-A4.chrome.pdf",
+          "bytes": 49149,
+          "checks": {
+            "qpdfValid": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 2,
+          "pdfVersion": "1.4",
+          "fonts": 8,
+          "type3Fonts": [],
+          "images": 0,
+          "linkAnnots": {
+            "uri": 0,
+            "internal": 0
+          },
+          "text": {
+            "pagesChecked": 2,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 1
+          },
+          "status": "pass"
+        },
+        {
+          "engine": "Firefox firefox/160.0",
+          "ms": 1140,
+          "file": "evidence/pdf/einstein-A4.firefox.pdf",
+          "bytes": 93506,
+          "checks": {
+            "qpdfValid": true,
+            "pageCount": true,
+            "fontsEmbedded": true,
+            "noType3": true,
+            "externalLinks": true,
+            "internalLinks": true,
+            "allBlocksPresent": true,
+            "allCellsPresent": true,
+            "noUnexpectedBlank": true,
+            "pageNumbers": true
+          },
+          "problems": [],
+          "pages": 2,
+          "pdfVersion": "1.4",
+          "qpdfCheckWarnings": 1,
+          "fonts": 19,
+          "type3Fonts": [],
+          "images": 0,
+          "qpdfWarnings": 2,
+          "linkAnnots": {
+            "uri": 0,
+            "internal": 1
+          },
+          "text": {
+            "pagesChecked": 2,
+            "blocksMissing": 0,
+            "missingSample": [],
+            "tableCellsMissing": 0,
+            "blankPages": [],
+            "pageNumberMissing": [],
+            "pagesWithHeaderTitle": 1
+          },
+          "status": "pass"
+        }
+      ],
+      "status": "pass"
+    },
+    {
       "id": "small-mixed-Letter-landscape",
       "sourceBytes": 25289,
       "paper": "Letter",
       "orientation": "landscape",
-      "previewMs": 805,
-      "layoutMs": 1074,
+      "previewMs": 876,
+      "layoutMs": 1065,
       "appVerification": {
         "status": "pass",
         "pages": 14,
@@ -154,7 +261,7 @@
       "engines": [
         {
           "engine": "Chrome Chrome/153.0.8010.12",
-          "ms": 274,
+          "ms": 277,
           "file": "evidence/pdf/small-mixed-Letter-landscape.chrome.pdf",
           "bytes": 361270,
           "checks": {
@@ -196,7 +303,7 @@
         },
         {
           "engine": "Firefox firefox/160.0",
-          "ms": 5496,
+          "ms": 5533,
           "file": "evidence/pdf/small-mixed-Letter-landscape.firefox.pdf",
           "bytes": 470818,
           "checks": {
@@ -246,8 +353,8 @@
       "sourceBytes": 25289,
       "paper": "A5",
       "orientation": "portrait",
-      "previewMs": 690,
-      "layoutMs": 1318,
+      "previewMs": 787,
+      "layoutMs": 1349,
       "appVerification": {
         "status": "pass",
         "pages": 21,
@@ -269,7 +376,7 @@
       "engines": [
         {
           "engine": "Chrome Chrome/153.0.8010.12",
-          "ms": 314,
+          "ms": 339,
           "file": "evidence/pdf/small-mixed-A5.chrome.pdf",
           "bytes": 377685,
           "checks": {
@@ -311,7 +418,7 @@
         },
         {
           "engine": "Firefox firefox/160.0",
-          "ms": 5945,
+          "ms": 5922,
           "file": "evidence/pdf/small-mixed-A5.firefox.pdf",
           "bytes": 497260,
           "checks": {
@@ -361,8 +468,8 @@
       "sourceBytes": 170427,
       "paper": "A4",
       "orientation": "portrait",
-      "previewMs": 1699,
-      "layoutMs": 2936,
+      "previewMs": 1683,
+      "layoutMs": 3271,
       "appVerification": {
         "status": "pass",
         "pages": 63,
@@ -384,7 +491,7 @@
       "engines": [
         {
           "engine": "Chrome Chrome/153.0.8010.12",
-          "ms": 756,
+          "ms": 934,
           "file": "evidence/pdf/medium-30.chrome.pdf",
           "bytes": 778022,
           "checks": {
@@ -427,7 +534,7 @@
         },
         {
           "engine": "Firefox firefox/160.0",
-          "ms": 8980,
+          "ms": 9329,
           "file": "evidence/pdf/medium-30.firefox.pdf",
           "bytes": 1016557,
           "checks": {
@@ -477,8 +584,8 @@
       "sourceBytes": 556111,
       "paper": "A4",
       "orientation": "portrait",
-      "previewMs": 2492,
-      "layoutMs": 8479,
+      "previewMs": 2886,
+      "layoutMs": 8559,
       "appVerification": {
         "status": "pass",
         "pages": 196,
@@ -500,7 +607,7 @@
       "engines": [
         {
           "engine": "Chrome Chrome/153.0.8010.12",
-          "ms": 2534,
+          "ms": 2808,
           "file": "evidence/pdf/large-115.chrome.pdf",
           "bytes": 1638805,
           "checks": {
@@ -538,7 +645,7 @@
         },
         {
           "engine": "Firefox firefox/160.0",
-          "ms": 16876,
+          "ms": 16833,
           "file": "evidence/pdf/large-115.firefox.pdf",
           "bytes": 2150649,
           "checks": {
@@ -584,27 +691,27 @@
       "rounds": [
         {
           "round": 1,
-          "usedMiB": 19.9,
+          "usedMiB": 20.1,
           "iframes": 7
         },
         {
           "round": 2,
-          "usedMiB": 20,
+          "usedMiB": 20.1,
           "iframes": 7
         },
         {
           "round": 3,
-          "usedMiB": 20.3,
+          "usedMiB": 20.4,
           "iframes": 7
         },
         {
           "round": 4,
-          "usedMiB": 20.8,
+          "usedMiB": 20.7,
           "iframes": 7
         },
         {
           "round": 5,
-          "usedMiB": 21,
+          "usedMiB": 20.9,
           "iframes": 7
         },
         {
@@ -613,7 +720,7 @@
           "iframes": 7
         }
       ],
-      "growthMiBRound2to6": 1.2,
+      "growthMiBRound2to6": 1.1,
       "status": "pass"
     }
   ]

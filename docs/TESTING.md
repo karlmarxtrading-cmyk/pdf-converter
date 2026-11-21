@@ -1,4 +1,4 @@
-# Pengujian — 3.0.0-rc.2
+# Pengujian — 3.0.0-rc.3
 
 Semua bukti ditulis ke `evidence/` dan terikat ke `candidateSha256` (hash isi source, konfigurasi, lockfile, skrip, tes dan
 fixture; `scripts/fingerprint.mjs`). Bila salah satu berubah, bukti lama tidak berlaku — jalankan ulang. Dokumen (`docs/`,
@@ -13,7 +13,7 @@ fixture; `scripts/fingerprint.mjs`). Bila salah satu berubah, bukti lama tidak b
 | `npm run lint` | oxlint, kategori *correctness*, `--deny-warnings` | `lint.log` |
 | `npm test` | vitest: unit + integrasi (Node & jsdom); termasuk uji Worker di Node **tanpa DOM** | `unit-tests.log` |
 | `npm run build` / `build:qa` | SBOM → Vite → `verify-static-release` | `build-*.log`, `*.build-manifest.json` |
-| `npm run test:e2e` | 31 skenario Chrome nyata terhadap `dist-qa` di server ala Pages | `e2e-results.json` |
+| `npm run test:e2e` | 33 skenario Chrome nyata terhadap `dist-qa` di server ala Pages | `e2e-results.json` |
 | `npm run test:smoke` | `dist` produksi: rute, header, deep link, 404, tanpa kait QA | `static-smoke.json` |
 | `npm run test:gate` | verifier harus GAGAL pada 10 jenis kerusakan dist (backend, harga, kait QA, `_worker.js`, `functions/`, berkas wajib, CSP, Worker hilang, sumber eksternal) | `release-gate.json` |
 | `npm run test:pdf` | PDF nyata dari mesin cetak Chrome & Firefox + pemeriksaan poppler/qpdf; memori ekspor berulang | `pdf-verification.json`, `evidence/pdf/` |
@@ -21,6 +21,7 @@ fixture; `scripts/fingerprint.mjs`). Bila salah satu berubah, bukti lama tidak b
 | `npm run test:perf` | matriks performa 10–1.000 halaman, berulang | `perf-matrix.json` |
 | `node tests/e2e/stress-pages.mjs 115` | pembanding baseline RC1 (196 halaman) | `stress-115.json` |
 | `node tests/e2e/pdf-engine-eval.mjs` | evaluasi jalur PDF A vs B (butuh `PF_EVAL_LIBS` dengan jspdf, html2canvas-pro, pdf-lib) | `pdf-engine-eval.json` |
+| `npm run verify:deployment -- <URL>` | rumus Einstein di deployment nyata (build produksi): 3 jalur tempel, 11 rumus, mode display, tanpa teks mentah | `deployment-math.json`, PNG |
 | `npm run scan:secrets`, `npm run sbom` | pola rahasia; SBOM & lisensi | `secret-scan.json`, `release/SBOM.json` |
 
 Browser tambahan: Firefox via `PF_FIREFOX` (rilis ini: Firefox 160.0 dari paket conda-forge), WebKitGTK via
@@ -38,6 +39,7 @@ Browser tambahan: Firefox via `PF_FIREFOX` (rilis ini: Firefox 160.0 dari paket 
 | `tests/unit/core/static-regressions.test.ts` | EN-003 (PUA), EN-011 (marker percakapan), QA-02 (anggaran piksel), gambar `data:` inline |
 | `tests/unit/render/static-export.test.ts` | QA-01 (font gagal → tanpa byte), EN-012 |
 | `tests/unit/core/undo-project.test.ts`, `rc3-compat.test.ts` | undo/redo transaksi; paket `.pfproj` RC3 asli |
+| `tests/unit/core/math-einstein.test.ts` | regresi rumus Einstein: semua jalur masuk (teks, HTML literal, HTML KaTeX, percakapan, alttext, MathJax), mode display, mata uang, kode |
 | `tests/unit/ui/compat.test.ts` | penjelasan kompatibilitas browser |
 
 `evidence/history/rc1-red-on-rc3.txt`: bukti historis RC1 — kasus EN-003/EN-011 gagal pada source RC3 (14/15) sebelum

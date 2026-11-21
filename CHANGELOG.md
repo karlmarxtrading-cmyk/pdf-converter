@@ -1,5 +1,37 @@
 # Changelog
 
+## 3.0.0-rc.3 — 2026-11-21 (perbaikan mesin matematika)
+
+Laporan: rumus LaTeX tampil sebagai teks mentah di https://performa-cwd.pages.dev (rc.2), mis. `\[\boxed{E_0=mc^2}\]`,
+`\(E_0\)`, `\[\gamma=\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}\]`.
+
+### Akar masalah (direproduksi di browser nyata pada rc.2 — `evidence/history/rc2-*`)
+1. **Escape ganda di konversi HTML clipboard → Markdown** (dialog Tempel "Ubah ke Markdown", "Ubah bagian ini ke Markdown",
+   impor percakapan). HTML ChatGPT yang memuat delimiter rumus sebagai teks literal diserialisasi remark-stringify dengan
+   escape: `\(E_0\)` → `\\(E_0\\)`, `\[` → `\\\[`, `$E$` → `\$E\$` → pemindai rumus tidak lagi mengenalinya.
+2. **`\[…\]` / `$$…$$` satu baris dirender inline** (pecahan kecil, rata kiri) di SEMUA jalur, termasuk teks biasa:
+   remark-math membaca `$$…$$` dalam satu baris sebagai matematika teks.
+3. Spasi sebelum rumus KaTeX hilang saat konversi (`Energi$E_0$`); MathML `alttext` dibuang (a/b → "ab");
+   MathJax `<script type="math/tex">` terhapus (isi hilang); "$5 dan diskon 10$" keliru dianggap rumus.
+
+### Perbaikan
+- `src/core/clipboard.ts`: delimiter literal di teks dipindai dengan `scanMath` (aturan sama dengan jalur Markdown: mata
+  uang, kode, delimiter tak tertutup) dan dikeluarkan **verbatim**; penanda rumus span/div (spasi utuh); TeX dari anotasi
+  KaTeX, `alttext` MathML (bila berbentuk TeX), skrip MathJax `math/tex`; display di dalam `<p>` diangkat menjadi blok;
+  KaTeX tanpa anotasi → peringatan `CLIPBOARD_MATH_NO_TEX`.
+- `src/core/markdown.ts` `promoteDisplayMath`: mode display ditentukan delimiter sumber (dipakai render, model keutuhan
+  dan Worker); display di tengah kalimat dirender sebagai span display di dalam paragraf.
+- `src/core/math.ts`: perlindungan mata uang "angka + kata biasa" pada `$…$`.
+- Dependensi langsung `hast-util-to-mdast` (sebelumnya transitif) untuk handler bawaan.
+
+### Uji
+- `tests/unit/core/math-einstein.test.ts` (21 kasus): teks biasa, HTML literal, HTML KaTeX, percakapan, alttext/MathJax,
+  `<br>`/sel tabel, mode display, mata uang — TeX hasil = TeX sumber, prosa utuh, kode literal, keutuhan lulus.
+- E32 (Chrome nyata): 5 jalur tempel → pratinjau 11 rumus KaTeX, mode display benar, tanpa teks mentah. E33: HTML ekspor
+  luring + PDF cetak (font KaTeX tersemat, tanpa TeX mentah). PDF Einstein juga di `test:pdf` (Chrome & Firefox).
+- `npm run verify:deployment -- <URL>`: pemeriksaan yang sama terhadap deployment nyata (build produksi, tanpa kait QA).
+- Panduan: bagian "Rumus matematika"; teks rasio prototipe PDF dibetulkan menjadi 9–39×.
+
 ## 3.0.0-rc.2 — 2026-11-21 (statis)
 
 Dasar: 3.0.0-rc.1. Mengikuti "Perintah lanjutan final — PaperForma ultimate engineering & production release".

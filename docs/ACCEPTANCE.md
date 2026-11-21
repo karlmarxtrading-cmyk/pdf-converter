@@ -1,17 +1,17 @@
-# Matriks penerimaan — 3.0.0-rc.2
+# Matriks penerimaan — 3.0.0-rc.3
 
-Kandidat `candidateSha256 = 5e649307531114cbec6ac54c3ac23864acd79abe170f9da77d692371c8be9136`. Sumber kriteria: `06_MATRIKS_PENERIMAAN_STATIS.csv` (paket audit 2026-11-20), tanpa kriteria dihapus atau dipersempit.
+Kandidat `candidateSha256 = 82397ea41b8253c9c0b6678ea9d879effeb44e6b1f8f37b3b692c341ec7a5465`. Sumber kriteria: `06_MATRIKS_PENERIMAAN_STATIS.csv` (paket audit 2026-11-20), tanpa kriteria dihapus atau dipersempit.
 
 Status: **LULUS** = seluruh hasil yang diharapkan dibuktikan pada kandidat ini; **SEBAGIAN** = sebagian dibuktikan, bagian yang belum disebut; **NOT VERIFIED (BLOCKED BY ENVIRONMENT)** = memerlukan perangkat, akun, browser asli atau manusia yang tidak tersedia — bagian otomatis yang lulus disebut, tetapi butir TIDAK dianggap lulus; **N/A** = fitur tidak ditawarkan produk.
 
-Rujukan E01–E31 = `evidence/e2e-results.json`. Bila skenario rujukan gagal, status otomatis diturunkan oleh generator dokumen ini.
+Rujukan E01–E33 = `evidence/e2e-results.json`. Bila skenario rujukan gagal, status otomatis diturunkan oleh generator dokumen ini.
 
 | ID | Area | Status | Hasil aktual | Bukti |
 |---|---|---|---|---|
-| ST-QA-01 | build | **LULUS** | Clean-room dari ZIP: `npm ci` → typecheck → lint → 237 unit → build prod & QA; dist deterministik (`802a42922aa6…`), dicocokkan ulang setelah ekstraksi ZIP. | steps.txt, *.build-manifest.json, AUDIT_ZIP.json |
+| ST-QA-01 | build | **LULUS** | Clean-room dari ZIP: `npm ci` → typecheck → lint → 255 unit → build prod & QA; dist deterministik (`2e2caeb32aaa…`), dicocokkan ulang setelah ekstraksi ZIP. | steps.txt, *.build-manifest.json, AUDIT_ZIP.json |
 | ST-QA-02 | dependencies | **LULUS** | `npm audit` 0 kerentanan; SBOM 255 paket runtime; lisensi: MIT 189, ISC 43, BSD-3-Clause 9, Apache-2.0 6, OFL-1.1 3, (MPL-2.0 OR Apache-2.0) 1, EPL-2.0 OR GPL-3.0-or-later 1, BSD-2-Clause 1; seluruhnya permisif kecuali elkjs (dependensi Mermaid) EPL-2.0 OR GPL-3.0-or-later — dipakai tanpa modifikasi, notice disertakan di licenses/THIRD_PARTY_NOTICES.txt; kewajiban EPL-2.0 dicatat di KNOWN_LIMITS. Graf impor bundel tanpa jalur backend (verifier). | npm-audit.json, release/SBOM.json, verify-static.log |
 | ST-QA-03 | network | **LULUS** | Seluruh skenario mencatat request; nol request ke origin lain (E05 memblokir semua jaringan untuk HTML ekspor). Worker same-origin. | e2e-results.json E01/E05/E18 |
-| ST-QA-04 | product | **LULUS** | Inventaris string UI + HTML oleh verifier (kosakata harga/paket/langganan/kuota) dan E2E seluruh tindakan utama (31 skenario) tanpa akun/paywall. | verify-static.log, E01, e2e-results.json |
+| ST-QA-04 | product | **LULUS** | Inventaris string UI + HTML oleh verifier (kosakata harga/paket/langganan/kuota) dan E2E seluruh tindakan utama (33 skenario) tanpa akun/paywall. | verify-static.log, E01, e2e-results.json |
 | ST-QA-05 | source_integrity | **LULUS** | BOM/CRLF/PUA/emoji/combining/𝒳 via Buka berkas; sumber identik; karakter kendali/bidi/lebar-nol kini dilaporkan tanpa diubah. | E04; worker-handler.test.ts |
 | ST-QA-06 | clipboard | **SEBAGIAN** | Rich paste (E11), undo/redo (E09), parser nested fences/speaker ambigu (unit). Belum: alur konversi *selection* di browser dan salinan nyata dari aplikasi AI. | E11, E09, tests/unit/core/paste*, conversation* |
 | ST-QA-07 | xss | **LULUS** | script/on*/iframe/javascript:/data:/form/CSS eksternal tidak dieksekusi di pratinjau maupun ekspor. | E23 |
@@ -19,7 +19,7 @@ Rujukan E01–E31 = `evidence/e2e-results.json`. Bila skenario rujukan gagal, st
 | ST-QA-09 | zip_security | **SEBAGIAN** | Traversal, path absolut/backslash, duplikat ternormalisasi, symlink, terenkripsi, CRC/ukuran, rasio/jumlah/kedalaman: unit (dipertahankan dari RC3). Belum: korpus adversarial lewat impor browser. | tests/unit/core/assets-zip.test.ts |
 | ST-QA-10 | zip_import | **LULUS** | ZIP bersubfolder/berspasi → aset diimpor, gambar tampil, berkas lain dilaporkan. | E12 |
 | ST-QA-11 | image_budget | **SEBAGIAN** | Header ekstrem/JPEG rusak/SVG/total proyek ditolak sebelum dekode (unit + E21). Belum: hitung frame animasi GIF/WebP; nilai anggaran belum didukung benchmark perangkat. | E21, static-regressions |
-| ST-QA-12 | math_numbers | **SEBAGIAN** | Uang $, \(\), \[\], inline/display, PUA bersebelahan (unit, E04); PDF: blok berumus dikecualikan dari teks dan diperiksa lewat `data-tex`. Belum: tinjauan visual matriks/aligned. | static-regressions, E04, pdf-verification.json |
+| ST-QA-12 | math_numbers | **SEBAGIAN** | Dokumen Einstein lewat 5 jalur masuk (teks, HTML literal ChatGPT, HTML KaTeX, ubah-fragmen, percakapan): 11 rumus = TeX sumber, mode display/inline sesuai delimiter, \boxed/\frac/\sqrt/pmatrix/\int, mata uang & kode utuh; HTML ekspor luring & PDF (font KaTeX tersemat) — tinjauan visual tangkapan layar. Belum: korpus aligned/cases dan LaTeX invalid di browser. | math-einstein.test.ts, E32, E33, evidence/math/ |
 | ST-QA-13 | tables | **LULUS** | Tabel 70 baris & 12 kolom di PDF Chrome/Firefox: setiap sel ditemukan di halaman yang benar; header berulang tidak dihitung ganda; baris per identitas; tabel terpotong/baris berulang terdeteksi (regresi). | pdf-verification.json, pagination-regressions.test.ts |
 | ST-QA-14 | navigation | **LULUS** | Struktur halaman datar: label nomor halaman, nomor TOC = halaman heading tujuan, tujuan tautan internal; anotasi tautan internal & eksternal di PDF. | pagination-regressions.test.ts, pdf-verification.json |
 | ST-QA-15 | templates | **SEBAGIAN** | A4, Letter lanskap, A5 diverifikasi sampai PDF (BUS-01: sampul, TOC, header, nomor halaman). Belum: matriks pairwise empat templat × kertas × orientasi × brand. | pdf-verification.json |

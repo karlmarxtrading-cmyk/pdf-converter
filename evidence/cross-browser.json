@@ -1,8 +1,8 @@
 {
   "tool": "tests/e2e/cross-browser.mjs",
-  "candidateSha256": "5e649307531114cbec6ac54c3ac23864acd79abe170f9da77d692371c8be9136",
-  "distQaTreeSha256": "0cab71021b0fc20695b4b514515d173ed12aa4ac7c4881b156ce672a6f37b1e0",
-  "at": "2026-11-21T02:31:31.214Z",
+  "candidateSha256": "82397ea41b8253c9c0b6678ea9d879effeb44e6b1f8f37b3b692c341ec7a5465",
+  "distQaTreeSha256": "557d52a65d99bc80266b368993c7f4276b38ff868bed04e56e756693abd40370",
+  "at": "2026-11-21T05:51:42.635Z",
   "note": "Mesin otomatis di Linux headless/Xvfb. WebKitGTK bukan Safari; tidak ada perangkat fisik atau pembaca layar.",
   "renderedHtmlIdenticalAcrossEngines": true,
   "results": [
@@ -11,7 +11,7 @@
       "browser": "Chromium Chrome/153.0.8010.12",
       "steps": {
         "landing": true,
-        "studioMs": 461,
+        "studioMs": 466,
         "preview": {
           "engine": {
             "mode": "worker",
@@ -22,7 +22,7 @@
             "timeouts": 0,
             "errors": 0,
             "respawns": 0,
-            "lastMs": 232,
+            "lastMs": 250,
             "lastPhase": "references"
           },
           "integrityErrors": [],
@@ -45,13 +45,13 @@
             "structure": 0
           },
           "blocking": [],
-          "ms": 927
+          "ms": 1109
         },
         "large": {
           "status": "done",
           "pages": 87,
           "verification": "pass",
-          "ms": 3671
+          "ms": 4383
         },
         "storage": {
           "idb": true,
@@ -67,7 +67,7 @@
       "browser": "Firefox firefox/160.0",
       "steps": {
         "landing": true,
-        "studioMs": 530,
+        "studioMs": 692,
         "preview": {
           "engine": {
             "mode": "worker",
@@ -78,7 +78,7 @@
             "timeouts": 0,
             "errors": 0,
             "respawns": 0,
-            "lastMs": 234,
+            "lastMs": 262,
             "lastPhase": "references"
           },
           "integrityErrors": [],
@@ -101,13 +101,13 @@
             "structure": 0
           },
           "blocking": [],
-          "ms": 5238
+          "ms": 5756
         },
         "large": {
           "status": "done",
           "pages": 87,
           "verification": "pass",
-          "ms": 5405
+          "ms": 5891
         },
         "storage": {
           "idb": true,
@@ -123,7 +123,7 @@
       "browser": "WebKitGTK 2.52.6 (MiniBrowser)",
       "steps": {
         "landing": true,
-        "studioMs": 746,
+        "studioMs": 868,
         "preview": {
           "integrityErrors": [],
           "reports": {
@@ -140,7 +140,7 @@
             "cancelled": 0,
             "respawns": 0,
             "timeouts": 0,
-            "lastMs": 430
+            "lastMs": 418
           },
           "liveHasEnd": true
         },
@@ -157,13 +157,13 @@
             "inventory": 0,
             "structure": 0
           },
-          "ms": 3407
+          "ms": 3932
         },
         "large": {
           "status": "done",
           "pages": 87,
           "verification": "pass",
-          "ms": 14591
+          "ms": 17256
         },
         "storage": {
           "save": "off",

@@ -1,11 +1,11 @@
 {
   "tool": "tests/e2e/stress-pages.mjs",
-  "candidateSha256": "5e649307531114cbec6ac54c3ac23864acd79abe170f9da77d692371c8be9136",
+  "candidateSha256": "82397ea41b8253c9c0b6678ea9d879effeb44e6b1f8f37b3b692c341ec7a5465",
   "browser": "Chrome/153.0.8010.12",
   "sections": 115,
   "bytes": 556111,
-  "previewMs": 2722,
-  "layoutWallMs": 8276,
+  "previewMs": 2754,
+  "layoutWallMs": 8814,
   "layout": {
     "status": "done",
     "jobId": 1,
@@ -19,7 +19,7 @@
       "lostBlocks": 0
     }
   },
-  "usedJsHeapMiB": 44,
+  "usedJsHeapMiB": 29,
   "errors": [],
   "env": "Chrome headless, kontainer Linux (bukan perangkat referensi)"
 }

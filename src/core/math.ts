@@ -149,7 +149,10 @@ export function scanMath(src: string): MathScan {
         const before = src[f - 1]!; const after = src[f + 1];
         const ok = !/\s/.test(before) && !(after !== undefined && /[0-9]/.test(after));
         const body = src.slice(i + 1, f);
-        if (ok && body.length > 0 && !/\n\s*\n/.test(body)) close = f;
+        // Mata uang: "$5 dan diskon 10$" — isi diawali angka DAN memuat kata biasa (≥ 2 huruf, dipisah spasi, bukan
+        // perintah \TeX atau isi kurung kurawal) → bukan rumus. "$2x + 3y$", "$3 \times 4$" tetap rumus.
+        const currencyProse = /^[0-9]/.test(body) && /(?:^|\s)[\p{L}]{2,}(?=\s|$|[.,;:!?])/u.test(body.replace(/\\[A-Za-z]+(\{[^}]*\})?/g, ' '));
+        if (ok && !currencyProse && body.length > 0 && !/\n\s*\n/.test(body)) close = f;
       }
       if (close > 0) {
         spans.push({ start: i, end: close + 1, tex: src.slice(i + 1, close), display: false, delim: '$', line: lineIdx(i) + 1 });

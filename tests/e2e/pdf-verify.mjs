@@ -17,6 +17,8 @@ const FIREFOX = process.env.PF_FIREFOX || '/opt/ff/root/bin/FirefoxApp/firefox';
 const MIXED = readFileSync('fixtures/mixed-document.md', 'utf8');
 const CASES = [
   { id: 'small-mixed-A4', src: MIXED, keep: true },
+  // regresi mesin matematika (rumus Einstein): rumus dikecualikan dari teks blok, sisa prosa/tabel/kode diperiksa per halaman
+  { id: 'einstein-A4', src: readFileSync('fixtures/einstein/einstein.md', 'utf8'), keep: true },
   { id: 'small-mixed-Letter-landscape', src: MIXED, paper: 'Letter', orient: 'landscape' },
   { id: 'small-mixed-A5', src: MIXED, paper: 'A5' },
   { id: 'medium-30', src: MIXED + '\n\n' + generateStress(30) },

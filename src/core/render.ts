@@ -97,19 +97,20 @@ function issueRef(ctx: Ctx, extra: { line?: number | undefined; blockId?: string
   return o;
 }
 
-function formulaElement(ctx: Ctx, tex: string, display: boolean, line: number): Element {
+function formulaElement(ctx: Ctx, tex: string, display: boolean, line: number, phrasing = false): Element {
   const key = `${ctx.nonce}-${ctx.slots.length}`;
   ctx.slots.push({ key, tex, display, line, blockId: ctx.curBlock, messageId: ctx.messageId });
   ctx.stats.math++;
   ctx.post.set(key, { 'data-tex': tex });
-  return { type: 'element', tagName: display ? 'div' : 'span',
+  // display di dalam paragraf memakai span (div tidak sah di <p>); KaTeX displayMode membungkus .katex-display (blok, tengah)
+  return { type: 'element', tagName: display && !phrasing ? 'div' : 'span',
     properties: gen(ctx, { className: ['pf-math', display ? 'pf-math-display' : 'pf-math-inline'], dataSlot: key, dataPost: key }), children: [] };
 }
 
 /* ---------------- handler mdast → hast ---------------- */
 function makeHandlers(ctx: Ctx): Record<string, Handler> {
-  const mathEl = (state: State, node: MdNodes & { value: string }, display: boolean): Element => {
-    const el = formulaElement(ctx, ctx.restore(node.value), display, srcLine(ctx, node) ?? 0);
+  const mathEl = (state: State, node: MdNodes & { value: string }, display: boolean, phrasing = false): Element => {
+    const el = formulaElement(ctx, ctx.restore(node.value), display, srcLine(ctx, node) ?? 0, phrasing);
     const hp = (node as { data?: { hProperties?: Properties } }).data?.hProperties;
     if (hp?.dataBlockId !== undefined) {
       el.properties.dataBlockId = hp.dataBlockId;
@@ -119,7 +120,7 @@ function makeHandlers(ctx: Ctx): Record<string, Handler> {
     return el;
   };
   const handlers: Record<string, Handler> = {
-    inlineMath: (state, node) => mathEl(state, node, false),
+    inlineMath: (state, node) => mathEl(state, node, !!(node as { data?: { pfDisplay?: boolean } }).data?.pfDisplay, true),
     math: (state, node) => mathEl(state, node, true),
     code: (state, node) => {
       const value: string = node.value;

@@ -1,4 +1,4 @@
-# Batas yang diketahui — 3.0.0-rc.2 (statis)
+# Batas yang diketahui — 3.0.0-rc.3 (statis)
 
 Status: **kandidat rilis**, bukan rilis stabil. Semua gerbang yang dapat dijalankan di lingkungan pembuatan lulus
 (lihat `docs/RELEASE_REPORT.md`), tetapi gerbang di tabel pertama memerlukan perangkat, akun, atau manusia yang tidak
@@ -8,6 +8,7 @@ tersedia. Status butir-butir itu **NOT VERIFIED / BLOCKED BY ENVIRONMENT**, buka
 
 | Butir | Yang sudah dibuktikan otomatis | Yang belum | Prosedur |
 |---|---|---|---|
+| Deployment nyata performa-cwd.pages.dev setelah perbaikan rumus | `verify:deployment` lulus terhadap build produksi lokal dan GAGAL (mendeteksi bug) terhadap build rc.2 | Menjalankan skrip ke URL deployment setelah deploy rc.3 (lingkungan ini tidak dapat menjangkau domain tersebut) | `npm run verify:deployment -- https://performa-cwd.pages.dev` |
 | Hosting Cloudflare Pages nyata | Server lokal yang menerapkan `_headers`/404 seperti Pages; build dari ZIP bersih cocok hash | Deploy ke akun Cloudflare, header & MIME di edge, pembaruan versi saat tab terbuka | `docs/DEPLOY_CLOUDFLARE.md` §3 |
 | Dialog cetak native | PDF dari mesin cetak **Chrome 153** dan **Firefox 160** (headless) atas HTML datar yang sama dengan yang dibuka dialog: valid, jumlah halaman, teks per halaman, nomor halaman, font, tautan (`evidence/pdf-verification.json`); `window.print()` dan lifecycle (E07) | Dialog native Chrome/Edge/Firefox/Safari, pilihan "Simpan sebagai PDF", pengaturan skala/margin oleh pengguna | Daftar periksa `docs/TESTING.md` §Manual |
 | Safari macOS/iOS | Mesin **WebKitGTK 2.52** (MiniBrowser, Linux): alur inti + paginasi + verifikasi isi lulus (`evidence/cross-browser.json`) | Safari sebenarnya (WebKit Apple, font sistem, cetak iOS) | Uji manual di Mac/iPhone |
@@ -51,8 +52,10 @@ tersedia. Status butir-butir itu **NOT VERIFIED / BLOCKED BY ENVIRONMENT**, buka
 - **Gambar eksternal https**: pratinjau saja bila diizinkan; ekspor luring dan cetak memerlukan salinan yang diunggah.
 - **Penyimpanan**: IndexedDB per origin; pindah domain memerlukan paket `.pfproj`.
 - **Domain final** belum ditentukan: tidak ada `canonical`, `og:url`, `robots.txt`, `sitemap.xml`.
-- **Teks panduan**: `docs/panduan.html` menyebut "4–40× lebih besar" untuk prototipe PDF browser; angka terukur rilis ini 9–39×
-  (`evidence/pdf-engine-eval.json`). Teks diperbaiki pada kandidat berikutnya agar bukti rilis ini tetap terikat ke kandidat yang diuji.
+- **Rumus**: KaTeX (bukan MathJax) — perintah di luar dukungan KaTeX (mis. `\\newcommand` lintas dokumen, paket LaTeX khusus)
+  ditampilkan sebagai sumber dan dilaporkan `MATH_PARSE_ERROR`. Rumus dari HTML tanpa sumber TeX (KaTeX tanpa anotasi, MathML
+  tanpa alttext TeX) dipertahankan sebagai teks + peringatan `CLIPBOARD_MATH_NO_TEX`. `$…$` yang diawali angka dan memuat
+  kata biasa diperlakukan sebagai mata uang; tulis rumus seperti itu dengan `\\(…\\)`.
 - **Lisensi**: elkjs (dependensi Mermaid untuk tata letak diagram) berlisensi EPL-2.0 OR GPL-3.0-or-later; dipakai tanpa
   modifikasi dan notice-nya disertakan (`licenses/THIRD_PARTY_NOTICES.txt`). Distribusi ulang dengan modifikasi elkjs
   memerlukan kepatuhan EPL-2.0. Lisensi runtime lain permisif (MIT/ISC/Apache-2.0/BSD/OFL-1.1).
