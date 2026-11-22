@@ -1,0 +1,26 @@
+{
+  "manifest": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.12",
+    "profile": "production",
+    "candidateSha256": "003a7b88c2ea84d49ab42053a06a9c2c8162f94578655ba370dad396451d7d7f",
+    "distTreeSha256": "131fb9a3290bdef125fbbae939dabf061b4b55f4aa5356bbd701c0c40f529e64",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "fixtureSha256": "2e26b540f0af63ce86f438a3a4a07a9f1c2ca7c2ba296ba2117c549d9839b40b",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "method": "GUI import, preview, HTML download, offline file, DOM and Chromium accessibility tree. Native screen reader has its own gate.",
+  "stage": "preview",
+  "status": "FAIL",
+  "error": "TimeoutError: Waiting failed: 30000ms exceeded",
+  "messages": [
+    "Revision 2 · 37 words",
+    "",
+    "",
+    ""
+  ]
+}

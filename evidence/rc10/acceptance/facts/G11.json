@@ -1,0 +1,39 @@
+{
+  "observations": [
+    "aggregate-new"
+  ],
+  "checks": {
+    "positiveControl": {
+      "pass": true,
+      "evidence": "evidence/rc10/aggregate-tests/results.json"
+    },
+    "thresholdMutation": {
+      "pass": true,
+      "evidence": "evidence/rc10/aggregate-tests/results.json"
+    },
+    "distMutation": {
+      "pass": true,
+      "evidence": "evidence/rc10/aggregate-tests/results.json"
+    },
+    "formulaMutation": {
+      "pass": true,
+      "evidence": "evidence/rc10/aggregate-tests/results.json"
+    },
+    "missingReceipt": {
+      "pass": true,
+      "evidence": "evidence/rc10/aggregate-tests/results.json"
+    },
+    "staleReceipt": {
+      "pass": true,
+      "evidence": "evidence/rc10/aggregate-tests/results.json"
+    },
+    "shortCohort": {
+      "pass": true,
+      "evidence": "evidence/rc10/aggregate-tests/results.json"
+    },
+    "nativeBlocked": {
+      "pass": true,
+      "evidence": "evidence/rc10/aggregate-tests/results.json"
+    }
+  }
+}

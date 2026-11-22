@@ -1,0 +1,12 @@
+
+ RUN  v5.1.0 /workspace/scratch/c635819e0476/candidate
+
+
+ Test Files  42 passed (42)
+      Tests  388 passed (388)
+   Start at  18:11:01
+   Duration  20.77s (environment 44%, tests 35%, import 20%, transform 1%)
+
+    Isolate  42 workers spawned · ~722ms startup each (spawn + environment, per file)
+             at least ~9.39s faster with isolate: false — reuses workers across files instead of one per file
+

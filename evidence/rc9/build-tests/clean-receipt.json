@@ -1,0 +1,20 @@
+{
+  "archive": "basis-final.zip",
+  "zipBytes": 21186875,
+  "zipSha256": "fb6fc83f69df0ca1160dd6470b70d8f1214981aea6acd3c6f21d45c6e5921f04",
+  "verifiedChecksums": 1092,
+  "identicalDistFiles": 179,
+  "build": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.9",
+    "profile": "production",
+    "candidateSha256": "37277f20b922b1a6a9f734b0d69e96a61a8298a6d71aad24a86fd53731178bc9",
+    "distTreeSha256": "876bae95926bce4b4730864c66598f4192cf64c36c0ab02214dd9c3693656b0a",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "status": "PASS"
+}

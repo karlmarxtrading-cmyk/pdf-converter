@@ -1,0 +1,499 @@
+before arm candidate -1 2026-11-21T21:26:37.218Z
+candidate TIME-STAGE start empty editor
+candidate TIME-STAGE done empty editor
+candidate TIME-STAGE start blank preview frame
+candidate TIME-STAGE done blank preview frame
+candidate TIME-STAGE start source revision 1f4b9345ef
+candidate TIME-STAGE done source revision 1f4b9345ef
+candidate TIME-STAGE start rendered preview
+candidate TIME-STAGE done rendered preview
+candidate TIME-STAGE before fonts
+candidate TIME-STAGE after fonts
+candidate TIME-STAGE start HTML export verdict
+candidate TIME-STAGE done HTML export verdict
+candidate TIME-STAGE before blob
+candidate TIME-STAGE after blob
+candidate TIME-STAGE start pagination
+candidate TIME-STAGE done pagination
+candidate TIME-STAGE finish oracle
+after arm candidate -1 ok 2026-11-21T21:26:43.803Z
+before arm rc6 -1 2026-11-21T21:26:43.803Z
+rc6 TIME-STAGE start empty editor
+rc6 TIME-STAGE done empty editor
+rc6 TIME-STAGE start blank preview frame
+rc6 TIME-STAGE done blank preview frame
+rc6 TIME-STAGE start source revision 1f4b9345ef
+rc6 TIME-STAGE done source revision 1f4b9345ef
+rc6 TIME-STAGE start rendered preview
+rc6 TIME-STAGE done rendered preview
+rc6 TIME-STAGE before fonts
+rc6 TIME-STAGE after fonts
+rc6 TIME-STAGE start HTML export verdict
+rc6 TIME-STAGE done HTML export verdict
+rc6 TIME-STAGE before blob
+rc6 TIME-STAGE after blob
+rc6 TIME-STAGE start pagination
+rc6 TIME-STAGE done pagination
+rc6 TIME-STAGE finish oracle
+after arm rc6 -1 ok 2026-11-21T21:26:51.211Z
+before arm rc6 0 2026-11-21T21:26:51.213Z
+rc6 TIME-STAGE start empty editor
+rc6 TIME-STAGE done empty editor
+rc6 TIME-STAGE start blank preview frame
+rc6 TIME-STAGE done blank preview frame
+rc6 TIME-STAGE start source revision 1f4b9345ef
+rc6 TIME-STAGE done source revision 1f4b9345ef
+rc6 TIME-STAGE start rendered preview
+rc6 TIME-STAGE done rendered preview
+rc6 TIME-STAGE before fonts
+rc6 TIME-STAGE after fonts
+rc6 TIME-STAGE start HTML export verdict
+rc6 TIME-STAGE done HTML export verdict
+rc6 TIME-STAGE before blob
+rc6 TIME-STAGE after blob
+rc6 TIME-STAGE start pagination
+rc6 TIME-STAGE done pagination
+rc6 TIME-STAGE finish oracle
+after arm rc6 0 ok 2026-11-21T21:26:56.897Z
+before arm candidate 0 2026-11-21T21:26:56.897Z
+candidate TIME-STAGE start empty editor
+candidate TIME-STAGE done empty editor
+candidate TIME-STAGE start blank preview frame
+candidate TIME-STAGE done blank preview frame
+candidate TIME-STAGE start source revision 1f4b9345ef
+candidate TIME-STAGE done source revision 1f4b9345ef
+candidate TIME-STAGE start rendered preview
+candidate TIME-STAGE done rendered preview
+candidate TIME-STAGE before fonts
+candidate TIME-STAGE after fonts
+candidate TIME-STAGE start HTML export verdict
+candidate TIME-STAGE done HTML export verdict
+candidate TIME-STAGE before blob
+candidate TIME-STAGE after blob
+candidate TIME-STAGE start pagination
+candidate TIME-STAGE done pagination
+candidate TIME-STAGE finish oracle
+after arm candidate 0 ok 2026-11-21T21:27:02.702Z
+trig 0
+before arm candidate 1 2026-11-21T21:27:02.703Z
+candidate TIME-STAGE start empty editor
+candidate TIME-STAGE done empty editor
+candidate TIME-STAGE start blank preview frame
+candidate TIME-STAGE done blank preview frame
+candidate TIME-STAGE start source revision 1f4b9345ef
+candidate TIME-STAGE done source revision 1f4b9345ef
+candidate TIME-STAGE start rendered preview
+candidate TIME-STAGE done rendered preview
+candidate TIME-STAGE before fonts
+candidate TIME-STAGE after fonts
+candidate TIME-STAGE start HTML export verdict
+candidate TIME-STAGE done HTML export verdict
+candidate TIME-STAGE before blob
+candidate TIME-STAGE after blob
+candidate TIME-STAGE start pagination
+candidate TIME-STAGE done pagination
+candidate TIME-STAGE finish oracle
+after arm candidate 1 ok 2026-11-21T21:27:08.239Z
+before arm rc6 1 2026-11-21T21:27:08.240Z
+rc6 TIME-STAGE start empty editor
+rc6 TIME-STAGE done empty editor
+rc6 TIME-STAGE start blank preview frame
+rc6 TIME-STAGE done blank preview frame
+rc6 TIME-STAGE start source revision 1f4b9345ef
+rc6 TIME-STAGE done source revision 1f4b9345ef
+rc6 TIME-STAGE start rendered preview
+rc6 TIME-STAGE done rendered preview
+rc6 TIME-STAGE before fonts
+rc6 TIME-STAGE after fonts
+rc6 TIME-STAGE start HTML export verdict
+rc6 TIME-STAGE done HTML export verdict
+rc6 TIME-STAGE before blob
+rc6 TIME-STAGE after blob
+rc6 TIME-STAGE start pagination
+rc6 TIME-STAGE done pagination
+rc6 TIME-STAGE finish oracle
+after arm rc6 1 ok 2026-11-21T21:27:14.047Z
+before arm rc6 2 2026-11-21T21:27:14.049Z
+rc6 TIME-STAGE start empty editor
+rc6 TIME-STAGE done empty editor
+rc6 TIME-STAGE start blank preview frame
+rc6 TIME-STAGE done blank preview frame
+rc6 TIME-STAGE start source revision 1f4b9345ef
+rc6 TIME-STAGE done source revision 1f4b9345ef
+rc6 TIME-STAGE start rendered preview
+rc6 TIME-STAGE done rendered preview
+rc6 TIME-STAGE before fonts
+rc6 TIME-STAGE after fonts
+rc6 TIME-STAGE start HTML export verdict
+rc6 TIME-STAGE done HTML export verdict
+rc6 TIME-STAGE before blob
+rc6 TIME-STAGE after blob
+rc6 TIME-STAGE start pagination
+rc6 TIME-STAGE done pagination
+rc6 TIME-STAGE finish oracle
+after arm rc6 2 ok 2026-11-21T21:27:20.100Z
+before arm candidate 2 2026-11-21T21:27:20.100Z
+candidate TIME-STAGE start empty editor
+candidate TIME-STAGE done empty editor
+candidate TIME-STAGE start blank preview frame
+candidate TIME-STAGE done blank preview frame
+candidate TIME-STAGE start source revision 1f4b9345ef
+candidate TIME-STAGE done source revision 1f4b9345ef
+candidate TIME-STAGE start rendered preview
+candidate TIME-STAGE done rendered preview
+candidate TIME-STAGE before fonts
+candidate TIME-STAGE after fonts
+candidate TIME-STAGE start HTML export verdict
+candidate TIME-STAGE done HTML export verdict
+candidate TIME-STAGE before blob
+candidate TIME-STAGE after blob
+candidate TIME-STAGE start pagination
+candidate TIME-STAGE done pagination
+candidate TIME-STAGE finish oracle
+after arm candidate 2 ok 2026-11-21T21:27:25.896Z
+before arm candidate 3 2026-11-21T21:27:25.896Z
+candidate TIME-STAGE start empty editor
+candidate TIME-STAGE done empty editor
+candidate TIME-STAGE start blank preview frame
+candidate TIME-STAGE done blank preview frame
+candidate TIME-STAGE start source revision 1f4b9345ef
+candidate TIME-STAGE done source revision 1f4b9345ef
+candidate TIME-STAGE start rendered preview
+candidate TIME-STAGE done rendered preview
+candidate TIME-STAGE before fonts
+candidate TIME-STAGE after fonts
+candidate TIME-STAGE start HTML export verdict
+candidate TIME-STAGE done HTML export verdict
+candidate TIME-STAGE before blob
+candidate TIME-STAGE after blob
+candidate TIME-STAGE start pagination
+candidate TIME-STAGE done pagination
+candidate TIME-STAGE finish oracle
+after arm candidate 3 ok 2026-11-21T21:27:31.804Z
+before arm rc6 3 2026-11-21T21:27:31.804Z
+rc6 TIME-STAGE start empty editor
+rc6 TIME-STAGE done empty editor
+rc6 TIME-STAGE start blank preview frame
+rc6 TIME-STAGE done blank preview frame
+rc6 TIME-STAGE start source revision 1f4b9345ef
+rc6 TIME-STAGE done source revision 1f4b9345ef
+rc6 TIME-STAGE start rendered preview
+rc6 TIME-STAGE done rendered preview
+rc6 TIME-STAGE before fonts
+rc6 TIME-STAGE after fonts
+rc6 TIME-STAGE start HTML export verdict
+rc6 TIME-STAGE done HTML export verdict
+rc6 TIME-STAGE before blob
+rc6 TIME-STAGE after blob
+rc6 TIME-STAGE start pagination
+rc6 TIME-STAGE done pagination
+rc6 TIME-STAGE finish oracle
+after arm rc6 3 ok 2026-11-21T21:27:37.621Z
+before arm rc6 4 2026-11-21T21:27:37.621Z
+rc6 TIME-STAGE start empty editor
+rc6 TIME-STAGE done empty editor
+rc6 TIME-STAGE start blank preview frame
+rc6 TIME-STAGE done blank preview frame
+rc6 TIME-STAGE start source revision 1f4b9345ef
+rc6 TIME-STAGE done source revision 1f4b9345ef
+rc6 TIME-STAGE start rendered preview
+rc6 TIME-STAGE done rendered preview
+rc6 TIME-STAGE before fonts
+rc6 TIME-STAGE after fonts
+rc6 TIME-STAGE start HTML export verdict
+rc6 TIME-STAGE done HTML export verdict
+rc6 TIME-STAGE before blob
+rc6 TIME-STAGE after blob
+rc6 TIME-STAGE start pagination
+rc6 TIME-STAGE done pagination
+rc6 TIME-STAGE finish oracle
+after arm rc6 4 ok 2026-11-21T21:27:43.891Z
+before arm candidate 4 2026-11-21T21:27:43.891Z
+candidate TIME-STAGE start empty editor
+candidate TIME-STAGE done empty editor
+candidate TIME-STAGE start blank preview frame
+candidate TIME-STAGE done blank preview frame
+candidate TIME-STAGE start source revision 1f4b9345ef
+candidate TIME-STAGE done source revision 1f4b9345ef
+candidate TIME-STAGE start rendered preview
+candidate TIME-STAGE done rendered preview
+candidate TIME-STAGE before fonts
+candidate TIME-STAGE after fonts
+candidate TIME-STAGE start HTML export verdict
+candidate TIME-STAGE done HTML export verdict
+candidate TIME-STAGE before blob
+candidate TIME-STAGE after blob
+candidate TIME-STAGE start pagination
+candidate TIME-STAGE done pagination
+candidate TIME-STAGE finish oracle
+after arm candidate 4 ok 2026-11-21T21:27:51.262Z
+before arm candidate 5 2026-11-21T21:27:51.262Z
+candidate TIME-STAGE start empty editor
+candidate TIME-STAGE done empty editor
+candidate TIME-STAGE start blank preview frame
+candidate TIME-STAGE done blank preview frame
+candidate TIME-STAGE start source revision 1f4b9345ef
+candidate TIME-STAGE done source revision 1f4b9345ef
+candidate TIME-STAGE start rendered preview
+candidate TIME-STAGE done rendered preview
+candidate TIME-STAGE before fonts
+candidate TIME-STAGE after fonts
+candidate TIME-STAGE start HTML export verdict
+candidate TIME-STAGE done HTML export verdict
+candidate TIME-STAGE before blob
+candidate TIME-STAGE after blob
+candidate TIME-STAGE start pagination
+candidate TIME-STAGE done pagination
+candidate TIME-STAGE finish oracle
+after arm candidate 5 ok 2026-11-21T21:27:57.473Z
+before arm rc6 5 2026-11-21T21:27:57.473Z
+rc6 TIME-STAGE start empty editor
+rc6 TIME-STAGE done empty editor
+rc6 TIME-STAGE start blank preview frame
+rc6 TIME-STAGE done blank preview frame
+rc6 TIME-STAGE start source revision 1f4b9345ef
+rc6 TIME-STAGE done source revision 1f4b9345ef
+rc6 TIME-STAGE start rendered preview
+rc6 TIME-STAGE done rendered preview
+rc6 TIME-STAGE before fonts
+rc6 TIME-STAGE after fonts
+rc6 TIME-STAGE start HTML export verdict
+rc6 TIME-STAGE done HTML export verdict
+rc6 TIME-STAGE before blob
+rc6 TIME-STAGE after blob
+rc6 TIME-STAGE start pagination
+rc6 TIME-STAGE done pagination
+rc6 TIME-STAGE finish oracle
+after arm rc6 5 ok 2026-11-21T21:28:04.529Z
+trig 5
+before arm rc6 6 2026-11-21T21:28:04.529Z
+rc6 TIME-STAGE start empty editor
+rc6 TIME-STAGE done empty editor
+rc6 TIME-STAGE start blank preview frame
+rc6 TIME-STAGE done blank preview frame
+rc6 TIME-STAGE start source revision 1f4b9345ef
+rc6 TIME-STAGE done source revision 1f4b9345ef
+rc6 TIME-STAGE start rendered preview
+rc6 TIME-STAGE done rendered preview
+rc6 TIME-STAGE before fonts
+rc6 TIME-STAGE after fonts
+rc6 TIME-STAGE start HTML export verdict
+rc6 TIME-STAGE done HTML export verdict
+rc6 TIME-STAGE before blob
+rc6 TIME-STAGE after blob
+rc6 TIME-STAGE start pagination
+rc6 TIME-STAGE done pagination
+rc6 TIME-STAGE finish oracle
+after arm rc6 6 ok 2026-11-21T21:28:11.181Z
+before arm candidate 6 2026-11-21T21:28:11.181Z
+candidate TIME-STAGE start empty editor
+candidate TIME-STAGE done empty editor
+candidate TIME-STAGE start blank preview frame
+candidate TIME-STAGE done blank preview frame
+candidate TIME-STAGE start source revision 1f4b9345ef
+candidate TIME-STAGE done source revision 1f4b9345ef
+candidate TIME-STAGE start rendered preview
+candidate TIME-STAGE done rendered preview
+candidate TIME-STAGE before fonts
+candidate TIME-STAGE after fonts
+candidate TIME-STAGE start HTML export verdict
+candidate TIME-STAGE done HTML export verdict
+candidate TIME-STAGE before blob
+candidate TIME-STAGE after blob
+candidate TIME-STAGE start pagination
+candidate TIME-STAGE done pagination
+candidate TIME-STAGE finish oracle
+after arm candidate 6 ok 2026-11-21T21:28:18.644Z
+before arm candidate 7 2026-11-21T21:28:18.644Z
+candidate TIME-STAGE start empty editor
+candidate TIME-STAGE done empty editor
+candidate TIME-STAGE start blank preview frame
+candidate TIME-STAGE done blank preview frame
+candidate TIME-STAGE start source revision 1f4b9345ef
+candidate TIME-STAGE done source revision 1f4b9345ef
+candidate TIME-STAGE start rendered preview
+candidate TIME-STAGE done rendered preview
+candidate TIME-STAGE before fonts
+candidate TIME-STAGE after fonts
+candidate TIME-STAGE start HTML export verdict
+candidate TIME-STAGE done HTML export verdict
+candidate TIME-STAGE before blob
+candidate TIME-STAGE after blob
+candidate TIME-STAGE start pagination
+candidate TIME-STAGE done pagination
+candidate TIME-STAGE finish oracle
+after arm candidate 7 ok 2026-11-21T21:28:25.290Z
+before arm rc6 7 2026-11-21T21:28:25.290Z
+rc6 TIME-STAGE start empty editor
+rc6 TIME-STAGE done empty editor
+rc6 TIME-STAGE start blank preview frame
+rc6 TIME-STAGE done blank preview frame
+rc6 TIME-STAGE start source revision 1f4b9345ef
+rc6 TIME-STAGE done source revision 1f4b9345ef
+rc6 TIME-STAGE start rendered preview
+rc6 TIME-STAGE done rendered preview
+rc6 TIME-STAGE before fonts
+rc6 TIME-STAGE after fonts
+rc6 TIME-STAGE start HTML export verdict
+rc6 TIME-STAGE done HTML export verdict
+rc6 TIME-STAGE before blob
+rc6 TIME-STAGE after blob
+rc6 TIME-STAGE start pagination
+rc6 TIME-STAGE done pagination
+rc6 TIME-STAGE finish oracle
+after arm rc6 7 ok 2026-11-21T21:28:31.808Z
+before arm rc6 8 2026-11-21T21:28:31.808Z
+rc6 TIME-STAGE start empty editor
+rc6 TIME-STAGE done empty editor
+rc6 TIME-STAGE start blank preview frame
+rc6 TIME-STAGE done blank preview frame
+rc6 TIME-STAGE start source revision 1f4b9345ef
+rc6 TIME-STAGE done source revision 1f4b9345ef
+rc6 TIME-STAGE start rendered preview
+rc6 TIME-STAGE done rendered preview
+rc6 TIME-STAGE before fonts
+rc6 TIME-STAGE after fonts
+rc6 TIME-STAGE start HTML export verdict
+rc6 TIME-STAGE done HTML export verdict
+rc6 TIME-STAGE before blob
+rc6 TIME-STAGE after blob
+rc6 TIME-STAGE start pagination
+rc6 TIME-STAGE done pagination
+rc6 TIME-STAGE finish oracle
+after arm rc6 8 ok 2026-11-21T21:28:37.916Z
+before arm candidate 8 2026-11-21T21:28:37.916Z
+candidate TIME-STAGE start empty editor
+candidate TIME-STAGE done empty editor
+candidate TIME-STAGE start blank preview frame
+candidate TIME-STAGE done blank preview frame
+candidate TIME-STAGE start source revision 1f4b9345ef
+candidate TIME-STAGE done source revision 1f4b9345ef
+candidate TIME-STAGE start rendered preview
+candidate TIME-STAGE done rendered preview
+candidate TIME-STAGE before fonts
+candidate TIME-STAGE after fonts
+candidate TIME-STAGE start HTML export verdict
+candidate TIME-STAGE done HTML export verdict
+candidate TIME-STAGE before blob
+candidate TIME-STAGE after blob
+candidate TIME-STAGE start pagination
+candidate TIME-STAGE done pagination
+candidate TIME-STAGE finish oracle
+after arm candidate 8 ok 2026-11-21T21:28:44.146Z
+before arm candidate 9 2026-11-21T21:28:44.147Z
+candidate TIME-STAGE start empty editor
+candidate TIME-STAGE done empty editor
+candidate TIME-STAGE start blank preview frame
+candidate TIME-STAGE done blank preview frame
+candidate TIME-STAGE start source revision 1f4b9345ef
+candidate TIME-STAGE done source revision 1f4b9345ef
+candidate TIME-STAGE start rendered preview
+candidate TIME-STAGE done rendered preview
+candidate TIME-STAGE before fonts
+candidate TIME-STAGE after fonts
+candidate TIME-STAGE start HTML export verdict
+candidate TIME-STAGE done HTML export verdict
+candidate TIME-STAGE before blob
+candidate TIME-STAGE after blob
+candidate TIME-STAGE start pagination
+candidate TIME-STAGE done pagination
+candidate TIME-STAGE finish oracle
+after arm candidate 9 ok 2026-11-21T21:28:53.949Z
+before arm rc6 9 2026-11-21T21:28:53.949Z
+rc6 TIME-STAGE start empty editor
+rc6 TIME-STAGE done empty editor
+rc6 TIME-STAGE start blank preview frame
+rc6 TIME-STAGE done blank preview frame
+rc6 TIME-STAGE start source revision 1f4b9345ef
+rc6 TIME-STAGE done source revision 1f4b9345ef
+rc6 TIME-STAGE start rendered preview
+rc6 TIME-STAGE done rendered preview
+rc6 TIME-STAGE before fonts
+rc6 TIME-STAGE after fonts
+rc6 TIME-STAGE start HTML export verdict
+rc6 TIME-STAGE done HTML export verdict
+rc6 TIME-STAGE before blob
+rc6 TIME-STAGE after blob
+rc6 TIME-STAGE start pagination
+rc6 TIME-STAGE done pagination
+rc6 TIME-STAGE finish oracle
+after arm rc6 9 ok 2026-11-21T21:29:03.440Z
+before arm rc6 10 2026-11-21T21:29:03.440Z
+rc6 TIME-STAGE start empty editor
+rc6 TIME-STAGE done empty editor
+rc6 TIME-STAGE start blank preview frame
+rc6 TIME-STAGE done blank preview frame
+rc6 TIME-STAGE start source revision 1f4b9345ef
+rc6 TIME-STAGE done source revision 1f4b9345ef
+rc6 TIME-STAGE start rendered preview
+rc6 TIME-STAGE done rendered preview
+rc6 TIME-STAGE before fonts
+rc6 TIME-STAGE after fonts
+rc6 TIME-STAGE start HTML export verdict
+rc6 TIME-STAGE done HTML export verdict
+rc6 TIME-STAGE before blob
+rc6 TIME-STAGE after blob
+rc6 TIME-STAGE start pagination
+rc6 TIME-STAGE done pagination
+rc6 TIME-STAGE finish oracle
+after arm rc6 10 ok 2026-11-21T21:29:10.494Z
+before arm candidate 10 2026-11-21T21:29:10.495Z
+candidate TIME-STAGE start empty editor
+candidate TIME-STAGE done empty editor
+candidate TIME-STAGE start blank preview frame
+candidate TIME-STAGE done blank preview frame
+candidate TIME-STAGE start source revision 1f4b9345ef
+candidate TIME-STAGE done source revision 1f4b9345ef
+candidate TIME-STAGE start rendered preview
+candidate TIME-STAGE done rendered preview
+candidate TIME-STAGE before fonts
+candidate TIME-STAGE after fonts
+candidate TIME-STAGE start HTML export verdict
+candidate TIME-STAGE done HTML export verdict
+candidate TIME-STAGE before blob
+candidate TIME-STAGE after blob
+candidate TIME-STAGE start pagination
+candidate TIME-STAGE done pagination
+candidate TIME-STAGE finish oracle
+after arm candidate 10 ok 2026-11-21T21:29:18.314Z
+trig 10
+before arm candidate 11 2026-11-21T21:29:18.314Z
+candidate TIME-STAGE start empty editor
+candidate TIME-STAGE done empty editor
+candidate TIME-STAGE start blank preview frame
+candidate TIME-STAGE done blank preview frame
+candidate TIME-STAGE start source revision 1f4b9345ef
+candidate TIME-STAGE done source revision 1f4b9345ef
+candidate TIME-STAGE start rendered preview
+candidate TIME-STAGE done rendered preview
+candidate TIME-STAGE before fonts
+candidate TIME-STAGE after fonts
+candidate TIME-STAGE start HTML export verdict
+candidate TIME-STAGE done HTML export verdict
+candidate TIME-STAGE before blob
+candidate TIME-STAGE after blob
+candidate TIME-STAGE start pagination
+candidate TIME-STAGE done pagination
+candidate TIME-STAGE finish oracle
+after arm candidate 11 ok 2026-11-21T21:29:25.468Z
+before arm rc6 11 2026-11-21T21:29:25.468Z
+rc6 TIME-STAGE start empty editor
+rc6 TIME-STAGE done empty editor
+rc6 TIME-STAGE start blank preview frame
+rc6 TIME-STAGE done blank preview frame
+rc6 TIME-STAGE start source revision 1f4b9345ef
+rc6 TIME-STAGE done source revision 1f4b9345ef
+rc6 TIME-STAGE start rendered preview
+rc6 TIME-STAGE done rendered preview
+rc6 TIME-STAGE before fonts
+rc6 TIME-STAGE after fonts
+rc6 TIME-STAGE start HTML export verdict
+rc6 TIME-STAGE done HTML export verdict
+rc6 TIME-STAGE before blob
+rc6 TIME-STAGE after blob
+rc6 TIME-STAGE start pagination
+rc6 TIME-STAGE done pagination
+rc6 TIME-STAGE finish oracle
+after arm rc6 11 ok 2026-11-21T21:29:32.789Z
+TARGET_CLOSE rc6
+TARGET_CLOSE candidate

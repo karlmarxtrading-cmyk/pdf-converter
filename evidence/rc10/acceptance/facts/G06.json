@@ -1,0 +1,35 @@
+{
+  "observations": [
+    "integrity-new"
+  ],
+  "checks": {
+    "rootText": {
+      "pass": true,
+      "evidence": "evidence/rc10/integrity/acceptance.json"
+    },
+    "untrackedNode": {
+      "pass": true,
+      "evidence": "evidence/rc10/integrity/acceptance.json"
+    },
+    "foreignId": {
+      "pass": true,
+      "evidence": "evidence/rc10/integrity/acceptance.json"
+    },
+    "duplicateId": {
+      "pass": true,
+      "evidence": "evidence/rc10/integrity/acceptance.json"
+    },
+    "order": {
+      "pass": true,
+      "evidence": "evidence/rc10/integrity/acceptance.json"
+    },
+    "spoofedDecoration": {
+      "pass": true,
+      "evidence": "evidence/rc10/integrity/acceptance.json"
+    },
+    "generatedControls": {
+      "pass": true,
+      "evidence": "evidence/rc10/integrity/acceptance.json"
+    }
+  }
+}

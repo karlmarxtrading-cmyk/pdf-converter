@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-11-22T15:06:20.184Z",
+  "distBefore": "573c87801f272ccc24222db5bbe2339cba495488bc34c095caa2b39e2eacc347",
+  "launchBinary": "/usr/bin/chromium",
+  "version": "Chromium 156.0.8078.79 built on Debian GNU/Linux 13 (trixie)",
+  "hasDisplay": false,
+  "hasWaylandDisplay": false,
+  "os": "linux",
+  "pdfReadBack": false,
+  "method": "Installed headed Chromium, default native print path and ephemeral profile; no kiosk or headless PDF flags.",
+  "desktopPreflight": "Separate managed Linux desktop Chromium was launched. The local site on 127.0.0.1:4386 returned ERR_CONNECTION_REFUSED. The verified workspace file URL was blocked by managed policy. No public preview permitted. Native output could not be bound to this candidate on that surface.",
+  "status": "BLOCKED",
+  "binarySha256": "2c8d32d29dc6781c35ae196ea83299d507ac88fc339301abe74672feda299779",
+  "headedLaunch": "BLOCKED",
+  "reason": "Protocol error (Target.setDiscoverTargets): Target closed",
+  "distAfter": "573c87801f272ccc24222db5bbe2339cba495488bc34c095caa2b39e2eacc347"
+}

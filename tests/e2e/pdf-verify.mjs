@@ -36,7 +36,7 @@ function inspectPdf(file, frags, meta) {
   const info = sh('pdfinfo', [file]);
   r.pages = Number(/Pages:\s+(\d+)/.exec(info)?.[1] ?? 0);
   r.pdfVersion = /PDF version:\s+([\d.]+)/.exec(info)?.[1];
-  const structural = JSON.parse(sh(process.env.PF_PYTHON || 'python3', ['tests/e2e/inspect-pdf.py', file]));
+  const structural = JSON.parse(sh(process.env.PF_PYTHON || (process.platform === 'win32' ? 'python' : 'python3'), ['tests/e2e/inspect-pdf.py', file]));
   r.structureInspector = structural.checker;
   r.checks.pypdfReadable = structural.pages === r.pages;
   try { sh('qpdf', ['--check', file]); r.checks.qpdfValid = true; }

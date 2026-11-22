@@ -6,8 +6,9 @@
  * Murni (tanpa DOM/jaringan); pemuatan bytes melalui FontSource yang disuntikkan.
  */
 import type { BrandKit, Issue, Settings } from '../core/contracts';
-import { FONT_COVERAGE, KATEX_FONT_INFO, KATEX_SYMBOL_COVERAGE, type Range } from './font-coverage.generated';
+import { EMOJI_FONT, FONT_COVERAGE, KATEX_FONT_INFO, KATEX_SYMBOL_COVERAGE, type Range } from './font-coverage.generated';
 import { getTemplate } from './templates';
+import { assertWoff2 } from './woff2';
 import { bytesToBase64, sha256Hex } from './util';
 
 export type FamilyKey = 'inter' | 'source-serif-4' | 'jetbrains-mono';
@@ -50,10 +51,12 @@ const SCRIPT_RANGES: [string, number, number][] = [
 ];
 export const scriptOf = (c: number): string => SCRIPT_RANGES.find(([, a, b]) => c >= a && c <= b)?.[0] ?? 'Other';
 
-export const isCoveredByBundledFonts = (c: number): boolean =>
+const coveredWithoutEmoji = (c: number): boolean =>
   isIgnorable(c) ||
   (Object.keys(FONT_COVERAGE) as FamilyKey[]).some((f) => Object.values(FONT_COVERAGE[f].subsets).some((s) => inRanges(c, s.covered))) ||
   Object.values(KATEX_SYMBOL_COVERAGE).some((rs) => inRanges(c, rs));
+
+export const isCoveredByBundledFonts = (c: number): boolean => coveredWithoutEmoji(c) || inRanges(c, EMOJI_FONT.covered);
 
 export interface FontFeatures {
   headings: boolean; strong: boolean; em: boolean; strongEm: boolean; code: boolean; math: boolean; messages: boolean;
@@ -73,18 +76,50 @@ export function detectFeatures(html: string): FontFeatures {
   };
 }
 
-/** Teks yang benar-benar dirender dengan font teks (MathML tersembunyi KaTeX dikecualikan; glyph KaTeX diatur font KaTeX). */
+const PRIVATE_GLYPHS = /[\uE000-\uF8FF\u{F0000}-\u{FFFFD}\u{100000}-\u{10FFFD}]/gu;
+function fontTextFromDom(root: Element, html: string): string {
+  const fallback = [...(html.includes('_fallback') ? root.querySelectorAll('.katex [class*="_fallback"]') : [])].map(node => node.textContent ?? '').join(' ');
+  const mathCharacters: string[] = [];
+  // KaTeX may render an author-specified \char in a normal .mord, without
+  // an *_fallback class. Only inspect authored formulas; assembly glyphs
+  // for ordinary TeX operators already have their own bundled KaTeX font.
+  if (html.includes('pf-math') && /\\char\b|[\uE000-\uF8FF\u{1F000}-\u{1FAFF}\u{F0000}-\u{10FFFD}]/u.test(html)) {
+    for (const math of root.querySelectorAll('.pf-math[data-tex]')) {
+      const tex = math.getAttribute('data-tex') ?? '';
+      if (!/\\char\b|[\uE000-\uF8FF\u{1F000}-\u{1FAFF}\u{F0000}-\u{10FFFD}]/u.test(tex)) continue;
+      const semantic = math.querySelector('.katex-mathml math semantics > :first-child')?.textContent ?? '';
+      mathCharacters.push(...semantic.match(PRIVATE_GLYPHS) ?? [], ...semantic.match(/[\u{1F000}-\u{1FAFF}]/gu) ?? []);
+    }
+  }
+  // Skip entire KaTeX trees. Removing them from a detached document still
+  // triggers mutation bookkeeping across every descendant in several DOMs.
+  const prose: string[] = [], labels: string[] = [];
+  const walker = root.ownerDocument.createTreeWalker(root, 5, {acceptNode(node) {
+    if (node.nodeType === 3) return 1;
+    const el = node as Element;
+    if (el.classList.contains('katex') || ['script','style','template','annotation'].includes(el.localName)) return 2;
+    return 1;
+  }});
+  while (walker.nextNode()) {
+    const n = walker.currentNode;
+    if (n.nodeType === 3) { prose.push(n.nodeValue ?? ''); continue; }
+    const el = n as Element;
+    if (el.hasAttribute('alt') || el.hasAttribute('title') || el.hasAttribute('aria-label') || el.hasAttribute('data-lang')) labels.push(
+      `${el.getAttribute('alt') ?? ''} ${el.getAttribute('title') ?? ''} ${el.getAttribute('aria-label') ?? ''} ${el.getAttribute('data-lang') ?? ''}`);
+  }
+  return fallback + ' ' + mathCharacters.join('') + ' ' + prose.join('') + ' ' + labels.join(' ');
+}
+
+/** Serialize first, then reuse the detached composition tree for the font planner. */
+export function serializeForFonts(root: Element): { html: string; fontText: string } {
+  const html = root.innerHTML;
+  return { html, fontText: fontTextFromDom(root, html) };
+}
+
+/** Visible source text and metadata that must be covered by document fonts. */
 export function textForFonts(html: string): string {
   const P = (globalThis as { DOMParser?: typeof DOMParser }).DOMParser;
-  if (P) {
-    const doc = new P().parseFromString(`<!doctype html><body>${html}`, 'text/html');
-    // PF-R4-03: KaTeX delegates unsupported script glyphs to fallback fonts.
-    // Inspect that visible text before removing duplicate MathML/KaTeX content.
-    const mathFallback = [...doc.querySelectorAll('.katex [class*="_fallback"]')].map(n => n.textContent ?? '').join(' ');
-    doc.querySelectorAll('.katex, script, style, template, annotation').forEach((n) => n.remove());
-    return mathFallback + ' ' + (doc.body.textContent ?? '') + ' ' + [...doc.querySelectorAll('[alt],[title],[aria-label],[data-lang]')]
-      .map((e) => `${e.getAttribute('alt') ?? ''} ${e.getAttribute('title') ?? ''} ${e.getAttribute('aria-label') ?? ''} ${e.getAttribute('data-lang') ?? ''}`).join(' ');
-  }
+  if (P) return fontTextFromDom(new P().parseFromString(`<!doctype html><body>${html}`, 'text/html').body, html);
   return html.replace(/<math[\s\S]*?<\/math>/g, ' ').replace(/<annotation[\s\S]*?<\/annotation>/g, ' ').replace(/<[^>]+>/g, ' ')
     .replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (m, e: string) => (e[0] === '#' ? String.fromCodePoint(parseInt(e[1] === 'x' || e[1] === 'X' ? e.slice(2) : e.slice(1), e[1] === 'x' || e[1] === 'X' ? 16 : 10)) : ({ amp: '&', lt: '<', gt: '>', quot: '"', nbsp: ' ', apos: "'" } as Record<string, string>)[e] ?? m));
 }
@@ -139,6 +174,8 @@ function katexFiles(f: FontFeatures, textCps: Set<number>): string[] {
 }
 
 export interface PlanInput {
+  /** Optional text projection from the same prepared and serialized document. */
+  fontText?: string;
   html: string; settings: Settings; extraText?: string; mode: 'screen' | 'print';
   headingFont?: 'inter' | 'source-serif-4'; bodyFont?: 'inter' | 'source-serif-4'; cover?: boolean;
   /** PF-R4-02: generated brand/header/footer text is part of the output too. */
@@ -152,7 +189,7 @@ export function planFonts(input: PlanInput): FontPlan {
   const body: FamilyKey = input.bodyFont ?? settings.bodyFont;
   const head: FamilyKey = input.headingFont ?? tpl.headingFont;
   const f = detectFeatures(input.html);
-  const text = textForFonts(input.html) + ' ' + [settings.title, settings.subtitle, settings.author, settings.dateText, settings.header, settings.footer, input.brandKit?.orgName, input.brandKit?.footerText, input.brandKit?.name, input.extraText].filter(Boolean).join(' ') + ' 0123456789';
+  const text = (input.fontText ?? textForFonts(input.html)) + ' ' + [settings.title, settings.subtitle, settings.author, settings.dateText, settings.header, settings.footer, input.brandKit?.orgName, input.brandKit?.footerText, input.brandKit?.name, input.extraText].filter(Boolean).join(' ') + ' 0123456789';
   const cps = new Set<number>();
   for (const ch of text) cps.add(ch.codePointAt(0)!);
 
@@ -183,8 +220,21 @@ export function planFonts(input: PlanInput): FontPlan {
     faces.push({ file: `${k}.woff2`, family: st.family, weight: st.weight, style: st.style, subset: 'katex', pkg: 'katex', version: KATEX_FONT_INFO.version, license: 'OFL-1.1' });
   }
 
+  // Plan text fallback and diagnostics in one pass through distinct code points.
+  let needsEmoji = cps.has(0x20e3) || cps.has(0xfe0f);
   const missingMap = new Map<string, number[]>();
-  for (const c of cps) if (!isCoveredByBundledFonts(c)) { const s = scriptOf(c); const a = missingMap.get(s) ?? []; a.push(c); missingMap.set(s, a); }
+  for (const c of cps) {
+    if (coveredWithoutEmoji(c)) continue;
+    if (inRanges(c, EMOJI_FONT.covered)) { needsEmoji = true; continue; }
+    const script = scriptOf(c);
+    const list = missingMap.get(script) ?? [];
+    list.push(c);
+    missingMap.set(script, list);
+  }
+  if (needsEmoji) {
+    faces.push({ file: EMOJI_FONT.file, family: 'Noto Emoji', weight: 400, style: 'normal', subset: 'emoji',
+      pkg: '@fontsource/noto-emoji', version: EMOJI_FONT.version, license: 'OFL-1.1' });
+  }
   const missing: MissingGlyphs[] = [...missingMap.entries()].map(([script, list]) => ({
     script, count: list.length, sample: list.slice(0, 8).map((c) => String.fromCodePoint(c)).join(' '),
     codepoints: list.slice(0, 32).map((c) => `U+${c.toString(16).toUpperCase().padStart(4, '0')}`),
@@ -193,10 +243,55 @@ export function planFonts(input: PlanInput): FontPlan {
     id: 'font-missing-glyphs', code: 'FONT_GLYPH_NOT_BUNDLED', severity: 'warning', scope: 'font',
     message: `Ada ${missing.reduce((n, m) => n + m.count, 0)} karakter (${missing.map((m) => m.script).join(', ')}) yang tidak tercakup font bawaan PaperForma. Karakter ini tidak didukung resmi: hasilnya bergantung pada font perangkat/renderer dan dapat tampil sebagai kotak. Contoh: ${missing.map((m) => m.codepoints.slice(0, 4).join(' ')).join('; ')}.`,
   }] : [];
+  // A private character has no universal appearance. This check uses the visible
+  // document plus generated labels, excluding construction glyphs inside KaTeX.
+  let privateCount = 0;
+  for (const c of cps) {
+    if ((c < 0xe000 || c > 0xf8ff) && (c < 0xf0000 || c > 0xffffd) && (c < 0x100000 || c > 0x10fffd)) continue;
+    if (++privateCount > 16) continue;
+    const point = 'U+' + hx(c);
+    issues.push({ id: 'private-glyph-' + point, code: 'PDF_PRIVATE_GLYPH', severity: 'warning', scope: 'font',
+      message: `PDF memerlukan font atau pemetaan asal untuk ${point}. Simpan sumber/proyek atau ekspor HTML. Jika mengetahui maknanya, ubah salinan teks sebelum mencetak.` });
+  }
+  if (privateCount > 16) issues.push({ id: 'private-glyph-overflow', code: 'PDF_PRIVATE_GLYPH', severity: 'warning', scope: 'font',
+    message: `Ada ${privateCount - 16} karakter privat berbeda lainnya. Simpan sumber utuh sebelum mengubah salinan teks.` });
   return { faces, missing, issues, distinctCodepoints: cps.size };
 }
 
 export interface FontLoadOptions { signal?: AbortSignal; timeoutMs?: number }
+
+// Applications reuse the bundled WOFF2 buffers for HTML and print. A FontSource
+// can also supply mutable views, so object identity alone cannot authenticate
+// cached hashes or embedded bytes.
+interface FontEncoding {
+  original: Uint8Array;
+  digest?: Promise<string>;
+  base64?: string;
+}
+const fontEncodings = new WeakMap<Uint8Array, FontEncoding>();
+
+function sameFontBytes(current: Uint8Array, original: Uint8Array): boolean {
+  if (current.byteLength !== original.byteLength) return false;
+  const a = new DataView(current.buffer, current.byteOffset, current.byteLength);
+  const b = new DataView(original.buffer, original.byteOffset, original.byteLength);
+  let i = 0;
+  for (; i + 4 <= current.length; i += 4) if (a.getUint32(i) !== b.getUint32(i)) return false;
+  for (; i < current.length; i++) if (current[i] !== original[i]) return false;
+  return true;
+}
+
+function encodingFor(bytes: Uint8Array): FontEncoding {
+  const previous = fontEncodings.get(bytes);
+  if (previous && sameFontBytes(bytes, previous.original)) return previous;
+  const fresh = { original: new Uint8Array(bytes) };
+  fontEncodings.set(bytes, fresh);
+  return fresh;
+}
+
+function encodedFont(bytes: Uint8Array): string {
+  const entry = encodingFor(bytes);
+  return entry.base64 ??= bytesToBase64(entry.original);
+}
 
 /** PF-R4-04: stop waiting on a hung source on cancellation or deadline. No final bytes are delivered. */
 export async function loadFonts(plan: FontPlan, source: FontSource, options: FontLoadOptions = {}): Promise<{ fonts: LoadedFont[]; issues: Issue[] }> {
@@ -219,8 +314,12 @@ export async function loadFonts(plan: FontPlan, source: FontSource, options: Fon
     try {
       const bytes = await bounded(() => source(spec));
       if (signal?.aborted) throw abortReason();
-      if (bytes.length < 12 || bytes[0] !== 0x77 || bytes[1] !== 0x4f || bytes[2] !== 0x46 || bytes[3] !== 0x32) throw new Error('bukan WOFF2');
-      const sha256 = await sha256Hex(bytes);
+      assertWoff2(bytes);
+      const entry = encodingFor(bytes);
+      const sha256 = await (entry.digest ??= sha256Hex(entry.original).catch(error => {
+        delete entry.digest;
+        throw error;
+      }));
       if (signal?.aborted) throw abortReason();
       fonts.push({ spec, bytes, sha256 });
     } catch (e) {
@@ -233,9 +332,9 @@ export async function loadFonts(plan: FontPlan, source: FontSource, options: Fon
 }
 
 /** @font-face. `data` = tersemat sebagai data: URL; `relative` = url(<prefix><file>) untuk ekspor folder/ZIP. */
-export function fontFaceCss(fonts: LoadedFont[], mode: 'data' | 'relative', prefix = 'fonts/'): string {
+export function fontFaceCss(fonts: LoadedFont[], mode: 'data' | 'relative', prefix = 'fonts/', encode = encodedFont): string {
   return fonts.map(({ spec, bytes }) => {
-    const src = mode === 'data' ? `data:font/woff2;base64,${bytesToBase64(bytes)}` : `${prefix}${spec.file}`;
+    const src = mode === 'data' ? `data:font/woff2;base64,${encode(bytes)}` : `${prefix}${spec.file}`;
     return `@font-face{font-family:'${spec.family}';font-style:${spec.style};font-weight:${spec.weight};font-display:block;src:url(${src}) format('woff2');${spec.unicodeRange ? `unicode-range:${spec.unicodeRange};` : ''}}`;
   }).join('\n');
 }

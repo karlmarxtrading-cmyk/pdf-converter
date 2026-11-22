@@ -1,0 +1,148 @@
+{
+  "release": "3.0.0-rc.6",
+  "releaseDate": "2026-11-21",
+  "environment": {
+    "node": "v24.22.3",
+    "npm": "11.19.1",
+    "testEnvironment": "Node/jsdom"
+  },
+  "baseline": {
+    "archiveFiles": 496,
+    "checksumEntries": 495,
+    "checksumMatches": 495,
+    "vitestPassed": 356,
+    "nodePassed": 9,
+    "exactInputMathRendered": 0
+  },
+  "vitest": {
+    "passed": 444,
+    "failed": 0,
+    "files": 54,
+    "skipped": 0
+  },
+  "node": {
+    "passed": 9,
+    "failed": 0,
+    "skipped": 0
+  },
+  "typecheck": "PASS",
+  "lint": "PASS",
+  "build": "PASS",
+  "static": "PASS",
+  "http": "PASS",
+  "httpDetails": {
+    "passed": 184,
+    "total": 184,
+    "filesCompared": 179,
+    "expectedFiles": 179
+  },
+  "releaseMutationGate": {
+    "status": "PASS",
+    "cases": 13,
+    "rejectedMutations": 12
+  },
+  "secretScan": {
+    "status": "PASS",
+    "filesScanned": 306,
+    "buildFindings": 0,
+    "otherFindings": 0
+  },
+  "npmAudit": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "dependencies": {
+      "prod": 255,
+      "dev": 183,
+      "optional": 93,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 438
+    }
+  },
+  "sourceOracle": {
+    "kind": "Node/jsdom source audit",
+    "limits": [
+      "No live browser or operating-system clipboard",
+      "No visual or PDF verification",
+      "Does not validate mathematical truth"
+    ],
+    "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "inputBytes": 15280,
+    "independentCounts": {
+      "formulas": 231,
+      "display": 128,
+      "inline": 103,
+      "changedPayloads": 17,
+      "tripleSlashRuns": 46,
+      "quadrupleSlashRuns": 2,
+      "escapedBracedSubscripts": 6
+    },
+    "rendered": 231,
+    "katex": 231,
+    "parseErrors": 0,
+    "differenceCount": 0,
+    "differences": [],
+    "mathIssueCodes": [
+      "MATH_COPY_RECOVERED"
+    ],
+    "sourceIntegrity": true,
+    "mutationDetected": true,
+    "pass": true
+  },
+  "export": {
+    "manifest": "examples/RC6_TRIGONOMETRI_PENGGUNA.manifest.json",
+    "formulas": 231,
+    "inline": 103,
+    "display": 128,
+    "bodyRecoveries": 17,
+    "fontFaces": 12,
+    "bytes": 934604,
+    "sha256": "328dbc489d9ba51b77f96d53b1d1c9ed54e53a1066e6b86f2839057b41a85ac1",
+    "mathPreflight": "review",
+    "requiredChecks": "PASS"
+  },
+  "buildManifest": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.6",
+    "profile": "production",
+    "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+    "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "notRun": [
+    "Browser visual RC6",
+    "Operating-system/provider clipboard",
+    "Actual pagination RC6",
+    "Native print/PDF RC6",
+    "Firefox/WebKit/accessibility devices RC6",
+    "Live deployment RC6"
+  ],
+  "browserExecution": "BLOCKED: local Chromium AF_UNIX socket denied; cloud browser cannot access localhost and access policy prevented further observation.",
+  "archiveVerification": "Final ZIP verification is reported outside the ZIP to avoid self-reference.",
+  "limitations": [
+    "Entire original archive inventoried/hashed; targeted manual review is not a line-by-line vendor audit.",
+    "Raw HTML non-table blocks are outside ordered block-integrity comparison.",
+    "Residual-math warnings use a bounded heuristic, not recognition of all possible formulas.",
+    "The 17 recovered formula payloads remain reviewable; no mathematical truth validation."
+  ],
+  "commands": {
+    "typecheck": "npm run typecheck",
+    "lint": "npm run lint",
+    "tests": "npm test",
+    "build": "npm run build",
+    "http": "npm run verify:http -- --local",
+    "secrets": "npm run scan:secrets",
+    "releaseGate": "npm run test:gate",
+    "audit": "npm audit --json"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "tool": "tests/e2e/static-smoke.mjs",
+  "candidateSha256": "3a3ee3e24ce43548a31386f1141638a567a59c7a161b7200de0945f0b5b62460",
+  "distTreeSha256": "1aede97a9168d8d2e4e703afc1d3f1272e3575d2eb8535f60a4ab3dfdad01e39",
+  "at": "2026-11-22T16:17:03.129Z",
+  "pass": true,
+  "checks": [
+    {
+      "name": "beranda tampil",
+      "pass": true
+    },
+    {
+      "name": "tidak ada kait QA (window.__pf) di produksi",
+      "pass": true
+    },
+    {
+      "name": "studio merender pratinjau",
+      "pass": true
+    },
+    {
+      "name": "print.html tanpa kait QA",
+      "pass": true,
+      "detail": {
+        "pfPaginate": "undefined",
+        "result": "undefined"
+      }
+    },
+    {
+      "name": "tanpa permintaan eksternal",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "tanpa error konsol",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "/api/pdf → 404",
+      "pass": true,
+      "detail": 404
+    },
+    {
+      "name": "/api/account → 404",
+      "pass": true,
+      "detail": 404
+    },
+    {
+      "name": "/api/v1/ready → 404",
+      "pass": true,
+      "detail": 404
+    },
+    {
+      "name": "/api/checkout → 404",
+      "pass": true,
+      "detail": 404
+    },
+    {
+      "name": "/ CSP connect-src 'self' & frame-ancestors",
+      "pass": true,
+      "detail": "default-src 'self'; script-src 'self'; style-src 'self' 'uns"
+    },
+    {
+      "name": "/print.html CSP connect-src 'self' & frame-ancestors",
+      "pass": true,
+      "detail": "default-src 'self'; script-src 'self'; style-src 'self' 'uns"
+    }
+  ]
+}

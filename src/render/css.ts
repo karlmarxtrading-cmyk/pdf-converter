@@ -6,9 +6,9 @@ import type { BrandKit, Settings, TemplateId } from '../core/contracts';
 import { getTemplate, pageSizeMm, resolveStyle } from './templates';
 
 export const FONT_STACKS = {
-  'source-serif-4': `'Source Serif 4', 'Inter', 'JetBrains Mono', KaTeX_Main, KaTeX_AMS, Georgia, serif`,
-  inter: `'Inter', 'Source Serif 4', 'JetBrains Mono', KaTeX_Main, KaTeX_AMS, Arial, sans-serif`,
-  mono: `'JetBrains Mono', 'Inter', KaTeX_Main, KaTeX_AMS, Consolas, monospace`,
+  'source-serif-4': `'Source Serif 4', 'Inter', 'JetBrains Mono', KaTeX_Main, KaTeX_AMS, 'Noto Emoji', Georgia, serif`,
+  inter: `'Inter', 'Source Serif 4', 'JetBrains Mono', KaTeX_Main, KaTeX_AMS, 'Noto Emoji', Arial, sans-serif`,
+  mono: `'JetBrains Mono', 'Inter', KaTeX_Main, KaTeX_AMS, 'Noto Emoji', Consolas, monospace`,
 } as const;
 
 export const BASE_CSS = `/* PaperForma document base 2 — dipakai semua templat, layar + cetak. */
@@ -123,6 +123,7 @@ export const BASE_CSS = `/* PaperForma document base 2 — dipakai semua templat
 /* matematika */
 .pf-doc .katex { font-size: 1.06em; }
 /* PF-R4-03: KaTeX fallback script text uses the same bundled Unicode faces as prose. */
+.pf-doc .katex { font-family: KaTeX_Main, 'Noto Emoji', 'Times New Roman', serif; }
 .pf-doc .katex [class*="_fallback"] { font-family: var(--pf-sans); }
 .pf-doc .pf-math-block { margin: .3em 0 var(--pf-gap); overflow-x: auto; overflow-y: hidden; break-inside: avoid; }
 .pf-doc .katex-display { margin: .4em 0; }
@@ -353,8 +354,9 @@ export interface RunningText { title: string; author?: string; org?: string; dat
 /** Label lanjutan (string literal, !important karena CSS dasar Paged.js meng-`unset` ::before pada elemen [data-split-from]). */
 export function continuationCss(cont: string): string {
   const c = cssString(cont); const p = cssString(` (${cont})`);
-  return `.pf-print .pf-doc pre[data-split-from][data-lang]::before{content:attr(data-lang) " · " ${c} !important;}
-.pf-print .pf-doc pre[data-split-from]:not([data-lang])::before{content:${c} !important;display:block;font-family:var(--pf-sans);font-size:8.5pt;color:var(--pf-ink-soft);margin-bottom:.3em;}
+  return `.pf-print .pf-doc pre[data-split-from]:not([data-pf-first-code])[data-lang]::before{content:attr(data-lang) " · " ${c} !important;}
+.pf-print .pf-doc pre[data-split-from]:not([data-pf-first-code]):not([data-lang])::before{content:${c} !important;display:block;font-family:var(--pf-sans);font-size:8.5pt;color:var(--pf-ink-soft);margin-bottom:.3em;}
+.pf-print .pf-doc pre[data-pf-first-code][data-lang]::before{content:attr(data-lang) !important;}
 .pf-print .pf-doc .pf-stack-cell[data-label][data-split-from]::before{content:attr(data-label) ${p} !important;}
 .pf-print .pf-t-CON-01 .pf-msg[data-speaker][data-split-from]::before{content:attr(data-speaker) ${p} !important;}`;
 }

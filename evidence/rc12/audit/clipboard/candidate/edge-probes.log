@@ -1,0 +1,170 @@
+[
+  {
+    "name": "digit-after-sensitive-inline",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 5,
+      "tables": 0,
+      "math": 2,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "two-display-equations-single-cell",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 6,
+      "tables": 1,
+      "math": 2,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "multiline-annotation-table",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 1,
+      "tables": 1,
+      "math": 1,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "inline-math-followed-by-digit-header",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 6,
+      "tables": 1,
+      "math": 1,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "literal-code-with-math",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 2,
+      "tables": 0,
+      "math": 1,
+      "images": 0,
+      "code": 1,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "math-inside-emphasis",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 4,
+      "tables": 0,
+      "math": 1,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "leading-and-trailing-breaks",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 4,
+      "tables": 0,
+      "math": 1,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "inline-adjacent-no-spaces",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 2,
+      "tables": 0,
+      "math": 3,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "preformatted-cell-with-display-math",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 2,
+      "tables": 1,
+      "math": 1,
+      "images": 0,
+      "code": 1,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "rich-cell-link-target",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 3,
+      "tables": 1,
+      "math": 1,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "ordinary-table-no-header",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 4,
+      "tables": 1,
+      "math": 0,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "nested-list-mixed-overrides",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 4,
+      "tables": 0,
+      "math": 0,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  }
+]

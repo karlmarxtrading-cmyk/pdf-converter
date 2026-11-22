@@ -1,0 +1,260 @@
+{
+  "type": "diagnostic alternate browser binary on frozen candidate",
+  "pre": {
+    "rc6": {
+      "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+      "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+      "manifestSha256": "6827509a82bf2b903bda374e6782e3df77ec1cccb940739c31911fce49340279",
+      "version": "3.0.0-rc.6"
+    },
+    "candidate": {
+      "candidateSha256": "04cd3038a66f8bc3c78440456b6319c22af52dade47bd411362b6bb967435f35",
+      "distTreeSha256": "f5c8558a3b058ff2fdb2591989c39d2c92e314fe9f205a95ef5bbedba1a54db6",
+      "manifestSha256": "1aae3dc490ec1038358613ade91420160f730e20911da2ef1a9c27f2674a0ed3",
+      "version": "3.0.0-rc.8"
+    },
+    "fixture": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "oracle": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "acceptedReference": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "harness": "373050415f4debdf9e5efb0d5b5b213a3834203c32add7f579b242e9a3558e47",
+    "settings": "6f8d19307eaede2ec6b05047bf56a71d1f338340a0278e24dda13db4438eef80",
+    "benchmarkDependencies": {
+      "rc6": "774d75eec73c9088e839e3b252e2f6cc26e3c8fef1beba192b8a95d35204130c",
+      "candidate": "ef77e877abfc9dccc5fa3dba56f968d73ededbc84368ece98d80957ae5857e68"
+    }
+  },
+  "post": {
+    "rc6": {
+      "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+      "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+      "manifestSha256": "6827509a82bf2b903bda374e6782e3df77ec1cccb940739c31911fce49340279",
+      "version": "3.0.0-rc.6"
+    },
+    "candidate": {
+      "candidateSha256": "04cd3038a66f8bc3c78440456b6319c22af52dade47bd411362b6bb967435f35",
+      "distTreeSha256": "f5c8558a3b058ff2fdb2591989c39d2c92e314fe9f205a95ef5bbedba1a54db6",
+      "manifestSha256": "1aae3dc490ec1038358613ade91420160f730e20911da2ef1a9c27f2674a0ed3",
+      "version": "3.0.0-rc.8"
+    },
+    "fixture": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "oracle": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "acceptedReference": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "harness": "373050415f4debdf9e5efb0d5b5b213a3834203c32add7f579b242e9a3558e47",
+    "settings": "6f8d19307eaede2ec6b05047bf56a71d1f338340a0278e24dda13db4438eef80",
+    "benchmarkDependencies": {
+      "rc6": "774d75eec73c9088e839e3b252e2f6cc26e3c8fef1beba192b8a95d35204130c",
+      "candidate": "ef77e877abfc9dccc5fa3dba56f968d73ededbc84368ece98d80957ae5857e68"
+    }
+  },
+  "runId": "2ab8e4ef-db71-4c87-870d-fa6cc9933210",
+  "sha256": "ce1ff960ce428a4a88b1b1c38516bdf1954a57fc24036161b7a0d8d0f8aec511",
+  "status": "FAIL",
+  "binary": "/usr/lib/chromium/chromium",
+  "version": "156.0.8078.79",
+  "driverSha256": "b4073c4f01f1b7778dfb8e7d6022d64a4e7042dd4bc71c27b3536c1a42613091",
+  "primaryCause": "Linux process_singleton socket() rejected with EPERM before any page was usable. Crashpad ptrace also denied.",
+  "policyChanged": false,
+  "stderr": "[33:33:1122/043733.009249:FATAL:chrome/browser/process_singleton_posix.cc:297] Check failed: . socket() failed: Operation not permitted (1)\n[1122/043733.009781:ERROR:third_party/crashpad/crashpad/util/linux/scoped_ptrace_attach.cc:27] ptrace: Operation not permitted (1)\n[42:42:1122/043733.109601:FATAL:chrome/browser/process_singleton_posix.cc:297] Check failed: . socket() failed: Operation not permitted (1)\n[1122/043733.120076:ERROR:third_party/crashpad/crashpad/util/linux/scoped_ptrace_attach.cc:27] ptrace: Operation not permitted (1)\n[51:51:1122/043733.192034:FATAL:chrome/browser/process_singleton_posix.cc:297] Check failed: . socket() failed: Operation not permitted (1)\n[1122/043733.199481:ERROR:third_party/crashpad/crashpad/util/linux/scoped_ptrace_attach.cc:27] ptrace: Operation not permitted (1)\n[60:60:1122/043733.267399:FATAL:chrome/browser/process_singleton_posix.cc:297] Check failed: . socket() failed: Operation not permitted (1)\n[1122/043733.275429:ERROR:third_party/crashpad/crashpad/util/linux/scoped_ptrace_attach.cc:27] ptrace: Operation not permitted (1)\n[69:69:1122/043733.343943:FATAL:chrome/browser/process_singleton_posix.cc:297] Check failed: . socket() failed: Operation not permitted (1)\n[1122/043733.351596:ERROR:third_party/crashpad/crashpad/util/linux/scoped_ptrace_attach.cc:27] ptrace: Operation not permitted (1)\ntrig block 1 of 10\n",
+  "runs": [
+    {
+      "round": -1,
+      "label": "candidate",
+      "warmup": true,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": -1,
+      "label": "rc6",
+      "warmup": true,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": -2,
+      "label": "rc6",
+      "warmup": true,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": -2,
+      "label": "candidate",
+      "warmup": true,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": 0,
+      "label": "rc6",
+      "warmup": false,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": 0,
+      "label": "candidate",
+      "warmup": false,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": -3,
+      "label": "candidate",
+      "warmup": true,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": -3,
+      "label": "rc6",
+      "warmup": true,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": 1,
+      "label": "candidate",
+      "warmup": false,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": 1,
+      "label": "rc6",
+      "warmup": false,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": -4,
+      "label": "rc6",
+      "warmup": true,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": -4,
+      "label": "candidate",
+      "warmup": true,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": 2,
+      "label": "rc6",
+      "warmup": false,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": 2,
+      "label": "candidate",
+      "warmup": false,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": -5,
+      "label": "candidate",
+      "warmup": true,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": -5,
+      "label": "rc6",
+      "warmup": true,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": 3,
+      "label": "candidate",
+      "warmup": false,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    },
+    {
+      "round": 3,
+      "label": "rc6",
+      "warmup": false,
+      "error": "Browser session unavailable",
+      "oracle": {
+        "pass": false
+      }
+    }
+  ],
+  "browserStartupIncidents": [
+    {
+      "event": "launch",
+      "task": "trig",
+      "block": 0,
+      "message": "TargetCloseError: Protocol error (Target.setDiscoverTargets): Target closed",
+      "at": "2026-11-21T21:37:33.028Z"
+    },
+    {
+      "event": "reopen",
+      "task": "trig",
+      "round": 0,
+      "message": "TargetCloseError: Protocol error (Target.setDiscoverTargets): Target closed",
+      "at": "2026-11-21T21:37:33.128Z"
+    },
+    {
+      "event": "reopen",
+      "task": "trig",
+      "round": 1,
+      "message": "TargetCloseError: Protocol error (Target.setDiscoverTargets): Target closed",
+      "at": "2026-11-21T21:37:33.207Z"
+    },
+    {
+      "event": "reopen",
+      "task": "trig",
+      "round": 2,
+      "message": "TargetCloseError: Protocol error (Target.setDiscoverTargets): Target closed",
+      "at": "2026-11-21T21:37:33.283Z"
+    },
+    {
+      "event": "reopen",
+      "task": "trig",
+      "round": 3,
+      "message": "TargetCloseError: Protocol error (Target.setDiscoverTargets): Target closed",
+      "at": "2026-11-21T21:37:33.356Z"
+    }
+  ],
+  "initialBinary": "Headless shell Chromium 153.0.8010.0, SHA256 53a15d6c3a3d27dfb54c4ba60278b1683136f70cf1e67e989da7dfbd3d451ef0; stripped ELF contains headless/app/headless_shell.cc"
+}

@@ -3,12 +3,14 @@
  * Sumber font peramban: berkas woff2 dari node_modules diberi URL oleh Vite (`?url`) dan diambil
  * sesuai kebutuhan pratinjau dan ekspor. Daftar URL berada dalam satu modul.
  */
+import { assertWoff2 } from './woff2';
 import type { FontFaceSpec, FontSource } from './fonts';
 
 const urls: Record<string, string> = {
   ...import.meta.glob<string>('/node_modules/@fontsource/inter/files/inter-*-{400,600,700}-{normal,italic}.woff2', { query: '?url', import: 'default', eager: true }),
   ...import.meta.glob<string>('/node_modules/@fontsource/source-serif-4/files/source-serif-4-*-{400,600,700}-{normal,italic}.woff2', { query: '?url', import: 'default', eager: true }),
   ...import.meta.glob<string>('/node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-*-400-normal.woff2', { query: '?url', import: 'default', eager: true }),
+  ...import.meta.glob<string>('/node_modules/@fontsource/noto-emoji/files/noto-emoji-emoji-400-normal.woff2', { query: '?url', import: 'default', eager: true }),
   ...import.meta.glob<string>('/node_modules/katex/dist/fonts/*.woff2', { query: '?url', import: 'default', eager: true }),
 };
 const byFile = new Map<string, string>();
@@ -26,7 +28,9 @@ export const browserFontSource: FontSource = (spec: FontFaceSpec) => {
     // A stalled shared font fetch must not poison preview/export retries forever.
     const res = await fetch(url, { signal: AbortSignal.timeout(15000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return new Uint8Array(await res.arrayBuffer());
+    const bytes = new Uint8Array(await res.arrayBuffer());
+    assertWoff2(bytes);
+    return bytes;
   })();
   p.catch(() => cache.delete(spec.file));
   cache.set(spec.file, p);

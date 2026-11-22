@@ -1,0 +1,7 @@
+{
+  "engine": "webkit",
+  "version": "26.5",
+  "title": "PaperForma RC12 preflight",
+  "method": "Unmodified Playwright executable with its actual Debian runtime libraries",
+  "pass": true
+}

@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "description": "Isolated synthetic controls for the release decision; no synthetic record authorizes production.",
+  "checks": {
+    "positiveControl": true,
+    "thresholdMutation": true,
+    "distMutation": true,
+    "formulaMutation": true,
+    "missingReceipt": true,
+    "staleReceipt": true,
+    "shortCohort": true,
+    "attachedInputs": true,
+    "reboundU": true,
+    "nativeBlocked": true
+  },
+  "exitCode": 0,
+  "pass": true
+}

@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "runId": "a7759fc1-9eb6-4959-b91a-e1912d3c98ce",
+  "pid": 44,
+  "cohort": 1,
+  "before": {
+    "rc6": {
+      "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+      "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+      "manifestSha256": "6827509a82bf2b903bda374e6782e3df77ec1cccb940739c31911fce49340279",
+      "version": "3.0.0-rc.6"
+    },
+    "candidate": {
+      "candidateSha256": "df75789f23cd13a869c3856774cec07bc545ceff4193c88b3f3aef5e51a2dac7",
+      "distTreeSha256": "9488086d8e29292585b085ebbd37d9e47fd1d6bebcf1292f5b2883752548f2c4",
+      "manifestSha256": "360e754dc2ff45c39e77fadee9e285464d05ee8d02f1309f54dd3b2bc218c498",
+      "version": "3.0.0-rc.8"
+    },
+    "fixture": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "oracle": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "acceptedReference": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "harness": "373050415f4debdf9e5efb0d5b5b213a3834203c32add7f579b242e9a3558e47",
+    "settings": "6f8d19307eaede2ec6b05047bf56a71d1f338340a0278e24dda13db4438eef80",
+    "benchmarkDependencies": {
+      "rc6": "774d75eec73c9088e839e3b252e2f6cc26e3c8fef1beba192b8a95d35204130c",
+      "candidate": "ef77e877abfc9dccc5fa3dba56f968d73ededbc84368ece98d80957ae5857e68"
+    }
+  },
+  "environment": {
+    "node": "v24.22.3",
+    "nodeExecutableSha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa",
+    "browserExecutableSha256": "53a15d6c3a3d27dfb54c4ba60278b1683136f70cf1e67e989da7dfbd3d451ef0",
+    "os": [
+      "linux",
+      "6.18.57",
+      "x64"
+    ],
+    "cpus": 2,
+    "model": "AMD EPYC 9V74 80-Core Processor",
+    "memoryBytes": 10451427328,
+    "initialLoad": {
+      "loadavg": [
+        5.44,
+        5.65,
+        3.81
+      ],
+      "at": "2026-11-21T21:12:30.659Z"
+    },
+    "affinity": "0-1",
+    "browser": "HeadlessChrome/153.0.8010.0"
+  },
+  "protocol": {
+    "schema": 1,
+    "baselineSource": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+    "baselineDist": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+    "trigSource": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "referenceHtml": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "dateFrozen": "2026-11-22",
+    "cohorts": 2,
+    "pairs": 40,
+    "warmupsPerCase": 1,
+    "order": "Even rounds start with RC6 in cohort 1 and candidate in cohort 2. Odd rounds reverse. Each cohort starts a new process and empty browser profile. Warmups and errors are retained. No trimming or reruns for a favorable timing.",
+    "medianRatio": 1.05,
+    "p95Ratio": 1.1,
+    "settings": {
+      "template": "BUS-01",
+      "paper": "A4",
+      "orientation": "portrait",
+      "viewport": [
+        1366,
+        900
+      ],
+      "locale": "id-ID",
+      "browserCache": "warm after warmup",
+      "nodeFonts": "locked local WOFF2"
+    },
+    "browserFlows": {
+      "trig": [
+        "previewMs",
+        "htmlExportMs",
+        "pageReadyMs"
+      ],
+      "long": [
+        "previewMs"
+      ],
+      "small": [
+        "smallPreviewMs",
+        "editPreviewMs"
+      ]
+    },
+    "nodeFlows": {
+      "trigonometry": [
+        "refreshMs",
+        "htmlExportMs",
+        "printPayloadMs"
+      ],
+      "long": [
+        "refreshMs"
+      ],
+      "small-edit": [
+        "editedRefreshMs",
+        "htmlExportMs",
+        "printPayloadMs"
+      ],
+      "empty-core": [
+        "refreshMs"
+      ]
+    },
+    "statistics": "Median averages both center values. p95 nearest-rank. Report spread and each cohort separately. GC, file validation and oracle run outside timed intervals. Browser polling ~12ms, clocks high-resolution monotonic. Shared Linux host; sample load separately, no outlier exclusion.",
+    "capacity": {
+      "sections": [
+        6,
+        30,
+        118
+      ],
+      "reps": 5,
+      "heapIntervalMs": 200,
+      "previewMs": 10000,
+      "reeditPreviewMs": 10000,
+      "cancelToIdleMs": 2000,
+      "maxEventLoopGapMs": 1000,
+      "printReadyMs": 60000,
+      "afterCloseRetainedDriftBytes": 8388608,
+      "firstProgressMs": 2000,
+      "maxProgressGapMs": 5000,
+      "peakDefinition": "Maximum observed Runtime.getHeapUsage.usedSize bytes on the same page target as post-GC. Native/process/worker memory excluded. Unknown remains null. Five runs support completion checks only; estimate latency tail per size on a separate 40+40 sample per-size study before advertising a percentile SLA.",
+      "capacityClaim": "Measure the historical 6,30,118-section fixtures. Their page counts depend on actual pagination. No 500/1,000-page claim."
+    }
+  },
+  "runs": [
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 672.6000000005588,
+        "previewMs": 2149.4000000003725,
+        "htmlExportMs": 661.6000000005588,
+        "pageReadyMs": 5212.200000000186
+      },
+      "observations": {
+        "htmlBytes": 906843,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:12:31.747Z",
+      "load": [
+        5.44,
+        5.65,
+        3.81
+      ]
+    }
+  ],
+  "status": "RUNNING"
+}

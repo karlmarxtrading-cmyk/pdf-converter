@@ -1,0 +1,517 @@
+{
+  "rawWrapper": false,
+  "clipboardWrapper": false,
+  "independentText": false,
+  "ambiguity": false,
+  "pureAndMultipleControls": false,
+  "routes": [
+    "raw",
+    "clipboard"
+  ],
+  "cases": [
+    {
+      "name": "section",
+      "route": "raw",
+      "source": "<div data-latex=\"x+1\"><section>KEEP-INDEPENDENT-CONTENT</section><span>x+1</span></div>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "[x+1]",
+      "expected": "KEEP-INDEPENDENT-CONTENT[x+1]",
+      "structure": [
+        false
+      ],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "collapse",
+      "route": "raw",
+      "source": "<div data-tex=\"x+1\"><details open><summary>Definition</summary>Retained body</details><span>x+1</span></div>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "[x+1]",
+      "expected": "DefinitionRetainedbody[x+1]",
+      "structure": [
+        false
+      ],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "glossary",
+      "route": "raw",
+      "source": "<div data-tex=\"x+1\"><dl><dt>Lemma</dt><dd>Explanation.</dd></dl><span>x+1</span></div>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "[x+1]",
+      "expected": "LemmaExplanation.[x+1]",
+      "structure": [
+        false,
+        false
+      ],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "div-before",
+      "route": "raw",
+      "source": "<div data-tex=\"x+1\"><div>Never remove</div><span>x+1</span></div>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "[x+1]",
+      "expected": "Neverremove[x+1]",
+      "structure": [
+        false
+      ],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "direct-text-and-math",
+      "route": "raw",
+      "source": "<div data-tex=\"x+1\">Before <span>x+1</span> after.</div>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "[x+1]",
+      "expected": "Before[x+1]after.",
+      "structure": [],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "direct-prose",
+      "route": "raw",
+      "source": "<span data-tex=\"x+1\">Retain these words between terms.</span>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [],
+      "words": "[x+1]",
+      "expected": "Retainthesewordsbetweenterms.",
+      "structure": [],
+      "review": false,
+      "issues": [],
+      "integrity": [
+        {
+          "id": "integrity-001",
+          "code": "INTEGRITY_TOKEN_CHANGED",
+          "severity": "error",
+          "scope": "integrity",
+          "message": "Isi blok di baris 1 berbeda dari sumber pada token ke-1: \"Retain\" \u2192 \"\u27e6math:x+1\u27e7\" (konteks: \"Retain these words between terms\").",
+          "messageEn": "Block content at line 1 differs from the source at token 1: \"Retain\" \u2192 \"\u27e6math:x+1\u27e7\" (context: \"Retain these words between terms\").",
+          "line": 1,
+          "blockId": "b-be56bc7f",
+          "blocking": true,
+          "detail": {
+            "index": 0,
+            "expected": "Retain",
+            "actual": "\u27e6math:x+1\u27e7"
+          }
+        },
+        {
+          "id": "integrity-002",
+          "code": "INTEGRITY_MATH_CHANGED",
+          "severity": "error",
+          "scope": "integrity",
+          "message": "Sumber rumus inline di baris 1 berbeda/hilang di keluaran.",
+          "messageEn": "Inline formula source at line 1 differs or is missing in the output.",
+          "line": 1,
+          "blockId": "b-be56bc7f",
+          "blocking": true
+        }
+      ],
+      "pass": false
+    },
+    {
+      "name": "ambiguous-copies",
+      "route": "raw",
+      "source": "<div data-tex=\"x+1\"><span>x+1</span><span>x+1</span></div>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [],
+      "words": "[x+1]",
+      "expected": "x+1x+1",
+      "structure": [],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "pure",
+      "route": "raw",
+      "source": "<div><span data-tex=\"x+1\"><span>x+1</span></span></div>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "[x+1]",
+      "expected": "[x+1]",
+      "structure": [],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "nested-independent-math",
+      "route": "raw",
+      "source": "<div data-tex=\"outer\"><section>Heading</section><span data-tex=\"u+1\">u+1</span><span data-tex=\"v+2\">v+2</span></div>",
+      "tex": [
+        "u+1",
+        "v+2"
+      ],
+      "expectedTex": [
+        "u+1",
+        "v+2"
+      ],
+      "words": "Heading[u+1][v+2]",
+      "expected": "Heading[u+1][v+2]",
+      "structure": [
+        true
+      ],
+      "review": true,
+      "issues": [
+        "MATH_HTML_NO_TEX"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "nested-safe-formatting",
+      "route": "raw",
+      "source": "<div data-tex=\"x+1\"><span><em>Keep emphasis</em></span><span>x+1</span></div>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "[x+1]",
+      "expected": "Keepemphasis[x+1]",
+      "structure": [
+        false
+      ],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "math-in-table-with-note",
+      "route": "raw",
+      "source": "<div data-tex=\"x+1\"><table><caption>Weights</caption><tr><th rowspan=\"2\">Group A</th><td colspan=\"2\">Empty below</td></tr><tr><td></td><td>End</td></tr></table><span>x+1</span></div>",
+      "tex": [],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "WeightsGroupAEmptybelowEndx+1",
+      "expected": "WeightsGroupAEmptybelowEnd[x+1]",
+      "structure": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "review": true,
+      "issues": [
+        "MATH_HTML_NO_TEX"
+      ],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "mixed-annotated",
+      "route": "raw",
+      "source": "<div class=\"math\"><section>Independent annotation note</section><span class=\"katex\"><math><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span></div>",
+      "tex": [
+        "x"
+      ],
+      "expectedTex": [
+        "x"
+      ],
+      "words": "Independentannotationnote[x]",
+      "expected": "Independentannotationnote[x]",
+      "structure": [
+        true
+      ],
+      "review": true,
+      "issues": [
+        "MATH_HTML_NO_TEX"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "section",
+      "route": "clipboard",
+      "source": "$x+1$\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "[x+1]",
+      "expected": "KEEP-INDEPENDENT-CONTENT[x+1]",
+      "structure": [
+        false
+      ],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "collapse",
+      "route": "clipboard",
+      "source": "$x+1$\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "[x+1]",
+      "expected": "DefinitionRetainedbody[x+1]",
+      "structure": [
+        false
+      ],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "glossary",
+      "route": "clipboard",
+      "source": "$x+1$\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "[x+1]",
+      "expected": "LemmaExplanation.[x+1]",
+      "structure": [
+        false,
+        false
+      ],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "div-before",
+      "route": "clipboard",
+      "source": "$x+1$\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "[x+1]",
+      "expected": "Neverremove[x+1]",
+      "structure": [
+        false
+      ],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "direct-text-and-math",
+      "route": "clipboard",
+      "source": "$x+1$\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "[x+1]",
+      "expected": "Before[x+1]after.",
+      "structure": [],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "direct-prose",
+      "route": "clipboard",
+      "source": "$x+1$\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [],
+      "words": "[x+1]",
+      "expected": "Retainthesewordsbetweenterms.",
+      "structure": [],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "ambiguous-copies",
+      "route": "clipboard",
+      "source": "$x+1$\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [],
+      "words": "[x+1]",
+      "expected": "x+1x+1",
+      "structure": [],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "pure",
+      "route": "clipboard",
+      "source": "$x+1$\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "[x+1]",
+      "expected": "[x+1]",
+      "structure": [],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "nested-independent-math",
+      "route": "clipboard",
+      "source": "Heading\n\n\\(u+1\\)\n\n\\(v+2\\)\n",
+      "tex": [
+        "u+1",
+        "v+2"
+      ],
+      "expectedTex": [
+        "u+1",
+        "v+2"
+      ],
+      "words": "Heading[u+1][v+2]",
+      "expected": "Heading[u+1][v+2]",
+      "structure": [
+        false
+      ],
+      "review": true,
+      "issues": [
+        "CLIPBOARD_MATH_MIXED_SOURCE"
+      ],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "nested-safe-formatting",
+      "route": "clipboard",
+      "source": "$x+1$\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "[x+1]",
+      "expected": "Keepemphasis[x+1]",
+      "structure": [
+        false
+      ],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "math-in-table-with-note",
+      "route": "clipboard",
+      "source": "<table><caption>Weights</caption><tbody><tr><th rowspan=\"2\">Group A</th><td colspan=\"2\">Empty below</td></tr><tr><td></td><td>End</td></tr></tbody></table>\n\nx+1\n",
+      "tex": [],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "WeightsGroupAEmptybelowEndx+1",
+      "expected": "WeightsGroupAEmptybelowEnd[x+1]",
+      "structure": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "review": true,
+      "issues": [
+        "CLIPBOARD_MATH_MIXED_SOURCE"
+      ],
+      "integrity": [],
+      "pass": false
+    },
+    {
+      "name": "mixed-annotated",
+      "route": "clipboard",
+      "source": "Independent annotation note\n\n$x$\n",
+      "tex": [
+        "x"
+      ],
+      "expectedTex": [
+        "x"
+      ],
+      "words": "Independentannotationnote[x]",
+      "expected": "Independentannotationnote[x]",
+      "structure": [
+        false
+      ],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": false
+    }
+  ],
+  "historicalBaseline": "2dc30a40212a2b41bbc98e44fb91ae61154b0a79ae8f275bcdcafa5402b98206",
+  "note": "Unmodified source freshly extracted from this RC7 ZIP; the RC8 acceptance test and its literal oracle are the only added files."
+}

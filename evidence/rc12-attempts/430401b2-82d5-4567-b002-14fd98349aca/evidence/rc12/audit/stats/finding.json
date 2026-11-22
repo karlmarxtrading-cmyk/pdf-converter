@@ -1,0 +1,59 @@
+{
+  "finding": "F11-03",
+  "candidate": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.12",
+    "profile": "production",
+    "candidateSha256": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+    "distTreeSha256": "573c87801f272ccc24222db5bbe2339cba495488bc34c095caa2b39e2eacc347",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "runId": "430401b2-82d5-4567-b002-14fd98349aca",
+  "host": {
+    "platform": "linux",
+    "osRelease": "6.18.57",
+    "arch": "x64",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "logicalCpuCount": 9,
+    "node": "v24.22.3",
+    "nodeExecutableSha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+  },
+  "harnessSha256": "02bb0dfdb5d9bfb1180e0b79384da012e619d854b225061a0625f6a6d8803d8a",
+  "nodeWorkerAndJsdom": "tests/unit/engine/semantic-stats-worker.test.ts and tests/unit/core/semantic-stats.test.ts",
+  "baseline": {
+    "auditReplayedReceipt": "baseline/original-audit-probe.json",
+    "observed": {
+      "words": 28,
+      "tables": 0,
+      "math": 1
+    },
+    "expected": {
+      "words": 3,
+      "tables": 1,
+      "math": 1
+    },
+    "newFunctionalRegressionsFailingOnRC11": 7,
+    "newLargeControlPASSOnBoth": 1,
+    "productionChromium": "A pending and completed revision B retained revision A totals in the open publish dialog."
+  },
+  "cause": "Table/code counters only counted Markdown handlers. Words used raw source text. An open publish dialog did not invalidate or resample output when the editor revision changed.",
+  "change": "After sanitization the document tree supplies words and all structural counts to the DOM-free worker, editor state and publish dialog. Publishing clears stale counts and resamples only a matching ready snapshot.",
+  "behavior": "Word definition and structural counts are specified in docs/CORE_API.md. Regression tests independently compare Markdown, raw HTML, clipboard, generated math, code and tables, breaks, footnotes, diagram source, image placeholders and formatting across adjacent letters.",
+  "scope": "Node Worker pipeline and jsdom represent the semantic contracts. Actual headless Chromium examines rendered production UI counters and revision invalidation. Clipboard provider and native Windows human activity are separate acceptance items.",
+  "pass": true,
+  "checksums": {
+    "README.md": "9c96decf3c4126102586b1096e9112b1cb730300269d2c563b310c4ed1e57dca",
+    "baseline/browser.json": "ba03b7296fc938b70571ec26bb92cc8e4b79a53c089e6fa76090c7d7bf050865",
+    "baseline/original-audit-probe.json": "dfcb0a668561db51c7ba69e8665f0913c6d5fca33b3a8cd4dee336dcea56c985",
+    "baseline/tests-red.log": "40a5fd25c4ec93ac73fd8126a160408e73ffd0aa099db7bcc0d645878517f60b",
+    "browser.json": "e3cfbbbe47b7a9c4f3e7ec782e3110478763f18cb606c78bbee58ec2fa4b919c",
+    "browser.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "large-ui.json": "391220964759a8241283ff69a1c07b6300c0a609e3b4b8dc59fcef8fcf1bc19c",
+    "large-ui.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "vitest.log": "93a188e51a135efd140861193ae128477e6af3adcf4508bd9f87d7236d4fc6aa"
+  }
+}

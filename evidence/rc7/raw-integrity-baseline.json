@@ -1,0 +1,177 @@
+{
+  "type": "Synthetic input, production core modules via Vite SSR, DOM from jsdom",
+  "version": "3.0.0-rc.6",
+  "controls": [
+    {
+      "name": "self-contained HTML between two Markdown blocks",
+      "accepted": true,
+      "checkedBlocks": 2,
+      "skippedBlocks": [
+        {
+          "id": "b-fe372c70",
+          "kind": "html",
+          "reason": "HTML mentah dinilai oleh laporan sanitasi"
+        }
+      ],
+      "coverage": {
+        "blocks": 2,
+        "tokens": 4,
+        "tables": 0,
+        "cells": 0,
+        "math": 0,
+        "code": 0,
+        "links": 0,
+        "images": 0,
+        "footnoteRefs": 0,
+        "footnoteDefs": 0
+      },
+      "issueCodes": []
+    },
+    {
+      "name": "Markdown link with rewritten fragment",
+      "accepted": true,
+      "checkedBlocks": 3,
+      "skippedBlocks": [],
+      "coverage": {
+        "blocks": 3,
+        "tokens": 3,
+        "tables": 0,
+        "cells": 0,
+        "math": 0,
+        "code": 0,
+        "links": 1,
+        "images": 0,
+        "footnoteRefs": 0,
+        "footnoteDefs": 0
+      },
+      "issueCodes": []
+    },
+    {
+      "name": "Markdown embedded image",
+      "accepted": true,
+      "checkedBlocks": 1,
+      "skippedBlocks": [],
+      "coverage": {
+        "blocks": 1,
+        "tokens": 1,
+        "tables": 0,
+        "cells": 0,
+        "math": 0,
+        "code": 0,
+        "links": 0,
+        "images": 1,
+        "footnoteRefs": 0,
+        "footnoteDefs": 0
+      },
+      "issueCodes": []
+    },
+    {
+      "name": "Markdown missing asset placeholder",
+      "accepted": true,
+      "checkedBlocks": 1,
+      "skippedBlocks": [],
+      "coverage": {
+        "blocks": 1,
+        "tokens": 1,
+        "tables": 0,
+        "cells": 0,
+        "math": 0,
+        "code": 0,
+        "links": 0,
+        "images": 1,
+        "footnoteRefs": 0,
+        "footnoteDefs": 0
+      },
+      "issueCodes": []
+    }
+  ],
+  "mutations": [
+    {
+      "name": "operator",
+      "detected": false,
+      "issueCodes": []
+    },
+    {
+      "name": "formula removed",
+      "detected": false,
+      "issueCodes": []
+    },
+    {
+      "name": "formula provenance",
+      "detected": false,
+      "issueCodes": []
+    },
+    {
+      "name": "paragraph removed",
+      "detected": false,
+      "issueCodes": []
+    },
+    {
+      "name": "nested element order",
+      "detected": false,
+      "issueCodes": []
+    },
+    {
+      "name": "whole block order",
+      "detected": false,
+      "issueCodes": []
+    },
+    {
+      "name": "nested table row",
+      "detected": false,
+      "issueCodes": []
+    },
+    {
+      "name": "link destination",
+      "detected": false,
+      "issueCodes": []
+    },
+    {
+      "name": "image removed",
+      "detected": false,
+      "issueCodes": []
+    },
+    {
+      "name": "alternative text",
+      "detected": false,
+      "issueCodes": []
+    },
+    {
+      "name": "image title",
+      "detected": false,
+      "issueCodes": []
+    },
+    {
+      "name": "caption semantics",
+      "detected": false,
+      "issueCodes": []
+    },
+    {
+      "name": "code indentation",
+      "detected": false,
+      "issueCodes": []
+    },
+    {
+      "name": "actual href points to another existing id",
+      "detected": false,
+      "issueCodes": []
+    },
+    {
+      "name": "target id removed",
+      "detected": false,
+      "issueCodes": []
+    },
+    {
+      "name": "embedded image src removed",
+      "detected": false,
+      "issueCodes": []
+    },
+    {
+      "name": "visible placeholder label removed",
+      "detected": false,
+      "issueCodes": []
+    }
+  ],
+  "total": 17,
+  "detected": 0
+}

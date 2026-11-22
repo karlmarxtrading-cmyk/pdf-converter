@@ -1,0 +1,21 @@
++ ["node", "scripts/acceptance.mjs", "observe", "uat-1", "--out", "evidence/rc12/browser/results/uat.json", "--", "node", "evidence/rc12/browser/uat.mjs"]
+Measuring uat-1; command log: evidence/rc12/acceptance/observations/uat-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "storage-operations-1", "--out", "evidence/rc12/browser/results/browser-storage.json", "--", "node", "evidence/rc12/browser/storage-operations.mjs"]
+Measuring storage-operations-1; command log: evidence/rc12/acceptance/observations/storage-operations-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "content-outputs-1", "--out", "evidence/rc12/browser/results/content-outputs.json", "--", "node", "evidence/rc12/browser/content-outputs.mjs"]
+Measuring content-outputs-1; command log: evidence/rc12/acceptance/observations/content-outputs-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "host-capabilities-1", "--out", "evidence/rc12/browser/results/local-desktop-capabilities.json", "--", "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "docs/verification-tools/graphical-seat.py"]
+Measuring host-capabilities-1; command log: evidence/rc12/acceptance/observations/host-capabilities-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "headed-availability-1", "--out", "evidence/rc12/browser/results/native-save.json", "--", "node", "evidence/rc12/browser/native-probe.mjs"]
+Measuring headed-availability-1; command log: evidence/rc12/acceptance/observations/headed-availability-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "ui-e2e-1", "--out", "evidence/rc12/user-suite/ui-e2e.json", "--", "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "docs/verification-tools/capture-npm-result.py", "ui-e2e", "evidence/rc12/user-suite/ui-e2e.json"]
+Measuring ui-e2e-1; command log: evidence/rc12/acceptance/observations/ui-e2e-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "smoke-1", "--out", "evidence/rc12/user-suite/smoke.json", "--", "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "docs/verification-tools/capture-npm-result.py", "smoke", "evidence/rc12/user-suite/smoke.json"]
+Measuring smoke-1; command log: evidence/rc12/acceptance/observations/smoke-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "dependency-audit-1", "--out", "evidence/rc12/build-tests/dependency-audit.json", "--", "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "docs/verification-tools/capture-npm-result.py", "dependency-audit", "evidence/rc12/build-tests/dependency-audit.json"]
+Measuring dependency-audit-1; command log: evidence/rc12/acceptance/observations/dependency-audit-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "cross-firefox-1", "--out", "evidence/rc12/browser/results/playwright-firefox.json", "--", "node", "evidence/rc12/browser/cross-engine.mjs", "firefox"]
+Measuring cross-firefox-1; command log: evidence/rc12/acceptance/observations/cross-firefox-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "cross-webkit-1", "--out", "evidence/rc12/browser/results/playwright-webkit.json", "--", "node", "evidence/rc12/browser/cross-engine.mjs", "webkit"]
+Measuring cross-webkit-1; command log: evidence/rc12/acceptance/observations/cross-webkit-1.log
+{"section": "supplement", "unsuccessfulCommands": ["uat-1", "ui-e2e-1"]}

@@ -1,0 +1,3 @@
+# Diagnosis pembaruan pratinjau editor kosong
+
+Pengukuran ini dilakukan pada dua salinan kerja sebelum pembekuan, setelah G09 putaran kedua melampaui ambang p95 pada satu kelompok Node. [Data mentah, instrumen dan perbaikan](../../../rc12-attempts/430401b2-82d5-4567-b002-14fd98349aca/diagnosis/README.md). Tiga percobaan berpasangan mengukur penelusuran DOM, penjadwalan hash kecil, dan gabungan keduanya. Tiap percobaan membandingkan isi HTML dan digest pemeriksa independen pada 80 pasangan. Bukti resmi pada kandidat rilis tercantum di [penghitungan kembali G09](../../performance/cohort-recount.json).

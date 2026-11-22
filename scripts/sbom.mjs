@@ -52,7 +52,7 @@ for (const [path, entry] of Object.entries(lock.packages)) {
 }
 components.sort((a,b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
 const version = (n) => lock.packages['node_modules/' + n].version;
-const families = ['@fontsource/inter', '@fontsource/source-serif-4', '@fontsource/jetbrains-mono'];
+const families = ['@fontsource/inter', '@fontsource/source-serif-4', '@fontsource/jetbrains-mono', '@fontsource/noto-emoji'];
 const katexVersion = version('katex');
 const elkVersion = version('elkjs');
 if (elkVersion !== '0.12.1') throw Error('Review elkjs upstream source reference for ' + elkVersion);

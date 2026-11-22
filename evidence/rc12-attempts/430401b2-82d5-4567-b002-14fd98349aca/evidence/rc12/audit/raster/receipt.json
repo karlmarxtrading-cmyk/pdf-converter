@@ -1,0 +1,63 @@
+{
+  "finding": "RC11-SEC-01",
+  "status": "PASS within the measured raster admission, UI and export scope",
+  "runId": "430401b2-82d5-4567-b002-14fd98349aca",
+  "identity": {
+    "candidateSha256": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+    "distTreeSha256": "573c87801f272ccc24222db5bbe2339cba495488bc34c095caa2b39e2eacc347",
+    "version": "3.0.0-rc.12",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "c41df1df044e3481ebf487aa32de57693bd7a17ccfa49770c2262b3043d06816",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "c12442cec73b0b2109e5ad2d61edeb3c3d8de2429046dc96fa119e119aa525a6",
+    "benchmarkHarnessSha256": "a3d3d2a9698371cc9c6a28902843529e839e25b21bbc609ca68a58dcc2d64470",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "02bb0dfdb5d9bfb1180e0b79384da012e619d854b225061a0625f6a6d8803d8a",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "12b75fb5648c192b83655e2a154581468518cb8bb209cb29d3106d62d377fec4"
+  },
+  "timestamp": "2026-11-22T15:03:50.862332+00:00",
+  "environment": {
+    "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "browser": "HeadlessChrome/153.0.8010.0"
+  },
+  "method": "Shared header inspection and per-render content accounting, followed by fixed Chromium production UI with native decode instrumentation; RC11 source comparison is supplemented by the published historical stub observation.",
+  "unitChecksPassed": 10,
+  "browser": {
+    "validCalls": 5,
+    "mismatchedCalls": 0,
+    "remoteRequests": 0
+  },
+  "observedPaths": [
+    "editor preview",
+    "standalone HTML download",
+    "standard print frame after pagination",
+    "book document",
+    "cancel, retry after edit, source preserved"
+  ],
+  "gitFiles": {
+    "src/core/assets.ts": "65dfeae33f4b297ed01d528f9dae4afe451c493142b9e4def67a2b6fcda53dc2",
+    "src/render/diagram-policy.ts": "56472cb83e745a6ace61e2f258a4b93696c9d09f6567e188d5e10fae11fa8dd5",
+    "src/render/diagram-raster.ts": "8e6202847320cdf9439cb294de37910364cf81dc0a583113212f4506b6370481",
+    "src/render/mermaid-frame.ts": "78c5e62216b7a2bb5167f1082130870fa754538b1361df2315f9560507ce0e00",
+    "src/render/document.ts": "b1321809faed8097449fd45fe8803f0f4115d8c0d6136d57eb602a33d8e77ea3",
+    "src/render/exports.ts": "2d04202665edd8bc745d5a396642c3aaf0599a32ff643716fc69392198a704bf",
+    "src/render/print-payload.ts": "c180c0610a15761ebc6d89c54b53479dfa8bb5157ab9ebf7dbc9f2741af185be",
+    "public/_headers": "80a7b1095eb520a3ad03e4a97dbf6f4435d2a48d71335a97e79ac0ab3c598420",
+    "tests/e2e/mermaid-raster.mjs": "126901ea19622b30d776e4276a8c6296ad479ee3e41e617babd068fd36585152",
+    "tests/unit/render/rc12-diagram-raster.test.ts": "6009bea79bc2f1766de4a0fa020bfa4d7dfa7a7eb18914d24315b2703ac471bd",
+    "tests/e2e/rc11-network-consent.mjs": "c500f3f264fb3fff8df205a8aa24bf7143aaa33ac95cbaacfa70485fedcd8a7d",
+    "fixtures/rc12/raster/7px.png": "ff1e553672620e9aec2712e45a30d57c1d743eed1a97abff07fc2ec4345b4935",
+    "fixtures/rc12/raster/8px.png": "5691c07b1695b37dd2cb740bac4cf74f6e64f8738f0415a9572931cd6e18427f",
+    "fixtures/rc12/raster/9px.png": "2bc71d8573180ee0215c5afe069100d9bc1aeda12821c2f7a9758e2bdfc58ea9"
+  },
+  "evidence": {
+    "final-browser.json": "b02f0737ace72f751ae0d010a20813c08d5a01714da4c8a4a4d7ab6d7ad16b49",
+    "final-unit.log": "a12ed8517adec66368ccb649c2369d961b8dc7d7846bbfeb5bd5c35b2351eadf",
+    "baseline-inspection.json": "e49c37716bda98ec93bba4777b1d16179fe138b093785b720f23ca2d4bbb0ebc",
+    "final-browser.log": "b02f0737ace72f751ae0d010a20813c08d5a01714da4c8a4a4d7ab6d7ad16b49",
+    "closure.md": "34db1285f088b585aa32ad49317925960119d950bca1e2d23d7855828f33c2a1"
+  }
+}

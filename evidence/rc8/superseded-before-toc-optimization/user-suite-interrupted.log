@@ -1,0 +1,25 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> paperforma@3.0.0-rc.8 test:e2e
+> node tests/e2e/run-e2e.mjs
+
+✓ E01 Beranda statis: tanpa harga/akun, tanpa jaringan eksternal, contoh dirender saat terlihat (3084 ms)
+✓ E02 Batas statis: endpoint backend lama 404, header HTTP, rute & MIME (109 ms)
+✓ E03 Satu klik Periksa halaman = satu pekerjaan; verifikasi isi lulus; kesiapan per target (3910 ms)
+✓ E04 PUA literal + mata uang + rumus + Unicode: pratinjau dan HTML mandiri mempertahankan karakter (2417 ms)
+✓ E05 HTML mandiri/ZIP/publikasi: dibuka luring tanpa jaringan pada 320/390/768/1440 (3909 ms)
+✓ E06 Font gagal: ekspor HTML ditolak di dalam dialog, tidak ada unduhan (2195 ms)
+✓ E07 Cetak: halaman disiapkan & diverifikasi, dialog diminta, frame tidak dibuang dengan timer (6098 ms)
+✗ E08 Batalkan/Escape saat persiapan cetak dokumen panjang: status dibatalkan di dalam dialog, retry berjalan (120948 ms)
+   TimeoutError: Waiting failed: 120000ms exceeded
+✓ E09 Undo/Redo transaksi proyek: teks → templat → margin → brand → gambar (8542 ms)
+✓ E10 Draf brand kit bertahan saat ID→EN→ID dan ganti tema; isi dokumen tidak berubah (1448 ms)
+✓ E11 Tempel rich HTML lalu edit: HTML lama tidak dipakai; kalimat baru tidak hilang (653 ms)
+✓ E12 Satu pintu Buka berkas: MD, ZIP, PNG, .pfproj, PDF/DOCX ditolak dengan pesan spesifik (2377 ms)
+✓ E13 > 300 temuan dapat dijelajah sampai akhir; > 20 revisi dapat dipulihkan (2579 ms)
+✓ E14 Status simpan terlihat di 360 px; penjaga tutup halaman untuk perubahan belum tersimpan; autosave IndexedDB (4994 ms)
+✓ E15 Dua tab mengubah proyek yang sama: konflik dilaporkan, bukan ditimpa diam-diam (4089 ms)
+✓ E16 Tempel percakapan HTML yang hanya menyebut atribut: pesan tetap dikenali (550 ms)
+✓ E17 Aksesibilitas otomatis (axe-core) beranda, studio, dialog ekspor; navigasi keyboard dasar (2760 ms)
+✓ E18 Kanari privasi: isi dokumen tidak keluar lewat URL, jaringan, atau konsol (855 ms)
+✓ E19 Paginasi ~10/50/200 bagian: verifikasi inventaris isi lulus; waktu diukur (10992 ms)

@@ -1,0 +1,1140 @@
+{
+  "tool": "tests/e2e/run-e2e.mjs",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "chrome": "/tmp/chromium",
+  "node": "v24.22.3",
+  "candidateSha256": "04cd3038a66f8bc3c78440456b6319c22af52dade47bd411362b6bb967435f35",
+  "distQaTreeSha256": "7eb9287689ea074dff679fe7750e65119df4010a318b52afc154e4684c8c2a12",
+  "at": "2026-11-21T21:21:11.488Z",
+  "summary": {
+    "total": 33,
+    "pass": 32,
+    "fail": 1
+  },
+  "results": [
+    {
+      "id": "E01",
+      "matrix": [
+        "ST-QA-04",
+        "ST-QA-38",
+        "F.5"
+      ],
+      "title": "Beranda statis: tanpa harga/akun, tanpa jaringan eksternal, contoh dirender saat terlihat",
+      "status": "pass",
+      "ms": 2094,
+      "details": {
+        "cardsAtBoot": 4,
+        "cardsAfter": 4,
+        "title": "PaperForma — susun dokumen rapi dari materi Anda",
+        "titleEn": "PaperForma — turn your material into tidy documents",
+        "nav": {
+          "domContentLoaded": 385,
+          "load": 471
+        },
+        "msToInteractive": 2003,
+        "requests": 60
+      }
+    },
+    {
+      "id": "E02",
+      "matrix": [
+        "ST-QA-37",
+        "ST-QA-29",
+        "ST-QA-41"
+      ],
+      "title": "Batas statis: endpoint backend lama 404, header HTTP, rute & MIME",
+      "status": "pass",
+      "ms": 93,
+      "details": {
+        "/api/pdf": {
+          "status": 404,
+          "type": "text/html; charset=utf-8",
+          "csp": true,
+          "nosniff": "nosniff"
+        },
+        "/api/pdf/jobs/x": {
+          "status": 404,
+          "type": "text/html; charset=utf-8",
+          "csp": true,
+          "nosniff": "nosniff"
+        },
+        "/api/account": {
+          "status": 404,
+          "type": "text/html; charset=utf-8",
+          "csp": true,
+          "nosniff": "nosniff"
+        },
+        "/api/auth/session": {
+          "status": 404,
+          "type": "text/html; charset=utf-8",
+          "csp": true,
+          "nosniff": "nosniff"
+        },
+        "/api/quota": {
+          "status": 404,
+          "type": "text/html; charset=utf-8",
+          "csp": true,
+          "nosniff": "nosniff"
+        },
+        "/api/health": {
+          "status": 404,
+          "type": "text/html; charset=utf-8",
+          "csp": true,
+          "nosniff": "nosniff"
+        },
+        "/api/checkout": {
+          "status": 404,
+          "type": "text/html; charset=utf-8",
+          "csp": true,
+          "nosniff": "nosniff"
+        },
+        "/print.html": {
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "csp": true,
+          "nosniff": "nosniff"
+        },
+        "/": {
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "csp": true,
+          "nosniff": "nosniff"
+        },
+        "/docs/panduan.html": {
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "csp": true,
+          "nosniff": "nosniff"
+        },
+        "/tidak-ada": {
+          "status": 404,
+          "type": "text/html; charset=utf-8",
+          "csp": true,
+          "nosniff": "nosniff"
+        },
+        "/licenses/THIRD_PARTY_NOTICES.txt": {
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "csp": true,
+          "nosniff": "nosniff"
+        },
+        "asset": {
+          "path": "/assets/main-DvaWwFSH.js",
+          "status": 200,
+          "type": "text/javascript; charset=utf-8",
+          "cache": "public, max-age=31536000, immutable"
+        }
+      }
+    },
+    {
+      "id": "E03",
+      "matrix": [
+        "ST-QA-57",
+        "UI-03",
+        "EN-010",
+        "ST-QA-35"
+      ],
+      "title": "Satu klik Periksa halaman = satu pekerjaan; verifikasi isi lulus; kesiapan per target",
+      "status": "pass",
+      "ms": 2989,
+      "details": {
+        "jobsPerClick": 1,
+        "pages": 3,
+        "verification": {
+          "status": "pass",
+          "pages": 3,
+          "inventory": [],
+          "structure": [],
+          "lostBlocks": 0
+        },
+        "readinessDuringEdit": "HTMLMemproses…Cetak / PDFMemproses…"
+      }
+    },
+    {
+      "id": "E04",
+      "matrix": [
+        "ST-QA-32",
+        "EN-003",
+        "ST-QA-16",
+        "ST-QA-05"
+      ],
+      "title": "PUA literal + mata uang + rumus + Unicode: pratinjau dan HTML mandiri mempertahankan karakter",
+      "status": "pass",
+      "ms": 1641,
+      "details": {
+        "htmlBytes": 953266,
+        "sourcePreserved": true,
+        "explicitGlyphDecision": true
+      }
+    },
+    {
+      "id": "E05",
+      "matrix": [
+        "ST-QA-16",
+        "ST-QA-17",
+        "MESIN-30..32"
+      ],
+      "title": "HTML mandiri/ZIP/publikasi: dibuka luring tanpa jaringan pada 320/390/768/1440",
+      "status": "pass",
+      "ms": 2506,
+      "details": {
+        "standalone_320": {
+          "overflow": 0,
+          "h1": "Laporan Uji Tarik Baja Tulangan",
+          "scripts": 0,
+          "fonts": 7,
+          "fontErrors": 0,
+          "contentChars": 874,
+          "contentMatches": true
+        },
+        "standalone_390": {
+          "overflow": 0,
+          "h1": "Laporan Uji Tarik Baja Tulangan",
+          "scripts": 0,
+          "fonts": 7,
+          "fontErrors": 0,
+          "contentChars": 874,
+          "contentMatches": true
+        },
+        "standalone_768": {
+          "overflow": 0,
+          "h1": "Laporan Uji Tarik Baja Tulangan",
+          "scripts": 0,
+          "fonts": 7,
+          "fontErrors": 0,
+          "contentChars": 874,
+          "contentMatches": true
+        },
+        "standalone_1440": {
+          "overflow": 0,
+          "h1": "Laporan Uji Tarik Baja Tulangan",
+          "scripts": 0,
+          "fonts": 7,
+          "fontErrors": 0,
+          "contentChars": 874,
+          "contentMatches": true
+        },
+        "Laporan-Uji-Tarik-Baja-Tulangan-publikasi.zip": {
+          "files": 13,
+          "manifestFiles": 12,
+          "overflow": 0,
+          "h1": "Laporan Uji Tarik Baja Tulangan",
+          "scripts": 0,
+          "fonts": 7,
+          "fontErrors": 0,
+          "contentChars": 874,
+          "contentMatches": true
+        },
+        "Laporan-Uji-Tarik-Baja-Tulangan.zip": {
+          "files": 13,
+          "manifestFiles": 12,
+          "overflow": 0,
+          "h1": "Laporan Uji Tarik Baja Tulangan",
+          "scripts": 0,
+          "fonts": 7,
+          "fontErrors": 0,
+          "contentChars": 874,
+          "contentMatches": true
+        }
+      }
+    },
+    {
+      "id": "E06",
+      "matrix": [
+        "ST-QA-44",
+        "QA-01",
+        "ST-QA-58",
+        "ST-QA-18"
+      ],
+      "title": "Font gagal: ekspor HTML ditolak di dalam dialog, tidak ada unduhan",
+      "status": "pass",
+      "ms": 1557,
+      "details": {
+        "gate": "Hasil final tidak dibuat karena ada masalah yang dapat menghilangkan atau mengubah isi. Perbaiki dahulu; sumber Anda tetap utuh.FONT_LOAD_FAILED Font Inter 400 ",
+        "downloads": 0
+      }
+    },
+    {
+      "id": "E07",
+      "matrix": [
+        "ST-QA-19",
+        "EN-005",
+        "MESIN-33",
+        "ST-QA-35"
+      ],
+      "title": "Cetak: halaman disiapkan & diverifikasi, dialog diminta, frame tidak dibuang dengan timer",
+      "status": "pass",
+      "ms": 5392,
+      "details": {
+        "printHelpOpen": true,
+        "lifecycleAfterPrint": "returned",
+        "stateText": "Dialog cetak sudah ditutup. Aplikasi tidak dapat mengetahui apakah PDF disimpan atau dibatalkan — periksa berkas Anda.",
+        "framesKept": 1,
+        "afterClose": null,
+        "note": "Chrome headless: dialog native tidak tampil; hanya status yang teramati dicatat."
+      }
+    },
+    {
+      "id": "E08",
+      "matrix": [
+        "ST-QA-58",
+        "UI-04",
+        "ST-QA-18"
+      ],
+      "title": "Batalkan/Escape saat persiapan cetak dokumen panjang: status dibatalkan di dalam dialog, retry berjalan",
+      "status": "pass",
+      "ms": 7993,
+      "details": {
+        "cancelled": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
+        "retryPages": 52,
+        "verification": "pass"
+      }
+    },
+    {
+      "id": "E09",
+      "matrix": [
+        "ST-QA-60",
+        "UI-06"
+      ],
+      "title": "Undo/Redo transaksi proyek: teks → templat → margin → brand → gambar",
+      "status": "pass",
+      "ms": 11161,
+      "details": {
+        "undoSequence": [
+          [
+            true,
+            "EDU-01",
+            37,
+            "Merek Uji",
+            1
+          ],
+          [
+            true,
+            "EDU-01",
+            37,
+            "Merek Uji",
+            1
+          ],
+          [
+            true,
+            "EDU-01",
+            37,
+            null,
+            1
+          ],
+          [
+            true,
+            "EDU-01",
+            20,
+            null,
+            1
+          ],
+          [
+            true,
+            "BUS-01",
+            18,
+            null,
+            1
+          ],
+          [
+            false,
+            "BUS-01",
+            18,
+            null,
+            1
+          ]
+        ],
+        "redoEnd": [
+          true,
+          "EDU-01",
+          37,
+          "Merek Uji",
+          1
+        ],
+        "historyCount": "Menampilkan 1–16 dari 16 revisi tersimpan (tertua: rev 1)."
+      }
+    },
+    {
+      "id": "E10",
+      "matrix": [
+        "ST-QA-59",
+        "ST-QA-53",
+        "UI-05"
+      ],
+      "title": "Draf brand kit bertahan saat ID→EN→ID dan ganti tema; isi dokumen tidak berubah",
+      "status": "pass",
+      "ms": 2110,
+      "details": {
+        "name": "Draf Merek",
+        "org": "Lembaga X",
+        "note": true,
+        "theme": "dark",
+        "title": "Studio — PaperForma"
+      }
+    },
+    {
+      "id": "E11",
+      "matrix": [
+        "ST-QA-61",
+        "UI-07",
+        "ST-QA-06"
+      ],
+      "title": "Tempel rich HTML lalu edit: HTML lama tidak dipakai; kalimat baru tidak hilang",
+      "status": "pass",
+      "ms": 1977,
+      "details": {
+        "staleMessage": "Teks sudah Anda edit setelah ditempel, jadi format asli tidak lagi sepadan dan tidak dipakai. Teks yang terlihat dipakai apa adanya.",
+        "source": "Judul\nParagraf lama.\nKalimat baru ditambahkan."
+      }
+    },
+    {
+      "id": "E12",
+      "matrix": [
+        "ST-QA-61",
+        "ST-QA-10",
+        "ST-QA-21",
+        "UI-07"
+      ],
+      "title": "Satu pintu Buka berkas: MD, ZIP, PNG, .pfproj, PDF/DOCX ditolak dengan pesan spesifik",
+      "status": "pass",
+      "ms": 3243,
+      "details": {
+        "zipAssets": [
+          "doc/img/titik satu.png"
+        ],
+        "rejected": 2,
+        "bundleBytes": 3212
+      }
+    },
+    {
+      "id": "E13",
+      "matrix": [
+        "ST-QA-62",
+        "UI-08"
+      ],
+      "title": "> 300 temuan dapat dijelajah sampai akhir; > 20 revisi dapat dipulihkan",
+      "status": "pass",
+      "ms": 2740,
+      "details": {
+        "issueTotal": 340,
+        "issuePages": 4,
+        "lastPage": "Menampilkan 301–340 dari 340 temuan (total 340).",
+        "historyPages": 2,
+        "storedHistory": 27,
+        "visitedHistory": 27,
+        "oldest": "rev 1 · edit · 22/11/2026, 04.19.48Pulihkan revisi"
+      }
+    },
+    {
+      "id": "E14",
+      "matrix": [
+        "ST-QA-55",
+        "ST-QA-36",
+        "UI-01",
+        "ST-QA-28(viewport)"
+      ],
+      "title": "Status simpan terlihat di 360 px; penjaga tutup halaman untuk perubahan belum tersimpan; autosave IndexedDB",
+      "status": "pass",
+      "ms": 5388,
+      "details": {
+        "empty": {
+          "state": "empty",
+          "text": "Kosong",
+          "visible": true
+        },
+        "off": {
+          "state": "off",
+          "text": "Belum disimpan",
+          "visible": true
+        },
+        "saved": {
+          "state": "saved",
+          "text": "Tersimpan di perangkat · rev 1",
+          "visible": true
+        },
+        "pendingObserved": "pending",
+        "beforeunload": "beforeunload",
+        "recovery": "ℹProyek terakhir di perangkat ini: “proj-f3a22d01-5bb1-4b6f-a6b9-ba2ed719dcd2” (rev 2).Lanjutkan×"
+      }
+    },
+    {
+      "id": "E15",
+      "matrix": [
+        "ST-QA-22",
+        "UI-01"
+      ],
+      "title": "Dua tab mengubah proyek yang sama: konflik dilaporkan, bukan ditimpa diam-diam",
+      "status": "pass",
+      "ms": 4808,
+      "details": {
+        "tabB": "saved",
+        "tabA": "conflict",
+        "label": "Konflik dua tab"
+      }
+    },
+    {
+      "id": "E16",
+      "matrix": [
+        "ST-QA-33",
+        "EN-011"
+      ],
+      "title": "Tempel percakapan HTML yang hanya menyebut atribut: pesan tetap dikenali",
+      "status": "pass",
+      "ms": 664,
+      "details": {
+        "messages": 2
+      }
+    },
+    {
+      "id": "E17",
+      "matrix": [
+        "ST-QA-27"
+      ],
+      "title": "Aksesibilitas otomatis (axe-core) beranda, studio, dialog ekspor; navigasi keyboard dasar",
+      "status": "pass",
+      "ms": 3607,
+      "details": {
+        "violations": {
+          "landing": [],
+          "studio": [],
+          "publishDialog": []
+        },
+        "focusReturnedTo": "publish"
+      }
+    },
+    {
+      "id": "E18",
+      "matrix": [
+        "ST-QA-52",
+        "ST-QA-03"
+      ],
+      "title": "Kanari privasi: isi dokumen tidak keluar lewat URL, jaringan, atau konsol",
+      "status": "pass",
+      "ms": 1050,
+      "details": {
+        "requests": 23,
+        "nonLocal": []
+      }
+    },
+    {
+      "id": "E19",
+      "matrix": [
+        "ST-QA-25",
+        "EN-006",
+        "ST-QA-26"
+      ],
+      "title": "Paginasi ~10/50/200 bagian: verifikasi inventaris isi lulus; waktu diukur",
+      "status": "pass",
+      "ms": 12254,
+      "details": {
+        "sections_3": {
+          "bytes": 14591,
+          "msToPreview": 414,
+          "layout": "done",
+          "pages": 7,
+          "verification": {
+            "status": "pass",
+            "pages": 7,
+            "inventory": [],
+            "structure": [],
+            "lostBlocks": 0
+          },
+          "layoutMs": 867,
+          "printPayloadMs": 51
+        },
+        "sections_15": {
+          "bytes": 72611,
+          "msToPreview": 850,
+          "layout": "done",
+          "pages": 27,
+          "verification": {
+            "status": "pass",
+            "pages": 27,
+            "inventory": [],
+            "structure": [],
+            "lostBlocks": 0
+          },
+          "layoutMs": 1578,
+          "printPayloadMs": 98
+        },
+        "sections_60": {
+          "bytes": 290186,
+          "msToPreview": 2177,
+          "layout": "done",
+          "pages": 103,
+          "verification": {
+            "status": "pass",
+            "pages": 103,
+            "inventory": [],
+            "structure": [],
+            "lostBlocks": 0
+          },
+          "layoutMs": 4886,
+          "printPayloadMs": 269
+        }
+      }
+    },
+    {
+      "id": "E20",
+      "matrix": [
+        "ST-QA-19(engine)",
+        "ST-QA-20(N/A)"
+      ],
+      "title": "Mesin cetak Chrome (headless printToPDF) atas HTML terpaginasi: teks dapat dicari, jumlah halaman sama",
+      "status": "pass",
+      "ms": 2112,
+      "details": {
+        "pages": 8,
+        "pagesUi": 8,
+        "bytes": 85638,
+        "textHasMarker": true,
+        "note": "Bukti mesin cetak Chrome headless; BUKAN uji dialog cetak native, dan aplikasi tidak menghasilkan byte PDF sendiri."
+      }
+    },
+    {
+      "id": "E21",
+      "matrix": [
+        "ST-QA-11",
+        "QA-02"
+      ],
+      "title": "Gambar dengan header ekstrem ditolak sebelum dekode; proyek tidak berubah",
+      "status": "pass",
+      "ms": 620,
+      "details": {
+        "rejected": true,
+        "revisionUnchanged": true
+      }
+    },
+    {
+      "id": "E22",
+      "matrix": [
+        "ST-QA-26",
+        "F.1",
+        "F.9"
+      ],
+      "title": "Kinerja: muat dingin studio, ketikan beruntun pada naskah ~10 halaman (debounce), waktu siap",
+      "status": "pass",
+      "ms": 2254,
+      "details": {
+        "coldStudioMs": 212,
+        "nav": {
+          "dcl": 106,
+          "load": 117,
+          "transfer": 32654
+        },
+        "sourceBytes": 58106,
+        "rendersFor20Keystrokes": 1,
+        "typingToReadyMs": 1382,
+        "lastAnalyzeMs": 104,
+        "lastFinishMs": 8,
+        "lastComposeMs": 11,
+        "lastIntegrityMs": 4,
+        "env": "Chrome headless Linux container (bukan perangkat referensi)"
+      }
+    },
+    {
+      "id": "E23",
+      "matrix": [
+        "ST-QA-07",
+        "ST-QA-08"
+      ],
+      "title": "Masukan berbahaya (script, on*, iframe, javascript:, SVG/Mermaid) tidak dieksekusi di pratinjau maupun ekspor",
+      "status": "pass",
+      "ms": 1953,
+      "details": {
+        "live": {
+          "scripts": 0,
+          "handlers": 0,
+          "js": 0,
+          "iframes": 0,
+          "forms": 0
+        },
+        "exported": null,
+        "exportResult": "gate: Hasil final tidak dibuat karena ada masalah yang dapat menghilangkan atau ",
+        "dialogs": 0
+      }
+    },
+    {
+      "id": "E24",
+      "matrix": [
+        "ST-QA-34",
+        "MESIN-05"
+      ],
+      "title": "Percakapan: pilih pesan 2/4/6, transkrip, bangun dokumen, simpan paket lalu buka ulang",
+      "status": "pass",
+      "ms": 1683,
+      "details": {
+        "template": "CON-01",
+        "selected": [
+          2,
+          4,
+          6
+        ],
+        "reopenedMessages": 6
+      }
+    },
+    {
+      "id": "E25",
+      "matrix": [
+        "MESIN-36",
+        "ST-QA-50",
+        "ST-QA-56"
+      ],
+      "title": "Worker: edit saat analisis dokumen besar berjalan — hasil usang ditolak, pratinjau milik revisi terakhir",
+      "status": "pass",
+      "ms": 9731,
+      "details": {
+        "engine": {
+          "mode": "worker",
+          "started": 4,
+          "completed": 2,
+          "staleDropped": 0,
+          "cancelled": 2,
+          "timeouts": 0,
+          "errors": 0,
+          "respawns": 0,
+          "lastMs": 2904,
+          "lastPhase": "references"
+        },
+        "finalRevision": 4,
+        "previewHasLastEdit": true
+      }
+    },
+    {
+      "id": "E26",
+      "matrix": [
+        "MESIN-36",
+        "ST-QA-26",
+        "F.1"
+      ],
+      "title": "Responsivitas: jeda maksimum event loop utama selama analisis 196 halaman (Worker vs fallback)",
+      "status": "fail",
+      "ms": 8631,
+      "details": {},
+      "error": "Error: jeda event loop dengan Worker 441 ms ≥ 400 ms\n    at assert (file:///workspace/scratch/d77204dbc71b/rc8/tests/e2e/scenarios.mjs:10:44)\n    at Object.run (file:///workspace/scratch/d77204dbc71b/rc8/tests/e2e/scenarios.mjs:918:7)\n    at async file:///workspace/scratch/d77204dbc71b/rc8/tests/e2e/run-e2e.mjs:20:24"
+    },
+    {
+      "id": "E27",
+      "matrix": [
+        "ST-QA-27",
+        "ST-QA-28",
+        "ST-QA-53"
+      ],
+      "title": "Keyboard saja, emulasi viewport/DPR setara 200 % (bukan zoom native), tema gelap (axe), layar 320 px: alur inti dapat dijalankan",
+      "status": "pass",
+      "ms": 5999,
+      "details": {
+        "keyboard": {
+          "tabsToEditor": 14,
+          "shiftTabsToExport": 7,
+          "focusInDialog": true,
+          "focusReturned": true
+        },
+        "viewportEquivalent200": {
+          "landingOverflowPx": 0,
+          "studioOverflowPx": 0,
+          "controlsVisible": [
+            true,
+            true
+          ],
+          "method": "viewport/deviceScaleFactor emulation",
+          "nativeZoomTested": false
+        },
+        "w320": {
+          "landingOverflowPx": 0,
+          "studioOverflowPx": 0,
+          "controlsVisible": [
+            true,
+            true
+          ],
+          "method": "viewport/deviceScaleFactor emulation",
+          "nativeZoomTested": false
+        },
+        "dark": {
+          "theme": "dark",
+          "studio": 0,
+          "dialog": 0
+        }
+      }
+    },
+    {
+      "id": "E28",
+      "matrix": [
+        "MESIN-36",
+        "ST-QA-43"
+      ],
+      "title": "Worker gagal dimuat (chunk hilang setelah deploy baru): revisi pertama tetap jadi lewat fallback, banner menjelaskan",
+      "status": "pass",
+      "ms": 1583,
+      "details": {
+        "engine": {
+          "mode": "fallback",
+          "started": 2,
+          "completed": 2,
+          "staleDropped": 0,
+          "cancelled": 0,
+          "timeouts": 0,
+          "errors": 0,
+          "respawns": 0,
+          "lastMs": 259,
+          "lastPhase": "references",
+          "reason": "worker-load-failed: worker error"
+        },
+        "banner": "Analisis berjalan di thread utama (Worker tidak dapat dipakai: worker-load-failed: worker error). Hasil tetap sama; dokumen besar terasa lebih lambat.",
+        "workerRuns": 0
+      }
+    },
+    {
+      "id": "E29",
+      "matrix": [
+        "ST-QA-53"
+      ],
+      "title": "Gerak dikurangi dihormati; tema \"sistem\" mengikuti preferensi gelap OS; ganti bahasa UI tidak mengubah isi/angka dokumen",
+      "status": "pass",
+      "ms": 1203,
+      "details": {
+        "elementsChecked": 40,
+        "theme": {
+          "attr": "dark",
+          "bg": "rgb(15, 21, 32)"
+        },
+        "documentUnchanged": true
+      }
+    },
+    {
+      "id": "E30",
+      "matrix": [
+        "ST-QA-23",
+        "ST-QA-55"
+      ],
+      "title": "Kuota penyimpanan penuh (kuota origin dipaksa kecil): status \"penuh\" jujur, isi tetap, paket cadangan tetap dapat diunduh",
+      "status": "pass",
+      "ms": 2612,
+      "details": {
+        "saveStatus": "quota",
+        "label": "Penyimpanan penuh",
+        "sourceChars": 15609,
+        "bundleBytes": 2004
+      }
+    },
+    {
+      "id": "E31",
+      "matrix": [
+        "ST-QA-24"
+      ],
+      "title": "Pindah origin (staging → domain lain): paket .pfproj dari origin A dibuka utuh di origin B; penyimpanan tidak ikut pindah",
+      "status": "pass",
+      "ms": 3800,
+      "details": {
+        "originA": "http://127.0.0.1:4310",
+        "originB": "http://localhost:4399",
+        "bundleBytes": 9841,
+        "identicalRenderInputHash": true
+      }
+    },
+    {
+      "id": "E32",
+      "matrix": [
+        "MATH-EINSTEIN",
+        "ST-QA-12",
+        "ST-QA-06"
+      ],
+      "title": "Rumus Einstein dari ChatGPT: tempel HTML KaTeX, HTML berdelimiter literal, teks biasa, impor percakapan → pratinjau KaTeX, tanpa teks mentah",
+      "status": "pass",
+      "ms": 8040,
+      "details": {
+        "dialog-html-katex": {
+          "katex": 11,
+          "errors": 0,
+          "tex": [
+            "m",
+            "E_0",
+            "\\boxed{E_0=mc^2}",
+            "v",
+            "\\gamma=\\frac{1}{\\sqrt{1-\\frac{v^2}{c^2}}}",
+            "E=\\gamma mc^2",
+            "\\Delta E = \\Delta m\\, c^2",
+            "\\begin{pmatrix} ct' \\\\ x' \\end{pmatrix} = \\begin{pmatrix} \\gamma & -\\gamma\\beta \\\\ -\\gamma\\beta & \\gamma \\end{pmatrix} \\begin{pmatrix} ct \\\\ x \\end{pmatrix}",
+            "\\tau = \\int_{t_1}^{t_2} \\sqrt{1-\\frac{v(t)^2}{c^2}}\\,dt",
+            "E_0=mc^2",
+            "p=\\gamma m v"
+          ],
+          "display": [
+            false,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "raw": [],
+          "currencyText": true,
+          "codeLiteral": true,
+          "sourceHasDoubleEscape": false,
+          "diffNotes": "",
+          "screenshot": "evidence/math/dialog-html-katex.png"
+        },
+        "dialog-html-literal": {
+          "katex": 11,
+          "errors": 0,
+          "tex": [
+            "m",
+            "E_0",
+            "\\boxed{E_0=mc^2}",
+            "v",
+            "\\gamma=\\frac{1}{\\sqrt{1-\\frac{v^2}{c^2}}}",
+            "E=\\gamma mc^2",
+            "\\Delta E = \\Delta m\\, c^2",
+            "\\begin{pmatrix} ct' \\\\ x' \\end{pmatrix} = \\begin{pmatrix} \\gamma & -\\gamma\\beta \\\\ -\\gamma\\beta & \\gamma \\end{pmatrix} \\begin{pmatrix} ct \\\\ x \\end{pmatrix}",
+            "\\tau = \\int_{t_1}^{t_2} \\sqrt{1-\\frac{v(t)^2}{c^2}}\\,dt",
+            "E_0=mc^2",
+            "p=\\gamma m v"
+          ],
+          "display": [
+            false,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "raw": [],
+          "currencyText": true,
+          "codeLiteral": true,
+          "sourceHasDoubleEscape": false,
+          "diffNotes": "",
+          "screenshot": "evidence/math/dialog-html-literal.png"
+        },
+        "editor-plain": {
+          "katex": 11,
+          "errors": 0,
+          "tex": [
+            "m",
+            "E_0",
+            "\\boxed{E_0=mc^2}",
+            "v",
+            "\\gamma=\\frac{1}{\\sqrt{1-\\frac{v^2}{c^2}}}",
+            "E=\\gamma mc^2",
+            "\\Delta E = \\Delta m\\, c^2",
+            "\\begin{pmatrix} ct' \\\\ x' \\end{pmatrix} = \\begin{pmatrix} \\gamma & -\\gamma\\beta \\\\ -\\gamma\\beta & \\gamma \\end{pmatrix} \\begin{pmatrix} ct \\\\ x \\end{pmatrix}",
+            "\\tau = \\int_{t_1}^{t_2} \\sqrt{1-\\frac{v(t)^2}{c^2}}\\,dt",
+            "E_0=mc^2",
+            "p=\\gamma m v"
+          ],
+          "display": [
+            false,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "raw": [],
+          "currencyText": true,
+          "codeLiteral": true,
+          "sourceHasDoubleEscape": false,
+          "diffNotes": "",
+          "screenshot": "evidence/math/editor-plain.png"
+        },
+        "editor-html-convert": {
+          "katex": 11,
+          "errors": 0,
+          "tex": [
+            "m",
+            "E_0",
+            "\\boxed{E_0=mc^2}",
+            "v",
+            "\\gamma=\\frac{1}{\\sqrt{1-\\frac{v^2}{c^2}}}",
+            "E=\\gamma mc^2",
+            "\\Delta E = \\Delta m\\, c^2",
+            "\\begin{pmatrix} ct' \\\\ x' \\end{pmatrix} = \\begin{pmatrix} \\gamma & -\\gamma\\beta \\\\ -\\gamma\\beta & \\gamma \\end{pmatrix} \\begin{pmatrix} ct \\\\ x \\end{pmatrix}",
+            "\\tau = \\int_{t_1}^{t_2} \\sqrt{1-\\frac{v(t)^2}{c^2}}\\,dt",
+            "E_0=mc^2",
+            "p=\\gamma m v"
+          ],
+          "display": [
+            false,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "raw": [],
+          "currencyText": true,
+          "codeLiteral": true,
+          "sourceHasDoubleEscape": false,
+          "diffNotes": "",
+          "screenshot": "evidence/math/editor-html-convert.png"
+        },
+        "conversation-import": {
+          "katex": 11,
+          "errors": 0,
+          "tex": [
+            "m",
+            "E_0",
+            "\\boxed{E_0=mc^2}",
+            "v",
+            "\\gamma=\\frac{1}{\\sqrt{1-\\frac{v^2}{c^2}}}",
+            "E=\\gamma mc^2",
+            "\\Delta E = \\Delta m\\, c^2",
+            "\\begin{pmatrix} ct' \\\\ x' \\end{pmatrix} = \\begin{pmatrix} \\gamma & -\\gamma\\beta \\\\ -\\gamma\\beta & \\gamma \\end{pmatrix} \\begin{pmatrix} ct \\\\ x \\end{pmatrix}",
+            "\\tau = \\int_{t_1}^{t_2} \\sqrt{1-\\frac{v(t)^2}{c^2}}\\,dt",
+            "E_0=mc^2",
+            "p=\\gamma m v"
+          ],
+          "display": [
+            false,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "raw": [],
+          "currencyText": true,
+          "codeLiteral": true,
+          "sourceHasDoubleEscape": false,
+          "diffNotes": "",
+          "screenshot": "evidence/math/conversation-import.png"
+        }
+      }
+    },
+    {
+      "id": "E33",
+      "matrix": [
+        "MATH-EINSTEIN",
+        "ST-QA-16",
+        "ST-QA-19"
+      ],
+      "title": "Rumus Einstein di HTML ekspor (luring, file://) dan di dokumen cetak/PDF: KaTeX dirender, font KaTeX tersemat, tanpa TeX mentah",
+      "status": "pass",
+      "ms": 2462,
+      "details": {
+        "exportHtml": {
+          "katex": 11,
+          "tex": [
+            "m",
+            "E_0",
+            "\\boxed{E_0=mc^2}",
+            "v",
+            "\\gamma=\\frac{1}{\\sqrt{1-\\frac{v^2}{c^2}}}",
+            "E=\\gamma mc^2",
+            "\\Delta E = \\Delta m\\, c^2",
+            "\\begin{pmatrix} ct' \\\\ x' \\end{pmatrix} = \\begin{pmatrix} \\gamma & -\\gamma\\beta \\\\ -\\gamma\\beta & \\gamma \\end{pmatrix} \\begin{pmatrix} ct \\\\ x \\end{pmatrix}",
+            "\\tau = \\int_{t_1}^{t_2} \\sqrt{1-\\frac{v(t)^2}{c^2}}\\,dt",
+            "E_0=mc^2",
+            "p=\\gamma m v"
+          ],
+          "display": [
+            false,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "raw": [],
+          "katexFonts": [
+            "KaTeX_Main",
+            "KaTeX_Math",
+            "KaTeX_Size1",
+            "KaTeX_Size3"
+          ],
+          "boxed": true
+        },
+        "print": {
+          "pages": 1,
+          "tex": [
+            "m",
+            "E_0",
+            "\\boxed{E_0=mc^2}",
+            "v",
+            "\\gamma=\\frac{1}{\\sqrt{1-\\frac{v^2}{c^2}}}",
+            "E=\\gamma mc^2",
+            "\\Delta E = \\Delta m\\, c^2",
+            "\\begin{pmatrix} ct' \\\\ x' \\end{pmatrix} = \\begin{pmatrix} \\gamma & -\\gamma\\beta \\\\ -\\gamma\\beta & \\gamma \\end{pmatrix} \\begin{pmatrix} ct \\\\ x \\end{pmatrix}",
+            "\\tau = \\int_{t_1}^{t_2} \\sqrt{1-\\frac{v(t)^2}{c^2}}\\,dt",
+            "E_0=mc^2",
+            "p=\\gamma m v"
+          ],
+          "katex": 11,
+          "errors": 0,
+          "display": [
+            false,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        "pages": 1,
+        "pdfPages": 1,
+        "rasterPages": [
+          1
+        ],
+        "orderedProse": {
+          "pass": true,
+          "matched": 11,
+          "total": 11,
+          "mode": "logical",
+          "firstMissing": null
+        },
+        "mathGlyphs": [
+          "γ",
+          "Δ",
+          "β",
+          "∫"
+        ],
+        "pdfKatexFonts": [
+          "KaTeX_Math-Italic",
+          "KaTeX_Main-Regular",
+          "KaTeX_Size3-Regular",
+          "KaTeX_Size1-Regular"
+        ],
+        "pdfRawTex": [],
+        "evidence": [
+          "evidence/math/export-html.png",
+          "evidence/math/pdf-page-1.png",
+          "evidence/math/einstein.chrome.pdf"
+        ]
+      }
+    }
+  ]
+}

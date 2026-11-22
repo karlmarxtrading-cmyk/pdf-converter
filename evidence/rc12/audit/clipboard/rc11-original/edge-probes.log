@@ -1,0 +1,272 @@
+[
+  {
+    "name": "digit-after-sensitive-inline",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 8,
+      "tables": 0,
+      "math": 2,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "two-display-equations-single-cell",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 38,
+      "tables": 0,
+      "math": 2,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "multiline-annotation-table",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 28,
+      "tables": 0,
+      "math": 1,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "inline-math-followed-by-digit-header",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 29,
+      "tables": 0,
+      "math": 1,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "literal-code-with-math",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 9,
+      "tables": 0,
+      "math": 1,
+      "images": 0,
+      "code": 1,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "math-inside-emphasis",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 5,
+      "tables": 0,
+      "math": 1,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "leading-and-trailing-breaks",
+    "accepted": true,
+    "mismatches": [
+      {
+        "mode": "render",
+        "key": "breaks",
+        "actual": 1
+      },
+      {
+        "mode": "render",
+        "key": "paragraphs",
+        "actual": [
+          [
+            "Line 1\\ ",
+            [
+              "math",
+              " a ",
+              false
+            ],
+            "\n\nLine 3."
+          ]
+        ]
+      },
+      {
+        "mode": "html",
+        "key": "breaks",
+        "actual": 1
+      },
+      {
+        "mode": "html",
+        "key": "paragraphs",
+        "actual": [
+          [
+            "Line 1\\ ",
+            [
+              "math",
+              " a ",
+              false
+            ],
+            "\n\nLine 3."
+          ]
+        ]
+      },
+      {
+        "mode": "printPayload",
+        "key": "breaks",
+        "actual": 1
+      },
+      {
+        "mode": "printPayload",
+        "key": "paragraphs",
+        "actual": [
+          [
+            "Line 1\\ ",
+            [
+              "math",
+              " a ",
+              false
+            ],
+            "\n\nLine 3."
+          ]
+        ]
+      },
+      {
+        "mode": "book",
+        "key": "breaks",
+        "actual": 1
+      },
+      {
+        "mode": "book",
+        "key": "paragraphs",
+        "actual": [
+          [
+            "Line 1\\ ",
+            [
+              "math",
+              " a ",
+              false
+            ],
+            "\n\nLine 3."
+          ]
+        ]
+      }
+    ],
+    "errors": {},
+    "stats": {
+      "words": 5,
+      "tables": 0,
+      "math": 1,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "inline-adjacent-no-spaces",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 5,
+      "tables": 0,
+      "math": 3,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "preformatted-cell-with-display-math",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 37,
+      "tables": 0,
+      "math": 1,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "rich-cell-link-target",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 40,
+      "tables": 0,
+      "math": 1,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "ordinary-table-no-header",
+    "accepted": true,
+    "mismatches": [
+      {
+        "mode": "render",
+        "key": "tableCells",
+        "actual": 6
+      },
+      {
+        "mode": "html",
+        "key": "tableCells",
+        "actual": 6
+      },
+      {
+        "mode": "printPayload",
+        "key": "tableCells",
+        "actual": 6
+      },
+      {
+        "mode": "book",
+        "key": "tableCells",
+        "actual": 6
+      }
+    ],
+    "errors": {},
+    "stats": {
+      "words": 4,
+      "tables": 1,
+      "math": 0,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  },
+  {
+    "name": "nested-list-mixed-overrides",
+    "accepted": true,
+    "mismatches": [],
+    "errors": {},
+    "stats": {
+      "words": 27,
+      "tables": 0,
+      "math": 0,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    }
+  }
+]

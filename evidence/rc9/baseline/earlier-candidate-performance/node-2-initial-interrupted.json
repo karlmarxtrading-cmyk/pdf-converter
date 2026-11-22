@@ -1,0 +1,336 @@
+{
+  "schema": 1,
+  "runId": "4d73a7c2-6766-4b9a-9d90-20e13b14bb4c",
+  "pid": 239,
+  "cohort": 2,
+  "before": {
+    "rc6": {
+      "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+      "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+      "manifestSha256": "6827509a82bf2b903bda374e6782e3df77ec1cccb940739c31911fce49340279",
+      "version": "3.0.0-rc.6"
+    },
+    "candidate": {
+      "candidateSha256": "985de0ab0d4127169772001645eb25f96c869f8f26d91b1eb17da8fcfe107331",
+      "distTreeSha256": "89f4fce908adf8e9e0c8b4c858b912c18402526b9aded307049bc8d96ac6fb63",
+      "manifestSha256": "f79dfb7db23998c30377426a448b1235e93c93617cec77f54bba8d282d448593",
+      "version": "3.0.0-rc.9"
+    },
+    "fixture": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "oracle": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "acceptedReference": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "harness": "829e87612069edff9f4edcff5727fe443808bbfe0869e1b0604055e6eb8ccdf0",
+    "settings": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "benchmarkDependencies": {
+      "rc6": "774d75eec73c9088e839e3b252e2f6cc26e3c8fef1beba192b8a95d35204130c",
+      "candidate": "ef77e877abfc9dccc5fa3dba56f968d73ededbc84368ece98d80957ae5857e68"
+    }
+  },
+  "environment": {
+    "node": "v24.22.3",
+    "nodeExecutableSha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa",
+    "browserExecutableSha256": "53a15d6c3a3d27dfb54c4ba60278b1683136f70cf1e67e989da7dfbd3d451ef0",
+    "os": [
+      "linux",
+      "6.18.57",
+      "x64"
+    ],
+    "cpus": 2,
+    "model": "AMD EPYC 9V74 80-Core Processor",
+    "memoryBytes": 10451427328,
+    "initialLoad": {
+      "loadavg": [
+        3.8,
+        3.47,
+        2.5
+      ],
+      "at": "2026-11-21T23:18:49.521Z"
+    },
+    "affinity": "6-7"
+  },
+  "protocol": {
+    "schema": 1,
+    "baselineSource": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+    "baselineDist": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+    "trigSource": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "referenceHtml": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "dateFrozen": "2026-11-22",
+    "cohorts": 2,
+    "pairs": 40,
+    "warmupsPerCase": 1,
+    "order": "Even rounds start with RC6 in cohort 1 and candidate in cohort 2. Odd rounds reverse. Each cohort starts a new process and empty browser profile. Warmups and errors are retained. No trimming or reruns for a favorable timing.",
+    "medianRatio": 1.05,
+    "p95Ratio": 1.1,
+    "settings": {
+      "template": "BUS-01",
+      "paper": "A4",
+      "orientation": "portrait",
+      "viewport": [
+        1366,
+        900
+      ],
+      "locale": "id-ID",
+      "browserCache": "warm after warmup",
+      "nodeFonts": "locked local WOFF2"
+    },
+    "browserFlows": {
+      "trig": [
+        "previewMs",
+        "htmlExportMs",
+        "pageReadyMs"
+      ],
+      "long": [
+        "previewMs"
+      ],
+      "small": [
+        "smallPreviewMs",
+        "editPreviewMs"
+      ]
+    },
+    "nodeFlows": {
+      "trigonometry": [
+        "refreshMs",
+        "htmlExportMs",
+        "printPayloadMs"
+      ],
+      "long": [
+        "refreshMs"
+      ],
+      "small-edit": [
+        "editedRefreshMs",
+        "htmlExportMs",
+        "printPayloadMs"
+      ],
+      "empty-core": [
+        "refreshMs"
+      ]
+    },
+    "statistics": "Median averages both center values. p95 nearest-rank. Report spread and each cohort separately. GC, file validation and oracle run outside timed intervals. Browser polling ~12ms, clocks high-resolution monotonic. Shared Linux host; sample load separately, no outlier exclusion.",
+    "officialBrowserLifecycle": {
+      "driverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+      "procedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+      "pairsPerBlock": 4,
+      "warmupPairsPerBrowserBlock": 1,
+      "cdpTimeoutMs": 60000,
+      "raw": "evidence/rc8/performance/recovery-cohort-{1,2}.json",
+      "scope": "Official candidate Chromium uses the separately hash-pinned fixed four-pair lifecycle. Each scheduled measured arm is attempted once, failures and incomplete pairs are retained, and the next flow still runs. Node uses one warmup pair per case."
+    },
+    "capacity": {
+      "sections": [
+        6,
+        30,
+        118
+      ],
+      "reps": 5,
+      "heapIntervalMs": 200,
+      "previewMs": 10000,
+      "reeditPreviewMs": 10000,
+      "cancelToIdleMs": 2000,
+      "maxEventLoopGapMs": 1000,
+      "printReadyMs": 60000,
+      "afterCloseRetainedDriftBytes": 8388608,
+      "firstProgressMs": 2000,
+      "maxProgressGapMs": 5000,
+      "peakDefinition": "Maximum observed Runtime.getHeapUsage.usedSize bytes on the same page target as post-GC. Native/process/worker memory excluded. Unknown remains null. Five runs support completion checks only; estimate latency tail per size on a separate 40+40 sample per-size study before advertising a percentile SLA.",
+      "capacityClaim": "Measure the historical 6,30,118-section fixtures. Their page counts depend on actual pagination. No 500/1,000-page claim."
+    }
+  },
+  "runs": [
+    {
+      "task": "trigonometry",
+      "round": -1,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 2629.2428279999995,
+        "parseAndRenderMs": 573.3603510000003,
+        "integrityModelMs": 98.84163600000011,
+        "htmlExportMs": 1918.628428,
+        "printPayloadMs": 900.7066809999997
+      },
+      "info": {
+        "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+        "inputBytes": 15280,
+        "htmlBytes": 902295,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+          "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+          "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+          "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+          "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0"
+        ],
+        "bodySha256": "a89e9634a9440edf5dd07b2665f72bf4704d1b3251d08eac78be7ca21d575816",
+        "printBodySha256": "865657d03a8cac63635c7c27ca209e69f26bc814f5d2423971207fd8c2b5045c",
+        "sourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f"
+      },
+      "oracle": {
+        "pass": true,
+        "digest": "c0679db2bec54bca24c8360a6aedb216a85b19e1e3b4acbe707c16c52e94a76a",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          }
+        }
+      },
+      "heap": {
+        "before": 47209920,
+        "beforeFinalGc": 497468280,
+        "afterGc": 52179512,
+        "rss": 672878592
+      },
+      "timestamp": "2026-11-21T23:18:57.043Z",
+      "load": [
+        5.66,
+        3.87,
+        2.63
+      ]
+    },
+    {
+      "task": "trigonometry",
+      "round": -1,
+      "label": "candidate",
+      "times": {
+        "refreshMs": 2447.874480999999,
+        "parseAndRenderMs": 256.6544809999996,
+        "integrityModelMs": 145.52716599999985,
+        "htmlExportMs": 3839.232802999999,
+        "printPayloadMs": 1990.585847000002
+      },
+      "info": {
+        "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+        "inputBytes": 15280,
+        "htmlBytes": 906846,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+          "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+          "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+          "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+          "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0"
+        ],
+        "bodySha256": "a89e9634a9440edf5dd07b2665f72bf4704d1b3251d08eac78be7ca21d575816",
+        "printBodySha256": "865657d03a8cac63635c7c27ca209e69f26bc814f5d2423971207fd8c2b5045c",
+        "sourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f"
+      },
+      "oracle": {
+        "pass": true,
+        "digest": "c0679db2bec54bca24c8360a6aedb216a85b19e1e3b4acbe707c16c52e94a76a",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          }
+        }
+      },
+      "heap": {
+        "before": 47390168,
+        "beforeFinalGc": 370457896,
+        "afterGc": 52182808,
+        "rss": 557957120
+      },
+      "timestamp": "2026-11-21T23:19:04.642Z",
+      "load": [
+        7.67,
+        4.36,
+        2.81
+      ]
+    },
+    {
+      "task": "trigonometry",
+      "round": 0,
+      "label": "candidate",
+      "times": {
+        "refreshMs": 4549.699055000001,
+        "parseAndRenderMs": 903.5890189999991,
+        "integrityModelMs": 544.734085,
+        "htmlExportMs": 2244.761578999998,
+        "printPayloadMs": 2091.8556600000047
+      },
+      "info": {
+        "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+        "inputBytes": 15280,
+        "htmlBytes": 906846,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+          "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+          "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+          "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+          "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0"
+        ],
+        "bodySha256": "a89e9634a9440edf5dd07b2665f72bf4704d1b3251d08eac78be7ca21d575816",
+        "printBodySha256": "865657d03a8cac63635c7c27ca209e69f26bc814f5d2423971207fd8c2b5045c",
+        "sourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f"
+      },
+      "oracle": {
+        "pass": true,
+        "digest": "c0679db2bec54bca24c8360a6aedb216a85b19e1e3b4acbe707c16c52e94a76a",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          }
+        }
+      },
+      "heap": {
+        "before": 50756240,
+        "beforeFinalGc": 296822376,
+        "afterGc": 48810584,
+        "rss": 558665728
+      },
+      "timestamp": "2026-11-21T23:19:16.740Z",
+      "load": [
+        10.42,
+        5.07,
+        3.06
+      ]
+    }
+  ],
+  "status": "RUNNING"
+}

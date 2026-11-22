@@ -1,0 +1,19 @@
+{
+  "observations": [
+    "input-1"
+  ],
+  "checks": {
+    "archivePaths": {
+      "evidence": "evidence/rc11/input/identity.json",
+      "pass": true
+    },
+    "archiveChecksums": {
+      "evidence": "evidence/rc11/input/identity.json",
+      "pass": true
+    },
+    "inputIdentity": {
+      "evidence": "evidence/rc11/input/identity.json",
+      "pass": true
+    }
+  }
+}

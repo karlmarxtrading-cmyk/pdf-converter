@@ -1,0 +1,412 @@
+
+ RUN  v5.1.0 /workspace/scratch/d77204dbc71b/work8/rc7-shadow
+
+ ❯ tests/unit/render/rc8-source-integrity.test.ts (28 tests | 19 failed) 792ms
+   ❯ RC8 source fidelity (28)
+     × rejects emptyFormula 104ms
+     × rejects visual 27ms
+     × rejects mathML 19ms
+     × rejects annotation 19ms
+     × rejects mathMLToken 20ms
+     × rejects visualMinus 30ms
+     × rejects raw 12ms
+     × rejects mode 13ms
+     × rejects rootText 16ms
+     × rejects untrackedNode 13ms
+     × rejects pua 16ms
+     × rejects foreignId 11ms
+     × rejects nestedId 10ms
+     × rejects spoofedDecoration 11ms
+     × rejects spoofedTOC 30ms
+     × rejects invented prose bearing real but non-emitting source IDs 7ms
+     × blocks delivery through every HTML profile plus print 235ms
+     × checks fallback against complete source and marks it for review 7ms
+     × compares the accessible and visual equations after page layout 8ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 19 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > rejects emptyFormula
+AssertionError: emptyFormula: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:50:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > rejects visual
+AssertionError: visual: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:50:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > rejects mathML
+AssertionError: mathML: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:50:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > rejects annotation
+AssertionError: annotation: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:50:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > rejects mathMLToken
+AssertionError: mathMLToken: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:50:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > rejects visualMinus
+AssertionError: visualMinus: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:50:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > rejects raw
+AssertionError: raw: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:50:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > rejects mode
+AssertionError: mode: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:50:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > rejects rootText
+AssertionError: rootText: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:50:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > rejects untrackedNode
+AssertionError: untrackedNode: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:50:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > rejects pua
+AssertionError: pua: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:50:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > rejects foreignId
+AssertionError: foreignId: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:50:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > rejects nestedId
+AssertionError: nestedId: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:50:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > rejects spoofedDecoration
+AssertionError: spoofedDecoration: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:50:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > rejects spoofedTOC
+AssertionError: spoofedTOC: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:50:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > rejects invented prose bearing real but non-emitting source IDs
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:55:50
+     53|     const md = 'Text.\n\n[link]: https://example.org\n\n---\n\n[^unuse…
+     54|     const doc = await realDoc(md,'BUS-01');
+     55|     expect(checkRenderIntegrity(md,doc.body).ok).toBe(true);
+       |                                                  ^
+     56|     for (const model of expectedBlocksFor(md,{}).filter(b => ['definit…
+     57|       const root=parse(doc.body.html);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > blocks delivery through every HTML profile plus print
+AssertionError: htmlAndPrint: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:82:28
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > checks fallback against complete source and marks it for review
+AssertionError: fallback: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:89:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/19]⎯
+
+ FAIL  tests/unit/render/rc8-source-integrity.test.ts > RC8 source fidelity > compares the accessible and visual equations after page layout
+AssertionError: pagedRepresentations: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ run tests/unit/render/rc8-source-integrity.test.ts:14:92
+     12| const options = {fontSource:nodeFontSource,renderMermaid:false};
+     13| const summary:Record<string,unknown> = {};
+     14| const run = (key:string, observed:boolean) => {summary[key]=observed; …
+       |                                                                                            ^
+     15| afterAll(() => {
+     16|   const output = process.env.PF_INTEGRITY_EVIDENCE;
+ ❯ tests/unit/render/rc8-source-integrity.test.ts:96:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/19]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  19 failed | 9 passed (28)
+   Start at  04:11:14
+   Duration  2.28s (environment 45%, tests 37%, import 12%, transform 6%)
+

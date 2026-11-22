@@ -1,0 +1,1 @@
+{"status": "BLOCKED", "localIpc": {"status": "unavailable", "errno": 1, "description": "Operation not permitted"}, "wayland": {"displayObjectAllocated": true, "addSocketResult": -1, "errnoAfterCall": 2}, "qualification": {"nativeSavedPdf": false, "nativeCancelAndReadback": false, "nativeZoomOnPublishedCandidate": false, "screenReaderSpeechOnPublishedCandidate": false}}

@@ -25,10 +25,10 @@ import { parseHtmlWithinBudget } from './html';
 
 const LABEL_ROLES: [RegExp, Role][] = [
   [/^(user|pengguna|anda|you|kamu|saya|me|human|penanya|siswa|murid)$/i, 'user'],
-  [/^(assistant|asisten|chatgpt|claude|gemini|copilot|bard|ai|bot|model|perplexity|mistral|llama|deepseek)$/i, 'assistant'],
+  [/^(assistant|asisten|chatgpt|claude|gemini|copilot|bard|ai|bot|model|perplexity|mistral|llama|deepseek|grok|qwen)$/i, 'assistant'],
   [/^(system|sistem)$/i, 'system'],
 ];
-const PROVIDER_LABELS = /^(chatgpt|claude|gemini|copilot|bard|perplexity|mistral|llama|deepseek)$/i;
+const PROVIDER_LABELS = /^(chatgpt|claude|gemini|copilot|bard|perplexity|mistral|llama|deepseek|grok|qwen)$/i;
 const LABEL_LINE = /^ {0,3}(?:\*\*|__)?([\p{L}][\p{L}\p{N}]*(?: [\p{L}][\p{L}\p{N}]*)?)(?:\*\*|__)?(?:\s*[([]([^)\]]*\d[^)\]]*)[)\]])?(?:\s+(said|bilang|berkata|menulis|wrote|says))?\s*(?:\*\*|__)?:(?:\*\*|__)?[ \t]*(.*)$/u;
 const UI_CHROME = /^\s*(copy|copy code|salin|salin kode|edit|regenerate|share|bagikan|like|dislike|retry|coba lagi|read aloud|baca keras|\d+\s*\/\s*\d+|thumbs up|thumbs down)\s*$/i;
 

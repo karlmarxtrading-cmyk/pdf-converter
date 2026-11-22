@@ -1,0 +1,160 @@
+{
+  "pass": true,
+  "items": [
+    {
+      "page": 298,
+      "expected": "500.",
+      "actual": [
+        "500."
+      ],
+      "pass_": true
+    },
+    {
+      "page": 298,
+      "expected": "20.",
+      "actual": [
+        "20."
+      ],
+      "pass_": true
+    },
+    {
+      "page": 298,
+      "expected": "5.",
+      "actual": [
+        "5."
+      ],
+      "pass_": true
+    },
+    {
+      "page": 374,
+      "expected": "•",
+      "width": 12,
+      "height": 12,
+      "inkFraction": 0.7083333333333334,
+      "pass_": true
+    },
+    {
+      "page": 374,
+      "expected": "•",
+      "width": 12,
+      "height": 12,
+      "inkFraction": 0.7083333333333334,
+      "pass_": true
+    },
+    {
+      "page": 374,
+      "expected": "•",
+      "width": 12,
+      "height": 12,
+      "inkFraction": 0.7083333333333334,
+      "pass_": true
+    },
+    {
+      "page": 375,
+      "expected": "•",
+      "width": 12,
+      "height": 11,
+      "inkFraction": 0.7727272727272727,
+      "pass_": true
+    },
+    {
+      "page": 375,
+      "expected": "•",
+      "width": 12,
+      "height": 11,
+      "inkFraction": 0.7727272727272727,
+      "pass_": true
+    },
+    {
+      "page": 375,
+      "expected": "•",
+      "width": 12,
+      "height": 12,
+      "inkFraction": 0.7083333333333334,
+      "pass_": true
+    },
+    {
+      "page": 457,
+      "expected": "2026.",
+      "actual": [
+        "2026."
+      ],
+      "pass_": true
+    },
+    {
+      "page": 457,
+      "expected": "2090.",
+      "actual": [
+        "2090."
+      ],
+      "pass_": true
+    },
+    {
+      "page": 523,
+      "expected": "9.",
+      "actual": [
+        "9."
+      ],
+      "pass_": true
+    },
+    {
+      "page": 523,
+      "expected": "10.",
+      "actual": [
+        "10."
+      ],
+      "pass_": true
+    },
+    {
+      "page": 523,
+      "expected": "11.",
+      "actual": [
+        "11."
+      ],
+      "pass_": true
+    },
+    {
+      "page": 523,
+      "expected": "6.",
+      "actual": [
+        "6."
+      ],
+      "pass_": true
+    },
+    {
+      "page": 523,
+      "expected": "7.",
+      "actual": [
+        "7."
+      ],
+      "pass_": true
+    },
+    {
+      "page": 851,
+      "expected": "2040.",
+      "actual": [
+        "2040."
+      ],
+      "pass_": true
+    },
+    {
+      "page": 895,
+      "expected": "2040.",
+      "actual": [
+        "2040."
+      ],
+      "pass_": true
+    },
+    {
+      "page": 909,
+      "expected": "2040.",
+      "actual": [
+        "2040."
+      ],
+      "pass_": true
+    }
+  ],
+  "pdfSha256": "cf4b4172cba8c94136c7206a90c18e43dbad4bec0186467555aeb0ae8c7365a3",
+  "sourceSha256": "88901d44a592ead82c757b65f57ce26e5f0003598a7a74064d6921439dbd0454",
+  "method": "Exact author list ordinals in PDF glyph stream at each list item; raster ink and disc shape at each expected bullet location. Expected labels derived from independent Pandoc HTML."
+}

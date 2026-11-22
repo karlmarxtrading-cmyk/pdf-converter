@@ -1,0 +1,71 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn deprecated @babel/polyfill@7.12.1: 🚨 This package has been deprecated in favor of separate inclusion of a polyfill and regenerator-runtime (when needed). See the @babel/polyfill docs (https://babeljs.io/docs/en/babel-polyfill) for more information.
+npm warn deprecated core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+
+added 353 packages in 7s
+npm warn install-scripts 3 packages have install scripts not yet covered by allowScripts:
+npm warn install-scripts   core-js@2.6.12 (postinstall: node -e "try{require('./postinstall')}catch(e){}")
+npm warn install-scripts   es5-ext@0.10.64 (postinstall:  node -e "try{require('./_postinstall')}catch(e){}" || exit 0)
+npm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js)
+npm warn install-scripts
+npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> paperforma@3.0.0-rc.12 typecheck
+> tsc --noEmit
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> paperforma@3.0.0-rc.12 lint
+> oxlint -c .oxlintrc.json --deny-warnings src tests scripts
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> paperforma@3.0.0-rc.12 test
+> vitest run && node --test tests/scripts/result-gates.test.mjs tests/scripts/static-server.test.mjs tests/e2e/pdf-oracle.test.mjs
+
+
+ RUN  v5.1.0 /tmp/paperforma-verify-3ph6my2r
+
+ ❯ tests/unit/render/trigonometry-export.test.ts (2 tests | 1 failed) 1702ms
+   ❯ PF-RC4-TRIG screenshots reconstructed as a document (2)
+     × clipboard-html: 21 exact formulas survive standalone HTML and print preparation 365ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/render/trigonometry-export.test.ts > PF-RC4-TRIG screenshots reconstructed as a document > clipboard-html: 21 exact formulas survive standalone HTML and print preparation
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/unit/render/trigonometry-export.test.ts:27:57
+     25|       }
+     26|       const doc = await realDoc(source, 'EDU-01', { title: 'Trigonomet…
+     27|       expect(checkRenderIntegrity(source, doc.body).ok).toBe(true);
+       |                                                         ^
+     28|       const exported = await exportHtml({ ...doc, profile: 'standalone…
+     29|       expect(exported.status).toBe('pass');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 84 passed (85)
+      Tests  1 failed | 658 passed (659)
+   Start at  21:55:32
+   Duration  36.59s (tests 40%, environment 40%, import 16%, transform 4%)
+
+    Isolate  85 workers spawned · ~1.39s startup each (spawn + environment, per file)
+             at least ~13.40s faster with isolate: false — reuses workers across files instead of one per file
+
+Traceback (most recent call last):
+  File "/workspace/scratch/c635819e0476/rc12-work/app/scripts/verify-archive.py", line 88, in <module>
+    main()
+  File "/workspace/scratch/c635819e0476/rc12-work/app/scripts/verify-archive.py", line 76, in main
+    subprocess.run([npm, *step], cwd=root, check=True)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/npm', 'test']' returned non-zero exit status 1.

@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "engine": "Chromium, managed cloud browser session",
+  "profile": "production, default BUS-01",
+  "distTreeSha256": "4cb03c96ad20f34dc32098ca1e8a33e5e7407737d190b4c91d617189fd141631",
+  "loadedModule": "/assets/main-DEu-FfWe.js",
+  "localModuleSha256": "f77b4fca0c11b39cf5db76a593184b3e15094add5f99fed1166f2dd7313ba197",
+  "method": "Opened a new tab on the preview served for this candidate. Wrote authored fixtures to the Chromium session clipboard, focused the visible Source field, and pressed Control+v. For HTML the session clipboard carried text/plain and text/html in the same item. Inspected the editor, review dialog and rendered preview frame through the browser. No synthetic ClipboardEvent was dispatched and no existing clipboard contents were read.",
+  "plain": {
+    "status": "PASS",
+    "clipboard": "# Uji clipboard PaperForma\n\nHasil $x+1$ dan [Catatan](#catatan).\n\n## Catatan\n\nKode `a_b`.",
+    "editorMatchedClipboard": true,
+    "preview": {
+      "heading": "Uji clipboard PaperForma",
+      "mathCount": 1,
+      "tex": "x+1",
+      "mathmlAnnotation": "x+1",
+      "href": "#h-catatan",
+      "targetText": "Catatan",
+      "code": "a_b"
+    }
+  },
+  "formatted": {
+    "status": "PASS",
+    "clipboardHtml": "<h1>Clipboard HTML RC7</h1><p>Nilai <span data-latex=\"x^2+1\">x²+1</span>. <a href=\"#bukti\">Lihat bukti</a>.</p><h2 id=\"bukti\">Bukti</h2><p>Indeks a<sub>1</sub>. Kode <code>a_b</code>.</p>",
+    "clipboardPlain": "Clipboard HTML RC7\nNilai x²+1. Lihat bukti.\nBukti\nIndeks a1. Kode a_b.",
+    "initialEditorMatchedPlain": true,
+    "actions": [
+      "Pressed Convert this part to Markdown…",
+      "Reviewed the diff for the 71-byte pasted fragment: math-from-source-attribute ×1 plus a token mismatch warning for the separate plain-text superscript character ².",
+      "Pressed Apply."
+    ],
+    "observedConvertedMarkdown": "# Clipboard HTML RC7\n\nNilai $x^2+1$. [Lihat bukti](#bukti).\n\n## Bukti\n\nIndeks a<sub>1</sub>. Kode `a_b`.",
+    "preview": {
+      "heading": "Clipboard HTML RC7",
+      "mathCount": 1,
+      "tex": "x^2+1",
+      "mathmlAnnotation": "x^2+1",
+      "href": "#h-bukti",
+      "targetText": "Bukti",
+      "sub": "1",
+      "code": "a_b"
+    }
+  },
+  "scope": "Real clipboard and keyboard handling of the explicitly authored formats in the managed Chromium session. No provider session, physical workstation or cross-engine clipboard was exercised."
+}

@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "method": "Chromium UI pointer controls; standalone print HTML saved from the product and reopened offline; CDP PDF bytes independently inspected by Poppler and PyMuPDF.",
+  "candidateSha256": "774465b21054bfd933b869ea7232d3d59ff8e1fa0422a8d83b18208b08b6abd6",
+  "distTreeSha256": "b2351cef15853b432dbe1fa9c02d0537308cc778a16fdbec551e2e243b9caefd",
+  "platform": "linux",
+  "chromium": "HeadlessChrome/153.0.8010.0",
+  "viewport": {
+    "width": 800,
+    "height": 600
+  },
+  "sourceSha256": "828c7de8caeb03d0f1290f6f6157aa0144ff176b18e796d4a63f6011ff6b4a37",
+  "printHtmlSha256": "f30e796a4705fbf4b51460f0817adf37338d36134ebffa38e370eb294527699f",
+  "pdfSha256": "9408f1fd1c414ae4197297437b7c6fc9ca972ac089331d47f96427b2e74b9cdf",
+  "pdfBytes": 32241,
+  "pages": 3,
+  "pdfText": [
+    "Heading mIxEd\n",
+    "Heading mIxEd\n\n\n\n Daftar Isi\nHeading mIxEd\n  Second parT\n\n\n\n\n                1\n",
+    "Heading mIxEd\n\n\n\n\nHeading mIxEd\n\n  Second parT\n     2048.\n     2047. beta\n     17.\n     16.\n\n A                B\n\n V1               V2\n\n\nFinal tAiL\n\n\n\n\n                       2\n"
+  ],
+  "pdfDestinationPagesZeroBased": [
+    [],
+    [
+      2,
+      2
+    ],
+    []
+  ],
+  "pageLabels": [
+    "",
+    "1",
+    "2"
+  ]
+}

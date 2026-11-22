@@ -61,9 +61,13 @@ export function sha256HexSync(data: Uint8Array | string): string {
   return Array.from(H, (x) => x.toString(16).padStart(8, '0')).join('');
 }
 
-/** SHA-256 hex dari bytes atau string (string di-encode UTF-8). Memakai WebCrypto bila ada. */
+/** SHA-256 hex dari bytes atau string (string di-encode UTF-8). */
 export async function sha256Hex(data: Uint8Array | string): Promise<string> {
   const bytes = typeof data === 'string' ? enc.encode(data) : data;
+  // Small immutable strings are common in project revisions and canonical settings.
+  // Digest them locally to avoid native-job scheduling latency on each edit.
+  // Limit main-thread work by UTF-8 byte length; binary assets still use WebCrypto.
+  if (typeof data === 'string' && bytes.byteLength <= 2048) return sha256HexSync(bytes);
   const subtle = (globalThis as { crypto?: Crypto }).crypto?.subtle;
   if (subtle) {
     try {

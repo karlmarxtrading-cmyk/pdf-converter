@@ -1,0 +1,39 @@
+{
+  "observations": [
+    "integrity-new"
+  ],
+  "checks": {
+    "emptyFormula": {
+      "pass": true,
+      "evidence": "evidence/rc10/integrity/acceptance.json"
+    },
+    "visual": {
+      "pass": true,
+      "evidence": "evidence/rc10/integrity/acceptance.json"
+    },
+    "mathML": {
+      "pass": true,
+      "evidence": "evidence/rc10/integrity/acceptance.json"
+    },
+    "annotation": {
+      "pass": true,
+      "evidence": "evidence/rc10/integrity/acceptance.json"
+    },
+    "operatorAndMode": {
+      "pass": true,
+      "evidence": "evidence/rc10/integrity/acceptance.json"
+    },
+    "cssAndFonts": {
+      "pass": true,
+      "evidence": "evidence/rc10/integrity/final-bytes.json"
+    },
+    "fallback": {
+      "pass": true,
+      "evidence": "evidence/rc10/integrity/acceptance.json"
+    },
+    "htmlAndPrint": {
+      "pass": true,
+      "evidence": "evidence/rc10/integrity/acceptance.json"
+    }
+  }
+}

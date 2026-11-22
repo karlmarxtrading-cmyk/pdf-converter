@@ -1,0 +1,17 @@
++ ["node", "scripts/acceptance.mjs", "observe", "capacity-control-1", "--out", "evidence/rc12/accounting/capacity-validator-control.json", "--", "node", "scripts/verify-capacity-control.mjs"]
+Measuring capacity-control-1; command log: evidence/rc12/acceptance/observations/capacity-control-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "interleaved-1", "--out", "evidence/rc12/integrity/interleaved.json", "--", "node", "node_modules/vitest/vitest.mjs", "run", "--config", "docs/verification-tools/supplement.vitest.ts", "docs/verification-tools/interleaved.test.ts"]
+Measuring interleaved-1; command log: evidence/rc12/acceptance/observations/interleaved-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "trace-control-1", "--out", "evidence/rc12/accounting/control-flow.json", "--", "node", "docs/verification-tools/verify-accounting.mjs", ".", ".", "evidence/rc12/accounting/control-flow.json"]
+Measuring trace-control-1; command log: evidence/rc12/acceptance/observations/trace-control-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "trace-browser-1", "--out", "evidence/rc12/accounting/browser.json", "--", "node", "docs/verification-tools/repair-browser.mjs"]
+Measuring trace-browser-1; command log: evidence/rc12/acceptance/observations/trace-browser-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "ordered-lists-1", "--out", "evidence/rc12/ordered-lists", "--", "node", "tests/e2e/ordered-list-proof.mjs"]
+Measuring ordered-lists-1; command log: evidence/rc12/acceptance/observations/ordered-lists-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "lifecycle-timing-1", "--out", "evidence/rc12/lifecycle/client-timing.json", "--", "node", "docs/verification-tools/client-timing.mjs"]
+Measuring lifecycle-timing-1; command log: evidence/rc12/acceptance/observations/lifecycle-timing-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "lifecycle-default-1", "--out", "evidence/rc12/lifecycle/cancel-stages.json", "--", "node", "docs/verification-tools/cancel-stages.mjs"]
+Measuring lifecycle-default-1; command log: evidence/rc12/acceptance/observations/lifecycle-default-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "lifecycle-large-1", "--out", "evidence/rc12/lifecycle/large-cancel.json", "--", "node", "docs/verification-tools/cancel-stages.mjs"]
+Measuring lifecycle-large-1; command log: evidence/rc12/acceptance/observations/lifecycle-large-1.log
+{"section": "controls", "unsuccessfulCommands": []}

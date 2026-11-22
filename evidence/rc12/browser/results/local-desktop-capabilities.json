@@ -1,0 +1,77 @@
+{
+  "status": "BLOCKED",
+  "runUTC": "2026-11-22T16:15:26.783107+00:00",
+  "sourceAndDistBefore": {
+    "candidateSha256": "3a3ee3e24ce43548a31386f1141638a567a59c7a161b7200de0945f0b5b62460",
+    "distTreeSha256": "1aede97a9168d8d2e4e703afc1d3f1272e3575d2eb8535f60a4ab3dfdad01e39"
+  },
+  "package": null,
+  "seatEnvironment": {
+    "DISPLAY": null,
+    "WAYLAND_DISPLAY": null,
+    "DBUS_SESSION_BUS_ADDRESS": null,
+    "orcaAvailable": false,
+    "speechDispatcherAvailable": false,
+    "availability": {
+      "Xvfb": false,
+      "Xorg": true,
+      "Xwayland": false,
+      "weston": false,
+      "orca": false,
+      "dbus-run-session": true
+    },
+    "cachedPackages": {
+      "xvfb": false,
+      "xwayland": false,
+      "weston": false,
+      "orca": false,
+      "speech-dispatcher": false
+    }
+  },
+  "xorg": {
+    "tool": "Xorg",
+    "exitCode": 1,
+    "output": "_XSERVTransSocketOpenCOTSServer: Unable to open socket for local\n_XSERVTransOpen: transport open failed for local/7a863f90731e:78\n_XSERVTransMakeAllCOTSServerListeners: failed to open listener for local\n_XSERVTransSocketOpenCOTSServer: Unable to open socket for unix\n_XSERVTransOpen: transport open failed for unix/7a863f90731e:78\n_XSERVTransMakeAllCOTSServerListeners: failed to open listener for unix\n(EE) \nFatal server error:\n(EE) Cannot establish any listening sockets - Make sure an X server isn't already running(EE) \n(EE) \nPlease consult the The X.Org Foundation support \n\t at http://wiki.x.org\n for help. \n(EE) Please also check the log file at \"<temporary>/Xorg-run.log\" for additional information.\n(EE) \n(EE) Server terminated with error (1). Closing log file.\n"
+  },
+  "xvfb": {
+    "tool": "Xvfb",
+    "outcome": "unavailable",
+    "errno": 2
+  },
+  "dbus": {
+    "tool": "dbus-run-session",
+    "exitCode": 127,
+    "output": "dbus-daemon[7653]: Failed to start message bus: Failed to open socket: Operation not permitted\ndbus-run-session: EOF reading address from bus daemon\n"
+  },
+  "atSpiLauncher": {
+    "tool": "at-spi-bus-launcher",
+    "exitCode": 1,
+    "output": "Failed to launch bus: Failed to connect to session bus"
+  },
+  "seatBinarySha256": {
+    "Xorg": "f27e5a6a276b15877bf3ad67fd8ed30b745bc5bf0be646cd06b1f9006b540dd7",
+    "Xvfb": null,
+    "at-spi-bus-launcher": "dfa902734ac9adea3044dd1cd0f23164bff8bfb681bfc55be491f125c55faa31"
+  },
+  "localIpc": {
+    "status": "unavailable",
+    "errno": 1,
+    "description": "Operation not permitted"
+  },
+  "wayland": {
+    "displayObjectAllocated": true,
+    "addSocketResult": -1,
+    "errnoAfterCall": 2
+  },
+  "sourceAndDistAfter": {
+    "candidateSha256": "3a3ee3e24ce43548a31386f1141638a567a59c7a161b7200de0945f0b5b62460",
+    "distTreeSha256": "1aede97a9168d8d2e4e703afc1d3f1272e3575d2eb8535f60a4ab3dfdad01e39"
+  },
+  "qualification": {
+    "nativeSavedPdf": false,
+    "nativeCancelAndReadback": false,
+    "nativeZoomOnPublishedCandidate": false,
+    "screenReaderSpeechOnPublishedCandidate": false
+  },
+  "interpretation": "Capability probe only. See actual process exit codes, socket results and target-tool availability. Native Save/Cancel/Retry on the target device and an actual screen-reader session require separate artifacts."
+}

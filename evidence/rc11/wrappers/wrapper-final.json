@@ -1,0 +1,517 @@
+{
+  "rawWrapper": true,
+  "clipboardWrapper": true,
+  "independentText": true,
+  "ambiguity": true,
+  "pureAndMultipleControls": true,
+  "routes": [
+    "raw",
+    "clipboard"
+  ],
+  "cases": [
+    {
+      "name": "section",
+      "route": "raw",
+      "source": "<div data-latex=\"x+1\"><section>KEEP-INDEPENDENT-CONTENT</section><span>x+1</span></div>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "KEEP-INDEPENDENT-CONTENT[x+1]",
+      "expected": "KEEP-INDEPENDENT-CONTENT[x+1]",
+      "structure": [
+        true
+      ],
+      "review": true,
+      "issues": [
+        "MATH_HTML_NO_TEX"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "collapse",
+      "route": "raw",
+      "source": "<div data-tex=\"x+1\"><details open><summary>Definition</summary>Retained body</details><span>x+1</span></div>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "DefinitionRetainedbody[x+1]",
+      "expected": "DefinitionRetainedbody[x+1]",
+      "structure": [
+        true
+      ],
+      "review": true,
+      "issues": [
+        "MATH_HTML_NO_TEX"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "glossary",
+      "route": "raw",
+      "source": "<div data-tex=\"x+1\"><dl><dt>Lemma</dt><dd>Explanation.</dd></dl><span>x+1</span></div>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "LemmaExplanation.[x+1]",
+      "expected": "LemmaExplanation.[x+1]",
+      "structure": [
+        true,
+        true
+      ],
+      "review": true,
+      "issues": [
+        "MATH_HTML_NO_TEX"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "div-before",
+      "route": "raw",
+      "source": "<div data-tex=\"x+1\"><div>Never remove</div><span>x+1</span></div>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "Neverremove[x+1]",
+      "expected": "Neverremove[x+1]",
+      "structure": [
+        true
+      ],
+      "review": true,
+      "issues": [
+        "MATH_HTML_NO_TEX"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "direct-text-and-math",
+      "route": "raw",
+      "source": "<div data-tex=\"x+1\">Before <span>x+1</span> after.</div>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "Before[x+1]after.",
+      "expected": "Before[x+1]after.",
+      "structure": [],
+      "review": true,
+      "issues": [
+        "MATH_HTML_NO_TEX"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "direct-prose",
+      "route": "raw",
+      "source": "<span data-tex=\"x+1\">Retain these words between terms.</span>",
+      "tex": [],
+      "expectedTex": [],
+      "words": "Retainthesewordsbetweenterms.",
+      "expected": "Retainthesewordsbetweenterms.",
+      "structure": [],
+      "review": true,
+      "issues": [
+        "MATH_HTML_NO_TEX"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "ambiguous-copies",
+      "route": "raw",
+      "source": "<div data-tex=\"x+1\"><span>x+1</span><span>x+1</span></div>",
+      "tex": [],
+      "expectedTex": [],
+      "words": "x+1x+1",
+      "expected": "x+1x+1",
+      "structure": [],
+      "review": true,
+      "issues": [
+        "MATH_HTML_NO_TEX"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "pure",
+      "route": "raw",
+      "source": "<div><span data-tex=\"x+1\"><span>x+1</span></span></div>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "[x+1]",
+      "expected": "[x+1]",
+      "structure": [],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "nested-independent-math",
+      "route": "raw",
+      "source": "<div data-tex=\"outer\"><section>Heading</section><span data-tex=\"u+1\">u+1</span><span data-tex=\"v+2\">v+2</span></div>",
+      "tex": [
+        "u+1",
+        "v+2"
+      ],
+      "expectedTex": [
+        "u+1",
+        "v+2"
+      ],
+      "words": "Heading[u+1][v+2]",
+      "expected": "Heading[u+1][v+2]",
+      "structure": [
+        true
+      ],
+      "review": true,
+      "issues": [
+        "MATH_HTML_NO_TEX"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "nested-safe-formatting",
+      "route": "raw",
+      "source": "<div data-tex=\"x+1\"><span><em>Keep emphasis</em></span><span>x+1</span></div>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "Keepemphasis[x+1]",
+      "expected": "Keepemphasis[x+1]",
+      "structure": [
+        true
+      ],
+      "review": true,
+      "issues": [
+        "MATH_HTML_NO_TEX"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "math-in-table-with-note",
+      "route": "raw",
+      "source": "<div data-tex=\"x+1\"><table><caption>Weights</caption><tr><th rowspan=\"2\">Group A</th><td colspan=\"2\">Empty below</td></tr><tr><td></td><td>End</td></tr></table><span>x+1</span></div>",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "WeightsGroupAEmptybelowEnd[x+1]",
+      "expected": "WeightsGroupAEmptybelowEnd[x+1]",
+      "structure": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "review": true,
+      "issues": [
+        "MATH_HTML_NO_TEX"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "mixed-annotated",
+      "route": "raw",
+      "source": "<div class=\"math\"><section>Independent annotation note</section><span class=\"katex\"><math><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span></div>",
+      "tex": [
+        "x"
+      ],
+      "expectedTex": [
+        "x"
+      ],
+      "words": "Independentannotationnote[x]",
+      "expected": "Independentannotationnote[x]",
+      "structure": [
+        true
+      ],
+      "review": true,
+      "issues": [
+        "MATH_HTML_NO_TEX"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "section",
+      "route": "clipboard",
+      "source": "<div><section>KEEP-INDEPENDENT-CONTENT</section><code data-pf-formula=\"inline\">x+1</code></div>\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "KEEP-INDEPENDENT-CONTENT[x+1]",
+      "expected": "KEEP-INDEPENDENT-CONTENT[x+1]",
+      "structure": [
+        true
+      ],
+      "review": true,
+      "issues": [
+        "CLIPBOARD_MATH_MIXED_SOURCE"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "collapse",
+      "route": "clipboard",
+      "source": "<div><details open><summary>Definition</summary>Retained body</details><code data-pf-formula=\"inline\">x+1</code></div>\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "DefinitionRetainedbody[x+1]",
+      "expected": "DefinitionRetainedbody[x+1]",
+      "structure": [
+        true
+      ],
+      "review": true,
+      "issues": [
+        "CLIPBOARD_MATH_MIXED_SOURCE"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "glossary",
+      "route": "clipboard",
+      "source": "<div><dl><dt>Lemma</dt><dd>Explanation.</dd></dl><code data-pf-formula=\"inline\">x+1</code></div>\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "LemmaExplanation.[x+1]",
+      "expected": "LemmaExplanation.[x+1]",
+      "structure": [
+        true,
+        true
+      ],
+      "review": true,
+      "issues": [
+        "CLIPBOARD_MATH_MIXED_SOURCE"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "div-before",
+      "route": "clipboard",
+      "source": "<div><div>Never remove</div><code data-pf-formula=\"inline\">x+1</code></div>\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "Neverremove[x+1]",
+      "expected": "Neverremove[x+1]",
+      "structure": [
+        true
+      ],
+      "review": true,
+      "issues": [
+        "CLIPBOARD_MATH_MIXED_SOURCE"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "direct-text-and-math",
+      "route": "clipboard",
+      "source": "<div>Before <code data-pf-formula=\"inline\">x+1</code> after.</div>\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "Before[x+1]after.",
+      "expected": "Before[x+1]after.",
+      "structure": [],
+      "review": true,
+      "issues": [
+        "CLIPBOARD_MATH_MIXED_SOURCE"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "direct-prose",
+      "route": "clipboard",
+      "source": "<span>Retain these words between terms.</span>\n",
+      "tex": [],
+      "expectedTex": [],
+      "words": "Retainthesewordsbetweenterms.",
+      "expected": "Retainthesewordsbetweenterms.",
+      "structure": [],
+      "review": true,
+      "issues": [
+        "CLIPBOARD_MATH_MIXED_SOURCE"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "ambiguous-copies",
+      "route": "clipboard",
+      "source": "<div><span>x+1</span><span>x+1</span></div>\n",
+      "tex": [],
+      "expectedTex": [],
+      "words": "x+1x+1",
+      "expected": "x+1x+1",
+      "structure": [],
+      "review": true,
+      "issues": [
+        "CLIPBOARD_MATH_MIXED_SOURCE"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "pure",
+      "route": "clipboard",
+      "source": "$x+1$\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "[x+1]",
+      "expected": "[x+1]",
+      "structure": [],
+      "review": false,
+      "issues": [],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "nested-independent-math",
+      "route": "clipboard",
+      "source": "<div><section>Heading</section><code data-pf-formula=\"inline\">u+1</code><code data-pf-formula=\"inline\">v+2</code></div>\n",
+      "tex": [
+        "u+1",
+        "v+2"
+      ],
+      "expectedTex": [
+        "u+1",
+        "v+2"
+      ],
+      "words": "Heading[u+1][v+2]",
+      "expected": "Heading[u+1][v+2]",
+      "structure": [
+        true
+      ],
+      "review": true,
+      "issues": [
+        "CLIPBOARD_MATH_MIXED_SOURCE"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "nested-safe-formatting",
+      "route": "clipboard",
+      "source": "<div><span><em>Keep emphasis</em></span><code data-pf-formula=\"inline\">x+1</code></div>\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "Keepemphasis[x+1]",
+      "expected": "Keepemphasis[x+1]",
+      "structure": [
+        true
+      ],
+      "review": true,
+      "issues": [
+        "CLIPBOARD_MATH_MIXED_SOURCE"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "math-in-table-with-note",
+      "route": "clipboard",
+      "source": "<div><table><caption>Weights</caption><tbody><tr><th rowspan=\"2\">Group A</th><td colspan=\"2\">Empty below</td></tr><tr><td></td><td>End</td></tr></tbody></table><code data-pf-formula=\"inline\">x+1</code></div>\n",
+      "tex": [
+        "x+1"
+      ],
+      "expectedTex": [
+        "x+1"
+      ],
+      "words": "WeightsGroupAEmptybelowEnd[x+1]",
+      "expected": "WeightsGroupAEmptybelowEnd[x+1]",
+      "structure": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "review": true,
+      "issues": [
+        "CLIPBOARD_MATH_MIXED_SOURCE"
+      ],
+      "integrity": [],
+      "pass": true
+    },
+    {
+      "name": "mixed-annotated",
+      "route": "clipboard",
+      "source": "<div><section>Independent annotation note</section><code data-pf-formula=\"inline\">x</code></div>\n",
+      "tex": [
+        "x"
+      ],
+      "expectedTex": [
+        "x"
+      ],
+      "words": "Independentannotationnote[x]",
+      "expected": "Independentannotationnote[x]",
+      "structure": [
+        true
+      ],
+      "review": true,
+      "issues": [
+        "CLIPBOARD_MATH_MIXED_SOURCE"
+      ],
+      "integrity": [],
+      "pass": true
+    }
+  ]
+}

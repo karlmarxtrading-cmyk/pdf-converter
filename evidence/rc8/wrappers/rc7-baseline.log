@@ -1,0 +1,383 @@
+
+ RUN  v5.1.0 /workspace/scratch/d77204dbc71b/work8/wrapper-baseline
+
+xxxxxxx··xx·xxxxxxx·xxxx
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 20 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (raw) > section
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (clipboard) > section
+AssertionError: expected { Object (tex, words, ...) } to deeply equal { tex: [ 'x+1' ], …(4) }
+
+- Expected
++ Received
+
+  {
+    "integrity": true,
+-   "review": true,
++   "review": false,
+    "structure": [
+-     true,
++     false,
+    ],
+    "tex": [
+      "x+1",
+    ],
+-   "words": "KEEP-INDEPENDENT-CONTENT[x+1]",
++   "words": "[x+1]",
+  }
+
+ ❯ tests/unit/core/rc8-mixed-wrappers.test.ts:40:69
+     38|     const pass = JSON.stringify(tex) === JSON.stringify(fixture.tex) &…
+     39|     results.push({name:fixture.name,route,source,tex,expectedTex:fixtu…
+     40|     expect({tex, words, structure, review, integrity:integrity.ok}).to…
+       |                                                                     ^
+     41|   });
+     42| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/20]⎯
+
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (raw) > collapse
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (clipboard) > collapse
+AssertionError: expected { Object (tex, words, ...) } to deeply equal { tex: [ 'x+1' ], …(4) }
+
+- Expected
++ Received
+
+  {
+    "integrity": true,
+-   "review": true,
++   "review": false,
+    "structure": [
+-     true,
++     false,
+    ],
+    "tex": [
+      "x+1",
+    ],
+-   "words": "DefinitionRetainedbody[x+1]",
++   "words": "[x+1]",
+  }
+
+ ❯ tests/unit/core/rc8-mixed-wrappers.test.ts:40:69
+     38|     const pass = JSON.stringify(tex) === JSON.stringify(fixture.tex) &…
+     39|     results.push({name:fixture.name,route,source,tex,expectedTex:fixtu…
+     40|     expect({tex, words, structure, review, integrity:integrity.ok}).to…
+       |                                                                     ^
+     41|   });
+     42| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/20]⎯
+
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (raw) > glossary
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (clipboard) > glossary
+AssertionError: expected { Object (tex, words, ...) } to deeply equal { tex: [ 'x+1' ], …(4) }
+
+- Expected
++ Received
+
+  {
+    "integrity": true,
+-   "review": true,
++   "review": false,
+    "structure": [
+-     true,
+-     true,
++     false,
++     false,
+    ],
+    "tex": [
+      "x+1",
+    ],
+-   "words": "LemmaExplanation.[x+1]",
++   "words": "[x+1]",
+  }
+
+ ❯ tests/unit/core/rc8-mixed-wrappers.test.ts:40:69
+     38|     const pass = JSON.stringify(tex) === JSON.stringify(fixture.tex) &…
+     39|     results.push({name:fixture.name,route,source,tex,expectedTex:fixtu…
+     40|     expect({tex, words, structure, review, integrity:integrity.ok}).to…
+       |                                                                     ^
+     41|   });
+     42| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/20]⎯
+
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (raw) > div-before
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (clipboard) > div-before
+AssertionError: expected { Object (tex, words, ...) } to deeply equal { tex: [ 'x+1' ], …(4) }
+
+- Expected
++ Received
+
+  {
+    "integrity": true,
+-   "review": true,
++   "review": false,
+    "structure": [
+-     true,
++     false,
+    ],
+    "tex": [
+      "x+1",
+    ],
+-   "words": "Neverremove[x+1]",
++   "words": "[x+1]",
+  }
+
+ ❯ tests/unit/core/rc8-mixed-wrappers.test.ts:40:69
+     38|     const pass = JSON.stringify(tex) === JSON.stringify(fixture.tex) &…
+     39|     results.push({name:fixture.name,route,source,tex,expectedTex:fixtu…
+     40|     expect({tex, words, structure, review, integrity:integrity.ok}).to…
+       |                                                                     ^
+     41|   });
+     42| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/20]⎯
+
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (raw) > direct-text-and-math
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (clipboard) > direct-text-and-math
+AssertionError: expected { Object (tex, words, ...) } to deeply equal { tex: [ 'x+1' ], …(4) }
+
+- Expected
++ Received
+
+  {
+    "integrity": true,
+-   "review": true,
++   "review": false,
+    "structure": [],
+    "tex": [
+      "x+1",
+    ],
+-   "words": "Before[x+1]after.",
++   "words": "[x+1]",
+  }
+
+ ❯ tests/unit/core/rc8-mixed-wrappers.test.ts:40:69
+     38|     const pass = JSON.stringify(tex) === JSON.stringify(fixture.tex) &…
+     39|     results.push({name:fixture.name,route,source,tex,expectedTex:fixtu…
+     40|     expect({tex, words, structure, review, integrity:integrity.ok}).to…
+       |                                                                     ^
+     41|   });
+     42| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/20]⎯
+
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (raw) > direct-prose
+AssertionError: expected { Object (tex, words, ...) } to deeply equal { tex: [], …(4) }
+
+- Expected
++ Received
+
+  {
+-   "integrity": true,
+-   "review": true,
++   "integrity": false,
++   "review": false,
+    "structure": [],
+-   "tex": [],
+-   "words": "Retainthesewordsbetweenterms.",
++   "tex": [
++     "x+1",
++   ],
++   "words": "[x+1]",
+  }
+
+ ❯ tests/unit/core/rc8-mixed-wrappers.test.ts:40:69
+     38|     const pass = JSON.stringify(tex) === JSON.stringify(fixture.tex) &…
+     39|     results.push({name:fixture.name,route,source,tex,expectedTex:fixtu…
+     40|     expect({tex, words, structure, review, integrity:integrity.ok}).to…
+       |                                                                     ^
+     41|   });
+     42| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/20]⎯
+
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (raw) > ambiguous-copies
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (clipboard) > ambiguous-copies
+AssertionError: expected { Object (tex, words, ...) } to deeply equal { tex: [], words: 'x+1x+1', …(3) }
+
+- Expected
++ Received
+
+  {
+    "integrity": true,
+-   "review": true,
++   "review": false,
+    "structure": [],
+-   "tex": [],
+-   "words": "x+1x+1",
++   "tex": [
++     "x+1",
++   ],
++   "words": "[x+1]",
+  }
+
+ ❯ tests/unit/core/rc8-mixed-wrappers.test.ts:40:69
+     38|     const pass = JSON.stringify(tex) === JSON.stringify(fixture.tex) &…
+     39|     results.push({name:fixture.name,route,source,tex,expectedTex:fixtu…
+     40|     expect({tex, words, structure, review, integrity:integrity.ok}).to…
+       |                                                                     ^
+     41|   });
+     42| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/20]⎯
+
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (raw) > nested-safe-formatting
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (clipboard) > nested-safe-formatting
+AssertionError: expected { Object (tex, words, ...) } to deeply equal { tex: [ 'x+1' ], …(4) }
+
+- Expected
++ Received
+
+  {
+    "integrity": true,
+-   "review": true,
++   "review": false,
+    "structure": [
+-     true,
++     false,
+    ],
+    "tex": [
+      "x+1",
+    ],
+-   "words": "Keepemphasis[x+1]",
++   "words": "[x+1]",
+  }
+
+ ❯ tests/unit/core/rc8-mixed-wrappers.test.ts:40:69
+     38|     const pass = JSON.stringify(tex) === JSON.stringify(fixture.tex) &…
+     39|     results.push({name:fixture.name,route,source,tex,expectedTex:fixtu…
+     40|     expect({tex, words, structure, review, integrity:integrity.ok}).to…
+       |                                                                     ^
+     41|   });
+     42| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/20]⎯
+
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (raw) > math-in-table-with-note
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (clipboard) > math-in-table-with-note
+AssertionError: expected { tex: [], …(4) } to deeply equal { tex: [ 'x+1' ], …(4) }
+
+- Expected
++ Received
+
+@@ -5,10 +5,8 @@
+      true,
+      true,
+      true,
+      true,
+    ],
+-   "tex": [
+-     "x+1",
+-   ],
+-   "words": "WeightsGroupAEmptybelowEnd[x+1]",
++   "tex": [],
++   "words": "WeightsGroupAEmptybelowEndx+1",
+  }
+
+ ❯ tests/unit/core/rc8-mixed-wrappers.test.ts:40:69
+     38|     const pass = JSON.stringify(tex) === JSON.stringify(fixture.tex) &…
+     39|     results.push({name:fixture.name,route,source,tex,expectedTex:fixtu…
+     40|     expect({tex, words, structure, review, integrity:integrity.ok}).to…
+       |                                                                     ^
+     41|   });
+     42| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/20]⎯
+
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (clipboard) > direct-prose
+AssertionError: expected { Object (tex, words, ...) } to deeply equal { tex: [], …(4) }
+
+- Expected
++ Received
+
+  {
+    "integrity": true,
+-   "review": true,
++   "review": false,
+    "structure": [],
+-   "tex": [],
+-   "words": "Retainthesewordsbetweenterms.",
++   "tex": [
++     "x+1",
++   ],
++   "words": "[x+1]",
+  }
+
+ ❯ tests/unit/core/rc8-mixed-wrappers.test.ts:40:69
+     38|     const pass = JSON.stringify(tex) === JSON.stringify(fixture.tex) &…
+     39|     results.push({name:fixture.name,route,source,tex,expectedTex:fixtu…
+     40|     expect({tex, words, structure, review, integrity:integrity.ok}).to…
+       |                                                                     ^
+     41|   });
+     42| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/20]⎯
+
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (clipboard) > nested-independent-math
+AssertionError: expected { tex: [ 'u+1', 'v+2' ], …(4) } to deeply equal { tex: [ 'u+1', 'v+2' ], …(4) }
+
+- Expected
++ Received
+
+@@ -1,10 +1,10 @@
+  {
+    "integrity": true,
+    "review": true,
+    "structure": [
+-     true,
++     false,
+    ],
+    "tex": [
+      "u+1",
+      "v+2",
+    ],
+
+ ❯ tests/unit/core/rc8-mixed-wrappers.test.ts:40:69
+     38|     const pass = JSON.stringify(tex) === JSON.stringify(fixture.tex) &…
+     39|     results.push({name:fixture.name,route,source,tex,expectedTex:fixtu…
+     40|     expect({tex, words, structure, review, integrity:integrity.ok}).to…
+       |                                                                     ^
+     41|   });
+     42| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/20]⎯
+
+ FAIL  tests/unit/core/rc8-mixed-wrappers.test.ts > RC8 independent HTML wrapper literal oracle (clipboard) > mixed-annotated
+AssertionError: expected { tex: [ 'x' ], …(4) } to deeply equal { tex: [ 'x' ], …(4) }
+
+- Expected
++ Received
+
+@@ -1,10 +1,10 @@
+  {
+    "integrity": true,
+-   "review": true,
++   "review": false,
+    "structure": [
+-     true,
++     false,
+    ],
+    "tex": [
+      "x",
+    ],
+    "words": "Independentannotationnote[x]",
+
+ ❯ tests/unit/core/rc8-mixed-wrappers.test.ts:40:69
+     38|     const pass = JSON.stringify(tex) === JSON.stringify(fixture.tex) &…
+     39|     results.push({name:fixture.name,route,source,tex,expectedTex:fixtu…
+     40|     expect({tex, words, structure, review, integrity:integrity.ok}).to…
+       |                                                                     ^
+     41|   });
+     42| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/20]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  20 failed | 4 passed (24)
+   Start at  04:05:15
+   Duration  2.50s (tests 44%, environment 30%, transform 15%, import 10%)
+

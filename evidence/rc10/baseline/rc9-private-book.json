@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "sourceSha256": "88901d44a592ead82c757b65f57ce26e5f0003598a7a74064d6921439dbd0454",
+  "sourceBytes": 1659854,
+  "pdfSha256": "63ce26810e162e610a8b15ca26d1cd8284bd854cb64e827295be73ab046e45ca",
+  "pdfBytes": 11194784,
+  "pages": 1319,
+  "sourceTopLevelBlocks": 31073,
+  "sourceTopLevelBlockKinds": {
+    "Header": 643,
+    "Para": 28363,
+    "HorizontalRule": 1018,
+    "BlockQuote": 1035,
+    "BulletList": 6,
+    "OrderedList": 7,
+    "Table": 1
+  },
+  "sourceInlineKinds": {
+    "Str": 214497,
+    "Space": 183643,
+    "Strong": 3010,
+    "Emph": 480,
+    "SoftBreak": 11,
+    "LineBreak": 282
+  },
+  "visitedBlocks": 31073,
+  "confirmedNonemptyTextBlocks": 30039,
+  "confirmedEmptyListMarkers": 19,
+  "markerLabels": [
+    "500.",
+    "20.",
+    "5.",
+    "•",
+    "•",
+    "•",
+    "•",
+    "•",
+    "•",
+    "2026.",
+    "2090.",
+    "9.",
+    "10.",
+    "11.",
+    "6.",
+    "7.",
+    "2040.",
+    "2040.",
+    "2040."
+  ],
+  "tables": [
+    {
+      "rows": 39,
+      "cells": 117
+    }
+  ],
+  "repeatedTableHeaders": 2,
+  "differences": [],
+  "footerFailures": [],
+  "verifiedPhysicalPageNumberFooters": 1319,
+  "normalizedExpectedCharsIncludingMarkers": 1376579,
+  "normalizedActualCharsAfterExactTableHeaderRemoval": 1376579,
+  "normalizedExpectedSha256": "306171e16f8460c38006ad0ae25de66cd01e18c6902baef686fabf95f5a0b2fe",
+  "normalizedActualSha256": "306171e16f8460c38006ad0ae25de66cd01e18c6902baef686fabf95f5a0b2fe",
+  "endMatches": true,
+  "negativeControls": {
+    "validAccepted": true,
+    "changedCharacterRejected": true,
+    "missingListMarkerRejected": true,
+    "reorderedBlocksRejected": true,
+    "missingFinalCharacterRejected": true
+  },
+  "normalization": "NFC; all layout whitespace removed; FE0F excluded. FE0E removed from both only if absent in original source. Footer exclusion validated against exact physical page number on every page. Repeated header is removed only inside source table at an actual physical-page boundary.",
+  "scope": "Fresh independent Pandoc JSON AST flattening vs PyMuPDF text layer. No renderer/HTML used for expected text. No all-glyph visual or whitespace-layout equivalence claim. No private narrative retained in audit data.",
+  "privacyClassification": "Sanitized derived metadata: counts, hashes and indices only; no manuscript narrative or private page images."
+}

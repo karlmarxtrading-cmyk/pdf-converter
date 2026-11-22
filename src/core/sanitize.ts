@@ -19,11 +19,11 @@ export const DROP_WITH_CONTENT = new Set(['script', 'style', 'iframe', 'frame', 
 export const UNWRAP = new Set(['form', 'fieldset', 'legend', 'label', 'font', 'center', 'marquee', 'blink', 'html', 'body', 'main', 'article', 'aside', 'nav', 'footer', 'address', 'picture', 'map', 'area', 'big', 'tt', 'strike', 'nobr', 'output', 'meter', 'progress', 'datalist', 'optgroup', 'custom']);
 
 /** Atribut yang boleh dibawa HTML mentah pengguna. */
-export const USER_ATTRS = new Set(['id', 'class', 'title', 'lang', 'dir', 'alt', 'src', 'href', 'aria-labelledby', 'aria-describedby', 'colspan', 'rowspan', 'align', 'start', 'reversed', 'type', 'width', 'height', 'datetime', 'cite', 'open', 'abbr', 'scope']);
+export const USER_ATTRS = new Set(['id', 'class', 'title', 'lang', 'dir', 'alt', 'src', 'href', 'aria-labelledby', 'aria-describedby', 'colspan', 'rowspan', 'align', 'value', 'start', 'reversed', 'type', 'width', 'height', 'datetime', 'cite', 'open', 'abbr', 'scope', 'headers', 'span']);
 
 export const ALLOWED_ATTR = [
-  'id', 'class', 'title', 'lang', 'dir', 'alt', 'src', 'href', 'colspan', 'rowspan', 'align', 'start', 'reversed', 'type', 'width', 'height',
-  'datetime', 'cite', 'open', 'abbr', 'scope', 'checked', 'disabled', 'role', 'aria-label', 'aria-describedby', 'aria-hidden', 'aria-labelledby',
+  'id', 'class', 'title', 'lang', 'dir', 'alt', 'src', 'href', 'colspan', 'rowspan', 'align', 'value', 'start', 'reversed', 'type', 'width', 'height',
+  'datetime', 'cite', 'open', 'abbr', 'scope', 'headers', 'span', 'checked', 'disabled', 'role', 'aria-label', 'aria-describedby', 'aria-hidden', 'aria-labelledby',
   'referrerpolicy', 'loading', 'decoding', 'rel',
 ];
 
@@ -50,21 +50,30 @@ export interface PurifyReport { removed: { kind: 'element' | 'attribute'; name: 
  * Lapis akhir DOMPurify (mengembalikan elemen body agar slot rumus dapat diisi oleh pemanggil).
  * id dari pengguna sudah diberi prefix di lapis hast; SANITIZE_DOM tetap aktif (anti DOM clobbering).
  */
+const sanitizers = new WeakMap<Window, ReturnType<typeof DOMPurify>>();
+
 export function purifyToBody(html: string): { body: HTMLElement; report: PurifyReport } {
   const w = requireDom();
-  const purify = DOMPurify(w);
-  const body = purify.sanitize(html, {
-    ALLOWED_TAGS: [...ALLOWED_TAGS], ALLOWED_ATTR, ALLOW_DATA_ATTR: true, ALLOW_ARIA_ATTR: false,
-    ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto|tel):|#|[^a-z]|[a-z0-9+.-]+(?:[^a-z0-9+.\-:]|$))/i,
-    // aria-label hanya teks: tandai URI-safe agar label berisi "kata:" tidak dianggap skema URL lalu dibuang
-    ADD_URI_SAFE_ATTR: ['aria-label'],
-    SANITIZE_DOM: true, KEEP_CONTENT: true, RETURN_DOM: true, WHOLE_DOCUMENT: false,
-    FORBID_TAGS: ['style', 'script', 'svg', 'math', 'form', 'iframe'], FORBID_ATTR: ['style', 'name', 'formaction', 'srcset', 'xlink:href'],
-  }) as unknown as HTMLElement;
+  let purify = sanitizers.get(w);
+  if (!purify) {
+    purify = DOMPurify(w);
+    purify.setConfig({
+      ALLOWED_TAGS: [...ALLOWED_TAGS], ALLOWED_ATTR, ALLOW_DATA_ATTR: true, ALLOW_ARIA_ATTR: false,
+      ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto|tel):|#|[^a-z]|[a-z0-9+.-]+(?:[^a-z0-9+.\-:]|$))/i,
+      // aria-label hanya teks: tandai URI-safe agar label berisi "kata:" tidak dianggap skema URL lalu dibuang
+      ADD_URI_SAFE_ATTR: ['aria-label'],
+      SANITIZE_DOM: true, KEEP_CONTENT: true, RETURN_DOM: true, WHOLE_DOCUMENT: false,
+      FORBID_TAGS: ['style', 'script', 'svg', 'math', 'form', 'iframe'], FORBID_ATTR: ['style', 'name', 'formaction', 'srcset', 'xlink:href'],
+    });
+    sanitizers.set(w, purify);
+  }
+  const body = purify.sanitize(html) as unknown as HTMLElement;
   const removed: PurifyReport['removed'] = [];
   for (const r of purify.removed as { element?: Node; attribute?: Attr | null }[]) {
     if (r.element) removed.push({ kind: 'element', name: (r.element.nodeName || '#').toLowerCase() });
     else if (r.attribute) removed.push({ kind: 'attribute', name: r.attribute.name });
   }
+  // Removed DOM nodes can reference a whole detached input. Retain only the copied report.
+  purify.removed = [];
   return { body, report: { removed } };
 }

@@ -1,0 +1,46 @@
+{
+  "F03": {
+    "status": "PASS",
+    "checks": [
+      "ok 1 - U01 and U04 reject failed one-shot, external assembly, partial and stale production artifacts with coherent hashes",
+      "ok 3 - U06 positive capacity control, repeated observation and altered heap after coherently rebinding",
+      "ok 4 - U07 independent A/B TeX, modes and eighteen same-count mutations",
+      "ok 5 - U08 reopens physical ordered markers and both HTML routes; rebound empty PDF label and native paste discrepancy reject",
+      "ok 6 - U05 full offline control and same-digest rebound mutations of source text, requests and link counts",
+      "    ok 3 - U06 positive, fully rebound invalid raw capacity, stale run and aggregate after G FAIL",
+      "    ok 13 - forged driver identity and dropped failed block reject even after rebinding evidence",
+      "    ok 15 - failed check, altered evidence and missing observations each reject"
+    ],
+    "files": [
+      "evidence/rc10/aggregate-tests/results.json",
+      "evidence/rc10/aggregate-tests/test.log",
+      "evidence/rc10/baseline/rc9-guard.json",
+      "evidence/rc10/acceptance/observations/aggregate-new.json"
+    ]
+  },
+  "F07": {
+    "status": "PASS",
+    "checks": [
+      "ok 1 - U01 and U04 reject failed one-shot, external assembly, partial and stale production artifacts with coherent hashes",
+      "ok 3 - U06 positive capacity control, repeated observation and altered heap after coherently rebinding",
+      "ok 4 - U07 independent A/B TeX, modes and eighteen same-count mutations",
+      "ok 5 - U08 reopens physical ordered markers and both HTML routes; rebound empty PDF label and native paste discrepancy reject",
+      "ok 6 - U05 full offline control and same-digest rebound mutations of source text, requests and link counts",
+      "    ok 3 - U06 positive, fully rebound invalid raw capacity, stale run and aggregate after G FAIL",
+      "    ok 13 - forged driver identity and dropped failed block reject even after rebinding evidence",
+      "    ok 15 - failed check, altered evidence and missing observations each reject"
+    ],
+    "files": [
+      "evidence/rc10/aggregate-tests/results.json",
+      "evidence/rc10/aggregate-tests/test.log",
+      "evidence/rc10/baseline/rc9-guard.json",
+      "evidence/rc10/acceptance/observations/aggregate-new.json"
+    ]
+  },
+  "F08": {
+    "status": "PASS",
+    "files": [
+      "evidence/rc10/operations/active-docs.json"
+    ]
+  }
+}

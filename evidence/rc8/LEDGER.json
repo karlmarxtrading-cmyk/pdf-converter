@@ -1,0 +1,1294 @@
+{
+  "version": "3.0.0-rc.8",
+  "decision": "NO_GO",
+  "runId": "d58c2ce4-cce6-45dc-a95c-e615f8660e14",
+  "identity": {
+    "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+    "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+    "version": "3.0.0-rc.8",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "f68252a1d37606299e9ef5d1d42a05ecd93461e1b2098d4775baa925a4bb40ab",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "a96288f2d95b466dcac1f3494a4a8bbbae89708927aed4b858aa90a7c6846dbf",
+    "benchmarkHarnessSha256": "88aa736309e18cd6a9902959f7804a9d69de6f2fbb1e920e149a9b8f90210b6a",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "67819b470d4c71edb87e653a4437b5f0ce27729346cf3207e5f11b3f3e58ed14",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "440d201c5b8c8cdd3c3e69366f7241891468df2d2803e95371fbb0973fa3c1b8"
+  },
+  "findings": [
+    {
+      "id": "A01",
+      "priority": "P1",
+      "title": "Teks mandiri di dalam wrapper rumus campuran dapat hilang tanpa peringatan",
+      "status": "PASS",
+      "rc7Status": "CONFIRMED_OPEN",
+      "acceptance": [
+        "All four failing tag families preserve independent text in raw and clipboard routes",
+        "Valid isolated math and multiple formulas do not duplicate",
+        "All 231 original formulas, source, modes, 17 recovery warnings retained",
+        "Deleting retained text must produce a blocking integrity error; acknowledgment cannot authorize source loss"
+      ],
+      "gates": [
+        "G04"
+      ],
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "changes": [
+        "Dua jalur raw HTML dan clipboard mempertahankan anak semantik di wrapper rumus. Sebanyak 24/24 kasus lulus pada RC8. Sebanyak 20/24 kasus gagal pada RC7."
+      ],
+      "commands": {
+        "wrapper-new": {
+          "argv": [
+            "bash",
+            "-c",
+            "node node_modules/vitest/vitest.mjs run tests/unit/core/rc8-mixed-wrappers.test.ts tests/unit/core/rc8-compat-corpus.test.ts tests/unit/core/wrapper-clipboard.test.ts --reporter=dot && node tests/e2e/rc8-wrapper-download.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/wrapper-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "rich-import": {
+          "argv": [
+            "node",
+            "tests/e2e/rc8-rich-export.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/rich-import.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "user-content-final": {
+          "argv": [
+            "node",
+            "evidence/rc8/browser/content-outputs.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/user-content-final.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/wrappers/wrapper-final.json",
+        "evidence/rc8/wrappers/rc7-baseline.json",
+        "evidence/rc8/wrappers/wrapper-downloads.json",
+        "evidence/rc8/operations/rich-import.json"
+      ],
+      "limits": [
+        "Cakupan keluarga wrapper, kontrol ambigu dan multiple-math tercantum per baris dalam fixture. Untuk masukan ambigu editor memberi tahu pengguna."
+      ]
+    },
+    {
+      "id": "A02",
+      "priority": "P1",
+      "title": "Formula kosong/rusak dapat lolos pemeriksaan integritas dan ekspor HTML",
+      "status": "PASS",
+      "rc7Status": "CONFIRMED_OPEN",
+      "acceptance": [
+        "Empty formula, erased visual/MathML, changed representation/anotation must block export",
+        "Canonical/raw metadata and display changes caught on every path",
+        "Exact parse-error fallback policy preserved",
+        "All original 231 formulas and actual CSS/font data still pass; structural validation does not replace visual/PDF checks"
+      ],
+      "gates": [
+        "G05"
+      ],
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "changes": [
+        "Pemeriksaan ekspor menolak formula kosong, perubahan satu operator atau mode, hilangnya cabang visual/MathML, anotasi, CSS dan font rusak. Kontrol valid dapat diekspor."
+      ],
+      "commands": {
+        "integrity-new": {
+          "argv": [
+            "node",
+            "node_modules/vitest/vitest.mjs",
+            "run",
+            "tests/unit/render/rc8-source-integrity.test.ts",
+            "tests/unit/render/rc8-final-bytes.test.ts"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/integrity-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "trig-new": {
+          "argv": [
+            "python",
+            "evidence/rc8/browser/verify-trig.py"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/trig-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/integrity/acceptance.json",
+        "evidence/rc8/integrity/final-bytes.json",
+        "evidence/rc8/integrity/rc7-control.json",
+        "evidence/rc8/browser/results/oracle.json"
+      ],
+      "limits": [
+        "Pemeriksaan menyatakan kesetiaan representasi pada sumber. Kebenaran matematika penulis berada di luar cakupan."
+      ]
+    },
+    {
+      "id": "A03",
+      "priority": "P1",
+      "title": "Prosa tambahan di luar blok sumber dapat lolos sebagai keluaran utuh",
+      "status": "PASS",
+      "rc7Status": "CONFIRMED_OPEN",
+      "acceptance": [
+        "Unregistered ordinary paragraph, root text, unknown block and duplicate source content rejected",
+        "Same text added inside source block remains rejected",
+        "Legitimate TOC, cover, role labels, backlinks, pagination and explicit partial HTML preserve proper handling",
+        "Sources with and without PUA covered; no generic acknowledgment bypass for source mismatch"
+      ],
+      "gates": [
+        "G06"
+      ],
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "changes": [
+        "Pemeriksaan seluruh artikel memblokir tambahan teks, ID asing atau duplikat, perubahan angka, urutan, tabel, kode dan dekorasi yang menyamar. Termasuk kasus definisi Markdown yang tidak ditampilkan."
+      ],
+      "commands": {
+        "integrity-new": {
+          "argv": [
+            "node",
+            "node_modules/vitest/vitest.mjs",
+            "run",
+            "tests/unit/render/rc8-source-integrity.test.ts",
+            "tests/unit/render/rc8-final-bytes.test.ts"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/integrity-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/integrity/acceptance.json",
+        "evidence/rc8/integrity/final-bytes.json",
+        "evidence/rc8/integrity/pre-correction-source-ids.json"
+      ],
+      "limits": [
+        "Pengecualian untuk dekorasi berasal dari struktur yang dibuat renderer dan konten tepercaya yang tepat."
+      ]
+    },
+    {
+      "id": "A04",
+      "priority": "P1",
+      "title": "Gate kesetaraan performa belum terpenuhi",
+      "status": "FAIL",
+      "rc7Status": "OPEN",
+      "acceptance": [
+        "Dua cohort independen pada build yang identitasnya diverifikasi, >=40 pasangan untuk setiap alur berat yang menjadi gate dan urutan AB/BA seimbang.",
+        "Dengan kontrak yang sekarang: median RC7/baseline <=1.05 dan p95 <=1.10, atau status tetap OPEN/FAIL; perubahan kontrak harus dinyatakan sebagai perubahan produk, bukan perbaikan statistik.",
+        "Seluruh output dalam cohort tetap memenuhi oracle sumber/kanonik/mode/isi/font; semua sampel termasuk warmup dan kegagalan disimpan.",
+        "Catat kondisi cache, hardware, browser binary/hash, runtime, timestamp per sampel dan kondisi beban; laporkan CI atau sebaran yang relevan tanpa mencampur cohort berbeda."
+      ],
+      "gates": [
+        "G09"
+      ],
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "changes": [
+        "Mengurangi pemeriksaan ulang pada revisi yang sama, pemrosesan font dan biaya membaca ulang artikel saat atribut open daftar isi diserialisasi. Mengukur dua cohort RC6/RC8 berpasangan dengan oracle lengkap. Saat satu revisi diproses, aplikasi menggunakan DOM yang sudah dihasilkan untuk menghindari pekerjaan rangkap pada sumber panjang."
+      ],
+      "commands": {
+        "perf-browser-1": {
+          "argv": [
+            "taskset",
+            "-c",
+            "0,1",
+            "node",
+            "tests/bench/performance-browser-official.mjs",
+            "../rc6",
+            "1"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/perf-browser-1.json",
+          "exitCode": 1,
+          "bindingFailures": []
+        },
+        "perf-browser-2": {
+          "argv": [
+            "taskset",
+            "-c",
+            "0,1",
+            "node",
+            "tests/bench/performance-browser-official.mjs",
+            "../rc6",
+            "2"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/perf-browser-2.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "perf-node-1": {
+          "argv": [
+            "taskset",
+            "-c",
+            "4,5",
+            "node",
+            "tests/bench/performance-node.mjs",
+            "../rc6",
+            "1"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/perf-node-1.json",
+          "exitCode": 1,
+          "bindingFailures": []
+        },
+        "perf-node-2": {
+          "argv": [
+            "taskset",
+            "-c",
+            "6,7",
+            "node",
+            "tests/bench/performance-node.mjs",
+            "../rc6",
+            "2"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/perf-node-2.json",
+          "exitCode": 1,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/performance/recovery-cohort-1.json",
+        "evidence/rc8/performance/recovery-cohort-2.json",
+        "evidence/rc8/performance/node-1.json",
+        "evidence/rc8/performance/node-2.json",
+        "evidence/rc8/performance/METHODE.md"
+      ],
+      "limits": [
+        "Ambang per metrik dan per cohort adalah rasio median ≤1,05 dan p95 ≤1,10. Waktu CPU, cache dan variasi host berlaku untuk lingkungan pengukuran. Semua pasangan tetap tercantum."
+      ]
+    },
+    {
+      "id": "A05",
+      "priority": "P2",
+      "title": "Gerbang rilis dan pengikatan bukti benchmark belum lengkap",
+      "status": "PASS",
+      "rc7Status": "OPEN",
+      "acceptance": [
+        "Fixture hasil saat ini membuat acceptance CLI exit nonzero dengan IA-PERF-01, mixed PDF dan native-save status yang benar.",
+        "Mutasi data yang membuat median atau p95 melewati ambang, hasil hilang, sample count kurang, identitas dist berbeda, atau status BLOCKED tidak dapat menghasilkan PASS.",
+        "Kontrol lengkap yang memenuhi kontrak menghasilkan exit 0; test:perf tidak lagi disalahartikan sebagai gerbang produksi penuh.",
+        "Perubahan satu byte asset atau manifest stale menggagalkan runner sebelum sampling.",
+        "Perubahan operator, urutan atau mode satu rumus dengan jumlah rumus tetap menggagalkan validasi hasil waktu.",
+        "Setiap receipt dapat dipetakan ke fixture, settings, oracle, harness dan dist yang sama; dynamic inputs ikut trace.",
+        "Identitas SHA current dist tetap dihitung dari byte, tidak hanya mengandalkan nama versi atau metadata HTML."
+      ],
+      "gates": [
+        "G11"
+      ],
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "changes": [
+        "Gerbang terpisah memeriksa hash aktual dua sisi pengamatan, fixture, settings, oracle lengkap, bukti per gate dan statistik mentah. Sebanyak 15 kontrol mutasi telah diuji. Build produksi Pages lokal berhenti bila keputusan NO_GO."
+      ],
+      "commands": {
+        "aggregate-new": {
+          "argv": [
+            "node",
+            "scripts/acceptance-selfcheck.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/aggregate-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/aggregate-tests",
+        "evidence/rc8/operations/promotion-rehearsal.json"
+      ],
+      "limits": [
+        "Ini merupakan gerbang promosi di aplikasi. Penerapan konfigurasi di layanan hosting dinilai dalam G15 dan G16."
+      ]
+    },
+    {
+      "id": "A06",
+      "priority": "P2",
+      "title": "Karakter PUA berubah menjadi kotak pada PDF campuran asli",
+      "status": "PASS",
+      "rc7Status": "CONFIRMED_OPEN",
+      "acceptance": [
+        "Original source and formula/code/table content stay unchanged; targeted glyphs render correctly with authorized mapping and remain semantically recoverable, or the product clearly rejects/limits unsupported export before labeling it safe. Preserve the noType3 gate until an explicit policy decision changes it, with rationale and separate visual/text checks."
+      ],
+      "gates": [
+        "G07"
+      ],
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "changes": [
+        "Memblokir PDF untuk U+E000/U+F8FF tanpa mapping dan memperlihatkan lokasi. Memeriksa urutan emoji, ketercarian teks, font PDF dan tanpa Type 3 pada kontrol. Dua asal fixture tetap terpisah."
+      ],
+      "commands": {
+        "pdf-new": {
+          "argv": [
+            "node",
+            "tests/e2e/rc8-pdf.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/pdf-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/pdf/results.json",
+        "evidence/rc8/pdf/physical-verification.json",
+        "evidence/rc8/pdf-review/mixed.json"
+      ],
+      "limits": [
+        "Pada tiga konfigurasi asli PDF diagnostik masih memperlihatkan glif kotak. Artefak ini tersimpan di evidence, di luar keluaran yang diizinkan. Native Save ada di G13."
+      ]
+    },
+    {
+      "id": "A07",
+      "priority": "P3",
+      "title": "Label kode kosong terpisah dari baris pertama pada A5",
+      "status": "PASS",
+      "rc7Status": "CONFIRMED_OPEN",
+      "acceptance": [
+        "On original mixed-document.md with EDT-01/A5, no page ends with a code-label-only box; first real code fragment has the initial label, later fragments show continuation;112 code-line contents, blank lines and indentation are unchanged."
+      ],
+      "gates": [
+        "G08"
+      ],
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "changes": [
+        "Membersihkan fragmen cetak kosong; label bahasa dan label lanjutan mengikuti baris yang tercetak. Memeriksa 112 baris kode termasuk indentasi serta baris kosong, 70 baris tabel dan 60 nilai tabel lebar."
+      ],
+      "commands": {
+        "pdf-new": {
+          "argv": [
+            "node",
+            "tests/e2e/rc8-pdf.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/pdf-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/pdf/coverage.json",
+        "evidence/rc8/pdf/physical-verification.json",
+        "evidence/rc8/pdf-review/reference-pages.json",
+        "evidence/rc8/pdf-review/mixed.json"
+      ],
+      "limits": [
+        "Korpus bersama mencakup 4 template × 3 ukuran × 2 orientasi; tiap kombinasi mempunyai fixture terdaftar. Bukti visual rinci EDT/A5 dan empat PDF acuan tersedia."
+      ]
+    },
+    {
+      "id": "A08",
+      "priority": "P2",
+      "title": "Bukti kapasitas, responsivitas, dan label puncak memori perlu diperbaiki",
+      "status": "PASS",
+      "rc7Status": "OPEN",
+      "acceptance": [
+        "Tidak ada angka coarse performance.memory yang diberi label puncak heap akurat atau total RAM.",
+        "Pengukuran setelah GC dan maksimum sampel memakai target yang sama; receipt menjelaskan interval dan bagian memori yang dikecualikan.",
+        "Uji berulang membuka/menutup dan mengedit dokumen melaporkan heap setelah GC beserta plateau/tren, bukan hanya 8 revisi dan 3 pasangan.",
+        "Minimal 5 run per ukuran yang benar-benar didukung; untuk p95 release gate gunakan jumlah sampel yang memadai dan ditetapkan sebelumnya.",
+        "Simpan event-loop gaps, long tasks, waktu pembatalan dan keutuhan output; tetapkan serta penuhi batas responsivitas produk yang konkret.",
+        "Jangan mengiklankan dukungan 500/1000 halaman hanya karena ukuran tersebut ada pada default runner."
+      ],
+      "gates": [
+        "G10"
+      ],
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "changes": [
+        "Mengukur lima pengulangan di masing-masing tiga ukuran, dari preview dan PDF hingga edit ulang, pembatalan dan penggunaan heap pada target halaman. Mesin meneruskan progres dari halaman fisik yang selesai dan memberi waktu pada editor di antara fase dokumen besar."
+      ],
+      "commands": {
+        "perf-capacity": {
+          "argv": [
+            "taskset",
+            "-c",
+            "0-3",
+            "node",
+            "tests/e2e/perf-matrix.mjs",
+            "--acceptance",
+            "--sizes",
+            "6,30,118",
+            "--reps",
+            "5"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/perf-capacity.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/performance/capacity.json",
+        "evidence/rc8/performance/METHODE.md"
+      ],
+      "limits": [
+        "Nilai puncak adalah maksimum sampel JS heap pada target yang sama. Tidak mencakup memori native atau worker; lima ulangan tidak cukup untuk menyatakan p95 produksi."
+      ]
+    },
+    {
+      "id": "A09",
+      "priority": "P2",
+      "title": "Penerimaan native PDF, platform sasaran dan hosting belum ditutup",
+      "status": "BLOCKED",
+      "rc7Status": "OPEN_NOT_FULLY_VERIFIED",
+      "acceptance": [
+        "Semua browser/OS yang diumumkan memiliki bukti pada versi final; WebKit Linux tidak dianggap pengganti Safari Apple.",
+        "File PDF dari dialog native tersimpan, dihash dan ditinjau; batal/cetak ulang tidak dilabeli sukses menyimpan.",
+        "URL preview/produksi benar-benar diverifikasi identitas source/dist/HTTP/CSP dan alur ekspornya.",
+        "Bukti clipboard nyata, pemulihan data, aksesibilitas dan rollback sesuai kontrak tersedia; missing/BLOCKED tidak menjadi PASS."
+      ],
+      "gates": [
+        "G12",
+        "G13",
+        "G14",
+        "G15",
+        "G16"
+      ],
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "changes": [
+        "Chromium Linux menjalankan salin/tempel keyboard dengan dua MIME nyata dari fixture sintetis. Linux Firefox dan WebKit memuat, mengekspor dan membuka kembali HTML identik secara luring.",
+        "Menguji ketersediaan jalur native Chromium headed serta perangkat desktop untuk Save/Cancel/Retry dan pembacaan kembali byte PDF.",
+        "Menguji operasi clipboard dan .pfproj, investigasi kuota, dua tab, konflik/penghapusan, Undo/Redo, keyboard, fokus dan aksesibilitas otomatis.",
+        "Memeriksa HTTP/MIME/headers lokal serta konfigurasi build untuk branch preview dan produksi di salinan terpisah.",
+        "Latihan rollback pada repositori Git sementara mengembalikan source RC7, 180 berkas dist dan seluruh 184 pemeriksaan HTTP."
+      ],
+      "commands": {
+        "user-clipboard-final": {
+          "argv": [
+            "node",
+            "evidence/rc8/browser/uat.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/user-clipboard-final.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "user-content-final": {
+          "argv": [
+            "node",
+            "evidence/rc8/browser/content-outputs.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/user-content-final.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "firefox-final": {
+          "argv": [
+            "node",
+            "evidence/rc8/browser/cross-engine.mjs",
+            "firefox"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/firefox-final.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "webkit-final": {
+          "argv": [
+            "node",
+            "evidence/rc8/browser/cross-engine.mjs",
+            "webkit"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/webkit-final.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "native-dialog-new": {
+          "argv": [
+            "node",
+            "evidence/rc8/browser/native-probe.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/native-dialog-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "native-seat-new": {
+          "argv": [
+            "python",
+            "../work8/browser/graphical-seat.py"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/native-seat-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "user-storage-final": {
+          "argv": [
+            "node",
+            "evidence/rc8/browser/storage-operations.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/user-storage-final.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "local-build": {
+          "argv": [
+            "python",
+            "scripts/verify-local-bundle.py",
+            "/workspace/scratch/d77204dbc71b/work8/qualification3/evidence-build/PAPERFORMA_RC8_SOURCE_FOR_CLEAN_VERIFICATION.zip"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/local-build.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "rollback-local": {
+          "argv": [
+            "bash",
+            "-c",
+            "python scripts/rehearse-rollback.py ../rc7 > evidence/rc8/operations/rollback-local.json"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/rollback-local.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/browser/results/uat.json",
+        "evidence/rc8/browser/results/content-outputs.json",
+        "evidence/rc8/browser/results/playwright-firefox.json",
+        "evidence/rc8/browser/results/playwright-webkit.json",
+        "evidence/rc8/browser/results/native-save.json",
+        "evidence/rc8/browser/results/local-desktop-capabilities.json",
+        "evidence/rc8/browser/results/browser-storage.json",
+        "evidence/rc8/build-tests/http-verification-local.json",
+        "evidence/rc8/operations/remote-readonly.json",
+        "evidence/rc8/operations/promotion-rehearsal.json",
+        "evidence/rc8/operations/rollback-local.json"
+      ],
+      "limits": [
+        "Perangkat Windows, macOS/iOS, Android dan sesi penyedia AI nyata yang diminta belum tersedia.",
+        "Layar dan soket layanan display lokal tidak dapat dibuka. PDF mesin cetak otomatis di G07–G08 tetap dapat diunduh dalam paket.",
+        "Sesi pembaca layar dan zoom native pada perangkat sasaran belum dapat diverifikasi. Pemeriksaan otomatis memiliki cakupan terpisah.",
+        "Pemilik memilih ZIP dan pengujian lokal. Tidak ada URL Cloudflare aktual untuk kandidat ini.",
+        "Tidak ada promosi publik, otorisasi rollback hosting atau latihan terhadap deployment produksi. Pemilik membatasi pekerjaan pada ZIP dan pengujian lokal."
+      ]
+    }
+  ],
+  "gates": [
+    {
+      "id": "G01",
+      "title": "Paket dan identitas",
+      "rc7": "PASS",
+      "status": "PASS",
+      "changeAndObservedResult": "Memverifikasi SHA-256 arsip RC6, RC7 dan audit, nama/path, CRC, daftar internal, sumber asli dan HTML acuan.",
+      "acceptance": "Semua checksum, path/CRC dan input receipt cocok; tiap rilis baru diverifikasi ulang",
+      "limits": "Paket di dalam receipt local-build adalah arsip kandidat awal dengan source/dist identik. Seluruh isi ZIP distribusi dan rebuild final diperiksa lagi secara terpisah setelah pemaketan.",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "commands": {
+        "inputs": {
+          "argv": [
+            "bash",
+            "-c",
+            "python scripts/verify-inputs.py ../inputs/PAPERFORMA_STATIC_3.0.0-rc.6_AUDITED.zip ../delivery/PAPERFORMA_STATIC_3.0.0-rc.7.zip ../rc8-input/PAPERFORMA_RC7_AUDIT_PRODUKSI_20261122.zip > evidence/rc8/input/identity.json"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/inputs.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "local-build": {
+          "argv": [
+            "python",
+            "scripts/verify-local-bundle.py",
+            "/workspace/scratch/d77204dbc71b/work8/qualification3/evidence-build/PAPERFORMA_RC8_SOURCE_FOR_CLEAN_VERIFICATION.zip"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/local-build.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/input/identity.json",
+        "evidence/rc8/build-tests/clean-receipt.json"
+      ],
+      "receipt": "evidence/rc8/acceptance/receipts/G01.json",
+      "decision": {
+        "id": "G01",
+        "status": "PASS",
+        "facts": "evidence/rc8/operations/G01-facts.json",
+        "observations": [
+          "inputs",
+          "local-build"
+        ]
+      }
+    },
+    {
+      "id": "G02",
+      "title": "Build dan suite dasar",
+      "rc7": "PASS",
+      "status": "PASS",
+      "changeAndObservedResult": "Rebuild bersih dari lockfile, pemeriksaan TypeScript, lint, 573 tes Vitest dan 9 tes Node, HTTP 185 jalur, mutasi rilis dan pemindaian rahasia. Seluruh 181 berkas dist beserta manifest identik.",
+      "acceptance": "ci/typecheck/lint/tes/build/static/HTTP/mutation gates lulus; clean rebuild identik",
+      "limits": "Pengujian HTTP dilaksanakan di loopback. Hasil suite browser dan kinerja memakai gate sendiri.",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "commands": {
+        "local-build": {
+          "argv": [
+            "python",
+            "scripts/verify-local-bundle.py",
+            "/workspace/scratch/d77204dbc71b/work8/qualification3/evidence-build/PAPERFORMA_RC8_SOURCE_FOR_CLEAN_VERIFICATION.zip"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/local-build.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "smoke-final": {
+          "argv": [
+            "bash",
+            "-c",
+            "npm run test:smoke > evidence/rc8/user-suite/smoke.log 2>&1 && cp evidence/static-smoke.json evidence/rc8/user-suite/smoke.json"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/smoke-final.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/build-tests/clean-receipt.json",
+        "evidence/rc8/build-tests/clean-build.log",
+        "evidence/rc8/build-tests/static.log",
+        "evidence/rc8/build-tests/http-verification-local.json",
+        "evidence/rc8/build-tests/release-gate.json",
+        "evidence/rc8/operations/dependency-audit.json"
+      ],
+      "receipt": "evidence/rc8/acceptance/receipts/G02.json",
+      "decision": {
+        "id": "G02",
+        "status": "PASS",
+        "facts": "evidence/rc8/operations/G02-facts.json",
+        "observations": [
+          "local-build"
+        ]
+      }
+    },
+    {
+      "id": "G03",
+      "title": "Baseline trigonometri",
+      "rc7": "PASS",
+      "status": "PASS",
+      "changeAndObservedResult": "Unduhan produksi pada empat template. Setiap hasil mempertahankan 231 rumus (103 inline, 128 display), 17 pemulihan dan 254 blok. Seluruh cabang visual serta MathML, anotasi, isi dokumen, CSS dan byte font dicocokkan; EDU-01 mempertahankan 12 font.",
+      "acceptance": "231 rumus/raw/canonical/mode/annotation;17 recovery;254 blok;CSS/font utuh",
+      "limits": "Cakupan kesetaraan adalah korpus pengguna dan profil template yang ditentukan. Jumlah font yang diperlukan berbeda antar-template.",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "commands": {
+        "trig-new": {
+          "argv": [
+            "python",
+            "evidence/rc8/browser/verify-trig.py"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/trig-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/browser/results/trigonometry-downloads.json",
+        "evidence/rc8/browser/results/oracle.json"
+      ],
+      "receipt": "evidence/rc8/acceptance/receipts/G03.json",
+      "decision": {
+        "id": "G03",
+        "status": "PASS",
+        "facts": "evidence/rc8/acceptance/facts/G03.json",
+        "observations": [
+          "trig-new"
+        ]
+      }
+    },
+    {
+      "id": "G04",
+      "title": "Isi wrapper campuran A01",
+      "rc7": "FAIL",
+      "status": "PASS",
+      "changeAndObservedResult": "Dua jalur raw HTML dan clipboard mempertahankan anak semantik di wrapper rumus. Sebanyak 24/24 kasus lulus pada RC8. Sebanyak 20/24 kasus gagal pada RC7.",
+      "acceptance": "Semua prosa/struktur aman dipertahankan; ambiguitas dilaporkan; tidak ada kehilangan diam-diam",
+      "limits": "Cakupan keluarga wrapper, kontrol ambigu dan multiple-math tercantum per baris dalam fixture. Untuk masukan ambigu editor memberi tahu pengguna.",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "commands": {
+        "wrapper-new": {
+          "argv": [
+            "bash",
+            "-c",
+            "node node_modules/vitest/vitest.mjs run tests/unit/core/rc8-mixed-wrappers.test.ts tests/unit/core/rc8-compat-corpus.test.ts tests/unit/core/wrapper-clipboard.test.ts --reporter=dot && node tests/e2e/rc8-wrapper-download.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/wrapper-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "rich-import": {
+          "argv": [
+            "node",
+            "tests/e2e/rc8-rich-export.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/rich-import.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "user-content-final": {
+          "argv": [
+            "node",
+            "evidence/rc8/browser/content-outputs.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/user-content-final.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/wrappers/wrapper-final.json",
+        "evidence/rc8/wrappers/rc7-baseline.json",
+        "evidence/rc8/wrappers/wrapper-downloads.json",
+        "evidence/rc8/operations/rich-import.json"
+      ],
+      "receipt": "evidence/rc8/acceptance/receipts/G04.json",
+      "decision": {
+        "id": "G04",
+        "status": "PASS",
+        "facts": "evidence/rc8/acceptance/facts/G04.json",
+        "observations": [
+          "wrapper-new"
+        ]
+      }
+    },
+    {
+      "id": "G05",
+      "title": "Representasi rumus A02",
+      "rc7": "FAIL",
+      "status": "PASS",
+      "changeAndObservedResult": "Pemeriksaan ekspor menolak formula kosong, perubahan satu operator atau mode, hilangnya cabang visual/MathML, anotasi, CSS dan font rusak. Kontrol valid dapat diekspor.",
+      "acceptance": "Kehilangan/kerusakan visual,MathML,annotation,CSS memblokir; fallback persis dan jelas",
+      "limits": "Pemeriksaan menyatakan kesetiaan representasi pada sumber. Kebenaran matematika penulis berada di luar cakupan.",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "commands": {
+        "integrity-new": {
+          "argv": [
+            "node",
+            "node_modules/vitest/vitest.mjs",
+            "run",
+            "tests/unit/render/rc8-source-integrity.test.ts",
+            "tests/unit/render/rc8-final-bytes.test.ts"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/integrity-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "trig-new": {
+          "argv": [
+            "python",
+            "evidence/rc8/browser/verify-trig.py"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/trig-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/integrity/acceptance.json",
+        "evidence/rc8/integrity/final-bytes.json",
+        "evidence/rc8/integrity/rc7-control.json",
+        "evidence/rc8/browser/results/oracle.json"
+      ],
+      "receipt": "evidence/rc8/acceptance/receipts/G05.json",
+      "decision": {
+        "id": "G05",
+        "status": "PASS",
+        "facts": "evidence/rc8/acceptance/facts/G05.json",
+        "observations": [
+          "integrity-new"
+        ]
+      }
+    },
+    {
+      "id": "G06",
+      "title": "Cakupan seluruh isi A03",
+      "rc7": "FAIL",
+      "status": "PASS",
+      "changeAndObservedResult": "Pemeriksaan seluruh artikel memblokir tambahan teks, ID asing atau duplikat, perubahan angka, urutan, tabel, kode dan dekorasi yang menyamar. Termasuk kasus definisi Markdown yang tidak ditampilkan.",
+      "acceptance": "Node liar,unknown/duplicate block,perubahan angka/operator/urutan diblokir",
+      "limits": "Pengecualian untuk dekorasi berasal dari struktur yang dibuat renderer dan konten tepercaya yang tepat.",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "commands": {
+        "integrity-new": {
+          "argv": [
+            "node",
+            "node_modules/vitest/vitest.mjs",
+            "run",
+            "tests/unit/render/rc8-source-integrity.test.ts",
+            "tests/unit/render/rc8-final-bytes.test.ts"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/integrity-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/integrity/acceptance.json",
+        "evidence/rc8/integrity/final-bytes.json",
+        "evidence/rc8/integrity/pre-correction-source-ids.json"
+      ],
+      "receipt": "evidence/rc8/acceptance/receipts/G06.json",
+      "decision": {
+        "id": "G06",
+        "status": "PASS",
+        "facts": "evidence/rc8/acceptance/facts/G06.json",
+        "observations": [
+          "integrity-new"
+        ]
+      }
+    },
+    {
+      "id": "G07",
+      "title": "Kontrak glyph PDF A06",
+      "rc7": "FAIL",
+      "status": "PASS",
+      "changeAndObservedResult": "Memblokir PDF untuk U+E000/U+F8FF tanpa mapping dan memperlihatkan lokasi. Memeriksa urutan emoji, ketercarian teks, font PDF dan tanpa Type 3 pada kontrol. Dua asal fixture tetap terpisah.",
+      "acceptance": "Fixture asli setia untuk karakter didukung; unsupported diputuskan jelas tanpa klaim utuh",
+      "limits": "Pada tiga konfigurasi asli PDF diagnostik masih memperlihatkan glif kotak. Artefak ini tersimpan di evidence, di luar keluaran yang diizinkan. Native Save ada di G13.",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "commands": {
+        "pdf-new": {
+          "argv": [
+            "node",
+            "tests/e2e/rc8-pdf.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/pdf-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/pdf/results.json",
+        "evidence/rc8/pdf/physical-verification.json",
+        "evidence/rc8/pdf-review/mixed.json"
+      ],
+      "receipt": "evidence/rc8/acceptance/receipts/G07.json",
+      "decision": {
+        "id": "G07",
+        "status": "PASS",
+        "facts": "evidence/rc8/acceptance/facts/G07.json",
+        "observations": [
+          "pdf-new"
+        ]
+      }
+    },
+    {
+      "id": "G08",
+      "title": "Paginasi kode A07",
+      "rc7": "FAIL",
+      "status": "PASS",
+      "changeAndObservedResult": "Membersihkan fragmen cetak kosong; label bahasa dan label lanjutan mengikuti baris yang tercetak. Memeriksa 112 baris kode termasuk indentasi serta baris kosong, 70 baris tabel dan 60 nilai tabel lebar.",
+      "acceptance": "Label kode melekat ke baris nyata;lanjutan sesuai isi;112 baris lengkap",
+      "limits": "Korpus bersama mencakup 4 template × 3 ukuran × 2 orientasi; tiap kombinasi mempunyai fixture terdaftar. Bukti visual rinci EDT/A5 dan empat PDF acuan tersedia.",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "commands": {
+        "pdf-new": {
+          "argv": [
+            "node",
+            "tests/e2e/rc8-pdf.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/pdf-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/pdf/coverage.json",
+        "evidence/rc8/pdf/physical-verification.json",
+        "evidence/rc8/pdf-review/reference-pages.json",
+        "evidence/rc8/pdf-review/mixed.json"
+      ],
+      "receipt": "evidence/rc8/acceptance/receipts/G08.json",
+      "decision": {
+        "id": "G08",
+        "status": "PASS",
+        "facts": "evidence/rc8/acceptance/facts/G08.json",
+        "observations": [
+          "pdf-new"
+        ]
+      }
+    },
+    {
+      "id": "G09",
+      "title": "Performa A04",
+      "rc7": "FAIL",
+      "status": "FAIL",
+      "changeAndObservedResult": "Mengurangi pemeriksaan ulang pada revisi yang sama, pemrosesan font dan biaya membaca ulang artikel saat atribut open daftar isi diserialisasi. Mengukur dua cohort RC6/RC8 berpasangan dengan oracle lengkap. Saat satu revisi diproses, aplikasi menggunakan DOM yang sudah dihasilkan untuk menghindari pekerjaan rangkap pada sumber panjang.",
+      "acceptance": "Median <=1,05x baseline;p95 <=1,10x;cohort/sampel sah;output tetap benar",
+      "limits": "Ambang per metrik dan per cohort adalah rasio median ≤1,05 dan p95 ≤1,10. Waktu CPU, cache dan variasi host berlaku untuk lingkungan pengukuran. Semua pasangan tetap tercantum.",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "commands": {
+        "perf-browser-1": {
+          "argv": [
+            "taskset",
+            "-c",
+            "0,1",
+            "node",
+            "tests/bench/performance-browser-official.mjs",
+            "../rc6",
+            "1"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/perf-browser-1.json",
+          "exitCode": 1,
+          "bindingFailures": []
+        },
+        "perf-browser-2": {
+          "argv": [
+            "taskset",
+            "-c",
+            "0,1",
+            "node",
+            "tests/bench/performance-browser-official.mjs",
+            "../rc6",
+            "2"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/perf-browser-2.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "perf-node-1": {
+          "argv": [
+            "taskset",
+            "-c",
+            "4,5",
+            "node",
+            "tests/bench/performance-node.mjs",
+            "../rc6",
+            "1"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/perf-node-1.json",
+          "exitCode": 1,
+          "bindingFailures": []
+        },
+        "perf-node-2": {
+          "argv": [
+            "taskset",
+            "-c",
+            "6,7",
+            "node",
+            "tests/bench/performance-node.mjs",
+            "../rc6",
+            "2"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/perf-node-2.json",
+          "exitCode": 1,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/performance/recovery-cohort-1.json",
+        "evidence/rc8/performance/recovery-cohort-2.json",
+        "evidence/rc8/performance/node-1.json",
+        "evidence/rc8/performance/node-2.json",
+        "evidence/rc8/performance/METHODE.md"
+      ],
+      "receipt": "evidence/rc8/acceptance/receipts/G09.json",
+      "decision": {
+        "id": "G09",
+        "status": "FAIL",
+        "reason": "4 hasil metrik/cohort melewati batas median/p95; 0 alur/cohort tidak memperoleh seluruh pasangan valid. Semua sampel dan insiden dipertahankan. evidence/rc8/acceptance/facts/G09-failure.json (SHA-256 38f99f1d5b50af7203b28daeae2a4b1abd95f93b47dd598c8ffdb5f75d6452a8)."
+      }
+    },
+    {
+      "id": "G10",
+      "title": "Kapasitas/memori A08",
+      "rc7": "NOT_RUN",
+      "status": "PASS",
+      "changeAndObservedResult": "Mengukur lima pengulangan di masing-masing tiga ukuran, dari preview dan PDF hingga edit ulang, pembatalan dan penggunaan heap pada target halaman. Mesin meneruskan progres dari halaman fisik yang selesai dan memberi waktu pada editor di antara fase dokumen besar.",
+      "acceptance": "Protokol kapasitas berulang,SLA responsivitas/cancel dan metrik memori konsisten",
+      "limits": "Nilai puncak adalah maksimum sampel JS heap pada target yang sama. Tidak mencakup memori native atau worker; lima ulangan tidak cukup untuk menyatakan p95 produksi.",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "commands": {
+        "perf-capacity": {
+          "argv": [
+            "taskset",
+            "-c",
+            "0-3",
+            "node",
+            "tests/e2e/perf-matrix.mjs",
+            "--acceptance",
+            "--sizes",
+            "6,30,118",
+            "--reps",
+            "5"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/perf-capacity.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/performance/capacity.json",
+        "evidence/rc8/performance/METHODE.md"
+      ],
+      "receipt": "evidence/rc8/acceptance/receipts/G10.json",
+      "decision": {
+        "id": "G10",
+        "status": "PASS",
+        "facts": "evidence/rc8/acceptance/facts/G10.json",
+        "observations": [
+          "perf-capacity"
+        ]
+      }
+    },
+    {
+      "id": "G11",
+      "title": "Gerbang rilis A05",
+      "rc7": "FAIL",
+      "status": "PASS",
+      "changeAndObservedResult": "Gerbang terpisah memeriksa hash aktual dua sisi pengamatan, fixture, settings, oracle lengkap, bukti per gate dan statistik mentah. Sebanyak 15 kontrol mutasi telah diuji. Build produksi Pages lokal berhenti bila keputusan NO_GO.",
+      "acceptance": "Aggregate menolak missing/stale/FAIL/BLOCKED/kurang sampel;hash byte aktual dan oracle utuh",
+      "limits": "Ini merupakan gerbang promosi di aplikasi. Penerapan konfigurasi di layanan hosting dinilai dalam G15 dan G16.",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "commands": {
+        "aggregate-new": {
+          "argv": [
+            "node",
+            "scripts/acceptance-selfcheck.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/aggregate-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/aggregate-tests",
+        "evidence/rc8/operations/promotion-rehearsal.json"
+      ],
+      "receipt": "evidence/rc8/acceptance/receipts/G11.json",
+      "decision": {
+        "id": "G11",
+        "status": "PASS",
+        "facts": "evidence/rc8/acceptance/facts/G11.json",
+        "observations": [
+          "aggregate-new"
+        ]
+      }
+    },
+    {
+      "id": "G12",
+      "title": "Browser dan clipboard nyata A09",
+      "rc7": "NOT_RUN",
+      "status": "BLOCKED",
+      "changeAndObservedResult": "Chromium Linux menjalankan salin/tempel keyboard dengan dua MIME nyata dari fixture sintetis. Linux Firefox dan WebKit memuat, mengekspor dan membuka kembali HTML identik secara luring.",
+      "acceptance": "Matriks OS/browser/penyedia sumber yang diumumkan diuji pada kandidat final",
+      "limits": "Perangkat Windows, macOS/iOS, Android dan sesi penyedia AI nyata yang diminta belum tersedia.",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "commands": {
+        "user-clipboard-final": {
+          "argv": [
+            "node",
+            "evidence/rc8/browser/uat.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/user-clipboard-final.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "user-content-final": {
+          "argv": [
+            "node",
+            "evidence/rc8/browser/content-outputs.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/user-content-final.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "firefox-final": {
+          "argv": [
+            "node",
+            "evidence/rc8/browser/cross-engine.mjs",
+            "firefox"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/firefox-final.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "webkit-final": {
+          "argv": [
+            "node",
+            "evidence/rc8/browser/cross-engine.mjs",
+            "webkit"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/webkit-final.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/browser/results/uat.json",
+        "evidence/rc8/browser/results/content-outputs.json",
+        "evidence/rc8/browser/results/playwright-firefox.json",
+        "evidence/rc8/browser/results/playwright-webkit.json"
+      ],
+      "receipt": "evidence/rc8/acceptance/receipts/G12.json",
+      "decision": {
+        "id": "G12",
+        "status": "BLOCKED",
+        "reason": "Pada build final, Linux Chromium benar-benar menyalin dan menempel berkas HTML sintetis dengan Ctrl+C/V, dan raw clipboard HTML/plain sama persis dengan event tepercaya. Firefox 153 dan WebKit WPE 26.5 mengimpor naskah, mengekspor BUS-01, membuka 231 rumus dan 10 font secara luring dan memaginasi 16 halaman. Chrome/Edge Windows, perangkat Apple/Android dan sesi clipboard penyedia nyata belum tersedia. Lihat evidence/rc8/browser/results/uat.json dan playwright-*.json."
+      }
+    },
+    {
+      "id": "G13",
+      "title": "Simpan PDF native A09",
+      "rc7": "BLOCKED",
+      "status": "BLOCKED",
+      "changeAndObservedResult": "Menguji ketersediaan jalur native Chromium headed serta perangkat desktop untuk Save/Cancel/Retry dan pembacaan kembali byte PDF.",
+      "acceptance": "PDF benar-benar disimpan/dibaca/di-hash;math+prosa+layout benar;batal/retry jelas",
+      "limits": "Layar dan soket layanan display lokal tidak dapat dibuka. PDF mesin cetak otomatis di G07–G08 tetap dapat diunduh dalam paket.",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "commands": {
+        "native-dialog-new": {
+          "argv": [
+            "node",
+            "evidence/rc8/browser/native-probe.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/native-dialog-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "native-seat-new": {
+          "argv": [
+            "python",
+            "../work8/browser/graphical-seat.py"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/native-seat-new.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/browser/results/native-save.json",
+        "evidence/rc8/browser/results/local-desktop-capabilities.json"
+      ],
+      "receipt": "evidence/rc8/acceptance/receipts/G13.json",
+      "decision": {
+        "id": "G13",
+        "status": "BLOCKED",
+        "reason": "Simpan PDF melalui dialog native, batal/coba ulang dan pembacaan berkas aktual belum bisa dibuktikan. Chromium desktop terkelola tidak mencapai origin loopback kandidat dan jalur file dibatasi. Xorg dan Xvfb lokal tidak dapat memasang soket tampilan, Wayland gagal memasang soket, dan D-Bus/AT-SPI tidak dapat berjalan. Bukti kandidat final: evidence/rc8/browser/results/native-save.json, local-desktop-capabilities.json serta observasi native-dialog-new dan native-seat-new. PDF otomatis diuji terpisah."
+      }
+    },
+    {
+      "id": "G14",
+      "title": "Operasi data dan aksesibilitas",
+      "rc7": "NOT_RUN",
+      "status": "BLOCKED",
+      "changeAndObservedResult": "Menguji operasi clipboard dan .pfproj, investigasi kuota, dua tab, konflik/penghapusan, Undo/Redo, keyboard, fokus dan aksesibilitas otomatis.",
+      "acceptance": "UAT build final:recovery,quota,dua tab,Undo/Redo,keyboard/zoom/screen reader sesuai cakupan",
+      "limits": "Sesi pembaca layar dan zoom native pada perangkat sasaran belum dapat diverifikasi. Pemeriksaan otomatis memiliki cakupan terpisah.",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "commands": {
+        "user-storage-final": {
+          "argv": [
+            "node",
+            "evidence/rc8/browser/storage-operations.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/user-storage-final.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        },
+        "user-clipboard-final": {
+          "argv": [
+            "node",
+            "evidence/rc8/browser/uat.mjs"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/user-clipboard-final.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/browser/results/browser-storage.json",
+        "evidence/rc8/browser/results/uat.json",
+        "evidence/rc8/browser/results/local-desktop-capabilities.json"
+      ],
+      "receipt": "evidence/rc8/acceptance/receipts/G14.json",
+      "decision": {
+        "id": "G14",
+        "status": "BLOCKED",
+        "reason": "Pada build produksi final, sumber mentah, clipboard, Undo/Redo, opt-in, dua tab, konflik, reload, hapus/batal, backup saat kuota penuh, pemulihan .pfproj, fokus, axe, panel 360 px, reflow emulasi 2x dan batal/coba ulang cetak lulus. Ucapan pembaca layar dan zoom native pada perangkat sasaran masih memerlukan bukti langsung. Bukti: evidence/rc8/browser/results/uat.json, browser-storage.json; observasi user-clipboard-final dan user-storage-final."
+      }
+    },
+    {
+      "id": "G15",
+      "title": "Preview/hosting A09",
+      "rc7": "NOT_RUN",
+      "status": "NOT_RUN",
+      "changeAndObservedResult": "Memeriksa HTTP/MIME/headers lokal serta konfigurasi build untuk branch preview dan produksi di salinan terpisah.",
+      "acceptance": "URL aktual cocok source/dist;HTTP/MIME/CSP/cache/worker/font/print lulus",
+      "limits": "Pemilik memilih ZIP dan pengujian lokal. Tidak ada URL Cloudflare aktual untuk kandidat ini.",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "commands": {
+        "local-build": {
+          "argv": [
+            "python",
+            "scripts/verify-local-bundle.py",
+            "/workspace/scratch/d77204dbc71b/work8/qualification3/evidence-build/PAPERFORMA_RC8_SOURCE_FOR_CLEAN_VERIFICATION.zip"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/local-build.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/build-tests/http-verification-local.json",
+        "evidence/rc8/operations/remote-readonly.json",
+        "evidence/rc8/operations/promotion-rehearsal.json"
+      ],
+      "receipt": "evidence/rc8/acceptance/receipts/G15.json",
+      "decision": {
+        "id": "G15",
+        "status": "NOT_RUN",
+        "reason": "Pemilik memilih ZIP dan pengujian lokal saja. Tidak ada URL preview RC8 Cloudflare dalam cakupan yang diizinkan."
+      }
+    },
+    {
+      "id": "G16",
+      "title": "Rollback dan persetujuan rilis",
+      "rc7": "NOT_RUN",
+      "status": "BLOCKED",
+      "changeAndObservedResult": "Latihan rollback pada repositori Git sementara mengembalikan source RC7, 180 berkas dist dan seluruh 184 pemeriksaan HTTP.",
+      "acceptance": "Target rollback valid,langkah pemulihan terbukti,semua gate wajib final diterima",
+      "limits": "Tidak ada promosi publik, otorisasi rollback hosting atau latihan terhadap deployment produksi. Pemilik membatasi pekerjaan pada ZIP dan pengujian lokal.",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "commands": {
+        "rollback-local": {
+          "argv": [
+            "bash",
+            "-c",
+            "python scripts/rehearse-rollback.py ../rc7 > evidence/rc8/operations/rollback-local.json"
+          ],
+          "receipt": "evidence/rc8/acceptance/observations/rollback-local.json",
+          "exitCode": 0,
+          "bindingFailures": []
+        }
+      },
+      "evidence": [
+        "evidence/rc8/operations/rollback-local.json",
+        "evidence/rc8/operations/remote-readonly.json"
+      ],
+      "receipt": "evidence/rc8/acceptance/receipts/G16.json",
+      "decision": {
+        "id": "G16",
+        "status": "BLOCKED",
+        "reason": "Pemilik memilih pengujian lokal. Promosi dan latihan rollback hosting tidak diotorisasi. Hasil rehearsal Git dan HTTP lokal tercatat tersendiri."
+      }
+    }
+  ]
+}

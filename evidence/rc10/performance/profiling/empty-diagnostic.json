@@ -1,0 +1,674 @@
+[
+  {
+    "i": -1,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 33.963128000000324,
+      "parseAndRenderMs": 12.086901000000125,
+      "integrityModelMs": 0.9114039999999477
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": -1,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 30.477648000000045,
+      "parseAndRenderMs": 12.231896999999663,
+      "integrityModelMs": 0.7734890000001542
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 0,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 7.5232590000005075,
+      "parseAndRenderMs": 1.8931229999998322,
+      "integrityModelMs": 0.35115200000018376
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 0,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 8.071214000000055,
+      "parseAndRenderMs": 2.1049480000001495,
+      "integrityModelMs": 0.42333899999994173
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 1,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 9.199630999999954,
+      "parseAndRenderMs": 3.6615209999999934,
+      "integrityModelMs": 0.5120299999998679
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 1,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 9.373237999999219,
+      "parseAndRenderMs": 2.4538760000004913,
+      "integrityModelMs": 0.5270829999999478
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 2,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 6.845322000000124,
+      "parseAndRenderMs": 1.767175999999381,
+      "integrityModelMs": 0.3301400000000285
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 2,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 5.651116999999886,
+      "parseAndRenderMs": 1.7544570000000022,
+      "integrityModelMs": 0.3914119999999457
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 3,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 13.28385900000012,
+      "parseAndRenderMs": 1.788057000000208,
+      "integrityModelMs": 0.31492800000023635
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 3,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 10.018968000000314,
+      "parseAndRenderMs": 2.536568999999872,
+      "integrityModelMs": 0.49329300000044896
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 4,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 9.76765499999965,
+      "parseAndRenderMs": 1.777672000000166,
+      "integrityModelMs": 0.18424400000003516
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 4,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 5.45633799999996,
+      "parseAndRenderMs": 1.6725350000001526,
+      "integrityModelMs": 0.22673699999995733
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 5,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 6.869147000000339,
+      "parseAndRenderMs": 2.0664409999999407,
+      "integrityModelMs": 0.3370209999998224
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 5,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 10.19559500000014,
+      "parseAndRenderMs": 1.7975310000001627,
+      "integrityModelMs": 0.21041299999978946
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 6,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 11.500388999999814,
+      "parseAndRenderMs": 2.1169759999993403,
+      "integrityModelMs": 0.24959100000069157
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 6,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 5.290811999999278,
+      "parseAndRenderMs": 1.5124479999994946,
+      "integrityModelMs": 0.35772200000064913
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 7,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 9.916084999999839,
+      "parseAndRenderMs": 4.521789999999783,
+      "integrityModelMs": 0.32589399999960733
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 7,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 7.407156999999643,
+      "parseAndRenderMs": 1.6836220000004687,
+      "integrityModelMs": 0.16663800000060291
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 8,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 6.605274999999892,
+      "parseAndRenderMs": 1.756560000000718,
+      "integrityModelMs": 0.2436729999999443
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 8,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 7.466635000000679,
+      "parseAndRenderMs": 1.6842830000005051,
+      "integrityModelMs": 0.2787140000000363
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 9,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 6.647556999999324,
+      "parseAndRenderMs": 1.9771580000005997,
+      "integrityModelMs": 0.1740090000002965
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 9,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 6.368752999999742,
+      "parseAndRenderMs": 1.4947110000002795,
+      "integrityModelMs": 0.19669299999986833
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 10,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 13.027181999999812,
+      "parseAndRenderMs": 1.0209070000000793,
+      "integrityModelMs": 0.14285300000028656
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 10,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 4.387009000000035,
+      "parseAndRenderMs": 1.065813000000162,
+      "integrityModelMs": 0.1605890000000727
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 11,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 5.2550090000004275,
+      "parseAndRenderMs": 1.0409470000004148,
+      "integrityModelMs": 0.22799899999972695
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 11,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 6.81778100000065,
+      "parseAndRenderMs": 1.121976999999788,
+      "integrityModelMs": 0.42260799999985466
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 12,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 9.228133000000525,
+      "parseAndRenderMs": 0.6785179999997126,
+      "integrityModelMs": 0.24033700000018143
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 12,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 4.15871000000061,
+      "parseAndRenderMs": 0.6605519999993703,
+      "integrityModelMs": 0.27490900000066176
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 13,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 5.492121000000225,
+      "parseAndRenderMs": 0.7555320000001302,
+      "integrityModelMs": 0.383679999999913
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 13,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 11.418125999999575,
+      "parseAndRenderMs": 0.9246739999998681,
+      "integrityModelMs": 0.2677480000002106
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 14,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 9.138299000000188,
+      "parseAndRenderMs": 0.7745210000002771,
+      "integrityModelMs": 0.1900020000002769
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 14,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 5.648904000000584,
+      "parseAndRenderMs": 1.0512020000005577,
+      "integrityModelMs": 0.26049700000021403
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 15,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 4.916946999999709,
+      "parseAndRenderMs": 0.9384440000003451,
+      "integrityModelMs": 0.24815899999975954
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 15,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 6.881204999999682,
+      "parseAndRenderMs": 0.9555399999999281,
+      "integrityModelMs": 0.2789050000001225
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 16,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 8.447261999999682,
+      "parseAndRenderMs": 0.9521249999997963,
+      "integrityModelMs": 0.28919999999925494
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 16,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 4.444906000000628,
+      "parseAndRenderMs": 0.9071480000002339,
+      "integrityModelMs": 0.2263760000005277
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 17,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 5.789883000000373,
+      "parseAndRenderMs": 1.0149179999998523,
+      "integrityModelMs": 0.3071170000002894
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 17,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 9.44079899999997,
+      "parseAndRenderMs": 0.9231520000012097,
+      "integrityModelMs": 0.2908129999996163
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 18,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 8.246764000001349,
+      "parseAndRenderMs": 0.9205279999987397,
+      "integrityModelMs": 0.21302600000126404
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 18,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 5.470449999999801,
+      "parseAndRenderMs": 1.0575010000002294,
+      "integrityModelMs": 0.23484899999948539
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 19,
+    "side": "rc10",
+    "times": {
+      "refreshMs": 10.975648999999976,
+      "parseAndRenderMs": 0.6446679999999105,
+      "integrityModelMs": 0.22355199999947217
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  },
+  {
+    "i": 19,
+    "side": "rc6",
+    "times": {
+      "refreshMs": 7.03972099999919,
+      "parseAndRenderMs": 0.9223799999999756,
+      "integrityModelMs": 0.28996100000040315
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "projection": {
+        "preview": "bea3b29e663ce6e1d134a7a1ddc41bbf49ee36ca07884dd186093dc142fd7df5"
+      }
+    }
+  }
+]

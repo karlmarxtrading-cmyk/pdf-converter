@@ -1,0 +1,3777 @@
+{
+  "method": "Fresh RC11 tests: synthetic HTML clipboard -> core -> standalone HTML / print payload / composed native-book HTML. No browser layout or native OS dialog. Expected projections defined independently of app inventory.",
+  "at": "2026-11-22T15:02:18.938Z",
+  "rows": [
+    {
+      "name": "digit-after-sensitive-inline",
+      "input": "<p>Start <span data-tex=\" a + b \">X</span>2 and <span data-tex=\"`c`\">X</span>3 end.</p>",
+      "markdown": "Start \\( a + b \\)2 and \\(`c`\\)3 end.\n",
+      "conversionIssues": [],
+      "stats": {
+        "words": 5,
+        "tables": 0,
+        "math": 2,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "sourceRaw": {
+        "breaks": 0,
+        "paragraphs": [
+          [
+            "Start ",
+            [
+              "math",
+              " a + b ",
+              false
+            ],
+            "2 and ",
+            [
+              "math",
+              "`c`",
+              false
+            ],
+            "3 end."
+          ]
+        ],
+        "headings": [],
+        "formulas": [
+          [
+            "math",
+            " a + b ",
+            false
+          ],
+          [
+            "math",
+            "`c`",
+            false
+          ]
+        ],
+        "tables": [],
+        "codes": [],
+        "listItems": [],
+        "links": [],
+        "text": [
+          "Start ",
+          [
+            "math",
+            " a + b ",
+            false
+          ],
+          "2 and ",
+          [
+            "math",
+            "`c`",
+            false
+          ],
+          "3 end."
+        ]
+      },
+      "outputs": {
+        "render": {
+          "breaks": 0,
+          "paragraphs": [
+            [
+              "Start ",
+              [
+                "math",
+                " a + b ",
+                false
+              ],
+              "2 and ",
+              [
+                "math",
+                "`c`",
+                false
+              ],
+              "3 end."
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              " a + b ",
+              false
+            ],
+            [
+              "math",
+              "`c`",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "Start ",
+            [
+              "math",
+              " a + b ",
+              false
+            ],
+            "2 and ",
+            [
+              "math",
+              "`c`",
+              false
+            ],
+            "3 end."
+          ]
+        },
+        "html": {
+          "breaks": 0,
+          "paragraphs": [
+            [
+              "Start ",
+              [
+                "math",
+                " a + b ",
+                false
+              ],
+              "2 and ",
+              [
+                "math",
+                "`c`",
+                false
+              ],
+              "3 end."
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              " a + b ",
+              false
+            ],
+            [
+              "math",
+              "`c`",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nStart ",
+            [
+              "math",
+              " a + b ",
+              false
+            ],
+            "2 and ",
+            [
+              "math",
+              "`c`",
+              false
+            ],
+            "3 end.\n"
+          ]
+        },
+        "printPayload": {
+          "breaks": 0,
+          "paragraphs": [
+            [
+              "Start ",
+              [
+                "math",
+                " a + b ",
+                false
+              ],
+              "2 and ",
+              [
+                "math",
+                "`c`",
+                false
+              ],
+              "3 end."
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              " a + b ",
+              false
+            ],
+            [
+              "math",
+              "`c`",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nStart ",
+            [
+              "math",
+              " a + b ",
+              false
+            ],
+            "2 and ",
+            [
+              "math",
+              "`c`",
+              false
+            ],
+            "3 end.\n"
+          ]
+        },
+        "book": {
+          "breaks": 0,
+          "paragraphs": [
+            [
+              "Start ",
+              [
+                "math",
+                " a + b ",
+                false
+              ],
+              "2 and ",
+              [
+                "math",
+                "`c`",
+                false
+              ],
+              "3 end."
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              " a + b ",
+              false
+            ],
+            [
+              "math",
+              "`c`",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nStart ",
+            [
+              "math",
+              " a + b ",
+              false
+            ],
+            "2 and ",
+            [
+              "math",
+              "`c`",
+              false
+            ],
+            "3 end.\n"
+          ]
+        }
+      },
+      "errors": {},
+      "mismatches": [],
+      "integrity": true
+    },
+    {
+      "name": "two-display-equations-single-cell",
+      "input": "<table><tr><th>Left</th><th>Right</th></tr><tr><td>BEFORE <span data-tex=\"x|y\" data-display=\"true\">X</span> MIDDLE <span data-tex=\"z^2\" data-display=\"true\">X</span> AFTER</td><td>END</td></tr></table>",
+      "markdown": "<table><tbody><tr><th>Left</th><th>Right</th></tr><tr><td>BEFORE <code data-pf-formula=\"display\">x|y</code> MIDDLE <code data-pf-formula=\"display\">z^2</code> AFTER</td><td>END</td></tr></tbody></table>\n",
+      "conversionIssues": [],
+      "stats": {
+        "words": 6,
+        "tables": 1,
+        "math": 2,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "sourceRaw": {
+        "breaks": 0,
+        "paragraphs": [],
+        "headings": [],
+        "formulas": [
+          [
+            "math",
+            "x|y",
+            true
+          ],
+          [
+            "math",
+            "z^2",
+            true
+          ]
+        ],
+        "tables": [
+          [
+            [
+              {
+                "tag": "th",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "Left"
+                ]
+              },
+              {
+                "tag": "th",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "Right"
+                ]
+              }
+            ],
+            [
+              {
+                "tag": "td",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "BEFORE ",
+                  [
+                    "math",
+                    "x|y",
+                    true
+                  ],
+                  " MIDDLE ",
+                  [
+                    "math",
+                    "z^2",
+                    true
+                  ],
+                  " AFTER"
+                ]
+              },
+              {
+                "tag": "td",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "END"
+                ]
+              }
+            ]
+          ]
+        ],
+        "codes": [],
+        "listItems": [],
+        "links": [],
+        "text": [
+          "LeftRightBEFORE ",
+          [
+            "math",
+            "x|y",
+            true
+          ],
+          " MIDDLE ",
+          [
+            "math",
+            "z^2",
+            true
+          ],
+          " AFTEREND"
+        ]
+      },
+      "outputs": {
+        "render": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x|y",
+              true
+            ],
+            [
+              "math",
+              "z^2",
+              true
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Left"
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Right"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "BEFORE ",
+                    [
+                      "math",
+                      "x|y",
+                      true
+                    ],
+                    " MIDDLE ",
+                    [
+                      "math",
+                      "z^2",
+                      true
+                    ],
+                    " AFTER"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "END"
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "LeftRightBEFORE ",
+            [
+              "math",
+              "x|y",
+              true
+            ],
+            " MIDDLE ",
+            [
+              "math",
+              "z^2",
+              true
+            ],
+            " AFTEREND"
+          ]
+        },
+        "html": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x|y",
+              true
+            ],
+            [
+              "math",
+              "z^2",
+              true
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Left"
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Right"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "BEFORE ",
+                    [
+                      "math",
+                      "x|y",
+                      true
+                    ],
+                    " MIDDLE ",
+                    [
+                      "math",
+                      "z^2",
+                      true
+                    ],
+                    " AFTER"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "END"
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nLeftRightBEFORE ",
+            [
+              "math",
+              "x|y",
+              true
+            ],
+            " MIDDLE ",
+            [
+              "math",
+              "z^2",
+              true
+            ],
+            " AFTEREND\n"
+          ]
+        },
+        "printPayload": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x|y",
+              true
+            ],
+            [
+              "math",
+              "z^2",
+              true
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Left"
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Right"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "BEFORE ",
+                    [
+                      "math",
+                      "x|y",
+                      true
+                    ],
+                    " MIDDLE ",
+                    [
+                      "math",
+                      "z^2",
+                      true
+                    ],
+                    " AFTER"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "END"
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nLeftRightBEFORE ",
+            [
+              "math",
+              "x|y",
+              true
+            ],
+            " MIDDLE ",
+            [
+              "math",
+              "z^2",
+              true
+            ],
+            " AFTEREND\n"
+          ]
+        },
+        "book": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x|y",
+              true
+            ],
+            [
+              "math",
+              "z^2",
+              true
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Left"
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Right"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "BEFORE ",
+                    [
+                      "math",
+                      "x|y",
+                      true
+                    ],
+                    " MIDDLE ",
+                    [
+                      "math",
+                      "z^2",
+                      true
+                    ],
+                    " AFTER"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "END"
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nLeftRightBEFORE ",
+            [
+              "math",
+              "x|y",
+              true
+            ],
+            " MIDDLE ",
+            [
+              "math",
+              "z^2",
+              true
+            ],
+            " AFTEREND\n"
+          ]
+        }
+      },
+      "errors": {},
+      "mismatches": [],
+      "integrity": true
+    },
+    {
+      "name": "multiline-annotation-table",
+      "input": "<table><tr><th><span data-tex=\"\\begin{aligned}a&amp;=b\\\\\nc&amp;=d\\end{aligned}\" data-display=\"true\">X</span></th><th>TAIL</th></tr></table>",
+      "markdown": "<table><tbody><tr><th><code data-pf-formula=\"display\">\\begin{aligned}a&#x26;=b\\\\&#10;c&#x26;=d\\end{aligned}</code></th><th>TAIL</th></tr></tbody></table>\n",
+      "conversionIssues": [],
+      "stats": {
+        "words": 1,
+        "tables": 1,
+        "math": 1,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "sourceRaw": {
+        "breaks": 0,
+        "paragraphs": [],
+        "headings": [],
+        "formulas": [
+          [
+            "math",
+            "\\begin{aligned}a&=b\\\\\nc&=d\\end{aligned}",
+            true
+          ]
+        ],
+        "tables": [
+          [
+            [
+              {
+                "tag": "th",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  [
+                    "math",
+                    "\\begin{aligned}a&=b\\\\\nc&=d\\end{aligned}",
+                    true
+                  ]
+                ]
+              },
+              {
+                "tag": "th",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "TAIL"
+                ]
+              }
+            ]
+          ]
+        ],
+        "codes": [],
+        "listItems": [],
+        "links": [],
+        "text": [
+          [
+            "math",
+            "\\begin{aligned}a&=b\\\\\nc&=d\\end{aligned}",
+            true
+          ],
+          "TAIL"
+        ]
+      },
+      "outputs": {
+        "render": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "\\begin{aligned}a&=b\\\\\nc&=d\\end{aligned}",
+              true
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    [
+                      "math",
+                      "\\begin{aligned}a&=b\\\\\nc&=d\\end{aligned}",
+                      true
+                    ]
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "TAIL"
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            [
+              "math",
+              "\\begin{aligned}a&=b\\\\\nc&=d\\end{aligned}",
+              true
+            ],
+            "TAIL"
+          ]
+        },
+        "html": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "\\begin{aligned}a&=b\\\\\nc&=d\\end{aligned}",
+              true
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    [
+                      "math",
+                      "\\begin{aligned}a&=b\\\\\nc&=d\\end{aligned}",
+                      true
+                    ]
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "TAIL"
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\n",
+            [
+              "math",
+              "\\begin{aligned}a&=b\\\\\nc&=d\\end{aligned}",
+              true
+            ],
+            "TAIL\n"
+          ]
+        },
+        "printPayload": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "\\begin{aligned}a&=b\\\\\nc&=d\\end{aligned}",
+              true
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    [
+                      "math",
+                      "\\begin{aligned}a&=b\\\\\nc&=d\\end{aligned}",
+                      true
+                    ]
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "TAIL"
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\n",
+            [
+              "math",
+              "\\begin{aligned}a&=b\\\\\nc&=d\\end{aligned}",
+              true
+            ],
+            "TAIL\n"
+          ]
+        },
+        "book": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "\\begin{aligned}a&=b\\\\\nc&=d\\end{aligned}",
+              true
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    [
+                      "math",
+                      "\\begin{aligned}a&=b\\\\\nc&=d\\end{aligned}",
+                      true
+                    ]
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "TAIL"
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\n",
+            [
+              "math",
+              "\\begin{aligned}a&=b\\\\\nc&=d\\end{aligned}",
+              true
+            ],
+            "TAIL\n"
+          ]
+        }
+      },
+      "errors": {},
+      "mismatches": [],
+      "integrity": true
+    },
+    {
+      "name": "inline-math-followed-by-digit-header",
+      "input": "<table><tr><th>Before <span data-tex=\"x\">X</span>2 after</th><th>B</th></tr><tr><td>C</td><td>D</td></tr></table>",
+      "markdown": "<table><tbody><tr><th>Before <code data-pf-formula=\"inline\">x</code>2 after</th><th>B</th></tr><tr><td>C</td><td>D</td></tr></tbody></table>\n",
+      "conversionIssues": [],
+      "stats": {
+        "words": 6,
+        "tables": 1,
+        "math": 1,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "sourceRaw": {
+        "breaks": 0,
+        "paragraphs": [],
+        "headings": [],
+        "formulas": [
+          [
+            "math",
+            "x",
+            false
+          ]
+        ],
+        "tables": [
+          [
+            [
+              {
+                "tag": "th",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "Before ",
+                  [
+                    "math",
+                    "x",
+                    false
+                  ],
+                  "2 after"
+                ]
+              },
+              {
+                "tag": "th",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "B"
+                ]
+              }
+            ],
+            [
+              {
+                "tag": "td",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "C"
+                ]
+              },
+              {
+                "tag": "td",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "D"
+                ]
+              }
+            ]
+          ]
+        ],
+        "codes": [],
+        "listItems": [],
+        "links": [],
+        "text": [
+          "Before ",
+          [
+            "math",
+            "x",
+            false
+          ],
+          "2 afterBCD"
+        ]
+      },
+      "outputs": {
+        "render": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              false
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Before ",
+                    [
+                      "math",
+                      "x",
+                      false
+                    ],
+                    "2 after"
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "B"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "C"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "D"
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "Before ",
+            [
+              "math",
+              "x",
+              false
+            ],
+            "2 afterBCD"
+          ]
+        },
+        "html": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              false
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Before ",
+                    [
+                      "math",
+                      "x",
+                      false
+                    ],
+                    "2 after"
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "B"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "C"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "D"
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nBefore ",
+            [
+              "math",
+              "x",
+              false
+            ],
+            "2 afterBCD\n"
+          ]
+        },
+        "printPayload": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              false
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Before ",
+                    [
+                      "math",
+                      "x",
+                      false
+                    ],
+                    "2 after"
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "B"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "C"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "D"
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nBefore ",
+            [
+              "math",
+              "x",
+              false
+            ],
+            "2 afterBCD\n"
+          ]
+        },
+        "book": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              false
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Before ",
+                    [
+                      "math",
+                      "x",
+                      false
+                    ],
+                    "2 after"
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "B"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "C"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "D"
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nBefore ",
+            [
+              "math",
+              "x",
+              false
+            ],
+            "2 afterBCD\n"
+          ]
+        }
+      },
+      "errors": {},
+      "mismatches": [],
+      "integrity": true
+    },
+    {
+      "name": "literal-code-with-math",
+      "input": "<p>Before <span data-tex=\"x\">X</span> after.</p><pre><code>const a = \"$x$\";\n\n  const b = \"\\(y\\)\";</code></pre>",
+      "markdown": "Before $x$ after.\n\n```\nconst a = \"$x$\";\n\n  const b = \"\\(y\\)\";\n```\n",
+      "conversionIssues": [],
+      "stats": {
+        "words": 2,
+        "tables": 0,
+        "math": 1,
+        "images": 0,
+        "code": 1,
+        "mermaid": 0
+      },
+      "sourceRaw": {
+        "breaks": 0,
+        "paragraphs": [
+          [
+            "Before ",
+            [
+              "math",
+              "x",
+              false
+            ],
+            " after."
+          ],
+          [
+            "const b = \"(y)\";"
+          ],
+          []
+        ],
+        "headings": [],
+        "formulas": [
+          [
+            "math",
+            "x",
+            false
+          ]
+        ],
+        "tables": [],
+        "codes": [
+          "const a = \"$x$\";\nconst b = \"(y)\";"
+        ],
+        "listItems": [],
+        "links": [],
+        "text": [
+          "Before ",
+          [
+            "math",
+            "x",
+            false
+          ],
+          " after.const a = \"$x$\";\nconst b = \"(y)\";"
+        ]
+      },
+      "outputs": {
+        "render": {
+          "breaks": 0,
+          "paragraphs": [
+            [
+              "Before ",
+              [
+                "math",
+                "x",
+                false
+              ],
+              " after."
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [
+            "const a = \"$x$\";\n\n  const b = \"\\(y\\)\";"
+          ],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "Before ",
+            [
+              "math",
+              "x",
+              false
+            ],
+            " after.\nconst a = \"$x$\";\n\n  const b = \"\\(y\\)\";"
+          ]
+        },
+        "html": {
+          "breaks": 0,
+          "paragraphs": [
+            [
+              "Before ",
+              [
+                "math",
+                "x",
+                false
+              ],
+              " after."
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [
+            "const a = \"$x$\";\n\n  const b = \"\\(y\\)\";"
+          ],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nBefore ",
+            [
+              "math",
+              "x",
+              false
+            ],
+            " after.\nconst a = \"$x$\";\n\n  const b = \"\\(y\\)\";\n"
+          ]
+        },
+        "printPayload": {
+          "breaks": 0,
+          "paragraphs": [
+            [
+              "Before ",
+              [
+                "math",
+                "x",
+                false
+              ],
+              " after."
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [
+            "const a = \"$x$\";\n\n  const b = \"\\(y\\)\";"
+          ],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nBefore ",
+            [
+              "math",
+              "x",
+              false
+            ],
+            " after.\nconst a = \"$x$\";\n\n  const b = \"\\(y\\)\";\n"
+          ]
+        },
+        "book": {
+          "breaks": 0,
+          "paragraphs": [
+            [
+              "Before ",
+              [
+                "math",
+                "x",
+                false
+              ],
+              " after."
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [
+            "const a = \"$x$\";\n\n  const b = \"\\(y\\)\";"
+          ],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nBefore ",
+            [
+              "math",
+              "x",
+              false
+            ],
+            " after.\nconst a = \"$x$\";\n\n  const b = \"\\(y\\)\";\n"
+          ]
+        }
+      },
+      "errors": {},
+      "mismatches": [],
+      "integrity": true
+    },
+    {
+      "name": "math-inside-emphasis",
+      "input": "<p>Prefix <strong>bold <span data-tex=\" x \">X</span> end</strong> suffix.</p>",
+      "markdown": "Prefix **bold \\( x \\) end** suffix.\n",
+      "conversionIssues": [],
+      "stats": {
+        "words": 4,
+        "tables": 0,
+        "math": 1,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "sourceRaw": {
+        "breaks": 0,
+        "paragraphs": [
+          [
+            "Prefix bold ",
+            [
+              "math",
+              " x ",
+              false
+            ],
+            " end suffix."
+          ]
+        ],
+        "headings": [],
+        "formulas": [
+          [
+            "math",
+            " x ",
+            false
+          ]
+        ],
+        "tables": [],
+        "codes": [],
+        "listItems": [],
+        "links": [],
+        "text": [
+          "Prefix bold ",
+          [
+            "math",
+            " x ",
+            false
+          ],
+          " end suffix."
+        ]
+      },
+      "outputs": {
+        "render": {
+          "breaks": 0,
+          "paragraphs": [
+            [
+              "Prefix bold ",
+              [
+                "math",
+                " x ",
+                false
+              ],
+              " end suffix."
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              " x ",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "Prefix bold ",
+            [
+              "math",
+              " x ",
+              false
+            ],
+            " end suffix."
+          ]
+        },
+        "html": {
+          "breaks": 0,
+          "paragraphs": [
+            [
+              "Prefix bold ",
+              [
+                "math",
+                " x ",
+                false
+              ],
+              " end suffix."
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              " x ",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nPrefix bold ",
+            [
+              "math",
+              " x ",
+              false
+            ],
+            " end suffix.\n"
+          ]
+        },
+        "printPayload": {
+          "breaks": 0,
+          "paragraphs": [
+            [
+              "Prefix bold ",
+              [
+                "math",
+                " x ",
+                false
+              ],
+              " end suffix."
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              " x ",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nPrefix bold ",
+            [
+              "math",
+              " x ",
+              false
+            ],
+            " end suffix.\n"
+          ]
+        },
+        "book": {
+          "breaks": 0,
+          "paragraphs": [
+            [
+              "Prefix bold ",
+              [
+                "math",
+                " x ",
+                false
+              ],
+              " end suffix."
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              " x ",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nPrefix bold ",
+            [
+              "math",
+              " x ",
+              false
+            ],
+            " end suffix.\n"
+          ]
+        }
+      },
+      "errors": {},
+      "mismatches": [],
+      "integrity": true
+    },
+    {
+      "name": "leading-and-trailing-breaks",
+      "input": "<p>Line 1<br><span data-tex=\" a \">X</span><br>Line 3.</p>",
+      "markdown": "<p>Line 1<br><code data-pf-formula=\"inline\"> a </code><br>Line 3.</p>\n",
+      "conversionIssues": [],
+      "stats": {
+        "words": 4,
+        "tables": 0,
+        "math": 1,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "sourceRaw": {
+        "breaks": 2,
+        "paragraphs": [
+          [
+            "Line 1\n",
+            [
+              "math",
+              " a ",
+              false
+            ],
+            "\nLine 3."
+          ]
+        ],
+        "headings": [],
+        "formulas": [
+          [
+            "math",
+            " a ",
+            false
+          ]
+        ],
+        "tables": [],
+        "codes": [],
+        "listItems": [],
+        "links": [],
+        "text": [
+          "Line 1\n",
+          [
+            "math",
+            " a ",
+            false
+          ],
+          "\nLine 3."
+        ]
+      },
+      "outputs": {
+        "render": {
+          "breaks": 2,
+          "paragraphs": [
+            [
+              "Line 1\n",
+              [
+                "math",
+                " a ",
+                false
+              ],
+              "\nLine 3."
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              " a ",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "Line 1\n",
+            [
+              "math",
+              " a ",
+              false
+            ],
+            "\nLine 3."
+          ]
+        },
+        "html": {
+          "breaks": 2,
+          "paragraphs": [
+            [
+              "Line 1\n",
+              [
+                "math",
+                " a ",
+                false
+              ],
+              "\nLine 3."
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              " a ",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nLine 1\n",
+            [
+              "math",
+              " a ",
+              false
+            ],
+            "\nLine 3.\n"
+          ]
+        },
+        "printPayload": {
+          "breaks": 2,
+          "paragraphs": [
+            [
+              "Line 1\n",
+              [
+                "math",
+                " a ",
+                false
+              ],
+              "\nLine 3."
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              " a ",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nLine 1\n",
+            [
+              "math",
+              " a ",
+              false
+            ],
+            "\nLine 3.\n"
+          ]
+        },
+        "book": {
+          "breaks": 2,
+          "paragraphs": [
+            [
+              "Line 1\n",
+              [
+                "math",
+                " a ",
+                false
+              ],
+              "\nLine 3."
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              " a ",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nLine 1\n",
+            [
+              "math",
+              " a ",
+              false
+            ],
+            "\nLine 3.\n"
+          ]
+        }
+      },
+      "errors": {},
+      "mismatches": [],
+      "integrity": true
+    },
+    {
+      "name": "inline-adjacent-no-spaces",
+      "input": "<p>A<span data-tex=\"x\">X</span><span data-tex=\" y \">X</span><span data-tex=\"z\">X</span>B</p>",
+      "markdown": "A\\(x\\)\\( y \\)\\(z\\)B\n",
+      "conversionIssues": [],
+      "stats": {
+        "words": 2,
+        "tables": 0,
+        "math": 3,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "sourceRaw": {
+        "breaks": 0,
+        "paragraphs": [
+          [
+            "A",
+            [
+              "math",
+              "x",
+              false
+            ],
+            [
+              "math",
+              " y ",
+              false
+            ],
+            [
+              "math",
+              "z",
+              false
+            ],
+            "B"
+          ]
+        ],
+        "headings": [],
+        "formulas": [
+          [
+            "math",
+            "x",
+            false
+          ],
+          [
+            "math",
+            " y ",
+            false
+          ],
+          [
+            "math",
+            "z",
+            false
+          ]
+        ],
+        "tables": [],
+        "codes": [],
+        "listItems": [],
+        "links": [],
+        "text": [
+          "A",
+          [
+            "math",
+            "x",
+            false
+          ],
+          [
+            "math",
+            " y ",
+            false
+          ],
+          [
+            "math",
+            "z",
+            false
+          ],
+          "B"
+        ]
+      },
+      "outputs": {
+        "render": {
+          "breaks": 0,
+          "paragraphs": [
+            [
+              "A",
+              [
+                "math",
+                "x",
+                false
+              ],
+              [
+                "math",
+                " y ",
+                false
+              ],
+              [
+                "math",
+                "z",
+                false
+              ],
+              "B"
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              false
+            ],
+            [
+              "math",
+              " y ",
+              false
+            ],
+            [
+              "math",
+              "z",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "A",
+            [
+              "math",
+              "x",
+              false
+            ],
+            [
+              "math",
+              " y ",
+              false
+            ],
+            [
+              "math",
+              "z",
+              false
+            ],
+            "B"
+          ]
+        },
+        "html": {
+          "breaks": 0,
+          "paragraphs": [
+            [
+              "A",
+              [
+                "math",
+                "x",
+                false
+              ],
+              [
+                "math",
+                " y ",
+                false
+              ],
+              [
+                "math",
+                "z",
+                false
+              ],
+              "B"
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              false
+            ],
+            [
+              "math",
+              " y ",
+              false
+            ],
+            [
+              "math",
+              "z",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nA",
+            [
+              "math",
+              "x",
+              false
+            ],
+            [
+              "math",
+              " y ",
+              false
+            ],
+            [
+              "math",
+              "z",
+              false
+            ],
+            "B\n"
+          ]
+        },
+        "printPayload": {
+          "breaks": 0,
+          "paragraphs": [
+            [
+              "A",
+              [
+                "math",
+                "x",
+                false
+              ],
+              [
+                "math",
+                " y ",
+                false
+              ],
+              [
+                "math",
+                "z",
+                false
+              ],
+              "B"
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              false
+            ],
+            [
+              "math",
+              " y ",
+              false
+            ],
+            [
+              "math",
+              "z",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nA",
+            [
+              "math",
+              "x",
+              false
+            ],
+            [
+              "math",
+              " y ",
+              false
+            ],
+            [
+              "math",
+              "z",
+              false
+            ],
+            "B\n"
+          ]
+        },
+        "book": {
+          "breaks": 0,
+          "paragraphs": [
+            [
+              "A",
+              [
+                "math",
+                "x",
+                false
+              ],
+              [
+                "math",
+                " y ",
+                false
+              ],
+              [
+                "math",
+                "z",
+                false
+              ],
+              "B"
+            ]
+          ],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              false
+            ],
+            [
+              "math",
+              " y ",
+              false
+            ],
+            [
+              "math",
+              "z",
+              false
+            ]
+          ],
+          "tables": [],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nA",
+            [
+              "math",
+              "x",
+              false
+            ],
+            [
+              "math",
+              " y ",
+              false
+            ],
+            [
+              "math",
+              "z",
+              false
+            ],
+            "B\n"
+          ]
+        }
+      },
+      "errors": {},
+      "mismatches": [],
+      "integrity": true
+    },
+    {
+      "name": "preformatted-cell-with-display-math",
+      "input": "<table><tr><th>Code</th><th>Formula</th></tr><tr><td><pre><code>let x = 1;\n\n  keep two spaces.</code></pre></td><td><span data-tex=\"x\" data-display=\"true\">X</span></td></tr></table>",
+      "markdown": "<table><tbody><tr><th>Code</th><th>Formula</th></tr><tr><td><pre><code>let x = 1;&#10;&#10;  keep two spaces.</code></pre></td><td><code data-pf-formula=\"display\">x</code></td></tr></tbody></table>\n",
+      "conversionIssues": [],
+      "stats": {
+        "words": 2,
+        "tables": 1,
+        "math": 1,
+        "images": 0,
+        "code": 1,
+        "mermaid": 0
+      },
+      "sourceRaw": {
+        "breaks": 0,
+        "paragraphs": [
+          [
+            "keep two spaces."
+          ],
+          []
+        ],
+        "headings": [],
+        "formulas": [
+          [
+            "math",
+            "x",
+            true
+          ]
+        ],
+        "tables": [
+          [
+            [
+              {
+                "tag": "th",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "Code"
+                ]
+              },
+              {
+                "tag": "th",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "Formula"
+                ]
+              }
+            ],
+            [
+              {
+                "tag": "td",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "let x = 1;\nkeep two spaces."
+                ]
+              },
+              {
+                "tag": "td",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  [
+                    "math",
+                    "x",
+                    true
+                  ]
+                ]
+              }
+            ]
+          ]
+        ],
+        "codes": [
+          "let x = 1;\nkeep two spaces."
+        ],
+        "listItems": [],
+        "links": [],
+        "text": [
+          "CodeFormulalet x = 1;\nkeep two spaces.",
+          [
+            "math",
+            "x",
+            true
+          ]
+        ]
+      },
+      "outputs": {
+        "render": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              true
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Code"
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Formula"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "let x = 1;\n\n  keep two spaces."
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    [
+                      "math",
+                      "x",
+                      true
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [
+            "let x = 1;\n\n  keep two spaces."
+          ],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "CodeFormulalet x = 1;\n\n  keep two spaces.",
+            [
+              "math",
+              "x",
+              true
+            ]
+          ]
+        },
+        "html": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              true
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Code"
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Formula"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "let x = 1;\n\n  keep two spaces."
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    [
+                      "math",
+                      "x",
+                      true
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [
+            "let x = 1;\n\n  keep two spaces."
+          ],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nCodeFormulalet x = 1;\n\n  keep two spaces.",
+            [
+              "math",
+              "x",
+              true
+            ],
+            "\n"
+          ]
+        },
+        "printPayload": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              true
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Code"
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Formula"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "let x = 1;\n\n  keep two spaces."
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    [
+                      "math",
+                      "x",
+                      true
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [
+            "let x = 1;\n\n  keep two spaces."
+          ],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nCodeFormulalet x = 1;\n\n  keep two spaces.",
+            [
+              "math",
+              "x",
+              true
+            ],
+            "\n"
+          ]
+        },
+        "book": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              true
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Code"
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Formula"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "let x = 1;\n\n  keep two spaces."
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    [
+                      "math",
+                      "x",
+                      true
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [
+            "let x = 1;\n\n  keep two spaces."
+          ],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nCodeFormulalet x = 1;\n\n  keep two spaces.",
+            [
+              "math",
+              "x",
+              true
+            ],
+            "\n"
+          ]
+        }
+      },
+      "errors": {},
+      "mismatches": [],
+      "integrity": true
+    },
+    {
+      "name": "rich-cell-link-target",
+      "input": "<table><tr><th>Link</th><th>Formula</th></tr><tr><td><a href=\"https://example.invalid/a?x=1&amp;y=2\" title=\"Data\">Reference</a></td><td><span data-tex=\"x\" data-display=\"true\">X</span></td></tr></table>",
+      "markdown": "<table><tbody><tr><th>Link</th><th>Formula</th></tr><tr><td><a title=\"Data\" href=\"https://example.invalid/a?x=1&#x26;y=2\">Reference</a></td><td><code data-pf-formula=\"display\">x</code></td></tr></tbody></table>\n",
+      "conversionIssues": [],
+      "stats": {
+        "words": 3,
+        "tables": 1,
+        "math": 1,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "sourceRaw": {
+        "breaks": 0,
+        "paragraphs": [],
+        "headings": [],
+        "formulas": [
+          [
+            "math",
+            "x",
+            true
+          ]
+        ],
+        "tables": [
+          [
+            [
+              {
+                "tag": "th",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "Link"
+                ]
+              },
+              {
+                "tag": "th",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "Formula"
+                ]
+              }
+            ],
+            [
+              {
+                "tag": "td",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "Reference"
+                ]
+              },
+              {
+                "tag": "td",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  [
+                    "math",
+                    "x",
+                    true
+                  ]
+                ]
+              }
+            ]
+          ]
+        ],
+        "codes": [],
+        "listItems": [],
+        "links": [
+          {
+            "text": "Reference",
+            "href": "https://example.invalid/a?x=1&y=2"
+          }
+        ],
+        "text": [
+          "LinkFormulaReference",
+          [
+            "math",
+            "x",
+            true
+          ]
+        ]
+      },
+      "outputs": {
+        "render": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              true
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Link"
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Formula"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Reference"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    [
+                      "math",
+                      "x",
+                      true
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [
+            {
+              "text": "Reference",
+              "href": "https://example.invalid/a?x=1&y=2"
+            }
+          ],
+          "text": [
+            "LinkFormulaReference",
+            [
+              "math",
+              "x",
+              true
+            ]
+          ]
+        },
+        "html": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              true
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Link"
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Formula"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Reference"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    [
+                      "math",
+                      "x",
+                      true
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [
+            {
+              "text": "Reference",
+              "href": "https://example.invalid/a?x=1&y=2"
+            }
+          ],
+          "text": [
+            "\n\n\nLinkFormulaReference",
+            [
+              "math",
+              "x",
+              true
+            ],
+            "\n"
+          ]
+        },
+        "printPayload": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              true
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Link"
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Formula"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Reference"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    [
+                      "math",
+                      "x",
+                      true
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [
+            {
+              "text": "Reference",
+              "href": "https://example.invalid/a?x=1&y=2"
+            }
+          ],
+          "text": [
+            "\n\n\nLinkFormulaReference",
+            [
+              "math",
+              "x",
+              true
+            ],
+            "\n"
+          ]
+        },
+        "book": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [
+            [
+              "math",
+              "x",
+              true
+            ]
+          ],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Link"
+                  ]
+                },
+                {
+                  "tag": "th",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Formula"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "Reference"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    [
+                      "math",
+                      "x",
+                      true
+                    ]
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [
+            {
+              "text": "Reference",
+              "href": "https://example.invalid/a?x=1&y=2"
+            }
+          ],
+          "text": [
+            "\n\n\nLinkFormulaReference",
+            [
+              "math",
+              "x",
+              true
+            ],
+            "\n"
+          ]
+        }
+      },
+      "errors": {},
+      "mismatches": [],
+      "integrity": true
+    },
+    {
+      "name": "ordinary-table-no-header",
+      "input": "<table><tr><td>A</td><td>B</td></tr><tr><td>C</td><td>D</td></tr></table>",
+      "markdown": "<table><tbody><tr><td>A</td><td>B</td></tr><tr><td>C</td><td>D</td></tr></tbody></table>\n",
+      "conversionIssues": [],
+      "stats": {
+        "words": 4,
+        "tables": 1,
+        "math": 0,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "sourceRaw": {
+        "breaks": 0,
+        "paragraphs": [],
+        "headings": [],
+        "formulas": [],
+        "tables": [
+          [
+            [
+              {
+                "tag": "td",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "A"
+                ]
+              },
+              {
+                "tag": "td",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "B"
+                ]
+              }
+            ],
+            [
+              {
+                "tag": "td",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "C"
+                ]
+              },
+              {
+                "tag": "td",
+                "span": [
+                  null,
+                  null
+                ],
+                "parts": [
+                  "D"
+                ]
+              }
+            ]
+          ]
+        ],
+        "codes": [],
+        "listItems": [],
+        "links": [],
+        "text": [
+          "ABCD"
+        ]
+      },
+      "outputs": {
+        "render": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "A"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "B"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "C"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "D"
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "ABCD"
+          ]
+        },
+        "html": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "A"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "B"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "C"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "D"
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nABCD\n"
+          ]
+        },
+        "printPayload": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "A"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "B"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "C"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "D"
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nABCD\n"
+          ]
+        },
+        "book": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [],
+          "tables": [
+            [
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "A"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "B"
+                  ]
+                }
+              ],
+              [
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "C"
+                  ]
+                },
+                {
+                  "tag": "td",
+                  "span": [
+                    null,
+                    null
+                  ],
+                  "parts": [
+                    "D"
+                  ]
+                }
+              ]
+            ]
+          ],
+          "codes": [],
+          "listItems": [],
+          "links": [],
+          "text": [
+            "\n\n\nABCD\n"
+          ]
+        }
+      },
+      "errors": {},
+      "mismatches": [],
+      "integrity": true
+    },
+    {
+      "name": "nested-list-mixed-overrides",
+      "input": "<ol reversed start=\"7\"><li>Seven</li><li value=\"3\" type=\"I\">Three<ul type=\"square\"><li type=\"circle\">Inner</li></ul></li><li>Two</li></ol>",
+      "markdown": "<ol reversed start=\"7\"><li>Seven</li><li type=\"I\" value=\"3\">Three<ul type=\"square\"><li type=\"circle\">Inner</li></ul></li><li>Two</li></ol>\n",
+      "conversionIssues": [],
+      "stats": {
+        "words": 4,
+        "tables": 0,
+        "math": 0,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "sourceRaw": {
+        "breaks": 0,
+        "paragraphs": [],
+        "headings": [],
+        "formulas": [],
+        "tables": [],
+        "codes": [],
+        "listItems": [
+          {
+            "type": null,
+            "value": null,
+            "text": "Seven",
+            "bookMarker": null
+          },
+          {
+            "type": "I",
+            "value": "3",
+            "text": "ThreeInner",
+            "bookMarker": null
+          },
+          {
+            "type": "circle",
+            "value": null,
+            "text": "Inner",
+            "bookMarker": null
+          },
+          {
+            "type": null,
+            "value": null,
+            "text": "Two",
+            "bookMarker": null
+          }
+        ],
+        "links": [],
+        "text": [
+          "SevenThreeInnerTwo"
+        ]
+      },
+      "outputs": {
+        "render": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [],
+          "tables": [],
+          "codes": [],
+          "listItems": [
+            {
+              "type": null,
+              "value": null,
+              "text": "Seven",
+              "bookMarker": null
+            },
+            {
+              "type": "I",
+              "value": "3",
+              "text": "ThreeInner",
+              "bookMarker": null
+            },
+            {
+              "type": "circle",
+              "value": null,
+              "text": "Inner",
+              "bookMarker": null
+            },
+            {
+              "type": null,
+              "value": null,
+              "text": "Two",
+              "bookMarker": null
+            }
+          ],
+          "links": [],
+          "text": [
+            "SevenThreeInnerTwo"
+          ]
+        },
+        "html": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [],
+          "tables": [],
+          "codes": [],
+          "listItems": [
+            {
+              "type": null,
+              "value": null,
+              "text": "Seven",
+              "bookMarker": null
+            },
+            {
+              "type": "I",
+              "value": "3",
+              "text": "ThreeInner",
+              "bookMarker": null
+            },
+            {
+              "type": "circle",
+              "value": null,
+              "text": "Inner",
+              "bookMarker": null
+            },
+            {
+              "type": null,
+              "value": null,
+              "text": "Two",
+              "bookMarker": null
+            }
+          ],
+          "links": [],
+          "text": [
+            "\n\n\nSevenThreeInnerTwo\n"
+          ]
+        },
+        "printPayload": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [],
+          "tables": [],
+          "codes": [],
+          "listItems": [
+            {
+              "type": null,
+              "value": null,
+              "text": "Seven",
+              "bookMarker": null
+            },
+            {
+              "type": "I",
+              "value": "3",
+              "text": "ThreeInner",
+              "bookMarker": null
+            },
+            {
+              "type": "circle",
+              "value": null,
+              "text": "Inner",
+              "bookMarker": null
+            },
+            {
+              "type": null,
+              "value": null,
+              "text": "Two",
+              "bookMarker": null
+            }
+          ],
+          "links": [],
+          "text": [
+            "\n\n\nSevenThreeInnerTwo\n"
+          ]
+        },
+        "book": {
+          "breaks": 0,
+          "paragraphs": [],
+          "headings": [],
+          "formulas": [],
+          "tables": [],
+          "codes": [],
+          "listItems": [
+            {
+              "type": null,
+              "value": null,
+              "text": "Seven",
+              "bookMarker": null
+            },
+            {
+              "type": "I",
+              "value": "3",
+              "text": "ThreeInner",
+              "bookMarker": null
+            },
+            {
+              "type": "circle",
+              "value": null,
+              "text": "Inner",
+              "bookMarker": null
+            },
+            {
+              "type": null,
+              "value": null,
+              "text": "Two",
+              "bookMarker": null
+            }
+          ],
+          "links": [],
+          "text": [
+            "\n\n\nSevenThreeInnerTwo\n"
+          ]
+        }
+      },
+      "errors": {},
+      "mismatches": [],
+      "integrity": true
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "engine": "HeadlessChrome/153.0.8010.0",
+  "distTree": "9d2ce6c321ffd305614859932cb8b8fc8cdad73f4f6d5b53b46eec2ddc86d234",
+  "cases": [
+    {
+      "id": "small-synthetic",
+      "template": "BUS-01",
+      "sha256": "3e719aa537e9a78889338e487f69049fc2544e5e8f533f3c2648db7cd21493d0",
+      "bytes": 223420,
+      "output": {
+        "offline": true,
+        "template": "BUS-01",
+        "templateMatch": true,
+        "formulas": 1,
+        "tables": 1,
+        "hasEnd": true,
+        "fontsLoaded": 6,
+        "fonts": 6,
+        "images": 0,
+        "imagesDecoded": 0
+      },
+      "networkRequests": [],
+      "status": "PASS"
+    },
+    {
+      "id": "small-synthetic",
+      "template": "EDU-01",
+      "sha256": "53e7542b451cc914fe8c832d4721575cecf76abf99225f163fa1418ce4c349e5",
+      "bytes": 278603,
+      "output": {
+        "offline": true,
+        "template": "EDU-01",
+        "templateMatch": true,
+        "formulas": 1,
+        "tables": 1,
+        "hasEnd": true,
+        "fontsLoaded": 8,
+        "fonts": 8,
+        "images": 0,
+        "imagesDecoded": 0
+      },
+      "networkRequests": [],
+      "status": "PASS"
+    },
+    {
+      "id": "small-synthetic",
+      "template": "EDT-01",
+      "sha256": "6921795fe1480c191a1250b5a984d8b502f354407040c78d9b6409dc51cecb71",
+      "bytes": 332325,
+      "output": {
+        "offline": true,
+        "template": "EDT-01",
+        "templateMatch": true,
+        "formulas": 1,
+        "tables": 1,
+        "hasEnd": true,
+        "fontsLoaded": 10,
+        "fonts": 10,
+        "images": 0,
+        "imagesDecoded": 0
+      },
+      "networkRequests": [],
+      "status": "PASS"
+    },
+    {
+      "id": "small-synthetic",
+      "template": "CON-01",
+      "sha256": "ba10ec960fc93c6cce5c72900be37cf63e9d4a1340ea8bedc7c58ef0b5a781d0",
+      "bytes": 189852,
+      "output": {
+        "offline": true,
+        "template": "CON-01",
+        "templateMatch": true,
+        "formulas": 1,
+        "tables": 1,
+        "hasEnd": true,
+        "fontsLoaded": 5,
+        "fonts": 5,
+        "images": 0,
+        "imagesDecoded": 0
+      },
+      "networkRequests": [],
+      "status": "PASS"
+    },
+    {
+      "id": "original-long-mixed",
+      "template": "BUS-01",
+      "review": "Output created, but needs your decision",
+      "sha256": "17ee03f1d00201b77a52d034b24965161d7cc6e155c647705578dc3aea51ca9b",
+      "bytes": 690861,
+      "output": {
+        "offline": true,
+        "template": "BUS-01",
+        "templateMatch": true,
+        "formulas": 3,
+        "tables": 2,
+        "hasEnd": true,
+        "fontsLoaded": 30,
+        "fonts": 30,
+        "images": 2,
+        "imagesDecoded": 2
+      },
+      "networkRequests": [],
+      "status": "PASS"
+    },
+    {
+      "id": "original-long-mixed",
+      "template": "EDU-01",
+      "review": "Output created, but needs your decision",
+      "sha256": "476b20f326db9122bebc75aa3af7cb339f96416389a50f0fb35edcad6bc296f2",
+      "bytes": 850611,
+      "output": {
+        "offline": true,
+        "template": "EDU-01",
+        "templateMatch": true,
+        "formulas": 3,
+        "tables": 2,
+        "hasEnd": true,
+        "fontsLoaded": 40,
+        "fonts": 40,
+        "images": 2,
+        "imagesDecoded": 2
+      },
+      "networkRequests": [],
+      "status": "PASS"
+    },
+    {
+      "id": "original-long-mixed",
+      "template": "EDT-01",
+      "review": "Output created, but needs your decision",
+      "sha256": "8e75c3d639e544e9f5e5cfbb988cbcae0389d72a934f75c575928d4eb3e2269b",
+      "bytes": 928978,
+      "output": {
+        "offline": true,
+        "template": "EDT-01",
+        "templateMatch": true,
+        "formulas": 3,
+        "tables": 2,
+        "hasEnd": true,
+        "fontsLoaded": 45,
+        "fonts": 45,
+        "images": 2,
+        "imagesDecoded": 2
+      },
+      "networkRequests": [],
+      "status": "PASS"
+    },
+    {
+      "id": "original-long-mixed",
+      "template": "CON-01",
+      "review": "Output created, but needs your decision",
+      "sha256": "10fb046c0f0a40ad0a963dea074c2f5d83a33ec5a4c2b8e9ec6dcfea10bf7eda",
+      "bytes": 578765,
+      "output": {
+        "offline": true,
+        "template": "CON-01",
+        "templateMatch": true,
+        "formulas": 3,
+        "tables": 2,
+        "hasEnd": true,
+        "fontsLoaded": 25,
+        "fonts": 25,
+        "images": 2,
+        "imagesDecoded": 2
+      },
+      "networkRequests": [],
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "observations": [
+    "verified-input-archives",
+    "local-build"
+  ],
+  "checks": {
+    "archivePaths": {
+      "pass_": true,
+      "evidence": "evidence/rc9/build-tests/clean-receipt.json",
+      "pass": true
+    },
+    "archiveChecksums": {
+      "pass_": true,
+      "evidence": "evidence/rc9/build-tests/clean-receipt.json",
+      "pass": true
+    },
+    "inputIdentity": {
+      "pass_": true,
+      "evidence": "evidence/rc9/input/identity.json",
+      "pass": true
+    }
+  }
+}

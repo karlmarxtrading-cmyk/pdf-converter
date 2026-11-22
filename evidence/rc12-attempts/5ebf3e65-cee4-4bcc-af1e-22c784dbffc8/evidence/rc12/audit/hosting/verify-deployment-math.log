@@ -1,0 +1,4 @@
+✓ chatgpt-html-literal: version=3.0.0-rc.12 expected=3.0.0-rc.12 katex=11 raw=- 
+✓ chatgpt-html-katex: version=3.0.0-rc.12 expected=3.0.0-rc.12 katex=11 raw=- 
+✓ plain-text-editor: version=3.0.0-rc.12 expected=3.0.0-rc.12 katex=11 raw=- 
+LULUS

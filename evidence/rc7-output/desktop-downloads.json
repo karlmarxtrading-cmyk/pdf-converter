@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "distTree": "9d2ce6c321ffd305614859932cb8b8fc8cdad73f4f6d5b53b46eec2ddc86d234",
+  "fixtureSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+  "route": "Production studio in managed desktop Chromium \u2192 Open file \u2192 file chooser populated with original Markdown \u2192 template \u2192 Check and export \u2192 single HTML file \u2192 Create output \u2192 completed browser download",
+  "titleField": "Kumpulan Rumus Trigonometri Lengkap (automatic from the file heading, no manual edit)",
+  "checksReported": [
+    "katex-layout",
+    "no-scripts",
+    "no-network-resources",
+    "internal-anchors",
+    "fonts-embedded",
+    "glyph-coverage",
+    "size-budget",
+    "integrity"
+  ],
+  "formulaCountInEachPublishSummary": 231,
+  "exports": [
+    {
+      "template": "BUS-01",
+      "file": "RC7_TRIGONOMETRI_BUS-01.html",
+      "bytes": 902499,
+      "appReportedSha256": "b2c21b1bb3bdf24706209d7e98afb34dcc81478b31d942d1adec28d51b8d1ef4",
+      "downloadedSha256": "b2c21b1bb3bdf24706209d7e98afb34dcc81478b31d942d1adec28d51b8d1ef4"
+    },
+    {
+      "template": "EDU-01",
+      "file": "RC7_TRIGONOMETRI_EDU-01.html",
+      "bytes": 957699,
+      "appReportedSha256": "3fc826221c8f207764683d7f97dacb2234c68ed304bb157fdadd88dd7760e09a",
+      "downloadedSha256": "3fc826221c8f207764683d7f97dacb2234c68ed304bb157fdadd88dd7760e09a"
+    },
+    {
+      "template": "EDT-01",
+      "file": "RC7_TRIGONOMETRI_EDT-01.html",
+      "bytes": 1008013,
+      "appReportedSha256": "f45c56c9102b5ab23a8af6d9b7d74db720a0cb09455990d41c3c45b57f9ed312",
+      "downloadedSha256": "f45c56c9102b5ab23a8af6d9b7d74db720a0cb09455990d41c3c45b57f9ed312"
+    },
+    {
+      "template": "CON-01",
+      "file": "RC7_TRIGONOMETRI_CON-01.html",
+      "bytes": 865522,
+      "appReportedSha256": "8c35b6d8eed603a4a5d41254d95af1d51f2b233adcef0c2e8cebad02992a7cfd",
+      "downloadedSha256": "8c35b6d8eed603a4a5d41254d95af1d51f2b233adcef0c2e8cebad02992a7cfd"
+    }
+  ]
+}

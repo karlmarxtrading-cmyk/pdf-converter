@@ -1,0 +1,163 @@
+{
+  "method": "Production studio, local Chromium. The same Cancel button is activated on a real matching iframe progress event. This bounds command handling after the event is dispatched.",
+  "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+  "identity": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.9",
+    "profile": "production",
+    "candidateSha256": "37277f20b922b1a6a9f734b0d69e96a61a8298a6d71aad24a86fd53731178bc9",
+    "distTreeSha256": "876bae95926bce4b4730864c66598f4192cf64c36c0ab02214dd9c3693656b0a",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "rows": [
+    {
+      "phase": "startup-ready",
+      "cross": {
+        "ms": 3047.199999999255,
+        "job": null,
+        "phase": "startup-ready"
+      },
+      "cancelled": true,
+      "frames": 0,
+      "elapsed": 22,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "pass": true
+    },
+    {
+      "phase": "fonts",
+      "cross": {
+        "ms": 3204.0999999996275,
+        "job": "pf-1-f33cf1402a7c-mwr1x4hh",
+        "phase": "fonts"
+      },
+      "cancelled": true,
+      "frames": 0,
+      "elapsed": 34,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "pass": true
+    },
+    {
+      "phase": "images",
+      "cross": {
+        "ms": 3489.39999999851,
+        "job": "pf-1-f33cf1402a7c-mwr1x4hh",
+        "phase": "images"
+      },
+      "cancelled": true,
+      "frames": 0,
+      "elapsed": 16,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "pass": true
+    },
+    {
+      "phase": "paginate",
+      "cross": {
+        "ms": 3880.5999999996275,
+        "job": "pf-1-f33cf1402a7c-mwr1x4hh",
+        "phase": "paginate"
+      },
+      "cancelled": true,
+      "frames": 0,
+      "elapsed": 14,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "pass": true
+    },
+    {
+      "phase": "heading-check",
+      "cross": {
+        "ms": 8123,
+        "job": "pf-1-f33cf1402a7c-mwr1x4hh",
+        "phase": "heading-check"
+      },
+      "cancelled": true,
+      "frames": 0,
+      "elapsed": 26,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "pass": true
+    },
+    {
+      "phase": "diagnostics",
+      "cross": {
+        "ms": 11755.299999998882,
+        "job": "pf-1-f33cf1402a7c-mwr1x4hh",
+        "phase": "diagnostics"
+      },
+      "cancelled": true,
+      "frames": 0,
+      "elapsed": 24,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "pass": true
+    },
+    {
+      "phase": "flatten",
+      "cross": {
+        "ms": 15242.299999998882,
+        "job": "pf-1-f33cf1402a7c-mwr1x4hh",
+        "phase": "flatten"
+      },
+      "cancelled": true,
+      "frames": 0,
+      "elapsed": 31,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "pass": true
+    },
+    {
+      "phase": "inventory",
+      "cross": {
+        "ms": 18642.199999999255,
+        "job": "pf-1-f33cf1402a7c-mwr1x4hh",
+        "phase": "inventory"
+      },
+      "cancelled": true,
+      "frames": 0,
+      "elapsed": 20,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "pass": true
+    },
+    {
+      "phase": "inventory-reopen",
+      "cross": {
+        "ms": 22924.39999999851,
+        "job": "pf-1-f33cf1402a7c-mwr1x4hh",
+        "phase": "inventory-reopen"
+      },
+      "cancelled": true,
+      "frames": 0,
+      "elapsed": 42,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "pass": true
+    },
+    {
+      "phase": "geometry",
+      "cross": {
+        "ms": 27033.5,
+        "job": "pf-1-f33cf1402a7c-mwr1x4hh",
+        "phase": "geometry"
+      },
+      "cancelled": true,
+      "frames": 0,
+      "elapsed": 40,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "pass": true
+    },
+    {
+      "phase": "verified-pages",
+      "cross": {
+        "ms": 31086.199999999255,
+        "job": "pf-1-f33cf1402a7c-mwr1x4hh",
+        "phase": "verified-pages"
+      },
+      "cancelled": true,
+      "frames": 0,
+      "elapsed": 73,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "pass": true
+    }
+  ],
+  "pass": true
+}

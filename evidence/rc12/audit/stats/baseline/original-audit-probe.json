@@ -1,0 +1,37 @@
+{
+  "finding": "F11-03",
+  "probe": "agents/functional/probe.mjs",
+  "execution": "New run on sources extracted from the authenticated RC11 ZIP. The cited row of the analyzer output is reproduced here.",
+  "sourceSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+  "result": {
+    "name": "annotated-display-simple-table",
+    "input": "<table><tr><th>Name</th><th>Formula</th></tr><tr><td>Energy</td><td><span class=\"katex-display\" data-tex=\"E=mc^2\">E=mc^2</span></td></tr></table>",
+    "markdown": "<table><tbody><tr><th>Name</th><th>Formula</th></tr><tr><td>Energy</td><td><code data-pf-formula=\"display\">E=mc^2</code></td></tr></tbody></table>\n",
+    "conversionIssues": [],
+    "renderIssues": [],
+    "stats": {
+      "words": 28,
+      "tables": 0,
+      "math": 1,
+      "images": 0,
+      "code": 0,
+      "mermaid": 0
+    },
+    "formulas": [
+      {
+        "tex": "E=mc^2",
+        "display": true,
+        "table": true
+      }
+    ],
+    "cells": [
+      "Name",
+      "Formula",
+      "Energy",
+      "E=mc2E=mc^2E=mc2"
+    ],
+    "lists": [],
+    "text": "NameFormulaEnergyE=mc2E=mc^2E=mc2",
+    "integrity": true
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "findings": [
+    "F11-01",
+    "F11-02"
+  ],
+  "status": "PASS in local functional and Chromium scope",
+  "runId": "cc0938e1-655c-4975-ae25-773dec283b8f",
+  "identity": {
+    "candidateSha256": "3a3ee3e24ce43548a31386f1141638a567a59c7a161b7200de0945f0b5b62460",
+    "distTreeSha256": "1aede97a9168d8d2e4e703afc1d3f1272e3575d2eb8535f60a4ab3dfdad01e39"
+  },
+  "sourceReproduction": "RC11 source with unchanged input archive and checksum-verified candidate manifest. Original four functional audit runners executed on RC11 and the current candidate.",
+  "baselineCandidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+  "baselineDistSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496",
+  "functionalRunnerHashes": {
+    "probe.mjs": "199ff68ff1f355b2c5eb26ba6f0bf3377bcd67cda4b7c40c4229dc1cc7d4675a",
+    "more-probes.mjs": "fbfd8404839efb67c0ed07d8a66a1cf7e98279d30e44417fd73eafdad20d4c5a",
+    "edge-probes.mjs": "bae0da8940feadb52e17659bf83da30212cd02b34681d074aeead964b256c955",
+    "break-table-probes.mjs": "de2e02a7412579548dbe48ea002cb9fb4f95b72c400a5d85202be0d6d7e0d343"
+  },
+  "oracle": "Against source HTML: hard breaks, text, TeX and mode, table rows/cell roles, spans, header scopes and ID references. Negative controls assert false after deleting a break, adding punctuation, displacing a header reference or changing cell text. Actual browser outputs are checked separately against an independently written expected projection.",
+  "diagnostics": {
+    "rc11-original": {
+      "targeted": [
+        {
+          "case": "plain-break-control",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": true
+        },
+        {
+          "case": "simple-math-break-control",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": true
+        },
+        {
+          "case": "space-math-break",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": false
+        },
+        {
+          "case": "backtick-math-break",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": false
+        },
+        {
+          "case": "literal-math-break",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": false
+        },
+        {
+          "case": "digit-after-break-control",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": true
+        },
+        {
+          "case": "row-header",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": false
+        },
+        {
+          "case": "no-header",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": false
+        },
+        {
+          "case": "column-header-control",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": true
+        }
+      ],
+      "supplementalCases": 35,
+      "edgeMismatches": [
+        "leading-and-trailing-breaks",
+        "ordinary-table-no-header"
+      ],
+      "diagnosticRuntimeErrors": []
+    },
+    "candidate": {
+      "targeted": [
+        {
+          "case": "plain-break-control",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": true
+        },
+        {
+          "case": "simple-math-break-control",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": true
+        },
+        {
+          "case": "space-math-break",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": true
+        },
+        {
+          "case": "backtick-math-break",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": true
+        },
+        {
+          "case": "literal-math-break",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": true
+        },
+        {
+          "case": "digit-after-break-control",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": true
+        },
+        {
+          "case": "row-header",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": true
+        },
+        {
+          "case": "no-header",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": true
+        },
+        {
+          "case": "column-header-control",
+          "fourOutputsMatchOriginalCellRolesAndBreakCount": true
+        }
+      ],
+      "supplementalCases": 35,
+      "edgeMismatches": [],
+      "diagnosticRuntimeErrors": []
+    }
+  },
+  "focusedUnitTests": 126,
+  "newRegressionCases": 9,
+  "browser": {
+    "version": "HeadlessChrome/153.0.8010.0",
+    "methods": [
+      "production import + preview",
+      "standalone export + file reopen while offline",
+      "standard print HTML + Chromium PDF",
+      "book HTML + Chromium PDF"
+    ],
+    "record": "browser/result.json",
+    "sampleVisualReview": {
+      "file": "browser/visual-sample.jpg",
+      "sha256": "36cb48bb4930dd013dab93d5b419432ca50128273e4ac2e9b6cdb4045fcd26ce",
+      "selected": "Halaman isi 2 dari 2 pada PDF standar dan PDF mode buku.",
+      "observed": "Kedua PDF menampilkan ketiga rumus di baris tersendiri. Teks Path dan Next masih memuat backslash. Pada tabel Sales, Region, Amount dan North berpenampilan header, sementara 42 berada di sel data. Tabel berikutnya langsung dimulai dengan One dan Two. END-SEMANTICS tampak sesudah baris Three dan Four."
+    }
+  },
+  "scope": "Synthetic public HTML, Node/jsdom and Linux Chromium. Clipboard from an AI provider and native Windows Save/screen reader need distinct evidence.",
+  "earlierAttempt": {
+    "runId": "5ebf3e65-cee4-4bcc-af1e-22c784dbffc8",
+    "sourceSha256": "003a7b88c2ea84d49ab42053a06a9c2c8162f94578655ba370dad396451d7d7f",
+    "distTreeSha256": "131fb9a3290bdef125fbbae939dabf061b4b55f4aa5356bbd701c0c40f529e64",
+    "observed": "Preceding sealed G02 failed on a 21-formula clipboard document. Data-only display formula markers were rendered as block div elements within a paragraph, causing the HTML parser to close the paragraph prematurely and the strict integrity check to block export.",
+    "correction": "The native annotation, raw literal and explicit formula-marker paths share a phrasing-aware container rule. Display TeX and its structural parent are preserved. Full Vitest rerun 660/660 passed before the new freeze; final frozen results are separately recorded."
+  }
+}

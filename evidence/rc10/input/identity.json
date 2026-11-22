@@ -1,0 +1,32 @@
+{
+  "RC6": {
+    "sha256": "82e6d021c1b042a498440c0ce8957c035eb011f4c1b1fe8c16a450697a52be53",
+    "size": 7409784,
+    "file": "PAPERFORMA_STATIC_3.0.0-rc.6_AUDITED.zip",
+    "members": 551,
+    "verifiedChecksums": 550
+  },
+  "RC9": {
+    "sha256": "bf868821a19d0fd2bd1ef357b6ccf50d8b8ae8446ae37e01d701abee15fdf4d4",
+    "size": 41320393,
+    "file": "PAPERFORMA_STATIC_3.0.0-rc.9_DOKUMEN_BESAR.zip",
+    "members": 1340,
+    "verifiedChecksums": 1339
+  },
+  "audit": {
+    "sha256": "dbb7995e84756d9db6e7f9af8a2f187681ab75945114127962b1d6048c18617f",
+    "size": 2209360,
+    "file": "PAPERFORMA_RC9_AUDIT_MENYELURUH_ARAHAN_GO_DAN_PROMPT_20261122.zip",
+    "members": 111,
+    "verifiedChecksums": 110
+  },
+  "privateReferencePDF": {
+    "sha256": "63ce26810e162e610a8b15ca26d1cd8284bd854cb64e827295be73ab046e45ca",
+    "size": 11194784
+  },
+  "privateSource": {
+    "sha256": "88901d44a592ead82c757b65f57ce26e5f0003598a7a74064d6921439dbd0454",
+    "size": 1659854
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,84 @@
+{
+  "status": "BLOCKED",
+  "runUTC": "2026-11-22T01:50:11.590511+00:00",
+  "sourceAndDistBefore": {
+    "candidateSha256": "774465b21054bfd933b869ea7232d3d59ff8e1fa0422a8d83b18208b08b6abd6",
+    "distTreeSha256": "b2351cef15853b432dbe1fa9c02d0537308cc778a16fdbec551e2e243b9caefd"
+  },
+  "package": {
+    "origin": "Official signed Debian trixie-security snapshot, 20261117T190000Z",
+    "name": "xvfb",
+    "version": "2:21.1.16-1.3+deb13u4",
+    "bytes": 3198660,
+    "sha256": "893d87bf159b6de077a929fc796a73c39f837d45310b2076e3eeebebb80552b6",
+    "staging": "Downloaded via apt, dpkg-deb extracted into the temporary workspace. OS configuration untouched."
+  },
+  "seatEnvironment": {
+    "DISPLAY": null,
+    "WAYLAND_DISPLAY": null,
+    "DBUS_SESSION_BUS_ADDRESS": null,
+    "orcaAvailable": false,
+    "speechDispatcherAvailable": false,
+    "availability": {
+      "Xvfb": false,
+      "Xorg": true,
+      "Xwayland": false,
+      "weston": false,
+      "orca": false,
+      "dbus-run-session": true
+    },
+    "cachedPackages": {
+      "xvfb": true,
+      "xwayland": false,
+      "weston": false,
+      "orca": false,
+      "speech-dispatcher": false
+    }
+  },
+  "xorg": {
+    "tool": "Xorg",
+    "exitCode": 1,
+    "output": "_XSERVTransSocketOpenCOTSServer: Unable to open socket for local\n_XSERVTransOpen: transport open failed for local/1931e69f4952:78\n_XSERVTransMakeAllCOTSServerListeners: failed to open listener for local\n_XSERVTransSocketOpenCOTSServer: Unable to open socket for unix\n_XSERVTransOpen: transport open failed for unix/1931e69f4952:78\n_XSERVTransMakeAllCOTSServerListeners: failed to open listener for unix\n(EE) \nFatal server error:\n(EE) Cannot establish any listening sockets - Make sure an X server isn't already running(EE) \n(EE) \nPlease consult the The X.Org Foundation support \n\t at http://wiki.x.org\n for help. \n(EE) Please also check the log file at \"<temporary>/Xorg-run.log\" for additional information.\n(EE) \n(EE) Server terminated with error (1). Closing log file.\n"
+  },
+  "xvfb": {
+    "tool": "Xvfb",
+    "exitCode": 1,
+    "output": "_XSERVTransSocketOpenCOTSServer: Unable to open socket for local\n_XSERVTransOpen: transport open failed for local/1931e69f4952:79\n_XSERVTransMakeAllCOTSServerListeners: failed to open listener for local\n_XSERVTransSocketOpenCOTSServer: Unable to open socket for unix\n_XSERVTransOpen: transport open failed for unix/1931e69f4952:79\n_XSERVTransMakeAllCOTSServerListeners: failed to open listener for unix\n(EE) \nFatal server error:\n(EE) Cannot establish any listening sockets - Make sure an X server isn't already running(EE) \n"
+  },
+  "dbus": {
+    "tool": "dbus-run-session",
+    "exitCode": 127,
+    "output": "dbus-daemon[5509]: Failed to start message bus: Failed to open socket: Operation not permitted\ndbus-run-session: EOF reading address from bus daemon\n"
+  },
+  "atSpiLauncher": {
+    "tool": "at-spi-bus-launcher",
+    "exitCode": 1,
+    "output": "Failed to launch bus: Failed to connect to session bus"
+  },
+  "seatBinarySha256": {
+    "Xorg": "f27e5a6a276b15877bf3ad67fd8ed30b745bc5bf0be646cd06b1f9006b540dd7",
+    "Xvfb": "16667b1eaafbe0b09527c2152e45f81b4b8e977012281062fc2fb2427afa66ce",
+    "at-spi-bus-launcher": "dfa902734ac9adea3044dd1cd0f23164bff8bfb681bfc55be491f125c55faa31"
+  },
+  "localIpc": {
+    "status": "unavailable",
+    "errno": 1,
+    "description": "Operation not permitted"
+  },
+  "wayland": {
+    "displayObjectAllocated": true,
+    "addSocketResult": -1,
+    "errnoAfterCall": 2
+  },
+  "sourceAndDistAfter": {
+    "candidateSha256": "774465b21054bfd933b869ea7232d3d59ff8e1fa0422a8d83b18208b08b6abd6",
+    "distTreeSha256": "b2351cef15853b432dbe1fa9c02d0537308cc778a16fdbec551e2e243b9caefd"
+  },
+  "qualification": {
+    "nativeSavedPdf": false,
+    "nativeCancelAndReadback": false,
+    "nativeZoomOnPublishedCandidate": false,
+    "screenReaderSpeechOnPublishedCandidate": false
+  },
+  "interpretation": "Capability probe only. See actual process exit codes, socket results and target-tool availability. Native Save/Cancel/Retry on the target device and an actual screen-reader session require separate artifacts."
+}

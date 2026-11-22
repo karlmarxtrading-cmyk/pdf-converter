@@ -1,0 +1,12 @@
+{
+  "candidateSha256": "3a3ee3e24ce43548a31386f1141638a567a59c7a161b7200de0945f0b5b62460",
+  "distTreeSha256": "1aede97a9168d8d2e4e703afc1d3f1272e3575d2eb8535f60a4ab3dfdad01e39",
+  "fixture": "fixtures/rc9/single-paragraph-217850.md",
+  "fixtureSha256": "b3a64a1dedd54b8e250f0bf4dcbf2121196fb27b54e6b72f40d21171d4e0f812",
+  "expectedWords": 217850,
+  "expectedTables": 1,
+  "editor": "Revision 1 · 217850 words",
+  "summary": "Revisionrev 1 · 022743ed9162FormatBUS-01 · A4 PortraitContent217850 words · 1 tables · 0 formulas · 0 images · 0 code blocks · 0 Mermaid diagrams",
+  "pass": true,
+  "browser": "HeadlessChrome/153.0.8010.0"
+}

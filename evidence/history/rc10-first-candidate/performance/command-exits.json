@@ -1,0 +1,26 @@
+{
+  "g09-node-1": {
+    "observation": null,
+    "childExitCode": null,
+    "signal": null,
+    "reason": "No acceptance command wrapper for first candidate. The raw harness status and independent recount are available."
+  },
+  "g09-node-2": {
+    "observation": null,
+    "childExitCode": null,
+    "signal": null,
+    "reason": "No acceptance command wrapper for first candidate. The raw harness status and independent recount are available."
+  },
+  "g09-browser-1": {
+    "observation": null,
+    "childExitCode": null,
+    "signal": null,
+    "reason": "No acceptance command wrapper for first candidate. The raw harness status and independent recount are available."
+  },
+  "g09-browser-2": {
+    "observation": null,
+    "childExitCode": null,
+    "signal": null,
+    "reason": "No acceptance command wrapper for first candidate. The raw harness status and independent recount are available."
+  }
+}

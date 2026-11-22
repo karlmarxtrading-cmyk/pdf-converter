@@ -1,0 +1,22 @@
+{
+  "receiptSha256": "2d975ab039256c406a1c88ebbd4f44457c37510b2ddbaf2851c593cfe22815ca",
+  "runId": "9a656b4f-0c91-43f7-8c88-094502eb9a2c",
+  "case": "original-default",
+  "exitCode": 1,
+  "phaseAtFailure": {
+    "phase": "offline-reopened",
+    "elapsedMs": 46457
+  },
+  "pageErrorMessage": "Page crashed!",
+  "pageErrorSha256": "5f0724317efcf73cc742c41f59afc82e9ba51b744e3aafd028fad134bb4c6666",
+  "method": "Exact UTF-8 SHA-256 equality with the Puppeteer page error string; the archived receipt contains only its digest.",
+  "memoryAfterFailureOnly": {
+    "MemTotal": "10206472 kB",
+    "MemFree": "2434532 kB",
+    "MemAvailable": "2587924 kB",
+    "SwapTotal": "0 kB",
+    "SwapFree": "0 kB"
+  },
+  "memoryMeasurementTime": "2026-11-22T01:17:19.842725+00:00",
+  "cause": "Puppeteer reported a crashed renderer. The exact crash instant and OS cause were not recorded."
+}

@@ -1,0 +1,212 @@
+[
+  {
+    "file": "CHANGELOG.md",
+    "rc6": "d6a9e2816ba7d4eb7e341fd8d36766e69dabf51e8d59627279f77a85007bf35d",
+    "rc7": "65034ea72b6cfc4f1919789d47e83645fff9a13847cfa5dc691b03b01f6d4ebc"
+  },
+  {
+    "file": "README.md",
+    "rc6": "9dd367ccddca13971ba67aded8a4eb24ee55d2c89d2613d81589baffc105f305",
+    "rc7": "d0b54414dc767050a44a89ca7bdd8982b2d7127f4d305f77caed5f331816f89c"
+  },
+  {
+    "file": "index.html",
+    "rc6": "4b59971bbb2f2c81f4b226c9fe032e3ebee58dbc7e9a65b601197bb7fb92a027",
+    "rc7": "5f2f55a504a8c0d47459da3ebf41d8a465ddcf87cee6b08d98d9820ed90f8cb8"
+  },
+  {
+    "file": "package-lock.json",
+    "rc6": "67c081be8c3588272bcf5d3a7381c3a9903325e3950dd152bcce5ce67791a5ce",
+    "rc7": "891d883f631983adde16b50bbeda3887afbc0c2a31dbe1f91338666e390309ac"
+  },
+  {
+    "file": "package.json",
+    "rc6": "57572916d9c8aa9aa564570a6df7b7cf5ad169e3dbab01c6ab6fb864f6d822ab",
+    "rc7": "3fcbf8d73db0666df6e90ddbf2c53937d7a53293e8bb3db610cd6438bd500d86"
+  },
+  {
+    "file": "public/docs/panduan.html",
+    "rc6": "5e49c4e5a6b9f99b6d81933e2f06297902f3f0c2995cfeb3178293485ddec1cc",
+    "rc7": "15fa39d0acbfaa3086aa9e6a3579f0bad423a76cdf75f5cc620747ada4058559"
+  },
+  {
+    "file": "public/licenses/THIRD_PARTY_NOTICES.txt",
+    "rc6": "552964bb812bf5596a5b4cb4da2104c333ea1ea745585a139fe9737c7d391900",
+    "rc7": "30b5d0f1ab97deb7972e43bc173950477894ddb4b0bbbbba0dd9c0dc709e2b08"
+  },
+  {
+    "file": "scripts/verify-archive.py",
+    "rc6": "17a79c7b744254cb1fc1b94e68a614564c3b19e8d6acdbd73abc7b8bd634f878",
+    "rc7": "76540ec7d2802338a95b08d9cb1cfd7289711e11bf68822fcfb0e1320c67e6ff"
+  },
+  {
+    "file": "scripts/verify-trigonometry.py",
+    "rc6": null,
+    "rc7": "1a5dcafaf5de9e79365bf16bc5662b0d8821cea70cf17a74ff0d227f6ad4add8"
+  },
+  {
+    "file": "src/core/clipboard.ts",
+    "rc6": "a5f0f9820d26d722fbdae2161684493ccd29ed4a9aee77d99649b53d077befd4",
+    "rc7": "23f8fff18dcf2fd535e73ba7f85b8c78703b3fd047239d364475eaba5e75757d"
+  },
+  {
+    "file": "src/core/contracts.ts",
+    "rc6": "da6b0d2f4a81ecd7b7143c4b43bc45cdcb91fe3912975fa5d414314fecb605eb",
+    "rc7": "fc633dad0fd7a0cf426a8544379fd5237a2338861bdb334a7511eb93b7b0f60f"
+  },
+  {
+    "file": "src/core/html-math-source.ts",
+    "rc6": "f69671752447d35614eb9a1280f8081271e978e00906fa1a737023eadf047086",
+    "rc7": "35742e3eb184daddead7eef4c6fe69ceb0824612a168685a58a107f78437dd57"
+  },
+  {
+    "file": "src/core/html.ts",
+    "rc6": "35c235bdea0083a212a5ca38c8551555aea27b8237b8774e4578b373d8a6d162",
+    "rc7": "d63fb16268390f65e61c26d1214b0071d0bff16c7529793a973c6d2078a1cda2"
+  },
+  {
+    "file": "src/core/integrity.ts",
+    "rc6": "24449e88c27c8219cbffa1f1c4b1ffc0139f61ad8cc5f39ee2049bfcccbb1b70",
+    "rc7": "8dfa3ff1f4bface0513ce1a75b05c0df0868c3d29cf15c183f8fc95d2bf5f064"
+  },
+  {
+    "file": "src/core/markdown.ts",
+    "rc6": "9660e828b02c4394da0d950e5150c36f868474b25a7aca8fe844d4bd7b512281",
+    "rc7": "5f958a4686d41349a19ae195ab2d4e188ec327d0bfdb48105f85bbe88909e5d8"
+  },
+  {
+    "file": "src/core/math-diagnostics.ts",
+    "rc6": "cce72fd79c8616ad865c29a89d121b18fa81a47928d97236abb4def6f0356f3b",
+    "rc7": "4b88ea223265d8d34049ead3f0bd2d92481d3559c3c717a3cafdc15ede20185e"
+  },
+  {
+    "file": "src/core/raw-html-integrity.ts",
+    "rc6": null,
+    "rc7": "5ef8721785694892872ab1ceafc24d8ad46e0ee6b893e7097796a5d554f3bcd2"
+  },
+  {
+    "file": "src/core/render.ts",
+    "rc6": "8ed9879cbaa4309961fc6f8795edd3bb976e1a61571d26c5d77611790f0d66d6",
+    "rc7": "675377aba8fff84ee798a7a79355ce21ca1f587131c7842e6156d3306729916f"
+  },
+  {
+    "file": "src/core/util.ts",
+    "rc6": "eae0f244fcdf4c8dbc3d32991b6ff115abb34e76affc050d88872de37e8c5d6e",
+    "rc7": "61ea8e14656866b9b094af67e3d515aca37b71af9be07222301045b2322fd18f"
+  },
+  {
+    "file": "src/render/document.ts",
+    "rc6": "d42708707caddda358638970bc00fe6d4d191ad093acf6dc4eec358002594fe0",
+    "rc7": "2067f1e55e829b9fc0ef6555f7a113f4837d37242108d77c3c935991699888cb"
+  },
+  {
+    "file": "src/render/exports.ts",
+    "rc6": "f888bce25fc89c2313845c0f80e3f819a40a4644badab5dfc99d4bff76a4a8b5",
+    "rc7": "e97978e4d6413de598fd5d9c7a03117630eb28b69c83957b4f4e9d69e3bdc20d"
+  },
+  {
+    "file": "src/render/font-assets.ts",
+    "rc6": "b44292bf926ba0434af5c42fc586a459c5d5243de233c4fffa57f92d20e69543",
+    "rc7": "d9349566adfb234697deecfa1cf58bd8d75e0e75c2b8e9f9ed3871db35ed6b85"
+  },
+  {
+    "file": "src/render/fonts.ts",
+    "rc6": "d12fda8d60a33ad50ff49e3dd8e107eb08a507f30f9478175d91d3faae011e49",
+    "rc7": "3dcdd86b1cae5f213e26b6a1f6b477242db98ae8696d5c03788809cd9a2ef074"
+  },
+  {
+    "file": "src/render/katex-style.ts",
+    "rc6": null,
+    "rc7": "f02053fa5f97d1386fd68e8644abb757362f6e5433925fcaa35f85018928a1c0"
+  },
+  {
+    "file": "src/render/paginate.ts",
+    "rc6": "d339157e1517824f3ffc19d6a73c138015c5ca1791860e38ceaa5fa5d37d600f",
+    "rc7": "2b1f95e5590d163b402f017284536a803e85c6f92426b69f31a3fbdfa3be2a08"
+  },
+  {
+    "file": "src/render/woff2.ts",
+    "rc6": null,
+    "rc7": "7ac5d697237a403155bf31dc2c5fef467ab9f1e364c12c0965487640a14165bc"
+  },
+  {
+    "file": "src/ui/main.ts",
+    "rc6": "45800dc0d4b7860923f667c9164de633272b48564cf92e914ae76ef7245e1757",
+    "rc7": "efd23eb4adb223c6d85b29269aaf259f83c0014a7e417a4b1ba5c10847ee1219"
+  },
+  {
+    "file": "tests/bench/rc7-browser-page.js",
+    "rc6": null,
+    "rc7": "db60c73d2e79e898084e644b6dd89f9f51e3c210bdc7be1429ae78b020f5bb9c"
+  },
+  {
+    "file": "tests/bench/rc7-browser-paired.mjs",
+    "rc6": null,
+    "rc7": "b64c5993449b8208271a472f4d0b6f377cb7aa03d6fe23a5756140e802b643a7"
+  },
+  {
+    "file": "tests/bench/rc7-browser-stage.mjs",
+    "rc6": null,
+    "rc7": "c11b03ba848696519adce66b34b29a6768594f2df344755b558be850c3ac6862"
+  },
+  {
+    "file": "tests/bench/rc7-paired.mjs",
+    "rc6": null,
+    "rc7": "4b7995b3acfe17c74da9d01c4a4ee67c87225549a86dd1df37abdab188e1c3ca"
+  },
+  {
+    "file": "tests/bench/rc7-worker.mjs",
+    "rc6": null,
+    "rc7": "48956dc11e448db167fca6062af6a060b5f15cb344e945309a2eb46719e8dfdf"
+  },
+  {
+    "file": "tests/e2e/rc7-output.mjs",
+    "rc6": null,
+    "rc7": "1e7e442c898ab2c8e4f4c3bf2e7eeddcba5ab937a72e7b0ec00f2e8ad8e7b676"
+  },
+  {
+    "file": "tests/e2e/rc7-print.mjs",
+    "rc6": null,
+    "rc7": "77f18a1b48c32eb5aa273015aa1a3135f15339f9f375890a4015891e0179767d"
+  },
+  {
+    "file": "tests/e2e/scenarios.mjs",
+    "rc6": "5603d1e2e0b656d3263b0ae1f57e8af3d10f66ce3bbd89be1159ea12db1bf3f4",
+    "rc7": "2ae3d679679daa76e42396e3753296dbb32f41448d4ab7afb7354337718371f1"
+  },
+  {
+    "file": "tests/unit/core/rc7-clipboard-math.test.ts",
+    "rc6": null,
+    "rc7": "22b98eb01637af91bc66652a0838f4478455c359b13ff3c4f088520f5082c322"
+  },
+  {
+    "file": "tests/unit/core/rc7-raw-integrity.test.ts",
+    "rc6": null,
+    "rc7": "5af72677dcd5ea99f853dbb63858110b4955b6d0489e31bb5709f6f707432f7a"
+  },
+  {
+    "file": "tests/unit/render/pagination-regressions.test.ts",
+    "rc6": "209e854ab9ce351d1657c333004d385c198177fefe77eda015967962140c77ae",
+    "rc7": "421af30f6f03cce46863ec91e2fe82c23277d07a84cff526dc72169e796ecb84"
+  },
+  {
+    "file": "tests/unit/render/rc7-katex-style.test.ts",
+    "rc6": null,
+    "rc7": "7a40fbb21d374d60f85f0a8c89325c5b4c420fdcc759b65fbaf7daa910465eae"
+  },
+  {
+    "file": "tests/unit/render/rc7-output-matrix.test.ts",
+    "rc6": null,
+    "rc7": "1f3b26926e03558dee80f248f30bb4ad89d93f18c5713e76aeace0c82d7715eb"
+  },
+  {
+    "file": "tests/unit/ui/rc7-recovery.test.ts",
+    "rc6": null,
+    "rc7": "54b417658049ff2b58dc3d2831c0f9a8325dfc6de2854206163ce42e8a991299"
+  },
+  {
+    "file": "vitest.config.ts",
+    "rc6": "61b4571d78c1435ee315e794dabd9dfc9687bf6fdceecd245ed0c8724b9bf803",
+    "rc7": "8d0ac1a84d33d7c5147d88179d78c6f12f36a7bb2cb4a9937a2e4cf84ff6e8d1"
+  }
+]

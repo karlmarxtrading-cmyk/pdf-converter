@@ -1,0 +1,13 @@
+{
+  "scope": "Static inspection of the unchanged RC11 source and the supplied, previously measured audit. No new pre-fix browser or reproduction run.",
+  "baselineSource": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+  "auditFinding": "RC11-SEC-01",
+  "auditMethod": "CONFIRMED_ADMISSION_GAP",
+  "auditReportSha256": "a3c0ca1e704e4206c10ebac07c91408f9f739db9cb9feb8b3cd6e1cc30549026",
+  "cause": "The layout engine performed image measurement before SVG validation. The old SVG resource policy checked the data URL form without sharing the asset dimension and per-render pixel budgets.",
+  "files": {
+    "candidate/src/render/mermaid-frame.ts": "c9bbcc1f8c8e0cc97d1c14907fd6c235fd52efe1787baa23934a10de8720af88",
+    "candidate/src/render/diagram-policy.ts": "1bbaac4ffa0f27728bd7dcfd7be5760da00f73b92ce65544e357c6f48feb56bc"
+  },
+  "historicalObservation": "The supplied audit recorded a stubbed Image measurement; a pre-fix browser crash, resource exhaustion or operating-system failure was not observed."
+}

@@ -1,0 +1,10 @@
++ ["node", "scripts/record-large-gates.mjs"]
+{"id":"U01","status":"PASS","facts":"evidence/rc12/u-facts/U01.json","observations":["book-headings-on-2","book-long-table-off-1","book-original-default-1","book-paragraphs-off-1","book-paragraphs-on-1","book-single-paragraph-off-1"]}
+{"id":"U02","status":"PASS","facts":"evidence/rc12/u-facts/U02.json","observations":["lifecycle-default-1","lifecycle-large-1","lifecycle-timing-1"]}
+{"id":"U03","status":"PASS","facts":"evidence/rc12/u-facts/U03.json","observations":["trace-browser-1","trace-control-1"]}
+{"id":"U04","status":"PASS","facts":"evidence/rc12/u-facts/U04.json","observations":["book-headings-on-2","book-long-table-off-1","book-original-default-1","book-paragraphs-off-1","book-paragraphs-on-1","book-single-paragraph-off-1"]}
+{"id":"U05","status":"PASS","facts":"evidence/rc12/u-facts/U05.json","observations":["book-headings-on-2","book-long-table-off-1","book-original-default-1","book-paragraphs-off-1","book-paragraphs-on-1","book-single-paragraph-off-1","offline-navigation-2","trig-new"]}
+{"id":"U06","status":"PASS","facts":"evidence/rc12/u-facts/U06.json","observations":["capacity-control-1"]}
+{"id":"U07","status":"PASS","facts":"evidence/rc12/u-facts/U07.json","observations":["interleaved-1"]}
+{"id":"U08","status":"PASS","facts":"evidence/rc12/u-facts/U08.json","observations":["ordered-lists-1"]}
+{"section": "record-books", "unsuccessfulCommands": []}

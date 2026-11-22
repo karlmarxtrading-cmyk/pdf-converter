@@ -1,0 +1,27 @@
+{
+  "observations": [
+    "wrapper-new"
+  ],
+  "checks": {
+    "rawWrapper": {
+      "pass": true,
+      "evidence": "evidence/rc8/wrappers/wrapper-final.json"
+    },
+    "clipboardWrapper": {
+      "pass": true,
+      "evidence": "evidence/rc8/wrappers/wrapper-final.json"
+    },
+    "independentText": {
+      "pass": true,
+      "evidence": "evidence/rc8/wrappers/wrapper-final.json"
+    },
+    "ambiguity": {
+      "pass": true,
+      "evidence": "evidence/rc8/wrappers/wrapper-final.json"
+    },
+    "pureAndMultipleControls": {
+      "pass": true,
+      "evidence": "evidence/rc8/wrappers/wrapper-final.json"
+    }
+  }
+}

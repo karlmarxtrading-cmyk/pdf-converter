@@ -1,0 +1,174 @@
+[
+  {
+    "shape": "headings",
+    "toc": "on",
+    "sourceSha256": "a65fea105cf59350cdd0a12f336e5b5d43f3b5378ba4148fb06c8e05778b6043",
+    "sourceBytes": 2397443,
+    "sourceLines": 877,
+    "wordsApp": "Revision\nrev 6 \u00b7 6f09a85a0e9c\nFormat\nBUS-01 \u00b7 A4 Portrait\nContent\n217850 words \u00b7 1 tables \u00b7 0 formulas \u00b7 0 images",
+    "source": {
+      "tables": 1,
+      "rows": 2,
+      "cells": 4,
+      "heads": 219,
+      "maxTextNode": 10988
+    },
+    "html": {
+      "tables": 1,
+      "rows": 2,
+      "cells": 4,
+      "heads": 219,
+      "maxTextNode": 10988
+    },
+    "structuralMatch": true,
+    "pdf": "33c75598126384fab9ac9f198c4d2d9e04cb363da9172ff4a3fb960d8349e4ef",
+    "pages": 630,
+    "sampledPages": [
+      1,
+      6,
+      7,
+      158,
+      316,
+      473,
+      630
+    ],
+    "tableStarts": 7,
+    "physical": true
+  },
+  {
+    "shape": "long-table",
+    "toc": "off",
+    "sourceSha256": "dc36b244e653be7c2594261e6849850e03ef875a5be565234057d02f6ca3d620",
+    "sourceBytes": 2398969,
+    "sourceLines": 441,
+    "wordsApp": "Revision\nrev 7 \u00b7 fcb36b0e532f\nFormat\nBUS-01 \u00b7 A4 Portrait\nContent\n217850 words \u00b7 1 tables \u00b7 0 formulas \u00b7 0 images",
+    "source": {
+      "tables": 1,
+      "rows": 438,
+      "cells": 876,
+      "heads": 1,
+      "maxTextNode": 5488
+    },
+    "html": {
+      "tables": 1,
+      "rows": 438,
+      "cells": 876,
+      "heads": 1,
+      "maxTextNode": 5488
+    },
+    "structuralMatch": true,
+    "pdf": "06f757c48ca4d3607b546a8c69bea98c326e4c15703260473a91e66bff866898",
+    "pages": 591,
+    "sampledPages": [
+      1,
+      148,
+      296,
+      444,
+      591
+    ],
+    "tableStarts": 1,
+    "physical": true
+  },
+  {
+    "shape": "paragraphs",
+    "toc": "off",
+    "sourceSha256": "7ae082466becd7b1776b354a2abf28d0a7947108613f8f1a2fc813e3df3454b6",
+    "sourceBytes": 2397443,
+    "sourceLines": 2185,
+    "wordsApp": "Revision\nrev 7 \u00b7 af6e51fb31b1\nFormat\nBUS-01 \u00b7 A4 Portrait\nContent\n217850 words \u00b7 1 tables \u00b7 0 formulas \u00b7 0 images",
+    "source": {
+      "tables": 1,
+      "rows": 2,
+      "cells": 4,
+      "heads": 1,
+      "maxTextNode": 2199
+    },
+    "html": {
+      "tables": 1,
+      "rows": 2,
+      "cells": 4,
+      "heads": 1,
+      "maxTextNode": 2199
+    },
+    "structuralMatch": true,
+    "pdf": "86db75f1db0654c20747d31566e17d999fc6732acb7b79ecaa57fb5a6f81bb1b",
+    "pages": 628,
+    "sampledPages": [
+      1,
+      158,
+      315,
+      472,
+      628
+    ],
+    "tableStarts": 1,
+    "physical": true
+  },
+  {
+    "shape": "paragraphs",
+    "toc": "on",
+    "sourceSha256": "7ae082466becd7b1776b354a2abf28d0a7947108613f8f1a2fc813e3df3454b6",
+    "sourceBytes": 2397443,
+    "sourceLines": 2185,
+    "wordsApp": "Revision\nrev 6 \u00b7 db5f747541e4\nFormat\nBUS-01 \u00b7 A4 Portrait\nContent\n217850 words \u00b7 1 tables \u00b7 0 formulas \u00b7 0 images",
+    "source": {
+      "tables": 1,
+      "rows": 2,
+      "cells": 4,
+      "heads": 1,
+      "maxTextNode": 2199
+    },
+    "html": {
+      "tables": 1,
+      "rows": 2,
+      "cells": 4,
+      "heads": 1,
+      "maxTextNode": 2199
+    },
+    "structuralMatch": true,
+    "pdf": "dd0e9503fb1b09c9330644e5e0486609beec7e64143f5f7bf50a6375d79f4f10",
+    "pages": 628,
+    "sampledPages": [
+      1,
+      158,
+      315,
+      472,
+      628
+    ],
+    "tableStarts": 1,
+    "physical": true
+  },
+  {
+    "shape": "single-paragraph",
+    "toc": "off",
+    "sourceSha256": "b3a64a1dedd54b8e250f0bf4dcbf2121196fb27b54e6b72f40d21171d4e0f812",
+    "sourceBytes": 2396354,
+    "sourceLines": 7,
+    "wordsApp": "Revision\nrev 7 \u00b7 990696b0f4f9\nFormat\nBUS-01 \u00b7 A4 Portrait\nContent\n217850 words \u00b7 1 tables \u00b7 0 formulas \u00b7 0 images",
+    "source": {
+      "tables": 1,
+      "rows": 2,
+      "cells": 4,
+      "heads": 1,
+      "maxTextNode": 2396283
+    },
+    "html": {
+      "tables": 1,
+      "rows": 2,
+      "cells": 4,
+      "heads": 1,
+      "maxTextNode": 2396283
+    },
+    "structuralMatch": true,
+    "pdf": "3b24480c40d9c77296dbbf303ef3d8d38e4fc384c9318d73beefaea835a4b589",
+    "pages": 614,
+    "sampledPages": [
+      1,
+      154,
+      308,
+      461,
+      614
+    ],
+    "tableStarts": 1,
+    "physical": true
+  }
+]

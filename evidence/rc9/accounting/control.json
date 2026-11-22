@@ -1,0 +1,559 @@
+{
+  "status": "PASS",
+  "method": "Actual paginate() control flow, synthetic layout helpers and clock. Not a browser benchmark or proof of actual orphan geometry.",
+  "rows": [
+    {
+      "toc": false,
+      "stabilizesAfter": 1,
+      "repairCount": 0,
+      "actualPreviewCalls": 1,
+      "trace": [
+        {
+          "attempt": 1,
+          "pass": 1,
+          "globalPass": 1,
+          "pages": 1,
+          "elapsedMs": 10
+        }
+      ],
+      "enginePreviewCalls": 1,
+      "finalAttemptPasses": 1,
+      "returnedPasses": 1,
+      "returnedPaginatePassesMs": 10,
+      "syntheticActualPreviewTimeMs": 10,
+      "returnedTotalMs": 10,
+      "returnedForcedBreaks": 0,
+      "progressPassSequence": [
+        1
+      ]
+    },
+    {
+      "toc": true,
+      "stabilizesAfter": 2,
+      "repairCount": 0,
+      "actualPreviewCalls": 2,
+      "trace": [
+        {
+          "attempt": 1,
+          "pass": 1,
+          "globalPass": 1,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 1,
+          "pass": 2,
+          "globalPass": 2,
+          "pages": 1,
+          "elapsedMs": 10
+        }
+      ],
+      "enginePreviewCalls": 2,
+      "finalAttemptPasses": 2,
+      "returnedPasses": 2,
+      "returnedPaginatePassesMs": 20,
+      "syntheticActualPreviewTimeMs": 20,
+      "returnedTotalMs": 20,
+      "returnedForcedBreaks": 0,
+      "progressPassSequence": [
+        1,
+        2
+      ]
+    },
+    {
+      "toc": false,
+      "stabilizesAfter": 1,
+      "repairCount": 1,
+      "actualPreviewCalls": 2,
+      "trace": [
+        {
+          "attempt": 1,
+          "pass": 1,
+          "globalPass": 1,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 2,
+          "pass": 1,
+          "globalPass": 2,
+          "pages": 1,
+          "elapsedMs": 10
+        }
+      ],
+      "enginePreviewCalls": 2,
+      "finalAttemptPasses": 1,
+      "returnedPasses": 2,
+      "returnedPaginatePassesMs": 20,
+      "syntheticActualPreviewTimeMs": 20,
+      "returnedTotalMs": 20,
+      "returnedForcedBreaks": 1,
+      "progressPassSequence": [
+        1,
+        2
+      ]
+    },
+    {
+      "toc": false,
+      "stabilizesAfter": 1,
+      "repairCount": 6,
+      "actualPreviewCalls": 7,
+      "trace": [
+        {
+          "attempt": 1,
+          "pass": 1,
+          "globalPass": 1,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 2,
+          "pass": 1,
+          "globalPass": 2,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 3,
+          "pass": 1,
+          "globalPass": 3,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 4,
+          "pass": 1,
+          "globalPass": 4,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 5,
+          "pass": 1,
+          "globalPass": 5,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 6,
+          "pass": 1,
+          "globalPass": 6,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 7,
+          "pass": 1,
+          "globalPass": 7,
+          "pages": 1,
+          "elapsedMs": 10
+        }
+      ],
+      "enginePreviewCalls": 7,
+      "finalAttemptPasses": 1,
+      "returnedPasses": 7,
+      "returnedPaginatePassesMs": 70,
+      "syntheticActualPreviewTimeMs": 70,
+      "returnedTotalMs": 70,
+      "returnedForcedBreaks": 6,
+      "progressPassSequence": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "toc": true,
+      "stabilizesAfter": 2,
+      "repairCount": 6,
+      "actualPreviewCalls": 14,
+      "trace": [
+        {
+          "attempt": 1,
+          "pass": 1,
+          "globalPass": 1,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 1,
+          "pass": 2,
+          "globalPass": 2,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 2,
+          "pass": 1,
+          "globalPass": 3,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 2,
+          "pass": 2,
+          "globalPass": 4,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 3,
+          "pass": 1,
+          "globalPass": 5,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 3,
+          "pass": 2,
+          "globalPass": 6,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 4,
+          "pass": 1,
+          "globalPass": 7,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 4,
+          "pass": 2,
+          "globalPass": 8,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 5,
+          "pass": 1,
+          "globalPass": 9,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 5,
+          "pass": 2,
+          "globalPass": 10,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 6,
+          "pass": 1,
+          "globalPass": 11,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 6,
+          "pass": 2,
+          "globalPass": 12,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 7,
+          "pass": 1,
+          "globalPass": 13,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 7,
+          "pass": 2,
+          "globalPass": 14,
+          "pages": 1,
+          "elapsedMs": 10
+        }
+      ],
+      "enginePreviewCalls": 14,
+      "finalAttemptPasses": 2,
+      "returnedPasses": 14,
+      "returnedPaginatePassesMs": 140,
+      "syntheticActualPreviewTimeMs": 140,
+      "returnedTotalMs": 140,
+      "returnedForcedBreaks": 6,
+      "progressPassSequence": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "toc": true,
+      "stabilizesAfter": 4,
+      "repairCount": 6,
+      "actualPreviewCalls": 28,
+      "trace": [
+        {
+          "attempt": 1,
+          "pass": 1,
+          "globalPass": 1,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 1,
+          "pass": 2,
+          "globalPass": 2,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 1,
+          "pass": 3,
+          "globalPass": 3,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 1,
+          "pass": 4,
+          "globalPass": 4,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 2,
+          "pass": 1,
+          "globalPass": 5,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 2,
+          "pass": 2,
+          "globalPass": 6,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 2,
+          "pass": 3,
+          "globalPass": 7,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 2,
+          "pass": 4,
+          "globalPass": 8,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 3,
+          "pass": 1,
+          "globalPass": 9,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 3,
+          "pass": 2,
+          "globalPass": 10,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 3,
+          "pass": 3,
+          "globalPass": 11,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 3,
+          "pass": 4,
+          "globalPass": 12,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 4,
+          "pass": 1,
+          "globalPass": 13,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 4,
+          "pass": 2,
+          "globalPass": 14,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 4,
+          "pass": 3,
+          "globalPass": 15,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 4,
+          "pass": 4,
+          "globalPass": 16,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 5,
+          "pass": 1,
+          "globalPass": 17,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 5,
+          "pass": 2,
+          "globalPass": 18,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 5,
+          "pass": 3,
+          "globalPass": 19,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 5,
+          "pass": 4,
+          "globalPass": 20,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 6,
+          "pass": 1,
+          "globalPass": 21,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 6,
+          "pass": 2,
+          "globalPass": 22,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 6,
+          "pass": 3,
+          "globalPass": 23,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 6,
+          "pass": 4,
+          "globalPass": 24,
+          "pages": 1,
+          "elapsedMs": 10,
+          "repair": "orphan-heading"
+        },
+        {
+          "attempt": 7,
+          "pass": 1,
+          "globalPass": 25,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 7,
+          "pass": 2,
+          "globalPass": 26,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 7,
+          "pass": 3,
+          "globalPass": 27,
+          "pages": 1,
+          "elapsedMs": 10
+        },
+        {
+          "attempt": 7,
+          "pass": 4,
+          "globalPass": 28,
+          "pages": 1,
+          "elapsedMs": 10
+        }
+      ],
+      "enginePreviewCalls": 28,
+      "finalAttemptPasses": 4,
+      "returnedPasses": 28,
+      "returnedPaginatePassesMs": 280,
+      "syntheticActualPreviewTimeMs": 280,
+      "returnedTotalMs": 280,
+      "returnedForcedBreaks": 6,
+      "progressPassSequence": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ]
+    }
+  ]
+}

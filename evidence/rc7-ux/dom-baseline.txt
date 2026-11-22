@@ -1,0 +1,90 @@
+
+ RUN  v5.1.0 /workspace/scratch/d77204dbc71b/ux-baseline
+
+ ❯ tests/unit/ui/rc7-recovery.test.ts (5 tests | 5 failed) 3331ms
+   × PF-RC7-U01 Cancel in the ZIP document picker commits neither assets nor a revision 85ms
+   × PF-RC7-U02 a user can retry page preparation after a transient failure on the same revision 1366ms
+   × PF-RC7-U03 opening a different project clears the previous document preview and outline immediately 339ms
+   × PF-RC7-U04 background preview leaves the title being typed intact and both title controls show the committed value 308ms
+   × PF-RC7-U05 imports the formatted first heading as a plain title and respects an explicit title 106ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/ui/rc7-recovery.test.ts > PF-RC7-U01 Cancel in the ZIP document picker commits neither assets nor a revision
+AssertionError: expected 'diagram.svgimage/svg+xml · 99 B · 10×…' not to contain 'diagram.svg'
+
+Expected: "diagram.svg"
+Received: "diagram.svgimage/svg+xml · 99 B · 10×10 · sha256 51dfc9148e…ReplaceRemove"
+
+ ❯ tests/unit/ui/rc7-recovery.test.ts:52:44
+     50|   dialog.close('cancel');
+     51|   await new Promise(resolve => setTimeout(resolve, 0));
+     52|   expect(q('#asset-list').textContent).not.toContain('diagram.svg');
+       |                                            ^
+     53|   expect(q<HTMLTextAreaElement>('#editor').value).toBe('# Active draft…
+     54|   q('#btn-undo').click();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  tests/unit/ui/rc7-recovery.test.ts > PF-RC7-U02 a user can retry page preparation after a transient failure on the same revision
+AssertionError: expected "vi.fn()" to be called 2 times, but got 1 times
+ ❯ tests/unit/ui/rc7-recovery.test.ts:75:47
+     73|   expect(printAttempt).toHaveBeenCalledTimes(1);
+     74|   run.click();
+     75|   await vi.waitFor(() => expect(printAttempt).toHaveBeenCalledTimes(2)…
+       |                                               ^
+     76| });
+     77|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  tests/unit/ui/rc7-recovery.test.ts > PF-RC7-U03 opening a different project clears the previous document preview and outline immediately
+AssertionError: expected 'Private heading' not to contain 'Private heading'
+ ❯ tests/unit/ui/rc7-recovery.test.ts:89:41
+     87|   await new Promise(resolve => setTimeout(resolve, 0));
+     88|   expect(q<HTMLTextAreaElement>('#editor').value).toBe('');
+     89|   expect(q('#outline').textContent).not.toContain('Private heading');
+       |                                         ^
+     90|   expect(q<HTMLIFrameElement>('#live-frame').srcdoc).not.toContain('Pr…
+     91|   expect(q('#src-hash').textContent).toBe('');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  tests/unit/ui/rc7-recovery.test.ts > PF-RC7-U04 background preview leaves the title being typed intact and both title controls show the committed value
+AssertionError: expected 'Tanpa judul' to be 'Working title' // Object.is equality
+
+Expected: "Working title"
+Received: "Tanpa judul"
+
+ ❯ tests/unit/ui/rc7-recovery.test.ts:102:24
+    100|   header.dispatchEvent(new Event('input', { bubbles: true }));
+    101|   await vi.waitFor(() => expect(q('#outline').textContent).toContain('…
+    102|   expect(header.value).toBe('Working title');
+       |                        ^
+    103|   header.dispatchEvent(new Event('change', { bubbles: true }));
+    104|   expect(settings.value).toBe('Working title');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  tests/unit/ui/rc7-recovery.test.ts > PF-RC7-U05 imports the formatted first heading as a plain title and respects an explicit title
+AssertionError: expected '**Kumpulan Rumus Trigonometri Lengkap…' to be 'Kumpulan Rumus Trigonometri Lengkap' // Object.is equality
+
+Expected: "Kumpulan Rumus Trigonometri Lengkap"
+Received: "**Kumpulan Rumus Trigonometri Lengkap**"
+
+ ❯ tests/unit/ui/rc7-recovery.test.ts:119:23
+    117|   await vi.waitFor(() => expect(q<HTMLTextAreaElement>('#editor').valu…
+    118|   const title = q<HTMLInputElement>('#doc-title');
+    119|   expect(title.value).toBe('Kumpulan Rumus Trigonometri Lengkap');
+       |                       ^
+    120|   title.value = 'Manual **literal**';
+    121|   title.dispatchEvent(new Event('change', { bubbles: true }));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  5 failed (5)
+   Start at  02:41:34
+   Duration  4.26s (tests 81%, environment 18%, transform 1%)
+

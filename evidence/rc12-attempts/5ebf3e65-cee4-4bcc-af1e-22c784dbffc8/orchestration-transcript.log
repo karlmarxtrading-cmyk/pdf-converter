@@ -1,0 +1,76 @@
++ ["node", "--input-type=module", "-e", "import {identity} from './scripts/acceptance.mjs';console.log(JSON.stringify(identity(process.cwd())))"]
++ ["node", "--input-type=module", "-e", "import {requirements} from './scripts/acceptance-policy.mjs';console.log(JSON.stringify(requirements))"]
++ ["node", "scripts/acceptance.mjs", "observe", "trig-new", "--out", "examples/rc12/html", "--out", "evidence/rc12/browser/results/trigonometry-downloads.json", "--out", "evidence/rc12/browser/results/oracle.json", "--out", "evidence/rc12/browser/results/browser-capture.json", "--", "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "evidence/rc12/browser/verify-trig.py"]
++ ["node", "scripts/acceptance.mjs", "observe", "integrity-new", "--out", "evidence/rc12/integrity/acceptance.json", "--out", "evidence/rc12/integrity/final-bytes.json", "--", "node", "node_modules/vitest/vitest.mjs", "run", "tests/unit/render/rc8-source-integrity.test.ts", "tests/unit/render/rc8-final-bytes.test.ts"]
++ ["node", "scripts/acceptance.mjs", "observe", "aggregate-new", "--out", "evidence/rc12/aggregate-tests/results.json", "--out", "evidence/rc12/aggregate-tests/test.log", "--", "node", "scripts/acceptance-selfcheck.mjs"]
+Measuring trig-new; command log: evidence/rc12/acceptance/observations/trig-new.log
+Measuring aggregate-new; command log: evidence/rc12/acceptance/observations/aggregate-new.log
+Measuring integrity-new; command log: evidence/rc12/acceptance/observations/integrity-new.log
++ ["node", "scripts/acceptance.mjs", "observe", "wrapper-new", "--out", "evidence/rc12/wrappers/wrapper-final.json", "--out", "evidence/rc12/wrappers/compatibility-final.json", "--out", "evidence/rc12/wrappers/mixed-wrappers-clipboard.html", "--out", "evidence/rc12/wrappers/mixed-wrappers-raw.html", "--out", "evidence/rc12/wrappers/wrapper-downloads.json", "--", "bash", "-c", "node node_modules/vitest/vitest.mjs run tests/unit/core/rc8-mixed-wrappers.test.ts tests/unit/core/rc8-compat-corpus.test.ts tests/unit/core/wrapper-clipboard.test.ts --reporter=dot && node tests/e2e/rc8-wrapper-download.mjs"]
+Measuring wrapper-new; command log: evidence/rc12/acceptance/observations/wrapper-new.log
++ ["node", "scripts/acceptance.mjs", "observe", "pdf-new", "--out", "evidence/rc12/pdf/coverage.json", "--out", "evidence/rc12/pdf/physical-verification.json", "--out", "evidence/rc12/pdf/portrait-landscape.json", "--out", "evidence/rc12/pdf/results.json", "--out", "evidence/rc12/pdf/diagnostics", "--out", "examples/rc12/pdf", "--", "node", "tests/e2e/rc8-pdf.mjs"]
+Measuring pdf-new; command log: evidence/rc12/acceptance/observations/pdf-new.log
+NO_GO: Stale build manifest: rebuild production from the frozen source
++ ["node", "scripts/acceptance.mjs", "record", "G03", "PASS", "evidence/rc12/acceptance/facts/G03.json"]
+NO_GO: Stale build manifest: rebuild production from the frozen source
+Aggregate rejected the measured evidence for G03
++ ["node", "scripts/acceptance.mjs", "record", "G03", "FAIL", "--reason", "Candidate observation trig-new did not satisfy G03: Aggregate rejected the measured evidence for G03"]
+NO_GO: Stale build manifest: rebuild production from the frozen source
+Negative receipt could not be recorded for G03
++ ["node", "scripts/acceptance.mjs", "record", "G04", "PASS", "evidence/rc12/acceptance/facts/G04.json"]
+NO_GO: Stale build manifest: rebuild production from the frozen source
+Aggregate rejected the measured evidence for G04
++ ["node", "scripts/acceptance.mjs", "record", "G04", "FAIL", "--reason", "Candidate observation wrapper-new did not satisfy G04: Aggregate rejected the measured evidence for G04"]
+NO_GO: Stale build manifest: rebuild production from the frozen source
+Negative receipt could not be recorded for G04
++ ["node", "scripts/acceptance.mjs", "record", "G05", "PASS", "evidence/rc12/acceptance/facts/G05.json"]
+NO_GO: Stale build manifest: rebuild production from the frozen source
+Aggregate rejected the measured evidence for G05
++ ["node", "scripts/acceptance.mjs", "record", "G05", "FAIL", "--reason", "Candidate observation integrity-new did not satisfy G05: Aggregate rejected the measured evidence for G05"]
+NO_GO: Stale build manifest: rebuild production from the frozen source
+Negative receipt could not be recorded for G05
++ ["node", "scripts/acceptance.mjs", "record", "G06", "PASS", "evidence/rc12/acceptance/facts/G06.json"]
+NO_GO: Stale build manifest: rebuild production from the frozen source
+Aggregate rejected the measured evidence for G06
++ ["node", "scripts/acceptance.mjs", "record", "G06", "FAIL", "--reason", "Candidate observation integrity-new did not satisfy G06: Aggregate rejected the measured evidence for G06"]
+NO_GO: Stale build manifest: rebuild production from the frozen source
+Negative receipt could not be recorded for G06
+[Errno 2] No such file or directory: '/workspace/scratch/c635819e0476/rc12-work/app/evidence/rc12/acceptance/observations/pdf-new.json'
++ ["node", "scripts/acceptance.mjs", "record", "G07", "FAIL", "--reason", "Candidate observation pdf-new did not satisfy G07: [Errno 2] No such file or directory: '/workspace/scratch/c635819e0476/rc12-work/app/evidence/rc12/acceptance/observations/pdf-new.json'"]
+NO_GO: Stale build manifest: rebuild production from the frozen source
+Negative receipt could not be recorded for G07
+[Errno 2] No such file or directory: '/workspace/scratch/c635819e0476/rc12-work/app/evidence/rc12/acceptance/observations/pdf-new.json'
++ ["node", "scripts/acceptance.mjs", "record", "G08", "FAIL", "--reason", "Candidate observation pdf-new did not satisfy G08: [Errno 2] No such file or directory: '/workspace/scratch/c635819e0476/rc12-work/app/evidence/rc12/acceptance/observations/pdf-new.json'"]
+NO_GO: Stale build manifest: rebuild production from the frozen source
+Negative receipt could not be recorded for G08
++ ["node", "scripts/acceptance.mjs", "record", "G11", "PASS", "evidence/rc12/acceptance/facts/G11.json"]
+NO_GO: Stale build manifest: rebuild production from the frozen source
+Aggregate rejected the measured evidence for G11
++ ["node", "scripts/acceptance.mjs", "record", "G11", "FAIL", "--reason", "Candidate observation aggregate-new did not satisfy G11: Aggregate rejected the measured evidence for G11"]
+NO_GO: Stale build manifest: rebuild production from the frozen source
+Negative receipt could not be recorded for G11
+{
+  "source": "003a7b88c2ea84d49ab42053a06a9c2c8162f94578655ba370dad396451d7d7f",
+  "runId": "5ebf3e65-cee4-4bcc-af1e-22c784dbffc8",
+  "gates": {
+    "G03": "FAIL",
+    "G04": "FAIL",
+    "G05": "FAIL",
+    "G06": "FAIL",
+    "G07": "FAIL",
+    "G08": "FAIL",
+    "G11": "FAIL"
+  },
+  "observationExitCodes": {
+    "integrity-new": 0,
+    "trig-new": 0,
+    "aggregate-new": 0,
+    "wrapper-new": 0,
+    "pdf-new": 1
+  },
+  "supplementaryPDF": {
+    "pdf-dialogue-new": "NOT_RUN",
+    "pdf-mixed-new": "NOT_RUN",
+    "pdf-reference-new": "NOT_RUN"
+  }
+}

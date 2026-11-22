@@ -1,0 +1,30 @@
+{
+  "kind": "Node/jsdom source audit",
+  "limits": [
+    "No live browser or operating-system clipboard",
+    "No visual or PDF verification",
+    "Does not validate mathematical truth"
+  ],
+  "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+  "inputBytes": 15280,
+  "independentCounts": {
+    "formulas": 231,
+    "display": 128,
+    "inline": 103,
+    "changedPayloads": 17,
+    "tripleSlashRuns": 46,
+    "quadrupleSlashRuns": 2,
+    "escapedBracedSubscripts": 6
+  },
+  "rendered": 231,
+  "katex": 231,
+  "parseErrors": 0,
+  "differenceCount": 0,
+  "differences": [],
+  "mathIssueCodes": [
+    "MATH_COPY_RECOVERED"
+  ],
+  "sourceIntegrity": true,
+  "mutationDetected": true,
+  "pass": true
+}

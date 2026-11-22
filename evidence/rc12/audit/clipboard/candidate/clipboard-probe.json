@@ -1,0 +1,233 @@
+{
+  "at": "2026-11-22T16:04:54.576Z",
+  "method": "Fresh Node/jsdom pipeline run against work copy of RC11; no browser or native clipboard",
+  "rows": [
+    {
+      "name": "annotated-display-simple-table",
+      "input": "<table><tr><th>Name</th><th>Formula</th></tr><tr><td>Energy</td><td><span class=\"katex-display\" data-tex=\"E=mc^2\">E=mc^2</span></td></tr></table>",
+      "markdown": "<table><tbody><tr><th>Name</th><th>Formula</th></tr><tr><td>Energy</td><td><code data-pf-formula=\"display\">E=mc^2</code></td></tr></tbody></table>\n",
+      "conversionIssues": [],
+      "renderIssues": [],
+      "stats": {
+        "words": 3,
+        "tables": 1,
+        "math": 1,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "formulas": [
+        {
+          "tex": "E=mc^2",
+          "display": true,
+          "table": true
+        }
+      ],
+      "cells": [
+        "Name",
+        "Formula",
+        "Energy",
+        "E=mc2E=mc^2E=mc2"
+      ],
+      "lists": [],
+      "text": "NameFormulaEnergyE=mc2E=mc^2E=mc2",
+      "integrity": true
+    },
+    {
+      "name": "annotated-inline-simple-table",
+      "input": "<table><tr><th>Name</th><th>Formula</th></tr><tr><td>Energy</td><td><span data-tex=\"E=mc^2\">E=mc^2</span></td></tr></table>",
+      "markdown": "| Name   | Formula  |\n| ------ | -------- |\n| Energy | $E=mc^2$ |\n",
+      "conversionIssues": [],
+      "renderIssues": [],
+      "stats": {
+        "words": 3,
+        "tables": 1,
+        "math": 1,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "formulas": [
+        {
+          "tex": "E=mc^2",
+          "display": false,
+          "table": true
+        }
+      ],
+      "cells": [
+        "Name",
+        "Formula",
+        "Energy",
+        "E=mc2E=mc^2E=mc2"
+      ],
+      "lists": [],
+      "text": "NameFormulaEnergyE=mc2E=mc^2E=mc2",
+      "integrity": true
+    },
+    {
+      "name": "literal-display-simple-table",
+      "input": "<table><tr><th>Name</th><th>Formula</th></tr><tr><td>Energy</td><td>\\[E=mc^2\\]</td></tr></table>",
+      "markdown": "<table><tbody><tr><th>Name</th><th>Formula</th></tr><tr><td>Energy</td><td><code data-pf-formula=\"display\">E=mc^2</code></td></tr></tbody></table>\n",
+      "conversionIssues": [],
+      "renderIssues": [],
+      "stats": {
+        "words": 3,
+        "tables": 1,
+        "math": 1,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "formulas": [
+        {
+          "tex": "E=mc^2",
+          "display": true,
+          "table": true
+        }
+      ],
+      "cells": [
+        "Name",
+        "Formula",
+        "Energy",
+        "E=mc2E=mc^2E=mc2"
+      ],
+      "lists": [],
+      "text": "NameFormulaEnergyE=mc2E=mc^2E=mc2",
+      "integrity": true
+    },
+    {
+      "name": "annotated-display-table-prose",
+      "input": "<table><tr><th>Name</th><th>Formula</th></tr><tr><td>Energy</td><td>Before <span class=\"katex-display\" data-tex=\"E=mc^2\">E=mc^2</span> after</td></tr></table>",
+      "markdown": "<table><tbody><tr><th>Name</th><th>Formula</th></tr><tr><td>Energy</td><td>Before <code data-pf-formula=\"display\">E=mc^2</code> after</td></tr></tbody></table>\n",
+      "conversionIssues": [],
+      "renderIssues": [],
+      "stats": {
+        "words": 5,
+        "tables": 1,
+        "math": 1,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "formulas": [
+        {
+          "tex": "E=mc^2",
+          "display": true,
+          "table": true
+        }
+      ],
+      "cells": [
+        "Name",
+        "Formula",
+        "Energy",
+        "Before E=mc2E=mc^2E=mc2 after"
+      ],
+      "lists": [],
+      "text": "NameFormulaEnergyBefore E=mc2E=mc^2E=mc2 after",
+      "integrity": true
+    },
+    {
+      "name": "li-type-override",
+      "input": "<ol type=\"1\"><li>one</li><li type=\"A\">two</li><li>three</li></ol>",
+      "markdown": "<ol type=\"1\"><li>one</li><li type=\"A\">two</li><li>three</li></ol>\n",
+      "conversionIssues": [],
+      "renderIssues": [],
+      "stats": {
+        "words": 3,
+        "tables": 0,
+        "math": 0,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "formulas": [],
+      "cells": [],
+      "lists": [
+        {
+          "tag": "ol",
+          "type": "1",
+          "value": null
+        },
+        {
+          "tag": "li",
+          "type": null,
+          "value": null
+        },
+        {
+          "tag": "li",
+          "type": "A",
+          "value": null
+        },
+        {
+          "tag": "li",
+          "type": null,
+          "value": null
+        }
+      ],
+      "text": "onetwothree",
+      "integrity": true
+    },
+    {
+      "name": "li-only-type-override",
+      "input": "<ol><li type=\"A\">alpha</li><li type=\"i\">beta</li></ol>",
+      "markdown": "<ol><li type=\"A\">alpha</li><li type=\"i\">beta</li></ol>\n",
+      "conversionIssues": [],
+      "renderIssues": [],
+      "stats": {
+        "words": 2,
+        "tables": 0,
+        "math": 0,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "formulas": [],
+      "cells": [],
+      "lists": [
+        {
+          "tag": "ol",
+          "type": null,
+          "value": null
+        },
+        {
+          "tag": "li",
+          "type": "A",
+          "value": null
+        },
+        {
+          "tag": "li",
+          "type": "i",
+          "value": null
+        }
+      ],
+      "text": "alphabeta",
+      "integrity": true
+    },
+    {
+      "name": "inline-dollar-escape",
+      "input": "<p><span data-tex=\"\\text{Price }\\$5\">price</span></p>",
+      "markdown": "\\(\\text{Price }\\$5\\)\n",
+      "conversionIssues": [],
+      "renderIssues": [],
+      "stats": {
+        "words": 0,
+        "tables": 0,
+        "math": 1,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "formulas": [
+        {
+          "tex": "\\text{Price }\\$5",
+          "display": false,
+          "table": false
+        }
+      ],
+      "cells": [],
+      "lists": [],
+      "text": "Price $5\\text{Price }\\$5Price $5",
+      "integrity": true
+    }
+  ]
+}

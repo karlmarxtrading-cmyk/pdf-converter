@@ -1,0 +1,25 @@
+{
+  "classification": "Fresh inspection of frozen RC7 physical PDF bytes. Not a PDF produced from a new RC8 run.",
+  "source": "evidence/rc7-output/diagnostics/mixed-EDT-A5.pdf",
+  "sha256": "2444df7674ec7e1096928537401bf07e75a67e675d3ad9f483618d1b2672abe2",
+  "pages": 19,
+  "page10": {
+    "hasLanguageLabel": true,
+    "hasFirstCodeLine": false
+  },
+  "page11": {
+    "hasContinuationLabel": true,
+    "hasFirstCodeLine": true
+  },
+  "fontTypes": [
+    "Type0",
+    "Type3"
+  ],
+  "privateGlyphText": [
+    {
+      "page": 5,
+      "nul": true,
+      "privateF8ff": true
+    }
+  ]
+}

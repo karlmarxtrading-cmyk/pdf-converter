@@ -1,0 +1,42 @@
+{
+  "scope": "Pre-freeze prerequisites, no candidate timing claim",
+  "at": "2026-11-22T14:44:14.604991+00:00",
+  "rc6Archive": "PAPERFORMA_STATIC_3.0.0-rc.6_AUDITED.zip",
+  "rc6ArchiveBytes": 7409784,
+  "rc6ArchiveSha256": "82e6d021c1b042a498440c0ce8957c035eb011f4c1b1fe8c16a450697a52be53",
+  "rc6ManifestEntries": 550,
+  "rc6ManifestCheck": 0,
+  "rc6Tree": {
+    "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+    "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9"
+  },
+  "chromiumVersion": "Chromium 153.0.8010.0",
+  "chromiumSha256": "53a15d6c3a3d27dfb54c4ba60278b1683136f70cf1e67e989da7dfbd3d451ef0",
+  "nodeVersion": "v24.22.3",
+  "npmVersion": "11.19.1",
+  "runnerAffinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "protocolSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+  "lifecycle": {
+    "driverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "procedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "pairsPerBlock": 4,
+    "warmupPairsPerBrowserBlock": 1,
+    "cdpTimeoutMs": 60000,
+    "raw": "evidence/rc8/performance/recovery-cohort-{1,2}.json",
+    "scope": "Official candidate Chromium uses the separately hash-pinned fixed four-pair lifecycle. Each scheduled measured arm is attempted once, failures and incomplete pairs are retained, and the next flow still runs. Node uses one warmup pair per case."
+  },
+  "medianRatio": 1.05,
+  "p95Ratio": 1.1,
+  "acceptedTrigSource": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+  "acceptedTrigHtml": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff"
+}

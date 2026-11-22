@@ -1,0 +1,24 @@
+{
+  "RC6": {
+    "file": "PAPERFORMA_STATIC_3.0.0-rc.6_AUDITED.zip",
+    "sha256": "82e6d021c1b042a498440c0ce8957c035eb011f4c1b1fe8c16a450697a52be53",
+    "size": 7409784,
+    "members": 551,
+    "verifiedChecksums": 550
+  },
+  "RC8": {
+    "file": "PAPERFORMA_STATIC_3.0.0-rc.8_SOURCE_DIST_EVIDENCE.zip",
+    "sha256": "2ba9ea2114e9b3be401390eacf25dd7d68adacf85b891c91055fb5a04b9a5c18",
+    "size": 19185627,
+    "members": 1060,
+    "verifiedChecksums": 1059
+  },
+  "audit": {
+    "file": "PAPERFORMA_RC8_AUDIT_217850_KATA_DAN_PROMPT_20261122.zip",
+    "sha256": "74a30e9c03f638a2ca9791e977cf57643e3c9a6edd8857da0d7741d94bd56ee0",
+    "size": 3589461,
+    "members": 94,
+    "verifiedChecksums": 93
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,88 @@
+{
+  "compare": "Frozen RC8 versus V2 in isolated copies on the same host. Unmodified performance-worker.mjs and its full 231-formula oracle. Each child warms up once. Eight sequential pairs alternate A/B, B/A. Shared runner; diagnostic evidence, not production contract.",
+  "sourcePatchSha256": "4a0642840b7875802cedc2494505d168ab93dbbfc6c78dbdc852885b98d21218",
+  "workload": "Trigonometry user source, preview, HTML and print-payload preparation",
+  "fixtureBytes": 15280,
+  "fixtureSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+  "oraclePassed": true,
+  "oracleDigests": [
+    "c0679db2bec54bca24c8360a6aedb216a85b19e1e3b4acbe707c16c52e94a76a"
+  ],
+  "timings": {
+    "refreshMs": {
+      "baseline": {
+        "n": 8,
+        "medianMs": 1670.7272949999988,
+        "minMs": 1410.1416070000014,
+        "maxMs": 2386.6225330000016
+      },
+      "prototype": {
+        "n": 8,
+        "medianMs": 882.4227365000006,
+        "minMs": 765.4196010000014,
+        "maxMs": 1204.1818910000002
+      }
+    },
+    "htmlExportMs": {
+      "baseline": {
+        "n": 8,
+        "medianMs": 865.9577744999951,
+        "minMs": 779.2342709999939,
+        "maxMs": 1358.4105310000014
+      },
+      "prototype": {
+        "n": 8,
+        "medianMs": 814.7111809999988,
+        "minMs": 675.3788579999964,
+        "maxMs": 1093.0527350000011
+      }
+    },
+    "printPayloadMs": {
+      "baseline": {
+        "n": 8,
+        "medianMs": 854.4617430000071,
+        "minMs": 605.6749160000036,
+        "maxMs": 1243.2454880000005
+      },
+      "prototype": {
+        "n": 8,
+        "medianMs": 666.4128939999973,
+        "minMs": 579.617637000003,
+        "maxMs": 1416.870074999999
+      }
+    }
+  },
+  "cpuProfileInclusiveMs": {
+    "refreshMs": {
+      "checkRenderIntegrity": 335.4,
+      "finishRender": 549.2,
+      "prepareBody": 350.9,
+      "parseInert": 187.3,
+      "parseFromString": 379.5,
+      "serializeForFonts": 124.2,
+      "verifyFormulaRepresentations": 33.7,
+      "get innerHTML": 74.3,
+      "set innerHTML": 310.8
+    },
+    "printPayloadMs": {
+      "prepareBody": 313.8,
+      "parseFromString": 134.2,
+      "serializeForFonts": 100.4,
+      "finalArticleMatches": 70.6,
+      "verifyFormulaRepresentations": 30.9,
+      "get innerHTML": 24.9,
+      "set innerHTML": 153.6
+    }
+  },
+  "tests": {
+    "vitest": 573,
+    "testFiles": 68,
+    "node": 9,
+    "typecheck": "PASS",
+    "lint": "PASS"
+  },
+  "limitations": [
+    "8 measured pairs on shared hardware; p95 descriptive only; final release still needs the full RC6 protocol.",
+    "V3 retained KaTeX subtree leases were excluded: too many ownership concerns and inconclusive print medians."
+  ]
+}

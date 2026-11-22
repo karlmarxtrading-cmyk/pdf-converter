@@ -1,0 +1,13 @@
+{
+  "interrupted": {
+    "releaseRun": "56babb24-4caa-4cb2-bedf-6f2c301e44a1",
+    "observations": 294,
+    "last": "small",
+    "status": "BLOCKED",
+    "reason": "The execution supervisor stopped before the final three pairs of this measurement. All captured rows are preserved unchanged."
+  },
+  "separateNewRun": {
+    "id": "2acf7717-29ff-4b7d-86f9-3304fb06330f",
+    "method": "The unchanged driver starts a new complete cohort. The incomplete cohort does not authorize promotion."
+  }
+}

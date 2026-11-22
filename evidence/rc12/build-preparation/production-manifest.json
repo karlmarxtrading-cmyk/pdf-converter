@@ -1,0 +1,12 @@
+{
+  "app": "paperforma",
+  "version": "3.0.0-rc.12",
+  "profile": "production",
+  "candidateSha256": "3a3ee3e24ce43548a31386f1141638a567a59c7a161b7200de0945f0b5b62460",
+  "distTreeSha256": "1aede97a9168d8d2e4e703afc1d3f1272e3575d2eb8535f60a4ab3dfdad01e39",
+  "node": "v24.22.3",
+  "engines": {
+    "node": "24.22.3",
+    "npm": ">=11.6.0 <12"
+  }
+}

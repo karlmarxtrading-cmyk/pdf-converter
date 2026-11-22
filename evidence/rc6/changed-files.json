@@ -1,0 +1,159 @@
+{
+  "baseline": "Uploaded RC5 ZIP",
+  "release": "3.0.0-rc.6",
+  "scope": "Build candidate source/config/public/scripts/tests/fixtures; docs, evidence, examples and generated dist excluded",
+  "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+  "changedFiles": 25,
+  "changes": [
+    {
+      "path": "fixtures/rc6/user-trigonometry.expected.json",
+      "change": "added",
+      "beforeSha256": null,
+      "afterSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d"
+    },
+    {
+      "path": "fixtures/rc6/user-trigonometry.md",
+      "change": "added",
+      "beforeSha256": null,
+      "afterSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f"
+    },
+    {
+      "path": "index.html",
+      "change": "modified",
+      "beforeSha256": "747e61cc2385748f91dc17fd42bfd6ef9e0cc5642864d7b795fccfbb517ff7b1",
+      "afterSha256": "4b59971bbb2f2c81f4b226c9fe032e3ebee58dbc7e9a65b601197bb7fb92a027"
+    },
+    {
+      "path": "package-lock.json",
+      "change": "modified",
+      "beforeSha256": "1208fe4068b26894f5d4b4b94a90ce5191bc3b3d3d50d9e95fefdf5bde8a98e2",
+      "afterSha256": "67c081be8c3588272bcf5d3a7381c3a9903325e3950dd152bcce5ce67791a5ce"
+    },
+    {
+      "path": "package.json",
+      "change": "modified",
+      "beforeSha256": "1b21b00e0baeb5cd20825780da81a16df53f4a00ba6b044550f1227bd5faf765",
+      "afterSha256": "57572916d9c8aa9aa564570a6df7b7cf5ad169e3dbab01c6ab6fb864f6d822ab"
+    },
+    {
+      "path": "public/docs/panduan.html",
+      "change": "modified",
+      "beforeSha256": "cf548164c4b500ebb24e6212c4abbd0cb78476d967ade3c8aff045755d677dc7",
+      "afterSha256": "5e49c4e5a6b9f99b6d81933e2f06297902f3f0c2995cfeb3178293485ddec1cc"
+    },
+    {
+      "path": "public/licenses/THIRD_PARTY_NOTICES.txt",
+      "change": "modified",
+      "beforeSha256": "ca9640eaa6282ee413a802b7727e50e892c084d99584a36a7c3399e39716fec0",
+      "afterSha256": "552964bb812bf5596a5b4cb4da2104c333ea1ea745585a139fe9737c7d391900"
+    },
+    {
+      "path": "scripts/verify-archive.py",
+      "change": "modified",
+      "beforeSha256": "db071a911afcb0eb6c22543887330d57d667232ce34cffd6782db5b20be5fbae",
+      "afterSha256": "17a79c7b744254cb1fc1b94e68a614564c3b19e8d6acdbd73abc7b8bd634f878"
+    },
+    {
+      "path": "src/core/clipboard.ts",
+      "change": "modified",
+      "beforeSha256": "19e8015ff036b5d013bcfd4d3f67ebf64a7fe46b957fe3fa068e904dc8bfb31e",
+      "afterSha256": "a5f0f9820d26d722fbdae2161684493ccd29ed4a9aee77d99649b53d077befd4"
+    },
+    {
+      "path": "src/core/contracts.ts",
+      "change": "modified",
+      "beforeSha256": "aadc2a6bb491ced9e3b64329e47b9f842a80c72484f5c960e125ac4cd5998894",
+      "afterSha256": "da6b0d2f4a81ecd7b7143c4b43bc45cdcb91fe3912975fa5d414314fecb605eb"
+    },
+    {
+      "path": "src/core/html-math-source.ts",
+      "change": "added",
+      "beforeSha256": null,
+      "afterSha256": "f69671752447d35614eb9a1280f8081271e978e00906fa1a737023eadf047086"
+    },
+    {
+      "path": "src/core/html-math.ts",
+      "change": "added",
+      "beforeSha256": null,
+      "afterSha256": "bca5786501dd1499a5d6a8490e119467cbfadc692e75214533374629eb24dfe0"
+    },
+    {
+      "path": "src/core/integrity.ts",
+      "change": "modified",
+      "beforeSha256": "afe17d5c31fe03de9d3559c4035ebe620a9d112f3ae0d6af3e48c15808afdda5",
+      "afterSha256": "24449e88c27c8219cbffa1f1c4b1ffc0139f61ad8cc5f39ee2049bfcccbb1b70"
+    },
+    {
+      "path": "src/core/markdown.ts",
+      "change": "modified",
+      "beforeSha256": "9f39d376ea56c65aebbad42bfd784567dd88b98e205c59c5f865ddd1831214f1",
+      "afterSha256": "9660e828b02c4394da0d950e5150c36f868474b25a7aca8fe844d4bd7b512281"
+    },
+    {
+      "path": "src/core/math-copy.ts",
+      "change": "added",
+      "beforeSha256": null,
+      "afterSha256": "006c7039b1b17e5d27909289cfe33b0200d5a3eb6b44172cc50b5909b5362a4e"
+    },
+    {
+      "path": "src/core/math-diagnostics.ts",
+      "change": "added",
+      "beforeSha256": null,
+      "afterSha256": "cce72fd79c8616ad865c29a89d121b18fa81a47928d97236abb4def6f0356f3b"
+    },
+    {
+      "path": "src/core/math.ts",
+      "change": "modified",
+      "beforeSha256": "37e2fe37ff1821cf12ec170646ec733c27c065336cc106385e67e054d57cdef7",
+      "afterSha256": "6a04ec509d7fae62ac68fc1b4e679deef35e1bcc3c6a5c08295bfde7aecdd6e2"
+    },
+    {
+      "path": "src/core/render.ts",
+      "change": "modified",
+      "beforeSha256": "ec61064eda138d745d8ebb4671e9d8a2ce55ab2dae47f816b7b93a31017d20e1",
+      "afterSha256": "8ed9879cbaa4309961fc6f8795edd3bb976e1a61571d26c5d77611790f0d66d6"
+    },
+    {
+      "path": "tests/unit/core/rc6-clipboard.test.ts",
+      "change": "added",
+      "beforeSha256": null,
+      "afterSha256": "8ecf277d4ee875e025152dd3a23b58d46cbeefa8480b5366ab32d77b10ce2b7b"
+    },
+    {
+      "path": "tests/unit/core/rc6-heading-math.test.ts",
+      "change": "added",
+      "beforeSha256": null,
+      "afterSha256": "23f6d82efca7f37f6886e1392d049c36fc7f26d192864f1e9159544312eff708"
+    },
+    {
+      "path": "tests/unit/core/rc6-independent.test.ts",
+      "change": "added",
+      "beforeSha256": null,
+      "afterSha256": "9bd993197874233fa1d50b6337ae8783276f4349df9e51b6d0d7c2e0462cf03a"
+    },
+    {
+      "path": "tests/unit/core/rc6-math-copy.test.ts",
+      "change": "added",
+      "beforeSha256": null,
+      "afterSha256": "cdd15c8b75d462c6a3260941923bb35ab90ba9845f81e410ceb65b0530aa30a5"
+    },
+    {
+      "path": "tests/unit/core/rc6-render-compat.test.ts",
+      "change": "added",
+      "beforeSha256": null,
+      "afterSha256": "51bc161d0217d9bf98ce080c316c9519b3f83a9fa4c9719dea2b716e7fc59cc7"
+    },
+    {
+      "path": "tests/unit/core/render.test.ts",
+      "change": "modified",
+      "beforeSha256": "e3b0fff5c3c96cbe3aeac6a7931564088abd71940fb2be116f4c8d6c6210401b",
+      "afterSha256": "5a7747259dbce7a5e74b5b6d42bdab3e95e39e4bf766ec7852daf6ee45bc309b"
+    },
+    {
+      "path": "tests/unit/render/rc6-user-export.test.ts",
+      "change": "added",
+      "beforeSha256": null,
+      "afterSha256": "de40db9ce50fe26a83ade5d10c3cb07a7e62b5c70b3bf0ba8271d92b308ce731"
+    }
+  ]
+}

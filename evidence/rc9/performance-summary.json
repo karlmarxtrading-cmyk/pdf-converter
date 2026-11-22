@@ -1,0 +1,67 @@
+[
+  {
+    "file": "node-1.json",
+    "status": "FAIL",
+    "armsIncludingWarmup": 328,
+    "incidentCount": 0,
+    "outputEquivalent": true,
+    "failures": [
+      {
+        "task": "small-edit",
+        "metric": "printPayloadMs",
+        "medianRatio": 0.8509237505110868,
+        "p95Ratio": 1.322965958168609
+      }
+    ]
+  },
+  {
+    "file": "node-2.json",
+    "status": "FAIL",
+    "armsIncludingWarmup": 328,
+    "incidentCount": 0,
+    "outputEquivalent": true,
+    "failures": [
+      {
+        "task": "trigonometry",
+        "metric": "printPayloadMs",
+        "medianRatio": 1.065371892387451,
+        "p95Ratio": 0.8650180170642876
+      },
+      {
+        "task": "small-edit",
+        "metric": "htmlExportMs",
+        "medianRatio": 0.7282875585977845,
+        "p95Ratio": 1.4676722850713448
+      },
+      {
+        "task": "empty-core",
+        "metric": "refreshMs",
+        "medianRatio": 0.7775109142534115,
+        "p95Ratio": 1.1083211039741823
+      }
+    ]
+  },
+  {
+    "file": "recovery-cohort-1.json",
+    "status": "FAIL",
+    "armsIncludingWarmup": 300,
+    "incidentCount": 0,
+    "outputEquivalent": true,
+    "failures": [
+      {
+        "task": "trig",
+        "metric": "htmlExportMs",
+        "medianRatio": 0.9808141042299088,
+        "p95Ratio": 1.317910447758414
+      }
+    ]
+  },
+  {
+    "file": "recovery-cohort-2.json",
+    "status": "PASS",
+    "armsIncludingWarmup": 300,
+    "incidentCount": 0,
+    "outputEquivalent": true,
+    "failures": []
+  }
+]

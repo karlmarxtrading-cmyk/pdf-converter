@@ -1,0 +1,12 @@
+{
+  "observations": [
+    "lifecycle-default-1",
+    "lifecycle-large-1",
+    "lifecycle-timing-1"
+  ],
+  "files": {
+    "browser": "evidence/rc12/lifecycle/cancel-stages.json",
+    "control": "evidence/rc12/lifecycle/client-timing.json",
+    "large": "evidence/rc12/lifecycle/large-cancel.json"
+  }
+}

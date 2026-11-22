@@ -1,0 +1,3 @@
+# Putaran RC12 kedua
+
+Putaran 430401b2-82d5-4567-b002-14fd98349aca menghasilkan keputusan yang disimpan bersama seluruh status gerbang dalam `evidence/rc12/acceptance/all-gates.json`. Folder `evidence/rc12/performance` berisi kedua kohor Node, kedua kohor browser, jendela eksekusi dan hitung ulang. Lihat receipt G09 dan catatan metrik untuk ambang yang terlewati. Folder `parallel-attempt` mencatat percobaan browser awal yang dijalankan bersamaan. Rerun serial memakai build serta batas yang sama. Inventaris SHA-256 setiap output yang diukur, termasuk HTML, PDF dan gambar, tersedia dalam `attempt.json`.

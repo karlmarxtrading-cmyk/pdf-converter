@@ -1,0 +1,77 @@
+{
+  "fontObjects": [
+    [
+      "Type0",
+      "AAAAAA+Inter-Bold",
+      "F4"
+    ],
+    [
+      "Type0",
+      "BAAAAA+Inter-Regular",
+      "F5"
+    ],
+    [
+      "Type0",
+      "CAAAAA+Inter-SemiBold",
+      "F6"
+    ],
+    [
+      "Type0",
+      "DAAAAA+NotoSans-Regular",
+      "F7"
+    ],
+    [
+      "Type0",
+      "EAAAAA+Inter-Italic",
+      "F10"
+    ],
+    [
+      "Type0",
+      "FAAAAA+KaTeX_Main-Regular",
+      "F94"
+    ],
+    [
+      "Type0",
+      "GAAAAA+LiberationSans-Bold",
+      "F131"
+    ],
+    [
+      "Type0",
+      "IAAAAA+NotoEmoji-Regular",
+      "F2591"
+    ],
+    [
+      "Type3",
+      "",
+      "F1066"
+    ],
+    [
+      "Type3",
+      "",
+      "F11"
+    ]
+  ],
+  "unmappedType3Text": {
+    "U+2192": 126,
+    "U+2194": 1,
+    "U+2764": 1,
+    "U+FE0F": 1
+  },
+  "glyphFonts": {
+    "≠": [
+      "LiberationSans-Bold"
+    ],
+    "₁": [
+      "LiberationSans-Bold"
+    ],
+    "₂": [
+      "LiberationSans-Bold"
+    ],
+    "₃": [
+      "LiberationSans-Bold"
+    ],
+    "₄": [
+      "LiberationSans-Bold"
+    ]
+  }
+}

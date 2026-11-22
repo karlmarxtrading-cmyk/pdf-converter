@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "at": "2026-11-22T01:45:03.925Z",
+  "runId": "9a656b4f-0c91-43f7-8c88-094502eb9a2c",
+  "identity": {
+    "candidateSha256": "473bb0292bf940a33e7871ab3564bb6e09038c79ba3870298d87e305f1b424cd",
+    "distTreeSha256": "6cca0e1a658eb5a462d14c83c20b66016c5820ce4dfe1eb4c777cb90c4f1535f",
+    "version": "3.0.0-rc.10",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "1df668d1f1d6f79c67b570e08699407024a1225b2390699625a91da86f7fa804",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "750fa18ec92529e2abfacc30a2126fa79f9f2716ab907d3110e8314ebed54642",
+    "benchmarkHarnessSha256": "3a98d120dd7ee54718895e3b7e39d1a96cfe693c33f383b3c038f27dd7c798aa",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "06885d9ed359f8b4b1520fbdccda92141fcb9b78e8c4c5aee4e2eccc26832849",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "b15716f12528aa8f317a0253b7e1912366cb8983810a65a8c71765b330d45bc6"
+  },
+  "decision": "NO_GO",
+  "gates": [
+    {
+      "id": "G01",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G01.json",
+      "observations": [
+        "verified-input-archives",
+        "local-build"
+      ]
+    },
+    {
+      "id": "G02",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G02.json",
+      "observations": [
+        "local-build"
+      ]
+    },
+    {
+      "id": "G03",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G03.json",
+      "observations": [
+        "trig-new"
+      ]
+    },
+    {
+      "id": "G04",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G04-full-retry.json",
+      "observations": [
+        "wrapper-output-directory-retry"
+      ]
+    },
+    {
+      "id": "G05",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G05.json",
+      "observations": [
+        "integrity-new"
+      ]
+    },
+    {
+      "id": "G06",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G06.json",
+      "observations": [
+        "integrity-new"
+      ]
+    },
+    {
+      "id": "G07",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G07.json",
+      "observations": [
+        "pdf-new"
+      ]
+    },
+    {
+      "id": "G08",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G08.json",
+      "observations": [
+        "pdf-new"
+      ]
+    },
+    {
+      "id": "G09",
+      "status": "FAIL",
+      "reason": "Empat kohort resmi sudah dijalankan. Pemeriksaan gagal pada node-1.json (small-edit/editedRefreshMs), node-2.json (small-edit/editedRefreshMs), recovery-cohort-1.json (3 lengan gagal, trig/previewMs), recovery-cohort-2.json (trig/previewMs, long/previewMs). Hasil per metrik dan semua sampel tersedia di evidence/rc10/performance/cohort-recount.json."
+    },
+    {
+      "id": "G10",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G10.json",
+      "observations": [
+        "capacity-final"
+      ]
+    },
+    {
+      "id": "G11",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G11.json",
+      "observations": [
+        "aggregate-new"
+      ]
+    },
+    {
+      "id": "G12",
+      "status": "BLOCKED",
+      "reason": "Clipboard asli dari penyedia yang ditargetkan di Windows belum dapat diukur. Uji Linux lokal tersedia terpisah."
+    },
+    {
+      "id": "G13",
+      "status": "BLOCKED",
+      "reason": "Dialog Save/Cancel/Retry bersistem operasi dan berkas simpan pengguna tidak tersedia pada perangkat uji. PDF otomatis diukur terpisah."
+    },
+    {
+      "id": "G14",
+      "status": "BLOCKED",
+      "reason": "Navigasi pembaca layar dengan perangkat bantu pada perangkat sasaran belum dapat diverifikasi."
+    },
+    {
+      "id": "G15",
+      "status": "NOT_RUN",
+      "reason": "Pemilik memilih ZIP dan pengujian lokal. Tidak ada deployment preview kandidat ini."
+    },
+    {
+      "id": "G16",
+      "status": "BLOCKED",
+      "reason": "Latihan rollback hosting pada target baik yang dikenal dan persetujuan promosi belum tersedia. Pengujian dilakukan secara lokal."
+    },
+    {
+      "id": "U01",
+      "status": "PASS",
+      "facts": "evidence/rc10/u-facts/U01.json",
+      "observations": [
+        "book-headings-on",
+        "book-long-table-off",
+        "book-original-default-retry1",
+        "book-paragraphs-off",
+        "book-paragraphs-on",
+        "book-single-paragraph-off"
+      ]
+    },
+    {
+      "id": "U02",
+      "status": "FAIL",
+      "reason": "Final 217,850-word UI cancellation run exceeded the frozen post-GC retained-heap budget of 8,388,608 bytes at startup-ready (21,335,340 bytes), inventory-reopen (8,710,632 bytes), and geometry (8,733,304 bytes). The verified-pages wait failed. Ten measured large cancellations reached idle within 296 ms; maximum observed consecutive event-loop gap was 887 ms. The 11-stage standard input passed. See lifecycle/large-cancel.json, lifecycle/cancel-stages.json and the lifecycle-large observation."
+    },
+    {
+      "id": "U03",
+      "status": "PASS",
+      "facts": "evidence/rc10/u-facts/U03.json",
+      "observations": [
+        "trace-browser",
+        "trace-control"
+      ]
+    },
+    {
+      "id": "U04",
+      "status": "PASS",
+      "facts": "evidence/rc10/u-facts/U04.json",
+      "observations": [
+        "book-headings-on",
+        "book-long-table-off",
+        "book-original-default-retry1",
+        "book-paragraphs-off",
+        "book-paragraphs-on",
+        "book-single-paragraph-off"
+      ]
+    },
+    {
+      "id": "U05",
+      "status": "PASS",
+      "facts": "evidence/rc10/u-facts/U05.json",
+      "observations": [
+        "book-headings-on",
+        "book-long-table-off",
+        "book-original-default-retry1",
+        "book-paragraphs-off",
+        "book-paragraphs-on",
+        "book-single-paragraph-off",
+        "offline-nav-final",
+        "trig-new"
+      ]
+    },
+    {
+      "id": "U06",
+      "status": "PASS",
+      "facts": "evidence/rc10/u-facts/U06.json",
+      "observations": [
+        "capacity-validator-control"
+      ]
+    },
+    {
+      "id": "U07",
+      "status": "PASS",
+      "facts": "evidence/rc10/u-facts/U07.json",
+      "observations": [
+        "interleaved-final"
+      ]
+    },
+    {
+      "id": "U08",
+      "status": "PASS",
+      "facts": "evidence/rc10/u-facts/U08.json",
+      "observations": [
+        "ordered-lists-final"
+      ]
+    }
+  ]
+}

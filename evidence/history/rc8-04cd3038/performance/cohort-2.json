@@ -1,0 +1,830 @@
+{
+  "schema": 1,
+  "runId": "6e562a3d-d960-4ed7-ba91-50714823360a",
+  "pid": 21,
+  "cohort": 2,
+  "before": {
+    "rc6": {
+      "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+      "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+      "manifestSha256": "6827509a82bf2b903bda374e6782e3df77ec1cccb940739c31911fce49340279",
+      "version": "3.0.0-rc.6"
+    },
+    "candidate": {
+      "candidateSha256": "04cd3038a66f8bc3c78440456b6319c22af52dade47bd411362b6bb967435f35",
+      "distTreeSha256": "f5c8558a3b058ff2fdb2591989c39d2c92e314fe9f205a95ef5bbedba1a54db6",
+      "manifestSha256": "1aae3dc490ec1038358613ade91420160f730e20911da2ef1a9c27f2674a0ed3",
+      "version": "3.0.0-rc.8"
+    },
+    "fixture": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "oracle": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "acceptedReference": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "harness": "373050415f4debdf9e5efb0d5b5b213a3834203c32add7f579b242e9a3558e47",
+    "settings": "6f8d19307eaede2ec6b05047bf56a71d1f338340a0278e24dda13db4438eef80",
+    "benchmarkDependencies": {
+      "rc6": "774d75eec73c9088e839e3b252e2f6cc26e3c8fef1beba192b8a95d35204130c",
+      "candidate": "ef77e877abfc9dccc5fa3dba56f968d73ededbc84368ece98d80957ae5857e68"
+    }
+  },
+  "environment": {
+    "node": "v24.22.3",
+    "nodeExecutableSha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa",
+    "browserExecutableSha256": "53a15d6c3a3d27dfb54c4ba60278b1683136f70cf1e67e989da7dfbd3d451ef0",
+    "os": [
+      "linux",
+      "6.18.57",
+      "x64"
+    ],
+    "cpus": 2,
+    "model": "AMD EPYC 9V74 80-Core Processor",
+    "memoryBytes": 10451427328,
+    "initialLoad": {
+      "loadavg": [
+        7.57,
+        6.04,
+        4.74
+      ],
+      "at": "2026-11-21T21:20:52.373Z"
+    },
+    "affinity": "2-3",
+    "browser": "HeadlessChrome/153.0.8010.0"
+  },
+  "protocol": {
+    "schema": 1,
+    "baselineSource": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+    "baselineDist": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+    "trigSource": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "referenceHtml": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "dateFrozen": "2026-11-22",
+    "cohorts": 2,
+    "pairs": 40,
+    "warmupsPerCase": 1,
+    "order": "Even rounds start with RC6 in cohort 1 and candidate in cohort 2. Odd rounds reverse. Each cohort starts a new process and empty browser profile. Warmups and errors are retained. No trimming or reruns for a favorable timing.",
+    "medianRatio": 1.05,
+    "p95Ratio": 1.1,
+    "settings": {
+      "template": "BUS-01",
+      "paper": "A4",
+      "orientation": "portrait",
+      "viewport": [
+        1366,
+        900
+      ],
+      "locale": "id-ID",
+      "browserCache": "warm after warmup",
+      "nodeFonts": "locked local WOFF2"
+    },
+    "browserFlows": {
+      "trig": [
+        "previewMs",
+        "htmlExportMs",
+        "pageReadyMs"
+      ],
+      "long": [
+        "previewMs"
+      ],
+      "small": [
+        "smallPreviewMs",
+        "editPreviewMs"
+      ]
+    },
+    "nodeFlows": {
+      "trigonometry": [
+        "refreshMs",
+        "htmlExportMs",
+        "printPayloadMs"
+      ],
+      "long": [
+        "refreshMs"
+      ],
+      "small-edit": [
+        "editedRefreshMs",
+        "htmlExportMs",
+        "printPayloadMs"
+      ],
+      "empty-core": [
+        "refreshMs"
+      ]
+    },
+    "statistics": "Median averages both center values. p95 nearest-rank. Report spread and each cohort separately. GC, file validation and oracle run outside timed intervals. Browser polling ~12ms, clocks high-resolution monotonic. Shared Linux host; sample load separately, no outlier exclusion.",
+    "capacity": {
+      "sections": [
+        6,
+        30,
+        118
+      ],
+      "reps": 5,
+      "heapIntervalMs": 200,
+      "previewMs": 10000,
+      "reeditPreviewMs": 10000,
+      "cancelToIdleMs": 2000,
+      "maxEventLoopGapMs": 1000,
+      "printReadyMs": 60000,
+      "afterCloseRetainedDriftBytes": 8388608,
+      "firstProgressMs": 2000,
+      "maxProgressGapMs": 5000,
+      "peakDefinition": "Maximum observed Runtime.getHeapUsage.usedSize bytes on the same page target as post-GC. Native/process/worker memory excluded. Unknown remains null. Five runs support completion checks only; estimate latency tail per size on a separate 40+40 sample per-size study before advertising a percentile SLA.",
+      "capacityClaim": "Measure the historical 6,30,118-section fixtures. Their page counts depend on actual pagination. No 500/1,000-page claim."
+    }
+  },
+  "runs": [
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 393.40000000037253,
+        "previewMs": 1336.2999999998137,
+        "htmlExportMs": 249,
+        "pageReadyMs": 4315.700000000186
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:20:52.986Z",
+      "load": [
+        7.57,
+        6.04,
+        4.74
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 502.6000000005588,
+        "previewMs": 1509.2999999998137,
+        "htmlExportMs": 311,
+        "pageReadyMs": 3585.7000000001863
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:20:59.646Z",
+      "load": [
+        8.03,
+        6.18,
+        4.8
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 192.29999999981374,
+        "previewMs": 1159.2999999998137,
+        "htmlExportMs": 195.20000000018626,
+        "pageReadyMs": 3870.5
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:05.869Z",
+      "load": [
+        8.91,
+        6.4,
+        4.88
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 275.29999999981374,
+        "previewMs": 1034,
+        "htmlExportMs": 320.8999999994412,
+        "pageReadyMs": 2829.2000000001863
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:11.601Z",
+      "load": [
+        9.48,
+        6.56,
+        4.94
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 111.19999999925494,
+        "previewMs": 905.8999999994412,
+        "htmlExportMs": 281.70000000018626,
+        "pageReadyMs": 3109.699999999255
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:16.436Z",
+      "load": [
+        9.44,
+        6.6,
+        4.96
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 168.59999999962747,
+        "previewMs": 1200,
+        "htmlExportMs": 206.20000000018626,
+        "pageReadyMs": 3177.100000000559
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:21.097Z",
+      "load": [
+        9.24,
+        6.61,
+        4.97
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 136.09999999962747,
+        "previewMs": 944.5,
+        "htmlExportMs": 177.59999999962747,
+        "pageReadyMs": 3606.800000000745
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:26.224Z",
+      "load": [
+        8.98,
+        6.6,
+        4.98
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 157.40000000037253,
+        "previewMs": 1272.3999999994412,
+        "htmlExportMs": 241.30000000074506,
+        "pageReadyMs": 3339.7999999998137
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:31.450Z",
+      "load": [
+        8.74,
+        6.58,
+        4.98
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 145.09999999962747,
+        "previewMs": 1026.3999999994412,
+        "htmlExportMs": 201.79999999981374,
+        "pageReadyMs": 4218.200000000186
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:36.831Z",
+      "load": [
+        9,
+        6.68,
+        5.02
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 217.40000000037253,
+        "previewMs": 1232.5,
+        "htmlExportMs": 563.1999999992549,
+        "pageReadyMs": 3682.7999999998137
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:42.654Z",
+      "load": [
+        9.08,
+        6.73,
+        5.05
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 141.5,
+        "previewMs": 986.8000000007451,
+        "htmlExportMs": 230.70000000018626,
+        "pageReadyMs": 3255.100000000559
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:48.669Z",
+      "load": [
+        9.06,
+        6.81,
+        5.09
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 156.90000000037253,
+        "previewMs": 876.2999999998137,
+        "htmlExportMs": 168.90000000037253,
+        "pageReadyMs": 3361.7999999998137
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:53.559Z",
+      "load": [
+        9.13,
+        6.86,
+        5.12
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 5,
+      "times": {
+        "emptyReadyMs": 172.90000000037253,
+        "previewMs": 970.4000000003725,
+        "htmlExportMs": 407.6000000005588,
+        "pageReadyMs": 3675
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:58.393Z",
+      "load": [
+        9.13,
+        6.86,
+        5.12
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 5,
+      "times": {
+        "emptyReadyMs": 447.09999999962747,
+        "previewMs": 1036.0999999996275,
+        "htmlExportMs": 224.09999999962747,
+        "pageReadyMs": 3294
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:22:03.915Z",
+      "load": [
+        9.25,
+        6.96,
+        5.17
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 6,
+      "times": {
+        "emptyReadyMs": 195.40000000037253,
+        "previewMs": 946.2999999998137,
+        "htmlExportMs": 177.80000000074506,
+        "pageReadyMs": 3326.0999999996275
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:22:09.246Z",
+      "load": [
+        9.72,
+        7.1,
+        5.22
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 6,
+      "times": {
+        "emptyReadyMs": 175,
+        "previewMs": 1107.2999999998137,
+        "htmlExportMs": 254.5,
+        "pageReadyMs": 3784
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:22:14.141Z",
+      "load": [
+        9.9,
+        7.18,
+        5.26
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 7,
+      "times": {
+        "emptyReadyMs": 238.79999999981374,
+        "previewMs": 970.6000000005588,
+        "htmlExportMs": 255,
+        "pageReadyMs": 3647.2000000001863
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:22:19.755Z",
+      "load": [
+        9.99,
+        7.24,
+        5.29
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 7,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+      "timestamp": "2026-11-21T21:22:25.142Z",
+      "load": [
+        10.15,
+        7.32,
+        5.33
+      ]
+    }
+  ],
+  "status": "FAIL",
+  "error": "Error: {\"label\":\"candidate\",\"task\":\"trig\",\"round\":7,\"times\":{},\"oracle\":{\"pass\":false},\"error\":\"Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.\"}\n    at file:///workspace/scratch/d77204dbc71b/rc8/tests/bench/performance-browser.mjs:46:28"
+}

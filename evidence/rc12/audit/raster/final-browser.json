@@ -1,0 +1,45 @@
+{
+  "candidateSha256": "3a3ee3e24ce43548a31386f1141638a567a59c7a161b7200de0945f0b5b62460",
+  "distTreeSha256": "1aede97a9168d8d2e4e703afc1d3f1272e3575d2eb8535f60a4ab3dfdad01e39",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "reports": {
+    "preview": {
+      "images": [
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAABCAIAAABsYngUAAAADklEQVR4nGM096hgwAYAFiIA+fIvqa4AAAAASUVORK5CYII="
+      ],
+      "fallback": [
+        "flowchart LR\nA@{ img: \"data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAABCAIAAABsYngUAAAADklEQVR4nGM096hgwAYAFiIA+fIvqa4AAAAASUVORK5CYII=\", label: \"Public swatch\", pos: \"b\", h: 12, constraint: \"on\" }"
+      ],
+      "end": "IA+fIvqa4AAAAASUVORK5CYII=\", label: \"Public swatch\", pos: \"b\", h: 12, constraint: \"on\" }\nRASTER END\n"
+    },
+    "standalone": {
+      "sha256": "4696cfcf13c1c44daae19b582799915cd0f326a29e8ff1d4054ace3c3ae3871c",
+      "imagePreserved": true,
+      "fallbackExact": true
+    },
+    "print": {
+      "images": [
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAABCAIAAABsYngUAAAADklEQVR4nGM096hgwAYAFiIA+fIvqa4AAAAASUVORK5CYII="
+      ],
+      "fallback": [
+        "flowchart LR\nA@{ img: \"data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAABCAIAAABsYngUAAAADklEQVR4nGM096hgwAYAFiIA+fIvqa4AAAAASUVORK5CYII=\", label: \"Public swatch\", pos: \"b\", h: 12, constraint: \"on\" }"
+      ],
+      "end": "Public swatch\", pos: \"b\", h: 12, constraint: \"on\" }RASTER END\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\n\t\n"
+    },
+    "print-book": {
+      "images": [
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAABCAIAAABsYngUAAAADklEQVR4nGM096hgwAYAFiIA+fIvqa4AAAAASUVORK5CYII="
+      ],
+      "fallback": [
+        "flowchart LR\nA@{ img: \"data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAABCAIAAABsYngUAAAADklEQVR4nGM096hgwAYAFiIA+fIvqa4AAAAASUVORK5CYII=\", label: \"Public swatch\", pos: \"b\", h: 12, constraint: \"on\" }"
+      ],
+      "end": "IA+fIvqa4AAAAASUVORK5CYII=\", label: \"Public swatch\", pos: \"b\", h: 12, constraint: \"on\" }\nRASTER END\n"
+    },
+    "cancelledAndRetriedEditedSource": true,
+    "decoder": {
+      "validCalls": 5,
+      "mismatchedCalls": 0,
+      "remoteRequests": 0
+    }
+  }
+}

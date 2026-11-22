@@ -1,0 +1,11 @@
+{
+  "method": "Opened contact sheets sampled from actual PDFs. The matrix identifies each physical page. Visual samples supplement full-content comparisons.",
+  "observations": {
+    "headings-on": "First two sampled leaves contain the table of contents, followed by heading and long text. Middle and final samples show text within the printable body.",
+    "long-table-off": "The table spans hundreds of pages. Middle sample pages retain the two-column row layout. End sample contains the tail of the table.",
+    "paragraphs": "Sequence of regular paragraphs with page margins; first, quarter, middle, three-quarter and final views sampled.",
+    "single-paragraph-off": "One paragraph flows across consecutive physical pages; final page contains its tail.",
+    "private": "Opening, middle and final pages of both private layouts were viewed separately. Eight example glyphs were rasterized directly from each PDF. The inequality, four subscripts, two arrows and the heart were visibly distinct."
+  },
+  "limits": "Sampled visual review, not human inspection of every page."
+}

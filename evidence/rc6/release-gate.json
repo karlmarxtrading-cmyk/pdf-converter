@@ -1,0 +1,86 @@
+{
+  "tool": "tests/e2e/release-gate.mjs",
+  "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+  "at": "2026-11-21T16:05:18.895Z",
+  "pass": true,
+  "results": [
+    {
+      "case": "bersih (kontrol)",
+      "verifierPassed": true,
+      "expected": "pass",
+      "ok": true
+    },
+    {
+      "case": "panggilan backend /api/pdf",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "teks harga di HTML",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "kait QA di build produksi",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "_worker.js",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "functions/",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "print.html hilang",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "_headers tanpa CSP",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "Worker analisis hilang",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "sumber daya eksternal",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "identitas versi hilang",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "HTML source belum dibangun",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    },
+    {
+      "case": "aset entry hilang",
+      "verifierPassed": false,
+      "expected": "fail",
+      "ok": true
+    }
+  ]
+}

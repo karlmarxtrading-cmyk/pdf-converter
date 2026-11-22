@@ -1,0 +1,48 @@
+{
+  "source": "# Audit\n\nHarga 51. $x-2$ lalu $y+3$.\n\n$$\nz=7\n$$\n\n| A | B |\n|---|---|\n| 1 | 2 |\n\n```js\n  let x = 2\n\n```\n\n[Lihat](https://example.org/awal)",
+  "method": "Literal mutations and expected block outcomes on normal render, HTML export and paginated-print preparation",
+  "cases": {
+    "emptyFormula": false,
+    "visual": false,
+    "mathML": false,
+    "annotation": false,
+    "mathMLToken": false,
+    "visualMinus": false,
+    "canonical": true,
+    "raw": false,
+    "mode": false,
+    "equationOrder": true,
+    "rootText": false,
+    "untrackedNode": false,
+    "pua": false,
+    "foreignId": false,
+    "duplicateId": true,
+    "nestedId": false,
+    "order": true,
+    "spoofedDecoration": false,
+    "spoofedTOC": false,
+    "digit": true,
+    "cell": true,
+    "link": true,
+    "codeWhitespace": true,
+    "control": {
+      "toc": true,
+      "equations": 3,
+      "back": true
+    },
+    "generatedControls": true,
+    "routes": {
+      "emptyFormulastandalone": false,
+      "emptyFormulazip": false,
+      "emptyFormulapublication": false,
+      "emptyFormulaprint": false,
+      "untrackedNodestandalone": false,
+      "untrackedNodezip": false,
+      "untrackedNodepublication": false,
+      "untrackedNodeprint": false
+    },
+    "htmlAndPrint": false,
+    "fallback": false,
+    "pagedRepresentations": false
+  }
+}

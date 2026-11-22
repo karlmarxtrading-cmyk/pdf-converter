@@ -1,76 +1,100 @@
-# PaperForma RC5 · keputusan rilis
+# PaperForma 3.0.0-rc.12 · laporan penerimaan
 
-**21 November 2026. Layak untuk staging.** Website publik masih melayani RC4. RC5 menghasilkan HTML mandiri dan PDF yang dapat diperiksa. Empat PDF pada korpus campuran belum memenuhi syarat jenis font cetak dan bukti Firefox/WebKit belum tersedia.
+**Keputusan produksi NO_GO.** Dari 24 gerbang, 19 PASS, 5 BLOCKED dan 0 FAIL. Empat temuan RC11 lulus pengujian fungsional dalam cakupan di bawah.
 
-## Identitas hasil
+| Identitas | Nilai |
+| --- | --- |
+| Putaran | `cc0938e1-655c-4975-ae25-773dec283b8f` |
+| Source | `3a3ee3e24ce43548a31386f1141638a567a59c7a161b7200de0945f0b5b62460` |
+| Dist | `1aede97a9168d8d2e4e703afc1d3f1272e3575d2eb8535f60a4ab3dfdad01e39` |
+| Lockfile | `12b75fb5648c192b83655e2a154581468518cb8bb209cb29d3106d62d377fec4` |
+| Commit source lokal | `1a3e315ad11ce0672ac02750bb01a85de6ffbdf4` |
+| Commit preview dan deployment aktual | Belum tersedia |
 
-| Komponen | SHA-256 |
-|---|---|
-| ZIP sumber RC4 (905 checksum cocok) | `3b8c833b720c799664d03c4c293bf9645d2a5cc63c3ccd46ba340c6435870074` |
-| Input build RC5, termasuk konfigurasi, tes dan fixture | `9263951462ed4545e626a877f3ff196d6db5ff2e427585330972da4e8e9551a3` |
-| Pohon dist produksi RC5 | `0987e2ef814b844374f84b2ff26a5be4b4c675fc2dff12423e9cea0a7b69a1cd` |
-| Pohon dist QA yang dibangun dari input sama | `32d4c5bef8fb2b12c48419c9462c8880c9fe82418cc006bcc4ec941d948f7ff1` |
+[Ledger dan daftar bukti](../evidence/rc12/LEDGER.json) · [Checklist audit](../evidence/rc12/CHECKLIST_GO.csv) · [Putusan verifier](../evidence/rc12/acceptance/all-gates.json) · [Cakupan kompatibilitas](COMPATIBILITY_RC12.md).
 
-Node 24.22.3 dan npm 11.19.1. Situs aktif dan semua 616 path yang beririsan dengan GitHub cocok dengan RC4 pada saat pemeriksaan. Pengujian RC5 memakai dua profil dari sumber yang sama. Profil produksi dipakai untuk alur pengguna, hasil HTML dan pengujian HTTP. Profil QA membuka akses ke HTML berhalaman, inventaris dan waktu internal bagi instrumen pengujian. Hanya profil produksi berada di `dist/` arsip ini. Seluruh path source, konfigurasi, tes dan fixture yang berubah beserta digest sebelum/sesudah tercatat di `evidence/rc5/build/changed-inputs.json`. Pemeriksaan mencakup tinjauan perubahan, validasi mesin, pengujian UI, dan pemeriksaan halaman sampel. Vendor dan seluruh kombinasi perangkat tidak diaudit manual.
+## Perubahan yang diverifikasi
 
-## Yang berubah untuk pengguna
+| Temuan | Perilaku yang diuji | Bukti sebelum dan sesudah |
+| --- | --- | --- |
+| F11-01 | Pertahankan teks dan BR eksplisit. Bandingkan proyeksi asli dengan hasil konversi. Marker display di dalam paragraf memakai pembungkus yang sah sehingga browser mempertahankan persamaan di blok asal. Pindah baris, tanda baca, backslash, nilai TeX, mode, urutan dan jalur ekspor. Kontrol mutasi memeriksa apakah perubahan sengaja terdeteksi. | [Bukti](../evidence/rc12/audit/clipboard/closure.json) |
+| F11-02 | Pakai HTML aman ketika peran dan hubungan sel tidak dapat dituliskan secara utuh dalam GFM. Pertahankan scope, span, caption, posisi dan references ke header. Pada hasil offline, kedua sel suhu menunjuk header waktu dan ruang yang sesuai. Tabel kedua tetap berisi empat TD. Pohon aksesibilitas Chromium mengonfirmasi peran. Ucapan pembaca layar Windows diukur melalui G14. | [Bukti](../evidence/rc12/audit/clipboard/closure.json) |
+| F11-03 | Hitung elemen pada pohon dokumen setelah sanitasi, dengan satu representasi untuk tiap rumus. Hubungkan statistik dan tombol ekspor pada revisi yang telah selesai. Tes editor dan dialog Chromium beserta kontrol besar 217.850 kata. Definisi penghitungan ada di docs/CORE_API.md. | [Bukti](../evidence/rc12/audit/stats/finding.json) |
+| RC11-SEC-01 | Periksa jenis, byte, dimensi, piksel dan anggaran gabungan sebelum dekode. Pertahankan sumber asli apabila gambar tidak diterima. Sepuluh tes terarah dan pengamatan browser Chromium pada data aman. Baseline bersumber dari pemeriksaan source dan stub audit. Bukti sesudah perbaikan memakai dekoder asli Chromium, pratinjau, HTML, cetak standar, buku, pembatalan dan Retry. | [Bukti](../evidence/rc12/audit/raster/receipt.json) |
 
-- Rumus nilai mutlak tidak menambah kolom tabel GFM. Dolar literal di dalam TeX, rumus sebaris di clipboard dan rumus independen di sebelah MathJax lama tetap memiliki isi serta mode yang benar. Jalur dan judul tautan yang mengandung delimiter tetap utuh. Jika perintah TeX dengan pembuka eksplisit kehilangan penutup, pengguna mendapat nomor baris dan petunjuk delimiter. Tujuh dari delapan kasus baru gagal pada RC4; seluruh delapan lulus pada RC5.
-- Penjaga keluar bekerja pada draf yang isinya baru pengaturan. Penghapusan proyek mengosongkan status simpan yang sudah tidak berlaku. Penghapusan basis data yang diblokir tab lain melindungi perubahan yang masih tertunda. Pilihan HTML/plain ditetapkan lagi untuk setiap tempelan dan kartu format dapat dipilih dengan papan ketik tanpa kehilangan fokus.
-- Snapshot membatasi penyalinan ke rentang byte milik aset, memeriksa SHA-256 byte aktual dan menjalankan maksimal dua digest aset bersamaan. Pemeriksa keutuhan dan rujukan gambar berbagi hasil parsing tersendiri untuk dokumen biasa. Renderer memiliki hasil parsing independen. Tidak ada cache lintas proyek untuk hasil itu.
-- Modul KaTeX diunduh saat rumus diperlukan. Observer contoh beranda dipasang setelah rute studio dipilih agar membuka editor kosong tidak memicu render contoh beranda. Pratinjau dan ekspor berbagi katalog URL font, sehingga browser dapat langsung meminta WOFF2 yang diperlukan tanpa satu modul per nama font. Pengambilan font bersamaan tidak menggandakan URL objek untuk font yang sama.
-- Persiapan cetak membatasi dua dekode gambar serentak, memeriksa dimensi intrinsik dan menghentikan proses saat gambar gagal. Pemanggilan cetak berulang saat dialog masih aktif menggunakan satu sesi. Pemeriksa hosting kini menolak manifest kedaluwarsa walaupun nomor versi sama.
+Pengujian A01–A06 diulang pada kandidat ini melalui clipboard, kedua jalur cetak, izin gambar, impor proyek, marker daftar dan batas muatan UTF-8 sebesar 45 MiB. [Hasil regresi](../evidence/rc12/audit/regressions/receipt.json).
 
-## Keputusan A–H
+Percobaan RC12 pertama menemukan regresi pada dokumen clipboard berisi 21 rumus. Browser memisahkan persamaan display dari paragrafnya karena pembungkus blok. Setelah pembungkus diperbaiki, source, build, alat, fixture dan pengukuran diikat pada putaran baru. [Percobaan yang digantikan](../evidence/rc12-attempts/5ebf3e65-cee4-4bcc-af1e-22c784dbffc8/attempt.json).
 
-| Gate | Status | Bukti dan batas |
-|---|---|---|
-| A. Sumber dan data | PASS | Regresi riwayat, penghapusan, status tersimpan, kuota dan konflik tab. E2E meliputi pemulihan proyek, undo, impor ulang dan perpindahan origin. |
-| B. Parsing dan matematika | PASS | TeX dan mode dibandingkan dengan fixture, termasuk 21 ekspresi trigonometri dari jalur Markdown dan HTML clipboard. Grafik interaktif tanpa representasi statis tidak direkonstruksi. |
-| C. HTML/PDF dan tata letak | FAIL | HTML trigonometri mandiri dapat dirender luring. Tujuh PDF aktual diperiksa. Trigonometri, Einstein dan dokumen 195 halaman lulus; empat dokumen dengan emoji memicu gate font Type 3. |
-| D. Performa | PASS | Anggaran startup browser dan snapshot tercapai. Seluruh delapan median analisis Node membaik. Dua p95 Worker pada dokumen kecil memburuk, dirinci di bawah. |
-| E. Keamanan dan ketahanan | PASS | Pada lingkup yang diuji: sanitasi, kebijakan URL, batas struktur/arsip/piksel, pembatalan dan simpan. 438 entri SBOM, 255 komponen runtime, nol advisory yang dilaporkan saat pemeriksaan, pemindaian pola rahasia lulus. |
-| F. Browser dan aksesibilitas | BLOCKED | 31 dari 33 skenario Chromium lulus. Dua berhenti pada pembukaan file:// yang diblokir kebijakan browser. Keyboard dan axe A/AA lulus pada permukaan yang diuji. Firefox, WebKit, pembaca layar dan ponsel fisik belum diverifikasi. |
-| G. Build dan deploy | FAIL | Lokal 184/184 pemeriksaan HTTP dan 179/179 berkas publik cocok. Pada URL produksi, 65 dari 184 pemeriksaan berbeda karena situs masih menyajikan RC4. |
-| H. Integritas paket | PASS | Verifikator mengekstrak arsip ke direktori kosong. Instalasi dari lockfile, typecheck, lint, 356 tes Vitest + 9 tes Node, build, pemeriksaan HTTP dan perbandingan seluruh 180 berkas dist lulus. |
+## Tes dan hasil ekspor
 
-## PDF, keterbacaan dan ekspor
+Instalasi dari lockfile, typecheck, lint dan build dari ekstraksi bersih selesai. Suite menghasilkan **663 Vitest, 13 tes Node dan 26 kontrak penerimaan**, total 702. Baseline RC11 mencatat 638 + 11 + 26 = 675. Uji terarah yang muncul di beberapa laporan hanya dihitung sekali pada total suite. Sebanyak 184 file dist identik setelah dibangun kembali. [Log build](../evidence/rc12/build-tests/clean-build.log).
 
-Rumus trigonometri, pecahan, akar, matriks Einstein, tabel dan teks penutup diperiksa pada hasil cetak Chromium. PDF yang dihasilkan melalui CDP berasal dari HTML yang diratakan sesudah paginasi. Teks dapat dicari. Dokumen trigonometri berisi tiga halaman, termasuk halaman daftar isi, dan dokumen Einstein satu halaman. Pemeriksaan sampel mencakup raster ketiga halaman trigonometri, halaman Einstein, serta halaman awal, tabel lebar dan halaman terakhir pada dokumen campuran A5. Pada alur produksi, aplikasi menyiapkan satu halaman A4 berisi rumus Einstein dan meminta dialog cetak. Menu cetak dinonaktifkan oleh kebijakan Chromium desktop terkelola. Penyimpanan PDF melalui dialog sistem berstatus BLOCKED. Rincian ada di `evidence/rc5/pdf/native-dialog.json`.
+Chromium menghasilkan 26 PDF pada 29 pekerjaan dan 24 konfigurasi. 3 kasus memicu penolakan yang diharapkan. Sebanyak 924/924 cuplikan rumus cocok dengan acuan. Pemeriksaan visual mencakup 56 halaman unik dari 31 PDF. [Matriks PDF](../evidence/rc12/pdf/coverage.json) · [Pemeriksaan visual](../evidence/rc12/pdf-review/visual-inspection.json) · [Contoh HTML dan PDF](../examples/rc12/).
 
-Empat PDF yang gagal adalah dokumen campuran A4 (10 halaman), Letter lanskap (13), A5 (20) dan dokumen 62 halaman. Pemeriksaan jenis font mendeteksi Noto Color Emoji Type 3 pada tiga rangkaian karakter dari sumber, 😀, 🚀 dan 👩‍💻. Font tersebut tersemat; persyaratan tanpa Type 3 tetap gagal. Detail font per halaman dan hash berkas terdapat di `evidence/rc5/pdf/type3-check.json`. Skrip sumber menjaga emoji dalam dokumen. Enam putaran persiapan layout mempertahankan tiga iframe. Heap JS naik 1,2 MiB dari putaran kedua ke keenam dalam satu sesi, sehingga penggunaan memori jangka panjang tidak disimpulkan dari angka itu.
+| Buku | Halaman | Blok dikonfirmasi / sumber | Batas kata hilang / diperiksa | Penutup cocok |
+| --- | ---: | ---: | ---: | --- |
+| Heading dengan daftar isi | 621 | 438 / 438 | 0 / 217.412 | Ya |
+| Tabel panjang | 590 | 2 / 2 | 0 / 217.848 | Ya |
+| Naskah asli privat | 1.284 | 30.039 / 30.039 | 0 / 172.188 | Ya |
+| Paragraf tanpa daftar isi | 628 | 1.092 / 1.092 | 0 / 216.758 | Ya |
+| Paragraf dengan daftar isi | 628 | 1.092 / 1.092 | 0 / 216.758 | Ya |
+| Paragraf tunggal | 600 | 3 / 3 | 0 / 217.847 | Ya |
 
-## Performa pada input yang sama
+Uji antarmuka pada putaran ini meluluskan 33/33 skenario. Pada dokumen 196 halaman, E26 mengukur jeda event loop maksimum 86 ms dengan worker dan ambang 400 ms. [Hasil UI lengkap](../evidence/rc12/user-suite/ui-e2e.json).
 
-| Ukuran | RC4 | RC5 | Metode |
-|---|---:|---:|---|
-| Snapshot proyek dengan 10 MiB aset, median | 26,37 ms | 15,18 ms | 40 pasangan Node |
-| Snapshot yang sama, p95 | 36,74 ms | 31,20 ms | Seluruh pasangan disertakan |
-| Analisis Worker, 472 rumus dan 472 baris tabel, median | 781,7 ms | 638,6 ms | Worker Node, 4 pasangan beban besar |
-| Jalur cadangan, data yang sama, median | 806,1 ms | 531,8 ms | EngineClient, tanpa Worker |
-| Worker dokumen 6 bagian, p95 | 133,8 ms | 180,5 ms | 20 pasangan; median membaik |
-| Worker dokumen 1 bagian, p95 | 38,9 ms | 49,9 ms | 20 pasangan; median membaik |
-| Seluruh berkas dalam dist produksi | 281 | 180 | Font tetap terbundel, modul per font diganti satu katalog |
+Putaran RC12 kedua mencatat 416 ms saat banyak suite berjalan dan 94 ms pada pengulangan terisolasi di kandidat saat itu. Satu percobaan otomatis pada batas cetak 45 MiB kehabisan waktu sebelum memperoleh sampel. Pada pengulangan di kandidat tersebut, seluruh enam batas cetak lulus. Keputusan putaran itu tetap NO_GO karena p95 refresh editor kosong 8,579 ms dibandingkan 7,240 ms pada RC6, melebihi batas rasio 1,10. Seluruh 1.256 baris mentah putaran itu dipertahankan. [Riwayat putaran kedua](../evidence/rc12-attempts/430401b2-82d5-4567-b002-14fd98349aca/).
 
-| Pengukuran Chromium, 20 pasangan | RC4 | RC5 |
-|---|---:|---:|
-| Respons body HTTP saat studio kosong pertama dibuka | 2.585.260 byte | 1.855.906 byte |
-| Waktu siap dingin, median / p95 | 782 / 1.319 ms | 464 / 962 ms |
-| Waktu siap saat muat ulang dengan cache, median / p95 | 541 / 1.134 ms | 297 / 620 ms |
-| Byte muat ulang dengan cache | 32.610 | 32.610 |
+Buku menggunakan kontrol cetak studio. PDF hasilnya dibuka kembali dan dibandingkan terhadap sumber dengan pemeriksa independen. Untuk naskah privat, paket hanya membawa ukuran, digest dan hasil pemeriksaan. [Enam laporan buku](../evidence/rc12/book/).
 
-Ukuran body dingin turun 28,2%. Ini akumulasi byte respons server lokal tanpa kompresi dan tidak mencakup header HTTP. Waktu di atas diukur pada Chromium desktop lokal, bukan distribusi waktu dari pengguna Cloudflare. Pada kandidat perantara, beranda sempat merender contoh ketika editor kosong dibuka dan p95 muat ulang naik dari 495 menjadi 686 ms. Hasil tersebut disimpan di `evidence/rc5/browser/history/startup-before-router-order.json`. Setelah pemilihan rute didahulukan, seluruh 20 pembukaan dingin pada kandidat penyerahan tidak meminta renderer atau font KaTeX di studio kosong. Uji dokumen trigonometri memastikan modul tetap dimuat untuk materi yang memerlukannya.
+## Performa terhadap RC6
 
-P95 snapshot 99,41 ms yang tercatat di laporan RC4 diperoleh dalam sesi pengukuran terdahulu. Angka 36,74 ms berasal dari pengukuran pembanding RC4 pada sesi RC5. Dataset, urutan AB/BA, hasil perulangan dan variasi ada di `evidence/rc5/performance/`. Uji startup mengukur keseluruhan permintaan lewat browser, termasuk pekerja, font dan bagian yang dimuat dinamis.
+Metadata teks sepanjang maksimum 2.048 byte UTF-8 menggunakan implementasi SHA-256 yang sudah disediakan aplikasi. Nilai digest diperiksa terhadap implementasi independen. Pencarian elemen DOM yang pasti kosong dilewati setelah pemeriksaan sumber dan sanitasi semula. Pada diagnosis sebelum pembekuan, 80 pasangan pratinjau menghasilkan HTML identik. [Diagnosis dan data mentah](../evidence/rc12-attempts/430401b2-82d5-4567-b002-14fd98349aca/diagnosis/README.md).
 
-Uji pengetikan Chromium pada naskah 58.106 byte mengirim 20 ketukan yang digabung menjadi satu render. Pratinjau akhir siap dalam 1598 ms dari awal simulasi pengetikan. Hasil ini mengukur sampai pratinjau, bukan waktu latensi satu tombol. Bukti rinci tersedia di `evidence/rc5/browser/e2e-results.json`.
+| Kelompok ukur | Jumlah baris mentah | Baris gagal | Status pemeriksa independen |
+| --- | ---: | ---: | --- |
+| node-1.json | 328 | 0 | PASS |
+| node-2.json | 328 | 0 | PASS |
+| recovery-cohort-1.json | 300 | 0 | PASS |
+| recovery-cohort-2.json | 300 | 0 | PASS |
 
-Delapan uji beban Chromium menghasilkan 3, 12, 52 dan 101 halaman, dua pengulangan per ukuran. Seluruh pemeriksaan isi lulus. Pada 101 halaman, median pratinjau 1.979 ms, paginasi beserta verifikasi 5.004 ms, dan pembuatan PDF 3.060 ms. Lihat `evidence/rc5/browser/perf-matrix.json`.
+Seluruh baris, warmup, pengulangan, median dan p95 tersedia untuk tiap metrik. [Sebelum dan sesudah perbaikan](../evidence/rc12/audit/performance-fix/official-before-after.json) · [Perhitungan kembali G09](../evidence/rc12/performance/cohort-recount.json).
 
-## Paket dan pengulangan
+## Keputusan per gerbang
 
-`evidence/rc5/build/cleanroom-rehearsal.json` mengikat verifikasi percobaan ke arsip perantara yang dinamai dalam berkas itu. Sesudah laporan dan hasil browser lengkap, arsip penyerahan diuji ulang dari awal dengan `scripts/verify-archive.py`. SHA-256 ZIP penyerahan dan hasil uji akhir dilaporkan bersama tautan unduh agar digest tidak menghitung dirinya sendiri. Daftar checksum di root mencakup setiap berkas lain di ZIP. Paket berisi aplikasi dan tes lengkap. Laporan RC4 di `docs/history/rc4` berfungsi sebagai jejak historis. Inventaris lama dan artefak mentah RC4 tetap tersedia di ZIP sumber.
+| Gerbang | Cakupan | Hasil | Bukti |
+| --- | --- | --- | --- |
+| G01 | Identitas dan checksum | PASS | [Receipt](../evidence/rc12/acceptance/receipts/G01.json) |
+| G02 | Instalasi/build/tes/HTTP | PASS | [Receipt](../evidence/rc12/acceptance/receipts/G02.json) |
+| G03 | Unduhan empat template | PASS | [Receipt](../evidence/rc12/acceptance/receipts/G03.json) |
+| G04 | Wrapper dan prosa | PASS | [Receipt](../evidence/rc12/acceptance/receipts/G04.json) |
+| G05 | Rumus/mode/MathML | PASS | [Receipt](../evidence/rc12/acceptance/receipts/G05.json) |
+| G06 | Deteksi perubahan isi | PASS | [Receipt](../evidence/rc12/acceptance/receipts/G06.json) |
+| G07 | PDF/glif/font | PASS | [Receipt](../evidence/rc12/acceptance/receipts/G07.json) |
+| G08 | Kode multihalaman | PASS | [Receipt](../evidence/rc12/acceptance/receipts/G08.json) |
+| G09 | Performa terhadap RC6 | PASS | [Receipt](../evidence/rc12/acceptance/receipts/G09.json) |
+| G10 | Kapasitas/respons/heap | PASS | [Receipt](../evidence/rc12/acceptance/receipts/G10.json) |
+| G11 | Kontrol negatif verifier | PASS | [Receipt](../evidence/rc12/acceptance/receipts/G11.json) |
+| G12 | Clipboard provider asli Windows | BLOCKED | [Receipt](../evidence/rc12/acceptance/receipts/G12.json) |
+| G13 | Dialog OS Save/Cancel/Retry | BLOCKED | [Receipt](../evidence/rc12/acceptance/receipts/G13.json) |
+| G14 | Screen reader + pemulihan | BLOCKED | [Receipt](../evidence/rc12/acceptance/receipts/G14.json) |
+| G15 | HTTPS preview Pages | BLOCKED | [Receipt](../evidence/rc12/acceptance/receipts/G15.json) |
+| G16 | Rollback produksi + otorisasi | BLOCKED | [Receipt](../evidence/rc12/acceptance/receipts/G16.json) |
+| U01 | Cetak buku dari UI | PASS | [Receipt](../evidence/rc12/acceptance/receipts/U01.json) |
+| U02 | Respons/batal/cleanup | PASS | [Receipt](../evidence/rc12/acceptance/receipts/U02.json) |
+| U03 | Observasi percobaan/fase | PASS | [Receipt](../evidence/rc12/acceptance/receipts/U03.json) |
+| U04 | PDF buku fisik | PASS | [Receipt](../evidence/rc12/acceptance/receipts/U04.json) |
+| U05 | HTML offline/navigasi | PASS | [Receipt](../evidence/rc12/acceptance/receipts/U05.json) |
+| U06 | Kontradiksi kapasitas ditolak | PASS | [Receipt](../evidence/rc12/acceptance/receipts/U06.json) |
+| U07 | Urutan dan mode TeX | PASS | [Receipt](../evidence/rc12/acceptance/receipts/U07.json) |
+| U08 | Marker daftar fisik | PASS | [Receipt](../evidence/rc12/acceptance/receipts/U08.json) |
 
-## Keputusan deploy
+## Bukti yang masih diperlukan
 
-Gunakan branch preview di GitHub, build `npm run build` dan output `dist`. Jalankan `verify:http` dan `verify:deployment` dari checkout RC5 ke URL preview yang sebenarnya. Untuk penerimaan lintas browser, ulangi pembukaan HTML dari disk dan cetak pada Firefox/WebKit serta periksa font PDF emoji pada perangkat sasaran. [Panduan deploy Git Bash dan rollback](DEPLOY_CLOUDFLARE.md).
+Untuk G12–G14, jalankan clipboard penyedia AI, Save/Cancel/Retry dan pembaca layar pada Windows sasaran. Untuk G15, diperlukan akses tulis repository dan akses ke proyek Pages agar tersedia deployment preview HTTPS. Untuk G16, identifikasi dua deployment produksi yang tepat dan peroleh persetujuan pemilik sebelum rollback. Pada simulasi Git lokal, RC11 dipulihkan dari RC12 dan identitas source serta dist RC11 cocok kembali. Pengukuran hosting untuk G16 tetap memerlukan peristiwa dari Pages. [Simulasi Git lokal](../evidence/rc12/external/local-git-rollback.json). A07 masih OPEN. A08 memerlukan rehearsal penuh di runner Pages proyek tersebut setelah 24 gerbang lulus. [Panduan pengambilan bukti dan berkas yang dikembalikan](ACCEPTANCE_PERANGKAT_HOSTING.md) · [Pengaturan proyek, preview dan rollback](DEPLOY_CLOUDFLARE.md).
+
+## Verifikasi independen dan isi ZIP
+
+Ekstraksi independen memeriksa 2.928 checksum pada snapshot pengukuran. Instalasi dari lockfile dan build Pages lokal menghasilkan 184 file distribusi dengan total 10.246.030 byte. Toolchain Linux menjalankan probe HTML/PDF dan verifier penuh. Verifier membaca ulang bukti, menghasilkan 24 baris identik dengan putusan kanonis, dan mengembalikan exit 1 sesuai NO_GO. [Log dan receipt independen](../evidence/rc12/audit/hosting/independent-qualification.json).
+
+Pemeriksaan pra-pengemasan membaca setiap anggota arsip dan proyek bersarang, mencocokkan checksum, mencari sampel teks naskah, digest keluaran privat dan pola kredensial. SHA-256 ZIP penyerahan dan hasil verifikasi ekstraksi final disampaikan bersama unduhan. Untuk mengulangnya, gunakan `scripts/verify-archive.py` terhadap ZIP, lalu jalankan verifier dari ekstraksi baru. [Hasil pemindaian](../evidence/rc12/packaging/pre-delivery-privacy.json).

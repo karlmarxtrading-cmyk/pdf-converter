@@ -53,3 +53,58 @@ test('deployment preflight rejects stale sources, alternate output bytes and QA 
     await rm(dir, { recursive: true, force: true });
   }
 });
+
+test('release identity invalidates changed toolchain pins and Git checkout settings', async () => {
+  const { candidateSha256 } = await import('../../scripts/fingerprint.mjs');
+  const dir = await mkdtemp(join(tmpdir(), 'paperforma-toolchain-id-'));
+  try {
+    await mkdir(join(dir, 'scripts', 'toolchain'), { recursive: true });
+    const lock = join(dir, 'scripts', 'toolchain', 'linux-64.lock.json');
+    await writeFile(lock, '{"pin":"one"}');
+    const first = candidateSha256(dir);
+    await writeFile(lock, '{"pin":"two"}');
+    const second = candidateSha256(dir);
+    assert.notEqual(first, second);
+    await writeFile(join(dir, '.gitignore'), 'dist');
+    assert.notEqual(second, candidateSha256(dir));
+  } finally {
+    await rm(dir, { recursive: true, force: true });
+  }
+});
+
+test('Pages requires promotion checks on main and rejects a mismatched production setting', async () => {
+  const { requiresPromotionEvidence } = await import('../../scripts/pages-build.mjs');
+  assert.equal(requiresPromotionEvidence({}), false);
+  assert.equal(requiresPromotionEvidence({ CF_PAGES: '1', CF_PAGES_BRANCH: 'rc11-preview', PAPERFORMA_PRODUCTION_BRANCH: 'main' }), false);
+  assert.equal(requiresPromotionEvidence({ CF_PAGES: '1', CF_PAGES_BRANCH: 'main', PAPERFORMA_PRODUCTION_BRANCH: 'main' }), true);
+  assert.throws(() => requiresPromotionEvidence({ CF_PAGES: '1', CF_PAGES_BRANCH: 'main', PAPERFORMA_PRODUCTION_BRANCH: 'different' }), /must match/);
+  assert.throws(() => requiresPromotionEvidence({ CF_PAGES: '1' }), /identify the Git branch/);
+});
+
+test('a named preview rehearsal executes the full production verifier without changing the production branch', async () => {
+  const { pagesQualification } = await import('../../scripts/pages-build.mjs');
+  // Unit inputs only. These are not runtime hosting evidence.
+  const sample = { CF_PAGES:'1', CF_PAGES_BRANCH:'preview-12', PAPERFORMA_PRODUCTION_BRANCH:'main', PAPERFORMA_REHEARSAL_BRANCH:'qualify-12' };
+  assert.equal(pagesQualification({}), 'local');
+  assert.equal(pagesQualification(sample), 'preview');
+  assert.equal(pagesQualification({...sample,CF_PAGES_BRANCH:'qualify-12'}), 'preview-rehearsal');
+  assert.equal(pagesQualification({...sample,CF_PAGES_BRANCH:'main'}), 'production');
+});
+
+test('external collector rejects unrelated source, provider URL, deployment ID and public notes without an observation', async () => {
+  const { verifyHostingSession, assertSession } = await import('../../scripts/external-acceptance.mjs');
+  const url='https://synthetic.paperforma-example.pages.dev', sourceCommit='a'.repeat(40), deploymentCommit='b'.repeat(40);
+  const data={gate:'G15',runId:'unit-only',candidateSha256:'c'.repeat(64),distTreeSha256:'d'.repeat(64),url,branch:'preview-12',sourceCommit,
+    evidenceCommit:deploymentCommit,deploymentCommit,deploymentId:'synthetic-test-id'};
+  const record={mode:'preview',commit:deploymentCommit,branch:data.branch,url,candidateSha256:data.candidateSha256,distTreeSha256:data.distTreeSha256};
+  const provider={id:data.deploymentId,url,project_name:'paperforma-example',environment:'preview',deployment_trigger:{metadata:{commit_hash:deploymentCommit,branch:data.branch}}};
+  const log='PAPERFORMA_PAGES_BUILD '+JSON.stringify(record);
+  assert.doesNotThrow(()=>verifyHostingSession(data,log,provider));
+  assert.throws(()=>verifyHostingSession({...data,url:'https://other.paperforma-example.pages.dev'},log,provider));
+  assert.throws(()=>verifyHostingSession(data,log,{...provider,id:'wrong'}));
+  assert.throws(()=>verifyHostingSession(data,log,{...provider,environment:'production'}));
+  assert.throws(()=>verifyHostingSession(data,'PAPERFORMA_PAGES_BUILD '+JSON.stringify({...record,candidateSha256:'stale'}),provider));
+  const start={at:new Date(Date.now()-60000).toISOString(),identity:data,runId:data.runId};
+  assert.throws(()=>assertSession({...data,operator:'test',platform:'linux',browser:'test',observedAt:new Date().toISOString(),notes:{}},start),/observed result/);
+  assert.throws(()=>assertSession({...data,runId:'other'},start),/Wrong runId/);
+});

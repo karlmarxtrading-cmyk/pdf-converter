@@ -1,0 +1,12 @@
+
+ RUN  v5.1.0 /workspace/scratch/d77204dbc71b/rc10b
+
+············································
+
+ Test Files  3 passed (3)
+      Tests  44 passed (44)
+   Start at  08:47:20
+   Duration  2.01s (environment 36%, import 29%, transform 18%, tests 17%)
+
+raw PASS a71a8f328eb7f43149460cd4cf4580712ea65aeae141fe4485c44600d60de576 
+clipboard PASS aa3e8b6ef9b0877eed1cfb17695956f518217d922dfc80ffc3f12f832d2ab418 

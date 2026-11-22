@@ -2,18 +2,30 @@
  * Klien halaman cetak untuk aplikasi: memaginasi di iframe print.html (origin sama) dan cetak lokal (PDF-12).
  * Tidak ada data dokumen yang dikirim ke server pada jalur ini.
  */
+import { assertPrintPayload } from './print-budget';
 import { PaginationError } from './paginate-error';
-import type { PaginationResult, PrintMessage, PrintPayload } from './print-types';
+import type { PaginationResult, PrintMessage, PrintPayload, PrintProgress, PrintTraceEvent } from './print-types';
 
+// The watchdog only advances at known milestones or on increasing work
+// counters for the current logical pass. Old or invented stages are inert.
+const measuredPhases = new Set([
+  'fonts','images','fragment-work','paginate','batch-pages','assemble','heading-check','diagnostics',
+  'diagnostic-pages','widow-pages','font-pages','flatten','serialize-pages','inventory',
+  'inventory-source-ready','inventory-reopen','inventory-pages','geometry','verified-pages',
+]);
 export interface FrameOptions {
   printUrl?: string; signal?: AbortSignal; timeoutMs?: number;
-  onProgress?: (p: { phase: string; pass?: number; pages?: number }) => void;
+  startupMs?: number; stallMs?: number;
+  onProgress?: (p: PrintProgress) => void;
   /** iframe ditempel ke elemen ini dan dibiarkan terlihat (pratinjau). Default: tersembunyi di luar layar lalu dibuang. */
   mount?: HTMLElement; keepFrame?: boolean; autoPrint?: boolean;
 }
 export interface FrameResult { result: PaginationResult; frame: HTMLIFrameElement | null }
 
 export function paginateInFrame(payload: PrintPayload, o: FrameOptions = {}): Promise<FrameResult> {
+  if (o.autoPrint && payload.pdfRestrictions?.length) return Promise.reject(
+    new PaginationError({ code: 'BLOCKING_ISSUES', message: payload.pdfRestrictions[0]!.message }, payload.pdfRestrictions));
+  try { assertPrintPayload(payload); } catch (error) { return Promise.reject(error); }
   const url = new URL(o.printUrl ?? '/print.html', location.href);
   const frame = document.createElement('iframe');
   frame.title = 'PaperForma print';
@@ -22,20 +34,72 @@ export function paginateInFrame(payload: PrintPayload, o: FrameOptions = {}): Pr
   else frame.style.cssText = 'width:100%;height:100%;border:0';
   const keep = !!(o.keepFrame || o.mount || o.autoPrint);
   return new Promise<FrameResult>((resolve, reject) => {
-    let done = false;
-    const cleanup = () => { window.removeEventListener('message', onMsg); clearTimeout(timer); o.signal?.removeEventListener('abort', onAbort); if (!keep) frame.remove(); };
+    let done = false, ready = false;
+    const start = performance.now();
+    const large = (payload.bodyInner?.length ?? 0) >= 1_000_000;
+    const totalMs = o.timeoutMs ?? (large ? 900_000 : 180_000);
+    const stallMs = o.stallMs ?? (large ? 90_000 : 45_000);
+    let last = 'startup', progressAt = start;
+    const counters = new Map<string, number>();
+    let currentPass = 0;
+    let idle: ReturnType<typeof setTimeout>;
+    const cleanup = () => {
+      window.removeEventListener('message', onMsg);
+      frame.removeEventListener('error', onLoadError);
+      clearTimeout(deadline); clearTimeout(idle);
+      o.signal?.removeEventListener('abort', onAbort);
+    };
     const finish = (fn: () => void) => { if (done) return; done = true; cleanup(); fn(); };
-    const onAbort = () => finish(() => { frame.remove(); reject(new PaginationError({ code: 'ABORTED', message: 'Paginasi dibatalkan.' }, [])); });
-    // EN-010: frame yang gagal tidak pernah dipertahankan (juga dengan keepFrame); listener/timer dibersihkan di finish().
-    const timer = setTimeout(() => finish(() => { frame.remove(); reject(new PaginationError({ code: 'FRAME_TIMEOUT', message: `Halaman cetak tidak merespons dalam ${o.timeoutMs ?? 180000} ms.` }, [])); }), o.timeoutMs ?? 180000);
+    const fail = (code: 'FRAME_STARTUP_TIMEOUT' | 'FRAME_STALLED' | 'FRAME_DEADLINE' | 'FRAME_LOAD_FAILED', reason: string) => finish(() => {
+      const now = performance.now();
+      const message = reason + ' · ' + payload.jobId + ' · fase ' + last + ' · ' +
+        Math.round(now-start) + ' ms total · ' + Math.round(now-progressAt) + ' ms sejak progres.';
+      const events = stopChild();
+      frame.remove();
+      reject(new PaginationError({code, message}, [{id:'print-frame',code,severity:'error',scope:'layout',blocking:true,message}],events));
+    });
+    const stopChild = () => {
+      let events: PrintTraceEvent[] = [];
+      try {
+        frame.contentWindow?.dispatchEvent(new CustomEvent('pf-print-stop',{detail:{
+          jobId:payload.jobId,receive:(entries:PrintTraceEvent[]) => { events = structuredClone(entries); },
+        }}));
+      } catch { /* Frame load can fail before a same-origin document exists. */ }
+      return events;
+    };
+    const onLoadError = () => fail('FRAME_LOAD_FAILED','Halaman cetak gagal dimuat.');
+    const onAbort = () => finish(() => {
+      const events = stopChild();
+      frame.remove();
+      reject(new PaginationError({code:'ABORTED',message:'Paginasi dibatalkan.'},[],events));
+    });
+    const deadline = setTimeout(() => fail('FRAME_DEADLINE','Batas waktu total persiapan cetak tercapai.'),totalMs);
+    idle = setTimeout(() => fail('FRAME_STARTUP_TIMEOUT','Halaman cetak belum siap. Periksa pemuatan print.html, aset, dan CSP.'),o.startupMs ?? 30_000);
+    const advance = (phase:string) => {
+      last = phase; progressAt = performance.now(); clearTimeout(idle);
+      idle = setTimeout(() => fail('FRAME_STALLED','Pekerjaan cetak berhenti melaporkan kemajuan.'),stallMs);
+    };
     const onMsg = (ev: MessageEvent<PrintMessage>) => {
       if (ev.origin !== url.origin || ev.source !== frame.contentWindow || !ev.data) return;
       const m = ev.data;
-      if (m.type === 'pf-print-ready') frame.contentWindow!.postMessage({ type: 'pf-print', payload, autoPrint: o.autoPrint } satisfies PrintMessage, url.origin);
-      else if (m.type === 'pf-print-progress' && m.jobId === payload.jobId) o.onProgress?.(m);
-      else if (m.type === 'pf-print-result' && m.jobId === payload.jobId) finish(() => resolve({ result: m.result, frame: keep ? frame : null }));
-      else if (m.type === 'pf-print-error' && m.jobId === payload.jobId) finish(() => { frame.remove(); reject(new PaginationError(m.failure, m.issues)); });
+      if (m.type === 'pf-print-ready' && !ready) {
+        try { assertPrintPayload(payload); }
+        catch (error) { finish(() => { frame.remove(); reject(error); }); return; }
+        ready = true; advance('payload');
+        frame.contentWindow!.postMessage({ type: 'pf-print', payload, autoPrint: o.autoPrint } satisfies PrintMessage, url.origin);
+      } else if (m.type === 'pf-print-progress' && m.jobId === payload.jobId && ready) {
+        const pass = m.pass ?? 0;
+        if (!measuredPhases.has(m.phase) || !Number.isSafeInteger(pass) || pass < currentPass ||
+            pass > currentPass + 1 || (pass > currentPass && m.phase !== 'paginate')) return;
+        const key = m.phase + '/' + pass;
+        const units = m.units ?? m.pages ?? 0;
+        if (!Number.isSafeInteger(units) || units < 0 || units <= (counters.get(key) ?? -1)) return;
+        if ((m.phase === 'fonts' || m.phase === 'images') && (pass !== 0 || units !== 0)) return;
+        currentPass = pass; counters.set(key, units); advance(key + ' · ' + units); o.onProgress?.(m);
+      } else if (m.type === 'pf-print-result' && m.jobId === payload.jobId) finish(() => { if (!keep) frame.remove(); resolve({ result: m.result, frame: keep ? frame : null }); });
+      else if (m.type === 'pf-print-error' && m.jobId === payload.jobId) finish(() => { frame.remove(); reject(new PaginationError(m.failure, m.issues,m.events)); });
     };
+    frame.addEventListener('error', onLoadError);
     window.addEventListener('message', onMsg);
     o.signal?.addEventListener('abort', onAbort, { once: true });
     if (o.signal?.aborted) return onAbort();
@@ -66,6 +130,8 @@ export interface PrintSession {
 
 /** Siapkan cetak: paginasi di iframe tersembunyi yang dipertahankan. Tidak membuka dialog. */
 export async function preparePrint(payload: PrintPayload, o: Omit<FrameOptions, 'autoPrint' | 'keepFrame'> = {}): Promise<PrintSession> {
+  if (payload.pdfRestrictions?.length) throw new PaginationError(
+    { code: 'BLOCKING_ISSUES', message: payload.pdfRestrictions[0]!.message }, payload.pdfRestrictions);
   const { result, frame } = await paginateInFrame(payload, { ...o, keepFrame: true });
   if (result.status !== 'ok' || !frame) { frame?.remove(); throw new PaginationError(result.failure ?? { code: 'BLOCKING_ISSUES', message: 'Dokumen memiliki masalah penghalang.' }, result.issues); }
   let state: PrintLifecycle = 'prepared';

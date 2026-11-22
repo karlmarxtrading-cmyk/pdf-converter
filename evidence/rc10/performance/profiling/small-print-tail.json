@@ -1,0 +1,444 @@
+{
+  "question": "Small-edit/printPayloadMs observed in frozen Node cohorts, after all 40 pairs per cohort completed. No repeats or outlier exclusions.",
+  "samples": {
+    "RC9/node-1": {
+      "sha256": "ba6b547d60ead039203009cfa959b96465e4d0dfea0d0305db8ae408a7ab44d7",
+      "candidate": "37277f20b922b1a6a9f734b0d69e96a61a8298a6d71aad24a86fd53731178bc9",
+      "quantile": {
+        "rc6": {
+          "n": 40,
+          "min": 5.043423000024632,
+          "median": 7.706274500000291,
+          "p95": 11.129368000023533,
+          "max": 13.862857999978587
+        },
+        "candidate": {
+          "n": 40,
+          "min": 5.214356000011321,
+          "median": 6.5574520000081975,
+          "p95": 14.723774999962188,
+          "max": 78.55330499995034
+        },
+        "medianRatio": 0.8509237505110868,
+        "p95Ratio": 1.322965958168609,
+        "ok": false
+      },
+      "slowest4": [
+        {
+          "round": 8,
+          "candidateMs": 78.55330499995034,
+          "pairedRC6ms": 6.669960000028368,
+          "otherHtmlExportMs": 108.95194200001424,
+          "heapBeforeFinalGC": 80491800,
+          "hostLoad": [
+            9.28,
+            9.18,
+            7.98
+          ]
+        },
+        {
+          "round": 4,
+          "candidateMs": 16.58376499998849,
+          "pairedRC6ms": 13.862857999978587,
+          "otherHtmlExportMs": 32.451977999997325,
+          "heapBeforeFinalGC": 80207096,
+          "hostLoad": [
+            9.28,
+            9.18,
+            7.98
+          ]
+        },
+        {
+          "round": 38,
+          "candidateMs": 14.723774999962188,
+          "pairedRC6ms": 6.33789500000421,
+          "otherHtmlExportMs": 42.300742999999784,
+          "heapBeforeFinalGC": 80795784,
+          "hostLoad": [
+            9.57,
+            9.25,
+            8.02
+          ]
+        },
+        {
+          "round": 0,
+          "candidateMs": 11.117246000037994,
+          "pairedRC6ms": 10.02335099998163,
+          "otherHtmlExportMs": 41.165924999979325,
+          "heapBeforeFinalGC": 80475976,
+          "hostLoad": [
+            9.28,
+            9.18,
+            7.98
+          ]
+        }
+      ]
+    },
+    "RC9/node-2": {
+      "sha256": "0d5cee272e9c048f30e3e117ea1df9afa42960501886b4325403065db07c90b7",
+      "candidate": "37277f20b922b1a6a9f734b0d69e96a61a8298a6d71aad24a86fd53731178bc9",
+      "quantile": {
+        "rc6": {
+          "n": 40,
+          "min": 5.442213999980595,
+          "median": 9.17053100001067,
+          "p95": 20.59635300002992,
+          "max": 30.218004999973346
+        },
+        "candidate": {
+          "n": 40,
+          "min": 5.243779000011273,
+          "median": 6.66643149999436,
+          "p95": 17.640174000000115,
+          "max": 86.40148800000316
+        },
+        "medianRatio": 0.7269406209942046,
+        "p95Ratio": 0.8564707547969531,
+        "ok": true
+      },
+      "slowest4": [
+        {
+          "round": 25,
+          "candidateMs": 86.40148800000316,
+          "pairedRC6ms": 10.207331999961752,
+          "otherHtmlExportMs": 137.3224240000127,
+          "heapBeforeFinalGC": 80870680,
+          "hostLoad": [
+            8.24,
+            8.08,
+            7.86
+          ]
+        },
+        {
+          "round": 35,
+          "candidateMs": 77.26042999996571,
+          "pairedRC6ms": 6.294552000006661,
+          "otherHtmlExportMs": 159.48965800000587,
+          "heapBeforeFinalGC": 55760208,
+          "hostLoad": [
+            7.9,
+            8.02,
+            7.84
+          ]
+        },
+        {
+          "round": 2,
+          "candidateMs": 17.640174000000115,
+          "pairedRC6ms": 13.34569400001783,
+          "otherHtmlExportMs": 78.11689699999988,
+          "heapBeforeFinalGC": 80168744,
+          "hostLoad": [
+            8.59,
+            8.14,
+            7.87
+          ]
+        },
+        {
+          "round": 21,
+          "candidateMs": 13.942699000006542,
+          "pairedRC6ms": 30.218004999973346,
+          "otherHtmlExportMs": 51.58345099998405,
+          "heapBeforeFinalGC": 80757808,
+          "hostLoad": [
+            8.18,
+            8.07,
+            7.85
+          ]
+        }
+      ]
+    },
+    "A/node-1": {
+      "sha256": "26c742f85901d11c2ea60ed941fe7e61f6f56f55913220b0f9bafd4c63790276",
+      "candidate": "473bb0292bf940a33e7871ab3564bb6e09038c79ba3870298d87e305f1b424cd",
+      "quantile": {
+        "rc6": {
+          "n": 40,
+          "min": 4.971885000006296,
+          "median": 6.673228000028757,
+          "p95": 11.609691000019666,
+          "max": 16.630125999974553
+        },
+        "candidate": {
+          "n": 40,
+          "min": 3.3226579999900423,
+          "median": 4.475393500004429,
+          "p95": 6.499685999995563,
+          "max": 12.406964000023436
+        },
+        "medianRatio": 0.6706489722792542,
+        "p95Ratio": 0.559850042519181,
+        "ok": true
+      },
+      "slowest4": [
+        {
+          "round": 28,
+          "candidateMs": 12.406964000023436,
+          "pairedRC6ms": 5.324336000019684,
+          "otherHtmlExportMs": 18.572495999978855,
+          "heapBeforeFinalGC": 78580040,
+          "hostLoad": [
+            11.11,
+            8.77,
+            5.53
+          ]
+        },
+        {
+          "round": 11,
+          "candidateMs": 7.142252999998163,
+          "pairedRC6ms": 7.784526000032201,
+          "otherHtmlExportMs": 119.36337199999252,
+          "heapBeforeFinalGC": 55314240,
+          "hostLoad": [
+            11.12,
+            8.73,
+            5.5
+          ]
+        },
+        {
+          "round": 30,
+          "candidateMs": 6.499685999995563,
+          "pairedRC6ms": 5.7214229999808595,
+          "otherHtmlExportMs": 15.899086999997962,
+          "heapBeforeFinalGC": 78531544,
+          "hostLoad": [
+            11.26,
+            8.84,
+            5.57
+          ]
+        },
+        {
+          "round": 18,
+          "candidateMs": 6.481059000012465,
+          "pairedRC6ms": 5.963935999956448,
+          "otherHtmlExportMs": 23.978201000019908,
+          "heapBeforeFinalGC": 78971344,
+          "hostLoad": [
+            11.12,
+            8.73,
+            5.5
+          ]
+        }
+      ]
+    },
+    "A/node-2": {
+      "sha256": "96e580b62241980f0d7592a443090b3995c437e80c082b46489d731bb667882a",
+      "candidate": "473bb0292bf940a33e7871ab3564bb6e09038c79ba3870298d87e305f1b424cd",
+      "quantile": {
+        "rc6": {
+          "n": 40,
+          "min": 5.944327000004705,
+          "median": 9.266150499985088,
+          "p95": 16.950268000015058,
+          "max": 52.37542699999176
+        },
+        "candidate": {
+          "n": 40,
+          "min": 3.594457000028342,
+          "median": 5.419995000003837,
+          "p95": 8.2674189999816,
+          "max": 8.80088799999794
+        },
+        "medianRatio": 0.5849241278794857,
+        "p95Ratio": 0.48774562148364003,
+        "ok": true
+      },
+      "slowest4": [
+        {
+          "round": 38,
+          "candidateMs": 8.80088799999794,
+          "pairedRC6ms": 8.075958000030369,
+          "otherHtmlExportMs": 18.15453299996443,
+          "heapBeforeFinalGC": 78728072,
+          "hostLoad": [
+            10.92,
+            9.79,
+            7.3
+          ]
+        },
+        {
+          "round": 10,
+          "candidateMs": 8.277078000013717,
+          "pairedRC6ms": 7.270426000002772,
+          "otherHtmlExportMs": 23.493255000037607,
+          "heapBeforeFinalGC": 78635912,
+          "hostLoad": [
+            10.75,
+            9.7,
+            7.23
+          ]
+        },
+        {
+          "round": 27,
+          "candidateMs": 8.2674189999816,
+          "pairedRC6ms": 6.073349999962375,
+          "otherHtmlExportMs": 25.199072999996133,
+          "heapBeforeFinalGC": 55140296,
+          "hostLoad": [
+            10.91,
+            9.77,
+            7.28
+          ]
+        },
+        {
+          "round": 3,
+          "candidateMs": 7.294141999969725,
+          "pairedRC6ms": 6.612649999966379,
+          "otherHtmlExportMs": 15.041167000017595,
+          "heapBeforeFinalGC": 78930752,
+          "hostLoad": [
+            10.46,
+            9.63,
+            7.19
+          ]
+        }
+      ]
+    },
+    "B/node-1": {
+      "sha256": "c5f31c2f05501ac1d3530f9fb0cdce27cdd76deede200293d2711cfbf22e05a9",
+      "candidate": "774465b21054bfd933b869ea7232d3d59ff8e1fa0422a8d83b18208b08b6abd6",
+      "quantile": {
+        "rc6": {
+          "n": 40,
+          "min": 5.1032020000275224,
+          "median": 6.359930999984499,
+          "p95": 12.126405999995768,
+          "max": 15.863670999999158
+        },
+        "candidate": {
+          "n": 40,
+          "min": 3.4848049999563955,
+          "median": 4.257570999994641,
+          "p95": 5.190701999992598,
+          "max": 6.69123799999943
+        },
+        "medianRatio": 0.6694366652727864,
+        "p95Ratio": 0.4280494979299233,
+        "ok": true
+      },
+      "slowest4": [
+        {
+          "round": 16,
+          "candidateMs": 6.69123799999943,
+          "pairedRC6ms": 7.484804000006989,
+          "otherHtmlExportMs": 57.54289400001289,
+          "heapBeforeFinalGC": 78807224,
+          "hostLoad": [
+            4.16,
+            3.27,
+            3.97
+          ]
+        },
+        {
+          "round": 26,
+          "candidateMs": 5.385922999994364,
+          "pairedRC6ms": 5.773816999979317,
+          "otherHtmlExportMs": 21.098969999991823,
+          "heapBeforeFinalGC": 79062640,
+          "hostLoad": [
+            4.16,
+            3.27,
+            3.97
+          ]
+        },
+        {
+          "round": 25,
+          "candidateMs": 5.190701999992598,
+          "pairedRC6ms": 9.096854999952484,
+          "otherHtmlExportMs": 19.17557800002396,
+          "heapBeforeFinalGC": 78933376,
+          "hostLoad": [
+            4.16,
+            3.27,
+            3.97
+          ]
+        },
+        {
+          "round": 22,
+          "candidateMs": 4.911006000009365,
+          "pairedRC6ms": 8.547599000041373,
+          "otherHtmlExportMs": 22.2124199999962,
+          "heapBeforeFinalGC": 78773152,
+          "hostLoad": [
+            4.16,
+            3.27,
+            3.97
+          ]
+        }
+      ]
+    },
+    "B/node-2": {
+      "sha256": "94ad7ef8ac22ad8e460b1353c04d377b75fab50b10dcb7408c55dcd6189df35e",
+      "candidate": "774465b21054bfd933b869ea7232d3d59ff8e1fa0422a8d83b18208b08b6abd6",
+      "quantile": {
+        "rc6": {
+          "n": 40,
+          "min": 5.205928000039421,
+          "median": 5.768351000006078,
+          "p95": 8.266957000014372,
+          "max": 9.81289800000377
+        },
+        "candidate": {
+          "n": 40,
+          "min": 3.2903819999773987,
+          "median": 4.1486265000130516,
+          "p95": 9.93249099998502,
+          "max": 26.350353999994695
+        },
+        "medianRatio": 0.7192049339592338,
+        "p95Ratio": 1.2014688113132501,
+        "ok": false
+      },
+      "slowest4": [
+        {
+          "round": 1,
+          "candidateMs": 26.350353999994695,
+          "pairedRC6ms": 5.503100999980234,
+          "otherHtmlExportMs": 26.649638000002597,
+          "heapBeforeFinalGC": 55070128,
+          "hostLoad": [
+            4.03,
+            3.46,
+            3.82
+          ]
+        },
+        {
+          "round": 13,
+          "candidateMs": 10.08080700004939,
+          "pairedRC6ms": 5.443113000015728,
+          "otherHtmlExportMs": 60.96211699995911,
+          "heapBeforeFinalGC": 78807864,
+          "hostLoad": [
+            4.03,
+            3.46,
+            3.82
+          ]
+        },
+        {
+          "round": 39,
+          "candidateMs": 9.93249099998502,
+          "pairedRC6ms": 5.6161799999536015,
+          "otherHtmlExportMs": 15.994177000015043,
+          "heapBeforeFinalGC": 78966552,
+          "hostLoad": [
+            4.33,
+            3.55,
+            3.84
+          ]
+        },
+        {
+          "round": 34,
+          "candidateMs": 5.684949999966193,
+          "pairedRC6ms": 5.625691999972332,
+          "otherHtmlExportMs": 19.10477700002957,
+          "heapBeforeFinalGC": 78327016,
+          "hostLoad": [
+            4.33,
+            3.55,
+            3.84
+          ]
+        }
+      ]
+    }
+  },
+  "interpretation": "B cohort 2 p95 is its third slowest observation. Thirty-seven of forty candidate observations finished within 5.69 ms. Three slower observations occurred in rounds 1, 13 and 39. The median improved in both cohorts. The data do not assign the delay to a particular production function. Source inspection shows repeated font hashing/encoding, but a time saving sufficient to pass that tail threshold has not been demonstrated."
+}

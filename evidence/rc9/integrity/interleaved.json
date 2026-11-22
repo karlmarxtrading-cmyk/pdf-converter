@@ -1,0 +1,30 @@
+{
+  "evictionKeys": 160,
+  "parallelExports": [
+    "A standalone",
+    "B print",
+    "A print",
+    "B standalone"
+  ],
+  "formulas": [
+    2,
+    1,
+    2,
+    1
+  ],
+  "damagedForms": [
+    "Document",
+    "Element",
+    "string"
+  ],
+  "unchangedCounts": true,
+  "rejected": [
+    "visual",
+    "mathml",
+    "annotation",
+    "provenance",
+    "tex",
+    "mode"
+  ],
+  "pass": true
+}

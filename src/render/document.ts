@@ -6,18 +6,24 @@
  * Membutuhkan DOMParser (peramban, atau jsdom pada tes).
  */
 import type { Issue, RenderedBody, Snapshot, TocEntry } from '../core/contracts';
+import { rememberRenderedRoot, recordComposition, takeRenderedRoot } from '../core/rendered-dom';
 import { sha256Hex } from '../core/hash';
 import { validateSettings, validateKit } from '../core/schema';
 import { assetDataUrl } from '../core/assets';
 import { APP_VERSION } from '../core/contracts';
 import { BASE_CSS, continuationCss, HLJS_CSS, INK_SAVER_CSS, pageCss, templateCss, variablesCss } from './css';
+import { serializeForFonts } from './fonts';
+import { hasKatexLayout } from './katex-style';
 import { docLabels, type DocLabels } from './labels';
 import { getTemplate, resolveStyle } from './templates';
 import { escapeHtml } from './util';
+import { DiagramRasterBudget } from './diagram-raster';
+import { diagramGrantGeneration, openDiagramFrame } from './diagram-policy';
 
 export type ComposeMode = 'screen' | 'print';
 
 export interface PreparedBody {
+  fontText?: string;
   /** HTML isi setelah transformasi templat + Mermaid; masih tanpa sampul/TOC */ html: string;
   toc: TocEntry[]; issues: Issue[]; labels: DocLabels;
   stats: { tables: number; wideTables: number; mermaidRendered: number; mermaidFailed: number; externalImagesBlocked: number; messages: number };
@@ -25,6 +31,9 @@ export interface PreparedBody {
 
 export interface PrepareOptions {
   mode: ComposeMode;
+  signal?: AbortSignal;
+  verifyInput?: (root: HTMLElement) => void;
+  beforeSerialize?: (root: HTMLElement) => Promise<void>;
   /** true = render Mermaid dengan import('mermaid') (perlu DOM tata letak nyata) */ renderMermaid: boolean;
   /** izinkan <img src="https:"> (hanya profil publikasi "online") */ allowExternalImages: boolean;
 }
@@ -57,6 +66,8 @@ export function transformBody(root: HTMLElement, snapshot: Snapshot, opts: Prepa
   const issues: Issue[] = [];
   const stats = { tables: 0, wideTables: 0, mermaidRendered: 0, mermaidFailed: 0, externalImagesBlocked: 0, messages: 0 };
 
+  if (!root.firstElementChild) return { issues, stats };
+
   // Tabel: wadah gulir berlabel (layar) — HTM-03
   root.querySelectorAll('table').forEach((table) => {
     stats.tables++;
@@ -86,7 +97,7 @@ export function transformBody(root: HTMLElement, snapshot: Snapshot, opts: Prepa
   root.querySelectorAll('.katex-display').forEach((k) => {
     let box = k.parentElement;
     if (!box || !box.classList.contains('pf-math-block')) {
-      box = doc.createElement('div'); box.className = 'pf-math-block'; k.replaceWith(box); box.appendChild(k);
+      box = doc.createElement(k.parentElement?.localName === 'span' ? 'span' : 'div'); box.className = 'pf-math-block'; k.replaceWith(box); box.appendChild(k);
     }
     if (opts.mode === 'screen') { box.setAttribute('tabindex', '0'); box.setAttribute('role', 'region'); box.setAttribute('aria-label', labels.math); }
   });
@@ -204,52 +215,56 @@ export function transformBody(root: HTMLElement, snapshot: Snapshot, opts: Prepa
 }
 
 /** Mermaid → SVG inline. Gagal/tidak tersedia → sumber tetap terlihat + issue (tidak pernah gambar kosong). */
-export async function renderMermaid(root: HTMLElement, opts: { enabled: boolean; labels: DocLabels; idPrefix?: string }): Promise<{ issues: Issue[]; rendered: number; failed: number }> {
-  const blocks = [...root.querySelectorAll('pre.pf-mermaid')];
+export async function renderMermaid(root: HTMLElement, opts: { enabled: boolean; labels: DocLabels; idPrefix?: string; allowExternalImages?: boolean; generation?: number; assets?: Snapshot['assets']; signal?: AbortSignal }): Promise<{ issues: Issue[]; rendered: number; failed: number }> {
+  const blocks = root.firstElementChild ? [...root.querySelectorAll('pre.pf-mermaid')] : [];
   const issues: Issue[] = [];
   let rendered = 0, failed = 0;
   if (!blocks.length) return { issues, rendered, failed };
   const doc = root.ownerDocument;
-  type MermaidApi = { initialize(c: object): void; render(id: string, src: string): Promise<{ svg: string }> };
-  let mermaid: MermaidApi | null = null; let loadError = '';
+  const online = opts.allowExternalImages === true;
+  let frame: Awaited<ReturnType<typeof openDiagramFrame>> | undefined;
+  let loadError = '';
   if (opts.enabled) {
     try {
-      mermaid = ((await import('mermaid')) as unknown as { default: MermaidApi }).default;
-      mermaid.initialize({ startOnLoad: false, securityLevel: 'strict', theme: 'neutral', htmlLabels: false, flowchart: { htmlLabels: false }, fontFamily: 'Inter, Arial, sans-serif', deterministicIds: true, deterministicIDSeed: opts.idPrefix ?? 'pf' });
-    } catch (e) { loadError = (e as Error).message; }
-  }
-  let i = 0;
-  for (const pre of blocks) {
-    i++;
-    const src = pre.getAttribute('data-src') ?? pre.textContent ?? '';
-    const fig = doc.createElement('figure');
-    fig.setAttribute('data-pf-mermaid', String(i));
-    let ok = false; let reason = loadError || (opts.enabled ? '' : 'renderer tidak aktif di lingkungan ini');
-    if (mermaid) {
-      try {
-        const { svg } = await mermaid.render(`${opts.idPrefix ?? 'pf'}-mmd-${i}`, src);
-        if (!/<svg[\s>]/.test(svg)) throw new Error('SVG kosong');
-        fig.className = 'pf-mermaid pf-mermaid-ok';
-        fig.innerHTML = svg;
-        const svgEl = fig.querySelector('svg');
-        svgEl?.setAttribute('role', 'img');
-        svgEl?.removeAttribute('style'); // max-width inline Mermaid diganti CSS dokumen (rasio dipertahankan)
-        ok = true; rendered++;
-      } catch (e) { reason = (e as Error).message.split('\n')[0]!.slice(0, 200); }
-      doc.querySelectorAll(`#d${opts.idPrefix ?? 'pf'}-mmd-${i}, #${opts.idPrefix ?? 'pf'}-mmd-${i}`).forEach((n) => { if (!fig.contains(n)) n.remove(); });
+      const budget = new DiagramRasterBudget();
+      budget.seed(root, opts.assets ?? []);
+      frame = await openDiagramFrame(online, opts.generation ?? diagramGrantGeneration(), budget, opts.signal);
     }
-    if (!ok) {
-      failed++;
-      fig.className = 'pf-mermaid pf-mermaid-failed';
-      const cap = doc.createElement('figcaption'); cap.setAttribute('data-pf-generated', '');
-      cap.textContent = opts.enabled ? opts.labels.diagramFailed : opts.labels.diagramNotRendered;
-      const p = doc.createElement('pre'); p.className = 'pf-mermaid-source'; p.setAttribute('data-lang', 'mermaid');
-      const c = doc.createElement('code'); c.textContent = src; p.appendChild(c);
-      fig.append(cap, p);
-      issues.push({ id: `mermaid-${i}`, code: opts.enabled ? 'MERMAID_RENDER_FAILED' : 'MERMAID_NOT_RENDERED', severity: 'warning', scope: 'structure', blockId: pre.getAttribute('data-block-id') ?? undefined, message: `Diagram Mermaid #${i} ditampilkan sebagai sumber (${reason}). Hasil visual yang diinginkan belum terpenuhi.` });
-    }
-    pre.replaceWith(fig);
+    catch (e) { loadError = (e as Error).message; }
   }
+  try {
+    let i = 0;
+    for (const pre of blocks) {
+      opts.signal?.throwIfAborted();
+      i++;
+      const src = pre.getAttribute('data-src') ?? pre.textContent ?? '';
+      const fig = doc.createElement('figure');
+      fig.setAttribute('data-pf-mermaid', String(i));
+      let ok = false; let reason = loadError || (opts.enabled ? '' : 'renderer tidak aktif di lingkungan ini');
+      if (frame) {
+        try {
+          const svgEl = await frame.render(`${opts.idPrefix ?? 'pf'}-mmd-${i}`, src);
+          svgEl.setAttribute('role', 'img');
+          svgEl.removeAttribute('style');
+          fig.className = 'pf-mermaid pf-mermaid-ok';
+          fig.appendChild(svgEl);
+          ok = true; rendered++;
+        } catch (e) { reason = (e as Error).message.split('\n')[0]!.slice(0, 200); }
+      }
+      if (!ok) {
+        failed++;
+        fig.className = 'pf-mermaid pf-mermaid-failed';
+        const cap = doc.createElement('figcaption'); cap.setAttribute('data-pf-generated', '');
+        cap.textContent = opts.enabled ? opts.labels.diagramFailed : opts.labels.diagramNotRendered;
+        const p = doc.createElement('pre'); p.className = 'pf-mermaid-source'; p.setAttribute('data-lang', 'mermaid');
+        const c = doc.createElement('code'); c.textContent = src; p.appendChild(c);
+        fig.append(cap, p);
+        issues.push({ id: `mermaid-${i}`, code: opts.enabled ? 'MERMAID_RENDER_FAILED' : 'MERMAID_NOT_RENDERED', severity: 'warning', scope: 'structure', blockId: pre.getAttribute('data-block-id') ?? undefined, message: `Diagram Mermaid #${i} ditampilkan sebagai sumber (${reason}). Hasil visual yang diinginkan belum terpenuhi.` });
+      }
+      pre.replaceWith(fig);
+    }
+  } finally { frame?.close(); }
+  opts.signal?.throwIfAborted();
   return { issues, rendered, failed };
 }
 
@@ -292,14 +307,42 @@ async function groupPublishedMessages(root: HTMLElement, snapshot: Snapshot, bod
   }
 }
 
+// Screen export uses the same deterministic transformations as preview. Only
+// immutable text and private copies of diagnostics are shared. Conversations
+// and Mermaid depend on message mappings or asynchronous layout and stay fresh.
+type PreparedScreen = Pick<PreparedBody, 'html' | 'fontText' | 'stats' | 'issues'>;
+const screenPreparations = new WeakMap<RenderedBody, { sourceHtml: string; key: string; view: PreparedScreen }>();
+
 export async function prepareBody(snapshot: Snapshot, body: RenderedBody, opts: PrepareOptions): Promise<PreparedBody> {
+  const generation = diagramGrantGeneration();
   const labels = docLabels(snapshot.settings.contentLang);
-  const doc = parser().parseFromString(`<!doctype html><html><body><div id="pf-root">${body.html}</div></body></html>`, 'text/html');
-  const root = doc.getElementById('pf-root') as HTMLElement;
-  await groupPublishedMessages(root, snapshot, body);
-  const m = await renderMermaid(root, { enabled: opts.renderMermaid, labels, idPrefix: `pf${snapshot.revision}x${Math.random().toString(36).slice(2, 8)}` }); // EN-007: ID unik per job (pratinjau dan cetak dapat berjalan bersamaan)
-  const t = transformBody(root, snapshot, opts, labels);
-  return { html: root.innerHTML, toc: body.toc, issues: [...m.issues, ...t.issues], labels, stats: { ...t.stats, mermaidRendered: m.rendered, mermaidFailed: m.failed } };
+  const root = takeRenderedRoot(body) ?? parser().parseFromString('<!doctype html><body>' + body.html,'text/html').body;
+  const sourceHtml = body.html;
+  const canShare = opts.mode === 'screen' && !snapshot.conversation &&
+    sourceHtml.length <= 2_000_000 && !sourceHtml.includes('pf-mermaid');
+  const key = canShare ? JSON.stringify([snapshot.settings, opts.allowExternalImages]) : '';
+  const prior = canShare ? screenPreparations.get(body) : undefined;
+  opts.verifyInput?.(root);
+  if (prior && prior.sourceHtml === sourceHtml && prior.key === key && root.innerHTML === sourceHtml) {
+    rememberRenderedRoot(body, root, true);
+    return { ...prior.view, stats: { ...prior.view.stats }, issues: structuredClone(prior.view.issues), labels, toc: body.toc };
+  }
+  const restore = recordComposition(body, root);
+  try {
+    await groupPublishedMessages(root, snapshot, body);
+    const m = await renderMermaid(root, { enabled: opts.renderMermaid, labels, generation, assets: snapshot.assets, signal: opts.signal, allowExternalImages: opts.allowExternalImages && snapshot.settings.allowExternalImages, idPrefix: `pf${snapshot.revision}x${Math.random().toString(36).slice(2, 8)}` });
+    const t = transformBody(root, snapshot, opts, labels);
+    if (opts.beforeSerialize) await opts.beforeSerialize(root);
+    const view = { ...serializeForFonts(root), issues: [...m.issues, ...t.issues], stats: { ...t.stats, mermaidRendered: m.rendered, mermaidFailed: m.failed } };
+    // Arbitrary verifyInput callbacks can edit a tree. Only a preview without a
+    // caller callback may seed this cache. The source check always runs on reuse.
+    if (canShare && !opts.verifyInput) screenPreparations.set(body, {
+      sourceHtml, key, view: { ...view, stats: { ...view.stats }, issues: structuredClone(view.issues) },
+    });
+    return { ...view, labels, toc: body.toc };
+  } finally {
+    restore?.();
+  }
 }
 
 /* ------------------------------ kerangka dokumen ------------------------------ */
@@ -309,8 +352,10 @@ let katexCssCache: string | null = null;
 export async function katexCss(): Promise<string> {
   if (katexCssCache !== null) return katexCssCache;
   const raw = ((await import('katex/dist/katex.min.css?raw')) as { default: string }).default;
-  katexCssCache = raw.replace(/@font-face\{[^}]*\}/g, '');
-  return katexCssCache;
+  const layout = raw.replace(/@font-face\{[^}]*\}/g, '');
+  if (!hasKatexLayout(layout)) throw new Error('CSS tata letak KaTeX tidak lengkap. Muat ulang PaperForma lalu ulangi ekspor. / KaTeX layout CSS is incomplete. Reload PaperForma and export again.');
+  katexCssCache = layout;
+  return layout;
 }
 
 export function logoDataUrl(snapshot: Snapshot): string | undefined {
@@ -330,7 +375,7 @@ export function tocHtml(toc: TocEntry[], depth: number, mode: ComposeMode, label
   if (!list.length) return '';
   const min = Math.min(...list.map((e) => e.level));
   const items = list.map((e) => `<li class="pf-toc-l${e.level - min + 1}"><a href="#${escapeHtml(e.id)}"><span class="pf-toc-text">${escapeHtml(e.text)}</span>${mode === 'print' ? `<span class="pf-toc-dots" aria-hidden="true"></span><span class="pf-toc-page" data-target="${escapeHtml(e.id)}"></span>` : ''}</a></li>`).join('');
-  if (mode === 'screen') return `<nav class="pf-toc pf-screen-nav" aria-labelledby="pf-toc-title" data-pf-generated=""><details class="pf-nav" open><summary id="pf-toc-title">${escapeHtml(labels.toc)}</summary><ol>${items}</ol></details></nav>`;
+  if (mode === 'screen') return `<nav class="pf-toc pf-screen-nav" aria-labelledby="pf-toc-title" data-pf-generated=""><details class="pf-nav" open=""><summary id="pf-toc-title">${escapeHtml(labels.toc)}</summary><ol>${items}</ol></details></nav>`;
   return `<nav class="pf-toc" aria-labelledby="pf-toc-title" data-pf-generated=""><h2 id="pf-toc-title" class="pf-toc-title">${escapeHtml(labels.toc)}</h2><ol>${items}</ol></nav>`;
 }
 
@@ -378,17 +423,18 @@ export async function documentStyles(snapshot: Snapshot, mode: ComposeMode, with
 }
 
 export interface ComposeOptions {
+  sourceMath?: boolean;
   mode: ComposeMode; prepared: PreparedBody; fontCss: string;
   /** body class tambahan (pf-adaptive untuk ekspor layar) */ adaptive?: boolean;
   csp?: string; extraHead?: string; script?: string;
   /** halaman gaya eksternal (zip/publikasi) alih-alih <style> inline */ stylesheetHref?: string; fontStylesheetHref?: string;
 }
 
-export interface ComposedDocument { html: string; styles: string[]; bodyInner: string; bodyClass: string; lang: string; title: string }
+export interface ComposedDocument { html: string; styles: string[]; bodyInner: string; bodyClass: string; lang: string; title: string; articleInner: string }
 
 export async function composeDocument(snapshot: Snapshot, o: ComposeOptions): Promise<ComposedDocument> {
   const s = snapshot.settings; const labels = o.prepared.labels;
-  const withKatex = /class="[^"]*\bkatex\b/.test(o.prepared.html);
+  const withKatex = o.sourceMath ?? /class="[^"]*\bkatex\b/.test(o.prepared.html);
   const styles = await documentStyles(snapshot, o.mode, withKatex);
   const logo = logoDataUrl(snapshot);
   const lang = escapeHtml(s.contentLang || 'id');
@@ -398,9 +444,14 @@ export async function composeDocument(snapshot: Snapshot, o: ComposeOptions): Pr
   const st = resolveStyle(s, snapshot.brandKit);
   const foot = o.mode === 'screen' && (st.footerText || s.footer.trim()) ? `<footer class="pf-docfoot" data-pf-generated="">${logo ? `<img class="pf-logo" src="${logo}" alt="">` : ''}<span>${escapeHtml((s.footer.trim() || st.footerText || '').replace(/\{(title|chapter|author|org|date)\}/g, (_m, k: string) => (k === 'title' ? s.title : k === 'author' ? s.author ?? '' : k === 'org' ? st.orgName ?? '' : k === 'date' ? s.dateText ?? '' : '')))}</span></footer>` : '';
   const bodyClass = ['pf-body', o.mode === 'print' ? 'pf-print' : 'pf-screen', o.adaptive ? 'pf-adaptive' : '', s.inkSaver ? 'pf-ink-saver' : ''].filter(Boolean).join(' ');
+  const articleInner = `
+${titleBlockHtml(snapshot, o.prepared.html, logo)}
+${toc}
+${o.prepared.html}
+`;
   const bodyInner = (o.mode === 'screen' ? `<a class="pf-skip" href="#pf-content">${escapeHtml(labels.skip)}</a>\n` : '')
     + `<main class="pf-main pf-tmain-${s.template}">\n${coverHtml(snapshot, labels, logo)}\n`
-    + `<article class="pf-doc pf-t-${s.template}" id="pf-content" data-template="${s.template}" tabindex="-1">\n${titleBlockHtml(snapshot, o.prepared.html, logo)}\n${toc}\n${o.prepared.html}\n</article>\n${foot}\n</main>`;
+    + `<article class="pf-doc pf-t-${s.template}" id="pf-content" data-template="${s.template}" tabindex="-1">${articleInner}</article>\n${foot}\n</main>`;
   const meta = [
     `<meta charset="utf-8">`, `<meta name="viewport" content="width=device-width, initial-scale=1">`,
     o.csp ? `<meta http-equiv="Content-Security-Policy" content="${o.csp.replace(/[&"<>]/g, "")}">` : '',
@@ -415,5 +466,5 @@ export async function composeDocument(snapshot: Snapshot, o: ComposeOptions): Pr
     ? `${o.fontStylesheetHref ? `<link rel="stylesheet" href="${o.fontStylesheetHref}">` : ''}<link rel="stylesheet" href="${o.stylesheetHref}">`
     : `<style data-pf="fonts">${rawStyle(o.fontCss)}</style>\n${styles.map((c, i) => `<style data-pf="s${i}">${rawStyle(c)}</style>`).join('\n')}`;
   const html = `<!doctype html>\n<html lang="${lang}">\n<head>\n${meta}\n${styleTags}\n</head>\n<body class="${bodyClass}">\n${bodyInner}\n${o.script ? `<script data-pf-enhancement="copy-code">${o.script}</script>` : ''}\n</body>\n</html>\n`;
-  return { html, styles, bodyInner, bodyClass, lang, title };
+  return { html, styles, bodyInner, bodyClass, lang, title, articleInner };
 }

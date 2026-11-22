@@ -1,0 +1,198 @@
+{
+  "build": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.10",
+    "profile": "production",
+    "candidateSha256": "774465b21054bfd933b869ea7232d3d59ff8e1fa0422a8d83b18208b08b6abd6",
+    "distTreeSha256": "b2351cef15853b432dbe1fa9c02d0537308cc778a16fdbec551e2e243b9caefd",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "method": "Bundled candidate print-client.ts, real browser messages and timers, controlled responders. Full Paged.js jobs and real UI cancellation are separate evidence.",
+  "rows": [
+    {
+      "kind": "no-ready",
+      "code": "FRAME_STARTUP_TIMEOUT",
+      "progress": [],
+      "elapsedMs": 503,
+      "remainingFrames": 0,
+      "pass": true
+    },
+    {
+      "kind": "repeat",
+      "code": "FRAME_STALLED",
+      "progress": [
+        {
+          "phase": "paginate",
+          "pages": 7,
+          "at": 76
+        }
+      ],
+      "elapsedMs": 581,
+      "remainingFrames": 0,
+      "pass": true
+    },
+    {
+      "kind": "total",
+      "code": "FRAME_DEADLINE",
+      "progress": [
+        {
+          "phase": "paginate",
+          "pages": 1,
+          "at": 181
+        },
+        {
+          "phase": "paginate",
+          "pages": 2,
+          "at": 246
+        },
+        {
+          "phase": "paginate",
+          "pages": 3,
+          "at": 311
+        },
+        {
+          "phase": "paginate",
+          "pages": 4,
+          "at": 376
+        },
+        {
+          "phase": "paginate",
+          "pages": 5,
+          "at": 441
+        },
+        {
+          "phase": "paginate",
+          "pages": 6,
+          "at": 506
+        },
+        {
+          "phase": "paginate",
+          "pages": 7,
+          "at": 571
+        },
+        {
+          "phase": "paginate",
+          "pages": 8,
+          "at": 636
+        },
+        {
+          "phase": "paginate",
+          "pages": 9,
+          "at": 701
+        },
+        {
+          "phase": "paginate",
+          "pages": 10,
+          "at": 766
+        },
+        {
+          "phase": "paginate",
+          "pages": 11,
+          "at": 831
+        },
+        {
+          "phase": "paginate",
+          "pages": 12,
+          "at": 896
+        }
+      ],
+      "elapsedMs": 958,
+      "remainingFrames": 0,
+      "pass": true
+    },
+    {
+      "kind": "stale",
+      "result": "official",
+      "progress": [],
+      "elapsedMs": 259,
+      "remainingFrames": 0,
+      "pass": true
+    },
+    {
+      "kind": "near",
+      "result": "official",
+      "progress": [
+        {
+          "phase": "paginate",
+          "pages": 1,
+          "at": 119
+        },
+        {
+          "phase": "paginate",
+          "pages": 2,
+          "at": 229
+        },
+        {
+          "phase": "paginate",
+          "pages": 3,
+          "at": 339
+        },
+        {
+          "phase": "paginate",
+          "pages": 4,
+          "at": 449
+        },
+        {
+          "phase": "paginate",
+          "pages": 5,
+          "at": 559
+        },
+        {
+          "phase": "paginate",
+          "pages": 6,
+          "at": 669
+        },
+        {
+          "phase": "paginate",
+          "pages": 7,
+          "at": 779
+        },
+        {
+          "phase": "paginate",
+          "pages": 8,
+          "at": 889
+        },
+        {
+          "phase": "paginate",
+          "pages": 9,
+          "at": 1001
+        },
+        {
+          "phase": "paginate",
+          "pages": 10,
+          "at": 1167
+        },
+        {
+          "phase": "paginate",
+          "pages": 11,
+          "at": 1223
+        }
+      ],
+      "elapsedMs": 1314,
+      "remainingFrames": 0,
+      "pass": true
+    }
+  ],
+  "visibilityProtocol": "Controlled CDP freeze/resume and focus emulation, not a native OS switch",
+  "backgroundOutcome": "official",
+  "visibility": [
+    {
+      "state": "visible",
+      "ms": 3780.5
+    },
+    {
+      "state": "hidden",
+      "ms": 3972.699999999255
+    },
+    {
+      "state": "visible",
+      "ms": 4373.89999999851
+    }
+  ],
+  "pass": true
+}

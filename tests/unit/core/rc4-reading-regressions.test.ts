@@ -101,7 +101,7 @@ describe('RC4-CORE reading regression audit', () => {
     const source = '<div>'.repeat(1800)+'PRESERVE-ME'+'</div>'.repeat(1800);
     const result=htmlToMarkdown(source);
     expect(result.ok).toBe(false);
-    if(result.ok)throw new Error('Expected whole-input rejection');
+    if(result.ok || result.code !== 'BUDGET_EXCEEDED')throw new Error('Expected whole-input budget rejection');
     expect(result.budget).toMatchObject({kind:'nesting',limit:256,code:'BUDGET_EXCEEDED'});
     expect(source).toContain('PRESERVE-ME');
     expect(result.message).toContain('ditolak utuh');

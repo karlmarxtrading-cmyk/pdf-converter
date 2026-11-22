@@ -1,0 +1,15 @@
++ ["node", "scripts/acceptance.mjs", "observe", "book-original-default-1", "--out", "evidence/rc12/book/original-default.json", "--", "node", "docs/verification-tools/capture-product-book.mjs", "original-default"]
+Measuring book-original-default-1; command log: evidence/rc12/acceptance/observations/book-original-default-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "book-headings-on-1", "--out", "evidence/rc12/book/headings-on.json", "--out", "examples/rc12/book/headings-on", "--", "node", "docs/verification-tools/capture-product-book.mjs", "headings-on"]
+Measuring book-headings-on-1; command log: evidence/rc12/acceptance/observations/book-headings-on-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "book-long-table-off-1", "--out", "evidence/rc12/book/long-table-off.json", "--out", "examples/rc12/book/long-table-off", "--", "node", "docs/verification-tools/capture-product-book.mjs", "long-table-off"]
+Measuring book-long-table-off-1; command log: evidence/rc12/acceptance/observations/book-long-table-off-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "book-paragraphs-off-1", "--out", "evidence/rc12/book/paragraphs-off.json", "--out", "examples/rc12/book/paragraphs-off", "--", "node", "docs/verification-tools/capture-product-book.mjs", "paragraphs-off"]
+Measuring book-paragraphs-off-1; command log: evidence/rc12/acceptance/observations/book-paragraphs-off-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "book-paragraphs-on-1", "--out", "evidence/rc12/book/paragraphs-on.json", "--out", "examples/rc12/book/paragraphs-on", "--", "node", "docs/verification-tools/capture-product-book.mjs", "paragraphs-on"]
+Measuring book-paragraphs-on-1; command log: evidence/rc12/acceptance/observations/book-paragraphs-on-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "book-single-paragraph-off-1", "--out", "evidence/rc12/book/single-paragraph-off.json", "--out", "examples/rc12/book/single-paragraph-off", "--", "node", "docs/verification-tools/capture-product-book.mjs", "single-paragraph-off"]
+Measuring book-single-paragraph-off-1; command log: evidence/rc12/acceptance/observations/book-single-paragraph-off-1.log
++ ["node", "scripts/acceptance.mjs", "observe", "offline-navigation-1", "--out", "evidence/rc12/offline/navigation.json", "--", "node", "docs/verification-tools/offline-navigation.mjs"]
+Measuring offline-navigation-1; command log: evidence/rc12/acceptance/observations/offline-navigation-1.log
+{"section": "books", "unsuccessfulCommands": ["book-headings-on-1", "offline-navigation-1"]}

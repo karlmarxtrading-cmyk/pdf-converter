@@ -1,0 +1,170 @@
+[
+  {
+    "side": "candidate",
+    "repo": "rc10",
+    "task": "small-edit",
+    "round": 0,
+    "times": {
+      "refreshMs": 56.326188,
+      "parseAndRenderMs": 24.455827,
+      "integrityModelMs": 1.7068770000000768,
+      "editedRefreshMs": 17.10766199999989,
+      "htmlExportMs": 29.534047999999984,
+      "printPayloadMs": 7.782535000000053,
+      "refreshMsDOM": {
+        "parseFromString": 2.4,
+        "querySelectorAll": 3.3,
+        "innerHTMLset": 3.3,
+        "innerHTMLget": 1
+      },
+      "editedRefreshMsDOM": {
+        "parseFromString": 0.9,
+        "querySelectorAll": 2.5,
+        "innerHTMLset": 2,
+        "innerHTMLget": 0.5
+      },
+      "htmlExportMsDOM": {
+        "innerHTMLget": 0.5,
+        "innerHTMLset": 14.6,
+        "querySelectorAll": 0.9
+      },
+      "printPayloadMsDOM": {
+        "innerHTMLget": 0.7,
+        "querySelectorAll": 0.7,
+        "innerHTMLset": 2.6
+      }
+    },
+    "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda"
+  },
+  {
+    "side": "candidate",
+    "repo": "rc10",
+    "task": "empty-core",
+    "round": 0,
+    "times": {
+      "refreshMs": 8.655111999999917,
+      "parseAndRenderMs": 2.261149999999816,
+      "integrityModelMs": 0.25285600000006525,
+      "refreshMsDOM": {
+        "parseFromString": 1.2,
+        "querySelectorAll": 1.1,
+        "innerHTMLget": 0
+      }
+    },
+    "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2"
+  },
+  {
+    "side": "candidate",
+    "repo": "rc10",
+    "task": "trigonometry",
+    "round": 0,
+    "times": {
+      "refreshMs": 1333.5391,
+      "parseAndRenderMs": 146.75587700000005,
+      "integrityModelMs": 38.505589999999756,
+      "htmlExportMs": 407.48327599999993,
+      "printPayloadMs": 387.6994370000002,
+      "refreshMsDOM": {
+        "parseFromString": 22.8,
+        "querySelectorAll": 573.5,
+        "innerHTMLset": 184.4,
+        "innerHTMLget": 69
+      },
+      "htmlExportMsDOM": {
+        "innerHTMLget": 72.5,
+        "innerHTMLset": 179.7,
+        "querySelectorAll": 36.1
+      },
+      "printPayloadMsDOM": {
+        "innerHTMLget": 55.8,
+        "querySelectorAll": 74.4,
+        "innerHTMLset": 182.5
+      }
+    },
+    "digest": "c0679db2bec54bca24c8360a6aedb216a85b19e1e3b4acbe707c16c52e94a76a"
+  },
+  {
+    "side": "candidate",
+    "repo": "rc10",
+    "task": "small-edit",
+    "round": 1,
+    "times": {
+      "refreshMs": 21.818277000000307,
+      "parseAndRenderMs": 4.4805569999998625,
+      "integrityModelMs": 0.9010889999999563,
+      "editedRefreshMs": 11.68956900000012,
+      "htmlExportMs": 15.388703999999962,
+      "printPayloadMs": 4.49954500000058,
+      "refreshMsDOM": {
+        "parseFromString": 2.3,
+        "querySelectorAll": 2.5,
+        "innerHTMLset": 2.5,
+        "innerHTMLget": 0.5
+      },
+      "editedRefreshMsDOM": {
+        "parseFromString": 0.9,
+        "querySelectorAll": 1.8,
+        "innerHTMLset": 1.2,
+        "innerHTMLget": 0.4
+      },
+      "htmlExportMsDOM": {
+        "innerHTMLget": 0.3,
+        "innerHTMLset": 9,
+        "querySelectorAll": 0.5
+      },
+      "printPayloadMsDOM": {
+        "innerHTMLget": 0.4,
+        "querySelectorAll": 0.4,
+        "innerHTMLset": 1.9
+      }
+    },
+    "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda"
+  },
+  {
+    "side": "candidate",
+    "repo": "rc10",
+    "task": "empty-core",
+    "round": 1,
+    "times": {
+      "refreshMs": 5.057394000000386,
+      "parseAndRenderMs": 1.2946130000000267,
+      "integrityModelMs": 0.2250850000000355,
+      "refreshMsDOM": {
+        "parseFromString": 1.1,
+        "querySelectorAll": 1,
+        "innerHTMLget": 0
+      }
+    },
+    "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2"
+  },
+  {
+    "side": "candidate",
+    "repo": "rc10",
+    "task": "trigonometry",
+    "round": 1,
+    "times": {
+      "refreshMs": 718.0051920000005,
+      "parseAndRenderMs": 101.26654599999983,
+      "integrityModelMs": 28.896362999999837,
+      "htmlExportMs": 460.8612120000007,
+      "printPayloadMs": 1068.905627,
+      "refreshMsDOM": {
+        "parseFromString": 16.9,
+        "querySelectorAll": 158,
+        "innerHTMLset": 182.1,
+        "innerHTMLget": 65.2
+      },
+      "htmlExportMsDOM": {
+        "innerHTMLget": 98.7,
+        "innerHTMLset": 167.5,
+        "querySelectorAll": 61.6
+      },
+      "printPayloadMsDOM": {
+        "innerHTMLget": 312.2,
+        "querySelectorAll": 241.8,
+        "innerHTMLset": 167.6
+      }
+    },
+    "digest": "c0679db2bec54bca24c8360a6aedb216a85b19e1e3b4acbe707c16c52e94a76a"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "on": "2026-11-22",
+  "repository": "karlmarxtrading-cmyk/performa",
+  "visibility": "public",
+  "defaultBranch": "main",
+  "commit": "3a4eaf9eeeb710541c13bee34a83ff901c441580",
+  "packageVersionAtMain": "3.0.0-rc.5",
+  "combinedStatusContexts": 0,
+  "userReleaseScope": "ZIP and local tests only",
+  "G15": "NOT_RUN",
+  "G16": "BLOCKED for live rollback and production promotion; separate local rehearsal",
+  "remoteWrites": 0
+}

@@ -1,0 +1,9 @@
++ ["node", "scripts/acceptance.mjs", "observe", "input-1", "--out", "evidence/rc12/input/identity.json", "--", "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "docs/verification-tools/verify-rc12-input.py", "/workspace/scratch/c635819e0476/rc11-followup/inputs/PAPERFORMA_STATIC_3.0.0-rc.11_SOURCE_DIST_EVIDENCE.zip", "/workspace/scratch/c635819e0476/rc11-followup/inputs/PAPERFORMA_RC11_AUDIT_PRODUKSI_DAN_ARAHAN_GO_20261122.zip", "/workspace/scratch/c635819e0476/rc12-work/qa/gates/detached-rc12.zip"]
+Measuring input-1; command log: evidence/rc12/acceptance/observations/input-1.log
++ ["node", "scripts/acceptance.mjs", "record", "G01", "PASS", "evidence/rc12/acceptance/facts/G01.json"]
+{"id":"G01","status":"PASS","facts":"evidence/rc12/acceptance/facts/G01.json","observations":["input-1"]}
++ ["node", "scripts/acceptance.mjs", "observe", "clean-build-1", "--out", "evidence/rc12/build-tests", "--", "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "scripts/verify-local-bundle.py", "/workspace/scratch/c635819e0476/rc12-work/qa/gates/detached-rc12.zip"]
+Measuring clean-build-1; command log: evidence/rc12/acceptance/observations/clean-build-1.log
++ ["node", "scripts/acceptance.mjs", "record", "G02", "PASS", "evidence/rc12/acceptance/facts/G02.json"]
+{"id":"G02","status":"PASS","facts":"evidence/rc12/acceptance/facts/G02.json","observations":["clean-build-1"]}
+{"section": "base", "unsuccessfulCommands": []}

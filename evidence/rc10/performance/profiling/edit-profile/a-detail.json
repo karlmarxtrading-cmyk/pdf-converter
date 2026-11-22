@@ -1,0 +1,1519 @@
+[
+  {
+    "round": -1,
+    "times": {
+      "firstDetails": {
+        "snapshot": 6.576802000000043,
+        "analyze": 38.80616700000019,
+        "finishRender": 28.117369000000053,
+        "integrity": 5.739716999999928,
+        "prepareBody": 7.522038000000066,
+        "compose": 1.372751999999764
+      },
+      "refreshMs": 88.2458889999998,
+      "parseAndRenderMs": 34.99518900000021,
+      "integrityModelMs": 3.0748829999997724,
+      "editedDetails": {
+        "snapshot": 0.4315820000001622,
+        "analyze": 10.58436299999994,
+        "finishRender": 9.300223000000187,
+        "integrity": 4.556747000000087,
+        "prepareBody": 3.268211000000065,
+        "compose": 0.19200599999976475
+      },
+      "editedRefreshMs": 28.35674599999993,
+      "htmlExportMs": 68.8463200000001,
+      "printPayloadMs": 27.397047999999813
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 0,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.5267229999999472,
+        "analyze": 10.899700999999823,
+        "finishRender": 30.828041000000212,
+        "integrity": 2.937959999999748,
+        "prepareBody": 3.1779160000000957,
+        "compose": 0.41117099999974016
+      },
+      "refreshMs": 48.87734599999976,
+      "parseAndRenderMs": 9.196278000000348,
+      "integrityModelMs": 1.6144410000001699,
+      "editedDetails": {
+        "snapshot": 0.3680380000000696,
+        "analyze": 19.02188699999988,
+        "finishRender": 10.784980999999789,
+        "integrity": 3.079650000000129,
+        "prepareBody": 2.5591059999997015,
+        "compose": 0.2529560000002675
+      },
+      "editedRefreshMs": 36.0854760000002,
+      "htmlExportMs": 32.31002499999977,
+      "printPayloadMs": 8.066837999999734
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 1,
+    "times": {
+      "firstDetails": {
+        "snapshot": 4.191024000000198,
+        "analyze": 9.280942999999752,
+        "finishRender": 17.504335000000083,
+        "integrity": 10.014184000000114,
+        "prepareBody": 2.091681000000335,
+        "compose": 0.4256839999998192
+      },
+      "refreshMs": 43.54382399999986,
+      "parseAndRenderMs": 8.039577000000008,
+      "integrityModelMs": 1.1667250000000422,
+      "editedDetails": {
+        "snapshot": 0.293706999999813,
+        "analyze": 6.618183000000045,
+        "finishRender": 4.979746999999861,
+        "integrity": 2.7682669999999234,
+        "prepareBody": 1.2981709999999111,
+        "compose": 0.1936479999999392
+      },
+      "editedRefreshMs": 16.16909799999985,
+      "htmlExportMs": 32.70406200000025,
+      "printPayloadMs": 5.903709999999592
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 2,
+    "times": {
+      "firstDetails": {
+        "snapshot": 5.045313999999962,
+        "analyze": 6.529532000000017,
+        "finishRender": 18.45065199999999,
+        "integrity": 7.605942000000141,
+        "prepareBody": 3.7217850000001818,
+        "compose": 0.14335300000038842
+      },
+      "refreshMs": 41.53227199999992,
+      "parseAndRenderMs": 4.925295999999889,
+      "integrityModelMs": 1.529845000000023,
+      "editedDetails": {
+        "snapshot": 1.0435220000003937,
+        "analyze": 5.972933999999896,
+        "finishRender": 7.970213999999942,
+        "integrity": 10.177357000000029,
+        "prepareBody": 1.555674000000181,
+        "compose": 0.1294119999997747
+      },
+      "editedRefreshMs": 26.879308000000037,
+      "htmlExportMs": 34.61073699999997,
+      "printPayloadMs": 6.426237000000128
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 3,
+    "times": {
+      "firstDetails": {
+        "snapshot": 2.3644869999998264,
+        "analyze": 5.72126900000012,
+        "finishRender": 19.196180999999797,
+        "integrity": 2.379367999999886,
+        "prepareBody": 3.1011029999999664,
+        "compose": 0.11799599999994825
+      },
+      "refreshMs": 32.931379000000106,
+      "parseAndRenderMs": 4.357050999999956,
+      "integrityModelMs": 0.8103150000001733,
+      "editedDetails": {
+        "snapshot": 0.2952189999996335,
+        "analyze": 3.8156350000008388,
+        "finishRender": 6.154614000000038,
+        "integrity": 1.5977960000000166,
+        "prepareBody": 1.7159220000003188,
+        "compose": 0.08632799999941199
+      },
+      "editedRefreshMs": 13.686867000000348,
+      "htmlExportMs": 23.343329000000267,
+      "printPayloadMs": 5.569404000000759
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 4,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.5645400000003065,
+        "analyze": 5.314914999999928,
+        "finishRender": 18.998146000000816,
+        "integrity": 2.838431999999557,
+        "prepareBody": 2.5672590000003765,
+        "compose": 0.11236700000063138
+      },
+      "refreshMs": 30.55001799999991,
+      "parseAndRenderMs": 4.303469999999834,
+      "integrityModelMs": 0.9388559999997597,
+      "editedDetails": {
+        "snapshot": 0.26721700000052806,
+        "analyze": 6.414951000000656,
+        "finishRender": 4.882862999999816,
+        "integrity": 14.61544800000047,
+        "prepareBody": 2.2013239999996586,
+        "compose": 0.0878709999997227
+      },
+      "editedRefreshMs": 28.487450000000536,
+      "htmlExportMs": 29.57742099999996,
+      "printPayloadMs": 5.579639000000498
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 5,
+    "times": {
+      "firstDetails": {
+        "snapshot": 2.5622110000003886,
+        "analyze": 5.498168000000078,
+        "finishRender": 14.867452000000412,
+        "integrity": 1.7504739999994854,
+        "prepareBody": 4.974949999999808,
+        "compose": 0.09544199999982084
+      },
+      "refreshMs": 29.779130999999325,
+      "parseAndRenderMs": 4.167287999999644,
+      "integrityModelMs": 1.2684159999998883,
+      "editedDetails": {
+        "snapshot": 0.2552399999995032,
+        "analyze": 6.6594450000002325,
+        "finishRender": 3.9950019999996584,
+        "integrity": 1.918564000000515,
+        "prepareBody": 1.6291730000002644,
+        "compose": 0.07309799999984534
+      },
+      "editedRefreshMs": 14.545943999999508,
+      "htmlExportMs": 19.86833999999999,
+      "printPayloadMs": 8.001129999999648
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 6,
+    "times": {
+      "firstDetails": {
+        "snapshot": 2.6378930000000764,
+        "analyze": 6.147022000000106,
+        "finishRender": 17.192791999999827,
+        "integrity": 1.61712499999976,
+        "prepareBody": 2.1169679999993605,
+        "compose": 0.12712900000042282
+      },
+      "refreshMs": 29.875293999999485,
+      "parseAndRenderMs": 4.731717000000572,
+      "integrityModelMs": 1.2892570000003616,
+      "editedDetails": {
+        "snapshot": 2.238890000000538,
+        "analyze": 2.817349999999351,
+        "finishRender": 6.953371999999945,
+        "integrity": 1.4969860000001063,
+        "prepareBody": 1.3706490000004123,
+        "compose": 0.07134599999972124
+      },
+      "editedRefreshMs": 14.963134999999966,
+      "htmlExportMs": 13.711232999999993,
+      "printPayloadMs": 5.671322999999575
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 7,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.3961589999998978,
+        "analyze": 5.619502999999895,
+        "finishRender": 17.347376000000622,
+        "integrity": 2.7633679999999003,
+        "prepareBody": 3.9879879999998593,
+        "compose": 0.10187099999984639
+      },
+      "refreshMs": 30.248203000000103,
+      "parseAndRenderMs": 4.483094000000165,
+      "integrityModelMs": 0.9953800000002957,
+      "editedDetails": {
+        "snapshot": 0.45128099999965343,
+        "analyze": 2.8591599999999744,
+        "finishRender": 9.69448999999986,
+        "integrity": 2.028255000000172,
+        "prepareBody": 1.440201000000343,
+        "compose": 0.12335299999995186
+      },
+      "editedRefreshMs": 16.616729999999734,
+      "htmlExportMs": 16.875044000000344,
+      "printPayloadMs": 4.607728999999381
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 8,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.43734999999924185,
+        "analyze": 4.356254999999692,
+        "finishRender": 16.743318000000727,
+        "integrity": 1.9950650000000678,
+        "prepareBody": 2.7865819999997257,
+        "compose": 0.10368399999970279
+      },
+      "refreshMs": 26.447712999999567,
+      "parseAndRenderMs": 3.384592000000339,
+      "integrityModelMs": 0.8481609999998909,
+      "editedDetails": {
+        "snapshot": 0.28516399999989517,
+        "analyze": 5.344825000000128,
+        "finishRender": 5.028655000000072,
+        "integrity": 1.2293570000001637,
+        "prepareBody": 1.2029880000000048,
+        "compose": 0.07482100000015635
+      },
+      "editedRefreshMs": 13.182675999999447,
+      "htmlExportMs": 20.821160000000418,
+      "printPayloadMs": 4.758633000000373
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 9,
+    "times": {
+      "firstDetails": {
+        "snapshot": 5.076114999999845,
+        "analyze": 4.717722000000322,
+        "finishRender": 14.984172999999828,
+        "integrity": 4.526567999999315,
+        "prepareBody": 1.6343800000004194,
+        "compose": 0.10314300000027288
+      },
+      "refreshMs": 31.07096399999955,
+      "parseAndRenderMs": 3.388546999999562,
+      "integrityModelMs": 1.277299000000312,
+      "editedDetails": {
+        "snapshot": 3.026958999999806,
+        "analyze": 4.493529000000308,
+        "finishRender": 6.438670999999886,
+        "integrity": 5.204405999999835,
+        "prepareBody": 1.2846890000000712,
+        "compose": 0.08016000000043277
+      },
+      "editedRefreshMs": 20.719978999999512,
+      "htmlExportMs": 22.902061999999205,
+      "printPayloadMs": 4.205640999999559
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 10,
+    "times": {
+      "firstDetails": {
+        "snapshot": 6.01466100000016,
+        "analyze": 4.340752000000066,
+        "finishRender": 14.780179999999746,
+        "integrity": 1.586648999999852,
+        "prepareBody": 1.618296000000555,
+        "compose": 0.0997879999995348
+      },
+      "refreshMs": 28.465222000000722,
+      "parseAndRenderMs": 3.4813539999995555,
+      "integrityModelMs": 0.8113760000005641,
+      "editedDetails": {
+        "snapshot": 2.474398000000292,
+        "analyze": 4.168145999999979,
+        "finishRender": 8.91306799999984,
+        "integrity": 2.0835269999997763,
+        "prepareBody": 1.4508760000007896,
+        "compose": 0.09378900000046997
+      },
+      "editedRefreshMs": 19.20590799999991,
+      "htmlExportMs": 32.816013999999996,
+      "printPayloadMs": 10.214383000000453
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 11,
+    "times": {
+      "firstDetails": {
+        "snapshot": 1.3406530000002022,
+        "analyze": 7.274003000000448,
+        "finishRender": 26.38913599999978,
+        "integrity": 4.462843000000248,
+        "prepareBody": 3.8383859999994456,
+        "compose": 0.1353820000003907
+      },
+      "refreshMs": 43.48533800000041,
+      "parseAndRenderMs": 5.7180600000001505,
+      "integrityModelMs": 1.4890430000004926,
+      "editedDetails": {
+        "snapshot": 4.0876659999994445,
+        "analyze": 10.782627999999931,
+        "finishRender": 8.283903999999893,
+        "integrity": 1.6169040000004316,
+        "prepareBody": 1.7167319999998654,
+        "compose": 0.08022900000014488
+      },
+      "editedRefreshMs": 26.588442000000214,
+      "htmlExportMs": 32.10627399999976,
+      "printPayloadMs": 6.765206000000035
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 12,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.6136120000001029,
+        "analyze": 7.776941000000079,
+        "finishRender": 21.768708000000515,
+        "integrity": 2.172739999999976,
+        "prepareBody": 1.6171540000004825,
+        "compose": 0.11171599999943282
+      },
+      "refreshMs": 34.09421899999961,
+      "parseAndRenderMs": 4.663271999999779,
+      "integrityModelMs": 3.039748000000145,
+      "editedDetails": {
+        "snapshot": 0.2974819999999454,
+        "analyze": 18.421111999999994,
+        "finishRender": 33.206177999999454,
+        "integrity": 1.6329880000002959,
+        "prepareBody": 1.3956939999998212,
+        "compose": 0.10408500000085041
+      },
+      "editedRefreshMs": 55.0779109999994,
+      "htmlExportMs": 92.74098299999969,
+      "printPayloadMs": 15.896363999999267
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 13,
+    "times": {
+      "firstDetails": {
+        "snapshot": 4.242385999999897,
+        "analyze": 6.592945000000327,
+        "finishRender": 20.312984000000142,
+        "integrity": 1.5235439999996743,
+        "prepareBody": 5.773140999999669,
+        "compose": 0.10036899999977322
+      },
+      "refreshMs": 38.571428999999625,
+      "parseAndRenderMs": 5.151581999999507,
+      "integrityModelMs": 1.3644780000004175,
+      "editedDetails": {
+        "snapshot": 0.18858999999974912,
+        "analyze": 5.6214350000000195,
+        "finishRender": 5.553435000000718,
+        "integrity": 2.194701999999779,
+        "prepareBody": 1.2037289999998393,
+        "compose": 0.07898699999987002
+      },
+      "editedRefreshMs": 14.85702399999991,
+      "htmlExportMs": 34.36848599999939,
+      "printPayloadMs": 12.84983099999954
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 14,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.5170779999998558,
+        "analyze": 3.9152389999999286,
+        "finishRender": 13.941913999999997,
+        "integrity": 1.501060999999936,
+        "prepareBody": 5.653064000000086,
+        "compose": 0.10254299999996874
+      },
+      "refreshMs": 25.657548999999563,
+      "parseAndRenderMs": 3.0538790000000517,
+      "integrityModelMs": 0.8153420000007827,
+      "editedDetails": {
+        "snapshot": 0.2025309999999081,
+        "analyze": 3.0183360000000903,
+        "finishRender": 6.3842899999999645,
+        "integrity": 2.8228960000005827,
+        "prepareBody": 1.2926310000002559,
+        "compose": 0.12507600000026287
+      },
+      "editedRefreshMs": 13.862576000000445,
+      "htmlExportMs": 20.472791000000143,
+      "printPayloadMs": 6.355497000000469
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 15,
+    "times": {
+      "firstDetails": {
+        "snapshot": 1.9898169999996753,
+        "analyze": 4.997167999999874,
+        "finishRender": 18.40859199999977,
+        "integrity": 3.85191500000019,
+        "prepareBody": 2.6875049999998737,
+        "compose": 0.09992799999963609
+      },
+      "refreshMs": 32.06286,
+      "parseAndRenderMs": 3.3336559999997917,
+      "integrityModelMs": 1.6159120000002076,
+      "editedDetails": {
+        "snapshot": 0.39735100000052626,
+        "analyze": 3.4298280000002705,
+        "finishRender": 5.652952000000369,
+        "integrity": 1.841457000000446,
+        "prepareBody": 1.8747270000003482,
+        "compose": 0.11116500000025553
+      },
+      "editedRefreshMs": 13.328413000000182,
+      "htmlExportMs": 22.23436000000038,
+      "printPayloadMs": 5.412666000000172
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 16,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.5836170000002312,
+        "analyze": 6.251091999999517,
+        "finishRender": 33.19106699999975,
+        "integrity": 2.638992000000144,
+        "prepareBody": 3.131604999999581,
+        "compose": 0.3057650000000649
+      },
+      "refreshMs": 46.145902999999635,
+      "parseAndRenderMs": 5.2575550000001385,
+      "integrityModelMs": 0.9403380000003381,
+      "editedDetails": {
+        "snapshot": 0.21442899999965448,
+        "analyze": 2.9706850000002305,
+        "finishRender": 8.433775999999853,
+        "integrity": 1.2702679999993052,
+        "prepareBody": 1.0886380000001736,
+        "compose": 0.07816600000023755
+      },
+      "editedRefreshMs": 14.072337999999945,
+      "htmlExportMs": 21.638695000000553,
+      "printPayloadMs": 3.735603000000083
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 17,
+    "times": {
+      "firstDetails": {
+        "snapshot": 4.421682000000146,
+        "analyze": 3.6780870000002324,
+        "finishRender": 15.229448000000048,
+        "integrity": 1.3947729999999865,
+        "prepareBody": 8.759109999999964,
+        "compose": 0.09273799999937182
+      },
+      "refreshMs": 33.600594999999885,
+      "parseAndRenderMs": 2.9463089999999283,
+      "integrityModelMs": 0.689274999999725,
+      "editedDetails": {
+        "snapshot": 1.7608369999998104,
+        "analyze": 3.3020379999998113,
+        "finishRender": 4.276726999999482,
+        "integrity": 1.3686349999998129,
+        "prepareBody": 2.1167459999996936,
+        "compose": 0.07854599999973289
+      },
+      "editedRefreshMs": 12.918542999999772,
+      "htmlExportMs": 19.992607999999564,
+      "printPayloadMs": 4.946622999999818
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 18,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.39603900000020076,
+        "analyze": 5.133250999999291,
+        "finishRender": 19.65280299999995,
+        "integrity": 1.529503000000659,
+        "prepareBody": 5.5275659999997515,
+        "compose": 0.1887010000000373
+      },
+      "refreshMs": 32.46073100000012,
+      "parseAndRenderMs": 4.337437000000136,
+      "integrityModelMs": 0.75149699999929,
+      "editedDetails": {
+        "snapshot": 0.2952789999999368,
+        "analyze": 2.7896559999999226,
+        "finishRender": 5.6689870000000155,
+        "integrity": 1.2298280000004524,
+        "prepareBody": 4.046605000000454,
+        "compose": 0.07865700000002107
+      },
+      "editedRefreshMs": 14.123964000000342,
+      "htmlExportMs": 24.894123000000036,
+      "printPayloadMs": 70.3543380000001
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 19,
+    "times": {
+      "firstDetails": {
+        "snapshot": 3.40843600000062,
+        "analyze": 4.514470999999503,
+        "finishRender": 18.566758000000846,
+        "integrity": 1.5669889999990119,
+        "prepareBody": 5.551661999999851,
+        "compose": 0.11070499999914318
+      },
+      "refreshMs": 33.77546500000062,
+      "parseAndRenderMs": 3.204302999999527,
+      "integrityModelMs": 1.2595519999995304,
+      "editedDetails": {
+        "snapshot": 0.273417000000336,
+        "analyze": 4.80146699999932,
+        "finishRender": 6.111523999999918,
+        "integrity": 2.221090999999433,
+        "prepareBody": 1.1896489999999176,
+        "compose": 0.07482100000015635
+      },
+      "editedRefreshMs": 14.690467000000353,
+      "htmlExportMs": 22.21919700000035,
+      "printPayloadMs": 4.681808999999703
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 20,
+    "times": {
+      "firstDetails": {
+        "snapshot": 1.4388290000006236,
+        "analyze": 5.663118000000395,
+        "finishRender": 16.28402499999902,
+        "integrity": 8.36549500000001,
+        "prepareBody": 5.052179000000251,
+        "compose": 0.13164599999981874
+      },
+      "refreshMs": 36.96881200000098,
+      "parseAndRenderMs": 4.794115999999121,
+      "integrityModelMs": 0.8100839999988239,
+      "editedDetails": {
+        "snapshot": 0.5680339999998978,
+        "analyze": 2.860452000000805,
+        "finishRender": 4.81698999999935,
+        "integrity": 1.2298879999998462,
+        "prepareBody": 1.0138070000011794,
+        "compose": 0.06912299999930838
+      },
+      "editedRefreshMs": 10.571844000000056,
+      "htmlExportMs": 30.181463000000804,
+      "printPayloadMs": 7.282575999999608
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 21,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.5412350000005972,
+        "analyze": 6.233555000000706,
+        "finishRender": 37.67403999999988,
+        "integrity": 6.869641000001138,
+        "prepareBody": 3.06328300000132,
+        "compose": 0.14782000000013795
+      },
+      "refreshMs": 54.57367999999951,
+      "parseAndRenderMs": 4.807726999999431,
+      "integrityModelMs": 1.3576580000008107,
+      "editedDetails": {
+        "snapshot": 0.7373159999988275,
+        "analyze": 5.244415999999546,
+        "finishRender": 7.679796000000351,
+        "integrity": 3.058155999999144,
+        "prepareBody": 3.221568999999363,
+        "compose": 0.10899199999948905
+      },
+      "editedRefreshMs": 20.075011000000814,
+      "htmlExportMs": 25.35919500000091,
+      "printPayloadMs": 5.701423999998951
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 22,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.38274900000033085,
+        "analyze": 3.9619800000000396,
+        "finishRender": 21.527930000000197,
+        "integrity": 1.4721479999989242,
+        "prepareBody": 5.654564999998911,
+        "compose": 0.10260299999936251
+      },
+      "refreshMs": 33.13069700000051,
+      "parseAndRenderMs": 3.0515859999995882,
+      "integrityModelMs": 0.865005999999994,
+      "editedDetails": {
+        "snapshot": 2.6141160000006494,
+        "analyze": 3.089611999999761,
+        "finishRender": 4.602240999998685,
+        "integrity": 1.2979790000008506,
+        "prepareBody": 1.057462000000669,
+        "compose": 0.0683019999996759
+      },
+      "editedRefreshMs": 12.746587000001455,
+      "htmlExportMs": 17.037325999999666,
+      "printPayloadMs": 11.931285000000571
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 23,
+    "times": {
+      "firstDetails": {
+        "snapshot": 5.0323110000008455,
+        "analyze": 4.179362000000765,
+        "finishRender": 36.020721999999296,
+        "integrity": 1.6320159999995667,
+        "prepareBody": 1.6602080000011483,
+        "compose": 0.0999180000017077
+      },
+      "refreshMs": 48.65286999999989,
+      "parseAndRenderMs": 3.253555999999662,
+      "integrityModelMs": 0.8635429999994813,
+      "editedDetails": {
+        "snapshot": 0.2160409999996773,
+        "analyze": 3.138694999999643,
+        "finishRender": 4.282595999999103,
+        "integrity": 1.4418229999992036,
+        "prepareBody": 1.7093409999997675,
+        "compose": 0.07365899999967951
+      },
+      "editedRefreshMs": 10.877318999999261,
+      "htmlExportMs": 18.696830999999293,
+      "printPayloadMs": 3.7565340000001015
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 24,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.4330440000012459,
+        "analyze": 8.53377399999954,
+        "finishRender": 24.348683000000165,
+        "integrity": 1.9441999999999098,
+        "prepareBody": 5.585498000000371,
+        "compose": 0.10629799999878742
+      },
+      "refreshMs": 40.98361499999919,
+      "parseAndRenderMs": 3.2401759999993374,
+      "integrityModelMs": 5.240520000001197,
+      "editedDetails": {
+        "snapshot": 0.20249100000000908,
+        "analyze": 3.518750999999611,
+        "finishRender": 7.073463999999149,
+        "integrity": 2.854812999999922,
+        "prepareBody": 2.0751340000006167,
+        "compose": 0.11559200000010605
+      },
+      "editedRefreshMs": 15.862879000000248,
+      "htmlExportMs": 27.592303999999785,
+      "printPayloadMs": 7.896238000001176
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 25,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.5006940000002942,
+        "analyze": 5.448808999999528,
+        "finishRender": 22.480596000001242,
+        "integrity": 2.600956000000224,
+        "prepareBody": 2.739161999999851,
+        "compose": 0.09647299999960524
+      },
+      "refreshMs": 33.89591400000063,
+      "parseAndRenderMs": 4.276816999999937,
+      "integrityModelMs": 1.113865999999689,
+      "editedDetails": {
+        "snapshot": 0.2873380000000907,
+        "analyze": 3.2618189999993774,
+        "finishRender": 4.455852999999479,
+        "integrity": 2.478884999998627,
+        "prepareBody": 1.0680179999999382,
+        "compose": 0.07526200000029348
+      },
+      "editedRefreshMs": 11.643567000000985,
+      "htmlExportMs": 21.48120999999992,
+      "printPayloadMs": 4.418087000000014
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 26,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.3983220000009169,
+        "analyze": 6.026087000000189,
+        "finishRender": 23.60811200000171,
+        "integrity": 3.0511249999999563,
+        "prepareBody": 3.4494570000006206,
+        "compose": 0.10539600000083738
+      },
+      "refreshMs": 36.672130999999354,
+      "parseAndRenderMs": 3.924994000000879,
+      "integrityModelMs": 2.046462000000247,
+      "editedDetails": {
+        "snapshot": 0.24016699999992852,
+        "analyze": 6.3853909999997995,
+        "finishRender": 4.6643330000006245,
+        "integrity": 1.3610630000002857,
+        "prepareBody": 1.2311399999998685,
+        "compose": 0.074771999999939
+      },
+      "editedRefreshMs": 13.974522000000434,
+      "htmlExportMs": 28.393135000000257,
+      "printPayloadMs": 6.9987529999998515
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 27,
+    "times": {
+      "firstDetails": {
+        "snapshot": 3.4780900000005204,
+        "analyze": 4.326370999999199,
+        "finishRender": 21.540118000000803,
+        "integrity": 1.545176999999967,
+        "prepareBody": 2.0841480000017327,
+        "compose": 0.09539200000108394
+      },
+      "refreshMs": 33.09730599999966,
+      "parseAndRenderMs": 3.4777389999999286,
+      "integrityModelMs": 0.7646160000003874,
+      "editedDetails": {
+        "snapshot": 3.582635000000664,
+        "analyze": 2.8910369999994145,
+        "finishRender": 10.298758999999336,
+        "integrity": 3.1807079999998678,
+        "prepareBody": 1.0617889999994077,
+        "compose": 0.07238800000050105
+      },
+      "editedRefreshMs": 21.102297000001272,
+      "htmlExportMs": 21.084521000000677,
+      "printPayloadMs": 4.10842699999921
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 28,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.41330399999969814,
+        "analyze": 4.483373999999458,
+        "finishRender": 28.419643999999607,
+        "integrity": 1.4530799999993178,
+        "prepareBody": 3.996910999998363,
+        "compose": 0.12542699999903562
+      },
+      "refreshMs": 38.918259000000035,
+      "parseAndRenderMs": 3.2293599999993603,
+      "integrityModelMs": 1.2060229999988223,
+      "editedDetails": {
+        "snapshot": 0.20426399999996647,
+        "analyze": 2.8947230000012496,
+        "finishRender": 4.4011219999993045,
+        "integrity": 1.2152559999994992,
+        "prepareBody": 1.1037710000000516,
+        "compose": 0.07570200000009208
+      },
+      "editedRefreshMs": 9.908328999999867,
+      "htmlExportMs": 36.62323800000013,
+      "printPayloadMs": 7.405598000001191
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 29,
+    "times": {
+      "firstDetails": {
+        "snapshot": 6.007701000000452,
+        "analyze": 14.079427999999098,
+        "finishRender": 33.32160599999952,
+        "integrity": 4.037211000000752,
+        "prepareBody": 6.290829999999914,
+        "compose": 0.11116500000025553
+      },
+      "refreshMs": 63.88601800000106,
+      "parseAndRenderMs": 10.661087000000407,
+      "integrityModelMs": 3.355358000000706,
+      "editedDetails": {
+        "snapshot": 0.6230759999998554,
+        "analyze": 4.3979680000011285,
+        "finishRender": 9.34653199999957,
+        "integrity": 2.398826000000554,
+        "prepareBody": 5.55389599999944,
+        "compose": 0.11103499999990163
+      },
+      "editedRefreshMs": 22.451702999998815,
+      "htmlExportMs": 14.387265999999727,
+      "printPayloadMs": 4.054767999999967
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 30,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.41113100000075065,
+        "analyze": 3.857324000000517,
+        "finishRender": 7.214003000000957,
+        "integrity": 1.7638819999992847,
+        "prepareBody": 1.7106520000015735,
+        "compose": 0.10273199999937788
+      },
+      "refreshMs": 15.086675000000469,
+      "parseAndRenderMs": 3.0712449999991804,
+      "integrityModelMs": 0.7410309999995661,
+      "editedDetails": {
+        "snapshot": 0.22337200000038138,
+        "analyze": 3.084796000001006,
+        "finishRender": 4.111512000001312,
+        "integrity": 1.2301189999998314,
+        "prepareBody": 1.1137049999997544,
+        "compose": 0.07115599999997357
+      },
+      "editedRefreshMs": 9.848148999999466,
+      "htmlExportMs": 26.859375,
+      "printPayloadMs": 4.7947669999994105
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 31,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.5604230000008101,
+        "analyze": 4.775249000000258,
+        "finishRender": 7.740716000000248,
+        "integrity": 1.534761000000799,
+        "prepareBody": 1.4934200000006967,
+        "compose": 0.10734000000047672
+      },
+      "refreshMs": 16.23856800000067,
+      "parseAndRenderMs": 3.937273000001369,
+      "integrityModelMs": 0.7935589999997319,
+      "editedDetails": {
+        "snapshot": 0.2024810000002617,
+        "analyze": 2.9733699999997043,
+        "finishRender": 4.43600300000071,
+        "integrity": 1.4650180000007822,
+        "prepareBody": 1.0722439999990456,
+        "compose": 0.08045000000129221
+      },
+      "editedRefreshMs": 10.245740000000296,
+      "htmlExportMs": 15.169438999999329,
+      "printPayloadMs": 4.167795999999726
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 32,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.5281749999994645,
+        "analyze": 6.021490999999514,
+        "finishRender": 10.831820999999763,
+        "integrity": 1.5970539999998437,
+        "prepareBody": 1.8419879999983095,
+        "compose": 0.0942300000006071
+      },
+      "refreshMs": 20.943230999999287,
+      "parseAndRenderMs": 4.715830000001006,
+      "integrityModelMs": 1.2447810000012396,
+      "editedDetails": {
+        "snapshot": 0.276281000000381,
+        "analyze": 4.723201000000699,
+        "finishRender": 7.224179000000731,
+        "integrity": 2.3378649999995105,
+        "prepareBody": 1.9116610000000946,
+        "compose": 0.20850000000064028
+      },
+      "editedRefreshMs": 16.70293700000002,
+      "htmlExportMs": 21.806483999998818,
+      "printPayloadMs": 6.423547999998846
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 33,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.36449199999879056,
+        "analyze": 6.730354000001171,
+        "finishRender": 8.782374999998865,
+        "integrity": 1.4812519999995857,
+        "prepareBody": 1.6369230000000243,
+        "compose": 0.10414499999933469
+      },
+      "refreshMs": 19.125928999999815,
+      "parseAndRenderMs": 4.54048899999907,
+      "integrityModelMs": 2.131518000000142,
+      "editedDetails": {
+        "snapshot": 0.18617599999925005,
+        "analyze": 3.207046999999875,
+        "finishRender": 4.358508999999685,
+        "integrity": 1.2816149999998743,
+        "prepareBody": 1.1417970000002242,
+        "compose": 0.07144700000026205
+      },
+      "editedRefreshMs": 10.260851999999431,
+      "htmlExportMs": 21.371977999999217,
+      "printPayloadMs": 5.487857000000076
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 34,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.5272430000004533,
+        "analyze": 5.306577999999718,
+        "finishRender": 10.082016000000294,
+        "integrity": 2.223965999999564,
+        "prepareBody": 2.2952020000011544,
+        "compose": 0.11535099999855447
+      },
+      "refreshMs": 20.583094999999958,
+      "parseAndRenderMs": 4.171830999999656,
+      "integrityModelMs": 1.0710120000003371,
+      "editedDetails": {
+        "snapshot": 0.19614099999853352,
+        "analyze": 2.9887520000011136,
+        "finishRender": 4.540238999999929,
+        "integrity": 1.7544580000012502,
+        "prepareBody": 1.4687939999985247,
+        "compose": 0.07585300000027928
+      },
+      "editedRefreshMs": 11.038657999999486,
+      "htmlExportMs": 15.174957000001086,
+      "printPayloadMs": 4.296665999998368
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 35,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.39923300000009476,
+        "analyze": 4.631655000001047,
+        "finishRender": 14.237482999998974,
+        "integrity": 6.269400000001042,
+        "prepareBody": 3.4512899999990623,
+        "compose": 0.10102999999980966
+      },
+      "refreshMs": 29.11897400000089,
+      "parseAndRenderMs": 3.7140500000004977,
+      "integrityModelMs": 0.8708740000001853,
+      "editedDetails": {
+        "snapshot": 0.2719039999992674,
+        "analyze": 5.626712999999654,
+        "finishRender": 5.80252499999915,
+        "integrity": 3.881138999999166,
+        "prepareBody": 2.1578669999998965,
+        "compose": 0.08265300000130082
+      },
+      "editedRefreshMs": 17.84031800000048,
+      "htmlExportMs": 17.939446000000316,
+      "printPayloadMs": 4.941845999999714
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 36,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.43475600000056147,
+        "analyze": 4.451116999998703,
+        "finishRender": 8.088152000000264,
+        "integrity": 1.8097299999990355,
+        "prepareBody": 1.5747910000009142,
+        "compose": 0.09592200000042794
+      },
+      "refreshMs": 16.48200999999972,
+      "parseAndRenderMs": 3.6040069999999105,
+      "integrityModelMs": 0.8013710000013816,
+      "editedDetails": {
+        "snapshot": 0.3921229999996285,
+        "analyze": 5.116575000000012,
+        "finishRender": 9.57307000000037,
+        "integrity": 4.001937999999427,
+        "prepareBody": 2.584791999999652,
+        "compose": 0.0904740000005404
+      },
+      "editedRefreshMs": 21.799322999999276,
+      "htmlExportMs": 49.79064699999981,
+      "printPayloadMs": 11.604629000001296
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 37,
+    "times": {
+      "firstDetails": {
+        "snapshot": 7.597453000000314,
+        "analyze": 7.4181769999995595,
+        "finishRender": 33.97162700000081,
+        "integrity": 3.3729129999992438,
+        "prepareBody": 3.611397999999099,
+        "compose": 0.34243900000001304
+      },
+      "refreshMs": 56.351763000000574,
+      "parseAndRenderMs": 5.954380999999557,
+      "integrityModelMs": 1.4010119999984454,
+      "editedDetails": {
+        "snapshot": 0.5739130000001751,
+        "analyze": 7.0442519999996875,
+        "finishRender": 12.96600799999942,
+        "integrity": 4.956768000000011,
+        "prepareBody": 8.952117000000726,
+        "compose": 0.3677860000007058
+      },
+      "editedRefreshMs": 34.883326999999554,
+      "htmlExportMs": 118.60483799999929,
+      "printPayloadMs": 10.407269999999698
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 38,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.7208410000002914,
+        "analyze": 6.211666999999579,
+        "finishRender": 13.172629000000597,
+        "integrity": 2.6712289999995846,
+        "prepareBody": 2.605150000001231,
+        "compose": 0.2244539999992412
+      },
+      "refreshMs": 25.654200000000856,
+      "parseAndRenderMs": 4.880269999999655,
+      "integrityModelMs": 1.2548740000001999,
+      "editedDetails": {
+        "snapshot": 0.3816470000001573,
+        "analyze": 4.499964999999065,
+        "finishRender": 6.7217860000000655,
+        "integrity": 1.5978940000004513,
+        "prepareBody": 1.179232000000411,
+        "compose": 0.07400000000052387
+      },
+      "editedRefreshMs": 14.471308000000136,
+      "htmlExportMs": 21.832001999999193,
+      "printPayloadMs": 5.718754999999874
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  },
+  {
+    "round": 39,
+    "times": {
+      "firstDetails": {
+        "snapshot": 0.43643800000063493,
+        "analyze": 3.788958000001003,
+        "finishRender": 8.07407400000011,
+        "integrity": 2.36833900000056,
+        "prepareBody": 2.0658390000007785,
+        "compose": 0.09515099999953236
+      },
+      "refreshMs": 16.85433700000067,
+      "parseAndRenderMs": 3.055699000000459,
+      "integrityModelMs": 0.6893639999998413,
+      "editedDetails": {
+        "snapshot": 0.30366099999992,
+        "analyze": 4.372574999999415,
+        "finishRender": 7.270902000000206,
+        "integrity": 2.3731360000001587,
+        "prepareBody": 1.761517000000822,
+        "compose": 0.15676300000086485
+      },
+      "editedRefreshMs": 16.296339999998963,
+      "htmlExportMs": 22.574556000001394,
+      "printPayloadMs": 6.561427000000549
+    },
+    "oracle": {
+      "pass": true,
+      "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda",
+      "projection": {
+        "preview": "0561b88272fa76f0d716f17813e5ed53516a78f90d516e1bcbcb4cbaa45a9a44",
+        "edited": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "html": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc",
+        "print": "9e6a383b195774ca654b59a5d1eae39c51a0d8a1aba40b0b838147defc1d24bc"
+      }
+    }
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "performedAt": "2026-11-22T11:13:28.404218+00:00",
+  "inputs": [
+    {
+      "name": "PAPERFORMA_RC10_AUDIT_DAN_PANDUAN_CLOUDFLARE_20261122.zip",
+      "zipBytes": 3930675,
+      "sha256": "56d155dca25e1bb591c467f68f1240056de11515f5d7d87bffda52b578438cf8",
+      "files": 80,
+      "checkedDigests": 79,
+      "uncompressedBytes": 5840587,
+      "crc": "PASS",
+      "manifest": "PASS"
+    },
+    {
+      "name": "PAPERFORMA_STATIC_3.0.0-rc.10.zip",
+      "zipBytes": 63557324,
+      "sha256": "1959dfe69ac4fa838fb76365fe9423829ebfbde1d7e154fded4dc88d1e48c765",
+      "files": 1733,
+      "checkedDigests": 1732,
+      "uncompressedBytes": 174377269,
+      "crc": "PASS",
+      "manifest": "PASS"
+    }
+  ]
+}

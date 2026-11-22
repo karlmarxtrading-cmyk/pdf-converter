@@ -1,0 +1,167 @@
+TAP version 13
+# Subtest: U01 and U04 reject failed one-shot, external assembly, partial and stale production artifacts with coherent hashes
+ok 1 - U01 and U04 reject failed one-shot, external assembly, partial and stale production artifacts with coherent hashes
+  ---
+  duration_ms: 5.133202
+  type: 'test'
+  ...
+# Subtest: one failed JSON cannot satisfy any of eight claimed PASS rows; aggregate always reports 24 dispositions
+ok 2 - one failed JSON cannot satisfy any of eight claimed PASS rows; aggregate always reports 24 dispositions
+  ---
+  duration_ms: 9.371041
+  type: 'test'
+  ...
+# Subtest: U06 positive capacity control, repeated observation and altered heap after coherently rebinding
+ok 3 - U06 positive capacity control, repeated observation and altered heap after coherently rebinding
+  ---
+  duration_ms: 4.287725
+  type: 'test'
+  ...
+# Subtest: U07 independent A/B TeX, modes and eighteen same-count mutations
+ok 4 - U07 independent A/B TeX, modes and eighteen same-count mutations
+  ---
+  duration_ms: 0.98202
+  type: 'test'
+  ...
+# Subtest: U08 reopens physical ordered markers and both HTML routes; rebound empty PDF label and native paste discrepancy reject
+ok 5 - U08 reopens physical ordered markers and both HTML routes; rebound empty PDF label and native paste discrepancy reject
+  ---
+  duration_ms: 1065.374612
+  type: 'test'
+  ...
+# Subtest: U05 full offline control and same-digest rebound mutations of source text, requests and link counts
+ok 6 - U05 full offline control and same-digest rebound mutations of source text, requests and link counts
+  ---
+  duration_ms: 5463.312506
+  type: 'test'
+  ...
+# Subtest: one synthetic release, real files and processes, mutation rejection
+    # Subtest: all sixteen complete synthetic controls yield exit 0
+    ok 1 - all sixteen complete synthetic controls yield exit 0
+      ---
+      duration_ms: 1312.896427
+      type: 'test'
+      ...
+    # Subtest: three attached input mutations invalidate sealed receipts and recording
+    ok 2 - three attached input mutations invalidate sealed receipts and recording
+      ---
+      duration_ms: 498.890753
+      type: 'test'
+      ...
+    # Subtest: U06 positive, fully rebound invalid raw capacity, stale run and aggregate after G FAIL
+    ok 3 - U06 positive, fully rebound invalid raw capacity, stale run and aggregate after G FAIL
+      ---
+      duration_ms: 4110.916374
+      type: 'test'
+      ...
+    # Subtest: six capacity contradictions fail after receipt rebinding and at record time
+    ok 4 - six capacity contradictions fail after receipt rebinding and at record time
+      ---
+      duration_ms: 8657.179369
+      type: 'test'
+      ...
+    # Subtest: median mutation rejects promotion even with coherent byte hashes
+    ok 5 - median mutation rejects promotion even with coherent byte hashes
+      ---
+      duration_ms: 1002.155417
+      type: 'test'
+      ...
+    # Subtest: p95 mutation rejects, but one slow sample alone does not
+    ok 6 - p95 mutation rejects, but one slow sample alone does not
+      ---
+      duration_ms: 2692.030704
+      type: 'test'
+      ...
+    # Subtest: one modified production byte rejects before any receipt
+    ok 7 - one modified production byte rejects before any receipt
+      ---
+      duration_ms: 66.405734
+      type: 'test'
+      ...
+    # Subtest: operator mutation at constant formula count fails independent HTML oracle
+    ok 8 - operator mutation at constant formula count fails independent HTML oracle
+      ---
+      duration_ms: 651.281696
+      type: 'test'
+      ...
+    # Subtest: missing receipt rejects promotion
+    ok 9 - missing receipt rejects promotion
+      ---
+      duration_ms: 1261.675111
+      type: 'test'
+      ...
+    # Subtest: old run ID rejects otherwise identical receipt
+    ok 10 - old run ID rejects otherwise identical receipt
+      ---
+      duration_ms: 1219.040458
+      type: 'test'
+      ...
+    # Subtest: short cohort rejects promotion
+    ok 11 - short cohort rejects promotion
+      ---
+      duration_ms: 1179.856833
+      type: 'test'
+      ...
+    # Subtest: changed immutable browser driver or procedure rejects before any receipt
+    ok 12 - changed immutable browser driver or procedure rejects before any receipt
+      ---
+      duration_ms: 123.759371
+      type: 'test'
+      ...
+    # Subtest: forged driver identity and dropped failed block reject even after rebinding evidence
+    ok 13 - forged driver identity and dropped failed block reject even after rebinding evidence
+      ---
+      duration_ms: 5828.117602
+      type: 'test'
+      ...
+    # Subtest: native-save BLOCKED blocks production
+    ok 14 - native-save BLOCKED blocks production
+      ---
+      duration_ms: 1303.69014
+      type: 'test'
+      ...
+    # Subtest: failed check, altered evidence and missing observations each reject
+    ok 15 - failed check, altered evidence and missing observations each reject
+      ---
+      duration_ms: 1381.468241
+      type: 'test'
+      ...
+    1..15
+ok 7 - one synthetic release, real files and processes, mutation rejection
+  ---
+  duration_ms: 36037.610532
+  type: 'test'
+  ...
+# Subtest: wrong AB order, missing warmup, or mismatched same-count formula oracle cannot pass
+ok 8 - wrong AB order, missing warmup, or mismatched same-count formula oracle cannot pass
+  ---
+  duration_ms: 2.425821
+  type: 'test'
+  ...
+# Subtest: each flow requires ten consecutive four-pair blocks with paired, equivalent warmups
+ok 9 - each flow requires ten consecutive four-pair blocks with paired, equivalent warmups
+  ---
+  duration_ms: 15.852035
+  type: 'test'
+  ...
+# Subtest: reconstructs invocation, logical pass, repair and interrupted phase accounting
+ok 10 - reconstructs invocation, logical pass, repair and interrupted phase accounting
+  ---
+  duration_ms: 79.793364
+  type: 'test'
+  ...
+# Subtest: rejects lifecycle overruns and missing observations even when the caller reports success
+ok 11 - rejects lifecycle overruns and missing observations even when the caller reports success
+  ---
+  duration_ms: 6.572341
+  type: 'test'
+  ...
+1..11
+# tests 26
+# suites 0
+# pass 26
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 36334.05018

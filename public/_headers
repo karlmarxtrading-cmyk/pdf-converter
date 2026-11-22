@@ -17,3 +17,7 @@
 
 /licenses/*
   Content-Type: text/plain; charset=utf-8
+
+/src/render/mermaid-frame*
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'none'; connect-src 'self' https:; frame-src 'none'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'self'

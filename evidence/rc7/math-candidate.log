@@ -1,0 +1,134 @@
+
+ RUN  v5.1.0 rc7
+
+ ✓ tests/unit/core/paste.test.ts > PasteLedger > IMP-05 A → B (rich) → C diketik; konversi B hanya mengganti rentang B; A dan C utuh; undo/redo satu unit [fx:07_transaksi_multi_paste.json] 25ms
+ ✓ tests/unit/core/paste.test.ts > PasteLedger > IMP-05 rebase saat mengetik di tempat lain; fragmen yang diedit menjadi usang dan konversi ditolak 1ms
+ ✓ tests/unit/core/paste.test.ts > PasteLedger > UX-03 tiga operasi berbeda: sisip di kursor (ganti seleksi), tambah sebagai pesan, ganti seluruh sumber hanya dengan konfirmasi 2ms
+ ✓ tests/unit/core/paste.test.ts > PasteLedger > syncFromText dari textarea = satu transaksi edit; paste di tengah blok kode tidak mengubah sekitarnya 1ms
+ ✓ tests/unit/core/paste.test.ts > IMP-03 > IMP-03 teks biasa (spasi, paragraf, kutipan, emoji, rupiah, URL) dipertahankan byte-demi-byte 1ms
+ ✓ tests/unit/core/wrapper-clipboard.test.ts > IMP-02 pembungkus > IMP-02 fence luar ````markdown dengan fence kode dalam: terdeteksi, dilepas hanya eksplisit, isi utuh, undo memulihkan [fx:05_wrapper_dan_kode.md] 9ms
+ ✓ tests/unit/core/wrapper-clipboard.test.ts > IMP-02 pembungkus > IMP-02 varian 3/5 backtick dan tilde; fence dalam yang menutup lebih awal ditandai; teks di luar → ambiguous 1ms
+ ✓ tests/unit/core/wrapper-clipboard.test.ts > Clipboard HTML → Markdown > IMP-04 SEM-07 fixture 08: LaTeX diambil sekali dari anotasi (tidak duplikat), tabel rowspan dipertahankan sebagai HTML + issue, sentinel utuh [fx:08_clipboard_rich_math_tabel.json] 28ms
+ ✓ tests/unit/core/wrapper-clipboard.test.ts > Clipboard HTML → Markdown > IMP-04 heading, daftar bertingkat, tebal/miring, tautan, kode, tabel → GFM; script/handler tidak ikut dan dilaporkan 53ms
+ ✓ tests/unit/core/wrapper-clipboard.test.ts > Clipboard HTML → Markdown > IMP-14 CODE-06 markup melebihi batas byte ditolak UTUH sebelum konversi (tanpa slice), walau teks kecil 3ms
+ ✓ tests/unit/core/wrapper-clipboard.test.ts > Clipboard HTML → Markdown > MathML tanpa anotasi ditandai; KaTeX display menghasilkan $$ 3ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M01 missed formulas across inline semantic boundaries > marks preserved residual TeX for review: <div>Hasil \(x+<a href="#section">y</a>\) akhir.</div> 69ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M01 missed formulas across inline semantic boundaries > marks preserved residual TeX for review: <div>Hasil \[a<sup>2</sup>+b\] akhir.</div> 23ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M01 missed formulas across inline semantic boundaries > marks preserved residual TeX for review: <div>Hasil \fr<em>ac</em>{a}{b} akhir.</div> 18ms
+ ✓ tests/unit/core/rc5-math.test.ts > RC5 TeX and table acceptance > retains column boundaries, absolute values, a TeX norm and a conditional probability 137ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP01 reads data-tex/data-latex exactly once, keeping surrounding prose 144ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M01 missed formulas across inline semantic boundaries > marks preserved residual TeX for review: <div>Hasil $x+<a href="#section">y</a>$ akhir.</div> 19ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M01 missed formulas across inline semantic boundaries > keeps separate blocks, literal content and rendered math out of residual runs: <p>Harga $5 dan <em>$10</em>. Total $15.</p> 5ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M01 missed formulas across inline semantic boundaries > keeps separate blocks, literal content and rendered math out of residual runs: <p>\(kata <em>biasa saja</em>\) lalu lintas.</p> 6ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M01 missed formulas across inline semantic boundaries > keeps separate blocks, literal content and rendered math out of residual runs: <p>\(x<code>sample</code>+y\)</p> 2ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M01 missed formulas across inline semantic boundaries > keeps separate blocks, literal content and rendered math out of residual runs: <p>\fr</p><p>ac{x}{y}</p> 2ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M01 missed formulas across inline semantic boundaries > keeps separate blocks, literal content and rendered math out of residual runs: <table><tr><td>\(x+</td><td>y\)</td></tr></table> 5ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M01 missed formulas across inline semantic boundaries > keeps separate blocks, literal content and rendered math out of residual runs: <p><a href="https://example.org/\(x+y\)">Lihat rumus</a></p> 1ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M01 missed formulas across inline semantic boundaries > keeps separate blocks, literal content and rendered math out of residual runs: <p>\(x+<span class="pf-math"><span class="katex">y</span></span>z\)</p> 2ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > preserves mixed content and warns about ambiguous enclosing metadata in clipboard import 102ms
+ ✓ tests/unit/core/rc5-math.test.ts > RC5 TeX and table acceptance > retains dollars inside TeX, currency prose, code, link target and the following formula 75ms
+ ✓ tests/unit/core/rc5-math.test.ts > RC5 TeX and table acceptance > recovers a legacy visual/script pair without dropping a neighboring independent equation 63ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP02 preserves display mode (display="true" MathJax mjx-container) 50ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP02 preserves display mode (data-display="true"  div) 31ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP02 preserves display mode (data-display-mode="true"  span) 55ms
+ ✓ tests/unit/core/rc6-math-copy.test.ts > RC6 copied Markdown math > recognizes every exact user formula and keeps source and UTF-16 offsets unchanged 286ms
+ ✓ tests/unit/core/rc5-math.test.ts > RC5 TeX and table acceptance > preserves the CommonMark destination and title when they look like delimited TeX 37ms
+ ✓ tests/unit/core/rc5-math.test.ts > RC5 TeX and table acceptance > keeps a currency-bearing KaTeX annotation inline 31ms
+ ✓ tests/unit/core/rc5-math.test.ts > RC5 TeX and table acceptance > shows the source and missing closer for \( on the correct line 35ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > preserves mixed content and warns about ambiguous enclosing metadata in raw import 41ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > keeps semantic HTML inside delimiter pairs and requests review after clipboard conversion 31ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > keeps semantic HTML inside delimiter pairs and requests review after clipboard conversion 58ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP02 preserves display mode (data-type="block-math"  div) 29ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP02 preserves display mode ( math-display span) 94ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > keeps semantic HTML inside delimiter pairs and requests review after clipboard conversion 32ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > retains an independent MathJax equation immediately before a different TeX script 38ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > recognizes a MathJax visual with the same source as a single formula 9ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > retains the only available MathML text when a KaTeX copy lacks TeX and a visual branch 12ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > keeps only the readable visual branch when both source-free KaTeX representations exist 7ms
+ ✓ tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > retains link and image titles in a structured clipboard table 7ms
+ ✓ tests/unit/core/rc5-math.test.ts > RC5 TeX and table acceptance > shows the source and missing closer for \[ on the correct line 15ms
+ ✓ tests/unit/core/rc5-math.test.ts > RC5 TeX and table acceptance > retains calculus, aligned and cases rows, Unicode, and source order across block types 142ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP02 preserves display mode (  math-display) 35ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP02 reads MathJax annotation display=true and does not duplicate assistive MathML 13ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP03 recognizes explicit TeX annotation encoding application/x-tex 17ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP03 recognizes explicit TeX annotation encoding text/latex 53ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > teks biasa/Markdown ChatGPT (\(…\), \[…\], $…$, $$…$$, matriks, integral, tabel, daftar) 470ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP03 recognizes explicit TeX annotation encoding application/x-latex 15ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP03 recognizes explicit TeX annotation encoding text/x-tex 24ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP03 recognizes explicit TeX annotation encoding  TEXT/X-LATEX ;charset=utf-8 11ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP01 strips complete source delimiters from explicit attributes only 16ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP04 keeps code literal even if the element has math metadata 16ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP04 keeps kbd literal even if the element has math metadata 14ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP04 keeps samp literal even if the element has math metadata 8ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > HTML clipboard dengan delimiter literal → Markdown tanpa escape ganda, makna rumus sama 148ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP04 keeps pre literal even if the element has math metadata 11ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP04 does not reinterpret source attributes on active or unrelated elements 17ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP05 reports a source-free MathJax formula and preserves its text 22ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP06 preserves copied AI box/text wrappers and code without executing props 27ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP06 keeps separate text components as separate paragraphs 6ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP01 keeps source math in merged tables and ordinary cells 33ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP07 records inferred copy repairs before a merged table serializes canonical TeX 16ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP08 preserves prose, code, and every formula inside broad math wrappers 12ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP08 preserves prose, code, and every formula inside broad math-display wrappers 12ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP08 preserves prose, code, and every formula inside broad katex-display wrappers 12ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP08 does not collapse a one-formula wrapper with adjacent prose 9ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP08 does not discard a rejected mixed MathJax wrapper as a script preview 10ms
+ ✓ tests/unit/core/rc6-clipboard.test.ts > RC6-CLIP explicit math source recovery > RC6-CLIP09 preserves adjacent inline equations without ambiguous double-dollar joins 8ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > HTML clipboard KaTeX (markup ChatGPT) → TeX dari anotasi, spasi di sekitar rumus utuh 153ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > impor percakapan ChatGPT (data-message-author-role) mempertahankan rumus 136ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > MathML alttext dan MathJax v2 math/tex dipakai sebagai TeX; tanpa TeX → peringatan, teks tidak hilang 4ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > delimiter literal terbelah <br> (display multi-baris) dan di sel tabel tetap rumus 12ms
+ ✓ tests/unit/core/math-einstein.test.ts > mesin matematika — dokumen Einstein > delimiter yang memang tidak membentuk rumus tidak dikarang menjadi rumus 6ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Harga $5 dan $10. → 0 rumus 20ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Harga $5 dan diskon 10$ saja. → 0 rumus 3ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Total $1.250 untuk 3 item$ ini. → 0 rumus 3ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Nilai $2x + 3y$ benar. → 1 rumus 4ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Hasil $3 \times 4$ = 12. → 1 rumus 4ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Rumus $5 \text{ dan } 10$ di sini. → 1 rumus 4ms
+ ✓ tests/unit/core/math-einstein.test.ts > perlindungan mata uang di pemindai rumus (berlaku untuk semua jalur) > Energi $E=mc^2$. → 1 rumus 4ms
+ ✓ tests/unit/core/math-einstein.test.ts > mode display untuk \[…\] dan $$…$$ satu baris > \[\boxed{E_0=mc^2}\]
+ 10ms
+ ✓ tests/unit/core/math-einstein.test.ts > mode display untuk \[…\] dan $$…$$ satu baris > $$E=mc^2$$
+ 10ms
+ ✓ tests/unit/core/math-einstein.test.ts > mode display untuk \[…\] dan $$…$$ satu baris > Energi diam adalah \[E_0=mc^2\] untuk benda diam.
+ 11ms
+ ✓ tests/unit/core/math-einstein.test.ts > mode display untuk \[…\] dan $$…$$ satu baris > Inline \(E_0\) saja.
+ 6ms
+ ✓ tests/unit/core/rc6-render-compat.test.ts > RC6 real-input rendering and missed-math diagnostics > retains the exact user source and discloses all inferred body recoveries 1585ms
+ ✓ tests/unit/core/rc6-math-copy.test.ts > RC6 copied Markdown math > renders all 231 formulas, including table cells and aligned rows, without parse errors 1350ms
+ ✓ tests/unit/core/rc6-render-compat.test.ts > RC6 real-input rendering and missed-math diagnostics > renders literal TeX in safe raw HTML: <div>\[x^2+y^2=1\]</div> 17ms
+ ✓ tests/unit/core/rc6-render-compat.test.ts > RC6 real-input rendering and missed-math diagnostics > renders literal TeX in safe raw HTML: <p>Formula \(E=mc^2\) ends.</p> 10ms
+ ✓ tests/unit/core/rc6-render-compat.test.ts > RC6 real-input rendering and missed-math diagnostics > renders literal TeX in safe raw HTML: <table><tr><td>\(x^2\)</td></tr></table> 13ms
+ ✓ tests/unit/core/rc6-render-compat.test.ts > RC6 real-input rendering and missed-math diagnostics > renders literal TeX in safe raw HTML: <div>Before \[\frac{<em>a</em>}{b}\] after</div> 9ms
+ ✓ tests/unit/core/rc6-render-compat.test.ts > RC6 real-input rendering and missed-math diagnostics > renders literal TeX in safe raw HTML: <div>\[<br>x^2<br>\]</div> 7ms
+ ✓ tests/unit/core/rc6-render-compat.test.ts > RC6 real-input rendering and missed-math diagnostics > keeps raw HTML code, URLs, and ordinary escaped prose literal 7ms
+ ✓ tests/unit/core/rc6-render-compat.test.ts > RC6 real-input rendering and missed-math diagnostics > reports undelimited TeX and does not call the math category ready 5ms
+ ✓ tests/unit/core/rc6-render-compat.test.ts > RC6 real-input rendering and missed-math diagnostics > does not disguise an unsupported command as successful math 7ms
+ ✓ tests/unit/core/rc6-render-compat.test.ts > RC6 real-input rendering and missed-math diagnostics > detects a changed raw HTML table formula and preserves unsafe-HTML defenses 19ms
+ ✓ tests/unit/core/rc6-render-compat.test.ts > RC6 real-input rendering and missed-math diagnostics > recovers explicit HTML TeX metadata exactly once: <div><span data-latex="x^2">x2</span></div> 8ms
+ ✓ tests/unit/core/rc6-render-compat.test.ts > RC6 real-input rendering and missed-math diagnostics > recovers explicit HTML TeX metadata exactly once: <div><mjx-container display="true"><math><semantics><mi>x</mi><annotation encoding="text/latex">x^2</annotation></semantics></math></mjx-container></div> 8ms
+ ✓ tests/unit/core/rc6-render-compat.test.ts > RC6 real-input rendering and missed-math diagnostics > recovers explicit HTML TeX metadata exactly once: <table><tr><td><span data-tex="x^2">x2</span></td></tr></table> 15ms
+ ✓ tests/unit/core/rc6-math-copy.test.ts > RC6 copied Markdown math > retains the mathematical meaning of subscripts, summation spacing and aligned row heights 3ms
+ ✓ tests/unit/core/rc6-math-copy.test.ts > RC6 copied Markdown math > still rejects a formula changed after rendering 15ms
+ ✓ tests/unit/core/rc6-math-copy.test.ts > RC6 copied Markdown math > preserves code and literal text while rendering ordinary and copied delimiter variants 51ms
+ ✓ tests/unit/core/rc6-math-copy.test.ts > RC6 copied Markdown math > retains proper row breaks and protects literal underscores inside text and URLs 1ms
+ ✓ tests/unit/core/rc6-math-copy.test.ts > RC6 copied Markdown math > recognizes compact algebra, conditional probability and intervals but keeps ordinary escaped prose literal 0ms
+ ✓ tests/unit/core/rc6-math-copy.test.ts > RC6 copied Markdown math > records exact before/after payloads for the copied subscript and spacing adaptations 1ms
+ ✓ tests/unit/core/rc6-math-copy.test.ts > RC6 copied Markdown math > handles copied multiline display math without absorbing following prose 14ms
+ ✓ tests/unit/core/rc6-math-copy.test.ts > RC6 copied Markdown math > keeps raw table separators, norms, currency and link destinations correctly separated 18ms
+ ✓ tests/unit/core/rc6-math-copy.test.ts > RC6 copied Markdown math > renders explicit math fences and GitHub dollar-backtick syntax while retaining LaTeX code examples 15ms
+ ✓ tests/unit/core/rc6-math-copy.test.ts > RC6 copied Markdown math > RC6-M05 preserves emphasis next to delimiter punctuation: ### **Sudut&#x20;**\(90^\circ+x\) 8ms
+ ✓ tests/unit/core/rc6-math-copy.test.ts > RC6 copied Markdown math > RC6-M05 preserves emphasis next to delimiter punctuation: ### **Sudut&#x20;**\\(90^\circ+x\\) 8ms
+ ✓ tests/unit/core/rc6-math-copy.test.ts > RC6 copied Markdown math > RC6-M05 preserves emphasis next to delimiter punctuation: ### *Sudut&#x20;*\\(90^\circ+x\\) 10ms
+ ✓ tests/unit/core/rc6-math-copy.test.ts > RC6 copied Markdown math > RC6-M05 keeps literal and entity-encoded sentinel candidates intact 5ms
+ ✓ tests/unit/core/rc6-heading-math.test.ts > RC6 heading math and TOC labels > retains equations in the exact fixture headings without duplicate TeX/accessibility text 1090ms
+ ✓ tests/unit/core/rc6-heading-math.test.ts > RC6 heading math and TOC labels > keeps existing prose IDs and gives math-only headings meaningful unique targets 21ms
+ ✓ tests/unit/core/rc6-heading-math.test.ts > RC6 heading math and TOC labels > linearizes fractions and square roots, preserves code, and falls back safely for complex math 14ms
+ ✓ tests/unit/core/rc6-heading-math.test.ts > RC6 heading math and TOC labels > includes safe HTML formula metadata once and excludes active content from the label 12ms
+ ✓ tests/unit/core/rc6-heading-math.test.ts > RC6 heading math and TOC labels > exports working TOC anchors containing formula labels without adding formula duplicates 83ms
+
+ Test Files  9 passed (9)
+      Tests  121 passed (121)
+   Start at  02:35:03
+   Duration  3.75s (tests 40%, environment 38%, import 16%, transform 5%)
+

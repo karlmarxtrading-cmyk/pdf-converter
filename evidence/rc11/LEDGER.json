@@ -1,0 +1,923 @@
+{
+  "version": "3.0.0-rc.11",
+  "sourceCommitLocal": "644a55d9ba4315593bc32a72fe50a100d3b55fa2",
+  "upstreamMain": "3a4eaf9eeeb710541c13bee34a83ff901c441580",
+  "remoteDeployment": null,
+  "runId": "a411c3b4-c630-4461-88ec-54810dbe1328",
+  "identity": {
+    "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+    "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496",
+    "version": "3.0.0-rc.11",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "fb35e25d5f19ec6c9a313318e58deebadcbd942b07de6c9757a6702dc5c4609e",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "82f80da7cf9aac0fbe3cf1b34fe0de8c2f5df7273212c8dd968b453cf2b6d86b",
+    "benchmarkHarnessSha256": "b270325c775336251cf7176bab8338bcff9b9a8e10c9d05d44e8dab360738bc2",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "866df23055e9b0e231095d3408e406eb7207644ed02fae7a93b9516bf8f9caf5",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "9c5f97a67bd9785f4205bed22f146b32596ac97389747e097d77558540d70378"
+  },
+  "aggregateDecision": "NO_GO",
+  "counts": {
+    "PASS": 19,
+    "BLOCKED": 5,
+    "FAIL": 0,
+    "NOT_RUN": 0
+  },
+  "findings": [
+    {
+      "id": "A01",
+      "baseline": "FAIL · header dan isi tabel dapat berubah saat konversi.",
+      "rootCause": "Representasi Markdown lama memisahkan display math dari sel asal dan pemeriksa berikutnya memakai sumber yang telah dikonversi.",
+      "changedPaths": [
+        "src/core/clipboard.ts",
+        "src/core/clipboard-fidelity.ts",
+        "src/core/markdown.ts",
+        "src/core/paste.ts"
+      ],
+      "implementation": "Pertahankan representasi HTML aman ketika diperlukan, bandingkan proyeksi dari HTML asli dengan proyeksi setelah konversi sebelum menerima hasil.",
+      "observations": [
+        "evidence/rc11/audit/math/rc10-negative.log",
+        "evidence/rc11/audit/math/final-receipt.json",
+        "evidence/rc11/audit/math/browser-final/print-results.json"
+      ],
+      "status": "PASS",
+      "scope": "Fixture terarah termasuk header/body, TeX eksplisit, tabel, dua MIME, teks pendamping, HTML mandiri dan jalur cetak.",
+      "identity": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876"
+    },
+    {
+      "id": "A02",
+      "baseline": "FAIL · spasi annotation dapat menghasilkan nol rumus.",
+      "rootCause": "Delimiter Markdown tidak mengodekan semua anotasi TeX secara terbalik tanpa kehilangan batas teks.",
+      "changedPaths": [
+        "src/core/clipboard.ts",
+        "src/core/clipboard-fidelity.ts",
+        "src/core/markdown.ts",
+        "tests/unit/render/rc11-clipboard-fidelity.test.ts"
+      ],
+      "implementation": "Gunakan penanda eksplisit untuk anotasi ambigu dan periksa TeX, mode, urutan serta pemisah teks terhadap input.",
+      "observations": [
+        "evidence/rc11/audit/math/rc10-negative.log",
+        "evidence/rc11/audit/math/final-receipt.json"
+      ],
+      "status": "PASS",
+      "scope": "Whitespace, backtick, dollar, formula bersebelahan, kontrol dan mutasi pada input sintetis.",
+      "identity": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876"
+    },
+    {
+      "id": "A03",
+      "baseline": "FAIL · audit awal mengamati assignment Image.src dengan izin mati.",
+      "rootCause": "Resource dapat mulai dimuat sebelum sanitasi SVG akhir.",
+      "changedPaths": [
+        "src/render/mermaid-frame.ts",
+        "src/render/mermaid-frame.html",
+        "src/render/diagram-policy.ts",
+        "src/render/document.ts",
+        "src/render/exports.ts",
+        "vite.config.ts"
+      ],
+      "implementation": "Pasang CSP per render sebelum mengimpor Mermaid, validasi SVG dan CSS sebelum penyisipan serta pertahankan source diagram bila resource diblokir.",
+      "observations": [
+        "evidence/rc11/audit/network/baseline-browser.json",
+        "evidence/rc11/audit/network/final.json"
+      ],
+      "status": "PASS",
+      "scope": "Intersepsi Chromium aktual pada preview, ekspor HTML, kedua mode cetak, pengaktifan dan pencabutan persetujuan.",
+      "identity": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876"
+    },
+    {
+      "id": "A04",
+      "baseline": "FAIL · izin pembuat melekat pada bundle.",
+      "rootCause": "Importer menerima setting izin pihak pengirim.",
+      "changedPaths": [
+        "src/core/projects.ts",
+        "src/ui/main.ts",
+        "tests/unit/core/rc11-project-consent.test.ts"
+      ],
+      "implementation": "Setel ulang izin jaringan saat membuka proyek yang diimpor. Simpan pilihan penerima untuk pemulihan proyek setempat.",
+      "observations": [
+        "evidence/rc11/audit/network/baseline-import.log",
+        "evidence/rc11/audit/network/final.json"
+      ],
+      "status": "PASS",
+      "scope": "Impor, aset lokal, persetujuan penerima, pemulihan IndexedDB dan pencabutan.",
+      "identity": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876"
+    },
+    {
+      "id": "A05",
+      "baseline": "FAIL · li[type] kehilangan tipe marker.",
+      "rootCause": "Serializer clipboard dan pembanding marker belum mencatat override tipe per item.",
+      "changedPaths": [
+        "src/core/clipboard.ts",
+        "src/core/raw-html-integrity.ts",
+        "src/render/print-lists.ts",
+        "src/render/flow-book.ts"
+      ],
+      "implementation": "Pertahankan dan bandingkan tipe marker per item bersama ordinal, nesting dan referensinya, termasuk pada halaman lanjutan.",
+      "observations": [
+        "evidence/rc11/audit/math/rc10-negative.log",
+        "evidence/rc11/audit/math/final-receipt.json",
+        "evidence/rc11/audit/math/browser-final/print.pdf",
+        "evidence/rc11/audit/math/browser-final/print-book.pdf"
+      ],
+      "status": "PASS",
+      "scope": "Input clipboard/HTML dan dua PDF fisik; C. pada halaman 2 dan vii. pada halaman 4.",
+      "identity": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876"
+    },
+    {
+      "id": "A06",
+      "baseline": "GAP pada inspeksi source RC10; regresi baru mengonfirmasi dua kelebihan satu byte diterima.",
+      "rootCause": "Batas yang dinyatakan di limits tidak diterapkan pada semua jalur produksi dan persiapan transfer.",
+      "changedPaths": [
+        "src/render/print-budget.ts",
+        "src/render/print-payload.ts",
+        "src/render/print-client.ts",
+        "src/render/flow-book.ts",
+        "src/ui/main.ts"
+      ],
+      "implementation": "Ukur batas bawah secara bertahap dan periksa ukuran akhir terhadap 47.185.920 byte. Jalur standar mengukur JSON kompak UTF-8 dari DTO; jalur buku memeriksa DTO dan HTML UTF-8.",
+      "observations": [
+        "evidence/rc11/audit/payload"
+      ],
+      "status": "PASS",
+      "scope": "Satu byte di bawah, tepat pada dan satu byte di atas. Kontrol editor memeriksa penolakan, batal, cleanup dan Retry setelah revisi.",
+      "identity": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876"
+    },
+    {
+      "id": "A07",
+      "baseline": "NO_GO · 18 PASS, 1 FAIL, 4 BLOCKED, 1 NOT_RUN pada RC10.",
+      "rootCause": "Benchmark dan bukti perangkat/hosting memerlukan observasi pada kandidat yang sama.",
+      "changedPaths": [
+        "src/render/fonts.ts",
+        "scripts/release-paths.mjs",
+        "docs/verification-tools/measure-local-gates.py",
+        "tests/bench/performance-binding.mjs"
+      ],
+      "implementation": "Bekukan identitas baru, kurangi kerja font yang berulang, lalu ukur ulang termasuk kontrol penolakan bukti dan seluruh gerbang.",
+      "observations": [
+        "evidence/rc11/acceptance/all-gates.json",
+        "evidence/rc11/performance",
+        "evidence/rc11/external/access-and-targets.json"
+      ],
+      "status": "OPEN",
+      "scope": "Putusan agregat aktual berlaku; alasan per gerbang dicantumkan terpisah.",
+      "identity": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876"
+    },
+    {
+      "id": "A08",
+      "baseline": "GAP · alat selain Node/npm belum dapat diprovisikan dari konfigurasi rilis.",
+      "rootCause": "Verifier membutuhkan Python, paket PDF, Pandoc dan Poppler dari host yang sebelumnya tidak dideklarasikan.",
+      "changedPaths": [
+        "scripts/toolchain/linux-64.lock.json",
+        "scripts/toolchain/provision.py",
+        "scripts/toolchain/check.py",
+        "scripts/toolchain/qualified-run.mjs",
+        "scripts/fingerprint.mjs",
+        "scripts/pages-build.mjs",
+        "tests/scripts/clean-toolchain.py"
+      ],
+      "implementation": "Bootstrap Linux x86_64 tanpa sudo dengan arsip ber-hash, deteksi versi, pemeriksaan asal setiap executable dan interpreter, dan verifier penuh pada jalur produksi.",
+      "observations": [
+        "evidence/rc11/audit/toolchain",
+        "evidence/rc11/external/access-and-targets.json"
+      ],
+      "status": "BLOCKED",
+      "scope": "Kualifikasi Linux bersih teruji. Keberhasilan perintah produksi pada akun Pages dan seluruh bukti 24 gerbang belum tersedia.",
+      "identity": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876"
+    }
+  ],
+  "gates": [
+    {
+      "id": "G01",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G01.json",
+      "observations": [
+        "input-1"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/G01.json",
+      "observationNames": [
+        "input-1"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {
+        "archivePaths": {
+          "evidence": "evidence/rc11/input/identity.json",
+          "pass": true
+        },
+        "archiveChecksums": {
+          "evidence": "evidence/rc11/input/identity.json",
+          "pass": true
+        },
+        "inputIdentity": {
+          "evidence": "evidence/rc11/input/identity.json",
+          "pass": true
+        }
+      },
+      "evidenceObservations": [
+        "input-1"
+      ]
+    },
+    {
+      "id": "G02",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G02.json",
+      "observations": [
+        "clean-build-1"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/G02.json",
+      "observationNames": [
+        "clean-build-1"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {
+        "lockedInstall": {
+          "evidence": "evidence/rc11/build-tests/clean-build.log",
+          "pass": true
+        },
+        "lint": {
+          "evidence": "evidence/rc11/build-tests/clean-build.log",
+          "pass": true
+        },
+        "typecheck": {
+          "evidence": "evidence/rc11/build-tests/clean-build.log",
+          "pass": true
+        },
+        "unit": {
+          "evidence": "evidence/rc11/build-tests/clean-build.log",
+          "pass": true
+        },
+        "cleanBuild": {
+          "evidence": "evidence/rc11/build-tests/clean-receipt.json",
+          "pass": true
+        },
+        "http": {
+          "evidence": "evidence/rc11/build-tests/http-verification-local.json",
+          "pass": true
+        },
+        "static": {
+          "evidence": "evidence/rc11/build-tests/static.log",
+          "pass": true
+        },
+        "mutations": {
+          "evidence": "evidence/rc11/build-tests/release-gate.json",
+          "pass": true
+        },
+        "secretScan": {
+          "evidence": "evidence/rc11/build-tests/secret-scan.json",
+          "pass": true
+        }
+      },
+      "evidenceObservations": [
+        "clean-build-1"
+      ]
+    },
+    {
+      "id": "G03",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G03.json",
+      "observations": [
+        "trig-new"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/G03.json",
+      "observationNames": [
+        "trig-new"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {
+        "productionUiDownload": {
+          "pass": true,
+          "evidence": "evidence/rc11/browser/results/trigonometry-downloads.json"
+        },
+        "offlineLayout": {
+          "pass": true,
+          "evidence": "evidence/rc11/browser/results/trigonometry-downloads.json"
+        },
+        "fourTemplates": {
+          "pass": true,
+          "evidence": "evidence/rc11/browser/results/trigonometry-downloads.json"
+        }
+      },
+      "evidenceObservations": [
+        "trig-new"
+      ]
+    },
+    {
+      "id": "G04",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G04.json",
+      "observations": [
+        "wrapper-new"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/G04.json",
+      "observationNames": [
+        "wrapper-new"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {
+        "rawWrapper": {
+          "pass": true,
+          "evidence": "evidence/rc11/wrappers/wrapper-final.json"
+        },
+        "clipboardWrapper": {
+          "pass": true,
+          "evidence": "evidence/rc11/wrappers/wrapper-final.json"
+        },
+        "independentText": {
+          "pass": true,
+          "evidence": "evidence/rc11/wrappers/wrapper-final.json"
+        },
+        "ambiguity": {
+          "pass": true,
+          "evidence": "evidence/rc11/wrappers/wrapper-final.json"
+        },
+        "pureAndMultipleControls": {
+          "pass": true,
+          "evidence": "evidence/rc11/wrappers/wrapper-final.json"
+        }
+      },
+      "evidenceObservations": [
+        "wrapper-new"
+      ]
+    },
+    {
+      "id": "G05",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G05.json",
+      "observations": [
+        "integrity-new"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/G05.json",
+      "observationNames": [
+        "integrity-new"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {
+        "emptyFormula": {
+          "pass": true,
+          "evidence": "evidence/rc11/integrity/acceptance.json"
+        },
+        "visual": {
+          "pass": true,
+          "evidence": "evidence/rc11/integrity/acceptance.json"
+        },
+        "mathML": {
+          "pass": true,
+          "evidence": "evidence/rc11/integrity/acceptance.json"
+        },
+        "annotation": {
+          "pass": true,
+          "evidence": "evidence/rc11/integrity/acceptance.json"
+        },
+        "operatorAndMode": {
+          "pass": true,
+          "evidence": "evidence/rc11/integrity/acceptance.json"
+        },
+        "cssAndFonts": {
+          "pass": true,
+          "evidence": "evidence/rc11/integrity/final-bytes.json"
+        },
+        "fallback": {
+          "pass": true,
+          "evidence": "evidence/rc11/integrity/acceptance.json"
+        },
+        "htmlAndPrint": {
+          "pass": true,
+          "evidence": "evidence/rc11/integrity/acceptance.json"
+        }
+      },
+      "evidenceObservations": [
+        "integrity-new"
+      ]
+    },
+    {
+      "id": "G06",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G06.json",
+      "observations": [
+        "integrity-new"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/G06.json",
+      "observationNames": [
+        "integrity-new"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {
+        "rootText": {
+          "pass": true,
+          "evidence": "evidence/rc11/integrity/acceptance.json"
+        },
+        "untrackedNode": {
+          "pass": true,
+          "evidence": "evidence/rc11/integrity/acceptance.json"
+        },
+        "foreignId": {
+          "pass": true,
+          "evidence": "evidence/rc11/integrity/acceptance.json"
+        },
+        "duplicateId": {
+          "pass": true,
+          "evidence": "evidence/rc11/integrity/acceptance.json"
+        },
+        "order": {
+          "pass": true,
+          "evidence": "evidence/rc11/integrity/acceptance.json"
+        },
+        "spoofedDecoration": {
+          "pass": true,
+          "evidence": "evidence/rc11/integrity/acceptance.json"
+        },
+        "generatedControls": {
+          "pass": true,
+          "evidence": "evidence/rc11/integrity/acceptance.json"
+        }
+      },
+      "evidenceObservations": [
+        "integrity-new"
+      ]
+    },
+    {
+      "id": "G07",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G07.json",
+      "observations": [
+        "pdf-new"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/G07.json",
+      "observationNames": [
+        "pdf-new"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {
+        "originalMixed": {
+          "pass": true,
+          "evidence": "evidence/rc11/pdf/coverage.json"
+        },
+        "supportedText": {
+          "pass": true,
+          "evidence": "evidence/rc11/pdf/coverage.json"
+        },
+        "emoji": {
+          "pass": true,
+          "evidence": "evidence/rc11/pdf/coverage.json"
+        },
+        "privateUseDecision": {
+          "pass": true,
+          "evidence": "evidence/rc11/pdf/coverage.json"
+        },
+        "type3Policy": {
+          "pass": true,
+          "evidence": "evidence/rc11/pdf/coverage.json"
+        },
+        "actualPdf": {
+          "pass": true,
+          "evidence": "evidence/rc11/pdf/coverage.json"
+        }
+      },
+      "evidenceObservations": [
+        "pdf-new"
+      ]
+    },
+    {
+      "id": "G08",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G08.json",
+      "observations": [
+        "pdf-new"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/G08.json",
+      "observationNames": [
+        "pdf-new"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {
+        "code112Lines": {
+          "pass": true,
+          "evidence": "evidence/rc11/pdf/coverage.json"
+        },
+        "indentationAndBlankLines": {
+          "pass": true,
+          "evidence": "evidence/rc11/pdf/coverage.json"
+        },
+        "labelWithCode": {
+          "pass": true,
+          "evidence": "evidence/rc11/pdf/coverage.json"
+        },
+        "continuation": {
+          "pass": true,
+          "evidence": "evidence/rc11/pdf/coverage.json"
+        },
+        "a5Boundary": {
+          "pass": true,
+          "evidence": "evidence/rc11/pdf/coverage.json"
+        }
+      },
+      "evidenceObservations": [
+        "pdf-new"
+      ]
+    },
+    {
+      "id": "G09",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G09.json",
+      "observations": [
+        "g09-node-1",
+        "g09-node-2",
+        "g09-browser-1",
+        "g09-browser-2"
+      ],
+      "baseline": "FAIL",
+      "receipt": "evidence/rc11/acceptance/receipts/G09.json",
+      "observationNames": [
+        "g09-node-1",
+        "g09-node-2",
+        "g09-browser-1",
+        "g09-browser-2"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {
+        "outputOracle": {
+          "pass": true,
+          "evidence": "evidence/rc11/performance/recovery-cohort-1.json"
+        },
+        "frozenProtocol": {
+          "pass": true,
+          "evidence": "evidence/rc11/performance/node-1.json"
+        },
+        "browserCohorts": {
+          "pass": true,
+          "evidence": "evidence/rc11/performance/recovery-cohort-2.json"
+        },
+        "nodeCohorts": {
+          "pass": true,
+          "evidence": "evidence/rc11/performance/node-2.json"
+        }
+      },
+      "evidenceObservations": [
+        "g09-node-1",
+        "g09-node-2",
+        "g09-browser-1",
+        "g09-browser-2"
+      ],
+      "rawRecount": "evidence/rc11/performance/cohort-recount.json"
+    },
+    {
+      "id": "G10",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G10.json",
+      "observations": [
+        "capacity-1"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/G10.json",
+      "observationNames": [
+        "capacity-1"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {
+        "fiveRepetitions": {
+          "evidence": "evidence/rc11/performance/capacity.json",
+          "pass": true
+        },
+        "measuredPages": {
+          "evidence": "evidence/rc11/performance/capacity.json",
+          "pass": true
+        },
+        "editSla": {
+          "evidence": "evidence/rc11/performance/capacity.json",
+          "pass": true
+        },
+        "cancelSla": {
+          "evidence": "evidence/rc11/performance/capacity.json",
+          "pass": true
+        },
+        "memorySamples": {
+          "evidence": "evidence/rc11/performance/capacity.json",
+          "pass": true
+        },
+        "memoryTrend": {
+          "evidence": "evidence/rc11/performance/capacity.json",
+          "pass": true
+        }
+      },
+      "evidenceObservations": [
+        "capacity-1"
+      ]
+    },
+    {
+      "id": "G11",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G11.json",
+      "observations": [
+        "aggregate-new"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/G11.json",
+      "observationNames": [
+        "aggregate-new"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {
+        "positiveControl": {
+          "pass": true,
+          "evidence": "evidence/rc11/aggregate-tests/results.json"
+        },
+        "thresholdMutation": {
+          "pass": true,
+          "evidence": "evidence/rc11/aggregate-tests/results.json"
+        },
+        "distMutation": {
+          "pass": true,
+          "evidence": "evidence/rc11/aggregate-tests/results.json"
+        },
+        "formulaMutation": {
+          "pass": true,
+          "evidence": "evidence/rc11/aggregate-tests/results.json"
+        },
+        "missingReceipt": {
+          "pass": true,
+          "evidence": "evidence/rc11/aggregate-tests/results.json"
+        },
+        "staleReceipt": {
+          "pass": true,
+          "evidence": "evidence/rc11/aggregate-tests/results.json"
+        },
+        "shortCohort": {
+          "pass": true,
+          "evidence": "evidence/rc11/aggregate-tests/results.json"
+        },
+        "nativeBlocked": {
+          "pass": true,
+          "evidence": "evidence/rc11/aggregate-tests/results.json"
+        }
+      },
+      "evidenceObservations": [
+        "aggregate-new"
+      ]
+    },
+    {
+      "id": "G12",
+      "status": "BLOCKED",
+      "reason": "Windows sasaran dan clipboard asli dari antarmuka penyedia AI tidak tersedia pada mesin penguji Linux. Bukti sintetis dan clipboard Linux tidak memenuhi kontrak G12.",
+      "baseline": "BLOCKED",
+      "receipt": "evidence/rc11/acceptance/receipts/G12.json",
+      "observationNames": [],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "acceptanceProcedure": "docs/ACCEPTANCE_PERANGKAT_HOSTING.md"
+    },
+    {
+      "id": "G13",
+      "status": "BLOCKED",
+      "reason": "Pengujian lokal dapat membuat berkas PDF lewat Chromium headless. Bukti pada perangkat sasaran untuk Save, Cancel, Retry dan pembacaan ulang PDF hasil simpan melalui dialog OS belum diperoleh.",
+      "baseline": "BLOCKED",
+      "receipt": "evidence/rc11/acceptance/receipts/G13.json",
+      "observationNames": [],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "acceptanceProcedure": "docs/ACCEPTANCE_PERANGKAT_HOSTING.md"
+    },
+    {
+      "id": "G14",
+      "status": "BLOCKED",
+      "reason": "Keyboard/DOM dan pengujian pemulihan editor dapat diukur di Linux. Sesi pembaca layar pada perangkat Windows sasaran dengan catatan ucapan operator belum tersedia.",
+      "baseline": "BLOCKED",
+      "receipt": "evidence/rc11/acceptance/receipts/G14.json",
+      "observationNames": [],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "acceptanceProcedure": "docs/ACCEPTANCE_PERANGKAT_HOSTING.md"
+    },
+    {
+      "id": "G15",
+      "status": "BLOCKED",
+      "reason": "GitHub menolak operasi penulisan blob ke karlmarxtrading-cmyk/performa oleh integrasi (HTTP 403). Push Git Bash percobaan kering juga membutuhkan autentikasi. Dashboard Pages menampilkan halaman masuk. Tidak ada URL preview, deployment ID atau hasil ekspor hosting kandidat ini.",
+      "baseline": "NOT_RUN",
+      "receipt": "evidence/rc11/acceptance/receipts/G15.json",
+      "observationNames": [],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "acceptanceProcedure": "docs/ACCEPTANCE_PERANGKAT_HOSTING.md"
+    },
+    {
+      "id": "G16",
+      "status": "BLOCKED",
+      "reason": "Target produksi yang diketahui baik dan ID deployment belum dapat diverifikasi di akun Pages. Otorisasi tindakan rollback live dan otorisasi promosi spesifik belum dicatat.",
+      "baseline": "BLOCKED",
+      "receipt": "evidence/rc11/acceptance/receipts/G16.json",
+      "observationNames": [],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "acceptanceProcedure": "docs/ACCEPTANCE_PERANGKAT_HOSTING.md"
+    },
+    {
+      "id": "U01",
+      "status": "PASS",
+      "facts": "evidence/rc11/u-facts/U01.json",
+      "observations": [
+        "book-headings-on-1",
+        "book-long-table-off-1",
+        "book-original-default-1",
+        "book-paragraphs-off-1",
+        "book-paragraphs-on-1",
+        "book-single-paragraph-off-1"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/U01.json",
+      "observationNames": [
+        "book-headings-on-1",
+        "book-long-table-off-1",
+        "book-original-default-1",
+        "book-paragraphs-off-1",
+        "book-paragraphs-on-1",
+        "book-single-paragraph-off-1"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {},
+      "evidenceObservations": [
+        "book-headings-on-1",
+        "book-long-table-off-1",
+        "book-original-default-1",
+        "book-paragraphs-off-1",
+        "book-paragraphs-on-1",
+        "book-single-paragraph-off-1"
+      ]
+    },
+    {
+      "id": "U02",
+      "status": "PASS",
+      "facts": "evidence/rc11/u-facts/U02.json",
+      "observations": [
+        "lifecycle-default-1",
+        "lifecycle-large-1",
+        "lifecycle-timing-1"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/U02.json",
+      "observationNames": [
+        "lifecycle-default-1",
+        "lifecycle-large-1",
+        "lifecycle-timing-1"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {},
+      "evidenceObservations": [
+        "lifecycle-default-1",
+        "lifecycle-large-1",
+        "lifecycle-timing-1"
+      ]
+    },
+    {
+      "id": "U03",
+      "status": "PASS",
+      "facts": "evidence/rc11/u-facts/U03.json",
+      "observations": [
+        "trace-browser-1",
+        "trace-control-1"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/U03.json",
+      "observationNames": [
+        "trace-browser-1",
+        "trace-control-1"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {},
+      "evidenceObservations": [
+        "trace-browser-1",
+        "trace-control-1"
+      ]
+    },
+    {
+      "id": "U04",
+      "status": "PASS",
+      "facts": "evidence/rc11/u-facts/U04.json",
+      "observations": [
+        "book-headings-on-1",
+        "book-long-table-off-1",
+        "book-original-default-1",
+        "book-paragraphs-off-1",
+        "book-paragraphs-on-1",
+        "book-single-paragraph-off-1"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/U04.json",
+      "observationNames": [
+        "book-headings-on-1",
+        "book-long-table-off-1",
+        "book-original-default-1",
+        "book-paragraphs-off-1",
+        "book-paragraphs-on-1",
+        "book-single-paragraph-off-1"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {},
+      "evidenceObservations": [
+        "book-headings-on-1",
+        "book-long-table-off-1",
+        "book-original-default-1",
+        "book-paragraphs-off-1",
+        "book-paragraphs-on-1",
+        "book-single-paragraph-off-1"
+      ]
+    },
+    {
+      "id": "U05",
+      "status": "PASS",
+      "facts": "evidence/rc11/u-facts/U05.json",
+      "observations": [
+        "book-headings-on-1",
+        "book-long-table-off-1",
+        "book-original-default-1",
+        "book-paragraphs-off-1",
+        "book-paragraphs-on-1",
+        "book-single-paragraph-off-1",
+        "offline-navigation-1",
+        "trig-new"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/U05.json",
+      "observationNames": [
+        "book-headings-on-1",
+        "book-long-table-off-1",
+        "book-original-default-1",
+        "book-paragraphs-off-1",
+        "book-paragraphs-on-1",
+        "book-single-paragraph-off-1",
+        "offline-navigation-1",
+        "trig-new"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {},
+      "evidenceObservations": [
+        "book-headings-on-1",
+        "book-long-table-off-1",
+        "book-original-default-1",
+        "book-paragraphs-off-1",
+        "book-paragraphs-on-1",
+        "book-single-paragraph-off-1",
+        "offline-navigation-1",
+        "trig-new"
+      ]
+    },
+    {
+      "id": "U06",
+      "status": "PASS",
+      "facts": "evidence/rc11/u-facts/U06.json",
+      "observations": [
+        "capacity-control-1"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/U06.json",
+      "observationNames": [
+        "capacity-control-1"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {},
+      "evidenceObservations": [
+        "capacity-control-1"
+      ]
+    },
+    {
+      "id": "U07",
+      "status": "PASS",
+      "facts": "evidence/rc11/u-facts/U07.json",
+      "observations": [
+        "interleaved-1"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/U07.json",
+      "observationNames": [
+        "interleaved-1"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {},
+      "evidenceObservations": [
+        "interleaved-1"
+      ]
+    },
+    {
+      "id": "U08",
+      "status": "PASS",
+      "facts": "evidence/rc11/u-facts/U08.json",
+      "observations": [
+        "ordered-lists-1"
+      ],
+      "baseline": "PASS",
+      "receipt": "evidence/rc11/acceptance/receipts/U08.json",
+      "observationNames": [
+        "ordered-lists-1"
+      ],
+      "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+      "assertedChecks": {},
+      "evidenceObservations": [
+        "ordered-lists-1"
+      ]
+    }
+  ]
+}

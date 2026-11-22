@@ -1,92 +1,80 @@
-# GitHub → Cloudflare Pages
+# GitHub → Cloudflare Pages untuk PaperForma RC12
 
-## Isi ZIP dan folder untuk build
+Tujuan adalah repository `karlmarxtrading-cmyk/performa`, dengan produksi pada `main` sesuai keterangan pemilik. Saat pemeriksaan, HEAD GitHub pada `main` adalah `3a4eaf9eeeb710541c13bee34a83ff901c441580` dan package.json berisi RC5. Dashboard Pages meminta login. Nama proyek, deployment produksi aktif, domain dan aturan branch pada akun harus dibaca dari dashboard. Lihat [keputusan rilis](RELEASE_REPORT.md).
 
-Ekstrak arsip ke satu folder. Buka folder yang berisi `package.json`, `package-lock.json`, `src/` dan `dist/` sejajar. Folder itu merupakan root proyek. `dist/` berisi situs yang sudah dibangun. Pada alur integrasi Git, Pages mengambil source dari GitHub dan menerbitkan hasil `npm run build` dari `dist/`. Aturan `.gitignore` mengecualikan `dist/`, `node_modules/` dan manifest build lokal.
+## Konfigurasi proyek yang perlu dicocokkan
 
-Prasyarat untuk build ialah Node **24.22.3** dan npm **>=11.6.0 <12**. Pertahankan `engine-strict`. Langkah berikut dapat dijalankan dari root proyek di Git Bash Windows.
+| Pengaturan | Nilai untuk kandidat ini |
+| --- | --- |
+| Project | Proyek Pages yang sudah terhubung dengan repository tujuan |
+| Production branch dan PAPERFORMA_PRODUCTION_BRANCH | main |
+| Preview branch | paperforma-rc12-preview, aktifkan build preview untuk branch ini |
+| Framework dan root | None/custom, root kosong bila package.json berada pada root Git |
+| Build image | v3 Linux x86_64 |
+| Build command | `npm ci --include=dev && npm run build:pages` |
+| Build output directory | `dist` |
+| Runtime | `NODE_VERSION=24.22.3`; npm sesuai engines, >=11.6.0 dan <12 |
+| Dependency install | `SKIP_DEPENDENCY_INSTALL=1` karena build command menjalankan npm ci |
+| Variabel dari Cloudflare | CF_PAGES, CF_PAGES_BRANCH dan CF_PAGES_COMMIT_SHA diisi platform |
 
-```bash
-node -v
-npm -v
-npm ci && npm run typecheck && npm run lint && npm test && npm run build && npm run verify:http -- --local
-```
+Atur variabel untuk lingkungan yang sesuai. Build produksi memasang toolchain PDF ber-versi, memverifikasi hash semua unduhan dan menjalankan verifier penerimaan. Periksa ukuran serta prasyarat pada [panduan toolchain](TOOLCHAIN.md). Verifier produksi menilai bukti untuk hash source dan dist yang sedang dibangun. Lihat hasil uji dari ekstraksi bersih dan batas cakupannya pada laporan kandidat. [Hasil lengkap dan cakupan pengujian](RELEASE_REPORT.md).
 
-Untuk melihat hasilnya, jalankan `npm run preview` dan buka `http://127.0.0.1:4173`. Aplikasi memerlukan HTTP(S) untuk modul dan Worker. HTML mandiri yang diunduh dari aplikasi dapat dibuka sebagai berkas.
+## Git Bash Windows · menyiapkan branch preview dari ZIP
 
-## Mengirim source tanpa menimpa pekerjaan di GitHub
-
-Repository tujuan adalah `https://github.com/karlmarxtrading-cmyk/performa`. Pada pemeriksaan 21 November 2026, branch `main` menunjuk ke `c44b27f466f8a6483552df3d47b17fc61f458759`. ZIP RC4 dan commit ini memiliki isi identik pada semua 616 path yang sama. Daftar perbedaan, termasuk bukti lama yang hanya ada di repository, tersimpan di `evidence/rc5/deployment/github-vs-rc4.json`.
-
-Buka Git Bash di folder hasil ekstraksi. Nama folder checkout di bawah harus belum dipakai. Blok memakai subshell agar kegagalan di tengah menghentikan penyalinan tanpa menutup terminal.
+Mulai di **folder ekstraksi baru yang kosong sebelum unzip**, berisi package.json pada root. Jangan gunakan checkout harian untuk perintah ini. Blok berikut memverifikasi seluruh isi, membuat branch preview lokal dengan riwayat `main` sebagai parent, lalu menampilkan perubahan. Git mereset index dari parent dan mempertahankan isi folder ekstraksi. Pengaman SHA berhenti jika `main` berubah sejak pemeriksaan.
 
 ```bash
 (
-  set -euo pipefail
-  pf_source="$PWD"
-  test -f "$pf_source/package.json"
-  cd ..
-  git clone https://github.com/karlmarxtrading-cmyk/performa.git performa-rc5-review
-  cd performa-rc5-review
-  test "$(git rev-parse HEAD)" = c44b27f466f8a6483552df3d47b17fc61f458759 || {
-    echo 'GitHub sudah berubah sejak pemeriksaan. Bandingkan commit baru sebelum memasukkan kandidat.'
+  set -e
+  test -f package.json && test -f SHA256SUMS
+  test ! -e .git
+  sha256sum --quiet -c SHA256SUMS
+  git init -b paperforma-rc12-preview
+  git remote add origin https://github.com/karlmarxtrading-cmyk/performa.git
+  git fetch origin main
+  test "$(git rev-parse FETCH_HEAD)" = 3a4eaf9eeeb710541c13bee34a83ff901c441580 || {
+    echo "main telah berubah. Tinjau perubahan upstream sebelum melanjutkan."
     exit 1
   }
-  git switch -c paperforma-rc5
-  tar -C "$pf_source" --exclude=./node_modules --exclude=./.git --exclude=./dist-qa -cf - . | tar -xf -
+  git reset --mixed FETCH_HEAD
+  git add -A
+  git diff --cached --stat
   git status --short
 )
 ```
 
-Pada clone baru, `git status` dapat menampilkan source, pengujian dan laporan yang berubah. File ekstra dari commit lama dapat tetap terlacak. Jika HEAD telah maju, buat branch dari HEAD terbaru dan rekonsiliasi perubahannya dengan kandidat. Ketika perubahan dalam branch sudah sesuai:
+Tinjau daftar staged. Sesuaikan perubahan milik pengguna yang tidak berkaitan sebelum commit. Pastikan tidak ada dokumen privat, berkas rahasia atau node_modules yang dilacak. `.gitignore` berlaku untuk file belum dilacak. Git tetap melacak file yang telah masuk index sampai penanganan eksplisit. Pada checkout Git, `dist` dan `dist.build-manifest.json` biasanya dibangun kembali dari source. SHA256SUMS pada ZIP juga mencakup file distribusi yang tidak dilacak Git. Verifikasi checksum lengkap dilakukan pada ekstraksi ZIP.
 
 ```bash
-cd ../performa-rc5-review
-git add -A && git diff --cached --stat
-git commit -m "Update PaperForma release candidate" && git push -u origin paperforma-rc5
+git branch --show-current
+git diff --cached --stat -- src scripts tests
+git commit -m "Prepare PaperForma 3.0.0-rc.12 for Pages preview" &&
+git push -u origin paperforma-rc12-preview
 ```
 
-Aktifkan preview untuk branch ini di Pages. Penggabungan ke branch produksi dilakukan setelah preview memiliki identitas build dan hasil ekspor yang sesuai.
+Catat hasil `git rev-parse HEAD` setelah commit. Jika source dan bukti dikirim dalam satu commit dari ZIP, gunakan SHA commit GitHub itu untuk `sourceCommit` serta `deploymentCommit` setelah log Pages mengonfirmasinya. SHA source dan dist PaperForma harus tetap cocok dengan `evidence/rc12/acceptance/start.json`. Commit persiapan lokal pada laporan rilis mengidentifikasi riwayat kerja pembuat paket.
 
-## Pengaturan di Cloudflare Pages
+Gunakan push biasa. Bila branch tujuan telah ada dan Git menolak non-fast-forward, bandingkan commit dan gunakan nama preview baru yang diizinkan Pages. Periksa log build dan salin URL deployment tetap beserta deployment ID. URL alias branch dapat berpindah setelah push berikutnya.
 
-| Pengaturan | Nilai |
-|---|---|
-| Proyek | Pages dengan integrasi Git ke karlmarxtrading-cmyk/performa |
-| Framework preset | None |
-| Branch produksi | Branch yang terhubung ke produksi, misalnya main |
-| Root directory | Kosong jika package.json ada di root repository |
-| Environment variable preview dan production | NODE_VERSION = 24.22.3 |
-| Build command | npm run build |
-| Build output directory | dist |
+## Memeriksa URL preview
 
-Pastikan log menunjukkan Node/npm sesuai engines, dependensi lockfile terpasang, pemeriksaan statis lulus dan manifest produksi tercetak. Cocokkan commit di halaman deployment dengan commit sumber. `dist-qa` digunakan untuk pengujian internal.
-
-## Memeriksa preview dan produksi
-
-Dari checkout commit yang persis sama, jalankan `npm ci && npm run build`. Setel `PF_URL` ke URL **preview untuk commit tersebut** di halaman Deployments. Setelah promosi, ulangi terhadap URL publik proyek.
+Dari source dan lockfile yang sama, jalankan build lokal dan verifikasi. Untuk pengujian browser, tentukan CHROME_PATH jika Chromium/Chrome tidak terdeteksi.
 
 ```bash
-PF_URL='https://performa-cwd.pages.dev'
-npm run verify:http -- "$PF_URL" && npm run verify:deployment -- "$PF_URL"
+npm ci --include=dev && npm run build:pages
+read -r -p 'URL deployment HTTPS dari dashboard: ' PF_PREVIEW_URL
+npm run verify:http -- "$PF_PREVIEW_URL" &&
+npm run verify:deployment -- "$PF_PREVIEW_URL"
 ```
 
-`verify:http` memeriksa kecocokan manifest, fingerprint source, pohon produksi dan konten publik. Kemudian ia membandingkan byte, metadata versi, MIME, CSP, cache, halaman cetak dan 404. Ia menulis `evidence/http-verification-<host>.json` atau `evidence/http-verification-local.json`.
+Simpan hasil unduhan HTML melalui UI, verifikasi PDF, respons 404, worker, font, MIME, CSP dan cache sesuai [G15](ACCEPTANCE_PERANGKAT_HOSTING.md). Simpan SHA commit source, SHA commit bukti, URL dan deployment ID sebagai bidang terpisah. Konfigurasi hosting belum terverifikasi sebelum pengujian pada akun dan deployment itu berhasil.
 
-`verify:deployment` menggunakan Chromium melalui Puppeteer. Halaman awal harus identik dengan `dist/index.html`. Pemeriksaan mencoba tiga jalur rumus Einstein menggunakan event clipboard terprogram, memeriksa 11 isi persamaan, mode display, kode, mata uang dan error browser, kemudian menulis `evidence/deployment-math-<host>/results.json`. Untuk path Chrome khusus di Windows Git Bash:
+## Rehearsal terpisah pada Pages
 
-```bash
-PF_CHROME='C:/Program Files/Google/Chrome/Application/chrome.exe' npm run verify:deployment -- "$PF_URL"
-```
+Setelah bukti perangkat, preview dan rollback lengkap serta 24 gerbang lulus secara lokal, buat branch rehearsal pada commit bukti yang telah ditinjau. Di lingkungan **Preview** setel `PAPERFORMA_REHEARSAL_BRANCH` ke nama branch rehearsal tersebut. Nama branch produksi dan variabel `CF_*` harus mencerminkan keadaan hosting asli. Push branch rehearsal pada proyek yang sama. Build menggunakan perintah biasa, memasang toolchain yang terkunci dan menjalankan verifier produksi pada runner Pages. Simpan ID deployment, URL, SHA dari Git, log build dan durasi. Cocokkan identitas yang dilaporkan dengan source, dist dan putaran pengujian. Uji alamat deployment tetap tersebut sebelum menilai A08.
 
-Di PowerShell, setel `$env:PF_CHROME` ke lokasi executable yang terpasang. Bandingkan versi aktual dengan `package.json`. Jika pemeriksaan gagal karena versi atau hash HTML berbeda, periksa commit, branch, root/output dan cache deployment sebelum menyelidiki parser.
+## Promosi dan rollback
 
-## Hasil pengguna dan rollback
+Produksi memerlukan 24 PASS, penutupan empat temuan RC11, bukti A07–A08 dan persetujuan pemilik. Catat target pemulihan produksi yang masih tersedia dan diketahui baik sebelum promosi. Sesudah otorisasi live untuk ID yang ditentukan, buka **Workers & Pages → proyek → Deployments**, pilih deployment produksi yang sesuai, jalankan rollback, kemudian cek kembali identitas serta ekspor pada URL produksi. Catat hasil dan selaraskan riwayat Git agar push berikutnya tidak menerapkan revisi yang sedang dipulihkan.
 
-Di URL preview, tempel materi dari aplikasi asal atau buka `fixtures/trigonometry/trigonometry.md`, lalu periksa tabel, rumus, kode dan gambar. Unduh HTML dan buka luring. Untuk PDF, siapkan halaman cetak kemudian pilih **Simpan sebagai PDF** dalam dialog browser. Gunakan ukuran kertas sesuai proyek, skala 100%, matikan header/footer browser dan aktifkan grafik latar. Periksa halaman awal/akhir serta baris tabel yang melewati batas halaman.
-
-Data proyek tersimpan per origin di browser. Ekspor cadangan `.pfproj` sebelum perpindahan domain atau rollback, lalu uji bahwa versi tujuan dapat membuka cadangan itu. Tab lama yang kehilangan chunk dapat dipulihkan dengan menyimpan proyek dan memuat ulang. Dokumen utama dan halaman cetak meminta validasi cache kembali. Aset berhash memakai cache immutable.
-
-Untuk rollback, buka proyek Pages → **Deployments** → menu **…** pada deployment produksi sebelumnya yang masih tersedia → **Rollback to this deployment**. Lakukan verifikasi terhadap source dari deployment tujuan. Rollback mengganti build yang disajikan. Cadangan proyek pengguna tetap dikelola di browser masing-masing.
-
-Rujukan Cloudflare, diperiksa 21 November 2026: [build dan root](https://developers.cloudflare.com/pages/configuration/build-configuration/), [versi Node](https://developers.cloudflare.com/pages/configuration/build-image/), [rollback](https://developers.cloudflare.com/pages/configuration/rollbacks/).
+Dokumentasi resmi ditinjau 22 November 2026. [Build dan output](https://developers.cloudflare.com/pages/configuration/build-configuration/) · [Build image](https://developers.cloudflare.com/pages/configuration/build-image/) · [Preview deployment](https://developers.cloudflare.com/pages/configuration/preview-deployments/) · [Rollback](https://developers.cloudflare.com/pages/configuration/rollbacks/).

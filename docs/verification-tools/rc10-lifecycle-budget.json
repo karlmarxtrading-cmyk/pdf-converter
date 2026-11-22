@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "scope": "Local Chromium desktop; interactive pagination with the 217850-word large synthetic inputs. Native PDF dialog timing is outside this browser API boundary. The historical capacity protocol still applies to its 6/30/118-section corpus.",
+  "firstProgressMs": 2000,
+  "maxProgressGapMs": 90000,
+  "cancelToIdleMs": 2000,
+  "maxEventLoopGapMs": 1000,
+  "totalMs": 900000,
+  "postCloseRetainedDriftBytes": 8388608,
+  "method": "Wall-clock elapsed from user action to corresponding progress or idle. After-close retained heap is post-GC CDP Runtime.getHeapUsage on the same target. No extrapolation to native memory, foreground mobile or background-throttled tabs."
+}

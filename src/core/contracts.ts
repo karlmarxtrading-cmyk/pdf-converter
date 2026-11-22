@@ -5,8 +5,8 @@
  * Ukuran anggaran: byte UTF-8.
  */
 export const SCHEMA_VERSION = 2;
-export const APP_VERSION = '3.0.0-rc.5';
-export const RENDERER_VERSION = 'pf-render-3.0.0-rc.5';
+export const APP_VERSION = '3.0.0-rc.12';
+export const RENDERER_VERSION = 'pf-render-3.0.0-rc.12';
 
 export type TemplateId = 'EDU-01' | 'BUS-01' | 'EDT-01' | 'CON-01';
 export type Paper = 'A4' | 'A5' | 'Letter' | 'Legal';
@@ -31,7 +31,7 @@ export interface AssetRecord {
 }
 
 export interface InputRecord {
-  id: string; kind: 'markdown-file' | 'paste-plain' | 'paste-html' | 'zip' | 'project';
+  id: string; kind: 'markdown-file' | 'html-file' | 'paste-plain' | 'paste-html' | 'zip' | 'project';
   name?: string; importedAt: string; byteLength: number;
   rawPlain: string; rawHtml?: string; rawSourceHash: string;
 }

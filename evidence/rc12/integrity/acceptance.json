@@ -1,0 +1,51 @@
+{
+  "source": "# Audit\n\nHarga 51. $x-2$ lalu $y+3$.\n\n$$\nz=7\n$$\n\n| A | B |\n|---|---|\n| 1 | 2 |\n\n```js\n  let x = 2\n\n```\n\n[Lihat](https://example.org/awal)",
+  "method": "Literal mutations and expected block outcomes on normal render, HTML export and paginated-print preparation",
+  "cases": {
+    "emptyFormula": true,
+    "visual": true,
+    "mathML": true,
+    "annotation": true,
+    "mathMLToken": true,
+    "visualMinus": true,
+    "canonical": true,
+    "raw": true,
+    "mode": true,
+    "equationOrder": true,
+    "rootText": true,
+    "untrackedNode": true,
+    "pua": true,
+    "foreignId": true,
+    "duplicateId": true,
+    "nestedId": true,
+    "order": true,
+    "spoofedDecoration": true,
+    "spoofedTOC": true,
+    "digit": true,
+    "cell": true,
+    "link": true,
+    "codeWhitespace": true,
+    "spoofedSourceId-definition": true,
+    "spoofedSourceId-thematicBreak": true,
+    "spoofedSourceId-footnoteDefinition": true,
+    "control": {
+      "toc": true,
+      "equations": 3,
+      "back": true
+    },
+    "generatedControls": true,
+    "routes": {
+      "emptyFormulastandalone": true,
+      "emptyFormulazip": true,
+      "emptyFormulapublication": true,
+      "emptyFormulaprint": true,
+      "untrackedNodestandalone": true,
+      "untrackedNodezip": true,
+      "untrackedNodepublication": true,
+      "untrackedNodeprint": true
+    },
+    "htmlAndPrint": true,
+    "fallback": true,
+    "pagedRepresentations": true
+  }
+}

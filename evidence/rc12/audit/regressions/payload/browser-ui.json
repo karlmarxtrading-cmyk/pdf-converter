@@ -1,0 +1,30 @@
+{
+  "candidateSha256": "3a3ee3e24ce43548a31386f1141638a567a59c7a161b7200de0945f0b5b62460",
+  "servedTree": "d9ef31b14d34f42d842600689345a5f879fe97279bbbe55e0c735b21fbaa5846",
+  "assetBytes": 2097243,
+  "sourceBytes": 505,
+  "repetitions": 18,
+  "refusals": [
+    {
+      "mode": "print",
+      "receipt": "Could not create the output\n\nPDF payload exceeds the limit: 47,537,882 byte (45.34 MiB) > 47,185,920 byte (45.00 MiB). The input was rejected whole; nothing was truncated and the active document is unchanged. Counting stopped when the limit was exceeded. This is a minimum size.\n\nRetry\nOpen checks",
+      "sourceIntact": true,
+      "noPrintFrame": true
+    },
+    {
+      "mode": "print-book",
+      "receipt": "Could not create the output\n\nPDF payload exceeds the limit: 47,537,882 byte (45.34 MiB) > 47,185,920 byte (45.00 MiB). The input was rejected whole; nothing was truncated and the active document is unchanged. Counting stopped when the limit was exceeded. This is a minimum size.\n\nRetry\nOpen checks",
+      "sourceIntact": true,
+      "noPrintFrame": true
+    }
+  ],
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "cancelReceipt": "Process cancelled. Source and settings are intact.\nRetry",
+  "retry": {
+    "receipt": "Manuscript ready for the print dialog\n\nrev 3 · SHA-256 HTML 9b66e2a0dc618f896c1a0d3cbe544cced75390b0f85d0f68bb1880bbaec47086\n\nChoose Save as PDF in the print dialog. Turn off browser headers and footers to omit the address and date.\n\nOpen print dialog\nDownload print HTML\nSave work bundle",
+    "finalText": "A06 revisi\n\nNaskah terbaru 73.",
+    "sourceIntact": true
+  },
+  "ok": true,
+  "distFolder": "dist"
+}

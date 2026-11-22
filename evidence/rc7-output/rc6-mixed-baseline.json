@@ -1,0 +1,491 @@
+{
+  "engine": "HeadlessChrome/153.0.8010.0",
+  "distTree": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+  "method": "Verified production print response, HTML SHA-256 matched against the production UI receipt. Chromium Page.printToPDF with CSS page size. No native save-dialog interaction in this test.",
+  "results": [
+    {
+      "id": "mixed-EDU-A4",
+      "file": "fixtures/mixed-document.md",
+      "template": "EDU-01",
+      "paper": "A4",
+      "orientation": "portrait",
+      "sourceSha256": "768ccfed2d55cda75efa6b977563ade0c2d9fa97b6b98846511ac64d630a02a1",
+      "inputSummary": "Revision\nrev 5 · 01ee412456b1\nFormat\nEDU-01 · A4 Portrait\nContent\n2867 words · 2 tables · 3 formulas · 2 images",
+      "receipt": "Pages ready to print\n\n11 pages · rev 5 · content verification: pass\n\nSHA-256 of the paginated HTML (not a PDF file): 71039e45da58a71525ebf16a6a53f4c22c6c00b3ee4c6c638979c827e987f864\n\n✓ content-inventory — pass\n✓ page-structure — 0 selisih (nomor halaman, daftar isi, tautan internal)\n✓ page-count — 11\n✓ toc-stable — 2 putaran\n✓ no-overflow\n✓ no-blank-pages\n– browser-print-output — berkas PDF dibuat oleh dialog cetak peramban/OS; byte tidak teramati aplikasi\n\nPress “Open print dialog”, then choose a PDF destination.\n\nOpen print dialog\nSave work bundle",
+      "flatHash": "71039e45da58a71525ebf16a6a53f4c22c6c00b3ee4c6c638979c827e987f864",
+      "pages": 11,
+      "verification": "pass",
+      "passes": 2,
+      "diagnostics": [
+        {
+          "code": "INPUT_PRIVATE_USE_CHARS",
+          "severity": "info"
+        },
+        {
+          "code": "FONT_GLYPH_NOT_BUNDLED",
+          "severity": "warning"
+        },
+        {
+          "code": "TABLE_FITTED",
+          "severity": "info"
+        }
+      ],
+      "paginated": {
+        "uri": [
+          "https://contoh.id/laporan",
+          "https://example.org/docs",
+          "https://contoh.id/sumber"
+        ],
+        "internal": 13,
+        "repeatedHeaders": 2,
+        "formulaInstances": 3,
+        "formulas": 3,
+        "formulaDifferences": [],
+        "fontSizePt": 12
+      },
+      "pdfSha256": "72fd446f1cfa599cc71780e303131753ba33037f5be5cd9934fd171e5afad327",
+      "pdfBytes": 358638,
+      "structure": {
+        "checker": "pypdf strict reader + page streams",
+        "pages": 11,
+        "uri": 3,
+        "uriTargets": [
+          "https://contoh.id/laporan",
+          "https://contoh.id/sumber",
+          "https://example.org/docs"
+        ],
+        "internal": 14
+      },
+      "fonts": [
+        "AAAAAA+Inter-Regular",
+        "BAAAAA+Inter-Bold",
+        "CAAAAA+SourceSerif4-Bold",
+        "DAAAAA+SourceSerif4-Regular",
+        "EAAAAA+SourceSerif4-Italic",
+        "FAAAAA+JetBrainsMono-Regular",
+        "GAAAAA+SourceSerif4-Regular",
+        "HAAAAA+SourceSerif4-Regular",
+        "IAAAAA+SourceSerif4-Regular",
+        "JAAAAA+SourceSerif4-Regular",
+        "KAAAAA+NotoColorEmoji",
+        "KAAAAA+NotoColorEmoji",
+        "LAAAAA+KaTeX_Main-Regular",
+        "MAAAAA+KaTeX_Math-Italic",
+        "NAAAAA+KaTeX_Size1-Regular",
+        "OAAAAA+KaTeX_Size2-Regular",
+        "PAAAAA+Inter-SemiBold"
+      ],
+      "pdfPages": [
+        {
+          "n": 1,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 0,
+          "expectedCellFragments": 0,
+          "matchedBlocks": 0,
+          "matchedCellFragments": 0,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 2,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 5,
+          "expectedCellFragments": 0,
+          "matchedBlocks": 5,
+          "matchedCellFragments": 0,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 3,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 12,
+          "expectedCellFragments": 0,
+          "matchedBlocks": 12,
+          "matchedCellFragments": 0,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 4,
+          "blocks": false,
+          "cells": true,
+          "expectedFragments": 8,
+          "expectedCellFragments": 0,
+          "matchedBlocks": 2,
+          "matchedCellFragments": 0,
+          "firstMissing": "bahasaindonesia,tiếngviệtcódấu,ελληνικάκείμενο,русскийтекст,français«guillemets»,españolñ,deutschß,polskiżółć.emoji:😀🚀👩‍💻.simbol:→≤≈√∞€£",
+          "number": true,
+          "hasText": true,
+          "formulas": 3
+        },
+        {
+          "n": 5,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 1,
+          "expectedCellFragments": 72,
+          "matchedBlocks": 1,
+          "matchedCellFragments": 72,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 6,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 1,
+          "expectedCellFragments": 112,
+          "matchedBlocks": 1,
+          "matchedCellFragments": 112,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 7,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 0,
+          "expectedCellFragments": 112,
+          "matchedBlocks": 0,
+          "matchedCellFragments": 112,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 8,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 2,
+          "expectedCellFragments": 60,
+          "matchedBlocks": 2,
+          "matchedCellFragments": 60,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 9,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 1,
+          "expectedCellFragments": 0,
+          "matchedBlocks": 1,
+          "matchedCellFragments": 0,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 10,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 1,
+          "expectedCellFragments": 0,
+          "matchedBlocks": 1,
+          "matchedCellFragments": 0,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 11,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 5,
+          "expectedCellFragments": 0,
+          "matchedBlocks": 5,
+          "matchedCellFragments": 0,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        }
+      ],
+      "checks": {
+        "formulaInventory": true,
+        "pages": true,
+        "embeddedFonts": true,
+        "noType3": false,
+        "externalLinks": true,
+        "internalLinks": true,
+        "pageLabels": true,
+        "nonempty": true,
+        "proseOrder": false,
+        "cellOrder": true
+      },
+      "status": "FAIL"
+    },
+    {
+      "id": "mixed-BUS-Letter-landscape",
+      "file": "fixtures/mixed-document.md",
+      "template": "BUS-01",
+      "paper": "Letter",
+      "orientation": "landscape",
+      "sourceSha256": "768ccfed2d55cda75efa6b977563ade0c2d9fa97b6b98846511ac64d630a02a1",
+      "inputSummary": "Revision\nrev 5 · 082d290ed9f4\nFormat\nBUS-01 · Letter Landscape\nContent\n2867 words · 2 tables · 3 formulas · 2 images",
+      "receipt": "Pages ready to print\n\n14 pages · rev 5 · content verification: pass\n\nSHA-256 of the paginated HTML (not a PDF file): 31d916feead9254c473768735680f31fd28906883072e14149e4230dbfc4a789\n\n✓ content-inventory — pass\n✓ page-structure — 0 selisih (nomor halaman, daftar isi, tautan internal)\n✓ page-count — 14\n✓ toc-stable — 2 putaran\n✓ no-overflow\n✓ no-blank-pages\n– browser-print-output — berkas PDF dibuat oleh dialog cetak peramban/OS; byte tidak teramati aplikasi\n\nPress “Open print dialog”, then choose a PDF destination.\n\nOpen print dialog\nSave work bundle",
+      "flatHash": "31d916feead9254c473768735680f31fd28906883072e14149e4230dbfc4a789",
+      "pages": 14,
+      "verification": "pass",
+      "passes": 2,
+      "diagnostics": [
+        {
+          "code": "INPUT_PRIVATE_USE_CHARS",
+          "severity": "info"
+        },
+        {
+          "code": "FONT_GLYPH_NOT_BUNDLED",
+          "severity": "warning"
+        }
+      ],
+      "paginated": {
+        "uri": [
+          "https://contoh.id/laporan",
+          "https://example.org/docs",
+          "https://contoh.id/sumber"
+        ],
+        "internal": 13,
+        "repeatedHeaders": 4,
+        "formulaInstances": 3,
+        "formulas": 3,
+        "formulaDifferences": [],
+        "fontSizePt": 12
+      },
+      "pdfSha256": "0c0a7a0ebd170854379b32942a7b2e4f47c3c1d843f3f17d8f31f3a4bb9e4794",
+      "pdfBytes": 360448,
+      "structure": {
+        "checker": "pypdf strict reader + page streams",
+        "pages": 14,
+        "uri": 3,
+        "uriTargets": [
+          "https://contoh.id/laporan",
+          "https://contoh.id/sumber",
+          "https://example.org/docs"
+        ],
+        "internal": 14
+      },
+      "fonts": [
+        "AAAAAA+Inter-Bold",
+        "BAAAAA+Inter-Regular",
+        "CAAAAA+Inter-SemiBold",
+        "DAAAAA+Inter-Italic",
+        "EAAAAA+JetBrainsMono-Regular",
+        "FAAAAA+Inter-Regular",
+        "GAAAAA+Inter-Regular",
+        "HAAAAA+Inter-Regular",
+        "IAAAAA+Inter-Regular",
+        "JAAAAA+NotoColorEmoji",
+        "JAAAAA+NotoColorEmoji",
+        "KAAAAA+KaTeX_Main-Regular",
+        "LAAAAA+KaTeX_Math-Italic",
+        "MAAAAA+KaTeX_Size1-Regular",
+        "NAAAAA+KaTeX_Size2-Regular"
+      ],
+      "pdfPages": [
+        {
+          "n": 1,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 0,
+          "expectedCellFragments": 0,
+          "matchedBlocks": 0,
+          "matchedCellFragments": 0,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 2,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 0,
+          "expectedCellFragments": 0,
+          "matchedBlocks": 0,
+          "matchedCellFragments": 0,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 3,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 5,
+          "expectedCellFragments": 0,
+          "matchedBlocks": 5,
+          "matchedCellFragments": 0,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 4,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 12,
+          "expectedCellFragments": 0,
+          "matchedBlocks": 12,
+          "matchedCellFragments": 0,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 5,
+          "blocks": false,
+          "cells": true,
+          "expectedFragments": 8,
+          "expectedCellFragments": 0,
+          "matchedBlocks": 2,
+          "matchedCellFragments": 0,
+          "firstMissing": "bahasaindonesia,tiếngviệtcódấu,ελληνικάκείμενο,русскийтекст,français«guillemets»,españolñ,deutschß,polskiżółć.emoji:😀🚀👩‍💻.simbol:→≤≈√∞€£",
+          "number": true,
+          "hasText": true,
+          "formulas": 3
+        },
+        {
+          "n": 6,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 1,
+          "expectedCellFragments": 48,
+          "matchedBlocks": 1,
+          "matchedCellFragments": 48,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 7,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 1,
+          "expectedCellFragments": 96,
+          "matchedBlocks": 1,
+          "matchedCellFragments": 96,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 8,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 0,
+          "expectedCellFragments": 88,
+          "matchedBlocks": 0,
+          "matchedCellFragments": 88,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 9,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 0,
+          "expectedCellFragments": 88,
+          "matchedBlocks": 0,
+          "matchedCellFragments": 88,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 10,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 2,
+          "expectedCellFragments": 36,
+          "matchedBlocks": 2,
+          "matchedCellFragments": 36,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 11,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 1,
+          "expectedCellFragments": 0,
+          "matchedBlocks": 1,
+          "matchedCellFragments": 0,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 12,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 1,
+          "expectedCellFragments": 0,
+          "matchedBlocks": 1,
+          "matchedCellFragments": 0,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 13,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 3,
+          "expectedCellFragments": 0,
+          "matchedBlocks": 3,
+          "matchedCellFragments": 0,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        },
+        {
+          "n": 14,
+          "blocks": true,
+          "cells": true,
+          "expectedFragments": 2,
+          "expectedCellFragments": 0,
+          "matchedBlocks": 2,
+          "matchedCellFragments": 0,
+          "number": true,
+          "hasText": true,
+          "formulas": 0
+        }
+      ],
+      "checks": {
+        "formulaInventory": true,
+        "pages": true,
+        "embeddedFonts": true,
+        "noType3": false,
+        "externalLinks": true,
+        "internalLinks": true,
+        "pageLabels": true,
+        "nonempty": true,
+        "proseOrder": false,
+        "cellOrder": true
+      },
+      "status": "FAIL"
+    },
+    {
+      "id": "mixed-EDT-A5",
+      "file": "fixtures/mixed-document.md",
+      "template": "EDT-01",
+      "paper": "A5",
+      "orientation": "portrait",
+      "sourceSha256": "768ccfed2d55cda75efa6b977563ade0c2d9fa97b6b98846511ac64d630a02a1",
+      "inputSummary": "Revision\nrev 5 · aec115e206eb\nFormat\nEDT-01 · A5 Portrait\nContent\n2867 words · 2 tables · 3 formulas · 2 images",
+      "receipt": "Could not create the output\n\nIsi berubah selama paginasi (codeText). Kode c1 berubah (termasuk spasi): null → \"\". Cetak tidak disiapkan.\n\nFONT_GLYPH_NOT_BUNDLED Ada 6 karakter (Emoji, Other) yang tidak tercakup font bawaan PaperForma. Karakter ini tidak didukung resmi: hasilnya bergantung pada font perangkat/renderer dan dapat tampil sebagai kotak. Contoh: U+1F600 U+1F680 U+1F469 U+1F4BB; U+E000 U+F8FF.\nTABLE_TOO_WIDE Tabel 1 (12 kolom) tidak muat di area teks 116 mm walau sudah 8.5 pt; pada PDF dipecah menjadi 2 bagian kolom dengan kolom pertama diulang di setiap bagian. Semua sel dipertahankan. Orientasi lanskap menampilkan tabel utuh.\nPAGE_CONTENT_CHANGED Isi berubah selama paginasi (codeText). Kode c1 berubah (termasuk spasi): null → \"\". Cetak tidak disiapkan.\nRetry\nOpen checks",
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: Application print gate rejected this job: Could not create the output\n\nIsi berubah selama paginasi (codeText). Kode c1 berubah (termasuk spasi): null → \"\". Cetak tidak disiapkan.\n\nFONT_GLYPH_NOT_BUNDLED Ada 6 karakter (Emoji, Other) yang tidak tercakup font bawaan PaperForma. Karakter ini tidak didukung resmi: hasilnya bergantung pada font perangkat/renderer dan dapat tampil sebagai kotak. Contoh: U+1F600 U+1F680 U+1F469 U+1F4BB; U+E000 U+F8FF.\nTABLE_TOO_WIDE Tabel 1 (12 kolom) tidak mua"
+    }
+  ]
+}

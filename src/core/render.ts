@@ -3,6 +3,9 @@
  * Tidak pernah mengubah `source`. Isi adalah DATA: kode tidak dieksekusi, URL tidak dibuka,
  * gambar eksternal tidak diminta sebelum persetujuan (AST-04).
  */
+import { addContentStats } from './content-stats';
+import { rememberRenderedRoot } from './rendered-dom';
+import { compiledReference, formulaKey, retainFormulaReferences, type FormulaReferences } from './formula-integrity';
 import { structuredConversation } from './conversation';
 import { sha256Hex } from './hash';
 import { unified } from 'unified';
@@ -16,6 +19,9 @@ import type { Root, RootContent, Table, FootnoteDefinition, Nodes as MdNodes } f
 import type { AssetRecord, BlockInfo, Conversation, FootnoteEntry, Issue, Message, RenderOptions, RenderedBody, Role, Snapshot, TocEntry } from './contracts';
 import { parseMarkdown, blockModelOf, BlockIdAllocator, type BlockModel, type Frontmatter } from './markdown';
 import { restorerFor } from './math';
+import { recoverHtmlLiteralMath } from './html-math';
+import { readHtmlMathSource, recoverMixedMathChild, isHtmlMathContainer } from './html-math-source';
+import { mathRecoveryIssues, residualMathIssues, type MathRecovery } from './math-diagnostics';
 import { classifyUrl, DROP_WITH_CONTENT, UNWRAP, USER_ATTRS, ALLOWED_TAGS, purifyToBody } from './sanitize';
 import { assetDataUrl, resolveAsset, inspectInlineImage, IMAGE_BUDGET, pixelsOf, type InlineImageInspection } from './assets';
 import { detectWrapper } from './wrapper';
@@ -27,8 +33,16 @@ import { analyzeChars, charIssues } from './chars';
 
 export interface DocumentPart { id: string; startLine: number; endLine: number }
 
+// Configurations are immutable. Unified creates independent traversal state for
+// each tree when running the raw-HTML transform or serializing generated HTML.
+const normalizeHtml = unified().use(rehypeRaw).freeze();
+const serializeHtml = unified().use(rehypeStringify).freeze();
+const serializeWithRaw = unified().use(rehypeStringify, { allowDangerousHtml: true }).freeze();
+
 /** Opsi tambahan (superset RenderOptions; semuanya opsional). */
 export interface CoreRenderOptions extends RenderOptions {
+  /** Identitas urutan edit dari snapshot. Pemanggil langsung dapat menghilangkannya. */
+  editIdentity?: { projectId: string; revision: number };
   /** inputId untuk sourceRef blok (default 'source' / conversation.inputId) */
   inputId?: string;
   /** bahasa label struktural (label pembicara, judul catatan kaki, placeholder). Default 'id'. */
@@ -40,7 +54,8 @@ export interface CoreRenderOptions extends RenderOptions {
 }
 
 export function snapshotRenderOptions(snapshot: Snapshot): CoreRenderOptions {
-  return { assets: snapshot.assets, sourcePath: snapshot.sourcePath, template: snapshot.settings.template,
+  return { editIdentity: { projectId: snapshot.projectId, revision: snapshot.revision },
+    assets: snapshot.assets, sourcePath: snapshot.sourcePath, template: snapshot.settings.template,
     allowExternalImages: snapshot.settings.allowExternalImages, conversation: snapshot.conversation,
     lang: docLanguage(snapshot.settings.contentLang) };
 }
@@ -60,6 +75,8 @@ interface Slot { key: string; tex: string; display: boolean; line: number; block
 interface Ctx {
   nonce: string; prefix: string; lang: 'id' | 'en'; sourcePath?: string; assets: AssetRecord[]; allowExternal: boolean;
   issues: CoreIssue[]; slots: Slot[]; toc: TocEntry[]; footnotes: FootnoteEntry[]; blocks: BlockInfo[];
+  mathRecoveries: MathRecovery[];
+  rawHtmlRanges: { start: number; end: number }[];
   stats: RenderedBody['stats']; headingIds: Map<string, number>; lastHeadingLevel: number;
   lineOffset: number; messageId?: string; inputId: string; offsetBase: number; parts?: DocumentPart[];
   curBlock?: string;
@@ -76,6 +93,7 @@ interface Ctx {
   imageIds: Set<string>; imagePixels: number;
   inlineImages: Map<string, InlineImageInspection>; inlineImageCacheUnits: number;
   frontmatter?: Frontmatter;
+  composedLabels?: Map<number, number>;
   /** pemulih sentinel untuk naskah yang sedang diproses (EN-003); identitas di luar renderOne */
   restore: (s: string) => string;
 }
@@ -86,6 +104,60 @@ const txt = (value: string): HText => ({ type: 'text', value });
 function slugify(s: string): string {
   const out = s.normalize('NFC').toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu, '').trim().replace(/\s+/g, '-').replace(/-+/g, '-');
   return out || 'bagian';
+}
+
+/** RC6-TOC01: generated formula slots are empty until stage two. Read only the
+ * nonce-bound canonical metadata when deciding whether a heading has content. */
+function headingSourceText(ctx: Ctx, el: Element): string {
+  const withMath = (node: ElementContent): ElementContent => {
+    if (node.type !== 'element') return node;
+    const key = node.properties.dataSlot;
+    const tex = typeof key === 'string' ? ctx.post.get(key)?.['data-tex'] : undefined;
+    if (tex !== undefined) return txt(` ${tex} `);
+    return { ...node, children: node.children.map(withMath) };
+  };
+  return ctx.restore(toText({ ...el, children: el.children.map(withMath) })).replace(/\s+/g, ' ').trim();
+}
+
+/** A single MathML presentation branch supplies a compact plain-text TOC label.
+ * Scripts/fractions stay explicit; complex layouts fall back to canonical TeX. */
+function formulaHeadingLabel(formula: globalThis.Element): string {
+  const atomic = (s: string) => /^[\p{L}\p{N}]+$/u.test(s) ? s : `(${s})`;
+  const linear = (node: globalThis.Element): string | null => {
+    const tag = node.localName;
+    if (['annotation', 'annotation-xml'].includes(tag)) return '';
+    if (['mi', 'mn', 'mo', 'mtext'].includes(tag)) return (node.textContent ?? '').replace(/[\u2061-\u2064]/g, '');
+    if (tag === 'mspace') return ' ';
+    const children = [...node.children].filter(n => !['annotation', 'annotation-xml'].includes(n.localName));
+    const parts = children.map(linear);
+    if (parts.some(p => p === null)) return null;
+    const p = parts as string[];
+    if (['math', 'semantics', 'mrow', 'mstyle', 'mpadded'].includes(tag)) return p.join('');
+    if (tag === 'msup' && p.length === 2) return p[1] === '∘' ? `${p[0]}°` : `${atomic(p[0]!)}^${atomic(p[1]!)}`;
+    if (tag === 'msub' && p.length === 2) return `${atomic(p[0]!)}_${atomic(p[1]!)}`;
+    if (tag === 'msubsup' && p.length === 3) return `${atomic(p[0]!)}_${atomic(p[1]!)}^${atomic(p[2]!)}`;
+    if (tag === 'mfrac' && p.length === 2) return `(${p[0]})/(${p[1]})`;
+    if (tag === 'msqrt') return `√(${p.join('')})`;
+    if (tag === 'mroot' && p.length === 2) return `root(${p[1]}, ${p[0]})`;
+    return null;
+  };
+  const math = formula.querySelector('.katex-mathml math');
+  const label = math ? linear(math) : null;
+  return (label?.trim() || formula.getAttribute('data-tex') || '').replace(/\s+/g, ' ').trim();
+}
+
+function renderedHeadingToc(body: HTMLElement, toc: TocEntry[]): TocEntry[] {
+  if (!toc.length) return [];
+  const headings = new Map([...body.querySelectorAll('h1, h2, h3, h4, h5, h6')].map(el => [el.id, el]));
+  return toc.map(entry => {
+    const heading = headings.get(entry.id);
+    if (!heading?.querySelector('.pf-math[data-tex]')) return entry;
+    const copy = heading.cloneNode(true) as globalThis.Element;
+    for (const formula of copy.querySelectorAll('.pf-math[data-tex]')) formula.replaceWith(` ${formulaHeadingLabel(formula)} `);
+    for (const br of copy.querySelectorAll('br')) br.replaceWith(' ');
+    for (const img of copy.querySelectorAll('img')) img.replaceWith(img.getAttribute('alt') ?? '');
+    return { ...entry, text: (copy.textContent ?? '').replace(/\s+/g, ' ').trim() };
+  });
 }
 
 function srcLine(ctx: Ctx, n: { position?: { start: { line: number } } }): number | undefined {
@@ -101,11 +173,16 @@ function issueRef(ctx: Ctx, extra: { line?: number | undefined; blockId?: string
   return o;
 }
 
-function formulaElement(ctx: Ctx, tex: string, display: boolean, line: number, phrasing = false): Element {
+function formulaElement(ctx: Ctx, tex: string, display: boolean, line: number, phrasing = false,
+  provenance?: { sourceTex?: string; adaptations?: string[] }): Element {
   const key = `${ctx.nonce}-${ctx.slots.length}`;
   ctx.slots.push({ key, tex, display, line, blockId: ctx.curBlock, messageId: ctx.messageId });
-  ctx.stats.math++;
-  ctx.post.set(key, { 'data-tex': tex });
+  ctx.post.set(key, { 'data-tex': tex,
+    ...(provenance?.sourceTex !== undefined ? { 'data-source-tex': provenance.sourceTex } : {}),
+    ...(provenance?.adaptations?.length ? { 'data-math-adaptations': provenance.adaptations.join(' ') } : {}),
+  });
+  if (provenance?.adaptations?.length) ctx.mathRecoveries.push({ line, tex,
+    sourceTex: provenance.sourceTex ?? tex, adaptations: provenance.adaptations });
   // display di dalam paragraf memakai span (div tidak sah di <p>); KaTeX displayMode membungkus .katex-display (blok, tengah)
   return { type: 'element', tagName: display && !phrasing ? 'div' : 'span',
     properties: gen(ctx, { className: ['pf-math', display ? 'pf-math-display' : 'pf-math-inline'], dataSlot: key, dataPost: key }), children: [] };
@@ -114,7 +191,9 @@ function formulaElement(ctx: Ctx, tex: string, display: boolean, line: number, p
 /* ---------------- handler mdast → hast ---------------- */
 function makeHandlers(ctx: Ctx): Record<string, Handler> {
   const mathEl = (state: State, node: MdNodes & { value: string }, display: boolean, phrasing = false): Element => {
-    const el = formulaElement(ctx, ctx.restore(node.value), display, srcLine(ctx, node) ?? 0, phrasing);
+    const data = node.data as { pfSourceTex?: string; pfMathAdaptations?: string[] } | undefined;
+    const el = formulaElement(ctx, ctx.restore(node.value), display, srcLine(ctx, node) ?? 0, phrasing,
+      { sourceTex: data?.pfSourceTex, adaptations: data?.pfMathAdaptations });
     const hp = (node as { data?: { hProperties?: Properties } }).data?.hProperties;
     if (hp?.dataBlockId !== undefined) {
       el.properties.dataBlockId = hp.dataBlockId;
@@ -131,12 +210,10 @@ function makeHandlers(ctx: Ctx): Record<string, Handler> {
       const lang: string = (node.lang ?? '').trim();
       let el: Element;
       if (lang.toLowerCase() === 'mermaid') {
-        ctx.stats.mermaid++;
         const key = `${ctx.nonce}-p${ctx.post.size}`;
         ctx.post.set(key, { 'data-src': value });
         el = { type: 'element', tagName: 'pre', properties: gen(ctx, { className: ['pf-mermaid'], dataPost: key }), children: [txt(value)] };
       } else {
-        ctx.stats.code++;
         let children: ElementContent[] = [txt(value)];
         const known = lang && hljs.getLanguage(lang);
         if (known) {
@@ -174,7 +251,6 @@ function makeHandlers(ctx: Ctx): Record<string, Handler> {
 }
 
 function tableHandler(ctx: Ctx, state: State, node: Table): Element {
-  ctx.stats.tables++;
   const header = node.children[0];
   const hCount = header?.children.length ?? 0;
   const width = Math.max(hCount, ...node.children.map((r) => r.children.length));
@@ -273,7 +349,8 @@ function sanitizeUserElement(ctx: Ctx, el: Element): 'keep' | 'drop' | 'unwrap' 
       ctx.issues.push(mkIssue('SECURITY_DOM_CLOBBERING', 'info', 'security', { id: `Atribut name="${propStr(props[k])}" pada <${tag}> dibuang (mencegah DOM clobbering).`, en: `Attribute name="${propStr(props[k])}" on <${tag}> was removed (prevents DOM clobbering).` }, { ...issueRef(ctx, { line }), detail: { tag } }));
       delete props[k]; continue;
     }
-    if (!USER_ATTRS.has(name)) {
+    if (!USER_ATTRS.has(name) || (name === 'headers' && tag !== 'td' && tag !== 'th') ||
+        (name === 'span' && tag !== 'col' && tag !== 'colgroup') || (name === 'value' && (tag !== 'li' || !/^-?\d+$/.test(propStr(props[k]))))) {
       ctx.issues.push(mkIssue('SECURITY_ATTRIBUTE_REMOVED', 'info', 'security', { id: `Atribut ${name} pada <${tag}> tidak diizinkan dan dibuang.`, en: `Attribute ${name} on <${tag}> is not allowed and was removed.` }, { ...issueRef(ctx, { line }), detail: { tag, attribute: name } }));
       delete props[k]; continue;
     }
@@ -305,17 +382,19 @@ function handleLink(ctx: Ctx, el: Element): void {
 function placeholder(ctx: Ctx, cls: string, label: string, alt: string, attrs: Properties): Element {
   return {
     type: 'element', tagName: 'span',
-    properties: { className: ['pf-img-placeholder', cls], role: 'img', ariaLabel: alt ? `${label}: ${alt}` : label, ...attrs },
+    properties: { className: ['pf-img-placeholder', cls], role: 'img', dataAlt: alt, ariaLabel: alt ? `${label}: ${alt}` : label, ...attrs },
     children: [{ type: 'element', tagName: 'span', properties: { className: ['pf-ui-label'] }, children: [txt(alt ? `${label}: ${alt}` : label)] }],
   };
 }
 
 function handleImage(ctx: Ctx, el: Element): Element {
-  ctx.stats.images++;
   const p = el.properties ?? {};
   // RC4-M08: path lookup happens before the generic attribute restoration below.
   const src = ctx.restore(propStr(p.src));
   const alt = ctx.restore(propStr(p.alt));
+  const imageTitle = typeof p.title === 'string' ? { title: ctx.restore(p.title) } : {};
+  const missing = (cls: string, label: string, attrs: Properties) =>
+    placeholder(ctx, cls, label, alt, { ...attrs, ...imageTitle });
   const line = srcLine(ctx, el);
   const t = docLabels(ctx.lang);
   if (!alt.trim()) {
@@ -326,7 +405,7 @@ function handleImage(ctx: Ctx, el: Element): Element {
   if (asset) {
     const key = `${ctx.nonce}-a${ctx.assetSrc.size}`;
     ctx.assetSrc.set(key, asset.id);
-    return { type: 'element', tagName: 'img', properties: { alt, ...(p.title ? { title: p.title } : {}), dataAssetId: asset.id, dataSrcPath: src, ...(asset.width ? { width: asset.width, height: asset.height } : {}), decoding: 'async', dataPost: key }, children: [] };
+    return { type: 'element', tagName: 'img', properties: { alt, ...imageTitle, dataAssetId: asset.id, dataSrcPath: src, ...(asset.width ? { width: asset.width, height: asset.height } : {}), decoding: 'async', dataPost: key }, children: [] };
   }
   const v = classifyUrl(src, true);
   if (v.ok && v.kind === 'data-image') {
@@ -340,7 +419,7 @@ function handleImage(ctx: Ctx, el: Element): Element {
     }
     if (!inspection.ok) {
       ctx.issues.push(mkIssue(inspection.code, 'error', 'asset', { id: inspection.message, en: inspection.messageEn }, { ...issueRef(ctx, { line }), blocking: true }));
-      return placeholder(ctx, 'pf-img-blocked', t.blockedImg, alt, { dataSrcPath: imageRefKey(src) });
+      return missing('pf-img-blocked', t.blockedImg, { dataSrcPath: imageRefKey(src) });
     }
     if (!ctx.imageIds.has(inspection.id)) {
       const total = ctx.imagePixels + inspection.pixels;
@@ -349,29 +428,29 @@ function handleImage(ctx: Ctx, el: Element): Element {
           id: `Total piksel gambar unik (${Math.round(total / 1e6)} MP) melewati batas ${IMAGE_BUDGET.maxTotalPixels / 1e6} MP. Gambar inline tidak didekode; perkecil atau kurangi gambar.`,
           en: `Unique image pixels (${Math.round(total / 1e6)} MP) exceed the ${IMAGE_BUDGET.maxTotalPixels / 1e6} MP limit. The inline image was not decoded; resize or remove images.`,
         }, { ...issueRef(ctx, { line }), blocking: true }));
-        return placeholder(ctx, 'pf-img-blocked', t.blockedImg, alt, { dataSrcPath: imageRefKey(src) });
+        return missing('pf-img-blocked', t.blockedImg, { dataSrcPath: imageRefKey(src) });
       }
       ctx.imageIds.add(inspection.id); ctx.imagePixels = total;
     }
-    return { type: 'element', tagName: 'img', properties: { src, alt, ...(p.title ? { title: p.title } : {}), dataSrcPath: imageRefKey(src), decoding: 'async' }, children: [] };
+    return { type: 'element', tagName: 'img', properties: { src, alt, ...imageTitle, dataSrcPath: imageRefKey(src), decoding: 'async' }, children: [] };
   }
   if (v.ok && (v.kind === 'https' || v.kind === 'http')) {
     if (ctx.allowExternal && v.kind === 'https') {
       ctx.issues.push(mkIssue('PRIVACY_EXTERNAL_IMAGES', 'warning', 'asset', { id: `Gambar eksternal ${src} dimuat setelah izin; situs tersebut dapat melihat alamat IP pembaca. PDF hanya lengkap bila salinan gambar disematkan.`, en: `External image ${src} is loaded after consent; that site can see the reader's IP address. The PDF is only complete if a copy is embedded.` }, { ...issueRef(ctx, { line }), detail: { url: src } }));
-      return { type: 'element', tagName: 'img', properties: { src, alt, referrerpolicy: 'no-referrer', loading: 'lazy', dataExternal: 'true', dataSrcPath: src }, children: [] };
+      return { type: 'element', tagName: 'img', properties: { src, alt, ...imageTitle, referrerpolicy: 'no-referrer', loading: 'lazy', dataExternal: 'true', dataSrcPath: src }, children: [] };
     }
     ctx.issues.push(mkIssue('IMAGE_EXTERNAL_BLOCKED', 'warning', 'asset', {
       id: v.kind === 'http' ? `Gambar eksternal ${src} memakai http (tidak aman) dan tidak dimuat. Unggah salinannya.` : `Gambar eksternal ${src} belum dimuat (tidak ada permintaan jaringan sebelum izin). Izinkan gambar eksternal atau unggah salinannya.`,
       en: v.kind === 'http' ? `External image ${src} uses insecure http and was not loaded. Upload a copy.` : `External image ${src} was not loaded (no network request before consent). Allow external images or upload a copy.`,
     }, { ...issueRef(ctx, { line }), detail: { url: src } }));
-    return placeholder(ctx, 'pf-img-external', t.extMissing, alt, { dataSrc: src });
+    return missing('pf-img-external', t.extMissing, { dataSrc: src });
   }
   if (!v.ok) {
     ctx.issues.push(mkIssue('SECURITY_UNSAFE_URL', 'warning', 'security', { id: `Sumber gambar dengan skema "${v.scheme}:" diblokir.`, en: `Image source with the "${v.scheme}:" scheme was blocked.` }, issueRef(ctx, { line })));
-    return placeholder(ctx, 'pf-img-blocked', t.blockedImg, alt, { dataBlockedSrc: src.slice(0, 200) });
+    return missing('pf-img-blocked', t.blockedImg, { dataBlockedSrc: src.slice(0, 200) });
   }
   ctx.issues.push(mkIssue('IMAGE_MISSING_ASSET', 'error', 'asset', { id: `Gambar "${src}" dirujuk tetapi belum diunggah. Unggah berkasnya; placeholder ditampilkan sampai tersedia.`, en: `Image "${src}" is referenced but not uploaded. Upload the file; a placeholder is shown until then.` }, { ...issueRef(ctx, { line }), blocking: true, detail: { path: src } }));
-  return placeholder(ctx, 'pf-img-missing', t.missing, alt, { dataSrcPath: src });
+  return missing('pf-img-missing', t.missing, { dataSrcPath: src });
 }
 
 function anchorScope(ctx: Ctx, line?: number): string {
@@ -434,6 +513,9 @@ function resolveFragments(ctx: Ctx, root: HRoot): void {
     // Generated footnote IDs may themselves contain percent escapes.
     const target = resolve(key, scope) ?? (ids.has(name) ? name : undefined);
     if (target && ids.has(target)) {
+      // Keep the resolved target independent of the live href so integrity can verify
+      // both the navigation and its destination after sanitization or further edits.
+      element.properties.dataPfTarget = target;
       const url = '#' + encodeURIComponent(target);
       if (url !== href) { element.properties.href = url; element.properties.dataSourceHref = href; }
     } else {
@@ -444,7 +526,30 @@ function resolveFragments(ctx: Ctx, root: HRoot): void {
   }
 }
 
-function transform(ctx: Ctx, parent: HRoot | Element): void {
+function insideRawHtmlBlock(ctx: Ctx, el: Element): boolean {
+  const start = el.position?.start.offset, end = el.position?.end.offset;
+  if (start === undefined || end === undefined) return false;
+  let lo = 0, hi = ctx.rawHtmlRanges.length;
+  while (lo < hi) { const mid = (lo + hi) >>> 1; if (ctx.rawHtmlRanges[mid]!.start <= start) lo = mid + 1; else hi = mid; }
+  const range = ctx.rawHtmlRanges[lo - 1];
+  return !!range && start >= range.start && end <= range.end;
+}
+
+const blockFormulaParents = new Set(['div','section','article','main','blockquote','td','th']);
+function usesPhrasingFormula(parent: HRoot | Element): boolean {
+  return parent.type === 'element' && !blockFormulaParents.has(parent.tagName);
+}
+
+function transform(ctx: Ctx, parent: HRoot | Element, rawContext = false, literalContext = false): void {
+  // RC6-HTML01: raw HTML blocks bypass Markdown's inline tokenizer. Recover only
+  // text inside those containers. User attributes never confer slot trust.
+  if (rawContext && !literalContext) {
+    recoverHtmlLiteralMath(parent, (span) => formulaElement(ctx, span.renderTex ?? span.tex,
+      span.display, (srcLine(ctx, parent as Element) ?? 1) + span.line - 1,
+      usesPhrasingFormula(parent),
+      { sourceTex: span.tex, adaptations: span.adaptations }),
+    node => (typeof node.properties.dataSlot === 'string' && ctx.post.has(node.properties.dataSlot)) || readHtmlMathSource(node) !== null);
+  }
   const out: HContent[] = [];
   for (const node of parent.children as HContent[]) {
     if (node.type === 'text') { node.value = ctx.restore(node.value); out.push(node); continue; }
@@ -453,12 +558,32 @@ function transform(ctx: Ctx, parent: HRoot | Element): void {
     const el = node;
     const p = el.properties ?? (el.properties = {});
     const generated = p.dataPfg === ctx.nonce;
+    const rawBlock = rawContext || (!generated && insideRawHtmlBlock(ctx, el));
     delete p.dataPfg;
     if (p.dataBlockId !== undefined && generated) ctx.curBlock = propStr(p.dataBlockId);
+    if (!generated && !literalContext) {
+      const math = readHtmlMathSource(el);
+      if (math) {
+        const formula = formulaElement(ctx, math.tex, math.display, srcLine(ctx, el) ?? 0,
+          usesPhrasingFormula(parent),
+          { sourceTex: math.span?.tex ?? math.tex, adaptations: math.span?.adaptations });
+        delete formula.properties.dataPfg;
+        out.push(formula);
+        continue;
+      }
+      if (isHtmlMathContainer(el)) {
+        recoverMixedMathChild(el);
+        ctx.issues.push(mkIssue('MATH_HTML_NO_TEX', 'warning', 'math', {
+          id: 'Satu rumus TeX untuk seluruh elemen HTML ini belum dapat ditentukan. Bandingkan teks dan rumus di baris ini dengan sumber asli.',
+          en: 'A single equation could not be established for this entire HTML element. Compare the text and formulas on this line with the original source.',
+        }, {...issueRef(ctx, { line: srcLine(ctx, el) }), detail: { tag: el.tagName,
+          sourceAttribute: String(p.dataLatex ?? p.dataTex ?? '').slice(0,300) }}));
+      }
+    }
     if (!generated && el.tagName === 'code' && (p.dataPfFormula === 'display' || p.dataPfFormula === 'inline')
         && Object.keys(p).length === 1 && el.children.every(c => c.type === 'text')) {
       const tex = el.children.map(c => (c as HText).value).join('');
-      const formula = formulaElement(ctx, tex, p.dataPfFormula === 'display', srcLine(ctx, el) ?? 0);
+      const formula = formulaElement(ctx, tex, p.dataPfFormula === 'display', srcLine(ctx, el) ?? 0, usesPhrasingFormula(parent));
       delete formula.properties.dataPfg;
       out.push(formula);
       continue;
@@ -468,7 +593,7 @@ function transform(ctx: Ctx, parent: HRoot | Element): void {
       for (const k of Object.keys(p)) if (/^data(Pfg|Slot|Post|Tex|BlockId|SrcPath|FnLabel|FnDef|AssetId|MessageId|Role|Src|Missing|External|BlockedHref|BlockedSrc)$/.test(k)) delete p[k];
       const verdict = sanitizeUserElement(ctx, el);
       if (verdict === 'drop') continue;
-      if (verdict === 'unwrap') { transform(ctx, el); out.push(...(el.children as HContent[])); continue; }
+      if (verdict === 'unwrap') { transform(ctx, el, rawBlock, literalContext); out.push(...(el.children as HContent[])); continue; }
     }
     const tag = el.tagName;
     if (tag === 'a') {
@@ -477,12 +602,17 @@ function transform(ctx: Ctx, parent: HRoot | Element): void {
         ctx.fragments.push({ element: el, scope: anchorScope(ctx, srcLine(ctx, el)), line: srcLine(ctx, el) });
     }
     if (tag === 'img') { out.push(handleImage(ctx, el)); continue; }
-    if (/^h[1-6]$/.test(tag) && !(generated && p.id === 'footnote-label')) {
+    const contentHeading = /^h[1-6]$/.test(tag) && !(generated && p.id === 'footnote-label');
+    if (contentHeading) {
+      // Sanitize/recover nested raw HTML before deriving its label. Run children once.
+      transform(ctx, el, rawBlock, literalContext);
       const level = Number(tag[1]);
-      const text = ctx.restore(toText(el)).replace(/\s+/g, ' ').trim();
+      const legacyText = ctx.restore(toText(el)).replace(/\s+/g, ' ').trim();
+      const text = headingSourceText(ctx, el);
       const line = srcLine(ctx, el);
       const scope = anchorScope(ctx, line);
-      const slug = slugify(text), base = `${scope}h-${slug}`;
+      // Keep prose-based anchors stable; math-only headings now have meaningful IDs.
+      const slug = slugify(legacyText || text), base = `${scope}h-${slug}`;
       const id = uniqueId(ctx, base);
       ctx.headingIds.set(base, (ctx.headingIds.get(base) ?? 0) + 1);
       if (!generated && typeof p.id === 'string') alias(ctx.explicitIds, scope, p.id, id);
@@ -500,7 +630,7 @@ function transform(ctx: Ctx, parent: HRoot | Element): void {
       alias(ctx.explicitIds, scope, original, p.id);
     }
     if (tag === 'li' && typeof p.id === 'string' && p.id.startsWith(`${ctx.prefix}fn-`)) p.dataFnDef = p.id.slice(`${ctx.prefix}fn-`.length);
-    if (!generated) for (const key of ['ariaLabelledBy', 'ariaDescribedBy']) {
+    if (!generated) for (const key of ['ariaLabelledBy', 'ariaDescribedBy', 'headers']) {
       if (p[key] !== undefined) ctx.ariaRefs.push({ element: el, scope: anchorScope(ctx, srcLine(ctx, el)), key, line: srcLine(ctx, el) });
     }
     if (p.id === 'footnote-label') p.id = `${ctx.prefix}footnote-label`;
@@ -510,7 +640,18 @@ function transform(ctx: Ctx, parent: HRoot | Element): void {
       if (typeof v === 'string') p[k] = ctx.restore(v);
       else if (Array.isArray(v)) p[k] = v.map((x) => typeof x === 'string' ? ctx.restore(x) : x) as typeof v;
     }
-    transform(ctx, el);
+    if (!contentHeading) transform(ctx, el, rawBlock,
+      literalContext || ['pre', 'code', 'kbd', 'samp'].includes(tag) || ctx.post.has(String(p.dataSlot ?? '')));
+    if (generated && p.dataPfRawHtml === 'group') {
+      const visible = el.children.filter(c => c.type !== 'text' || c.value.trim());
+      if (visible.length === 1 && visible[0]!.type === 'element') {
+        // Preserve the original top-level element for layout and pagination.
+        const child = visible[0]!;
+        Object.assign(child.properties, { dataPfRawHtml: 'element', dataBlockId: p.dataBlockId, dataLine: p.dataLine });
+        out.push(child);
+        continue;
+      }
+    }
     out.push(el);
   }
   parent.children = out as typeof parent.children;
@@ -528,8 +669,16 @@ interface OneResult { nodes: HContent[] }
 function renderOne(source: string, ctx: Ctx): OneResult {
   const parsed = parseMarkdown(source);
   const outerRestore = ctx.restore;
+  const outerHtmlRanges = ctx.rawHtmlRanges;
+  ctx.rawHtmlRanges = [];
+  const collectRaw = (node: MdNodes): void => {
+    if (node.type === 'html') ctx.rawHtmlRanges.push({ start: node.position?.start.offset ?? 0, end: node.position?.end.offset ?? 0 });
+    if ('children' in node) node.children.forEach(collectRaw);
+  };
+  collectRaw(parsed.tree);
+  ctx.rawHtmlRanges.sort((a, b) => a.start - b.start);
   ctx.restore = restorerFor(parsed.scan);
-  try { return renderOneParsed(source, parsed, ctx); } finally { ctx.restore = outerRestore; }
+  try { return renderOneParsed(source, parsed, ctx); } finally { ctx.restore = outerRestore; ctx.rawHtmlRanges = outerHtmlRanges; }
 }
 
 function renderOneParsed(source: string, parsed: ReturnType<typeof parseMarkdown>, ctx: Ctx): OneResult {
@@ -558,7 +707,7 @@ function renderOneParsed(source: string, parsed: ReturnType<typeof parseMarkdown
   for (const n of root.children) {
     const m = blockModelOf(n, alloc, ctx.restore);
     models.set(n, m);
-    if (m.kind === 'definition' || (m.kind === 'html' && !m.rawTableHtml)) continue;
+    if (m.kind === 'definition' || (m.kind === 'html' && !m.rawTableHtml && !m.rawHtml)) continue;
     if (m.kind === 'footnoteDefinition') { fnDefBlock.set((n as FootnoteDefinition).identifier, m.id); }
     else {
       n.data = { ...n.data, hProperties: { ...(n.data as { hProperties?: Properties } | undefined)?.hProperties, dataBlockId: m.id, dataLine: m.line + ctx.lineOffset } } as typeof n.data;
@@ -594,18 +743,35 @@ function renderOneParsed(source: string, parsed: ReturnType<typeof parseMarkdown
     const line = source.slice(0, m.index).split('\n').length + ctx.lineOffset;
     ctx.issues.push(mkIssue('CITATION_UNRESOLVED', 'info', 'structure', { id: `Token sitasi AI "${m[1]}" di baris ${line} tidak membawa URL/metadata; tidak ada tautan yang dikarang. Teks asli dipertahankan.`, en: `AI citation token "${m[1]}" at line ${line} carries no URL/metadata; no link was invented. Original text kept.` }, { line, detail: { token: m[1]! } }));
   }
+  // Empty, whitespace-only, and metadata-only inputs can finish after parsing
+  // and reporting their source diagnostics. No Markdown nodes require conversion.
+  if (!root.children.length) {
+    ctx.curBlock = undefined;
+    return { nodes: [] };
+  }
   const t = docLabels(ctx.lang);
+  const handlers = makeHandlers(ctx);
+  if (containsRawHtml) handlers.html = (state, node) => {
+    const model = models.get(node);
+    if (!model?.rawHtml) return defaultHandlers.html(state, node);
+    // The wrapper originates here. The raw children still pass through both sanitizers.
+    const raw = { type: 'raw' as const, value: node.value, position: node.position };
+    const group: Element = { type: 'element', tagName: 'div', properties: { dataPfRawHtml: 'group',
+      dataBlockId: model.id, dataLine: model.line + ctx.lineOffset }, children: [raw] };
+    state.patch(node, group);
+    return group;
+  };
   const hast = toHast(root, {
-    allowDangerousHtml: true, clobberPrefix: ctx.prefix, handlers: makeHandlers(ctx),
+    allowDangerousHtml: true, clobberPrefix: ctx.prefix, handlers,
     footnoteLabel: t.fn, footnoteBackLabel: (ri: number, rr: number) => t.back(rr > 1 ? `${ri + 1}-${rr}` : String(ri + 1)),
   }) as HRoot;
   markGenerated(ctx.nonce, hast);
   if (containsRawHtml) {
-    const serialized = unified().use(rehypeStringify, { allowDangerousHtml: true }).stringify(hast);
+    const serialized = serializeWithRaw.stringify(hast);
     const complexity = checkHtmlBudget(serialized);
     if (complexity) throw new BudgetError(complexity);
   }
-  const rawTree = unified().use(rehypeRaw).runSync(hast) as HRoot;
+  const rawTree = normalizeHtml.runSync(hast) as HRoot;
   assertTreeBudget(rawTree);
   // definisi catatan kaki → id blok
   const tagFn = (n: HRoot | Element) => {
@@ -632,7 +798,9 @@ function renderOneParsed(source: string, parsed: ReturnType<typeof parseMarkdown
       node.properties.dataLine = model.line + ctx.lineOffset;
     }
   }
-  ctx.stats.words += (source.slice(parsed.frontmatter?.raw.length ?? 0).match(/[\p{L}\p{N}]+/gu) ?? []).length;
+  const labelBlocks = ctx.composedLabels && new Set([...models.values()]
+    .filter(model => ctx.composedLabels!.get(model.start) === model.end).map(model => model.id));
+  addContentStats(rawTree, ctx.stats, ctx.prefix + 'footnote-label', labelBlocks);
   return { nodes: rawTree.children as HContent[] };
 }
 
@@ -654,7 +822,7 @@ function newCtx(opts: CoreRenderOptions): Ctx {
     allowExternal: !!opts.allowExternalImages, issues: [], slots: [], toc: [], footnotes: [], blocks: [],
     stats: { words: 0, tables: 0, math: 0, images: 0, code: 0, mermaid: 0 }, headingIds: new Map(), usedIds: new Set(), aliases: new Map(), explicitIds: new Map(), ariaRefs: [], fragments: [], lastHeadingLevel: 0,
     restore: (x: string) => x, lineOffset: 0, inputId: opts.inputId ?? (opts.conversation?.editable ? 'source' : opts.conversation?.inputId) ?? 'source', offsetBase: 0, post: new Map(), assetSrc: new Map(),
-    imageIds, imagePixels, inlineImages: new Map(), inlineImageCacheUnits: 0,
+    imageIds, imagePixels, inlineImages: new Map(), inlineImageCacheUnits: 0, mathRecoveries: [], rawHtmlRanges: [],
     ...(opts.parts ? { parts: opts.parts } : {}),
   };
 }
@@ -698,11 +866,22 @@ export async function renderStage1(source: string, options: RenderOptions | Core
   const opts = options as CoreRenderOptions;
   const ctx = newCtx(opts);
   const pub = opts.conversation?.publication;
-  if (!ctx.parts && pub && pub.sourceLength === source.length && await sha256Hex(source) === pub.sourceHash) {
+  if (pub && pub.sourceLength === source.length && await sha256Hex(source) === pub.sourceHash) {
+    // Labels saved into an editable transcript are layout only while the source
+    // matches its composition. Verify the exact label text as well as its span.
+    const messages = new Map(opts.conversation?.messages.map(message => [message.id, message]));
     const parts: DocumentPart[] = [];
     const prefixes = new Map<string, string>();
     let line = 1;
     for (const span of pub.spans) {
+      if (opts.conversation?.editable && (span.kind === 'label' || span.kind === 'appendix-title')) {
+        const message = span.messageId ? messages.get(span.messageId) : undefined;
+        const text = source.slice(span.outStart, span.outEnd);
+        const labelMatches = (['id', 'en'] as const).some(lang => span.kind === 'appendix-title'
+          ? text === '## ' + docLabels(lang).appendix
+          : message && text === `**${speakerDisplay(message, lang)}:**${message.timestamp ? ' ' + message.timestamp : ''}`);
+        if (labelMatches) (ctx.composedLabels ??= new Map()).set(span.outStart, span.outEnd);
+      }
       const startLine = line;
       for (let i = span.outStart; i < span.outEnd; i++) if (source.charCodeAt(i) === 10) line++;
       if ((span.kind === 'block' || span.kind === 'message') && span.messageId) {
@@ -711,7 +890,7 @@ export async function renderStage1(source: string, options: RenderOptions | Core
         parts.push({ id, startLine, endLine: line });
       }
     }
-    ctx.parts = parts;
+    ctx.parts ??= parts;
   }
   const conv = structuredConversation(source, opts.conversation);
   let nodes: HContent[] = [];
@@ -739,11 +918,12 @@ export async function renderStage1(source: string, options: RenderOptions | Core
   }
   const root: HRoot = { type: 'root', children: nodes };
   resolveFragments(ctx, root);
-  const html = unified().use(rehypeStringify).stringify(root);
+  const html = serializeHtml.stringify(root);
   // karakter kendali/tak terlihat dilaporkan (tidak diubah)
   ctx.issues.push(...charIssues(analyzeChars(source)));
+  ctx.issues.push(...mathRecoveryIssues(ctx.mathRecoveries));
   // KaTeX (trust:false) dirender di tahap 1 — murni string, aman di Worker; disisipkan setelah sanitasi di tahap 2
-  const slots = await renderMathSlots(ctx.slots);
+  const slots = await renderMathSlots(ctx.slots, opts.editIdentity);
   const scripts = detectScripts(conv && conv.outputMode !== 'answer' ? selectedMessages(conv).map((m) => m.markdown).join('\n') + source : source);
   return {
     html, post: [...ctx.post], assetSrc: [...ctx.assetSrc], slots, inputId: ctx.inputId,
@@ -752,23 +932,41 @@ export async function renderStage1(source: string, options: RenderOptions | Core
   };
 }
 
-async function renderMathSlots(slots: Ctx['slots']): Promise<RenderStage1['slots']> {
+let lastMathJob = 0;
+type MathCompileResult = ReturnType<typeof import('./tex-renderer').renderTex>;
+let previousMath: { projectId: string; revision: number; values: Map<string, MathCompileResult> } | undefined;
+
+async function renderMathSlots(slots: Ctx['slots'], identity?: CoreRenderOptions['editIdentity']): Promise<RenderStage1['slots']> {
+  // An edit often leaves existing formulas intact. Reuse compiler strings only
+  // across consecutive revisions of one project. Reopening or switching projects,
+  // detached API calls and empty revisions drop the previous edit immediately.
+  const job = ++lastMathJob;
+  const previous = identity && previousMath?.projectId === identity.projectId &&
+    previousMath.revision + 1 === identity.revision ? previousMath.values : undefined;
+  previousMath = undefined;
   if (!slots.length) return [];
   const { renderTex } = await import('./tex-renderer');
-  // RC4-P01: repeated formulas in one document share the same deterministic KaTeX result. This cache is
-  // job-local (never retained between projects), includes display mode, and caps retained markup at 2 MiB.
-  const mathCache = new Map<string, ReturnType<typeof renderTex>>();
-  let mathCacheUnits = 0;
-  return slots.map((s) => {
+  const mathCache = new Map<string, MathCompileResult>();
+  const nextEdit = new Map<string, MathCompileResult>();
+  let mathCacheUnits = 0, editUnits = 0;
+  const compiled = slots.map((s) => {
     const key = `${s.display ? 'display' : 'inline'}\u0000${s.tex}`;
     let r = mathCache.get(key);
     if (!r) {
-      r = renderTex(s.tex, s.display);
+      r = previous?.get(key) ?? renderTex(s.tex, s.display);
       const units = key.length + r.html.length + (r.error?.length ?? 0);
+      // Keep at most 32 / 64 Ki UTF-16 units after the job. Never retain DOM,
+      // the Markdown document, snapshot, worker job, or an unbounded memo.
+      if (identity && nextEdit.size < 32 && editUnits + units <= 65536) {
+        nextEdit.set(key, r);
+        editUnits += units;
+      }
       if (mathCache.size < 256 && mathCacheUnits + units <= 1024 * 1024) { mathCache.set(key, r); mathCacheUnits += units; }
     }
     return { key: s.key, tex: s.tex, line: s.line, ok: r.ok, html: r.html, ...(r.error ? { error: r.error } : {}), ...(s.blockId ? { blockId: s.blockId } : {}), ...(s.messageId ? { messageId: s.messageId } : {}) };
   });
+  if (job === lastMathJob && identity && nextEdit.size) previousMath = { ...identity, values: nextEdit };
+  return compiled;
 }
 
 /** Hasil tahap 1 render (tanpa DOM, dapat diklon terstruktur antar-thread). */
@@ -790,7 +988,7 @@ export function finishRender(s1: RenderStage1, assets: AssetRecord[]): RenderedB
   const assetSrc = new Map(s1.assetSrc);
   const byId = new Map(assets.map((a) => [a.id, a]));
   // atribut pasca-sanitasi (kunci bernonce; nilai di-escape oleh serializer DOM)
-  for (const el of Array.from(body.querySelectorAll('[data-post]'))) {
+  for (const el of body.firstElementChild ? body.querySelectorAll('[data-post]') : []) {
     const key = el.getAttribute('data-post') ?? '';
     el.removeAttribute('data-post');
     const attrs = post.get(key);
@@ -800,13 +998,29 @@ export function finishRender(s1: RenderStage1, assets: AssetRecord[]): RenderedB
     if (asset && el.tagName === 'IMG') el.setAttribute('src', assetDataUrl(asset));
   }
   // isi slot rumus dengan keluaran KaTeX (trust:false) SETELAH sanitasi
+  const formulaRefs: FormulaReferences = new Map();
   const slotMap = new Map(s1.slots.map((s) => [s.key, s]));
-  for (const el of Array.from(body.querySelectorAll('[data-slot]'))) {
+  // Sibling occurrences can reuse the already parsed compiler output during this
+  // render only. Independent clones preserve MathML/SVG namespaces and permit
+  // later accessibility decoration without mutating the first occurrence.
+  const parsedSlots = new Map<string, globalThis.Element>();
+  for (const el of body.firstElementChild ? body.querySelectorAll('[data-slot]') : []) {
     const key = el.getAttribute('data-slot') ?? '';
     const s = slotMap.get(key);
     el.removeAttribute('data-slot');
     if (!s) continue;
-    el.innerHTML = s.html;
+    const prior = parsedSlots.get(s.html);
+    if (prior?.firstChild && prior.childNodes.length === 1 && prior.namespaceURI === el.namespaceURI && prior.localName === el.localName) {
+      el.replaceChildren(prior.firstChild.cloneNode(true));
+    } else {
+      el.innerHTML = s.html;
+      parsedSlots.set(s.html, el);
+    }
+    const formulaId = formulaKey(s.tex, el.classList.contains('pf-math-display'));
+    if (!formulaRefs.has(formulaId)) {
+      const ref = compiledReference(el,s.tex,el.classList.contains('pf-math-display'),!s.ok);
+      if (ref) formulaRefs.set(formulaId,ref);
+    }
     if (!s.ok) {
       el.classList.add('pf-math-error');
       const tooLong = s.error?.startsWith('MATH_TOO_LONG');
@@ -816,11 +1030,16 @@ export function finishRender(s1: RenderStage1, assets: AssetRecord[]): RenderedB
       { line: s.line, ...(s.blockId ? { blockId: s.blockId } : {}), ...(s.messageId ? { sourceRef: { inputId: s1.inputId, messageId: s.messageId, start: 0, end: 0, unit: 'utf16' as const } } : {}), detail: { tex: s.tex.slice(0, 200) } }));
     }
   }
-  return {
-    html: body.innerHTML, toc: s1.toc, footnotes: s1.footnotes, blocks: s1.blocks, issues: numberIssues(issues) as CoreIssue[],
+  // RC6-MATH02: detect visible TeX independently, including formulas missed by a tokenizer.
+  issues.push(...residualMathIssues(body));
+  const result = {
+    html: body.innerHTML, toc: renderedHeadingToc(body, s1.toc), footnotes: s1.footnotes, blocks: s1.blocks, issues: numberIssues(issues) as CoreIssue[],
     stats: s1.stats, scripts: s1.scripts, mermaidPending: s1.mermaidPending,
     ...(s1.frontmatter ? { frontmatter: s1.frontmatter } : {}),
   };
+  retainFormulaReferences(result, formulaRefs);
+  rememberRenderedRoot(result,body);
+  return result;
 }
 
 /**

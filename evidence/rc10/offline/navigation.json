@@ -1,0 +1,182 @@
+[
+  {
+    "name": "headings-on",
+    "sha256": "29937f2662ae2502493d09c336df7079771006b4175106ef8c07db4d17445cad",
+    "sourceBlocks": 438,
+    "tables": 1,
+    "anchors": 220,
+    "valid": 220,
+    "firstAnchorNavigates": true,
+    "selectionReadable": true,
+    "noScript": true,
+    "fonts": [
+      [
+        "Inter",
+        "loaded"
+      ],
+      [
+        "Inter",
+        "loaded"
+      ],
+      [
+        "Inter",
+        "loaded"
+      ]
+    ],
+    "lastBlockId": "b-c99db135",
+    "requests": [],
+    "pass": true
+  },
+  {
+    "name": "long-table-off",
+    "sha256": "fdeff545f63db9ac0d277f677544589a24dc10bfd5aacf4c59fff72efa924649",
+    "sourceBlocks": 2,
+    "tables": 1,
+    "anchors": 1,
+    "valid": 1,
+    "firstAnchorNavigates": true,
+    "selectionReadable": true,
+    "noScript": true,
+    "fonts": [
+      [
+        "Inter",
+        "loaded"
+      ],
+      [
+        "Inter",
+        "loaded"
+      ],
+      [
+        "Inter",
+        "loaded"
+      ]
+    ],
+    "lastBlockId": "b-1d118db1",
+    "requests": [],
+    "pass": true
+  },
+  {
+    "name": "paragraphs-off",
+    "sha256": "989e40cefe47913c9d55de866adb855e0475fb39c6954f4f9af9ebf74bf17052",
+    "sourceBlocks": 1092,
+    "tables": 1,
+    "anchors": 1,
+    "valid": 1,
+    "firstAnchorNavigates": true,
+    "selectionReadable": true,
+    "noScript": true,
+    "fonts": [
+      [
+        "Inter",
+        "loaded"
+      ],
+      [
+        "Inter",
+        "loaded"
+      ],
+      [
+        "Inter",
+        "loaded"
+      ]
+    ],
+    "lastBlockId": "b-1a32d2bd",
+    "requests": [],
+    "pass": true
+  },
+  {
+    "name": "paragraphs-on",
+    "sha256": "e3afc2f58ea4580215c5acd88520e7ad580c11f5f91cfc9b1820560a57f54361",
+    "sourceBlocks": 1092,
+    "tables": 1,
+    "anchors": 1,
+    "valid": 1,
+    "firstAnchorNavigates": true,
+    "selectionReadable": true,
+    "noScript": true,
+    "fonts": [
+      [
+        "Inter",
+        "loaded"
+      ],
+      [
+        "Inter",
+        "loaded"
+      ],
+      [
+        "Inter",
+        "loaded"
+      ]
+    ],
+    "lastBlockId": "b-1a32d2bd",
+    "requests": [],
+    "pass": true
+  },
+  {
+    "name": "single-paragraph-off",
+    "sha256": "6ad662f9ed6763ed1bf43aa38e28e8b364c46daa9b3f361343c7021c1943e334",
+    "sourceBlocks": 3,
+    "tables": 1,
+    "anchors": 1,
+    "valid": 1,
+    "firstAnchorNavigates": true,
+    "selectionReadable": true,
+    "noScript": true,
+    "fonts": [
+      [
+        "Inter",
+        "loaded"
+      ],
+      [
+        "Inter",
+        "loaded"
+      ],
+      [
+        "Inter",
+        "loaded"
+      ]
+    ],
+    "lastBlockId": "b-f77534cf",
+    "requests": [],
+    "pass": true
+  },
+  {
+    "name": "private-original",
+    "sha256": "46fd2a2cd85604693a2ce6f1f941b02df1dbd2cfb69dcd789f4238d649a18fac",
+    "sourceBlocks": 31073,
+    "tables": 1,
+    "anchors": 32,
+    "valid": 32,
+    "firstAnchorNavigates": true,
+    "selectionReadable": true,
+    "noScript": true,
+    "fonts": [
+      [
+        "Inter",
+        "loaded"
+      ],
+      [
+        "Inter",
+        "loaded"
+      ],
+      [
+        "Inter",
+        "loaded"
+      ],
+      [
+        "Inter",
+        "loaded"
+      ],
+      [
+        "KaTeX_Main",
+        "loaded"
+      ],
+      [
+        "Noto Emoji",
+        "loaded"
+      ]
+    ],
+    "lastBlockId": "b-3e1ff4df-4",
+    "requests": [],
+    "pass": true
+  }
+]

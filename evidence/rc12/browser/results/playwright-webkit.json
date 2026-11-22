@@ -1,0 +1,49 @@
+{
+  "engine": "webkit",
+  "distTreeSha256": "1aede97a9168d8d2e4e703afc1d3f1272e3575d2eb8535f60a4ab3dfdad01e39",
+  "fixtureHash": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+  "launch": "PASS",
+  "preview": "PASS",
+  "download": "PASS",
+  "offline": "PASS",
+  "pagination": "PASS",
+  "errors": [],
+  "binarySha256": {
+    "pw_run.sh": "a85baad3d8c07173ac387a59b41500c382b21ed692afe0964d29aac247ccc63b",
+    "MiniBrowser": "deee549ad18d8ee5c4a44d78f846bd62fe90959b3e115f0cd33d681897db592e",
+    "WPEWebProcess": "0d3a2ac5e1370d08b8e40df51f1679549eb2f7a1bfa471afefd1aad5a6871031"
+  },
+  "runUTC": "2026-11-22T16:17:28.731Z",
+  "version": "26.5",
+  "pageErrors": [],
+  "outputBytes": 907051,
+  "outputSha256": "8825fee473b99ace59e1595e3794475fbe93c5a8ce4d1752d4804a603c380da9",
+  "standalone": {
+    "online": false,
+    "template": "BUS-01",
+    "count": 231,
+    "inline": 103,
+    "mathml": 231,
+    "errors": 0,
+    "tables": 5,
+    "styles": [
+      "inline-table",
+      "absolute"
+    ],
+    "fontsLoaded": 10,
+    "fonts": 10,
+    "displayBoxes": 231,
+    "missingAnchors": 0,
+    "differences": []
+  },
+  "externalOrFileRequests": 0,
+  "layoutUI": "Revision 3 · 16 pages · 4 passes",
+  "pages": 16,
+  "pagedFormulaCount": 234,
+  "pagedOriginalFormulas": 231,
+  "pagedRepeatedFormulas": 3,
+  "pagedMismatchIndices": [],
+  "status": "PASS",
+  "appVersion": "3.0.0-rc.12",
+  "postDistTreeSha256": "1aede97a9168d8d2e4e703afc1d3f1272e3575d2eb8535f60a4ab3dfdad01e39"
+}

@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "scope": "local disposable Git repository and loopback HTTP",
+  "liveCloudflareRollback": "NOT_RUN",
+  "events": [
+    {
+      "step": "prior-release",
+      "commit": "528298e9eda1c8b38f26bd52bbc0806266a37724",
+      "gitTree": "6fea8f31b851d5398cd818bcc6f2dc3a2b17e198",
+      "candidateSha256": "99b799225ac28add26bdda08cb59724a431dedd4728b4e465d6a0646dbf75f73",
+      "distTreeSha256": "9d2ce6c321ffd305614859932cb8b8fc8cdad73f4f6d5b53b46eec2ddc86d234",
+      "http": {
+        "paths": 184,
+        "filesCompared": 179,
+        "pass": true
+      }
+    },
+    {
+      "step": "candidate-release",
+      "commit": "290b98e2f5f341be15507d883fa9e5977d0c38e8",
+      "gitTree": "322a4c99cc447a802284e53f84c3f719970ab2df",
+      "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+      "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+      "http": {
+        "paths": 185,
+        "filesCompared": 180,
+        "pass": true
+      }
+    },
+    {
+      "step": "restored",
+      "commit": "a8c9fa07b98ae275c56a325b8de693851632f782",
+      "gitTree": "6fea8f31b851d5398cd818bcc6f2dc3a2b17e198",
+      "candidateSha256": "99b799225ac28add26bdda08cb59724a431dedd4728b4e465d6a0646dbf75f73",
+      "distTreeSha256": "9d2ce6c321ffd305614859932cb8b8fc8cdad73f4f6d5b53b46eec2ddc86d234",
+      "http": {
+        "paths": 184,
+        "filesCompared": 179,
+        "pass": true
+      }
+    }
+  ]
+}

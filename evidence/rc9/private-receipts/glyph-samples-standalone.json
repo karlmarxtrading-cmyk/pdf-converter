@@ -1,0 +1,50 @@
+{
+  "→": {
+    "page": 2,
+    "font": "Unnamed-T3",
+    "pixelWidth": 43,
+    "pixelHeight": 43
+  },
+  "≠": {
+    "page": 61,
+    "font": "LiberationSans-Bold",
+    "pixelWidth": 24,
+    "pixelHeight": 48
+  },
+  "↔": {
+    "page": 237,
+    "font": "Unnamed-T3",
+    "pixelWidth": 43,
+    "pixelHeight": 43
+  },
+  "₁": {
+    "page": 294,
+    "font": "LiberationSans-Bold",
+    "pixelWidth": 18,
+    "pixelHeight": 48
+  },
+  "₂": {
+    "page": 294,
+    "font": "LiberationSans-Bold",
+    "pixelWidth": 20,
+    "pixelHeight": 48
+  },
+  "₃": {
+    "page": 294,
+    "font": "LiberationSans-Bold",
+    "pixelWidth": 20,
+    "pixelHeight": 48
+  },
+  "₄": {
+    "page": 294,
+    "font": "LiberationSans-Bold",
+    "pixelWidth": 21,
+    "pixelHeight": 48
+  },
+  "❤": {
+    "page": 528,
+    "font": "Unnamed-T3",
+    "pixelWidth": 53,
+    "pixelHeight": 50
+  }
+}

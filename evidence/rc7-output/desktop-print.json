@@ -1,0 +1,25 @@
+{
+  "distTree": "9d2ce6c321ffd305614859932cb8b8fc8cdad73f4f6d5b53b46eec2ddc86d234",
+  "browser": "Managed desktop Chromium",
+  "productionPrint": "PASS",
+  "action": "Studio > Check and export > Print / Save PDF > Prepare print > Open print dialog",
+  "input": "Unedited whole user-trigonometry.md",
+  "template": "BUS-01",
+  "paper": "A4 portrait",
+  "revision": 6,
+  "pageCount": 16,
+  "passes": 2,
+  "verification": "pass",
+  "appReportedFlatHtmlSha256": "cb9f811a468753cf003bcb152ec8696daf121f5264c6a9be08657fa1382ab2aa",
+  "checks": [
+    "content-inventory PASS",
+    "page-structure PASS",
+    "page-count 16",
+    "toc-stable 2",
+    "no-overflow PASS",
+    "no-blank-pages PASS"
+  ],
+  "lastObserved": "Print dialog requested. Choose a PDF destination and save. To cancel, use Cancel in the browser dialog.",
+  "nativeSave": "BLOCKED",
+  "note": "The studio acknowledged the native print request. No completed Save-as-PDF file was observed through the desktop dialog. Browser-engine PDF files and their independent checks are recorded separately in pdf-results.json."
+}

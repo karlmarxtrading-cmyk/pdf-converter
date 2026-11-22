@@ -1,0 +1,446 @@
+{
+  "at": "2026-11-22T11:19:42.736552+00:00",
+  "runId": "a411c3b4-c630-4461-88ec-54810dbe1328",
+  "identity": {
+    "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+    "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496",
+    "version": "3.0.0-rc.11",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "fb35e25d5f19ec6c9a313318e58deebadcbd942b07de6c9757a6702dc5c4609e",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "82f80da7cf9aac0fbe3cf1b34fe0de8c2f5df7273212c8dd968b453cf2b6d86b",
+    "benchmarkHarnessSha256": "b270325c775336251cf7176bab8338bcff9b9a8e10c9d05d44e8dab360738bc2",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "866df23055e9b0e231095d3408e406eb7207644ed02fae7a93b9516bf8f9caf5",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "9c5f97a67bd9785f4205bed22f146b32596ac97389747e097d77558540d70378"
+  },
+  "method": "Manual review of rendered page images from the candidate PDFs using PyMuPDF at 1.2x. Review covers all 26 exportable matrix final pages plus selected interior pages, and first/middle/final pages of all six books. Private page images are excluded from public artifacts. The separate physical and pixel oracles check content and the full designated reference cases.",
+  "observed": [
+    "All 26 public matrix final pages show their expected ending or footnotes. Ending formulas, code continuations and table cells remain within the page frame in the selected samples.",
+    "Sparse ending pages occur on conversation BUS A5 landscape and trigonometry EDU A5 landscape; the measured final lines remain visible with their footer.",
+    "Synthetic long-table middle and final pages retain the repeated header. All six book samples have legible final content and visible page numbers.",
+    "The private book showed the table of contents on page 1, a callout inside the body on page 643 and complete final content with an unobstructed footer on page 1284."
+  ],
+  "criterion": "Visible clipping, overlap, missing endings and pagination on selected pages",
+  "review": "No blocking layout defect observed in selected page images",
+  "uniquePages": 59,
+  "pdfCount": 32,
+  "pages": [
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/conversation-BUS-01-A5-landscape.pdf",
+      "page": 3,
+      "pages": 3,
+      "pdfSha256": "01a7fcae0fdc6118e0c39ed143e3b116c86a7ee987a7f6ec10f5556d55cc784f"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/conversation-BUS-01-Letter-portrait.pdf",
+      "page": 2,
+      "pages": 2,
+      "pdfSha256": "42d1c8e9cb58bbc8e79dde4f05f288f8282f8b87fa67e69b3963dda5c4addea4"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/conversation-CON-01-A5-landscape.pdf",
+      "page": 1,
+      "pages": 1,
+      "pdfSha256": "622ef4822d5831a6f0a71715953999b97d2b8d07243c7b6bc02057b46c513f6d"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/conversation-CON-01-Letter-portrait.pdf",
+      "page": 1,
+      "pages": 1,
+      "pdfSha256": "f278e21bc301edb209045d883c2011039a908c89369da815acbcec4be32efd8d"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/conversation-EDT-01-A4-portrait.pdf",
+      "page": 1,
+      "pages": 1,
+      "pdfSha256": "642f4371e90bdc70bc026b1964c68e3aef0607fec98ca72293da2fc9b7eacb80"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/conversation-EDT-01-Letter-landscape.pdf",
+      "page": 1,
+      "pages": 1,
+      "pdfSha256": "b0d53c7478b57e014643699d1657d1080bc507e935c2dbafdb4b8c7ad114a7c4"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/conversation-EDU-01-A4-landscape.pdf",
+      "page": 1,
+      "pages": 1,
+      "pdfSha256": "6656b3678a5ad0d5a3e984b19b5db5cb24cae0260cda524946ad4e70dcdd5b39"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/conversation-EDU-01-A5-portrait.pdf",
+      "page": 1,
+      "pages": 1,
+      "pdfSha256": "ceba3b7875f8f1ac3891cb578d17be283d012cb303a78263ac6c785963aabe20"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/mixed-supported-BUS-01-A4-landscape.pdf",
+      "page": 14,
+      "pages": 14,
+      "pdfSha256": "a85150a0006af8cea96aa907d5324d4e8107e79e2a819f75cbfe84305bea25f3"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/mixed-supported-BUS-01-A5-portrait.pdf",
+      "page": 21,
+      "pages": 21,
+      "pdfSha256": "1190be5a8ba5b07336e71c9789163104d6bef147bc923f609f66f6177a2fc588"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/mixed-supported-CON-01-A4-landscape.pdf",
+      "page": 12,
+      "pages": 12,
+      "pdfSha256": "9dbe54e29a3e12a4bf5a460e74ab9510b328a00b09058079d670acb7da653296"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/mixed-supported-CON-01-A5-portrait.pdf",
+      "page": 18,
+      "pages": 18,
+      "pdfSha256": "896ac9359a5c2994c238480d94732dbeb2b6181f7aea4ff9c2d38bc28ada0021"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/mixed-supported-EDT-01-A5-landscape.pdf",
+      "page": 21,
+      "pages": 21,
+      "pdfSha256": "fedf0d8ccd883a1bd554c251ba6d38ae0e49ff8486d63ec142509b9cbb1766d2"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/mixed-supported-EDT-01-A5-portrait.pdf",
+      "page": 19,
+      "pages": 19,
+      "pdfSha256": "11b863ac5c6e760a6d1470dfc99ac610962a6e28046fb28b518f2ff77ee50d04"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/mixed-supported-EDT-01-Letter-portrait.pdf",
+      "page": 10,
+      "pages": 10,
+      "pdfSha256": "033e7b9a3f93e3a172efe0ab8deed26fdc9f8b2c16cc110a51fbc2c62eefe41b"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/mixed-supported-EDU-01-A4-portrait.pdf",
+      "page": 11,
+      "pages": 11,
+      "pdfSha256": "6141d6520055d900c09eae5d8c759de6c95ee60187080e7dc9e391a045ec4db8"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/mixed-supported-EDU-01-Letter-landscape.pdf",
+      "page": 14,
+      "pages": 14,
+      "pdfSha256": "a9de472db5c6147844fb2dd6b456b23f2d72dc26d464af11c2c885bf0ad3555f"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/trigonometry-BUS-01-A4-portrait.pdf",
+      "page": 16,
+      "pages": 16,
+      "pdfSha256": "79195d35be1c3036ef7f4e5101a4010b14542d1c9dfae7d2054c212de149f449"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/trigonometry-BUS-01-Letter-landscape.pdf",
+      "page": 21,
+      "pages": 21,
+      "pdfSha256": "331448744cc0e78e8f58ef6cf16954a78972133150436a7d2921f45ed22b7be0"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/trigonometry-CON-01-A4-portrait.pdf",
+      "page": 14,
+      "pages": 14,
+      "pdfSha256": "14f7f65a0dc20ac740dedf94f95a42f96199ecc480b597a060614acb54530937"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/trigonometry-CON-01-Letter-landscape.pdf",
+      "page": 19,
+      "pages": 19,
+      "pdfSha256": "96285d73ed526007c1d29a0aa9ed8059396141a96c2fb0aeb68731227990c2ff"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/trigonometry-EDT-01-A4-landscape.pdf",
+      "page": 20,
+      "pages": 20,
+      "pdfSha256": "064e760fd53d3b717f9fa7dc345ec5562aaae972f236ffc07359fd5471cad059"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/trigonometry-EDT-01-A5-portrait.pdf",
+      "page": 20,
+      "pages": 20,
+      "pdfSha256": "46b1d0ac3f1c01dfd88a6edb085ca88a1a72e31155a9d6760d68845b6a466954"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/trigonometry-EDU-01-A4-portrait.pdf",
+      "page": 19,
+      "pages": 19,
+      "pdfSha256": "7d09f41fe93af50b7cd266f132f2b466235fde8c6a5fb41f661f22cf8c14608f"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/trigonometry-EDU-01-A5-landscape.pdf",
+      "page": 46,
+      "pages": 46,
+      "pdfSha256": "4e2e2316a27e8605ecb4c54f648f8263d8c4aec8af48dacdc29892a867e2fff2"
+    },
+    {
+      "kind": "matrix",
+      "file": "examples/rc11/pdf/trigonometry-EDU-01-Letter-portrait.pdf",
+      "page": 20,
+      "pages": 20,
+      "pdfSha256": "f94ff0da7b79b4ccfc7877165acd530b4f49c8730a5fedda043fd7ec7c14ca98"
+    },
+    {
+      "kind": "detail",
+      "file": "examples/rc11/pdf/mixed-supported-EDT-01-A5-landscape.pdf",
+      "page": 1,
+      "pages": 21,
+      "pdfSha256": "fedf0d8ccd883a1bd554c251ba6d38ae0e49ff8486d63ec142509b9cbb1766d2"
+    },
+    {
+      "kind": "detail",
+      "file": "examples/rc11/pdf/mixed-supported-EDT-01-A5-landscape.pdf",
+      "page": 2,
+      "pages": 21,
+      "pdfSha256": "fedf0d8ccd883a1bd554c251ba6d38ae0e49ff8486d63ec142509b9cbb1766d2"
+    },
+    {
+      "kind": "detail",
+      "file": "examples/rc11/pdf/mixed-supported-EDT-01-A5-landscape.pdf",
+      "page": 11,
+      "pages": 21,
+      "pdfSha256": "fedf0d8ccd883a1bd554c251ba6d38ae0e49ff8486d63ec142509b9cbb1766d2"
+    },
+    {
+      "kind": "detail",
+      "file": "examples/rc11/pdf/mixed-supported-EDT-01-A5-portrait.pdf",
+      "page": 1,
+      "pages": 19,
+      "pdfSha256": "11b863ac5c6e760a6d1470dfc99ac610962a6e28046fb28b518f2ff77ee50d04"
+    },
+    {
+      "kind": "detail",
+      "file": "examples/rc11/pdf/mixed-supported-EDT-01-A5-portrait.pdf",
+      "page": 2,
+      "pages": 19,
+      "pdfSha256": "11b863ac5c6e760a6d1470dfc99ac610962a6e28046fb28b518f2ff77ee50d04"
+    },
+    {
+      "kind": "detail",
+      "file": "examples/rc11/pdf/mixed-supported-EDT-01-A5-portrait.pdf",
+      "page": 10,
+      "pages": 19,
+      "pdfSha256": "11b863ac5c6e760a6d1470dfc99ac610962a6e28046fb28b518f2ff77ee50d04"
+    },
+    {
+      "kind": "detail",
+      "file": "examples/rc11/pdf/mixed-supported-EDT-01-Letter-portrait.pdf",
+      "page": 1,
+      "pages": 10,
+      "pdfSha256": "033e7b9a3f93e3a172efe0ab8deed26fdc9f8b2c16cc110a51fbc2c62eefe41b"
+    },
+    {
+      "kind": "detail",
+      "file": "examples/rc11/pdf/mixed-supported-EDT-01-Letter-portrait.pdf",
+      "page": 2,
+      "pages": 10,
+      "pdfSha256": "033e7b9a3f93e3a172efe0ab8deed26fdc9f8b2c16cc110a51fbc2c62eefe41b"
+    },
+    {
+      "kind": "detail",
+      "file": "examples/rc11/pdf/mixed-supported-EDT-01-Letter-portrait.pdf",
+      "page": 6,
+      "pages": 10,
+      "pdfSha256": "033e7b9a3f93e3a172efe0ab8deed26fdc9f8b2c16cc110a51fbc2c62eefe41b"
+    },
+    {
+      "kind": "detail",
+      "file": "examples/rc11/pdf/trigonometry-EDT-01-A4-landscape.pdf",
+      "page": 1,
+      "pages": 20,
+      "pdfSha256": "064e760fd53d3b717f9fa7dc345ec5562aaae972f236ffc07359fd5471cad059"
+    },
+    {
+      "kind": "detail",
+      "file": "examples/rc11/pdf/trigonometry-EDT-01-A4-landscape.pdf",
+      "page": 2,
+      "pages": 20,
+      "pdfSha256": "064e760fd53d3b717f9fa7dc345ec5562aaae972f236ffc07359fd5471cad059"
+    },
+    {
+      "kind": "detail",
+      "file": "examples/rc11/pdf/trigonometry-EDT-01-A4-landscape.pdf",
+      "page": 11,
+      "pages": 20,
+      "pdfSha256": "064e760fd53d3b717f9fa7dc345ec5562aaae972f236ffc07359fd5471cad059"
+    },
+    {
+      "kind": "detail",
+      "file": "examples/rc11/pdf/trigonometry-EDT-01-A5-portrait.pdf",
+      "page": 1,
+      "pages": 20,
+      "pdfSha256": "46b1d0ac3f1c01dfd88a6edb085ca88a1a72e31155a9d6760d68845b6a466954"
+    },
+    {
+      "kind": "detail",
+      "file": "examples/rc11/pdf/trigonometry-EDT-01-A5-portrait.pdf",
+      "page": 2,
+      "pages": 20,
+      "pdfSha256": "46b1d0ac3f1c01dfd88a6edb085ca88a1a72e31155a9d6760d68845b6a466954"
+    },
+    {
+      "kind": "detail",
+      "file": "examples/rc11/pdf/trigonometry-EDT-01-A5-portrait.pdf",
+      "page": 11,
+      "pages": 20,
+      "pdfSha256": "46b1d0ac3f1c01dfd88a6edb085ca88a1a72e31155a9d6760d68845b6a466954"
+    },
+    {
+      "kind": "book",
+      "file": "examples/rc11/book/headings-on/dokumen.pdf",
+      "page": 1,
+      "pages": 621,
+      "pdfSha256": "70641edf5205b6c95633eaa43d56876c5e2779cfea647127420c450f82c335e3"
+    },
+    {
+      "kind": "book",
+      "file": "examples/rc11/book/headings-on/dokumen.pdf",
+      "page": 311,
+      "pages": 621,
+      "pdfSha256": "70641edf5205b6c95633eaa43d56876c5e2779cfea647127420c450f82c335e3"
+    },
+    {
+      "kind": "book",
+      "file": "examples/rc11/book/headings-on/dokumen.pdf",
+      "page": 621,
+      "pages": 621,
+      "pdfSha256": "70641edf5205b6c95633eaa43d56876c5e2779cfea647127420c450f82c335e3"
+    },
+    {
+      "kind": "book",
+      "file": "examples/rc11/book/long-table-off/dokumen.pdf",
+      "page": 1,
+      "pages": 590,
+      "pdfSha256": "ef83df61d29cc7d6a8d1146634154de5b7bdee99975512e96c3ed4c673f68438"
+    },
+    {
+      "kind": "book",
+      "file": "examples/rc11/book/long-table-off/dokumen.pdf",
+      "page": 296,
+      "pages": 590,
+      "pdfSha256": "ef83df61d29cc7d6a8d1146634154de5b7bdee99975512e96c3ed4c673f68438"
+    },
+    {
+      "kind": "book",
+      "file": "examples/rc11/book/long-table-off/dokumen.pdf",
+      "page": 590,
+      "pages": 590,
+      "pdfSha256": "ef83df61d29cc7d6a8d1146634154de5b7bdee99975512e96c3ed4c673f68438"
+    },
+    {
+      "kind": "book",
+      "file": "examples/rc11/book/paragraphs-off/dokumen.pdf",
+      "page": 1,
+      "pages": 628,
+      "pdfSha256": "0ccf9a7735ec4303417db061cb1f22fda47eb08be64942798d771238c58b65b1"
+    },
+    {
+      "kind": "book",
+      "file": "examples/rc11/book/paragraphs-off/dokumen.pdf",
+      "page": 315,
+      "pages": 628,
+      "pdfSha256": "0ccf9a7735ec4303417db061cb1f22fda47eb08be64942798d771238c58b65b1"
+    },
+    {
+      "kind": "book",
+      "file": "examples/rc11/book/paragraphs-off/dokumen.pdf",
+      "page": 628,
+      "pages": 628,
+      "pdfSha256": "0ccf9a7735ec4303417db061cb1f22fda47eb08be64942798d771238c58b65b1"
+    },
+    {
+      "kind": "book",
+      "file": "examples/rc11/book/paragraphs-on/dokumen.pdf",
+      "page": 1,
+      "pages": 628,
+      "pdfSha256": "f59fdccc9cf144379c544e52989ea8483765bc44296226a10b6e7a6a1a99e008"
+    },
+    {
+      "kind": "book",
+      "file": "examples/rc11/book/paragraphs-on/dokumen.pdf",
+      "page": 315,
+      "pages": 628,
+      "pdfSha256": "f59fdccc9cf144379c544e52989ea8483765bc44296226a10b6e7a6a1a99e008"
+    },
+    {
+      "kind": "book",
+      "file": "examples/rc11/book/paragraphs-on/dokumen.pdf",
+      "page": 628,
+      "pages": 628,
+      "pdfSha256": "f59fdccc9cf144379c544e52989ea8483765bc44296226a10b6e7a6a1a99e008"
+    },
+    {
+      "kind": "book",
+      "file": "examples/rc11/book/single-paragraph-off/dokumen.pdf",
+      "page": 1,
+      "pages": 600,
+      "pdfSha256": "aa7a41904a4740e030aeb58c3c6ca88ee8fe45a0b0995a4ab3d795d034e0f56d"
+    },
+    {
+      "kind": "book",
+      "file": "examples/rc11/book/single-paragraph-off/dokumen.pdf",
+      "page": 301,
+      "pages": 600,
+      "pdfSha256": "aa7a41904a4740e030aeb58c3c6ca88ee8fe45a0b0995a4ab3d795d034e0f56d"
+    },
+    {
+      "kind": "book",
+      "file": "examples/rc11/book/single-paragraph-off/dokumen.pdf",
+      "page": 600,
+      "pages": 600,
+      "pdfSha256": "aa7a41904a4740e030aeb58c3c6ca88ee8fe45a0b0995a4ab3d795d034e0f56d"
+    },
+    {
+      "kind": "private-book",
+      "file": "private-original-default",
+      "page": 1,
+      "pages": 1284,
+      "pdfSha256": "e6bd52443101d0fee9eea75661ae187b9bb66076b9b2e2c70d636741e23a8bb9"
+    },
+    {
+      "kind": "private-book",
+      "file": "private-original-default",
+      "page": 643,
+      "pages": 1284,
+      "pdfSha256": "e6bd52443101d0fee9eea75661ae187b9bb66076b9b2e2c70d636741e23a8bb9"
+    },
+    {
+      "kind": "private-book",
+      "file": "private-original-default",
+      "page": 1284,
+      "pages": 1284,
+      "pdfSha256": "e6bd52443101d0fee9eea75661ae187b9bb66076b9b2e2c70d636741e23a8bb9"
+    }
+  ]
+}

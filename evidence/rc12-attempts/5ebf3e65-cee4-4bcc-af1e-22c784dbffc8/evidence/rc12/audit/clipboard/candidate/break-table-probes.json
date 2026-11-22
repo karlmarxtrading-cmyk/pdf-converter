@@ -1,0 +1,1012 @@
+{
+  "method": "Fresh RC11 semantic DOM checks on synthetic input, no browser pagination. Controls isolate raw-inline literal break conversion and GFM table structure changes.",
+  "at": "2026-11-22T14:55:22.489Z",
+  "rows": [
+    {
+      "name": "plain-break-control",
+      "input": "<p>A<br>B</p>",
+      "markdown": "A\\\nB\n",
+      "conversionIssues": [],
+      "renderIssues": [],
+      "integrity": true,
+      "exportStatus": "pass",
+      "stats": {
+        "words": 2,
+        "tables": 0,
+        "math": 0,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "original": {
+        "breaks": 1,
+        "textWithoutFormula": "AB",
+        "paragraphs": [
+          "A<br>B"
+        ],
+        "cells": [],
+        "formulas": []
+      },
+      "render": {
+        "breaks": 1,
+        "textWithoutFormula": "A\nB",
+        "paragraphs": [
+          "A<br>\nB"
+        ],
+        "cells": [],
+        "formulas": []
+      },
+      "standalone": {
+        "breaks": 1,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA\nB\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br>\nB"
+        ],
+        "cells": [],
+        "formulas": []
+      },
+      "printPayload": {
+        "breaks": 1,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA\nB\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br>\nB"
+        ],
+        "cells": [],
+        "formulas": []
+      },
+      "book": {
+        "breaks": 1,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA\nB\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br>\nB"
+        ],
+        "cells": [],
+        "formulas": []
+      }
+    },
+    {
+      "name": "simple-math-break-control",
+      "input": "<p>A<br><span data-tex=\"x\">x</span><br>B</p>",
+      "markdown": "A\\\n$x$\\\nB\n",
+      "conversionIssues": [],
+      "renderIssues": [],
+      "integrity": true,
+      "exportStatus": "pass",
+      "stats": {
+        "words": 2,
+        "tables": 0,
+        "math": 1,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "original": {
+        "breaks": 2,
+        "textWithoutFormula": "AxB",
+        "paragraphs": [
+          "A<br><span data-tex=\"x\">x</span><br>B"
+        ],
+        "cells": [],
+        "formulas": []
+      },
+      "render": {
+        "breaks": 2,
+        "textWithoutFormula": "A\n[MATH]\nB",
+        "paragraphs": [
+          "A<br>\n<span class=\"pf-math pf-math-inline\" data-tex=\"x\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span></span><br>\nB"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            "x",
+            false
+          ]
+        ]
+      },
+      "standalone": {
+        "breaks": 2,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA\n[MATH]\nB\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br>\n<span class=\"pf-math pf-math-inline\" data-tex=\"x\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span></span><br>\nB"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            "x",
+            false
+          ]
+        ]
+      },
+      "printPayload": {
+        "breaks": 2,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA\n[MATH]\nB\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br>\n<span class=\"pf-math pf-math-inline\" data-tex=\"x\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span></span><br>\nB"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            "x",
+            false
+          ]
+        ]
+      },
+      "book": {
+        "breaks": 2,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA\n[MATH]\nB\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br>\n<span class=\"pf-math pf-math-inline\" data-tex=\"x\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span></span><br>\nB"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            "x",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "name": "space-math-break",
+      "input": "<p>A<br><span data-tex=\" x \">x</span><br>B</p>",
+      "markdown": "<p>A<br><code data-pf-formula=\"inline\"> x </code><br>B</p>\n",
+      "conversionIssues": [],
+      "renderIssues": [],
+      "integrity": true,
+      "exportStatus": "pass",
+      "stats": {
+        "words": 2,
+        "tables": 0,
+        "math": 1,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "original": {
+        "breaks": 2,
+        "textWithoutFormula": "AxB",
+        "paragraphs": [
+          "A<br><span data-tex=\" x \">x</span><br>B"
+        ],
+        "cells": [],
+        "formulas": []
+      },
+      "render": {
+        "breaks": 2,
+        "textWithoutFormula": "A[MATH]B",
+        "paragraphs": [
+          "A<br><span class=\"pf-math pf-math-inline\" data-tex=\" x \"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\"> x </annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span></span><br>B"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            " x ",
+            false
+          ]
+        ]
+      },
+      "standalone": {
+        "breaks": 2,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA[MATH]B\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br><span class=\"pf-math pf-math-inline\" data-tex=\" x \"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\"> x </annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span></span><br>B"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            " x ",
+            false
+          ]
+        ]
+      },
+      "printPayload": {
+        "breaks": 2,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA[MATH]B\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br><span class=\"pf-math pf-math-inline\" data-tex=\" x \"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\"> x </annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span></span><br>B"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            " x ",
+            false
+          ]
+        ]
+      },
+      "book": {
+        "breaks": 2,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA[MATH]B\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br><span class=\"pf-math pf-math-inline\" data-tex=\" x \"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\"> x </annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span></span><br>B"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            " x ",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "name": "backtick-math-break",
+      "input": "<p>A<br><span data-tex=\"`x`\">x</span><br>B</p>",
+      "markdown": "<p>A<br><code data-pf-formula=\"inline\">`x`</code><br>B</p>\n",
+      "conversionIssues": [],
+      "renderIssues": [],
+      "integrity": true,
+      "exportStatus": "pass",
+      "stats": {
+        "words": 2,
+        "tables": 0,
+        "math": 1,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "original": {
+        "breaks": 2,
+        "textWithoutFormula": "AxB",
+        "paragraphs": [
+          "A<br><span data-tex=\"`x`\">x</span><br>B"
+        ],
+        "cells": [],
+        "formulas": []
+      },
+      "render": {
+        "breaks": 2,
+        "textWithoutFormula": "A[MATH]B",
+        "paragraphs": [
+          "A<br><span class=\"pf-math pf-math-inline\" data-tex=\"`x`\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">‘</mi><mi>x</mi><mi mathvariant=\"normal\">‘</mi></mrow><annotation encoding=\"application/x-tex\">`x`</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6944em;\"></span><span class=\"mord\">‘</span><span class=\"mord mathnormal\">x</span><span class=\"mord\">‘</span></span></span></span></span><br>B"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            "`x`",
+            false
+          ]
+        ]
+      },
+      "standalone": {
+        "breaks": 2,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA[MATH]B\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br><span class=\"pf-math pf-math-inline\" data-tex=\"`x`\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">‘</mi><mi>x</mi><mi mathvariant=\"normal\">‘</mi></mrow><annotation encoding=\"application/x-tex\">`x`</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6944em;\"></span><span class=\"mord\">‘</span><span class=\"mord mathnormal\">x</span><span class=\"mord\">‘</span></span></span></span></span><br>B"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            "`x`",
+            false
+          ]
+        ]
+      },
+      "printPayload": {
+        "breaks": 2,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA[MATH]B\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br><span class=\"pf-math pf-math-inline\" data-tex=\"`x`\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">‘</mi><mi>x</mi><mi mathvariant=\"normal\">‘</mi></mrow><annotation encoding=\"application/x-tex\">`x`</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6944em;\"></span><span class=\"mord\">‘</span><span class=\"mord mathnormal\">x</span><span class=\"mord\">‘</span></span></span></span></span><br>B"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            "`x`",
+            false
+          ]
+        ]
+      },
+      "book": {
+        "breaks": 2,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA[MATH]B\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br><span class=\"pf-math pf-math-inline\" data-tex=\"`x`\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">‘</mi><mi>x</mi><mi mathvariant=\"normal\">‘</mi></mrow><annotation encoding=\"application/x-tex\">`x`</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6944em;\"></span><span class=\"mord\">‘</span><span class=\"mord mathnormal\">x</span><span class=\"mord\">‘</span></span></span></span></span><br>B"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            "`x`",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "name": "literal-math-break",
+      "input": "<p>A<br>\\(x\\)<br>B</p>",
+      "markdown": "<p>A<br><code data-pf-formula=\"inline\">x</code><br>B</p>\n",
+      "conversionIssues": [],
+      "renderIssues": [],
+      "integrity": true,
+      "exportStatus": "pass",
+      "stats": {
+        "words": 2,
+        "tables": 0,
+        "math": 1,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "original": {
+        "breaks": 2,
+        "textWithoutFormula": "A\\(x\\)B",
+        "paragraphs": [
+          "A<br>\\(x\\)<br>B"
+        ],
+        "cells": [],
+        "formulas": []
+      },
+      "render": {
+        "breaks": 2,
+        "textWithoutFormula": "A[MATH]B",
+        "paragraphs": [
+          "A<br><span class=\"pf-math pf-math-inline\" data-tex=\"x\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span></span><br>B"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            "x",
+            false
+          ]
+        ]
+      },
+      "standalone": {
+        "breaks": 2,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA[MATH]B\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br><span class=\"pf-math pf-math-inline\" data-tex=\"x\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span></span><br>B"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            "x",
+            false
+          ]
+        ]
+      },
+      "printPayload": {
+        "breaks": 2,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA[MATH]B\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br><span class=\"pf-math pf-math-inline\" data-tex=\"x\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span></span><br>B"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            "x",
+            false
+          ]
+        ]
+      },
+      "book": {
+        "breaks": 2,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA[MATH]B\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br><span class=\"pf-math pf-math-inline\" data-tex=\"x\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span></span><br>B"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            "x",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "name": "digit-after-break-control",
+      "input": "<p>A<br><span data-tex=\"x\">x</span>2</p>",
+      "markdown": "<p>A<br><code data-pf-formula=\"inline\">x</code>2</p>\n",
+      "conversionIssues": [],
+      "renderIssues": [],
+      "integrity": true,
+      "exportStatus": "pass",
+      "stats": {
+        "words": 2,
+        "tables": 0,
+        "math": 1,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "original": {
+        "breaks": 1,
+        "textWithoutFormula": "Ax2",
+        "paragraphs": [
+          "A<br><span data-tex=\"x\">x</span>2"
+        ],
+        "cells": [],
+        "formulas": []
+      },
+      "render": {
+        "breaks": 1,
+        "textWithoutFormula": "A[MATH]2",
+        "paragraphs": [
+          "A<br><span class=\"pf-math pf-math-inline\" data-tex=\"x\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span></span>2"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            "x",
+            false
+          ]
+        ]
+      },
+      "standalone": {
+        "breaks": 1,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA[MATH]2\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br><span class=\"pf-math pf-math-inline\" data-tex=\"x\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span></span>2"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            "x",
+            false
+          ]
+        ]
+      },
+      "printPayload": {
+        "breaks": 1,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA[MATH]2\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br><span class=\"pf-math pf-math-inline\" data-tex=\"x\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span></span>2"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            "x",
+            false
+          ]
+        ]
+      },
+      "book": {
+        "breaks": 1,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nA[MATH]2\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji",
+          "A<br><span class=\"pf-math pf-math-inline\" data-tex=\"x\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.4306em;\"></span><span class=\"mord mathnormal\">x</span></span></span></span></span>2"
+        ],
+        "cells": [],
+        "formulas": [
+          [
+            "x",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "name": "row-header",
+      "input": "<table><tr><th scope=\"row\">A</th><td>B</td></tr><tr><th scope=\"row\">C</th><td>D</td></tr></table>",
+      "markdown": "<table><tbody><tr><th scope=\"row\">A</th><td>B</td></tr><tr><th scope=\"row\">C</th><td>D</td></tr></tbody></table>\n",
+      "conversionIssues": [],
+      "renderIssues": [],
+      "integrity": true,
+      "exportStatus": "pass",
+      "stats": {
+        "words": 4,
+        "tables": 1,
+        "math": 0,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "original": {
+        "breaks": 0,
+        "textWithoutFormula": "ABCD",
+        "paragraphs": [],
+        "cells": [
+          [
+            "th",
+            "row",
+            "A"
+          ],
+          [
+            "td",
+            null,
+            "B"
+          ],
+          [
+            "th",
+            "row",
+            "C"
+          ],
+          [
+            "td",
+            null,
+            "D"
+          ]
+        ],
+        "formulas": []
+      },
+      "render": {
+        "breaks": 0,
+        "textWithoutFormula": "ABCD",
+        "paragraphs": [],
+        "cells": [
+          [
+            "th",
+            "row",
+            "A"
+          ],
+          [
+            "td",
+            null,
+            "B"
+          ],
+          [
+            "th",
+            "row",
+            "C"
+          ],
+          [
+            "td",
+            null,
+            "D"
+          ]
+        ],
+        "formulas": []
+      },
+      "standalone": {
+        "breaks": 0,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nABCD\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji"
+        ],
+        "cells": [
+          [
+            "th",
+            "row",
+            "A"
+          ],
+          [
+            "td",
+            null,
+            "B"
+          ],
+          [
+            "th",
+            "row",
+            "C"
+          ],
+          [
+            "td",
+            null,
+            "D"
+          ]
+        ],
+        "formulas": []
+      },
+      "printPayload": {
+        "breaks": 0,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nABCD\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji"
+        ],
+        "cells": [
+          [
+            "th",
+            "row",
+            "A"
+          ],
+          [
+            "td",
+            null,
+            "B"
+          ],
+          [
+            "th",
+            "row",
+            "C"
+          ],
+          [
+            "td",
+            null,
+            "D"
+          ]
+        ],
+        "formulas": []
+      },
+      "book": {
+        "breaks": 0,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nABCD\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji"
+        ],
+        "cells": [
+          [
+            "th",
+            "row",
+            "A"
+          ],
+          [
+            "td",
+            null,
+            "B"
+          ],
+          [
+            "th",
+            "row",
+            "C"
+          ],
+          [
+            "td",
+            null,
+            "D"
+          ]
+        ],
+        "formulas": []
+      }
+    },
+    {
+      "name": "no-header",
+      "input": "<table><tr><td>A</td><td>B</td></tr><tr><td>C</td><td>D</td></tr></table>",
+      "markdown": "<table><tbody><tr><td>A</td><td>B</td></tr><tr><td>C</td><td>D</td></tr></tbody></table>\n",
+      "conversionIssues": [],
+      "renderIssues": [],
+      "integrity": true,
+      "exportStatus": "pass",
+      "stats": {
+        "words": 4,
+        "tables": 1,
+        "math": 0,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "original": {
+        "breaks": 0,
+        "textWithoutFormula": "ABCD",
+        "paragraphs": [],
+        "cells": [
+          [
+            "td",
+            null,
+            "A"
+          ],
+          [
+            "td",
+            null,
+            "B"
+          ],
+          [
+            "td",
+            null,
+            "C"
+          ],
+          [
+            "td",
+            null,
+            "D"
+          ]
+        ],
+        "formulas": []
+      },
+      "render": {
+        "breaks": 0,
+        "textWithoutFormula": "ABCD",
+        "paragraphs": [],
+        "cells": [
+          [
+            "td",
+            null,
+            "A"
+          ],
+          [
+            "td",
+            null,
+            "B"
+          ],
+          [
+            "td",
+            null,
+            "C"
+          ],
+          [
+            "td",
+            null,
+            "D"
+          ]
+        ],
+        "formulas": []
+      },
+      "standalone": {
+        "breaks": 0,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nABCD\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji"
+        ],
+        "cells": [
+          [
+            "td",
+            null,
+            "A"
+          ],
+          [
+            "td",
+            null,
+            "B"
+          ],
+          [
+            "td",
+            null,
+            "C"
+          ],
+          [
+            "td",
+            null,
+            "D"
+          ]
+        ],
+        "formulas": []
+      },
+      "printPayload": {
+        "breaks": 0,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nABCD\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji"
+        ],
+        "cells": [
+          [
+            "td",
+            null,
+            "A"
+          ],
+          [
+            "td",
+            null,
+            "B"
+          ],
+          [
+            "td",
+            null,
+            "C"
+          ],
+          [
+            "td",
+            null,
+            "D"
+          ]
+        ],
+        "formulas": []
+      },
+      "book": {
+        "breaks": 0,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nABCD\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji"
+        ],
+        "cells": [
+          [
+            "td",
+            null,
+            "A"
+          ],
+          [
+            "td",
+            null,
+            "B"
+          ],
+          [
+            "td",
+            null,
+            "C"
+          ],
+          [
+            "td",
+            null,
+            "D"
+          ]
+        ],
+        "formulas": []
+      }
+    },
+    {
+      "name": "column-header-control",
+      "input": "<table><tr><th>A</th><th>B</th></tr><tr><td>C</td><td>D</td></tr></table>",
+      "markdown": "| A | B |\n| - | - |\n| C | D |\n",
+      "conversionIssues": [],
+      "renderIssues": [],
+      "integrity": true,
+      "exportStatus": "pass",
+      "stats": {
+        "words": 4,
+        "tables": 1,
+        "math": 0,
+        "images": 0,
+        "code": 0,
+        "mermaid": 0
+      },
+      "original": {
+        "breaks": 0,
+        "textWithoutFormula": "ABCD",
+        "paragraphs": [],
+        "cells": [
+          [
+            "th",
+            null,
+            "A"
+          ],
+          [
+            "th",
+            null,
+            "B"
+          ],
+          [
+            "td",
+            null,
+            "C"
+          ],
+          [
+            "td",
+            null,
+            "D"
+          ]
+        ],
+        "formulas": []
+      },
+      "render": {
+        "breaks": 0,
+        "textWithoutFormula": "ABCD",
+        "paragraphs": [],
+        "cells": [
+          [
+            "th",
+            null,
+            "A"
+          ],
+          [
+            "th",
+            null,
+            "B"
+          ],
+          [
+            "td",
+            null,
+            "C"
+          ],
+          [
+            "td",
+            null,
+            "D"
+          ]
+        ],
+        "formulas": []
+      },
+      "standalone": {
+        "breaks": 0,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nABCD\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji"
+        ],
+        "cells": [
+          [
+            "th",
+            null,
+            "A"
+          ],
+          [
+            "th",
+            null,
+            "B"
+          ],
+          [
+            "td",
+            null,
+            "C"
+          ],
+          [
+            "td",
+            null,
+            "D"
+          ]
+        ],
+        "formulas": []
+      },
+      "printPayload": {
+        "breaks": 0,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nABCD\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji"
+        ],
+        "cells": [
+          [
+            "th",
+            null,
+            "A"
+          ],
+          [
+            "th",
+            null,
+            "B"
+          ],
+          [
+            "td",
+            null,
+            "C"
+          ],
+          [
+            "td",
+            null,
+            "D"
+          ]
+        ],
+        "formulas": []
+      },
+      "book": {
+        "breaks": 0,
+        "textWithoutFormula": "\nDokumen UjiPenulis Uji\n\nABCD\n",
+        "paragraphs": [
+          "Dokumen Uji",
+          "Penulis Uji"
+        ],
+        "cells": [
+          [
+            "th",
+            null,
+            "A"
+          ],
+          [
+            "th",
+            null,
+            "B"
+          ],
+          [
+            "td",
+            null,
+            "C"
+          ],
+          [
+            "td",
+            null,
+            "D"
+          ]
+        ],
+        "formulas": []
+      }
+    }
+  ]
+}

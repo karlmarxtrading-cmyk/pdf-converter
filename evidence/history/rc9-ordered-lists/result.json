@@ -1,0 +1,44 @@
+{
+  "release": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.9",
+    "profile": "production",
+    "candidateSha256": "37277f20b922b1a6a9f734b0d69e96a61a8298a6d71aad24a86fd53731178bc9",
+    "distTreeSha256": "876bae95926bce4b4730864c66598f4192cf64c36c0ab02214dd9c3693656b0a",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "archiveSha256": "bf868821a19d0fd2bd1ef357b6ccf50d8b8ae8446ae37e01d701abee15fdf4d4",
+  "finding": "RC9-F06 inherited from RC8",
+  "source": "fixtures/rc10/ordered-markers.md",
+  "sourceSha256": "8301cea297d0e3891619a742e3779ab3be44032fe89ccb72cee9afe9dc063f7c",
+  "method": "Actual original RC9 dist. Real Control+C followed by Control+V, conversion diff, undo/redo and original clipboard review, then user-facing publish. PDF obtained from Chromium printing the receipt-matched flattened result in the raw-markup route.",
+  "standalone": {
+    "raw.html": {
+      "orderedLists": 46,
+      "typePresent": 46
+    },
+    "converted.html": {
+      "orderedLists": 46,
+      "typePresent": 0
+    },
+    "original-clipboard.html": {
+      "orderedLists": 46,
+      "typePresent": 46
+    }
+  },
+  "observedPdf": {
+    "expected": "iii. Charlie",
+    "actual": "i. Charlie"
+  },
+  "sha256": {
+    "raw.html": "29ba411668551bbc2cfc5caf5dd2346fd65fab8caaa5f282490bffe7881a241a",
+    "converted.html": "e02705c0d5e90257e3e2e6da5989cd252bd594515619b53ae1cad66fa58c7245",
+    "raw.pdf": "e38ac99907950832506aa79256f8fa371e567e02d14e059f5c5ff5019e1b20ed",
+    "raw-pdf.txt": "25fb336de76c61a87ba10176e5c1519520bcb90624fd50f3eb05749875c92706",
+    "original-clipboard.html": "c804c818cdc312b102f25dda49f9532938e754ae61e2746b079a6d0b732ffa5d"
+  }
+}

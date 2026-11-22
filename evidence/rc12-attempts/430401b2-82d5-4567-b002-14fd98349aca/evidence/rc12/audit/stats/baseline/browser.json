@@ -1,0 +1,32 @@
+{
+  "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+  "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496",
+  "method": "Production Chromium, actual editor input and publish dialog. The second edit is dispatched while the dialog is open.",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "initial": {
+    "editor": "Revision 1 · 28 words",
+    "summary": "Revisionrev 1 · 03255a43385bFormatBUS-01 · A4 PortraitContent28 words · 0 tables · 1 formulas · 0 images",
+    "snapshot": " · raw a78ff1dfa2 · rev 1",
+    "goDisabled": false
+  },
+  "pending": {
+    "editor": "Processing revision 2…",
+    "summary": "Revisionrev 1 · 03255a43385bFormatBUS-01 · A4 PortraitContent28 words · 0 tables · 1 formulas · 0 images",
+    "snapshot": " · raw a78ff1dfa2 · rev 1",
+    "goDisabled": false
+  },
+  "edited": {
+    "editor": "Revision 2 · 6 words",
+    "summary": "Revisionrev 1 · 03255a43385bFormatBUS-01 · A4 PortraitContent28 words · 0 tables · 1 formulas · 0 images",
+    "snapshot": " · raw f3a45cca1e · rev 2",
+    "goDisabled": false
+  },
+  "reopened": {
+    "editor": "Revision 2 · 6 words",
+    "summary": "Revisionrev 2 · 4a50724914beFormatBUS-01 · A4 PortraitContent6 words · 0 tables · 0 formulas · 0 images",
+    "snapshot": " · raw f3a45cca1e · rev 2",
+    "goDisabled": false
+  },
+  "pass": false,
+  "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /(?:Revision|Revisi) 1 · 4 (?:words|kata)/. Input:\n\n'Revision 1 · 28 words'\n"
+}

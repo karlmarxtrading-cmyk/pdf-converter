@@ -1,3 +1,3 @@
-# Penerimaan rilis
+# Penerimaan RC12
 
-Keputusan RC5 menggunakan [gate A–H](RELEASE_REPORT.md). Pemetaan ID ST-QA terhadap skenario browser ada di kolom `matrix` hasil E2E yang berjalan. [Matriks 62 ID RC4](history/rc4/ACCEPTANCE.md) mempertahankan jejak baseline.
+[Kontrak seluruh gerbang G01–G16 dan U01–U08](RELEASE_ACCEPTANCE.md). Status akhir, alasan dan lokasi bukti setiap gerbang tercatat dalam [ledger kandidat](../evidence/rc12/LEDGER.json). [Laporan rilis](RELEASE_REPORT.md) menyajikan simpulan untuk pemilik aplikasi.

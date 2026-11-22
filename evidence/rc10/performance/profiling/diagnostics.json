@@ -1,0 +1,154 @@
+{
+  "method": "Small diagnostic samples with RC6 fixture, actual refresh, standalone export and print payload, including output oracle. No production threshold decision is inferred from these timings. Stage instrumentation records cumulative DOM-method time and may overlap. Before is the original RC9 tree, after includes the production optimizations. The baseline and candidate were visited sequentially in each pilot, not in the official paired protocol. Original per-arm rows, including slow intervals, are retained.",
+  "node": "v24.22.3",
+  "rc6Source": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+  "rc9Source": "37277f20b922b1a6a9f734b0d69e96a61a8298a6d71aad24a86fd53731178bc9",
+  "measuredCandidateFiles": {
+    "src/core/sanitize.ts": "751019ce54a6bdec9de8c32cf0af257b5f2b1d365b5e765b3eb9acc3fd8904db",
+    "src/core/rendered-dom.ts": "8e878b07c20e67a3c7c1bf312ad47a20f04b38931cf34bfc426c93746013359f",
+    "src/render/document.ts": "e2ef88e554d7f3b710f866b93338f5b58d8dcd18f7c4b08b33139a2e88c11d58",
+    "src/render/exports.ts": "dff472311aa10bbf8f2c17f3a5c471f0ccb6c7b69f26f5ae145867c7779746fe",
+    "tests/unit/render/rc10-prepared-body.test.ts": "4c8ab8502e19e35cd6f109811157a4ce91a5bf7e18408ff1219c451352c15e65"
+  },
+  "fixtureSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+  "referenceSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+  "diagnosticRowsEquivalent": true,
+  "retainedSamples": {
+    "before.json": "91bf5adc2eeb427e56ea6cf25640df0e4161d1d34bed04ba27a8e93a4c823c3e",
+    "after.json": "9a2d4ca96d9e4e0dee622474c44c516f21af17a272a1db4d8686864ba6c587e7",
+    "stages.json": "91ea6e4e5a5e379eb1e707775fa59924179f46e4f57fc83e970650a422c31c89",
+    "stages-after.json": "125d02e5e775f0fe4413c71b467e5100fdf3bc9d2277bd3b9ac993ed5267c19b",
+    "restore.json": "bdc1867add756dd7808d96a445f4d772b8781fd14e68bf05e0ae84d4579c6985",
+    "clone.log": "53a0ebc39d54a3a9e39c0a3136b6515bdacd035bd169223ff6aed8ec8dc30d80",
+    "unit.log": "4feaf7a6bdcf257c7ca7c4c7d6376bbd703983b4cc2f5e888e333aed6d3b004c",
+    "pilot.mjs": "3669fd2ec9a86384afadfe996628783b275bdf592705e2fcf545d1e677b12a58",
+    "stage.mjs": "eb380b4431604f665a016056b7ccd09b13ededd9a8042ec994d7003b4013b12f",
+    "clone.mjs": "423def3f57a3a4072064a8b6ca85e97620055bc2a3f9e20282257fc033be9a36",
+    "empty-diagnostic.json": "111a65ffa44dd6df0190e274dce68eb2aa4815331db0613beabe9d91d98e1946",
+    "empty.mjs": "fa6145dbd39c35163490a20c88d8ffce1c9b7611e27266c11ca60c00a1353b3d",
+    "browser-profile.json": "62b1bf4a69f5134948d73c10f899cf15287860dd24a5da85f34f7d900072e1df",
+    "browser-profile.mjs": "58df9abf40fa0fb69f1f320bd04d116928dc90cac599ba4f7726351c156bb876",
+    "small-edit-diagnostic.json": "a3ff389b8e6c21f84bf7c743c7baf0fedbbb115dd78c21884411039458608679",
+    "pair-diagnostic.mjs": "56e70cc912be0ab4e860dfbc6b4e2a0b1b087aee4483e222899c6987cf6ec3dd",
+    "rc9-historical-recount.json": "9182ad82baf2d20cb11f841cf12d24eaf45facffd321b966103a4e483a43946d"
+  },
+  "emptyDiagnostic": {
+    "pairs": 20,
+    "allOracleDigestsSame": true,
+    "medianMs": {
+      "rc6": 8.792780499999935,
+      "rc10": 5.650010500000235
+    },
+    "nearestRankP95ms": {
+      "rc6": 11.500388999999814,
+      "rc10": 10.975648999999976
+    }
+  },
+  "browserDiagnostic": {
+    "captureCount": 6,
+    "allOracleDigestsSame": true,
+    "timings": [
+      {
+        "name": "rc6",
+        "round": 0,
+        "times": {
+          "emptyReadyMs": 415.30000000074506,
+          "previewMs": 915.3999999985099,
+          "htmlExportMs": 212.39999999850988,
+          "pageReadyMs": 4422.39999999851
+        }
+      },
+      {
+        "name": "rc9",
+        "round": 0,
+        "times": {
+          "emptyReadyMs": 304.80000000074506,
+          "previewMs": 1040.300000000745,
+          "htmlExportMs": 149.30000000074506,
+          "pageReadyMs": 3741.10000000149
+        }
+      },
+      {
+        "name": "rc10",
+        "round": 0,
+        "times": {
+          "emptyReadyMs": 296.4000000022352,
+          "previewMs": 1211.699999999255,
+          "htmlExportMs": 210.89999999850988,
+          "pageReadyMs": 3811.60000000149
+        }
+      },
+      {
+        "name": "rc10",
+        "round": 1,
+        "times": {
+          "emptyReadyMs": 195.19999999925494,
+          "previewMs": 879.5,
+          "htmlExportMs": 150.10000000149012,
+          "pageReadyMs": 3213.800000000745
+        }
+      },
+      {
+        "name": "rc9",
+        "round": 1,
+        "times": {
+          "emptyReadyMs": 176.70000000298023,
+          "previewMs": 1087.9000000022352,
+          "htmlExportMs": 200.59999999776483,
+          "pageReadyMs": 3339.699999999255
+        }
+      },
+      {
+        "name": "rc6",
+        "round": 1,
+        "times": {
+          "emptyReadyMs": 210.80000000074506,
+          "previewMs": 1159.199999999255,
+          "htmlExportMs": 181.59999999776483,
+          "pageReadyMs": 3273.199999999255
+        }
+      }
+    ]
+  },
+  "smallEditDiagnostic": {
+    "allOracleDigestsSame": true,
+    "metrics": {
+      "editedRefreshMs": {
+        "rc6": {
+          "n": 20,
+          "medianMs": 12.491891499999838,
+          "nearestRankP95ms": 16.859354000000167
+        },
+        "rc10": {
+          "n": 20,
+          "medianMs": 9.884235499999704,
+          "nearestRankP95ms": 14.260777999999846
+        }
+      },
+      "htmlExportMs": {
+        "rc6": {
+          "n": 20,
+          "medianMs": 25.479037000000062,
+          "nearestRankP95ms": 30.23348000000078
+        },
+        "rc10": {
+          "n": 20,
+          "medianMs": 13.94939549999981,
+          "nearestRankP95ms": 18.780504000000292
+        }
+      },
+      "printPayloadMs": {
+        "rc6": {
+          "n": 20,
+          "medianMs": 6.2714484999996785,
+          "nearestRankP95ms": 7.359846999999718
+        },
+        "rc10": {
+          "n": 20,
+          "medianMs": 4.085149999999885,
+          "nearestRankP95ms": 4.694414999999935
+        }
+      }
+    }
+  }
+}

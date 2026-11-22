@@ -1,0 +1,208 @@
+{
+  "build": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.12",
+    "profile": "production",
+    "candidateSha256": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+    "distTreeSha256": "573c87801f272ccc24222db5bbe2339cba495488bc34c095caa2b39e2eacc347",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "method": "Bundled candidate print-client.ts, real browser messages and timers, controlled responders. Full Paged.js jobs and real UI cancellation are separate evidence.",
+  "rows": [
+    {
+      "kind": "no-ready",
+      "code": "FRAME_STARTUP_TIMEOUT",
+      "progress": [],
+      "elapsedMs": 503,
+      "remainingFrames": 0,
+      "pass": true
+    },
+    {
+      "kind": "repeat",
+      "code": "FRAME_STALLED",
+      "progress": [
+        {
+          "phase": "paginate",
+          "pages": 7,
+          "at": 76
+        }
+      ],
+      "elapsedMs": 482,
+      "remainingFrames": 0,
+      "pass": true
+    },
+    {
+      "kind": "total",
+      "code": "FRAME_DEADLINE",
+      "progress": [
+        {
+          "phase": "paginate",
+          "pages": 1,
+          "at": 79
+        },
+        {
+          "phase": "paginate",
+          "pages": 2,
+          "at": 144
+        },
+        {
+          "phase": "paginate",
+          "pages": 3,
+          "at": 209
+        },
+        {
+          "phase": "paginate",
+          "pages": 4,
+          "at": 274
+        },
+        {
+          "phase": "paginate",
+          "pages": 5,
+          "at": 339
+        },
+        {
+          "phase": "paginate",
+          "pages": 6,
+          "at": 404
+        },
+        {
+          "phase": "paginate",
+          "pages": 7,
+          "at": 469
+        },
+        {
+          "phase": "paginate",
+          "pages": 8,
+          "at": 534
+        },
+        {
+          "phase": "paginate",
+          "pages": 9,
+          "at": 599
+        },
+        {
+          "phase": "paginate",
+          "pages": 10,
+          "at": 666
+        },
+        {
+          "phase": "paginate",
+          "pages": 11,
+          "at": 729
+        },
+        {
+          "phase": "paginate",
+          "pages": 12,
+          "at": 794
+        },
+        {
+          "phase": "paginate",
+          "pages": 13,
+          "at": 859
+        },
+        {
+          "phase": "paginate",
+          "pages": 14,
+          "at": 924
+        }
+      ],
+      "elapsedMs": 951,
+      "remainingFrames": 0,
+      "pass": true
+    },
+    {
+      "kind": "stale",
+      "result": "official",
+      "progress": [],
+      "elapsedMs": 259,
+      "remainingFrames": 0,
+      "pass": true
+    },
+    {
+      "kind": "near",
+      "result": "official",
+      "progress": [
+        {
+          "phase": "paginate",
+          "pages": 1,
+          "at": 121
+        },
+        {
+          "phase": "paginate",
+          "pages": 2,
+          "at": 231
+        },
+        {
+          "phase": "paginate",
+          "pages": 3,
+          "at": 341
+        },
+        {
+          "phase": "paginate",
+          "pages": 4,
+          "at": 451
+        },
+        {
+          "phase": "paginate",
+          "pages": 5,
+          "at": 561
+        },
+        {
+          "phase": "paginate",
+          "pages": 6,
+          "at": 671
+        },
+        {
+          "phase": "paginate",
+          "pages": 7,
+          "at": 781
+        },
+        {
+          "phase": "paginate",
+          "pages": 8,
+          "at": 901
+        },
+        {
+          "phase": "paginate",
+          "pages": 9,
+          "at": 1002
+        },
+        {
+          "phase": "paginate",
+          "pages": 10,
+          "at": 1112
+        },
+        {
+          "phase": "paginate",
+          "pages": 11,
+          "at": 1221
+        }
+      ],
+      "elapsedMs": 1316,
+      "remainingFrames": 0,
+      "pass": true
+    }
+  ],
+  "visibilityProtocol": "Controlled CDP freeze/resume and focus emulation, not a native OS switch",
+  "backgroundOutcome": "official",
+  "visibility": [
+    {
+      "state": "visible",
+      "ms": 3565.9000000003725
+    },
+    {
+      "state": "hidden",
+      "ms": 3604
+    },
+    {
+      "state": "visible",
+      "ms": 4005.7000000011176
+    }
+  ],
+  "pass": true
+}

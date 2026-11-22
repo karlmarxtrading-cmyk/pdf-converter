@@ -1,0 +1,78 @@
+{
+  "purpose": "Exploratory unmatched Node profiling of the evolving source before the final acceptance window. Used to direct the integrity memo and font projection optimization. These timings are excluded from G09. Three sequential turns per arm, no candidate identity guarantee.",
+  "runs": [
+    {
+      "arm": "rc6",
+      "round": 0,
+      "ms": {
+        "refreshMs": 1578.5642799999996,
+        "parseAndRenderMs": 186.2387450000001,
+        "integrityModelMs": 48.83308699999998,
+        "htmlExportMs": 1081.1153760000007,
+        "printPayloadMs": 988.2318169999999
+      }
+    },
+    {
+      "arm": "rc6",
+      "round": 1,
+      "ms": {
+        "refreshMs": 1465.5453199999993,
+        "parseAndRenderMs": 105.40969300000052,
+        "integrityModelMs": 32.98880800000006,
+        "htmlExportMs": 1132.858599000001,
+        "printPayloadMs": 931.3617649999997
+      }
+    },
+    {
+      "arm": "rc6",
+      "round": 2,
+      "ms": {
+        "refreshMs": 1361.4133709999987,
+        "parseAndRenderMs": 89.27340399999957,
+        "integrityModelMs": 36.03277600000001,
+        "htmlExportMs": 1025.424192999999,
+        "printPayloadMs": 503.6277020000016
+      }
+    },
+    {
+      "arm": "candidate",
+      "round": 0,
+      "ms": {
+        "refreshMs": 1980.3526750000005,
+        "parseAndRenderMs": 238.08415999999988,
+        "integrityModelMs": 58.189682000000175,
+        "htmlExportMs": 1580.5683259999996,
+        "printPayloadMs": 839.8164790000001
+      }
+    },
+    {
+      "arm": "candidate",
+      "round": 1,
+      "ms": {
+        "refreshMs": 1724.5412850000012,
+        "parseAndRenderMs": 127.48236899999938,
+        "integrityModelMs": 52.006272000000536,
+        "htmlExportMs": 1894.0484080000006,
+        "printPayloadMs": 1209.3436419999998
+      }
+    },
+    {
+      "arm": "candidate",
+      "round": 2,
+      "ms": {
+        "refreshMs": 1333.2887500000015,
+        "parseAndRenderMs": 116.62555000000066,
+        "integrityModelMs": 51.71708199999921,
+        "htmlExportMs": 1647.7142359999998,
+        "printPayloadMs": 926.326648000002
+      }
+    }
+  ],
+  "observedHotspots": [
+    "parse and render",
+    "integrity model",
+    "HTML final preparation and verification",
+    "print payload preparation"
+  ],
+  "optimization": "Reused the disposable transformation DOM to obtain visible font text including KaTeX fallbacks and labels, avoiding an additional full parse; fallback path for standalone font-plan calls remains available."
+}

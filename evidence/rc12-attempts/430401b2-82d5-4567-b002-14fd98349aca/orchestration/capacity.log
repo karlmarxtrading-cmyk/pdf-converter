@@ -1,0 +1,5 @@
++ ["node", "scripts/acceptance.mjs", "observe", "capacity-1", "--out", "evidence/rc12/performance/capacity.json", "--", "node", "tests/e2e/perf-matrix.mjs", "--acceptance", "--sizes", "6,30,118", "--reps", "5"]
+Measuring capacity-1; command log: evidence/rc12/acceptance/observations/capacity-1.log
++ ["node", "scripts/acceptance.mjs", "record", "G10", "PASS", "evidence/rc12/acceptance/facts/G10.json"]
+{"id":"G10","status":"PASS","facts":"evidence/rc12/acceptance/facts/G10.json","observations":["capacity-1"]}
+{"section": "capacity", "unsuccessfulCommands": []}

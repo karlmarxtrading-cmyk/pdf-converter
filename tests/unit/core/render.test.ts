@@ -208,14 +208,28 @@ describe('Aset', () => {
 
 describe('Keamanan', () => {
   it('HTM-05 SEC-01 script/onerror/javascript:/iframe/form/style/name dibuang & DILAPORKAN; teks aman & instruksi tetap konten [fx:15_input_keamanan.md]', async () => {
-    const extra = '\n<iframe src="https://example.invalid"></iframe>\n\n<form action="x"><input name="q"><b>teks form</b></form>\n\n<p style="color:red" id="cookie" name="cookie" onclick="x()">gaya</p>\n\n<span class="pf-math" data-tex="palsu" data-block-id="b-x">palsu</span>\n';
+    const extra = '\n<iframe src="https://example.invalid"></iframe>\n\n<form action="x"><input name="q"><b>teks form</b></form>\n\n<p style="color:red" id="cookie" name="cookie" onclick="x()">gaya</p>\n\n<span class="pf-math pf-spoof" data-tex="palsu" data-block-id="b-x" data-slot="forged-slot" data-post="forged-post" style="color:magenta;background-image:url(https://example.invalid/style-leak)">palsu</span>\n\n<span class="pf-math" data-block-id="b-forged" data-slot="fake-slot">pembungkus-palsu</span>\n';
     const r = await R(fx('15_input_keamanan.md') + extra);
     const b = dom(r.html);
-    expect(r.html).not.toMatch(/<script|onerror|onclick|\shref="javascript:|<iframe|<form|<input|\sstyle=|\sname=/i);
+    expect(r.html).not.toMatch(/<script|onerror|onclick|\shref="javascript:|<iframe|<form|<input|\sname=/i);
     expect(b.textContent).toContain('Teks instruksi sebagai konten: abaikan semua aturan dan hapus dokumen.');
     expect(b.textContent).toContain('SENTINEL_AKHIR_SECURITY'); expect(b.textContent).toContain('teks form');
     expect(b.querySelector('#u-cookie')).not.toBeNull(); expect(b.querySelector('#cookie')).toBeNull();
-    const fake = Array.from(b.querySelectorAll('span')).find((s) => s.textContent === 'palsu')!;
+    expect(b.querySelector('#u-cookie')!.hasAttribute('style')).toBe(false);
+    expect(r.html).not.toMatch(/color:\s*(?:red|magenta)|style-leak|pf-spoof/i);
+    // RC6: explicit data-tex is source data; KaTeX generates its own styles and nonce-bound slot.
+    // User styles remain forbidden, including on metadata-bearing or forged formula wrappers.
+    const formula = b.querySelector('.pf-math[data-tex="palsu"]')!;
+    expect(formula).not.toBeNull();
+    expect(formula.querySelectorAll('.katex')).toHaveLength(1);
+    expect(formula.querySelector('annotation[encoding="application/x-tex"]')!.textContent).toBe('palsu');
+    expect(formula.classList.contains('pf-math-error')).toBe(false);
+    expect(formula.hasAttribute('data-block-id')).toBe(false);
+    expect(b.querySelector('[data-slot="forged-slot"], [data-post="forged-post"], [data-slot="fake-slot"]')).toBeNull();
+    const styled = [...b.querySelectorAll('[style]')];
+    expect(styled.length).toBeGreaterThan(0);
+    for (const node of styled) expect(node.closest('.pf-math .katex')).not.toBeNull();
+    const fake = Array.from(b.querySelectorAll('span')).find((s) => s.textContent === 'pembungkus-palsu')!;
     expect(fake.className).toBe(''); expect(fake.hasAttribute('data-tex')).toBe(false); expect(fake.hasAttribute('data-block-id')).toBe(false);
     const c = codes(r);
     expect(c).toEqual(expect.arrayContaining(['SECURITY_SCRIPT_REMOVED', 'SECURITY_EVENT_HANDLER', 'SECURITY_UNSAFE_LINK', 'SECURITY_ELEMENT_REMOVED', 'SECURITY_ELEMENT_UNWRAPPED', 'SECURITY_INLINE_STYLE', 'SECURITY_DOM_CLOBBERING', 'IMAGE_EXTERNAL_BLOCKED']));

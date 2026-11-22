@@ -1,0 +1,660 @@
+{
+  "tool": "tests/e2e/perf-matrix.mjs",
+  "candidateSha256": "fed74962c5c0f7df7a478e91e30bf53111c7db458009b06ac955e03b5b6b5f5b",
+  "distQaTreeSha256": "8a4e31dac0fb0afa48b099cd1e48a984bc1ffdb0d683839298fdf636f1662e3f",
+  "at": "2026-11-21T19:56:06.510Z",
+  "browser": "Chrome headless (lihat evidence/toolchain.txt)",
+  "env": "Kontainer Linux, CPU bersama; bukan perangkat referensi. Angka untuk perbandingan relatif antar-kandidat.",
+  "baselineRc1": {
+    "sections": 115,
+    "pages": 196,
+    "layoutWallMs": 9256,
+    "previewMs": 2942,
+    "mainThreadLongestTaskMs": 888,
+    "source": "evidence RC1 stress-115.json + profil awal sesi ini"
+  },
+  "rows": [
+    {
+      "sections": 6,
+      "pages": 12,
+      "reps": 1,
+      "allVerified": true,
+      "failures": [],
+      "summary": {
+        "previewMs": {
+          "n": 1,
+          "median": 541,
+          "min": 541,
+          "max": 541
+        },
+        "workerParseRenderMs": {
+          "n": 1,
+          "median": 68,
+          "min": 68,
+          "max": 68
+        },
+        "workerCharsMs": {
+          "n": 1,
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "workerIntegrityModelMs": {
+          "n": 1,
+          "median": 30,
+          "min": 30,
+          "max": 30
+        },
+        "workerReferencesMs": {
+          "n": 1,
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "analyzeWallMs": {
+          "n": 1,
+          "median": 104,
+          "min": 104,
+          "max": 104
+        },
+        "mainFinishMs": {
+          "n": 1,
+          "median": 27,
+          "min": 27,
+          "max": 27
+        },
+        "mainIntegrityMs": {
+          "n": 1,
+          "median": 9,
+          "min": 9,
+          "max": 9
+        },
+        "composeMs": {
+          "n": 1,
+          "median": 40,
+          "min": 40,
+          "max": 40
+        },
+        "layoutWallMs": {
+          "n": 1,
+          "median": 1074,
+          "min": 1074,
+          "max": 1074
+        },
+        "paginatePassesMs": {
+          "n": 1,
+          "median": 460,
+          "min": 460,
+          "max": 460
+        },
+        "contentVerifyMs": {
+          "n": 1,
+          "median": 145,
+          "min": 145,
+          "max": 145
+        },
+        "flattenMs": {
+          "n": 1,
+          "median": 5,
+          "min": 5,
+          "max": 5
+        },
+        "printReadyMs": {
+          "n": 1,
+          "median": 1615,
+          "min": 1615,
+          "max": 1615
+        },
+        "pdfExportMs": {
+          "n": 1,
+          "median": 832,
+          "min": 832,
+          "max": 832
+        },
+        "pdfBytes": {
+          "n": 1,
+          "median": 104050,
+          "min": 104050,
+          "max": 104050
+        },
+        "reeditPreviewMs": {
+          "n": 1,
+          "median": 566,
+          "min": 566,
+          "max": 566
+        },
+        "peakJsHeapMiB": {
+          "n": 1,
+          "median": 10,
+          "min": 10,
+          "max": 10
+        },
+        "heapAfterGcMiB": {
+          "n": 1,
+          "median": 8.8,
+          "min": 8.8,
+          "max": 8.8
+        },
+        "maxEventLoopGapMs": {
+          "preview": {
+            "n": 1,
+            "median": 60,
+            "min": 60,
+            "max": 60
+          },
+          "layout": {
+            "n": 1,
+            "median": 131,
+            "min": 131,
+            "max": 131
+          },
+          "reedit": {
+            "n": 1,
+            "median": 190,
+            "min": 190,
+            "max": 190
+          }
+        },
+        "longTaskMaxMs": {
+          "preview": {
+            "n": 1,
+            "median": 50,
+            "min": 50,
+            "max": 50
+          },
+          "layout": {
+            "n": 1,
+            "median": 102,
+            "min": 102,
+            "max": 102
+          }
+        }
+      },
+      "cancel": {
+        "ms": 54,
+        "outcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
+        "sessionLeft": null
+      },
+      "runs": [
+        {
+          "sections": 6,
+          "rep": 1,
+          "sourceBytes": 29096,
+          "previewMs": 541,
+          "workerParseRenderMs": 68,
+          "workerCharsMs": 1,
+          "workerIntegrityModelMs": 30,
+          "workerReferencesMs": 0,
+          "analyzeWallMs": 104,
+          "mainFinishMs": 27,
+          "mainIntegrityMs": 9,
+          "composeMs": 40,
+          "layoutWallMs": 1074,
+          "printReadyMs": 1615,
+          "layoutStatus": "done",
+          "pages": 12,
+          "verification": "pass",
+          "blocking": [],
+          "paginatePassesMs": 460,
+          "contentVerifyMs": 145,
+          "flattenMs": 5,
+          "layoutTotalMs": 696,
+          "forcedBreaks": 0,
+          "pdfExportMs": 832,
+          "pdfBytes": 104050,
+          "reeditPreviewMs": 566,
+          "cancelToIdleMs": 54,
+          "cancelOutcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
+          "printSessionAfterCancel": null,
+          "heapAfterGcMiB": 8.8,
+          "peakJsHeapMiB": 10,
+          "maxEventLoopGapMs": {
+            "preview": 60,
+            "layout": 131,
+            "reedit": 190
+          },
+          "longTasks": {
+            "preview": {
+              "count": 1,
+              "maxMs": 50
+            },
+            "layout": {
+              "count": 2,
+              "maxMs": 102
+            }
+          },
+          "engineMode": "worker",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "sections": 30,
+      "pages": 52,
+      "reps": 1,
+      "allVerified": true,
+      "failures": [],
+      "summary": {
+        "previewMs": {
+          "n": 1,
+          "median": 1624,
+          "min": 1624,
+          "max": 1624
+        },
+        "workerParseRenderMs": {
+          "n": 1,
+          "median": 388,
+          "min": 388,
+          "max": 388
+        },
+        "workerCharsMs": {
+          "n": 1,
+          "median": 9,
+          "min": 9,
+          "max": 9
+        },
+        "workerIntegrityModelMs": {
+          "n": 1,
+          "median": 161,
+          "min": 161,
+          "max": 161
+        },
+        "workerReferencesMs": {
+          "n": 1,
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "analyzeWallMs": {
+          "n": 1,
+          "median": 582,
+          "min": 582,
+          "max": 582
+        },
+        "mainFinishMs": {
+          "n": 1,
+          "median": 105,
+          "min": 105,
+          "max": 105
+        },
+        "mainIntegrityMs": {
+          "n": 1,
+          "median": 66,
+          "min": 66,
+          "max": 66
+        },
+        "composeMs": {
+          "n": 1,
+          "median": 84,
+          "min": 84,
+          "max": 84
+        },
+        "layoutWallMs": {
+          "n": 1,
+          "median": 2723,
+          "min": 2723,
+          "max": 2723
+        },
+        "paginatePassesMs": {
+          "n": 1,
+          "median": 2017,
+          "min": 2017,
+          "max": 2017
+        },
+        "contentVerifyMs": {
+          "n": 1,
+          "median": 207,
+          "min": 207,
+          "max": 207
+        },
+        "flattenMs": {
+          "n": 1,
+          "median": 11,
+          "min": 11,
+          "max": 11
+        },
+        "printReadyMs": {
+          "n": 1,
+          "median": 4347,
+          "min": 4347,
+          "max": 4347
+        },
+        "pdfExportMs": {
+          "n": 1,
+          "median": 1210,
+          "min": 1210,
+          "max": 1210
+        },
+        "pdfBytes": {
+          "n": 1,
+          "median": 438941,
+          "min": 438941,
+          "max": 438941
+        },
+        "reeditPreviewMs": {
+          "n": 1,
+          "median": 1379,
+          "min": 1379,
+          "max": 1379
+        },
+        "peakJsHeapMiB": {
+          "n": 1,
+          "median": 10,
+          "min": 10,
+          "max": 10
+        },
+        "heapAfterGcMiB": {
+          "n": 1,
+          "median": 9.6,
+          "min": 9.6,
+          "max": 9.6
+        },
+        "maxEventLoopGapMs": {
+          "preview": {
+            "n": 1,
+            "median": 251,
+            "min": 251,
+            "max": 251
+          },
+          "layout": {
+            "n": 1,
+            "median": 335,
+            "min": 335,
+            "max": 335
+          },
+          "reedit": {
+            "n": 1,
+            "median": 353,
+            "min": 353,
+            "max": 353
+          }
+        },
+        "longTaskMaxMs": {
+          "preview": {
+            "n": 1,
+            "median": 220,
+            "min": 220,
+            "max": 220
+          },
+          "layout": {
+            "n": 1,
+            "median": 176,
+            "min": 176,
+            "max": 176
+          }
+        }
+      },
+      "cancel": {
+        "ms": 81,
+        "outcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
+        "sessionLeft": null
+      },
+      "runs": [
+        {
+          "sections": 30,
+          "rep": 1,
+          "sourceBytes": 145136,
+          "previewMs": 1624,
+          "workerParseRenderMs": 388,
+          "workerCharsMs": 9,
+          "workerIntegrityModelMs": 161,
+          "workerReferencesMs": 1,
+          "analyzeWallMs": 582,
+          "mainFinishMs": 105,
+          "mainIntegrityMs": 66,
+          "composeMs": 84,
+          "layoutWallMs": 2723,
+          "printReadyMs": 4347,
+          "layoutStatus": "done",
+          "pages": 52,
+          "verification": "pass",
+          "blocking": [],
+          "paginatePassesMs": 2017,
+          "contentVerifyMs": 207,
+          "flattenMs": 11,
+          "layoutTotalMs": 2436,
+          "forcedBreaks": 0,
+          "pdfExportMs": 1210,
+          "pdfBytes": 438941,
+          "reeditPreviewMs": 1379,
+          "cancelToIdleMs": 81,
+          "cancelOutcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
+          "printSessionAfterCancel": null,
+          "heapAfterGcMiB": 9.6,
+          "peakJsHeapMiB": 10,
+          "maxEventLoopGapMs": {
+            "preview": 251,
+            "layout": 335,
+            "reedit": 353
+          },
+          "longTasks": {
+            "preview": {
+              "count": 1,
+              "maxMs": 220
+            },
+            "layout": {
+              "count": 7,
+              "maxMs": 176
+            }
+          },
+          "engineMode": "worker",
+          "errors": []
+        }
+      ]
+    },
+    {
+      "sections": 118,
+      "pages": 201,
+      "reps": 1,
+      "allVerified": true,
+      "failures": [],
+      "summary": {
+        "previewMs": {
+          "n": 1,
+          "median": 2496,
+          "min": 2496,
+          "max": 2496
+        },
+        "workerParseRenderMs": {
+          "n": 1,
+          "median": 462,
+          "min": 462,
+          "max": 462
+        },
+        "workerCharsMs": {
+          "n": 1,
+          "median": 3,
+          "min": 3,
+          "max": 3
+        },
+        "workerIntegrityModelMs": {
+          "n": 1,
+          "median": 271,
+          "min": 271,
+          "max": 271
+        },
+        "workerReferencesMs": {
+          "n": 1,
+          "median": 1,
+          "min": 1,
+          "max": 1
+        },
+        "analyzeWallMs": {
+          "n": 1,
+          "median": 761,
+          "min": 761,
+          "max": 761
+        },
+        "mainFinishMs": {
+          "n": 1,
+          "median": 64,
+          "min": 64,
+          "max": 64
+        },
+        "mainIntegrityMs": {
+          "n": 1,
+          "median": 53,
+          "min": 53,
+          "max": 53
+        },
+        "composeMs": {
+          "n": 1,
+          "median": 80,
+          "min": 80,
+          "max": 80
+        },
+        "layoutWallMs": {
+          "n": 1,
+          "median": 15688,
+          "min": 15688,
+          "max": 15688
+        },
+        "paginatePassesMs": {
+          "n": 1,
+          "median": 13154,
+          "min": 13154,
+          "max": 13154
+        },
+        "contentVerifyMs": {
+          "n": 1,
+          "median": 679,
+          "min": 679,
+          "max": 679
+        },
+        "flattenMs": {
+          "n": 1,
+          "median": 75,
+          "min": 75,
+          "max": 75
+        },
+        "printReadyMs": {
+          "n": 1,
+          "median": 18184,
+          "min": 18184,
+          "max": 18184
+        },
+        "pdfExportMs": {
+          "n": 1,
+          "median": 3982,
+          "min": 3982,
+          "max": 3982
+        },
+        "pdfBytes": {
+          "n": 1,
+          "median": 1683127,
+          "min": 1683127,
+          "max": 1683127
+        },
+        "reeditPreviewMs": {
+          "n": 1,
+          "median": 3719,
+          "min": 3719,
+          "max": 3719
+        },
+        "peakJsHeapMiB": {
+          "n": 1,
+          "median": 10,
+          "min": 10,
+          "max": 10
+        },
+        "heapAfterGcMiB": {
+          "n": 1,
+          "median": 11.6,
+          "min": 11.6,
+          "max": 11.6
+        },
+        "maxEventLoopGapMs": {
+          "preview": {
+            "n": 1,
+            "median": 258,
+            "min": 258,
+            "max": 258
+          },
+          "layout": {
+            "n": 1,
+            "median": 1117,
+            "min": 1117,
+            "max": 1117
+          },
+          "reedit": {
+            "n": 1,
+            "median": 1133,
+            "min": 1133,
+            "max": 1133
+          }
+        },
+        "longTaskMaxMs": {
+          "preview": {
+            "n": 1,
+            "median": 173,
+            "min": 173,
+            "max": 173
+          },
+          "layout": {
+            "n": 1,
+            "median": 1092,
+            "min": 1092,
+            "max": 1092
+          }
+        }
+      },
+      "cancel": {
+        "ms": 55,
+        "outcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
+        "sessionLeft": null
+      },
+      "runs": [
+        {
+          "sections": 118,
+          "rep": 1,
+          "sourceBytes": 570616,
+          "previewMs": 2496,
+          "workerParseRenderMs": 462,
+          "workerCharsMs": 3,
+          "workerIntegrityModelMs": 271,
+          "workerReferencesMs": 1,
+          "analyzeWallMs": 761,
+          "mainFinishMs": 64,
+          "mainIntegrityMs": 53,
+          "composeMs": 80,
+          "layoutWallMs": 15688,
+          "printReadyMs": 18184,
+          "layoutStatus": "done",
+          "pages": 201,
+          "verification": "pass",
+          "blocking": [],
+          "paginatePassesMs": 13154,
+          "contentVerifyMs": 679,
+          "flattenMs": 75,
+          "layoutTotalMs": 15065,
+          "forcedBreaks": 0,
+          "pdfExportMs": 3982,
+          "pdfBytes": 1683127,
+          "reeditPreviewMs": 3719,
+          "cancelToIdleMs": 55,
+          "cancelOutcome": "Proses dibatalkan. Sumber dan pengaturan tetap utuh.Coba lagi",
+          "printSessionAfterCancel": null,
+          "heapAfterGcMiB": 11.6,
+          "peakJsHeapMiB": 10,
+          "maxEventLoopGapMs": {
+            "preview": 258,
+            "layout": 1117,
+            "reedit": 1133
+          },
+          "longTasks": {
+            "preview": {
+              "count": 2,
+              "maxMs": 173
+            },
+            "layout": {
+              "count": 29,
+              "maxMs": 1092
+            }
+          },
+          "engineMode": "worker",
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

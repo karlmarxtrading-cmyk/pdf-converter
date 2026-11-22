@@ -5,7 +5,7 @@ import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const CANDIDATE = ['index.html', 'print.html', 'package.json', 'package-lock.json', '.node-version', '.npmrc', '.oxlintrc.json', '.gitattributes', 'tsconfig.json', 'vite.config.ts', 'vitest.config.ts', 'src', 'public', 'scripts', 'tests', 'fixtures'];
+export const candidateInputs = ['index.html', 'print.html', 'package.json', 'package-lock.json', '.node-version', '.npmrc', '.oxlintrc.json', '.gitattributes', '.gitignore', 'tsconfig.json', 'vite.config.ts', 'vitest.config.ts', 'src', 'public', 'scripts', 'tests', 'fixtures'];
 const SKIP = new Set(['node_modules', 'dist', 'dist-qa', '.git', 'evidence']);
 
 function walk(dir, out) {
@@ -27,7 +27,7 @@ export function treeHash(paths, base = root) {
   }
   return { sha256: h.digest('hex'), files: files.length };
 }
-export const candidateSha256 = () => treeHash(CANDIDATE).sha256;
+export const candidateSha256 = (base = root) => treeHash(candidateInputs, base).sha256;
 export const distTreeSha256 = (dir = 'dist') => treeHash([dir]).sha256;
 export function fileList(dir) { return walk(join(root, dir), []).map((f) => relative(join(root, dir), f).split('\\').join('/')).sort(); }
 

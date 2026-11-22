@@ -1,3 +1,47 @@
+# PaperForma 3.0.0-rc.12
+
+Revisi konversi pindah baris dan tabel pada clipboard, statistik isi dari struktur dokumen, dan pemeriksaan gambar dalam diagram. Perangkat pengumpulan bukti mencakup pratinjau HTTPS, rehearsal Pages dan uji perangkat. [Hasil kandidat dan batas pengujian](docs/RELEASE_REPORT.md).
+
+# PaperForma 3.0.0-rc.11
+
+Perbaikan konversi clipboard matematika/tabel, marker per item, persetujuan resource proyek dan Mermaid, serta batas payload cetak. Toolchain verifikasi PDF dan putaran penerimaan RC11 tersedia terpisah dari hasil historis. [Laporan RC11](docs/RELEASE_REPORT_RC11.md).
+
+# 3.0.0-rc.10
+
+Perubahan dan penerimaan RC10 dicatat di [laporan RC10](docs/RELEASE_REPORT_RC10.md) dan [ledger F01–F09](evidence/rc10/LEDGER.json).
+
+# 3.0.0-rc.9
+
+Pemisahan startup, stall dan deadline cetak, penghitungan percobaan paginasi secara kumulatif, kelompok halaman dokumen besar, pengujian kapasitas dari event mentah, konteks rumus terlepas dan pemeliharaan nomor daftar terbalik. Kontrak dan hasil aktual ada di docs/LAPORAN_RC9.md.
+
+# 3.0.0-rc.8
+
+- Editor mempertahankan prosa, tabel dan struktur di samping rumus dalam HTML campuran. Berkas HTML UTF-8 dapat dibuka, ditinjau dan disimpan bersama salinan sumber awal.
+- Ekspor memeriksa isi artikel, urutan blok, TeX asli dan kanonik, mode, dua cabang KaTeX, CSS dan font. Hilangnya rumus, cabang kosong, blok asing atau tambahan isi menghentikan penerbitan.
+- Cetak menunjukkan lokasi karakter privat tanpa pemetaan. Font emoji monokrom disematkan bila diperlukan. Label bahasa pada blok kode berpindah bersama baris pertama yang memuat kode.
+- Pemeriksaan dan komposisi memakai kembali DOM yang masih cocok dengan byte asli. Progres pencetakan dokumen panjang mengikuti halaman fisik yang selesai, dan editor dapat menangani masukan di antara fase render, verifikasi dan komposisi. Profil, sampel performa dan kapasitas tersedia bersama bukti.
+- Gerbang promosi memeriksa keenam belas syarat terhadap satu source dan build. Paket memuat unduhan HTML dari editor, contoh PDF, matriks kompatibilitas, panduan Pages dan latihan rollback lokal. [Keputusan penerimaan RC8](docs/history/rc9/RELEASE_REPORT.md).
+
+# 3.0.0-rc.7
+
+- Ekspor matematika dan pengujiannya memeriksa aturan tata letak KaTeX, versi renderer dan berkas font WOFF2. Cache font dapat pulih setelah respons terpotong.
+- Pemeriksa integritas mencakup fragmen HTML mandiri, caption, urutan, tautan, gambar, kode dan perubahan rumus. Untuk batas semantik yang ambigu, editor mempertahankan struktur dan meminta peninjauan.
+- Impor clipboard menjaga rumus MathJax berdampingan, prosa di pembungkus rumus, serta metadata tautan dan gambar di tabel.
+- Membatalkan pilihan dalam ZIP membatalkan perubahan terkait. Pengguna dapat mengulang persiapan cetak setelah kegagalan sementara. Pergantian proyek membersihkan pratinjau lama dan pengetikan judul terlindung saat editor merender.
+- Judul otomatis mengikuti isi heading Markdown. Verifikasi paginasi mengenali pembungkus kosong dari Paged.js pada batas blok kode setelah mencocokkan blok lanjutan dan barisnya.
+- Matriks template, dua contoh dari naskah pengguna, uji mutasi, pengukuran performa serta bukti per jalur disertakan. Lihat `docs/RELEASE_REPORT.md`.
+
+# 3.0.0-rc.6 — audit salinan AI dan matematika
+
+- RC6-M01–M04: mengenali delimiter TeX salinan ber-backslash ganda; memulihkan terbatas subskrip, row break dan spacing dengan sumber asli serta jejak perubahan. Fixture TXT pengguna lengkap: 231 rumus, 17 pemulihan isi.
+- RC6-M05: padding matematika tidak lagi merusak emphasis CommonMark pada judul yang bersentuhan dengan rumus.
+- Fence `math` dan inline matematika GitHub didukung; fence `latex`/`tex`, kode, URL dan mata uang tetap literal.
+- RC6-CLIP01–09: sumber HTML/MathML/MathJax, mode display, wrapper AI, tabel merge, rumus bersebelahan serta prosa/multi-rumus dalam pembungkus luas dipertahankan.
+- RC6-RENDER: pemulihan rumus literal dalam raw HTML aman; peringatan sumber TeX yang belum dirender, serta pemeriksaan keutuhan formula raw-table.
+- RC6-AUD: tes independen meliputi parsing ganda, hilangnya konten, prioritas metadata, sanitasi dan mutasi operator.
+- RC6-EXPORT: HTML mandiri aktual dari input lengkap, 12 font WOFF2 nyata, oracle per rumus dan payload persiapan cetak. Browser/paginasi/PDF native belum diverifikasi pada RC6.
+- Dokumentasi aktif dipisahkan dari bukti historis; panduan deploy memakai proyek Pages yang sudah terhubung dan tidak mengunci checkout ke commit lama.
+
 # Changelog
 
 ## 3.0.0-rc.5

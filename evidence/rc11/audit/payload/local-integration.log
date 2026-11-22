@@ -1,0 +1,47 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+ RUN  v5.1.0 /workspace/scratch/c635819e0476/candidate
+
+ ✓ tests/unit/render/print-session.test.ts > native print session > a double activation requests one dialog and settles both callers on return 67ms
+ ✓ tests/unit/render/print-session.test.ts > native print session > disposing an active dialog settles its caller and releases the iframe 20ms
+ ✓ tests/unit/render/print-session.test.ts > native print session > a late afterprint updates an unknown state and permits a new request 29ms
+ ✓ tests/unit/render/rc9-print.test.ts > print job deadlines > accepts a healthy large job after 180 seconds 104ms
+ ✓ tests/unit/render/rc9-print.test.ts > print job deadlines > diagnoses startup, cleans up and permits retry 103ms
+ ✓ tests/unit/render/rc9-print.test.ts > print job deadlines > diagnoses stall, cleans up and permits retry 42ms
+ ✓ tests/unit/render/rc9-print.test.ts > print job deadlines > diagnoses total, cleans up and permits retry 135ms
+ ✓ tests/unit/render/rc9-print.test.ts > print job deadlines > diagnoses load, cleans up and permits retry 40ms
+ ✓ tests/unit/render/rc9-print.test.ts > print job deadlines > diagnoses abort, cleans up and permits retry 48ms
+ ✓ tests/unit/render/rc9-print.test.ts > preserves Unicode, link ownership and every code unit in print fragments 63ms
+ ✓ tests/unit/render/rc10-flow-book.test.ts > RC9-F01 native long-document print > preserves heading case, source, table, semantic links, cover and list resets including textless items 316ms
+ ✓ tests/unit/render/rc10-flow-book.test.ts > RC9-F01 native long-document print > refuses an unsupported private glyph with the same blocking issue as paginated print 24ms
+ ✓ tests/unit/render/static-export.test.ts > QA-01 validator akhir ekspor HTML > standalone: font gagal → ExportBlockedError tanpa byte final, issue FONT_LOAD_FAILED diteruskan 222ms
+ ✓ tests/unit/render/static-export.test.ts > QA-01 validator akhir ekspor HTML > standalone: font timeout → ExportBlockedError tanpa byte final, issue FONT_LOAD_FAILED diteruskan 37ms
+ ✓ tests/unit/render/static-export.test.ts > QA-01 validator akhir ekspor HTML > zip: font gagal → ExportBlockedError tanpa byte final, issue FONT_LOAD_FAILED diteruskan 32ms
+ ✓ tests/unit/render/static-export.test.ts > QA-01 validator akhir ekspor HTML > zip: font timeout → ExportBlockedError tanpa byte final, issue FONT_LOAD_FAILED diteruskan 35ms
+ ✓ tests/unit/render/static-export.test.ts > QA-01 validator akhir ekspor HTML > publication: font gagal → ExportBlockedError tanpa byte final, issue FONT_LOAD_FAILED diteruskan 18ms
+ ✓ tests/unit/render/static-export.test.ts > QA-01 validator akhir ekspor HTML > publication: font timeout → ExportBlockedError tanpa byte final, issue FONT_LOAD_FAILED diteruskan 24ms
+ ✓ tests/unit/render/static-export.test.ts > QA-01 validator akhir ekspor HTML > font rusak (byte bukan woff2) tidak menghasilkan sukses palsu 21ms
+ ✓ tests/unit/render/static-export.test.ts > QA-01 validator akhir ekspor HTML > font tersedia: ketiga profil lulus semua pemeriksaan wajib dan menyerahkan byte 117ms
+ ✓ tests/unit/render/static-export.test.ts > QA-01 validator akhir ekspor HTML > batas ukuran HTML mandiri terlampaui → diblokir tanpa memotong isi 22ms
+ ✓ tests/unit/render/static-export.test.ts > QA-01 validator akhir ekspor HTML > tautan internal rusak → status confirm (keputusan eksplisit), bukan sukses diam-diam 40ms
+ ✓ tests/unit/render/static-export.test.ts > EN-012 issue input penghalang pada jalur cetak > body sintetis dengan INPUT_TOO_COMPLEX ditolak sebelum font dimuat 5ms
+ ✓ tests/unit/render/static-export.test.ts > EN-012 issue input penghalang pada jalur cetak > issue input nonblocking tetap ada di payload (tidak dibuang) 11ms
+ ✓ tests/unit/ui/rc7-recovery.test.ts > PF-RC7-U01 Cancel in the ZIP document picker commits neither assets nor a revision 212ms
+ ✓ tests/unit/render/rc11-print-budget.test.ts > builds the real payload and admits only the inclusive limit (-1 byte offset) 857ms
+ ✓ tests/unit/ui/rc7-recovery.test.ts > PF-RC7-U02 a user can retry page preparation after a transient failure on the same revision 393ms
+ ✓ tests/unit/ui/rc7-recovery.test.ts > PF-RC7-U03 opening a different project clears the previous document preview and outline immediately 322ms
+ ✓ tests/unit/render/rc11-print-budget.test.ts > builds the real payload and admits only the inclusive limit (0 byte offset) 690ms
+ ✓ tests/unit/ui/rc7-recovery.test.ts > PF-RC7-U04 background preview leaves the title being typed intact and both title controls show the committed value 328ms
+ ✓ tests/unit/render/rc11-print-budget.test.ts > builds the real payload and admits only the inclusive limit (1 byte offset) 138ms
+ ✓ tests/unit/ui/rc7-recovery.test.ts > PF-RC7-U05 imports the formatted first heading as a plain title and respects an explicit title 216ms
+ ✓ tests/unit/render/rc11-print-budget.test.ts > rechecks the actual transfer after the frame handshake and releases a rejected frame 13ms
+ ✓ tests/unit/render/rc11-print-budget.test.ts > checks the actual serialized print book at offset -1 473ms
+ ✓ tests/unit/render/rc11-print-budget.test.ts > checks the actual serialized print book at offset 0 1012ms
+ ✓ tests/unit/render/rc11-print-budget.test.ts > checks the actual serialized print book at offset 1 446ms
+ ✓ tests/unit/render/rc11-print-budget.test.ts > cancels an in-flight book before allocating its frame, then builds an edited revision for retry 30ms
+
+ Test Files  6 passed (6)
+      Tests  37 passed (37)
+   Start at  18:14:14
+   Duration  5.68s (tests 51%, environment 32%, import 13%, transform 4%)
+

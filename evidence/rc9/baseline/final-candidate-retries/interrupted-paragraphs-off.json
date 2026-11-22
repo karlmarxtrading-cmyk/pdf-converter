@@ -1,0 +1,687 @@
+{
+  "shape": "paragraphs",
+  "toc": "off",
+  "sourceSha256": "7ae082466becd7b1776b354a2abf28d0a7947108613f8f1a2fc813e3df3454b6",
+  "sourceBytes": 2397443,
+  "identity": "37277f20b922b1a6a9f734b0d69e96a61a8298a6d71aad24a86fd53731178bc9",
+  "dist": "876bae95926bce4b4730864c66598f4192cf64c36c0ab02214dd9c3693656b0a",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "events": [
+    {
+      "type": "pf-print-ready",
+      "wallMs": 9474
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "fonts",
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 9484
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "images",
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 10017
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 10345
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 9,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 10456
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 31,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 10823
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 53,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 11190
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 74,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 11543
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 95,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 11896
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 116,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 12248
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 130,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 12611
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 138,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 12961
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 159,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 13315
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 177,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 13682
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 198,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 14031
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 219,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 14386
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 240,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 14741
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 255,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 15361
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 256,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 16095
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 267,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 16460
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 278,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 16853
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 289,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 17211
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 302,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 17573
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 316,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 17932
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 322,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 19086
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 330,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 19361
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 341,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 19738
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 356,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 20097
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 376,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 20462
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 395,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 20818
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 409,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 21574
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 410,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 21814
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 421,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 22170
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 435,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 22523
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 452,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 22889
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 469,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 23249
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 486,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 23619
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 496,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 24357
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 501,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 24510
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 512,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 24878
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 524,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 25259
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 540,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 25623
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 557,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 25991
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 570,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 26349
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 573,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 26914
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 585,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 27270
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 595,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 27633
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 610,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 27993
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 624,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 28358
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 628,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 29762
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "heading-check",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 628,
+      "wallMs": 29763
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "diagnostics",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 628,
+      "wallMs": 29784
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "flatten",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 0,
+      "wallMs": 29853
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "inventory",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 0,
+      "wallMs": 29970
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "inventory-reopen",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 628,
+      "wallMs": 31382
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 0,
+      "wallMs": 31527
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 32,
+      "wallMs": 31534
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 64,
+      "wallMs": 31559
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 96,
+      "wallMs": 31563
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 128,
+      "wallMs": 31579
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 160,
+      "wallMs": 31658
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 192,
+      "wallMs": 31662
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 224,
+      "wallMs": 31696
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 256,
+      "wallMs": 31714
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 288,
+      "wallMs": 31726
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 320,
+      "wallMs": 31767
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 352,
+      "wallMs": 31779
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 384,
+      "wallMs": 31788
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 416,
+      "wallMs": 31795
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 448,
+      "wallMs": 31824
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 480,
+      "wallMs": 31831
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 512,
+      "wallMs": 31841
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 544,
+      "wallMs": 31848
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 576,
+      "wallMs": 31857
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 608,
+      "wallMs": 31864
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "verified-pages",
+      "pass": 1,
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "units": 628,
+      "wallMs": 31873
+    },
+    {
+      "type": "pf-print-result",
+      "jobId": "pf-7-af6e51fb31b1-mwr2dfy2",
+      "wallMs": 31966
+    }
+  ],
+  "method": "Production UI. Chromium automatic PDF of the exact verified, hash-matched print response.",
+  "phase": "pdf",
+  "status": "PDF_SAVED",
+  "editorHash": "7ae082466becd7b1776b354a2abf28d0a7947108613f8f1a2fc813e3df3454b6",
+  "initialSummary": "Revision\nrev 2 · 4b6113cd0205\nFormat\nBUS-01 · A4 Portrait\nContent\n217850 words · 1 tables · 0 formulas · 0 images",
+  "settings": {
+    "paper": "A4",
+    "orientation": "portrait",
+    "subtitle": "",
+    "dateText": "",
+    "bodyFont": "inter",
+    "baseSizePt": "10.5",
+    "lineHeight": "1.5",
+    "cover": false,
+    "toc": false,
+    "tocDepth": "2",
+    "chapterBreak": false,
+    "pageNumbers": true,
+    "pageNumberStart": "1",
+    "header": "{title}",
+    "footer": "",
+    "inkSaver": false,
+    "followTemplateDefaults": false,
+    "contentLang": "id"
+  },
+  "inputSummary": "Revision\nrev 7 · af6e51fb31b1\nFormat\nBUS-01 · A4 Portrait\nContent\n217850 words · 1 tables · 0 formulas · 0 images",
+  "htmlSha256": "721b0bd7666a93d6aac65fd80d60a60fbae90de41f9c5d91d864de39c7b55c5a",
+  "offline": {
+    "tables": 1,
+    "scripts": 0,
+    "formulas": 0,
+    "fonts": 3,
+    "sourceTokens": 217844,
+    "network": []
+  },
+  "flatSha256": "c74f57881012ffe1d4556d26d2e29f00a7624fd8ca40700f95bdb01803fea3c6",
+  "layout": {
+    "pages": 628,
+    "verification": {
+      "status": "pass",
+      "pages": 628,
+      "inventory": [],
+      "structure": [],
+      "lostBlocks": 0
+    },
+    "timings": {
+      "fonts": 13,
+      "images": 11,
+      "prelayout": 480,
+      "enginePreviewCalls": 1,
+      "paginatePasses": 18390,
+      "flatten": 119,
+      "verify": 1955,
+      "globalPasses": 1,
+      "totalPreviewCalls": 1,
+      "finalAttemptPasses": 1,
+      "forcedBreaks": 0,
+      "total": 22433
+    },
+    "trace": [
+      {
+        "attempt": 1,
+        "pass": 1,
+        "globalPass": 1,
+        "pages": 628,
+        "elapsedMs": 18399
+      }
+    ],
+    "pass": 1
+  },
+  "pdfSha256": "bfa6aa303cae251dc33c02e1965838211c595a3cb3ce3b36006a2839aa35a188",
+  "pdfBytes": 3013264
+}

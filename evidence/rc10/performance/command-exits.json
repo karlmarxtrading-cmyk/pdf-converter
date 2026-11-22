@@ -1,0 +1,38 @@
+{
+  "g09-node-1": {
+    "observation": "evidence/rc10/acceptance/observations/g09-node-1.json",
+    "childExitCode": 0,
+    "signal": null,
+    "failures": [],
+    "artifacts": {
+      "evidence/rc10/performance/node-1.json": "c5f31c2f05501ac1d3530f9fb0cdce27cdd76deede200293d2711cfbf22e05a9"
+    }
+  },
+  "g09-node-2": {
+    "observation": "evidence/rc10/acceptance/observations/g09-node-2.json",
+    "childExitCode": 1,
+    "signal": null,
+    "failures": [],
+    "artifacts": {
+      "evidence/rc10/performance/node-2.json": "94ad7ef8ac22ad8e460b1353c04d377b75fab50b10dcb7408c55dcd6189df35e"
+    }
+  },
+  "g09-browser-1": {
+    "observation": "evidence/rc10/acceptance/observations/g09-browser-1.json",
+    "childExitCode": 0,
+    "signal": null,
+    "failures": [],
+    "artifacts": {
+      "evidence/rc10/performance/recovery-cohort-1.json": "e209cd6a7f468fc644b02739dbcd1fca847e66e2248d0664f876207f650cd0c4"
+    }
+  },
+  "g09-browser-2": {
+    "observation": "evidence/rc10/acceptance/observations/g09-browser-2.json",
+    "childExitCode": 0,
+    "signal": null,
+    "failures": [],
+    "artifacts": {
+      "evidence/rc10/performance/recovery-cohort-2.json": "34575fef6a1371634af4143e6efe9f7f80da5141da70d1a707571523f9dd42a5"
+    }
+  }
+}

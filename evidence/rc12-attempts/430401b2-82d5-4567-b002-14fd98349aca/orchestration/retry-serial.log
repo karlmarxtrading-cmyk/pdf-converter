@@ -1,0 +1,34 @@
+Sections exited. Starting sequentially measured retries.
++ ['node', 'scripts/acceptance.mjs', 'observe', 'book-headings-on-2', '--out', PosixPath('evidence/rc12/book/headings-on.json'), '--out', 'examples/rc12/book/headings-on', '--', 'node', 'docs/verification-tools/capture-product-book.mjs', 'headings-on']
+Measuring book-headings-on-2; command log: evidence/rc12/acceptance/observations/book-headings-on-2.log
+Exit 0
++ ['node', 'scripts/acceptance.mjs', 'observe', 'offline-navigation-2', '--out', PosixPath('evidence/rc12/offline/navigation.json'), '--', 'node', 'docs/verification-tools/offline-navigation.mjs']
+Measuring offline-navigation-2; command log: evidence/rc12/acceptance/observations/offline-navigation-2.log
+Exit 0
++ ['node', 'scripts/acceptance.mjs', 'observe', 'uat-2', '--out', PosixPath('evidence/rc12/browser/results/uat.json'), '--', 'node', PosixPath('evidence/rc12/browser/uat.mjs')]
+Measuring uat-2; command log: evidence/rc12/acceptance/observations/uat-2.log
+Exit 0
++ ['node', 'scripts/acceptance.mjs', 'observe', 'ui-e2e-2', '--out', PosixPath('evidence/rc12/user-suite/ui-e2e.json'), '--', '/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python', 'docs/verification-tools/capture-npm-result.py', 'ui-e2e', PosixPath('evidence/rc12/user-suite/ui-e2e.json')]
+Measuring ui-e2e-2; command log: evidence/rc12/acceptance/observations/ui-e2e-2.log
+Exit 0
++ ['node', 'scripts/acceptance.mjs', 'observe', 'pdf-isolated-2', '--out', PosixPath('evidence/rc12/pdf/coverage.json'), '--out', PosixPath('evidence/rc12/pdf/physical-verification.json'), '--out', PosixPath('evidence/rc12/pdf/portrait-landscape.json'), '--out', PosixPath('evidence/rc12/pdf/results.json'), '--out', PosixPath('evidence/rc12/pdf/diagnostics'), '--out', PosixPath('examples/rc12/pdf'), '--', 'node', 'tests/e2e/rc8-pdf.mjs']
+Measuring pdf-isolated-2; command log: evidence/rc12/acceptance/observations/pdf-isolated-2.log
+Exit 0
++ ['node', 'scripts/acceptance.mjs', 'record', 'G07', 'PASS', PosixPath('evidence/rc12/acceptance/facts/G07.json')]
+{"id":"G07","status":"PASS","facts":"evidence/rc12/acceptance/facts/G07.json","observations":["pdf-isolated-2"]}
+Exit 0
++ ['node', 'scripts/acceptance.mjs', 'record', 'G08', 'PASS', PosixPath('evidence/rc12/acceptance/facts/G08.json')]
+{"id":"G08","status":"PASS","facts":"evidence/rc12/acceptance/facts/G08.json","observations":["pdf-isolated-2"]}
+Exit 0
++ ['node', 'scripts/acceptance.mjs', 'observe', 'pdf-dialogue-2', '--out', PosixPath('evidence/rc12/pdf-review/dialogue.json'), '--', '/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python', PosixPath('evidence/rc12/pdf-review/check-dialogue.py')]
+Measuring pdf-dialogue-2; command log: evidence/rc12/acceptance/observations/pdf-dialogue-2.log
+Exit 0
++ ['node', 'scripts/acceptance.mjs', 'observe', 'pdf-mixed-2', '--out', PosixPath('evidence/rc12/pdf-review/mixed.json'), '--', '/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python', 'docs/verification-tools/check-mixed.py']
+Measuring pdf-mixed-2; command log: evidence/rc12/acceptance/observations/pdf-mixed-2.log
+Exit 0
++ ['node', 'scripts/acceptance.mjs', 'observe', 'pdf-reference-2', '--out', PosixPath('evidence/rc12/pdf-review/reference-pages.json'), '--', '/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python', 'docs/verification-tools/check-reference.py']
+Measuring pdf-reference-2; command log: evidence/rc12/acceptance/observations/pdf-reference-2.log
+Exit 0
++ ['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python', 'docs/verification-tools/render-pdf-samples.py']
+Exit 0
+Serial remeasurements: {"headings": 0, "offline": 0, "uat": 0, "ui-e2e": 0, "pdf": 0, "G07": 0, "G08": 0, "dialogue": 0, "mixed": 0, "reference": 0, "raster-index": 0}

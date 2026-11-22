@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "runId": "d58c2ce4-cce6-45dc-a95c-e615f8660e14",
+  "name": "webkit-final",
+  "before": {
+    "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+    "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+    "version": "3.0.0-rc.8",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "f68252a1d37606299e9ef5d1d42a05ecd93461e1b2098d4775baa925a4bb40ab",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "a96288f2d95b466dcac1f3494a4a8bbbae89708927aed4b858aa90a7c6846dbf",
+    "benchmarkHarnessSha256": "88aa736309e18cd6a9902959f7804a9d69de6f2fbb1e920e149a9b8f90210b6a",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "67819b470d4c71edb87e653a4437b5f0ce27729346cf3207e5f11b3f3e58ed14",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "440d201c5b8c8cdd3c3e69366f7241891468df2d2803e95371fbb0973fa3c1b8"
+  },
+  "after": {
+    "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+    "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+    "version": "3.0.0-rc.8",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "f68252a1d37606299e9ef5d1d42a05ecd93461e1b2098d4775baa925a4bb40ab",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "a96288f2d95b466dcac1f3494a4a8bbbae89708927aed4b858aa90a7c6846dbf",
+    "benchmarkHarnessSha256": "88aa736309e18cd6a9902959f7804a9d69de6f2fbb1e920e149a9b8f90210b6a",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "67819b470d4c71edb87e653a4437b5f0ce27729346cf3207e5f11b3f3e58ed14",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "440d201c5b8c8cdd3c3e69366f7241891468df2d2803e95371fbb0973fa3c1b8"
+  },
+  "started": "2026-11-21T21:47:46.538Z",
+  "ended": "2026-11-21T21:48:23.675Z",
+  "environment": {
+    "platform": "linux",
+    "osRelease": "6.18.57",
+    "arch": "x64",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "logicalCpuCount": 9,
+    "node": "v24.22.3",
+    "nodeExecutableSha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+  },
+  "command": [
+    "node",
+    "evidence/rc8/browser/cross-engine.mjs",
+    "webkit"
+  ],
+  "executable": {
+    "name": "node",
+    "sha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+  },
+  "commandFiles": {
+    "evidence/rc8/browser/cross-engine.mjs": "48dfa3e2486d74deb74b49e39dc6f2d206c1f4fd2c387f1976f42cca707f4798"
+  },
+  "projectInputs": {
+    "evidence/rc8/browser/cross-engine.mjs": "48dfa3e2486d74deb74b49e39dc6f2d206c1f4fd2c387f1976f42cca707f4798"
+  },
+  "log": "evidence/rc8/acceptance/observations/webkit-final.log",
+  "logSha256": "15579fc60fbdd8379bad8acc88063fccf6adbca82c5f4eaed4c33dda87866292",
+  "exitCode": 0,
+  "signal": null,
+  "failures": [],
+  "artifacts": {
+    "evidence/rc8/browser/results/playwright-webkit.json": "d75a99385885586fbb4c8af7fc3b4b13192963997111db310c60c6cb6fb71ffe"
+  }
+}

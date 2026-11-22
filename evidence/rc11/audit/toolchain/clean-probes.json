@@ -1,0 +1,18 @@
+{
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "versions": {
+    "pymupdf": "1.26.6",
+    "lxml": "6.1.1",
+    "pypdf": "6.21.4",
+    "pillow": "13.0.0",
+    "python": "3.12.14",
+    "pandoc": "3.1.11.1",
+    "pdfinfo": "26.05.0",
+    "pdftotext": "26.05.0",
+    "pdffonts": "26.05.0"
+  },
+  "pdfHtmlProbesPassed": true,
+  "isolatedOriginsChecked": true,
+  "lockSha256": "c610f60e2df1cbda8de4a39e853e6249507e0ec7ccd08d88f8c619c279535382",
+  "versionMismatches": {}
+}

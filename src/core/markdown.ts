@@ -8,9 +8,18 @@ import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import type { Root, RootContent, Nodes as MdNodes } from 'mdast';
-import { scanMath, restorerFor, type MathScan } from './math';
-import { fnv1a, imageRefKey } from './util';
+import type { SourceFormula } from './formula-integrity';
+import { scanMath, restorerFor, type MathScan, type MathAdaptation } from './math';
+import { fnv1a, imageRefKey, orderedTokens } from './util';
+import { sourceRawHtmlSignature, type RawHtmlProjection } from './raw-html-integrity';
 import { assertTreeBudget } from './limits';
+
+declare module 'mdast' {
+  interface Data {
+    pfSourceTex?: string; pfMathAdaptations?: MathAdaptation[];
+    pfMathSourceStart?: number; pfMathSourceEnd?: number; pfMathSyntax?: 'math-fence' | 'github-inline';
+  }
+}
 
 export interface Frontmatter { raw: string; startLine: number; endLine: number; data: Record<string, string>; valid: boolean }
 export interface ParsedMarkdown { tree: Root; scan: MathScan; source: string; frontmatter?: Frontmatter }
@@ -49,8 +58,50 @@ export function parseMarkdown(source: string): ParsedMarkdown {
   const tree = processor.runSync(processor.parse(scan.parseCopy)) as Root;
   assertTreeBudget(tree);
   restoreLiteralNodes(tree, masked, scan);
+  promoteExplicitMathFences(tree);
+  applyCopiedMath(tree, scan);
   promoteDisplayMath(tree, scan);
   return fm ? { tree, scan, source, frontmatter: fm } : { tree, scan, source };
+}
+
+/** RC6-M01: the rendering tree uses an adapted payload while retaining original TeX and source offsets.
+ * Only actual math nodes are adapted: CommonMark code, link destinations and raw HTML are not rewritten.
+ */
+function applyCopiedMath(tree: Root, scan: MathScan): void {
+  const at = new Map<number, MathScan['spans'][number]>();
+  for (const span of scan.spans) if (span.adaptations?.length || span.syntax || (span.delim === '\\(' && /^\s|\s$/u.test(span.tex))) {
+    at.set(span.start + (span.delim === '\\(' ? (span.openerLength ?? 2) - 1 : 0), span);
+  }
+  if (!at.size) return;
+  const visit = (n: MdNodes): void => {
+    if (n.type === 'math' || n.type === 'inlineMath') {
+      const span = at.get(n.position?.start.offset ?? -1);
+      if (span) {
+        n.value = span.renderTex ?? span.tex;
+        const data = { ...n.data, pfSourceTex: span.tex, pfMathAdaptations: span.adaptations,
+          pfMathSourceStart: span.start, pfMathSourceEnd: span.end, ...(span.syntax ? { pfMathSyntax: span.syntax } : {}) };
+        n.data = data;
+      }
+    }
+    if ('children' in n) n.children.forEach(visit);
+  };
+  visit(tree);
+}
+
+/** GitHub-style explicitly labelled `math` fences are equations. `tex`/`latex` examples remain code. */
+function promoteExplicitMathFences(tree: Root): void {
+  const visit = (parent: { children: MdNodes[] }): void => {
+    parent.children = parent.children.map(n => {
+      if (n.type === 'code' && n.lang?.toLowerCase() === 'math') {
+        return { type: 'math', value: n.value, position: n.position,
+          data: { ...n.data, pfSourceTex: n.value, pfMathSyntax: 'math-fence' as const,
+            pfMathSourceStart: n.position?.start.offset, pfMathSourceEnd: n.position?.end.offset } };
+      }
+      if ('children' in n) visit(n as { children: MdNodes[] });
+      return n;
+    });
+  };
+  visit(tree as { children: MdNodes[] });
 }
 
 /** RC4-M05: CommonMark decides which indented/list blocks are code. Restore their values from an unmasked
@@ -123,8 +174,8 @@ function promoteDisplayMath(tree: Root, scan: { spans: { start: number; display:
       if (n.type === 'paragraph' && n.children) {
         const meaningful = n.children.filter((k) => { const x = k as { type: string; value?: string }; return !(x.type === 'break' || (x.type === 'text' && !x.value?.trim())); });
         if (meaningful.length === 1 && isDisplay(meaningful[0] as never)) {
-          const m = meaningful[0] as { value: string; position?: unknown };
-          return { type: 'math', value: m.value, position: n.position ?? m.position, data: n.data };
+          const m = meaningful[0] as { value: string; position?: unknown; data?: Record<string, unknown> };
+          return { type: 'math', value: m.value, position: n.position ?? m.position, data: { ...n.data, ...m.data } };
         }
         for (const k of n.children) if (isDisplay(k as never)) { const x = k as { data?: Record<string, unknown> }; x.data = { ...x.data, pfDisplay: true }; }
         visit(n as { children: unknown[] });
@@ -140,12 +191,7 @@ function promoteDisplayMath(tree: Root, scan: { spans: { start: number; display:
 }
 
 /* ---------------- token berurutan ---------------- */
-const TOKEN_RE = /⟦[^⟧]*⟧|\p{L}[\p{L}\p{M}]*|\p{N}+(?:[.,:]\p{N}+)*|[^\s\p{L}\p{N}]/gu;
-
-/** Token berurutan: kata, angka (dengan pemisah desimal/ribuan), dan SETIAP simbol (+ − - = % $ …) sebagai token sendiri. */
-export function orderedTokens(s: string): string[] {
-  return s.normalize('NFC').match(TOKEN_RE) ?? [];
-}
+export { orderedTokens } from './util';
 
 /* ---------------- model blok ---------------- */
 export type BlockKind = 'heading' | 'paragraph' | 'list' | 'blockquote' | 'code' | 'mermaid' | 'math' | 'table' | 'thematicBreak' | 'html' | 'footnoteDefinition' | 'definition' | 'other';
@@ -155,8 +201,8 @@ export interface BlockModel {
   /** teks rata dengan penanda ⟦math:…⟧ ⟦img:…⟧ ⟦fn:…⟧ */
   text: string; tokens: string[];
   depth?: number; ordered?: boolean; start1?: number | null;
-  code?: string; lang?: string; math?: string[]; rawTableHtml?: string;
-  cells?: string[][]; links: string[]; images: string[]; fnRefs: string[]; fnLabel?: string;
+  code?: string; lang?: string; math?: string[]; formulas?: SourceFormula[]; rawTableHtml?: string; rawHtml?: RawHtmlProjection;
+  cells?: string[][]; referenceLabels?: string[]; links: string[]; images: string[]; fnRefs: string[]; fnLabel?: string;
 }
 
 export function kindOf(n: RootContent): BlockKind {
@@ -176,7 +222,7 @@ export function kindOf(n: RootContent): BlockKind {
   }
 }
 
-interface Acc { parts: string[]; links: string[]; images: string[]; fnRefs: string[]; math: string[]; restore: (s: string) => string }
+interface Acc { parts: string[]; formulas?: SourceFormula[]; referenceLabels?: string[]; links: string[]; images: string[]; fnRefs: string[]; math: string[]; restore: (s: string) => string }
 
 const identity = (s: string) => s;
 
@@ -185,15 +231,27 @@ function flatten(n: MdNodes, acc: Acc): void {
   switch (n.type) {
     case 'text': acc.parts.push(restore(n.value)); return;
     case 'inlineCode': acc.parts.push(n.value); return;
-    case 'inlineMath': acc.parts.push(` ⟦math:${n.value}⟧ `); acc.math.push(n.value); return;
-    case 'math': acc.parts.push(` ⟦math:${n.value}⟧ `); acc.math.push(n.value); return;
-    case 'image': { const k = imageRefKey(restore(n.url)); acc.parts.push(` ⟦img:${k}⟧ `); acc.images.push(k); return; }
+    case 'inlineMath':
+    case 'math': {
+      const tex = restore(n.value);
+      (acc.formulas ??= []).push({ tex, raw: n.data?.pfSourceTex ?? tex, display: n.type === 'math' || !!(n.data as {pfDisplay?: boolean})?.pfDisplay });
+      acc.parts.push(` ⟦math:${tex}⟧ `); acc.math.push(tex); return;
+    }
+    case 'image': {
+      const k = imageRefKey(restore(n.url));
+      acc.parts.push(` ⟦img:${k}⟧ `); acc.images.push(k);
+      (acc.referenceLabels ??= []).push(JSON.stringify(['image', restore(n.alt ?? ''), n.title ? restore(n.title) : null]));
+      return;
+    }
     case 'imageReference': acc.parts.push(` ⟦imgref:${n.identifier}⟧ `); return;
     case 'footnoteReference': acc.parts.push(` ⟦fn:${n.label ?? n.identifier}⟧ `); acc.fnRefs.push(n.label ?? n.identifier); return;
     case 'break': acc.parts.push(' '); return;
     case 'html': return; // HTML mentah dinilai oleh laporan sanitasi, bukan pemeriksa token
     case 'code': acc.parts.push(` ${n.value} `); return;
-    case 'link': acc.links.push(restore(n.url)); break;
+    case 'link':
+      acc.links.push(restore(n.url));
+      (acc.referenceLabels ??= []).push(JSON.stringify(['link', n.title ? restore(n.title) : null]));
+      break;
     default: break;
   }
   if ('children' in n) {
@@ -240,8 +298,19 @@ export function blockModelOf(n: RootContent, alloc: BlockIdAllocator, restore: (
     id: '', kind, line: pos?.start.line ?? 0, endLine: pos?.end.line ?? 0, start: pos?.start.offset ?? 0, end: pos?.end.offset ?? 0,
     text: f.text, tokens: orderedTokens(f.text), links: f.links, images: f.images, fnRefs: f.fnRefs, math: f.math,
   };
+  if (f.formulas) m.formulas = f.formulas;
+  if (f.referenceLabels) m.referenceLabels = f.referenceLabels;
   if (n.type === 'html' && /^\s*<table(?:\s|>)/i.test(n.value) && /<\/table>\s*$/i.test(n.value) && (n.value.match(/<table(?:\s|>)/gi) ?? []).length === 1) {
     m.rawTableHtml = restore(n.value);
+  } else if (n.type === 'html') {
+    m.rawHtml = sourceRawHtmlSignature(restore(n.value));
+  }
+  if (n.type === 'html' && /[\\$]|data-(?:tex|latex|pf-formula)|<math|mjx-container/i.test(n.value)) {
+    const projection = m.rawHtml ?? sourceRawHtmlSignature(restore(n.value));
+    if (projection?.counts.math) {
+      const events: string[][] = JSON.parse(projection.signature);
+      m.formulas = events.filter(event => event[0] === 'math').map(([, mode, tex, raw]) => ({tex, raw, display: mode === 'display'}));
+    }
   }
   if (n.type === 'heading') m.depth = n.depth;
   if (n.type === 'list') { m.ordered = !!n.ordered; m.start1 = n.ordered ? (n.start ?? 1) : null; }

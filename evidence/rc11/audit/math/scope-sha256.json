@@ -1,0 +1,18 @@
+{
+  "baselineZipSha256": "1959dfe69ac4fa838fb76365fe9423829ebfbde1d7e154fded4dc88d1e48c765",
+  "filesAtScopedFreeze": {
+    "src/core/clipboard.ts": "6c6eb79f7e0276f310631d91b4a0866985d10cfae18e78ada7b8f61a93b25ff5",
+    "src/core/clipboard-fidelity.ts": "5f443867c48557592413a467f30813f944f1f4ec61e4cdb96f0381aab224884c",
+    "src/core/markdown.ts": "50da011279e3bdd40368a1522d3e15007e3fa213461e9fdc8fe6e636b5bd5798",
+    "src/core/paste.ts": "cf692f50ef8de57af6c930bf790186d6de95a46385666557692756e25901798f",
+    "src/core/raw-html-integrity.ts": "6f12252f9afd8cf434c9d58865d3e1f9d44021564263e1d0a0508de870549bcf",
+    "src/render/print-lists.ts": "2dcea92a4254a1f75322f08b8200c7d2ff9e220fccf9e02a38b5008686305cd4",
+    "src/render/flow-book.ts": "e3a807f61aa024adb30340a14f9427bab4abadf6e45f5bce116fa1d3bca76484",
+    "tests/unit/core/wrapper-clipboard.test.ts": "00c9e9bf063afc28e129af6dcaeea56a09180e5419cad209fb1921dd32fe434c",
+    "tests/unit/core/rc4-reading-regressions.test.ts": "82391cba0710c6d7778c064e8027bc9424397c2f2f1c7e23d8f0592ae803dbc0",
+    "tests/unit/render/rc11-clipboard-fidelity.test.ts": "71c5a5cc7b85b71e769b654b93743a0d14d4865cc78e968d6e088b54707d02e5",
+    "tests/unit/render/rc11-clipboard-guard.test.ts": "4620e925675e23abee33944f0717b1559a7b60aa76a8e5586e7671f97e98824e",
+    "tests/e2e/rc11-clipboard-print.mjs": "db55dd29e75f5e5037087b14873b5b0b4025f7c1dd4cc2e3e6e84a05d3b7f955"
+  },
+  "negativeHarnessEquivalent": true
+}

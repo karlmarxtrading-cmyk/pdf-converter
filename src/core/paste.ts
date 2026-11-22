@@ -23,7 +23,7 @@ export type TxKind = 'paste-insert' | 'paste-append-message' | 'replace-all' | '
 interface Change { start: number; removed: string; inserted: string }
 interface Tx { id: number; kind: TxKind; change: Change; fragsBefore: PasteFragment[]; fragsAfter: PasteFragment[]; label: string }
 
-export type LedgerResult<T = object> = ({ ok: true; text: string } & T) | { ok: false; code: 'BUDGET_EXCEEDED' | 'FRAGMENT_STALE' | 'FRAGMENT_NOT_FOUND' | 'NO_HTML' | 'CONFIRM_REQUIRED' | 'NOTHING_TO_UNDO' | 'NOTHING_TO_REDO' | 'BAD_RANGE'; message: string; messageEn: string; budget?: BudgetResult };
+export type LedgerResult<T = object> = ({ ok: true; text: string } & T) | { ok: false; code: 'BUDGET_EXCEEDED' | 'CLIPBOARD_INTEGRITY' | 'FRAGMENT_STALE' | 'FRAGMENT_NOT_FOUND' | 'NO_HTML' | 'CONFIRM_REQUIRED' | 'NOTHING_TO_UNDO' | 'NOTHING_TO_REDO' | 'BAD_RANGE'; message: string; messageEn: string; budget?: BudgetResult };
 
 const cloneFrags = (f: PasteFragment[]) => f.map((x) => ({ ...x }));
 
@@ -172,7 +172,7 @@ export class PasteLedger {
     if (f.status !== 'live') return { ok: false, code: 'FRAGMENT_STALE', message: 'Fragmen sudah diedit setelah ditempel; konversi lama tidak berlaku. Tempel ulang atau pilih rentang baru.', messageEn: 'The fragment was edited after pasting; the old conversion no longer applies. Paste again or select a new range.' };
     if (f.rawHtml === undefined) return { ok: false, code: 'NO_HTML', message: 'Fragmen ini tidak memiliki HTML clipboard.', messageEn: 'This fragment has no clipboard HTML.' };
     const conv = htmlToMarkdown(f.rawHtml, { plain: f.rawPlain, limits: this.limits });
-    if (!conv.ok) return { ok: false, code: 'BUDGET_EXCEEDED', budget: conv.budget, message: conv.message, messageEn: conv.messageEn };
+    if (!conv.ok) return conv;
     const md = conv.markdown.replace(/\n+$/, '');
     const change: Change = { start: f.start, removed: this._text.slice(f.start, f.end), inserted: md };
     const size = this.sizeAfter(change);

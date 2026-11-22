@@ -1,0 +1,10 @@
+{
+  "candidateSha256AtStart": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+  "buildMode": "local production modules plus isolated QA adapter; native print dialog excluded",
+  "sourceModulesSha256": "780e1556d1419111626261a570a4b0a2c62e8bd46d26e6fd77c601c1265b21a1",
+  "cases": [],
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "error": "ProtocolError: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.\n    at <instance_members_initializer> (file:///workspace/scratch/c635819e0476/rc12-work/app/node_modules/puppeteer-core/lib/puppeteer/common/CallbackRegistry.js:108:14)\n    at new Callback (file:///workspace/scratch/c635819e0476/rc12-work/app/node_modules/puppeteer-core/lib/puppeteer/common/CallbackRegistry.js:112:16)\n    at CallbackRegistry.create (file:///workspace/scratch/c635819e0476/rc12-work/app/node_modules/puppeteer-core/lib/puppeteer/common/CallbackRegistry.js:27:26)\n    at Connection._rawSend (file:///workspace/scratch/c635819e0476/rc12-work/app/node_modules/puppeteer-core/lib/puppeteer/cdp/Connection.js:125:26)\n    at CdpCDPSession.send (file:///workspace/scratch/c635819e0476/rc12-work/app/node_modules/puppeteer-core/lib/puppeteer/cdp/CdpSession.js:72:14)\n    at #evaluate (file:///workspace/scratch/c635819e0476/rc12-work/app/node_modules/puppeteer-core/lib/puppeteer/cdp/ExecutionContext.js:374:50)\n    at ExecutionContext.evaluate (file:///workspace/scratch/c635819e0476/rc12-work/app/node_modules/puppeteer-core/lib/puppeteer/cdp/ExecutionContext.js:288:36)\n    at IsolatedWorld.evaluate (file:///workspace/scratch/c635819e0476/rc12-work/app/node_modules/puppeteer-core/lib/puppeteer/cdp/IsolatedWorld.js:104:30)\n    at CdpFrame.evaluate (file:///workspace/scratch/c635819e0476/rc12-work/app/node_modules/puppeteer-core/lib/puppeteer/api/Frame.js:364:43)\n    at CdpFrame.<anonymous> (file:///workspace/scratch/c635819e0476/rc12-work/app/node_modules/puppeteer-core/lib/puppeteer/util/decorators.js:101:27)",
+  "ok": false,
+  "candidateSha256AtEnd": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55"
+}

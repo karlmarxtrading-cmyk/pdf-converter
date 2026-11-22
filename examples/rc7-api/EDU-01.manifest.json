@@ -1,0 +1,242 @@
+{
+  "method": "Node/jsdom standalone export API (no browser UI or pagination)",
+  "manifest": {
+    "kind": "html-standalone",
+    "snapshot": {
+      "projectId": "p-test",
+      "revision": 2,
+      "rawSourceHash": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "contentSnapshotHash": "4001576a42ab4c0a90db0348c9dbc5c1e337f4f3394ca846a29631ea40079e3b",
+      "renderInputHash": "2221e9e4ada9cf2da7477e0841a1547ec4000193f383a1f199c7416571840dcf",
+      "templateId": "EDU-01",
+      "templateVersion": "2.0.0",
+      "rendererVersion": "pf-render-3.0.0-rc.7"
+    },
+    "outputHash": "1cc1fea946301f39ce9892565dcb2a8e98e4f74e4e0519d885e4274cc6f9a305",
+    "bytes": 954314,
+    "createdAt": "2026-11-21T19:47:52.831Z",
+    "issueCount": 9,
+    "settings": {
+      "template": "EDU-01",
+      "paper": "A5",
+      "orientation": "portrait",
+      "contentLang": "id",
+      "inkSaver": false
+    },
+    "profile": "standalone",
+    "scripts": "none",
+    "network": "none",
+    "fonts": [
+      {
+        "family": "Source Serif 4",
+        "weight": 400,
+        "style": "normal",
+        "subset": "latin",
+        "file": "source-serif-4-latin-400-normal.woff2",
+        "bytes": 20088,
+        "sha256": "02194deb92d3975dd30e11a3824a1f1db32b48c93654e60560cb81ce8e7b5f95",
+        "license": "OFL-1.1",
+        "pkg": "@fontsource/source-serif-4",
+        "version": "5.3.1"
+      },
+      {
+        "family": "Source Serif 4",
+        "weight": 700,
+        "style": "normal",
+        "subset": "latin",
+        "file": "source-serif-4-latin-700-normal.woff2",
+        "bytes": 21716,
+        "sha256": "7691c51bc286a9014db0048277d2c3f2ad0a90b533dc8adfb16cb22a95390d39",
+        "license": "OFL-1.1",
+        "pkg": "@fontsource/source-serif-4",
+        "version": "5.3.1"
+      },
+      {
+        "family": "Inter",
+        "weight": 700,
+        "style": "normal",
+        "subset": "latin",
+        "file": "inter-latin-700-normal.woff2",
+        "bytes": 24356,
+        "sha256": "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+        "license": "OFL-1.1",
+        "pkg": "@fontsource/inter",
+        "version": "5.3.0"
+      },
+      {
+        "family": "Inter",
+        "weight": 400,
+        "style": "normal",
+        "subset": "latin",
+        "file": "inter-latin-400-normal.woff2",
+        "bytes": 23664,
+        "sha256": "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+        "license": "OFL-1.1",
+        "pkg": "@fontsource/inter",
+        "version": "5.3.0"
+      },
+      {
+        "family": "Inter",
+        "weight": 600,
+        "style": "normal",
+        "subset": "latin",
+        "file": "inter-latin-600-normal.woff2",
+        "bytes": 24452,
+        "sha256": "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+        "license": "OFL-1.1",
+        "pkg": "@fontsource/inter",
+        "version": "5.3.0"
+      },
+      {
+        "family": "KaTeX_AMS",
+        "weight": 400,
+        "style": "normal",
+        "subset": "katex",
+        "file": "KaTeX_AMS-Regular.woff2",
+        "bytes": 28076,
+        "sha256": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+        "license": "OFL-1.1",
+        "pkg": "katex",
+        "version": "0.19.1"
+      },
+      {
+        "family": "KaTeX_Main",
+        "weight": 400,
+        "style": "normal",
+        "subset": "katex",
+        "file": "KaTeX_Main-Regular.woff2",
+        "bytes": 26272,
+        "sha256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+        "license": "OFL-1.1",
+        "pkg": "katex",
+        "version": "0.19.1"
+      },
+      {
+        "family": "KaTeX_Math",
+        "weight": 400,
+        "style": "italic",
+        "subset": "katex",
+        "file": "KaTeX_Math-Italic.woff2",
+        "bytes": 16440,
+        "sha256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+        "license": "OFL-1.1",
+        "pkg": "katex",
+        "version": "0.19.1"
+      },
+      {
+        "family": "KaTeX_Size1",
+        "weight": 400,
+        "style": "normal",
+        "subset": "katex",
+        "file": "KaTeX_Size1-Regular.woff2",
+        "bytes": 5468,
+        "sha256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+        "license": "OFL-1.1",
+        "pkg": "katex",
+        "version": "0.19.1"
+      },
+      {
+        "family": "KaTeX_Size2",
+        "weight": 400,
+        "style": "normal",
+        "subset": "katex",
+        "file": "KaTeX_Size2-Regular.woff2",
+        "bytes": 5208,
+        "sha256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+        "license": "OFL-1.1",
+        "pkg": "katex",
+        "version": "0.19.1"
+      },
+      {
+        "family": "KaTeX_Size3",
+        "weight": 400,
+        "style": "normal",
+        "subset": "katex",
+        "file": "KaTeX_Size3-Regular.woff2",
+        "bytes": 3624,
+        "sha256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+        "license": "OFL-1.1",
+        "pkg": "katex",
+        "version": "0.19.1"
+      },
+      {
+        "family": "KaTeX_Size4",
+        "weight": 400,
+        "style": "normal",
+        "subset": "katex",
+        "file": "KaTeX_Size4-Regular.woff2",
+        "bytes": 4928,
+        "sha256": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0",
+        "license": "OFL-1.1",
+        "pkg": "katex",
+        "version": "0.19.1"
+      }
+    ],
+    "checks": [
+      {
+        "name": "katex-layout",
+        "status": "pass",
+        "detail": "KaTeX layout verified"
+      },
+      {
+        "name": "no-scripts",
+        "status": "pass",
+        "detail": "0"
+      },
+      {
+        "name": "no-network-resources",
+        "status": "pass",
+        "detail": "0"
+      },
+      {
+        "name": "internal-anchors",
+        "status": "pass",
+        "detail": "1 links, 0 broken, 0 duplicate"
+      },
+      {
+        "name": "fonts-embedded",
+        "status": "pass",
+        "detail": "12 subset tersemat"
+      },
+      {
+        "name": "glyph-coverage",
+        "status": "pass"
+      },
+      {
+        "name": "size-budget",
+        "status": "pass",
+        "detail": "954314 / 26214400 B"
+      },
+      {
+        "name": "integrity",
+        "status": "pass",
+        "detail": "sumber → keluaran utuh"
+      }
+    ]
+  },
+  "settings": {
+    "template": "EDU-01",
+    "paper": "A5",
+    "orientation": "portrait",
+    "margins": {
+      "top": 20,
+      "right": 18,
+      "bottom": 20,
+      "left": 20
+    },
+    "pageNumbers": true,
+    "pageNumberStart": 1,
+    "toc": false,
+    "tocDepth": 2,
+    "cover": false,
+    "contentLang": "id",
+    "inkSaver": false
+  },
+  "printPreparation": {
+    "widthMm": 148,
+    "heightMm": 210,
+    "contentWidthMm": 110,
+    "contentHeightMm": 170,
+    "numberStart": 1
+  }
+}

@@ -1,0 +1,1142 @@
+{
+  "mode": "compare",
+  "at": "2026-11-21T19:48:56.893Z",
+  "status": "COMPLETE",
+  "runs": [
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 269.19999999995343,
+        "smallPreviewMs": 353.20000000018626,
+        "editPreviewMs": 287.60000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 214.5,
+        "smallPreviewMs": 325.80000000004657,
+        "editPreviewMs": 283.60000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 119.9000000001397,
+        "smallPreviewMs": 570.9000000001397,
+        "editPreviewMs": 332.60000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 899.7999999998137,
+        "smallPreviewMs": 386.19999999995343,
+        "editPreviewMs": 281.20000000018626
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 132.69999999995343,
+        "smallPreviewMs": 308.60000000009313,
+        "editPreviewMs": 285.29999999981374
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 99.9000000001397,
+        "smallPreviewMs": 307.9000000001397,
+        "editPreviewMs": 292.10000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 112.5999999998603,
+        "smallPreviewMs": 506.19999999995343,
+        "editPreviewMs": 546
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 484.89999999990687,
+        "smallPreviewMs": 339.5,
+        "editPreviewMs": 277.30000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 99.69999999995343,
+        "smallPreviewMs": 308.70000000018626,
+        "editPreviewMs": 280.30000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 99.0999999998603,
+        "smallPreviewMs": 313.29999999981374,
+        "editPreviewMs": 354.30000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 554,
+        "smallPreviewMs": 392.5999999998603,
+        "editPreviewMs": 276.10000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 100.80000000004657,
+        "smallPreviewMs": 308.5,
+        "editPreviewMs": 281.5
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 5,
+      "times": {
+        "emptyReadyMs": 114.19999999995343,
+        "smallPreviewMs": 323.9000000001397,
+        "editPreviewMs": 284.9000000001397
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 5,
+      "times": {
+        "emptyReadyMs": 114.30000000004657,
+        "smallPreviewMs": 1067.3000000000466,
+        "editPreviewMs": 279.10000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 6,
+      "times": {
+        "emptyReadyMs": 102.60000000009313,
+        "smallPreviewMs": 311.19999999995343,
+        "editPreviewMs": 277.5
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 6,
+      "times": {
+        "emptyReadyMs": 100.5,
+        "smallPreviewMs": 307.4000000001397,
+        "editPreviewMs": 272.60000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 7,
+      "times": {
+        "emptyReadyMs": 100.10000000009313,
+        "smallPreviewMs": 650,
+        "editPreviewMs": 508.10000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 7,
+      "times": {
+        "emptyReadyMs": 351.19999999995343,
+        "smallPreviewMs": 316.60000000009313,
+        "editPreviewMs": 282
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 8,
+      "times": {
+        "emptyReadyMs": 96.30000000004657,
+        "smallPreviewMs": 317.20000000018626,
+        "editPreviewMs": 275.5
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 8,
+      "times": {
+        "emptyReadyMs": 106.10000000009313,
+        "smallPreviewMs": 310.69999999995343,
+        "editPreviewMs": 401.19999999995343
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 9,
+      "times": {
+        "emptyReadyMs": 1088.1999999999534,
+        "smallPreviewMs": 314.60000000009313,
+        "editPreviewMs": 280.29999999981374
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 9,
+      "times": {
+        "emptyReadyMs": 109.20000000018626,
+        "smallPreviewMs": 314,
+        "editPreviewMs": 276.60000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 10,
+      "times": {
+        "emptyReadyMs": 96.5,
+        "smallPreviewMs": 309.10000000009313,
+        "editPreviewMs": 283.4000000001397
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 10,
+      "times": {
+        "emptyReadyMs": 509.10000000009313,
+        "smallPreviewMs": 966.2000000001863,
+        "editPreviewMs": 281.19999999995343
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 11,
+      "times": {
+        "emptyReadyMs": 138.19999999995343,
+        "smallPreviewMs": 308.69999999995343,
+        "editPreviewMs": 277.9000000001397
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 11,
+      "times": {
+        "emptyReadyMs": 102,
+        "smallPreviewMs": 319.89999999990687,
+        "editPreviewMs": 279.69999999995343
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 12,
+      "times": {
+        "emptyReadyMs": 115.60000000009313,
+        "smallPreviewMs": 413.19999999995343,
+        "editPreviewMs": 363.10000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 12,
+      "times": {
+        "emptyReadyMs": 567.1000000000931,
+        "smallPreviewMs": 318.30000000004657,
+        "editPreviewMs": 285
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 13,
+      "times": {
+        "emptyReadyMs": 100.4000000001397,
+        "smallPreviewMs": 313.4000000001397,
+        "editPreviewMs": 277.60000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 13,
+      "times": {
+        "emptyReadyMs": 109.30000000004657,
+        "smallPreviewMs": 308.39999999990687,
+        "editPreviewMs": 473.60000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 14,
+      "times": {
+        "emptyReadyMs": 1052.3000000000466,
+        "smallPreviewMs": 335.69999999995343,
+        "editPreviewMs": 284.5999999998603
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 14,
+      "times": {
+        "emptyReadyMs": 98,
+        "smallPreviewMs": 314.89999999990687,
+        "editPreviewMs": 283.69999999995343
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 15,
+      "times": {
+        "emptyReadyMs": 95.4000000001397,
+        "smallPreviewMs": 313.4000000001397,
+        "editPreviewMs": 346.60000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 15,
+      "times": {
+        "emptyReadyMs": 1168.1000000000931,
+        "smallPreviewMs": 311.10000000009313,
+        "editPreviewMs": 284.10000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 16,
+      "times": {
+        "emptyReadyMs": 117.80000000004657,
+        "smallPreviewMs": 317.5999999998603,
+        "editPreviewMs": 283
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 16,
+      "times": {
+        "emptyReadyMs": 109.39999999990687,
+        "smallPreviewMs": 320.30000000004657,
+        "editPreviewMs": 428.80000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 17,
+      "times": {
+        "emptyReadyMs": 913.8999999999069,
+        "smallPreviewMs": 321.89999999990687,
+        "editPreviewMs": 281.89999999990687
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 17,
+      "times": {
+        "emptyReadyMs": 102.30000000004657,
+        "smallPreviewMs": 322.19999999995343,
+        "editPreviewMs": 280.5
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 18,
+      "times": {
+        "emptyReadyMs": 100.5,
+        "smallPreviewMs": 321.89999999990687,
+        "editPreviewMs": 383
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 18,
+      "times": {
+        "emptyReadyMs": 322.80000000004657,
+        "smallPreviewMs": 332.39999999990687,
+        "editPreviewMs": 274.89999999990687
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 19,
+      "times": {
+        "emptyReadyMs": 104.4000000001397,
+        "smallPreviewMs": 323.4000000001397,
+        "editPreviewMs": 276.30000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 19,
+      "times": {
+        "emptyReadyMs": 96.70000000018626,
+        "smallPreviewMs": 333.80000000004657,
+        "editPreviewMs": 285.30000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "trig",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 136.69999999995343,
+        "previewMs": 1195.8999999999069,
+        "htmlExportMs": 275.9000000001397,
+        "pageReadyMs": 4660.199999999953
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 145.10000000009313,
+        "previewMs": 935.5,
+        "htmlExportMs": 283.30000000004657,
+        "pageReadyMs": 3441.5
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 143.5,
+        "previewMs": 948.7000000001863,
+        "htmlExportMs": 183.20000000018626,
+        "pageReadyMs": 3172.3000000000466
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "trig",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 168,
+        "previewMs": 1041.1000000000931,
+        "htmlExportMs": 269,
+        "pageReadyMs": 4158.800000000047
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "trig",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 139.80000000004657,
+        "previewMs": 1312.8000000000466,
+        "htmlExportMs": 239.39999999990687,
+        "pageReadyMs": 3734.899999999907
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 147.89999999990687,
+        "previewMs": 1208.4000000001397,
+        "htmlExportMs": 219.69999999995343,
+        "pageReadyMs": 3559.1999999999534
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 189.19999999995343,
+        "previewMs": 916.4000000001397,
+        "htmlExportMs": 178,
+        "pageReadyMs": 3472.5
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "trig",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 158.10000000009313,
+        "previewMs": 1484.2999999998137,
+        "htmlExportMs": 194.10000000009313,
+        "pageReadyMs": 3252.0999999998603
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "trig",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 113.69999999995343,
+        "previewMs": 1130.1999999999534,
+        "htmlExportMs": 140.5999999998603,
+        "pageReadyMs": 2981
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 126.5,
+        "previewMs": 869.3999999999069,
+        "htmlExportMs": 171.39999999990687,
+        "pageReadyMs": 4037.1999999999534
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 137.4000000001397,
+        "previewMs": 898.1999999999534,
+        "htmlExportMs": 171.80000000004657,
+        "pageReadyMs": 3928.3000000000466
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "trig",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 148.39999999990687,
+        "previewMs": 905.6999999999534,
+        "htmlExportMs": 182.5,
+        "pageReadyMs": 3811.100000000093
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "long",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 155.5999999998603,
+        "previewMs": 902.3000000000466
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 127.9000000001397,
+        "previewMs": 947.9000000001397
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 118.30000000004657,
+        "previewMs": 837.9000000001397
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "long",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 104.60000000009313,
+        "previewMs": 1045.6999999999534
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "long",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 418.19999999995343,
+        "previewMs": 875.8999999999069
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 105.80000000004657,
+        "previewMs": 842.1000000000931
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 112.60000000009313,
+        "previewMs": 1066
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "long",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 122.80000000004657,
+        "previewMs": 865.9000000001397
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "long",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 102.0999999998603,
+        "previewMs": 1043.1999999999534
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 297.70000000018626,
+        "previewMs": 797.0999999998603
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 102,
+        "previewMs": 836.5999999998603
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "long",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 106,
+        "previewMs": 985.3999999999069
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "memory",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 117.39999999990687
+      },
+      "observations": {
+        "repeatedEditHeap": [
+          {
+            "revision": 1,
+            "preGcBytes": 24005584,
+            "afterGcBytes": 6176540
+          },
+          {
+            "revision": 4,
+            "preGcBytes": 7880648,
+            "afterGcBytes": 6253492
+          },
+          {
+            "revision": 8,
+            "preGcBytes": 8520992,
+            "afterGcBytes": 6473036
+          }
+        ],
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "memory",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 135.39999999990687
+      },
+      "observations": {
+        "repeatedEditHeap": [
+          {
+            "revision": 1,
+            "preGcBytes": 10542292,
+            "afterGcBytes": 6120788
+          },
+          {
+            "revision": 4,
+            "preGcBytes": 7815156,
+            "afterGcBytes": 6211672
+          },
+          {
+            "revision": 8,
+            "preGcBytes": 8505996,
+            "afterGcBytes": 6429236
+          }
+        ],
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "memory",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 122.60000000009313
+      },
+      "observations": {
+        "repeatedEditHeap": [
+          {
+            "revision": 1,
+            "preGcBytes": 6646156,
+            "afterGcBytes": 5462948
+          },
+          {
+            "revision": 4,
+            "preGcBytes": 7351144,
+            "afterGcBytes": 5559088
+          },
+          {
+            "revision": 8,
+            "preGcBytes": 7795484,
+            "afterGcBytes": 5791072
+          }
+        ],
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "memory",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 127.5999999998603
+      },
+      "observations": {
+        "repeatedEditHeap": [
+          {
+            "revision": 1,
+            "preGcBytes": 6617760,
+            "afterGcBytes": 5506272
+          },
+          {
+            "revision": 4,
+            "preGcBytes": 7366540,
+            "afterGcBytes": 5602548
+          },
+          {
+            "revision": 8,
+            "preGcBytes": 7838304,
+            "afterGcBytes": 5834908
+          }
+        ],
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "memory",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 168.69999999995343
+      },
+      "observations": {
+        "repeatedEditHeap": [
+          {
+            "revision": 1,
+            "preGcBytes": 10901416,
+            "afterGcBytes": 5507340
+          },
+          {
+            "revision": 4,
+            "preGcBytes": 7169064,
+            "afterGcBytes": 5605556
+          },
+          {
+            "revision": 8,
+            "preGcBytes": 7882888,
+            "afterGcBytes": 5852252
+          }
+        ],
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "memory",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 135.89999999990687
+      },
+      "observations": {
+        "repeatedEditHeap": [
+          {
+            "revision": 1,
+            "preGcBytes": 11551552,
+            "afterGcBytes": 5471032
+          },
+          {
+            "revision": 4,
+            "preGcBytes": 7112868,
+            "afterGcBytes": 5567184
+          },
+          {
+            "revision": 8,
+            "preGcBytes": 7894168,
+            "afterGcBytes": 5799496
+          }
+        ],
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "memory",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 160.60000000009313
+      },
+      "observations": {
+        "repeatedEditHeap": [
+          {
+            "revision": 1,
+            "preGcBytes": 6573424,
+            "afterGcBytes": 5473460
+          },
+          {
+            "revision": 4,
+            "preGcBytes": 7255188,
+            "afterGcBytes": 5570728
+          },
+          {
+            "revision": 8,
+            "preGcBytes": 7869404,
+            "afterGcBytes": 5802744
+          }
+        ],
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "memory",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 162.19999999995343
+      },
+      "observations": {
+        "repeatedEditHeap": [
+          {
+            "revision": 1,
+            "preGcBytes": 6692612,
+            "afterGcBytes": 5510516
+          },
+          {
+            "revision": 4,
+            "preGcBytes": 7175956,
+            "afterGcBytes": 5609720
+          },
+          {
+            "revision": 8,
+            "preGcBytes": 7856328,
+            "afterGcBytes": 5856220
+          }
+        ],
+        "heapUsedBytes": 10000000
+      }
+    }
+  ],
+  "node": "v24.22.3",
+  "versions": {
+    "rc6": {
+      "app": "paperforma",
+      "version": "3.0.0-rc.6",
+      "profile": "production",
+      "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+      "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+      "node": "v24.22.3",
+      "engines": {
+        "node": "24.22.3",
+        "npm": ">=11.6.0 <12"
+      }
+    },
+    "rc7": {
+      "app": "paperforma",
+      "version": "3.0.0-rc.7",
+      "profile": "production",
+      "candidateSha256": "fed74962c5c0f7df7a478e91e30bf53111c7db458009b06ac955e03b5b6b5f5b",
+      "distTreeSha256": "9d2ce6c321ffd305614859932cb8b8fc8cdad73f4f6d5b53b46eec2ddc86d234",
+      "node": "v24.22.3",
+      "engines": {
+        "node": "24.22.3",
+        "npm": ">=11.6.0 <12"
+      }
+    }
+  },
+  "method": "Actual production files on an independent loopback origin per revision, production response headers for the app and print. Only the /perf QA page adds permission to read the Blob delivered by the app. Separate persistent contexts, one warmup and fresh studio iframe per turn. AB/BA order alternates. 12ms DOM polling. GC measurements outside timed sections for the memory cohort, including the harness and current live editor in that target; excludes native/other worker processes. Input events are synthetic. No QA hook is injected into the app, no cold network or native file write is timed.",
+  "browser": "HeadlessChrome/153.0.8010.0"
+}

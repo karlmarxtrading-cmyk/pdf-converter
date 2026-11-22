@@ -1,0 +1,129 @@
+{
+  "before": {
+    "source": "774465b21054bfd933b869ea7232d3d59ff8e1fa0422a8d83b18208b08b6abd6",
+    "dist": "b2351cef15853b432dbe1fa9c02d0537308cc778a16fdbec551e2e243b9caefd"
+  },
+  "cases": [
+    {
+      "id": "wrapper-rumus",
+      "fixture": "evidence/rc10/browser/mixed-formula.html",
+      "fixtureSha256": "33f2a330ebbe197786d1763921314a6e70b174e3666449da30049d6ffc46f451",
+      "template": "EDU-01",
+      "rawOriginalSha256": "33f2a330ebbe197786d1763921314a6e70b174e3666449da30049d6ffc46f451",
+      "sha256": "ce31a5992a1ef30e2fb0fd5699b70dd135a9694ff1ebc462214093aa399724e5",
+      "bytes": 277932,
+      "file": "examples/rc10/content/wrapper-rumus.html",
+      "offline": {
+        "externalScripts": 0,
+        "online": false,
+        "independentCount": 1,
+        "trailingCount": 1,
+        "formula": [
+          {
+            "canonical": "x+1",
+            "annotation": "x+1",
+            "visual": true
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "aset-lokal",
+      "fixture": "examples/rc7/ASSET-MANDIRI.pfproj",
+      "fixtureSha256": "0f2c5d873d52b75105f8b0bae1f9095401b63fbffca86ea0746af32374cf8f2d",
+      "template": "BUS-01",
+      "sha256": "2c9e91b7d0113543cd101b954687b0ec77f6b226b41f4905a63b52ec302e6c30",
+      "bytes": 233314,
+      "file": "examples/rc10/content/aset-lokal.html",
+      "offline": {
+        "externalScripts": 0,
+        "online": false,
+        "images": [
+          {
+            "alt": "Kotak warna tiga kali dua",
+            "title": "Palet inline",
+            "size": [
+              3,
+              2
+            ],
+            "type": "data:image/png;base64,"
+          },
+          {
+            "alt": "Grafik proyek",
+            "title": "Grafik lokal",
+            "size": [
+              32,
+              32
+            ],
+            "type": "data:image/png;base64,"
+          }
+        ],
+        "tex": "\\frac{1}{2}",
+        "link": [
+          {
+            "href": "https://example.org/paperforma?x=1&y=2",
+            "title": "Rujukan pengujian"
+          }
+        ]
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "percakapan",
+      "fixture": "fixtures/korpus/06_percakapan_empat_pesan.txt",
+      "fixtureSha256": "3407cf761e77d45263101f0e55544b7a9b8a2657ad391853ab67f8e25e4bd49d",
+      "template": "CON-01",
+      "sha256": "6e59c9ed7ef03bac4ac7e3006e58493fd9c1cd0d2be64b40b2dc8d83d2302322",
+      "bytes": 174643,
+      "file": "examples/rc10/content/percakapan.html",
+      "offline": {
+        "externalScripts": 0,
+        "online": false,
+        "roles": [
+          "user",
+          "assistant",
+          "user",
+          "assistant"
+        ],
+        "messages": [
+          "Pengguna:Jelaskan contoh persamaan sederhana.",
+          "Asisten:PersamaanJika x + 2 = 5, maka x = 3.",
+          "Pengguna:Sertakan contoh teks program, jangan ubah label di dalamnya.",
+          "Asisten:Assistant: ini hanya isi kode.\nUser: ini juga isi kode.\nAssistant: contoh label di dalam kutipan.\nSENTINEL_PESAN_4"
+        ],
+        "code": "Assistant: ini hanya isi kode.\nUser: ini juga isi kode."
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "diagram",
+      "fixture": "evidence/rc10/browser/diagram.md",
+      "fixtureSha256": "6ff39eab032b4a17c040231914d6b6664a0c636878a783090b2ab5d1e60d8f34",
+      "template": "EDU-01",
+      "sha256": "0e88bc0d8e49d34919ddcc06815744f0c2d4eaa0d07e97c48e8e912b27c7911e",
+      "bytes": 241520,
+      "file": "examples/rc10/content/diagram.html",
+      "offline": {
+        "externalScripts": 0,
+        "online": false,
+        "count": 2,
+        "successful": 1,
+        "labels": "#pf3xhtcmw2-mmd-1{font-family:Inter,Arial,sans-serif;font-size:16px;fill:#000000;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#pf3xhtcmw2-mmd-1 .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#pf3xhtcmw2-mmd-1 .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#pf3xhtcmw2-mmd-1 .error-icon{fill:#552222;}#pf3xhtcmw2-mmd-1 .error-text{fill:#552222;stroke:#552222;}#pf3xhtcmw2-mmd-1 .edge-thickness-normal{stroke-width:1px;}#pf3xhtcmw2-mmd-1 .edge-thickness-thick{stroke-width:3.5px;}#pf3xhtcmw2-mmd-1 .edge-pattern-solid{stroke-dasharray:0;}#pf3xhtcmw2-mmd-1 .edge-thickness-invisible{stroke-width:0;fill:none;}#pf3xhtcmw2-mmd-1 .edge-pattern-dashed{stroke-dasharray:3;}#pf3xhtcmw2-mmd-1 .edge-pattern-dotted{stroke-dasharray:2;}#pf3xhtcmw2-mmd-1 .marker{fill:#666;stroke:#666;}#pf3xhtcmw2-mmd-1 .marker.cross{stroke:#666;}#pf3xhtcmw2-mmd-1 svg{font-family:Inter,Arial,sans-serif;font-size:16px;}#pf3xhtcmw2-mmd-1 p{margin:0;}#pf3xhtcmw2-mmd-1 .label{font-family:Inter,Arial,sans-serif;color:#000000;}#pf3xhtcmw2-mmd-1 .cluster-label text{fill:#333;}#pf3xhtcmw2-mmd-1 .cluster-label span{color:#333;}#pf3xhtcmw2-mmd-1 .cluster-label span p{background-color:transparent;}#pf3xhtcmw2-mmd-1 .label text,#pf3xhtcmw2-mmd-1 span{fill:#000000;color:#000000;}#pf3xhtcmw2-mmd-1 .node rect,#pf3xhtcmw2-mmd-1 .node circle,#pf3xhtcmw2-mmd-1 .node ellipse,#pf3xhtcmw2-mmd-1 .node polygon,#pf3xhtcmw2-mmd-1 .node path{fill:#eee;stroke:#999;stroke-width:1px;}#pf3xhtcmw2-mmd-1 .rough-node .label text,#pf3xhtcmw2-mmd-1 .node .label text,#pf3xhtcmw2-mmd-1 .image-shape .label,#pf3xhtcmw2-mmd-1 .icon-shape .label{text-anchor:middle;}#pf3xhtcmw2-mmd-1 .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#pf3xhtcmw2-mmd-1 .rough-node .label,#pf3xhtcmw2-mmd-1 .node .label,#pf3xhtcmw2-mmd-1 .image-shape .label,#pf3xhtcmw2-mmd-1 .icon-shape .label{text-align:center;}#pf3xhtcmw2-mmd-1 .node.clickable{cursor:pointer;}#pf3xhtcmw2-mmd-1 .root .anchor path{fill:#666!important;stroke-width:0;stroke:#666;}#pf3xhtcmw2-mmd-1 .arrowheadPath{fill:#333333;}#pf3xhtcmw2-mmd-1 .edgePaths .path{stroke:#666;stroke-width:1px;}#pf3xhtcmw2-mmd-1 .flowchart-link{stroke:#666;fill:none;}#pf3xhtcmw2-mmd-1 .edgeLabel{background-color:white;text-align:center;}#pf3xhtcmw2-mmd-1 .edgeLabel p{background-color:white;}#pf3xhtcmw2-mmd-1 .edgeLabel rect{opacity:0.5;background-color:white;fill:white;}#pf3xhtcmw2-mmd-1 .labelBkg{background-color:rgba(255, 255, 255, 0.5);}#pf3xhtcmw2-mmd-1 .cluster rect{fill:hsl(0, 0%, 98.9215686275%);stroke:#707070;stroke-width:1px;}#pf3xhtcmw2-mmd-1 .cluster text{fill:#333;}#pf3xhtcmw2-mmd-1 .cluster span{color:#333;}#pf3xhtcmw2-mmd-1 .node .collapsed-indicator{fill:#707070;stroke:none;opacity:0.6;}#pf3xhtcmw2-mmd-1 .node .collapsed-separator{stroke:#707070;stroke-width:0.75px;}#pf3xhtcmw2-mmd-1 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:Inter,Arial,sans-serif;font-size:12px;background:hsl(-160, 0%, 93.3333333333%);border:1px solid #707070;border-radius:2px;pointer-events:none;z-index:100;}#pf3xhtcmw2-mmd-1 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#000000;}#pf3xhtcmw2-mmd-1 rect.text{fill:none;stroke-width:0;}#pf3xhtcmw2-mmd-1 .icon-shape,#pf3xhtcmw2-mmd-1 .image-shape{background-color:white;text-align:center;}#pf3xhtcmw2-mmd-1 .icon-shape p,#pf3xhtcmw2-mmd-1 .image-shape p{background-color:white;padding:2px;}#pf3xhtcmw2-mmd-1 .icon-shape .label rect,#pf3xhtcmw2-mmd-1 .image-shape .label rect{opacity:0.5;background-color:white;fill:white;}#pf3xhtcmw2-mmd-1 .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#pf3xhtcmw2-mmd-1 .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#pf3xhtcmw2-mmd-1 .node .neo-node{stroke:#999;}#pf3xhtcmw2-mmd-1 [data-look=\"neo\"].node rect,#pf3xhtcmw2-mmd-1 [data-look=\"neo\"].cluster rect,#pf3xhtcmw2-mmd-1 [data-look=\"neo\"].node polygon{stroke:url(#pf3xhtcmw2-mmd-1-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#pf3xhtcmw2-mmd-1 [data-look=\"neo\"].swimlane.cluster rect{filter:none;}#pf3xhtcmw2-mmd-1 [data-look=\"neo\"].node path{stroke:url(#pf3xhtcmw2-mmd-1-gradient);stroke-width:1px;}#pf3xhtcmw2-mmd-1 [data-look=\"neo\"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#pf3xhtcmw2-mmd-1 [data-look=\"neo\"].node .neo-line path{stroke:#999;filter:none;}#pf3xhtcmw2-mmd-1 [data-look=\"neo\"].node circle{stroke:url(#pf3xhtcmw2-mmd-1-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#pf3xhtcmw2-mmd-1 [data-look=\"neo\"].node circle .state-start{fill:#000000;}#pf3xhtcmw2-mmd-1 [data-look=\"neo\"].icon-shape .icon{fill:url(#pf3xhtcmw2-mmd-1-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#pf3xhtcmw2-mmd-1 [data-look=\"neo\"].icon-shape .icon-neo path{stroke:url(#pf3xhtcmw2-mmd-1-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#pf3xhtcmw2-mmd-1 :root{--mermaid-font-family:Inter,Arial,sans-serif;}MulaiPeriksaSelesai",
+        "fallback": "flowchart?\n    TIDAK-VALID-017",
+        "diagramCssVisible": true,
+        "dangerous": 0
+      },
+      "status": "PASS"
+    }
+  ],
+  "dateUTC": "2026-11-22T01:52:11.405Z",
+  "method": "Production UI · published download · isolated file opened with Chromium offline · source fixture and artifact independently hashed.",
+  "engine": "HeadlessChrome/153.0.8010.0",
+  "after": {
+    "source": "774465b21054bfd933b869ea7232d3d59ff8e1fa0422a8d83b18208b08b6abd6",
+    "dist": "b2351cef15853b432dbe1fa9c02d0537308cc778a16fdbec551e2e243b9caefd"
+  },
+  "sameBytes": true,
+  "status": "PASS"
+}

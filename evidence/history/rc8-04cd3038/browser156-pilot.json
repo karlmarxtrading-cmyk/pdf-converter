@@ -1,0 +1,547 @@
+{
+  "schema": 1,
+  "runId": "2ab8e4ef-db71-4c87-870d-fa6cc9933210",
+  "pid": 5,
+  "revision": "fixed-block-lifecycle/1",
+  "cohort": 1,
+  "before": {
+    "rc6": {
+      "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+      "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+      "manifestSha256": "6827509a82bf2b903bda374e6782e3df77ec1cccb940739c31911fce49340279",
+      "version": "3.0.0-rc.6"
+    },
+    "candidate": {
+      "candidateSha256": "04cd3038a66f8bc3c78440456b6319c22af52dade47bd411362b6bb967435f35",
+      "distTreeSha256": "f5c8558a3b058ff2fdb2591989c39d2c92e314fe9f205a95ef5bbedba1a54db6",
+      "manifestSha256": "1aae3dc490ec1038358613ade91420160f730e20911da2ef1a9c27f2674a0ed3",
+      "version": "3.0.0-rc.8"
+    },
+    "fixture": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "oracle": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "acceptedReference": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "harness": "373050415f4debdf9e5efb0d5b5b213a3834203c32add7f579b242e9a3558e47",
+    "settings": "6f8d19307eaede2ec6b05047bf56a71d1f338340a0278e24dda13db4438eef80",
+    "benchmarkDependencies": {
+      "rc6": "774d75eec73c9088e839e3b252e2f6cc26e3c8fef1beba192b8a95d35204130c",
+      "candidate": "ef77e877abfc9dccc5fa3dba56f968d73ededbc84368ece98d80957ae5857e68"
+    }
+  },
+  "driverSha256": "b4073c4f01f1b7778dfb8e7d6022d64a4e7042dd4bc71c27b3536c1a42613091",
+  "procedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+  "environment": {
+    "node": "v24.22.3",
+    "nodeExecutableSha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa",
+    "browserExecutableSha256": "ce1ff960ce428a4a88b1b1c38516bdf1954a57fc24036161b7a0d8d0f8aec511",
+    "os": [
+      "linux",
+      "6.18.57",
+      "x64"
+    ],
+    "cpus": 1,
+    "model": "AMD EPYC 9V74 80-Core Processor",
+    "memoryBytes": 10451427328,
+    "initialLoad": {
+      "loadavg": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "at": "2026-11-21T21:37:32.342Z"
+    },
+    "affinity": "8"
+  },
+  "protocol": {
+    "schema": 1,
+    "baselineSource": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+    "baselineDist": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+    "trigSource": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "referenceHtml": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "dateFrozen": "2026-11-22",
+    "cohorts": 2,
+    "pairs": 40,
+    "warmupsPerCase": 1,
+    "order": "Even rounds start with RC6 in cohort 1 and candidate in cohort 2. Odd rounds reverse. Each cohort starts a new process and empty browser profile. Warmups and errors are retained. No trimming or reruns for a favorable timing.",
+    "medianRatio": 1.05,
+    "p95Ratio": 1.1,
+    "settings": {
+      "template": "BUS-01",
+      "paper": "A4",
+      "orientation": "portrait",
+      "viewport": [
+        1366,
+        900
+      ],
+      "locale": "id-ID",
+      "browserCache": "warm after warmup",
+      "nodeFonts": "locked local WOFF2"
+    },
+    "browserFlows": {
+      "trig": [
+        "previewMs",
+        "htmlExportMs",
+        "pageReadyMs"
+      ],
+      "long": [
+        "previewMs"
+      ],
+      "small": [
+        "smallPreviewMs",
+        "editPreviewMs"
+      ]
+    },
+    "nodeFlows": {
+      "trigonometry": [
+        "refreshMs",
+        "htmlExportMs",
+        "printPayloadMs"
+      ],
+      "long": [
+        "refreshMs"
+      ],
+      "small-edit": [
+        "editedRefreshMs",
+        "htmlExportMs",
+        "printPayloadMs"
+      ],
+      "empty-core": [
+        "refreshMs"
+      ]
+    },
+    "statistics": "Median averages both center values. p95 nearest-rank. Report spread and each cohort separately. GC, file validation and oracle run outside timed intervals. Browser polling ~12ms, clocks high-resolution monotonic. Shared Linux host; sample load separately, no outlier exclusion.",
+    "capacity": {
+      "sections": [
+        6,
+        30,
+        118
+      ],
+      "reps": 5,
+      "heapIntervalMs": 200,
+      "previewMs": 10000,
+      "reeditPreviewMs": 10000,
+      "cancelToIdleMs": 2000,
+      "maxEventLoopGapMs": 1000,
+      "printReadyMs": 60000,
+      "afterCloseRetainedDriftBytes": 8388608,
+      "firstProgressMs": 2000,
+      "maxProgressGapMs": 5000,
+      "peakDefinition": "Maximum observed Runtime.getHeapUsage.usedSize bytes on the same page target as post-GC. Native/process/worker memory excluded. Unknown remains null. Five runs support completion checks only; estimate latency tail per size on a separate 40+40 sample per-size study before advertising a percentile SLA.",
+      "capacityClaim": "Measure the historical 6,30,118-section fixtures. Their page counts depend on actual pagination. No 500/1,000-page claim."
+    }
+  },
+  "recovery": {
+    "schema": 1,
+    "frozenAt": "2026-11-22T04:27:00+07:00",
+    "cause": "Both persistent-controller cohorts timed out at the outer CDP Runtime.callFunctionOn deadline on opposite revisions. Their raw rows, terminal errors and all original evidence are retained.",
+    "pairsPerBlock": 4,
+    "cdpTimeoutMs": 60000,
+    "method": "Two independent Chromium processes/cohorts, separate origin contexts per version, same unmodified tests/bench/performance-page.js and performance-oracle.mjs, unchanged measurements, fixtures, binary, settings, ratios, 40 preassigned AB/BA pairs per task. At the beginning of every fixed block of four pairs restart Chromium, open two fresh isolated contexts, then warm each version outside measured time. Healthy warm caches persist inside the block. Close and reopen both contexts together if an arm fails. This is a distinct protocol; never pool it with the two original cohorts.",
+    "failedSamples": "Each scheduled arm is attempted once in measured data. Preserve failed rows, partial-pair identities and warmups. If an arm fails, still attempt the other side. Recover the session and add a paired warmup before the next pair. No replacement measured sample, dropping, threshold adjustments or retries of completed pairs. The status stays FAIL whenever output equivalence, count or latency fails. Continue other cases.",
+    "roles": "The tests/bench suite and candidate remain frozen. This independently hashed supplemental command under docs/verification-tools is an additional release observation. Original official failures retain their own decision."
+  },
+  "runs": [
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": -1,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.028Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": true
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": -1,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.028Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": true
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": -2,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.128Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": true
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": -2,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.129Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": true
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 0,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.130Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": false
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 0,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.130Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": false
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": -3,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.207Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": true
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": -3,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.208Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": true
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 1,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.208Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": false
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 1,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.208Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": false
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": -4,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.283Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": true
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": -4,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.283Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": true
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 2,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.284Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": false
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 2,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.284Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": false
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": -5,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.356Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": true
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": -5,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.357Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": true
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 3,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.357Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": false
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 3,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Browser session unavailable",
+      "stage": "activate",
+      "timestamp": "2026-11-21T21:37:33.357Z",
+      "load": [
+        8.15,
+        9.43,
+        7.78
+      ],
+      "block": 0,
+      "warmup": false
+    }
+  ],
+  "incidents": [
+    {
+      "event": "launch",
+      "task": "trig",
+      "block": 0,
+      "message": "TargetCloseError: Protocol error (Target.setDiscoverTargets): Target closed",
+      "at": "2026-11-21T21:37:33.028Z"
+    },
+    {
+      "event": "reopen",
+      "task": "trig",
+      "round": 0,
+      "message": "TargetCloseError: Protocol error (Target.setDiscoverTargets): Target closed",
+      "at": "2026-11-21T21:37:33.128Z"
+    },
+    {
+      "event": "reopen",
+      "task": "trig",
+      "round": 1,
+      "message": "TargetCloseError: Protocol error (Target.setDiscoverTargets): Target closed",
+      "at": "2026-11-21T21:37:33.207Z"
+    },
+    {
+      "event": "reopen",
+      "task": "trig",
+      "round": 2,
+      "message": "TargetCloseError: Protocol error (Target.setDiscoverTargets): Target closed",
+      "at": "2026-11-21T21:37:33.283Z"
+    },
+    {
+      "event": "reopen",
+      "task": "trig",
+      "round": 3,
+      "message": "TargetCloseError: Protocol error (Target.setDiscoverTargets): Target closed",
+      "at": "2026-11-21T21:37:33.356Z"
+    }
+  ],
+  "status": "FAIL",
+  "after": {
+    "rc6": {
+      "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+      "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+      "manifestSha256": "6827509a82bf2b903bda374e6782e3df77ec1cccb940739c31911fce49340279",
+      "version": "3.0.0-rc.6"
+    },
+    "candidate": {
+      "candidateSha256": "04cd3038a66f8bc3c78440456b6319c22af52dade47bd411362b6bb967435f35",
+      "distTreeSha256": "f5c8558a3b058ff2fdb2591989c39d2c92e314fe9f205a95ef5bbedba1a54db6",
+      "manifestSha256": "1aae3dc490ec1038358613ade91420160f730e20911da2ef1a9c27f2674a0ed3",
+      "version": "3.0.0-rc.8"
+    },
+    "fixture": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "oracle": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "acceptedReference": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "harness": "373050415f4debdf9e5efb0d5b5b213a3834203c32add7f579b242e9a3558e47",
+    "settings": "6f8d19307eaede2ec6b05047bf56a71d1f338340a0278e24dda13db4438eef80",
+    "benchmarkDependencies": {
+      "rc6": "774d75eec73c9088e839e3b252e2f6cc26e3c8fef1beba192b8a95d35204130c",
+      "candidate": "ef77e877abfc9dccc5fa3dba56f968d73ededbc84368ece98d80957ae5857e68"
+    }
+  }
+}

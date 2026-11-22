@@ -1,0 +1,124 @@
+{
+  "candidate": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+  "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496",
+  "manifestChecked": true,
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "counts": {
+    "mermaidOff": 0,
+    "mermaidOn": 2,
+    "mermaidRevoked": 0,
+    "standalone": 0,
+    "standardPrint": 0,
+    "bookPrint": 0,
+    "bundleOpened": 0,
+    "bundleGranted": 1,
+    "localRestore": 1,
+    "bundleRevoked": 0
+  },
+  "interception": "CDP Fetch interception with local image response",
+  "intercepted": [
+    {
+      "phase": "mermaidOn",
+      "url": "https://paperforma-audit.invalid/mermaid.png",
+      "kind": "image"
+    },
+    {
+      "phase": "mermaidOn",
+      "url": "https://paperforma-audit.invalid/mermaid.png",
+      "kind": "image"
+    },
+    {
+      "phase": "bundleGranted",
+      "url": "https://paperforma-audit.invalid/bundle.png",
+      "kind": "image"
+    },
+    {
+      "phase": "localRestore",
+      "url": "https://paperforma-audit.invalid/bundle.png",
+      "kind": "image"
+    }
+  ],
+  "reports": {
+    "previewOff": [
+      {
+        "rendered": true,
+        "image": null,
+        "fallback": null
+      },
+      {
+        "rendered": false,
+        "image": null,
+        "fallback": "flowchart LR\nA@{ img: \"https://paperforma-audit.invalid/mermaid.png\", label: \"Permission image\", pos: \"b\", h: 60, constraint: \"on\" }"
+      },
+      {
+        "rendered": false,
+        "image": null,
+        "fallback": "---\nconfig:\n  themeCSS: 'rect { fill: url(https://paperforma-audit.invalid/css-image.svg#paint); }'\n---\nflowchart LR\nA[\"CSS reference\"]"
+      }
+    ],
+    "previewOn": [
+      {
+        "rendered": true,
+        "image": null,
+        "fallback": null
+      },
+      {
+        "rendered": true,
+        "image": "https://paperforma-audit.invalid/mermaid.png",
+        "fallback": null
+      },
+      {
+        "rendered": false,
+        "image": null,
+        "fallback": "---\nconfig:\n  themeCSS: 'rect { fill: url(https://paperforma-audit.invalid/css-image.svg#paint); }'\n---\nflowchart LR\nA[\"CSS reference\"]"
+      }
+    ],
+    "previewRevoked": [
+      {
+        "rendered": true,
+        "image": null,
+        "fallback": null
+      },
+      {
+        "rendered": false,
+        "image": null,
+        "fallback": "flowchart LR\nA@{ img: \"https://paperforma-audit.invalid/mermaid.png\", label: \"Permission image\", pos: \"b\", h: 60, constraint: \"on\" }"
+      },
+      {
+        "rendered": false,
+        "image": null,
+        "fallback": "---\nconfig:\n  themeCSS: 'rect { fill: url(https://paperforma-audit.invalid/css-image.svg#paint); }'\n---\nflowchart LR\nA[\"CSS reference\"]"
+      }
+    ],
+    "export": {
+      "sha256": "eea96a2d69eca2c05717b282004ab0d68fb211cb09a350a30a045f203b281a95",
+      "bytes": 186112,
+      "local": true,
+      "imageSource": "flowchart LR\nA@{ img: \"https://paperforma-audit.invalid/mermaid.png\", label: \"Permission image\", pos: \"b\", h: 60, constraint: \"on\" }",
+      "cssSource": "---\nconfig:\n  themeCSS: 'rect { fill: url(https://paperforma-audit.invalid/css-image.svg#paint); }'\n---\nflowchart LR\nA[\"CSS reference\"]",
+      "end": true
+    },
+    "standardPrint": {
+      "local": true,
+      "blocked": [
+        "flowchart LR\nA@{ img: \"https://paperforma-audit.invalid/mermaid.png\", label: \"Permission image\", pos: \"b\", h: 60, constraint: \"on\" }",
+        "---\nconfig:\n  themeCSS: 'rect { fill: url(https://paperforma-audit.invalid/css-image.svg#paint); }'\n---\nflowchart LR\nA[\"CSS reference\"]"
+      ],
+      "end": true
+    },
+    "bookPrint": {
+      "local": true,
+      "blocked": [
+        "flowchart LR\nA@{ img: \"https://paperforma-audit.invalid/mermaid.png\", label: \"Permission image\", pos: \"b\", h: 60, constraint: \"on\" }",
+        "---\nconfig:\n  themeCSS: 'rect { fill: url(https://paperforma-audit.invalid/css-image.svg#paint); }'\n---\nflowchart LR\nA[\"CSS reference\"]"
+      ],
+      "end": true
+    },
+    "bundle": {
+      "senderGrantImported": false,
+      "explicitGrantLoaded": true,
+      "localConsentRecovered": true,
+      "revocationRemovedImage": true
+    }
+  }
+}

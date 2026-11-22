@@ -1,0 +1,580 @@
+{"beforePath": {"pdfinfo": null, "pdftotext": null, "pdffonts": null, "pandoc": null, "python": null, "python3": null}, "isolatedBootstrapModules": "[None, None, None, None]", "emptyHome": true}
+Node v24.22.3; npm 11.19.1
+Bootstrap lock SHA-256: c610f60e2df1cbda8de4a39e853e6249507e0ec7ccd08d88f8c619c279535382
+Transaction
+
+  Prefix: <fresh-verifier>/install/env
+
+  Updating specs:
+
+   - pandoc==3.1.11.1=ha770c72_0
+   - libzlib==1.3.2=h25fd6f3_3
+   - libgomp==16.2.0=he0feb66_7
+   - libglvnd==1.7.0=ha4b6fd6_5
+   - zstd==1.5.7=hb78ec9c_7
+   - _openmp_mutex==4.5=20_gnu
+   - libegl==1.7.0=ha4b6fd6_5
+   - ld_impl_linux-64==2.46.1=default_hbd61a6d_103
+   - libgcc==16.2.0=ha9f2e26_7
+   - libev==4.33=h280c20c_3
+   - xorg-libice==1.1.2=h280c20c_0
+   - keyutils==1.6.3=h7cc23a3_1
+   - c-ares==1.34.9=hebe6cf0_0
+   - libwebp-base==1.6.0=hd42ef1d_1
+   - libpng==1.6.59=h922cc85_0
+   - tk==8.6.13=noxft_h1df4ec4_4
+   - ncurses==6.6=hdb14827_1
+   - libuuid==2.42.4=hcfc3c73_1
+   - libnsl==2.0.1=hb9d3cd8_1
+   - libdeflate==1.26=h351257e_0
+   - xorg-libxdmcp==1.1.5=h7cc23a3_2
+   - xorg-libxau==1.0.12=h7cc23a3_2
+   - pthread-stubs==0.4=h7cc23a3_1004
+   - libiconv==1.18=h0cb94f2_3
+   - liblzma==5.8.3=hb03c661_1
+   - libffi==3.7.0=h81df57d_1
+   - libexpat==2.9.0=hd2095e1_0
+   - bzip2==1.0.8=hda65f42_10
+   - libstdcxx==16.2.0=h934c35e_7
+   - libxcrypt==4.4.38=h280c20c_0
+   - libjpeg-turbo==3.2.1=h7cc23a3_0
+   - libfreetype6==2.14.3=h5e6c136_2
+   - libedit==3.1.20260512=pl5321h373387f_0
+   - readline==8.3=hd6e31c0_1
+   - xorg-libsm==1.2.6=h0d788c3_1
+   - libxcb==1.17.0=hb83e432_3
+   - pcre2==10.49=h8b3dc9c_0
+   - pixman==0.46.4=h54a6638_3
+   - zlib-ng==2.3.3=hce19668_1
+   - lerc==4.3.0=he78707d_0
+   - icu==78.3=py310h44b86e0_2
+   - nspr==4.41=h76ac25a_0
+   - libpython==3.12.14=h0c77377_3_cpython
+   - libfreetype==2.14.3=ha770c72_2
+   - xorg-libx11==1.8.14=hb83e432_0
+   - libglib==2.90.1=hb382ddc_4
+   - libtiff==4.7.2=h6d37cbf_2
+   - libpsl==0.23.1=hd9e3e90_1
+   - libxml2-16==2.15.4=hf3af7cc_1
+   - libsqlite==3.54.1=h13e7031_0
+   - fontconfig==2.18.4=h4db4eae_0
+   - xorg-libxfixes==6.0.2=h7cc23a3_1
+   - xorg-libxrender==0.9.13=h7cc23a3_0
+   - libglx==1.7.0=ha4b6fd6_5
+   - xorg-libxext==1.3.7=h7cc23a3_1
+   - openjpeg==2.5.4=heb1ab33_2
+   - lcms2==2.20=h9073bf1_0
+   - libxml2==2.15.4=h7df9aa5_1
+   - nss==3.118=h445c969_0
+   - libgl==1.7.0=ha4b6fd6_5
+   - xorg-libxi==1.8.4=h7cc23a3_0
+   - xorg-libxscrnsaver==1.2.4=hb9d3cd8_0
+   - libxslt==1.1.45=h8e12856_1
+   - xorg-libxtst==1.2.6=h7cc23a3_0
+   - ca-certificates==2026.11.20=hbd8a1cb_0
+   - font-ttf-dejavu-sans-mono==2.37=hab24e00_0
+   - python_abi==3.12=9_cp312
+   - font-ttf-inconsolata==3.0=h77eed37_0
+   - font-ttf-source-code-pro==2.38=h77eed37_0
+   - font-ttf-ubuntu==0.83=h77eed37_4
+   - tzdata==2026e=h5d301ff_0
+   - poppler-data==0.4.12=hd8ed1ab_0
+   - fonts-conda-forge==1=hc364b38_1
+   - fonts-conda-ecosystem==1=0
+   - openssl==3.6.5=h781a0a9_0
+   - cairo==1.18.6=h3c89d7e_0
+   - libssh2==1.11.1=h6154650_1
+   - libnghttp2==1.71.0=hc5e5977_0
+   - krb5==1.22.2=hbc21106_2
+   - python==3.12.14=h5f976f7_3_cpython
+   - libcurl==8.23.0=ha042cf0_0
+   - poppler==26.5.0=hfdef1ce_3
+   - packaging==26.3=pyhc364b38_0
+   - setuptools==84.2.1=pyhe730653_0
+   - wheel==0.48.0=pyhd8ed1ab_0
+   - pip==26.2.2=pyh8b19718_2
+   - typing_extensions==4.16.0=pyhcf101f3_0
+   - pypdf==6.21.4=pyh5ded981_0
+   - pillow==13.0.0=py312h38079b3_1
+   - lxml==6.1.1=py312h63ddcf0_0
+
+
+  Package                           Version  Build                 Channel                                               Size
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Install:
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  + _openmp_mutex                       4.5  20_gnu                <fresh-verifier>/install/downloads         
+  + bzip2                             1.0.8  hda65f42_10           <fresh-verifier>/install/downloads         
+  + c-ares                           1.34.9  hebe6cf0_0            <fresh-verifier>/install/downloads         
+  + ca-certificates              2026.11.20  hbd8a1cb_0            <fresh-verifier>/install/downloads         
+  + cairo                            1.18.6  h3c89d7e_0            <fresh-verifier>/install/downloads         
+  + font-ttf-dejavu-sans-mono          2.37  hab24e00_0            <fresh-verifier>/install/downloads         
+  + font-ttf-inconsolata              3.000  h77eed37_0            <fresh-verifier>/install/downloads         
+  + font-ttf-source-code-pro          2.038  h77eed37_0            <fresh-verifier>/install/downloads         
+  + font-ttf-ubuntu                    0.83  h77eed37_4            <fresh-verifier>/install/downloads         
+  + fontconfig                       2.18.4  h4db4eae_0            <fresh-verifier>/install/downloads         
+  + fonts-conda-ecosystem                 1  0                     <fresh-verifier>/install/downloads         
+  + fonts-conda-forge                     1  hc364b38_1            <fresh-verifier>/install/downloads         
+  + icu                                78.3  py310h44b86e0_2       <fresh-verifier>/install/downloads         
+  + keyutils                          1.6.3  h7cc23a3_1            <fresh-verifier>/install/downloads         
+  + krb5                             1.22.2  hbc21106_2            <fresh-verifier>/install/downloads         
+  + lcms2                              2.20  h9073bf1_0            <fresh-verifier>/install/downloads         
+  + ld_impl_linux-64                 2.46.1  default_hbd61a6d_103  <fresh-verifier>/install/downloads         
+  + lerc                              4.3.0  he78707d_0            <fresh-verifier>/install/downloads         
+  + libcurl                          8.23.0  ha042cf0_0            <fresh-verifier>/install/downloads         
+  + libdeflate                         1.26  h351257e_0            <fresh-verifier>/install/downloads         
+  + libedit                    3.1.20260512  pl5321h373387f_0      <fresh-verifier>/install/downloads         
+  + libegl                            1.7.0  ha4b6fd6_5            <fresh-verifier>/install/downloads         
+  + libev                              4.33  h280c20c_3            <fresh-verifier>/install/downloads         
+  + libexpat                          2.9.0  hd2095e1_0            <fresh-verifier>/install/downloads         
+  + libffi                            3.7.0  h81df57d_1            <fresh-verifier>/install/downloads         
+  + libfreetype                      2.14.3  ha770c72_2            <fresh-verifier>/install/downloads         
+  + libfreetype6                     2.14.3  h5e6c136_2            <fresh-verifier>/install/downloads         
+  + libgcc                           16.2.0  ha9f2e26_7            <fresh-verifier>/install/downloads         
+  + libgl                             1.7.0  ha4b6fd6_5            <fresh-verifier>/install/downloads         
+  + libglib                          2.90.1  hb382ddc_4            <fresh-verifier>/install/downloads         
+  + libglvnd                          1.7.0  ha4b6fd6_5            <fresh-verifier>/install/downloads         
+  + libglx                            1.7.0  ha4b6fd6_5            <fresh-verifier>/install/downloads         
+  + libgomp                          16.2.0  he0feb66_7            <fresh-verifier>/install/downloads         
+  + libiconv                           1.18  h0cb94f2_3            <fresh-verifier>/install/downloads         
+  + libjpeg-turbo                     3.2.1  h7cc23a3_0            <fresh-verifier>/install/downloads         
+  + liblzma                           5.8.3  hb03c661_1            <fresh-verifier>/install/downloads         
+  + libnghttp2                       1.71.0  hc5e5977_0            <fresh-verifier>/install/downloads         
+  + libnsl                            2.0.1  hb9d3cd8_1            <fresh-verifier>/install/downloads         
+  + libpng                           1.6.59  h922cc85_0            <fresh-verifier>/install/downloads         
+  + libpsl                           0.23.1  hd9e3e90_1            <fresh-verifier>/install/downloads         
+  + libpython                       3.12.14  h0c77377_3_cpython    <fresh-verifier>/install/downloads         
+  + libsqlite                        3.54.1  h13e7031_0            <fresh-verifier>/install/downloads         
+  + libssh2                          1.11.1  h6154650_1            <fresh-verifier>/install/downloads         
+  + libstdcxx                        16.2.0  h934c35e_7            <fresh-verifier>/install/downloads         
+  + libtiff                           4.7.2  h6d37cbf_2            <fresh-verifier>/install/downloads         
+  + libuuid                          2.42.4  hcfc3c73_1            <fresh-verifier>/install/downloads         
+  + libwebp-base                      1.6.0  hd42ef1d_1            <fresh-verifier>/install/downloads         
+  + libxcb                           1.17.0  hb83e432_3            <fresh-verifier>/install/downloads         
+  + libxcrypt                        4.4.38  h280c20c_0            <fresh-verifier>/install/downloads         
+  + libxml2                          2.15.4  h7df9aa5_1            <fresh-verifier>/install/downloads         
+  + libxml2-16                       2.15.4  hf3af7cc_1            <fresh-verifier>/install/downloads         
+  + libxslt                          1.1.45  h8e12856_1            <fresh-verifier>/install/downloads         
+  + libzlib                           1.3.2  h25fd6f3_3            <fresh-verifier>/install/downloads         
+  + lxml                              6.1.1  py312h63ddcf0_0       <fresh-verifier>/install/downloads         
+  + ncurses                             6.6  hdb14827_1            <fresh-verifier>/install/downloads         
+  + nspr                               4.41  h76ac25a_0            <fresh-verifier>/install/downloads         
+  + nss                               3.118  h445c969_0            <fresh-verifier>/install/downloads         
+  + openjpeg                          2.5.4  heb1ab33_2            <fresh-verifier>/install/downloads         
+  + openssl                           3.6.5  h781a0a9_0            <fresh-verifier>/install/downloads         
+  + packaging                          26.3  pyhc364b38_0          <fresh-verifier>/install/downloads         
+  + pandoc                         3.1.11.1  ha770c72_0            <fresh-verifier>/install/downloads         
+  + pcre2                             10.49  h8b3dc9c_0            <fresh-verifier>/install/downloads         
+  + pillow                           13.0.0  py312h38079b3_1       <fresh-verifier>/install/downloads         
+  + pip                              26.2.2  pyh8b19718_2          <fresh-verifier>/install/downloads         
+  + pixman                           0.46.4  h54a6638_3            <fresh-verifier>/install/downloads         
+  + poppler                         26.05.0  hfdef1ce_3            <fresh-verifier>/install/downloads         
+  + poppler-data                     0.4.12  hd8ed1ab_0            <fresh-verifier>/install/downloads         
+  + pthread-stubs                       0.4  h7cc23a3_1004         <fresh-verifier>/install/downloads         
+  + pypdf                            6.21.4  pyh5ded981_0          <fresh-verifier>/install/downloads         
+  + python                          3.12.14  h5f976f7_3_cpython    <fresh-verifier>/install/downloads         
+  + python_abi                         3.12  9_cp312               <fresh-verifier>/install/downloads         
+  + readline                            8.3  hd6e31c0_1            <fresh-verifier>/install/downloads         
+  + setuptools                       84.2.1  pyhe730653_0          <fresh-verifier>/install/downloads         
+  + tk                               8.6.13  noxft_h1df4ec4_4      <fresh-verifier>/install/downloads         
+  + typing_extensions                4.16.0  pyhcf101f3_0          <fresh-verifier>/install/downloads         
+  + tzdata                            2026e  h5d301ff_0            <fresh-verifier>/install/downloads         
+  + wheel                            0.48.0  pyhd8ed1ab_0          <fresh-verifier>/install/downloads         
+  + xorg-libice                       1.1.2  h280c20c_0            <fresh-verifier>/install/downloads         
+  + xorg-libsm                        1.2.6  h0d788c3_1            <fresh-verifier>/install/downloads         
+  + xorg-libx11                      1.8.14  hb83e432_0            <fresh-verifier>/install/downloads         
+  + xorg-libxau                      1.0.12  h7cc23a3_2            <fresh-verifier>/install/downloads         
+  + xorg-libxdmcp                     1.1.5  h7cc23a3_2            <fresh-verifier>/install/downloads         
+  + xorg-libxext                      1.3.7  h7cc23a3_1            <fresh-verifier>/install/downloads         
+  + xorg-libxfixes                    6.0.2  h7cc23a3_1            <fresh-verifier>/install/downloads         
+  + xorg-libxi                        1.8.4  h7cc23a3_0            <fresh-verifier>/install/downloads         
+  + xorg-libxrender                  0.9.13  h7cc23a3_0            <fresh-verifier>/install/downloads         
+  + xorg-libxscrnsaver                1.2.4  hb9d3cd8_0            <fresh-verifier>/install/downloads         
+  + xorg-libxtst                      1.2.6  h7cc23a3_0            <fresh-verifier>/install/downloads         
+  + zlib-ng                           2.3.3  hce19668_1            <fresh-verifier>/install/downloads         
+  + zstd                              1.5.7  hb78ec9c_7            <fresh-verifier>/install/downloads         
+
+  Summary:
+
+  Install: 90 packages
+
+  Total download: 0 B
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+warning  libmamba Security Warning: This transaction includes executing package scripts (pre/post-link/unlink) if present. These scripts can contain arbitrary code. Please ensure you trust the package sources.
+
+Transaction starting
+Linking pandoc-3.1.11.1-ha770c72_0
+Linking libzlib-1.3.2-h25fd6f3_3
+Linking libgomp-16.2.0-he0feb66_7
+Linking libglvnd-1.7.0-ha4b6fd6_5
+Linking zstd-1.5.7-hb78ec9c_7
+Linking _openmp_mutex-4.5-20_gnu
+Linking libegl-1.7.0-ha4b6fd6_5
+Linking ld_impl_linux-64-2.46.1-default_hbd61a6d_103
+Linking libgcc-16.2.0-ha9f2e26_7
+Linking libev-4.33-h280c20c_3
+Linking xorg-libice-1.1.2-h280c20c_0
+Linking keyutils-1.6.3-h7cc23a3_1
+Linking c-ares-1.34.9-hebe6cf0_0
+Linking libwebp-base-1.6.0-hd42ef1d_1
+Linking libpng-1.6.59-h922cc85_0
+Linking tk-8.6.13-noxft_h1df4ec4_4
+Linking ncurses-6.6-hdb14827_1
+Linking libuuid-2.42.4-hcfc3c73_1
+Linking libnsl-2.0.1-hb9d3cd8_1
+Linking libdeflate-1.26-h351257e_0
+Linking xorg-libxdmcp-1.1.5-h7cc23a3_2
+Linking xorg-libxau-1.0.12-h7cc23a3_2
+Linking pthread-stubs-0.4-h7cc23a3_1004
+Linking libiconv-1.18-h0cb94f2_3
+Linking liblzma-5.8.3-hb03c661_1
+Linking libffi-3.7.0-h81df57d_1
+Linking libexpat-2.9.0-hd2095e1_0
+Linking bzip2-1.0.8-hda65f42_10
+Linking libstdcxx-16.2.0-h934c35e_7
+Linking libxcrypt-4.4.38-h280c20c_0
+Linking libjpeg-turbo-3.2.1-h7cc23a3_0
+Linking libfreetype6-2.14.3-h5e6c136_2
+Linking libedit-3.1.20260512-pl5321h373387f_0
+Linking readline-8.3-hd6e31c0_1
+Linking xorg-libsm-1.2.6-h0d788c3_1
+Linking libxcb-1.17.0-hb83e432_3
+Linking pcre2-10.49-h8b3dc9c_0
+Linking pixman-0.46.4-h54a6638_3
+Linking zlib-ng-2.3.3-hce19668_1
+Linking lerc-4.3.0-he78707d_0
+Linking icu-78.3-py310h44b86e0_2
+Linking nspr-4.41-h76ac25a_0
+Linking libpython-3.12.14-h0c77377_3_cpython
+Linking libfreetype-2.14.3-ha770c72_2
+Linking xorg-libx11-1.8.14-hb83e432_0
+Linking libglib-2.90.1-hb382ddc_4
+Linking libtiff-4.7.2-h6d37cbf_2
+Linking libpsl-0.23.1-hd9e3e90_1
+Linking libxml2-16-2.15.4-hf3af7cc_1
+Linking libsqlite-3.54.1-h13e7031_0
+Linking fontconfig-2.18.4-h4db4eae_0
+Linking xorg-libxfixes-6.0.2-h7cc23a3_1
+Linking xorg-libxrender-0.9.13-h7cc23a3_0
+Linking libglx-1.7.0-ha4b6fd6_5
+Linking xorg-libxext-1.3.7-h7cc23a3_1
+Linking openjpeg-2.5.4-heb1ab33_2
+Linking lcms2-2.20-h9073bf1_0
+Linking libxml2-2.15.4-h7df9aa5_1
+Linking nss-3.118-h445c969_0
+Linking libgl-1.7.0-ha4b6fd6_5
+Linking xorg-libxi-1.8.4-h7cc23a3_0
+Linking xorg-libxscrnsaver-1.2.4-hb9d3cd8_0
+Linking libxslt-1.1.45-h8e12856_1
+Linking xorg-libxtst-1.2.6-h7cc23a3_0
+Linking ca-certificates-2026.11.20-hbd8a1cb_0
+Linking font-ttf-dejavu-sans-mono-2.37-hab24e00_0
+Linking python_abi-3.12-9_cp312
+Linking font-ttf-inconsolata-3.000-h77eed37_0
+Linking font-ttf-source-code-pro-2.038-h77eed37_0
+Linking font-ttf-ubuntu-0.83-h77eed37_4
+Linking tzdata-2026e-h5d301ff_0
+Linking poppler-data-0.4.12-hd8ed1ab_0
+Linking fonts-conda-forge-1-hc364b38_1
+Linking fonts-conda-ecosystem-1-0
+Linking openssl-3.6.5-h781a0a9_0
+Linking cairo-1.18.6-h3c89d7e_0
+Linking libssh2-1.11.1-h6154650_1
+Linking libnghttp2-1.71.0-hc5e5977_0
+Linking krb5-1.22.2-hbc21106_2
+Linking python-3.12.14-h5f976f7_3_cpython
+Linking libcurl-8.23.0-ha042cf0_0
+Linking poppler-26.05.0-hfdef1ce_3
+Linking packaging-26.3-pyhc364b38_0
+Linking setuptools-84.2.1-pyhe730653_0
+Linking wheel-0.48.0-pyhd8ed1ab_0
+Linking pip-26.2.2-pyh8b19718_2
+Linking typing_extensions-4.16.0-pyhcf101f3_0
+Linking pypdf-6.21.4-pyh5ded981_0
+Linking pillow-13.0.0-py312h38079b3_1
+Linking lxml-6.1.1-py312h63ddcf0_0
+
+Transaction finished
+
+
+To activate this environment, use:
+
+    micromamba activate <fresh-verifier>/install/env
+
+Or to execute a single command in this environment, use:
+
+    micromamba run -p <fresh-verifier>/install/env mycommand
+
+Processing <fresh-verifier>/install/downloads/pymupdf-1.26.6-cp310-abi3-manylinux_2_28_x86_64.whl
+Installing collected packages: pymupdf
+Successfully installed pymupdf-1.26.6
+Installed locked packages: 90 + 1 Python wheel
+{
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "versions": {
+    "pymupdf": "1.26.6",
+    "lxml": "6.1.1",
+    "pypdf": "6.21.4",
+    "pillow": "13.0.0",
+    "python": "3.12.14",
+    "pandoc": "3.1.11.1",
+    "pdfinfo": "26.05.0",
+    "pdftotext": "26.05.0",
+    "pdffonts": "26.05.0"
+  },
+  "pdfHtmlProbesPassed": true,
+  "isolatedOriginsChecked": true,
+  "lockSha256": "c610f60e2df1cbda8de4a39e853e6249507e0ec7ccd08d88f8c619c279535382",
+  "versionMismatches": {}
+}
+{
+  "schema": 1,
+  "at": "2026-11-22T12:04:29.538Z",
+  "runId": "a411c3b4-c630-4461-88ec-54810dbe1328",
+  "identity": {
+    "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+    "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496",
+    "version": "3.0.0-rc.11",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "fb35e25d5f19ec6c9a313318e58deebadcbd942b07de6c9757a6702dc5c4609e",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "82f80da7cf9aac0fbe3cf1b34fe0de8c2f5df7273212c8dd968b453cf2b6d86b",
+    "benchmarkHarnessSha256": "b270325c775336251cf7176bab8338bcff9b9a8e10c9d05d44e8dab360738bc2",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "866df23055e9b0e231095d3408e406eb7207644ed02fae7a93b9516bf8f9caf5",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "9c5f97a67bd9785f4205bed22f146b32596ac97389747e097d77558540d70378"
+  },
+  "decision": "NO_GO",
+  "gates": [
+    {
+      "id": "G01",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G01.json",
+      "observations": [
+        "input-1"
+      ]
+    },
+    {
+      "id": "G02",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G02.json",
+      "observations": [
+        "clean-build-1"
+      ]
+    },
+    {
+      "id": "G03",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G03.json",
+      "observations": [
+        "trig-new"
+      ]
+    },
+    {
+      "id": "G04",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G04.json",
+      "observations": [
+        "wrapper-new"
+      ]
+    },
+    {
+      "id": "G05",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G05.json",
+      "observations": [
+        "integrity-new"
+      ]
+    },
+    {
+      "id": "G06",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G06.json",
+      "observations": [
+        "integrity-new"
+      ]
+    },
+    {
+      "id": "G07",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G07.json",
+      "observations": [
+        "pdf-new"
+      ]
+    },
+    {
+      "id": "G08",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G08.json",
+      "observations": [
+        "pdf-new"
+      ]
+    },
+    {
+      "id": "G09",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G09.json",
+      "observations": [
+        "g09-node-1",
+        "g09-node-2",
+        "g09-browser-1",
+        "g09-browser-2"
+      ]
+    },
+    {
+      "id": "G10",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G10.json",
+      "observations": [
+        "capacity-1"
+      ]
+    },
+    {
+      "id": "G11",
+      "status": "PASS",
+      "facts": "evidence/rc11/acceptance/facts/G11.json",
+      "observations": [
+        "aggregate-new"
+      ]
+    },
+    {
+      "id": "G12",
+      "status": "BLOCKED",
+      "reason": "Windows sasaran dan clipboard asli dari antarmuka penyedia AI tidak tersedia pada mesin penguji Linux. Bukti sintetis dan clipboard Linux tidak memenuhi kontrak G12."
+    },
+    {
+      "id": "G13",
+      "status": "BLOCKED",
+      "reason": "Pengujian lokal dapat membuat berkas PDF lewat Chromium headless. Bukti pada perangkat sasaran untuk Save, Cancel, Retry dan pembacaan ulang PDF hasil simpan melalui dialog OS belum diperoleh."
+    },
+    {
+      "id": "G14",
+      "status": "BLOCKED",
+      "reason": "Keyboard/DOM dan pengujian pemulihan editor dapat diukur di Linux. Sesi pembaca layar pada perangkat Windows sasaran dengan catatan ucapan operator belum tersedia."
+    },
+    {
+      "id": "G15",
+      "status": "BLOCKED",
+      "reason": "GitHub menolak operasi penulisan blob ke karlmarxtrading-cmyk/performa oleh integrasi (HTTP 403). Push Git Bash percobaan kering juga membutuhkan autentikasi. Dashboard Pages menampilkan halaman masuk. Tidak ada URL preview, deployment ID atau hasil ekspor hosting kandidat ini."
+    },
+    {
+      "id": "G16",
+      "status": "BLOCKED",
+      "reason": "Target produksi yang diketahui baik dan ID deployment belum dapat diverifikasi di akun Pages. Otorisasi tindakan rollback live dan otorisasi promosi spesifik belum dicatat."
+    },
+    {
+      "id": "U01",
+      "status": "PASS",
+      "facts": "evidence/rc11/u-facts/U01.json",
+      "observations": [
+        "book-headings-on-1",
+        "book-long-table-off-1",
+        "book-original-default-1",
+        "book-paragraphs-off-1",
+        "book-paragraphs-on-1",
+        "book-single-paragraph-off-1"
+      ]
+    },
+    {
+      "id": "U02",
+      "status": "PASS",
+      "facts": "evidence/rc11/u-facts/U02.json",
+      "observations": [
+        "lifecycle-default-1",
+        "lifecycle-large-1",
+        "lifecycle-timing-1"
+      ]
+    },
+    {
+      "id": "U03",
+      "status": "PASS",
+      "facts": "evidence/rc11/u-facts/U03.json",
+      "observations": [
+        "trace-browser-1",
+        "trace-control-1"
+      ]
+    },
+    {
+      "id": "U04",
+      "status": "PASS",
+      "facts": "evidence/rc11/u-facts/U04.json",
+      "observations": [
+        "book-headings-on-1",
+        "book-long-table-off-1",
+        "book-original-default-1",
+        "book-paragraphs-off-1",
+        "book-paragraphs-on-1",
+        "book-single-paragraph-off-1"
+      ]
+    },
+    {
+      "id": "U05",
+      "status": "PASS",
+      "facts": "evidence/rc11/u-facts/U05.json",
+      "observations": [
+        "book-headings-on-1",
+        "book-long-table-off-1",
+        "book-original-default-1",
+        "book-paragraphs-off-1",
+        "book-paragraphs-on-1",
+        "book-single-paragraph-off-1",
+        "offline-navigation-1",
+        "trig-new"
+      ]
+    },
+    {
+      "id": "U06",
+      "status": "PASS",
+      "facts": "evidence/rc11/u-facts/U06.json",
+      "observations": [
+        "capacity-control-1"
+      ]
+    },
+    {
+      "id": "U07",
+      "status": "PASS",
+      "facts": "evidence/rc11/u-facts/U07.json",
+      "observations": [
+        "interleaved-1"
+      ]
+    },
+    {
+      "id": "U08",
+      "status": "PASS",
+      "facts": "evidence/rc11/u-facts/U08.json",
+      "observations": [
+        "ordered-lists-1"
+      ]
+    }
+  ]
+}
+node:internal/errors:986
+  const err = new Error(message);
+              ^
+
+Error: Command failed: /opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node scripts/verify-all-gates.mjs
+    at genericNodeError (node:internal/errors:986:15)
+    at wrappedFn (node:internal/errors:540:14)
+    at checkExecSyncError (node:child_process:943:11)
+    at execFileSync (node:child_process:979:15)
+    at runQualified (file://<extracted-project>/scripts/toolchain/qualified-run.mjs:30:28)
+    at file://<extracted-project>/scripts/toolchain/qualified-run.mjs:38:3
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  status: 1,
+  signal: null,
+  output: [ null, null, null ],
+  pid: 461,
+  stdout: null,
+  stderr: null
+}
+
+Node.js v24.22.3

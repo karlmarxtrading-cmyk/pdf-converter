@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "baselineSource": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+  "baselineDist": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+  "trigSource": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+  "referenceHtml": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+  "dateFrozen": "2026-11-22",
+  "cohorts": 2,
+  "pairs": 40,
+  "warmupsPerCase": 1,
+  "order": "Even rounds start with RC6 in cohort 1 and candidate in cohort 2. Odd rounds reverse. Each cohort starts a new process and empty browser profile. Warmups and errors are retained. No trimming or reruns for a favorable timing.",
+  "medianRatio": 1.05,
+  "p95Ratio": 1.10,
+  "settings": {"template":"BUS-01","paper":"A4","orientation":"portrait","viewport":[1366,900],"locale":"id-ID","browserCache":"warm after warmup","nodeFonts":"locked local WOFF2"},
+  "browserFlows":{"trig":["previewMs","htmlExportMs","pageReadyMs"],"long":["previewMs"],"small":["smallPreviewMs","editPreviewMs"]},
+  "nodeFlows":{"trigonometry":["refreshMs","htmlExportMs","printPayloadMs"],"long":["refreshMs"],"small-edit":["editedRefreshMs","htmlExportMs","printPayloadMs"],"empty-core":["refreshMs"]},
+  "statistics":"Median averages both center values. p95 nearest-rank. Report spread and each cohort separately. GC, file validation and oracle run outside timed intervals. Browser polling ~12ms, clocks high-resolution monotonic. Shared Linux host; sample load separately, no outlier exclusion.",
+  "officialBrowserLifecycle":{"driverSha256":"ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01","procedureSha256":"8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f","pairsPerBlock":4,"warmupPairsPerBrowserBlock":1,"cdpTimeoutMs":60000,"raw":"evidence/rc8/performance/recovery-cohort-{1,2}.json","scope":"Official candidate Chromium uses the separately hash-pinned fixed four-pair lifecycle. Each scheduled measured arm is attempted once, failures and incomplete pairs are retained, and the next flow still runs. Node uses one warmup pair per case."},
+  "capacity":{"sections":[6,30,118],"reps":5,"heapIntervalMs":200,"previewMs":10000,"reeditPreviewMs":10000,"cancelToIdleMs":2000,"maxEventLoopGapMs":1000,"printReadyMs":60000,"afterCloseRetainedDriftBytes":8388608,"firstProgressMs":2000,"maxProgressGapMs":5000,"peakDefinition":"Maximum observed Runtime.getHeapUsage.usedSize bytes on the same page target as post-GC. Native/process/worker memory excluded. Unknown remains null. Five runs support completion checks only; estimate latency tail per size on a separate 40+40 sample per-size study before advertising a percentile SLA.","capacityClaim":"Measure the historical 6,30,118-section fixtures. Their page counts depend on actual pagination. No 500/1,000-page claim."}
+}

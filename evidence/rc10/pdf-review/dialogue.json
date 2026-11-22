@@ -1,0 +1,253 @@
+{
+  "method": "Exact ordered literal prose/speaker/code markers in the stored PDF, with PDF layout whitespace normalized. Source is a labelled synthetic Markdown dialogue, not an authenticated provider clipboard sample.",
+  "cases": [
+    {
+      "file": "conversation-BUS-01-A5-landscape.pdf",
+      "sha256": "9eff16a4fc0db65fc1109c3307946eff86a83a3cf4a3c238d94d5bd2e6fd8019",
+      "markers": [
+        "Murid.",
+        "Mengapa tanda minus tetap muncul pada",
+        "Guru.",
+        "Bandingkan nilai pada tabel.",
+        "Murid.",
+        "Saya akan memeriksa dengan kode.",
+        "def selisih(x):",
+        "# cek baris kosong dan indentasi",
+        "return x - 1",
+        "Guru.",
+        "Selesai."
+      ],
+      "offsets": [
+        86,
+        93,
+        133,
+        139,
+        177,
+        184,
+        224,
+        240,
+        273,
+        328,
+        334
+      ],
+      "pass": true
+    },
+    {
+      "file": "conversation-BUS-01-Letter-portrait.pdf",
+      "sha256": "f96dc33b848f9f72597f21aa8b91e94abebdaf8406e3f68eb32f833f664e0666",
+      "markers": [
+        "Murid.",
+        "Mengapa tanda minus tetap muncul pada",
+        "Guru.",
+        "Bandingkan nilai pada tabel.",
+        "Murid.",
+        "Saya akan memeriksa dengan kode.",
+        "def selisih(x):",
+        "# cek baris kosong dan indentasi",
+        "return x - 1",
+        "Guru.",
+        "Selesai."
+      ],
+      "offsets": [
+        86,
+        93,
+        133,
+        139,
+        177,
+        184,
+        224,
+        240,
+        273,
+        286,
+        292
+      ],
+      "pass": true
+    },
+    {
+      "file": "conversation-CON-01-A5-landscape.pdf",
+      "sha256": "b69fbb6ecb1b45bc115410f084e8ce413bd936f7ecaaad072476b30c1ba06105",
+      "markers": [
+        "Murid.",
+        "Mengapa tanda minus tetap muncul pada",
+        "Guru.",
+        "Bandingkan nilai pada tabel.",
+        "Murid.",
+        "Saya akan memeriksa dengan kode.",
+        "def selisih(x):",
+        "# cek baris kosong dan indentasi",
+        "return x - 1",
+        "Guru.",
+        "Selesai."
+      ],
+      "offsets": [
+        30,
+        37,
+        77,
+        83,
+        121,
+        128,
+        168,
+        184,
+        217,
+        230,
+        236
+      ],
+      "pass": true
+    },
+    {
+      "file": "conversation-CON-01-Letter-portrait.pdf",
+      "sha256": "1cefc0137f473840499262084ebafeea594fe31c4d6f3dead820ad077d8fd361",
+      "markers": [
+        "Murid.",
+        "Mengapa tanda minus tetap muncul pada",
+        "Guru.",
+        "Bandingkan nilai pada tabel.",
+        "Murid.",
+        "Saya akan memeriksa dengan kode.",
+        "def selisih(x):",
+        "# cek baris kosong dan indentasi",
+        "return x - 1",
+        "Guru.",
+        "Selesai."
+      ],
+      "offsets": [
+        30,
+        37,
+        77,
+        83,
+        121,
+        128,
+        168,
+        184,
+        217,
+        230,
+        236
+      ],
+      "pass": true
+    },
+    {
+      "file": "conversation-EDT-01-A4-portrait.pdf",
+      "sha256": "88aca3c10ae49c79739ef8a845e46ce0ef44df6d8f935fa9c6934f29f45d97fe",
+      "markers": [
+        "Murid.",
+        "Mengapa tanda minus tetap muncul pada",
+        "Guru.",
+        "Bandingkan nilai pada tabel.",
+        "Murid.",
+        "Saya akan memeriksa dengan kode.",
+        "def selisih(x):",
+        "# cek baris kosong dan indentasi",
+        "return x - 1",
+        "Guru.",
+        "Selesai."
+      ],
+      "offsets": [
+        30,
+        37,
+        77,
+        83,
+        121,
+        128,
+        168,
+        184,
+        217,
+        230,
+        236
+      ],
+      "pass": true
+    },
+    {
+      "file": "conversation-EDT-01-Letter-landscape.pdf",
+      "sha256": "89d6b5fdab8adf4b116a2382b73f4519230a89f7eeb2fcfd5f2c6ac4f01ece72",
+      "markers": [
+        "Murid.",
+        "Mengapa tanda minus tetap muncul pada",
+        "Guru.",
+        "Bandingkan nilai pada tabel.",
+        "Murid.",
+        "Saya akan memeriksa dengan kode.",
+        "def selisih(x):",
+        "# cek baris kosong dan indentasi",
+        "return x - 1",
+        "Guru.",
+        "Selesai."
+      ],
+      "offsets": [
+        30,
+        37,
+        77,
+        83,
+        121,
+        128,
+        168,
+        184,
+        217,
+        230,
+        236
+      ],
+      "pass": true
+    },
+    {
+      "file": "conversation-EDU-01-A4-landscape.pdf",
+      "sha256": "27b809242491f72916d255c2f8c1e33436c12cf2150618b8227f89bf87aca70c",
+      "markers": [
+        "Murid.",
+        "Mengapa tanda minus tetap muncul pada",
+        "Guru.",
+        "Bandingkan nilai pada tabel.",
+        "Murid.",
+        "Saya akan memeriksa dengan kode.",
+        "def selisih(x):",
+        "# cek baris kosong dan indentasi",
+        "return x - 1",
+        "Guru.",
+        "Selesai."
+      ],
+      "offsets": [
+        30,
+        37,
+        77,
+        83,
+        121,
+        128,
+        168,
+        184,
+        217,
+        230,
+        236
+      ],
+      "pass": true
+    },
+    {
+      "file": "conversation-EDU-01-A5-portrait.pdf",
+      "sha256": "3a695e7c6e12abbb342a2a1283b4ded158a507b8a4ce8bedad8e2d7dc4b33715",
+      "markers": [
+        "Murid.",
+        "Mengapa tanda minus tetap muncul pada",
+        "Guru.",
+        "Bandingkan nilai pada tabel.",
+        "Murid.",
+        "Saya akan memeriksa dengan kode.",
+        "def selisih(x):",
+        "# cek baris kosong dan indentasi",
+        "return x - 1",
+        "Guru.",
+        "Selesai."
+      ],
+      "offsets": [
+        30,
+        37,
+        77,
+        83,
+        121,
+        128,
+        168,
+        184,
+        217,
+        230,
+        236
+      ],
+      "pass": true
+    }
+  ]
+}

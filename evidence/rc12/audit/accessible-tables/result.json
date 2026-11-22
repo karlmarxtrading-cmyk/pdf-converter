@@ -1,0 +1,147 @@
+{
+  "manifest": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.12",
+    "profile": "production",
+    "candidateSha256": "3a3ee3e24ce43548a31386f1141638a567a59c7a161b7200de0945f0b5b62460",
+    "distTreeSha256": "1aede97a9168d8d2e4e703afc1d3f1272e3575d2eb8535f60a4ab3dfdad01e39",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "fixtureSha256": "2e26b540f0af63ce86f438a3a4a07a9f1c2ca7c2ba296ba2117c549d9839b40b",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "method": "GUI import, preview, HTML download, offline file, DOM and Chromium accessibility tree. Native screen reader has its own gate.",
+  "stage": "offline",
+  "actual": {
+    "caption": "Suhu ruang kelas",
+    "rows": [
+      [
+        {
+          "tag": "TH",
+          "scope": "col",
+          "text": "Waktu",
+          "headers": []
+        },
+        {
+          "tag": "TH",
+          "scope": "col",
+          "text": "Ruang A",
+          "headers": []
+        }
+      ],
+      [
+        {
+          "tag": "TH",
+          "scope": "row",
+          "text": "Pagi",
+          "headers": []
+        },
+        {
+          "tag": "TD",
+          "scope": null,
+          "text": "24 °C",
+          "headers": [
+            "Pagi",
+            "Ruang A"
+          ]
+        }
+      ],
+      [
+        {
+          "tag": "TH",
+          "scope": "row",
+          "text": "Siang",
+          "headers": []
+        },
+        {
+          "tag": "TD",
+          "scope": null,
+          "text": "29 °C",
+          "headers": [
+            "Siang",
+            "Ruang A"
+          ]
+        }
+      ]
+    ],
+    "plainGrid": [
+      [
+        [
+          "TD",
+          "Alfa"
+        ],
+        [
+          "TD",
+          "Beta"
+        ]
+      ],
+      [
+        [
+          "TD",
+          "Gamma"
+        ],
+        [
+          "TD",
+          "Delta"
+        ]
+      ]
+    ],
+    "lineBreaks": 2,
+    "tex": " x+1 "
+  },
+  "roles": [
+    [
+      "table",
+      "Suhu ruang kelas"
+    ],
+    [
+      "table",
+      ""
+    ],
+    [
+      "rowheader",
+      "Pagi"
+    ],
+    [
+      "cell",
+      "24 °C"
+    ],
+    [
+      "rowheader",
+      "Siang"
+    ],
+    [
+      "cell",
+      "29 °C"
+    ],
+    [
+      "cell",
+      "Alfa"
+    ],
+    [
+      "cell",
+      "Beta"
+    ],
+    [
+      "cell",
+      "Gamma"
+    ],
+    [
+      "cell",
+      "Delta"
+    ],
+    [
+      "columnheader",
+      "Waktu"
+    ],
+    [
+      "columnheader",
+      "Ruang A"
+    ]
+  ],
+  "standaloneSha256": "27a35b330e60888fb7cb520e03f83ab150170a3e18c656141a074cd247484b90",
+  "status": "PASS"
+}

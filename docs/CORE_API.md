@@ -1,6 +1,6 @@
 # PaperForma 3 — Core API (`src/core`)
 
-Status API: 3.0.0-rc.5 (statis). Pemilik: modul core. Konsumen: `src/render`, `src/ui`.
+Status API: 3.0.0-rc.7 (statis). Pemilik: modul core. Konsumen: `src/render`, `src/ui`.
 
 Tambahan 3.0: `verdictOf`/`classifyIssue` (`verdict.ts`), `ProjectUndo`/`changesFor` (`undo.ts`), `restoreRevisionChanges`/`historyEntryState` (riwayat dengan `stateJson`), `privateUseConservation` (oracle PUA), `chooseSentinels`/`restorePua(s, scan)` (sentinel per pemindaian), `IMAGE_BUDGET`, preflight target `'html' | 'print' | 'pdf'` + `identity`.
 Impor: `import core, { … } from '../core'` (berkas `src/core/index.ts`). Objek default `core` mengimplementasikan
@@ -81,7 +81,7 @@ Keluaran `html` = isi tersanitasi (tanpa `<html>/<head>`/CSS). Struktur yang dap
 |---|---|
 | Blok tingkat atas | atribut `data-block-id` (stabil: hash jenis+isi, sufiks `-2…` untuk duplikat; tidak bergantung posisi) dan `data-line` (baris 1-based). HTML mentah tingkat atas tidak diberi id. |
 | Judul | `id = {idPrefix}{partId-}h-{slug}` unik (`-2`, `-3`); `toc[]` urut dokumen. Judul catatan kaki tidak masuk TOC. |
-| Rumus | `<span class="pf-math pf-math-inline" data-tex>` / `<div class="pf-math pf-math-display" data-tex>` berisi KaTeX (`htmlAndMathml`, `trust:false`, `maxExpand:1000`). LaTeX mentah selalu di `data-tex` + anotasi MathML. Gagal → kelas `pf-math-error` berisi `<code class="pf-math-src">$…$</code>` (sumber terlihat) + issue `MATH_PARSE_ERROR`/`MATH_TOO_LONG` (baris). |
+| Rumus | `<span class="pf-math pf-math-inline" data-tex>` / `<div class="pf-math pf-math-display" data-tex>` berisi KaTeX (`htmlAndMathml`, `trust:false`, `maxExpand:1000`). TeX kanonik yang dirender berada di `data-tex` + anotasi MathML. Bila sumber salinan dipulihkan, TeX asli berada di `data-source-tex` dan jenis pemulihan di `data-math-adaptations`; sumber editor tidak diubah. Gagal → kelas `pf-math-error` berisi `<code class="pf-math-src">$…$</code>` (sumber terlihat) + issue `MATH_PARSE_ERROR`/`MATH_TOO_LONG` (baris). |
 | Mata uang | `$` literal (`$100 dan $250`, `\$`) tidak pernah menjadi rumus (aturan baseline: pembuka tak diikuti spasi; penutup tak didahului spasi & tak diikuti angka). `$\frac…` tanpa penutup → teks + `MATH_SUSPECT_UNTERMINATED`. `\(..\)`, `\[..\]`, `$$..$$` didukung. |
 | Kode | `<pre class="pf-code" data-lang><code class="hljs language-x">` (highlight.js, hanya bahasa eksplisit; tidak dijalankan). `textContent` kode = sumber persis (tab/spasi utuh). |
 | Mermaid | `<pre class="pf-mermaid" data-src="…">sumber</pre>`; `mermaidPending=true`. Lapisan DOM merender & mengganti; sumber tetap fallback. |
@@ -105,7 +105,7 @@ Frontmatter YAML di awal naskah (`---`…`---`) tidak dirender; pasangan `kunci:
 Issue lain: `INPUT_TOO_COMPLEX` pada jalur kompleksitas lama; admission node/kedalaman terbaru menolak input berlebih dengan BudgetError sebelum konversi rekursif, `OUTER_FENCE` (deteksi pembungkus, `detail.repair='unwrap-fence'`), `HEADING_LEVEL_SKIP`, `HEADING_EMPTY`, `HEADING_DUPLICATE`, `IMAGE_NO_ALT`, `CITATION_UNRESOLVED` (token sitasi AI tanpa URL; tidak ada tautan dikarang), `TABLE_TOO_LARGE`, `CONVERSATION_NOTHING_SELECTED`.
 
 `blocks[]`: `{id, type, line, text, sourceRef:{inputId, start, end, unit:'utf16', messageId?}, messageId?}` untuk semua blok tingkat atas (termasuk definisi catatan kaki dan HTML mentah). Pada mode percakapan, `line` relatif terhadap pesan dan `sourceRef` dipetakan ke `rawPlain` (`messageStart = sourceRef.end − markdown.length`; perkiraan bila pesan digabung manual, flag `source-span-approximate`).
-`stats`: words/tables/math/images/code/mermaid. `scripts`: `Latin, Greek, Cyrillic, Arabic, Hebrew, Han, Hiragana, Katakana, Hangul, Thai, Devanagari, Emoji` yang muncul (untuk resolver font).
+Statistik dihitung pada isi yang lolos sanitasi, sebelum KaTeX atau tata letak menambahkan tampilan pendamping. `words` menghitung urutan huruf atau angka Unicode beserta tanda diakritiknya pada prosa, termasuk teks tautan, sel, judul dan isi catatan kaki. Huruf CJK berurutan dihitung sebagai satu rentang. Emoji tanpa huruf/angka tidak menambah angka ini. Pemformatan inline dapat membagi satu kata menjadi beberapa elemen. Batas blok dan pindah baris memisahkan kata. Teks kode, TeX, sintaks diagram, atribut gambar dan label otomatis dikecualikan dari kata. Pada transkrip yang tersimpan di editor, label komposisi otomatis dikecualikan selama hash sumber dan teks label cocok dengan peta asal. Setelah suntingan membatalkan peta tersebut, statistik memakai teks editor yang berlaku. `tables` menghitung tabel, `math` menghitung kemunculan rumus inline/display, dan `images` menghitung kemunculan gambar termasuk rujukan dengan placeholder. `code` menghitung blok preformatted atau fenced code biasa. `mermaid` menghitung blok diagram Mermaid. `scripts`: `Latin, Greek, Cyrillic, Arabic, Hebrew, Han, Hiragana, Katakana, Hangul, Thai, Devanagari, Emoji` yang muncul (untuk resolver font).
 
 ## 5. Pemeriksa keutuhan berurutan (PF-016, CODE-04)
 
@@ -201,3 +201,22 @@ Label: Siap / Perlu diperiksa / Perlu diperbaiki / Belum diperiksa. Error → Pe
 - `inspectInlineImage(url, limits?)` memeriksa ukuran base64 sebelum dekode byte, signature MIME, header dimensi, maksimum 16.384 px per sisi dan 40 MP. Total unik 200 MP digabung dengan aset unggahan dan seluruh pesan. Pelanggaran menghasilkan issue blocking dan placeholder sebelum elemen img dikeluarkan. Ini bukan decoder raster lengkap; jumlah frame animasi belum dihitung.
 - Identitas snapshot menghitung byte aset aktual sekali per buffer snapshot. Tidak ada cache persisten yang mempercayai buffer caller yang dapat berubah. Riwayat baru menyimpan pasangan `{id,path}`; metadata riwayat rusak menghasilkan pemulihan sumber saja. Byte historis yang tidak pernah disimpan tidak dapat diciptakan kembali.
 - Lihat `AUDIT_RC4.md`, `TESTING.md` dan `KNOWN_LIMITS.md` untuk bukti serta batas verifikasi kandidat.
+
+
+## Tambahan audit RC6: sumber matematika dan diagnostik
+
+Kontrak publik `CoreApi` dan tanda tangan `renderBody`, `renderStage1`, `finishRender` tidak berubah. Helper berikut diekspor dari modul internal masing-masing, bukan tambahan endpoint jaringan:
+
+| Modul | Ekspor tambahan / perilaku |
+|---|---|
+| `math-copy.ts` | `MathAdaptation`, `looksLikeCopiedMath(tex)`, `adaptCopiedTex(source)` → `{tex, adaptations}`. Pemulihan terbatas pada escape salinan yang dikenali. |
+| `math.ts` | `MathSpan.tex` tetap payload asli; `renderTex?`, `adaptations?`, `openerLength?`, `closerLength?`, `syntax?` membawa metadata tambahan. `MathSentinels.boundary?` menjaga flanking emphasis. |
+| `html-math.ts` | `recoverHtmlLiteralMath(parent, createFormula, isFormula?)` memulihkan run teks/wrapper inline yang aman. Caller mengelola rekursi, konteks raw HTML dan proteksi kode. |
+| `html-math-source.ts` | `HtmlMathSource`, `readHtmlMathSource`, `isHtmlMathContainer`, `findHtmlMathAnnotation`, `hasHtmlMathAnnotation`. Ekstraksi hanya pada sumber formula yang dikenali; wrapper campuran tidak boleh runtuh menjadi formula pertama. |
+| `math-diagnostics.ts` | `MathRecovery`, `mathRecoveryIssues`, `residualMathIssues`. Catatan pemulihan dan heuristik sisa TeX; bukan parser atau pembuktian matematika kedua yang lengkap. |
+
+`MATH_COPY_RECOVERED` menjadi warning bila isi payload berubah (delimiter saja dapat bersifat info). Detail memuat jumlah, jenis dan sampel before/after. `CLIPBOARD_MATH_RECOVERED` membawa catatan jalur konversi clipboard, termasuk tabel merge. `MATH_HTML_NO_TEX` menjaga keterbukaan bila markup matematika tidak menyimpan sumber. `MATH_UNRENDERED_SOURCE` mendeteksi allowlist perintah kuat di teks terlihat; kode dan keluaran KaTeX dikecualikan.
+
+`toc[].text` kini menyertakan rumus judul tanpa menduplikasi MathML/HTML visual. Notasi sederhana dilinearkan dari satu cabang presentasi MathML; notasi kompleks menggunakan TeX kanonik sebagai fallback. ID judul yang memiliki prosa dipertahankan; judul hanya-rumus memakai sumber rumus untuk slug. Rumus tidak dianggap heading kosong.
+
+Raw HTML block dan inline HTML Markdown dibedakan agar escape tidak diparse dua kali. Metadata TeX eksplisit mengalahkan teks tampilan yang bisa usang. Oracle raw-table mengikuti pemulihan formula agar tetap dapat mendeteksi mutasi operator; RC7 juga membandingkan fragmen HTML mandiri dalam urutan blok. Cakupan fragmen terbuka dan peringatan dijelaskan di `KNOWN_LIMITS.md`.

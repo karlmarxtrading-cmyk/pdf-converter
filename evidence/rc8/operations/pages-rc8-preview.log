@@ -1,0 +1,192 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> paperforma@3.0.0-rc.8 build:pages
+> node scripts/pages-build.mjs
+
+{"total":439,"runtime":256,"unknownLicense":0}
+vite v7.3.8 building client environment for production...
+transforming...
+✓ 2420 modules transformed.
+rendering chunks...
+[plugin vite:reporter] 
+(!) /tmp/rc8-branch-build-kcfn1he3/node_modules/diff/libesm/index.js is dynamically imported by /tmp/rc8-branch-build-kcfn1he3/src/ui/review-diff.ts but also statically imported by /tmp/rc8-branch-build-kcfn1he3/src/core/wrapper.ts, dynamic import will not move module into another chunk.
+
+computing gzip size...
+dist/print.html                                                        1.01 kB │ gzip:   0.60 kB
+dist/assets/jetbrains-mono-cyrillic-ext-400-normal-C_uLvvQ5.woff2      1.16 kB
+dist/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2                         3.62 kB
+dist/assets/jetbrains-mono-vietnamese-400-normal-ByoDsISC.woff2        3.92 kB
+dist/assets/jetbrains-mono-greek-400-normal-C190GLew.woff2             4.23 kB
+dist/assets/KaTeX_Size4-Regular-Dl5lxZxV.woff2                         4.93 kB
+dist/assets/inter-vietnamese-400-normal-DMkecbls.woff2                 4.97 kB
+dist/assets/inter-vietnamese-600-normal-Cc8MFFhd.woff2                 5.10 kB
+dist/assets/inter-vietnamese-700-normal-DlLaEgI2.woff2                 5.10 kB
+dist/assets/inter-vietnamese-400-italic-Ceaj4WUo.woff2                 5.13 kB
+dist/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2                         5.21 kB
+dist/assets/inter-greek-ext-400-normal-DGGRlc-M.woff2                  5.26 kB
+dist/assets/inter-vietnamese-700-italic-BbJv01XC.woff2                 5.31 kB
+dist/assets/jetbrains-mono-cyrillic-400-normal-BEIGL1Tu.woff2          5.33 kB
+dist/assets/inter-vietnamese-600-italic-BuG6-S9s.woff2                 5.38 kB
+dist/assets/inter-greek-ext-600-normal-DRtmH8MT.woff2                  5.43 kB
+dist/assets/inter-greek-ext-700-normal-qfdV9bQt.woff2                  5.44 kB
+dist/assets/KaTeX_Size1-Regular-mCD8mA8B.woff2                         5.47 kB
+dist/assets/inter-greek-ext-400-italic-DgljI1UR.woff2                  5.53 kB
+dist/assets/inter-greek-ext-700-italic-5m0CTrl1.woff2                  5.74 kB
+dist/assets/inter-greek-ext-600-italic-BxS-O1qG.woff2                  5.76 kB
+dist/assets/source-serif-4-vietnamese-400-normal-DFDfvBrN.woff2        6.30 kB
+dist/assets/source-serif-4-vietnamese-400-italic-B7_QYl3c.woff2        6.36 kB
+dist/assets/source-serif-4-vietnamese-600-normal-B33FcZBi.woff2        6.37 kB
+dist/assets/source-serif-4-vietnamese-700-normal-CAL-i-xy.woff2        6.41 kB
+dist/assets/source-serif-4-vietnamese-700-italic-CVnjuq9C.woff2        6.52 kB
+dist/assets/source-serif-4-vietnamese-600-italic-CH0yWcxH.woff2        6.54 kB
+dist/assets/KaTeX_Caligraphic-Regular-Di6jR-x-.woff2                   6.91 kB
+dist/assets/KaTeX_Caligraphic-Bold-Dq_IR9rO.woff2                      6.91 kB
+dist/assets/source-serif-4-cyrillic-ext-400-normal-CWV284fw.woff2      7.15 kB
+dist/assets/source-serif-4-cyrillic-ext-400-italic-zoDFlEzN.woff2      7.28 kB
+dist/assets/source-serif-4-cyrillic-ext-600-normal-D_E8FDgP.woff2      7.29 kB
+dist/assets/jetbrains-mono-latin-ext-400-normal-Bc8Ftmh3.woff2         7.34 kB
+dist/assets/source-serif-4-cyrillic-ext-700-normal-B9R79AaY.woff2      7.45 kB
+dist/assets/source-serif-4-cyrillic-ext-700-italic-BdFI3uD2.woff2      7.53 kB
+dist/assets/source-serif-4-cyrillic-ext-600-italic-Cezqx4eN.woff2      7.57 kB
+dist/assets/inter-cyrillic-400-normal-obahsSVq.woff2                   7.71 kB
+dist/assets/inter-greek-400-normal-B4URO6DV.woff2                      7.78 kB
+dist/assets/inter-cyrillic-700-normal-CjBOestx.woff2                   7.90 kB
+dist/assets/inter-greek-700-normal-C3JjAnD8.woff2                      7.92 kB
+dist/assets/source-serif-4-greek-400-normal-Cw5-AHNN.woff2             7.92 kB
+dist/assets/inter-greek-600-normal-plRanbMR.woff2                      7.94 kB
+dist/assets/inter-cyrillic-600-normal-CWCymEST.woff2                   7.97 kB
+dist/assets/source-serif-4-greek-600-normal-DdRkKr-1.woff2             8.13 kB
+dist/assets/inter-cyrillic-400-italic-CIUtULAL.woff2                   8.22 kB
+dist/assets/source-serif-4-greek-400-italic-C7D4Dq0H.woff2             8.24 kB
+dist/assets/source-serif-4-greek-700-normal-BzuEQSqJ.woff2             8.41 kB
+dist/assets/inter-cyrillic-700-italic-Ppu1tTPz.woff2                   8.43 kB
+dist/assets/inter-greek-400-italic-SVIaMW7s.woff2                      8.44 kB
+dist/assets/source-serif-4-greek-600-italic-BCtDz1WS.woff2             8.47 kB
+dist/assets/inter-cyrillic-600-italic-BMNGqOVE.woff2                   8.48 kB
+dist/assets/source-serif-4-greek-700-italic-DbF55r_P.woff2             8.51 kB
+dist/assets/inter-greek-600-italic-MPI_Frmw.woff2                      8.62 kB
+dist/assets/inter-greek-700-italic-D5vwbaZX.woff2                      8.64 kB
+dist/assets/KaTeX_Script-Regular-D3wIWfF6.woff2                        9.64 kB
+dist/assets/inter-cyrillic-ext-400-normal-BQZuk6qB.woff2              10.23 kB
+dist/assets/KaTeX_SansSerif-Regular-DDBCnlJ7.woff2                    10.34 kB
+dist/assets/inter-cyrillic-ext-600-normal-Dfes3d0z.woff2              10.48 kB
+dist/assets/inter-cyrillic-ext-700-normal-BjwYoWNd.woff2              10.50 kB
+dist/assets/inter-cyrillic-ext-400-italic-CsfrDhJx.woff2              10.80 kB
+dist/assets/inter-cyrillic-ext-600-italic-La-to8Sa.woff2              11.10 kB
+dist/assets/inter-cyrillic-ext-700-italic-GPRkb3xU.woff2              11.11 kB
+dist/assets/KaTeX_Fraktur-Regular-CTYiF6lA.woff2                      11.32 kB
+dist/assets/KaTeX_Fraktur-Bold-CL6g_b3V.woff2                         11.35 kB
+dist/assets/KaTeX_SansSerif-Italic-C3H0VqGB.woff2                     12.03 kB
+dist/assets/KaTeX_SansSerif-Bold-D1sUS0GD.woff2                       12.22 kB
+dist/assets/KaTeX_Typewriter-Regular-CO6r4hn1.woff2                   13.57 kB
+dist/assets/source-serif-4-cyrillic-400-italic-BLN19cOa.woff2         13.75 kB
+dist/assets/source-serif-4-cyrillic-400-normal-C44pakCn.woff2         14.17 kB
+dist/assets/source-serif-4-cyrillic-600-italic-Bbpc5VXY.woff2         14.31 kB
+dist/assets/source-serif-4-cyrillic-700-italic-C5vSpb1a.woff2         14.35 kB
+dist/assets/source-serif-4-cyrillic-600-normal-BDP5YDHD.woff2         14.78 kB
+dist/assets/source-serif-4-cyrillic-700-normal-BmBwwUw2.woff2         14.86 kB
+dist/assets/KaTeX_Math-BoldItalic-CZnvNsCZ.woff2                      16.40 kB
+dist/assets/KaTeX_Math-Italic-t53AETM-.woff2                          16.44 kB
+dist/assets/KaTeX_Main-BoldItalic-DxDJ3AOS.woff2                      16.78 kB
+dist/assets/KaTeX_Main-Italic-NWA7e6Wa.woff2                          16.99 kB
+dist/assets/source-serif-4-latin-ext-400-normal-B5LksYz5.woff2        17.84 kB
+dist/assets/source-serif-4-latin-ext-600-normal-pa-C5Dkf.woff2        18.33 kB
+dist/assets/source-serif-4-latin-ext-400-italic-Cj8BerOQ.woff2        18.45 kB
+dist/assets/source-serif-4-latin-ext-700-normal-D0Q30MFM.woff2        18.47 kB
+dist/assets/source-serif-4-latin-ext-600-italic-BjDfKlFY.woff2        19.06 kB
+dist/assets/source-serif-4-latin-ext-700-italic-BD-KcGtX.woff2        19.16 kB
+dist/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2            20.09 kB
+dist/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2            20.09 kB
+dist/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2            21.17 kB
+dist/assets/source-serif-4-latin-700-italic-JqVfbRzb.woff2            21.48 kB
+dist/assets/source-serif-4-latin-600-normal-DouSKlru.woff2            21.53 kB
+dist/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2            21.59 kB
+dist/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2            21.72 kB
+dist/assets/inter-latin-400-normal-C38fXH4l.woff2                     23.66 kB
+dist/assets/inter-latin-700-normal-Yt3aPRUw.woff2                     24.36 kB
+dist/assets/inter-latin-600-normal-LgqL8muc.woff2                     24.45 kB
+dist/assets/inter-latin-400-italic-D1l0FflY.woff2                     25.04 kB
+dist/assets/KaTeX_Main-Bold-Cx986IdX.woff2                            25.32 kB
+dist/assets/inter-latin-600-italic-BJYrns_i.woff2                     25.81 kB
+dist/assets/inter-latin-700-italic-BsEzapPQ.woff2                     25.87 kB
+dist/assets/KaTeX_Main-Regular-B22Nviop.woff2                         26.27 kB
+dist/assets/KaTeX_AMS-Regular-BQhdFMY1.woff2                          28.08 kB
+dist/index.html                                                       32.35 kB │ gzip:   6.56 kB
+dist/assets/inter-latin-ext-400-normal-C1nco2VV.woff2                 35.00 kB
+dist/assets/inter-latin-ext-700-normal-Ca8adRJv.woff2                 36.24 kB
+dist/assets/inter-latin-ext-600-normal-D2bJ5OIk.woff2                 36.26 kB
+dist/assets/inter-latin-ext-400-italic-CGFCRmTM.woff2                 37.59 kB
+dist/assets/inter-latin-ext-600-italic-4pxPPAsx.woff2                 38.97 kB
+dist/assets/inter-latin-ext-700-italic-DtYkv-XI.woff2                 39.07 kB
+dist/assets/tex-renderer-Dk9jvifj.js                                 262.29 kB
+dist/assets/noto-emoji-emoji-400-normal-D-RYmxYa.woff2               476.39 kB
+dist/assets/engine.worker-DbfZp4KV.js                                668.67 kB
+dist/assets/main-Yl4gEbVd.css                                         23.37 kB │ gzip:   5.77 kB
+dist/assets/chunk-2Q5K7J3B-_2ug21JC.js                                 0.20 kB │ gzip:   0.16 kB
+dist/assets/chunk-JWPE2WC7-CZndcw65.js                                 0.23 kB │ gzip:   0.17 kB
+dist/assets/chunk-XXDRQBXY-Ay-zwW7R.js                                 0.23 kB │ gzip:   0.21 kB
+dist/assets/_commonjsHelpers-Cpj98o6Y.js                               0.24 kB │ gzip:   0.18 kB
+dist/assets/chunk-5VM5RSS4-BNzhgebR.js                                 0.37 kB │ gzip:   0.27 kB
+dist/assets/chunk-TU62E6Q5-ZZDqQ-iu.js                                 0.51 kB │ gzip:   0.36 kB
+dist/assets/tex-renderer-B__exwBD.js                                   0.53 kB │ gzip:   0.38 kB
+dist/assets/swimlanesDiagram-OMPLPG4O-BMh2BfMw.js                      0.59 kB │ gzip:   0.40 kB
+dist/assets/infoDiagram-KBXO4MBG-BMos1xj8.js                           0.66 kB │ gzip:   0.44 kB
+dist/assets/sizeCapture-INFHLROL-CqYsTlnd.js                           1.01 kB │ gzip:   0.57 kB
+dist/assets/railroadDiagram-MRQ6NCDL-hcvleN_g.js                       1.68 kB │ gzip:   0.80 kB
+dist/assets/chunk-HFQBQIA3-BD0jrHpd.js                                 1.88 kB │ gzip:   0.83 kB
+dist/assets/abnfDiagram-S7VZAUFO-YBZWP2cm.js                           1.88 kB │ gzip:   0.93 kB
+dist/assets/pegDiagram-FD4XPPHP-lzwRHblg.js                            2.03 kB │ gzip:   0.97 kB
+dist/assets/ebnfDiagram-UZSYDL2S-DyR99v1I.js                           2.08 kB │ gzip:   0.92 kB
+dist/assets/diagram-DNEMPZML-78y-TZNb.js                               4.35 kB │ gzip:   1.93 kB
+dist/assets/pieDiagram-J4AKIIQI-Ck2aFJYC.js                            5.16 kB │ gzip:   2.20 kB
+dist/assets/bpmnIcons-APHXDYXF-ByGoYv9M.js                             5.21 kB │ gzip:   1.16 kB
+dist/assets/chunk-KS47KZWR-E8XlPbni.js                                 5.60 kB │ gzip:   2.59 kB
+dist/assets/diagram-L3MUGCDN-C9NpdDrZ.js                               6.15 kB │ gzip:   2.67 kB
+dist/assets/diagram-XPFHEONP-BeJfMD-o.js                               8.29 kB │ gzip:   3.72 kB
+dist/assets/cynefinDiagram-L36ESFBY-lJDLubTd.js                       10.17 kB │ gzip:   3.67 kB
+dist/assets/chunk-KQLB2F66-CKwyj8JA.js                                10.48 kB │ gzip:   4.35 kB
+dist/assets/diagram-MHCOC4E2-r3Icar2k.js                              11.07 kB │ gzip:   4.32 kB
+dist/assets/paginate-error-jNjXrJhz.js                                14.88 kB │ gzip:   6.32 kB
+dist/assets/font-assets-CwQSZQxl.js                                   15.04 kB │ gzip:   2.63 kB
+dist/assets/chunk-OY52VR5R-2BEvp9Xi.js                                15.73 kB │ gzip:   4.40 kB
+dist/assets/diagram-LA4NIPWU-Da_jUvtg.js                              16.38 kB │ gzip:   5.86 kB
+dist/assets/ishikawaDiagram-M35NCXHK-CWFEVoJS.js                      17.54 kB │ gzip:   6.69 kB
+dist/assets/kanban-definition-BZKZHSQY-CSWAPcLH.js                    20.37 kB │ gzip:   7.25 kB
+dist/assets/mindmap-definition-I2QAS2VK-CnaWRcUu.js                   22.84 kB │ gzip:   7.65 kB
+dist/assets/journeyDiagram-OPLOXDXO-zfJwYegO.js                       23.62 kB │ gzip:   8.38 kB
+dist/assets/graph-D8UmR1vK.js                                         23.89 kB │ gzip:   8.30 kB
+dist/assets/katex.min-DDtwLco6.js                                     24.83 kB │ gzip:   3.65 kB
+dist/assets/wardleyDiagram-S7YFUSEH-BI6OsA6k.js                       25.58 kB │ gzip:   6.84 kB
+dist/assets/gitGraphDiagram-STJD7YCW-DQkTl5Kz.js                      29.49 kB │ gzip:   8.74 kB
+dist/assets/erDiagram-EYBAPDEH-CJ-Ls7CO.js                            30.75 kB │ gzip:  10.60 kB
+dist/assets/timeline-definition-SEUHKTQE-CNYz1iPB.js                  30.93 kB │ gzip:  10.22 kB
+dist/assets/requirementDiagram-Y7LWUY3S-DXnG9Hez.js                   31.12 kB │ gzip:   9.82 kB
+dist/assets/quadrantDiagram-XTYBLID2-DlriNjYP.js                      34.02 kB │ gzip:   9.98 kB
+dist/assets/print-BTfGcajj.js                                         39.87 kB │ gzip:  13.96 kB
+dist/assets/sankeyDiagram-WGJFYUXA-DuogAC00.js                        39.99 kB │ gzip:  15.15 kB
+dist/assets/d3-scale-4DPf7zan.js                                      41.33 kB │ gzip:  15.14 kB
+dist/assets/stateDiagram-v2-FJ4FJNEA-CqzbUXlD.js                      41.83 kB │ gzip:  14.03 kB
+dist/assets/vennDiagram-NNMJR3RB-B3sEq56G.js                          42.06 kB │ gzip:  15.75 kB
+dist/assets/blockDiagram-APKKGZFW-CC2JTCLP.js                         42.75 kB │ gzip:  14.10 kB
+dist/assets/xychartDiagram-GGNKY7IX-C05dmRRj.js                       43.58 kB │ gzip:  12.15 kB
+dist/assets/dagre-SPEB5RXH-YqLuCm0n.js                                46.20 kB │ gzip:  16.51 kB
+dist/assets/classDiagram-v2-L25IHNXF-dMr51bqI.js                      49.95 kB │ gzip:  16.08 kB
+dist/assets/ganttDiagram-23REXITY-DI0MYlQ0.js                         53.23 kB │ gzip:  18.34 kB
+dist/assets/flowDiagram-MALGAFMO-BUeCFarl.js                          65.04 kB │ gzip:  20.98 kB
+dist/assets/c4Diagram-KJ2TOQU5-CEuMLyLg.js                            65.89 kB │ gzip:  18.93 kB
+dist/assets/diagram-3B7GL73J-C8YE3zyq.js                              81.18 kB │ gzip:  25.19 kB
+dist/assets/cose-bilkent-JH36ORCC-DdVveUqv.js                         81.78 kB │ gzip:  22.52 kB
+dist/assets/sequenceDiagram-5NDRBG5M-DGLgB0Jy.js                     119.00 kB │ gzip:  32.02 kB
+dist/assets/swimlanes-UMQ2AFYF-CX9NhRJy.js                           123.35 kB │ gzip:  45.43 kB
+dist/assets/architectureDiagram-YGSQEFNW-DJLr114e.js                 151.90 kB │ gzip:  43.17 kB
+dist/assets/usecaseDiagram-AFA6YXN4-tDGDDoLw.js                      189.97 kB │ gzip:  50.73 kB
+dist/assets/katex-C-g2SbSj.js                                        262.06 kB │ gzip:  77.95 kB
+dist/assets/cytoscape.esm-BHa1VTXv.js                                450.32 kB │ gzip: 144.03 kB
+dist/assets/src-DAW3wOpX.js                                          512.42 kB │ gzip: 103.40 kB
+dist/assets/mermaid.core-qTcCUpaP.js                                 639.79 kB │ gzip: 152.66 kB
+dist/assets/cynefin-EF2NZ3EQ-CDfDJrO3.js                             653.75 kB │ gzip: 136.53 kB
+dist/assets/main-DThTYVeE.js                                       1,093.78 kB │ gzip: 352.33 kB
+dist/assets/elk-XV6XMXQE-CEEB3nGm.js                               1,513.07 kB │ gzip: 463.62 kB
+✓ built in 31.94s
+Verifikasi statis lulus: {"dir":"dist","profile":"production","files":181,"bytes":10196351,"maxFileBytes":1513070}
+Build production OK · candidate 0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064 · dist bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436

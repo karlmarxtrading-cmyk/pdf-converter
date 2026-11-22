@@ -1,0 +1,38 @@
+{
+  "tool": "scripts/preview-export.mjs",
+  "url": "http://127.0.0.1:4869",
+  "version": "3.0.0-rc.12",
+  "candidateSha256": "003a7b88c2ea84d49ab42053a06a9c2c8162f94578655ba370dad396451d7d7f",
+  "distTreeSha256": "131fb9a3290bdef125fbbae939dabf061b4b55f4aa5356bbd701c0c40f529e64",
+  "indexSha256": "4b876989778c62d8a83fb10e00b395ba32eb823112bf822bf3ed15d5bac16f7e",
+  "at": "2026-11-22T14:55:10.161Z",
+  "fixtureSha256": "8e3df316feae7a6d872d4a1579e1159a299be1e8b2e71c5ae41ab8d341b6b7f8",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "method": "Studio UI, downloaded standalone reopened offline, product print frame, Chromium PDF, Poppler text",
+  "workers": [
+    "http://127.0.0.1:4869/assets/engine.worker-CAkdLm5o.js"
+  ],
+  "htmlSha256": "f2a19ff7579ecddc6b527f94560668f31e6c47364bf207fb62b2e541ee517233",
+  "offline": {
+    "scripts": 0,
+    "cells": [
+      [
+        "Variabel",
+        "Hasil"
+      ],
+      [
+        "ALFA",
+        "x+1"
+      ],
+      [
+        "BETA",
+        "y-2"
+      ]
+    ],
+    "fonts": 6,
+    "network": []
+  },
+  "printLayoutSha256": "ff36f9950f07f5121d575c9d7fe7c39719e57412cf7e9d05987c50d12ddfbc35",
+  "pdfSha256": "74a1f87861a90736d886a5d91a6c1f584c2348786e2a1cfae9eea010c06dea75",
+  "pass": true
+}

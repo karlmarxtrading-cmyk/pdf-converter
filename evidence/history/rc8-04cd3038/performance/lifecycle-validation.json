@@ -1,0 +1,217 @@
+{
+  "purpose": "Independent sample completeness and absolute ratio verification. The overall original release decision is retained separately.",
+  "inputs": {
+    "recovery-cohort-1.json": "825fadbb78bf6736200e109606a4f0aa361c5c70b4b23ec2e3ffca2a2847991b",
+    "recovery-cohort-2.json": "9b6755636aa0c752b5a8357e3c4bd0f7ed8b04e36c4c6172131a64c36ce0d189"
+  },
+  "cohorts": {
+    "1": {
+      "runId": "90d0c31d-5f5c-4a01-992c-a0d75d2e4f67",
+      "status": "FAIL",
+      "boundBeforeAndAfter": true,
+      "incidents": [
+        {
+          "event": "targetError",
+          "label": "rc6",
+          "message": "Page crashed!",
+          "at": "2026-11-21T21:35:40.069Z"
+        },
+        {
+          "event": "targetError",
+          "label": "candidate",
+          "message": "Page crashed!",
+          "at": "2026-11-21T21:35:40.081Z"
+        }
+      ],
+      "cases": {
+        "trig": {
+          "attemptedArms": 80,
+          "strictEquivalencePairs": 39,
+          "orderValid": true,
+          "balancedMatchedOrder": {
+            "AB": 19,
+            "BA": 20
+          },
+          "warmupArms": 22,
+          "invalidWarmupBlocks": [],
+          "incompleteOrInvalidPairs": [
+            {
+              "round": 20,
+              "arms": [
+                {
+                  "label": "rc6",
+                  "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+                  "pass": false
+                },
+                {
+                  "label": "candidate",
+                  "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+                  "pass": false
+                }
+              ]
+            }
+          ],
+          "ratios": {
+            "previewMs": {
+              "n": {
+                "rc6": 39,
+                "candidate": 39
+              },
+              "budgetPass": false
+            },
+            "htmlExportMs": {
+              "n": {
+                "rc6": 39,
+                "candidate": 39
+              },
+              "budgetPass": false
+            },
+            "pageReadyMs": {
+              "n": {
+                "rc6": 39,
+                "candidate": 39
+              },
+              "budgetPass": false
+            }
+          }
+        },
+        "long": {
+          "attemptedArms": 80,
+          "strictEquivalencePairs": 40,
+          "orderValid": true,
+          "balancedMatchedOrder": {
+            "AB": 20,
+            "BA": 20
+          },
+          "warmupArms": 20,
+          "invalidWarmupBlocks": [],
+          "incompleteOrInvalidPairs": [],
+          "ratios": {
+            "previewMs": {
+              "n": 40,
+              "medianRatio": 0.9819067862510417,
+              "p95Ratio": 0.9625917048013416,
+              "budgetPass": true
+            }
+          }
+        },
+        "small": {
+          "attemptedArms": 80,
+          "strictEquivalencePairs": 40,
+          "orderValid": true,
+          "balancedMatchedOrder": {
+            "AB": 20,
+            "BA": 20
+          },
+          "warmupArms": 20,
+          "invalidWarmupBlocks": [],
+          "incompleteOrInvalidPairs": [],
+          "ratios": {
+            "smallPreviewMs": {
+              "n": 40,
+              "medianRatio": 0.976573938505257,
+              "p95Ratio": 0.477997730425844,
+              "budgetPass": true
+            },
+            "editPreviewMs": {
+              "n": 40,
+              "medianRatio": 1.0038334204584767,
+              "p95Ratio": 1.3984901590716239,
+              "budgetPass": false
+            }
+          }
+        }
+      }
+    },
+    "2": {
+      "runId": "8a844c4a-cfdd-437c-b5b0-b00813e326a1",
+      "status": "FAIL",
+      "boundBeforeAndAfter": true,
+      "incidents": [],
+      "cases": {
+        "trig": {
+          "attemptedArms": 80,
+          "strictEquivalencePairs": 40,
+          "orderValid": true,
+          "balancedMatchedOrder": {
+            "BA": 20,
+            "AB": 20
+          },
+          "warmupArms": 20,
+          "invalidWarmupBlocks": [],
+          "incompleteOrInvalidPairs": [],
+          "ratios": {
+            "previewMs": {
+              "n": 40,
+              "medianRatio": 0.9441985378229987,
+              "p95Ratio": 1.1254259980523393,
+              "budgetPass": false
+            },
+            "htmlExportMs": {
+              "n": 40,
+              "medianRatio": 0.9365281672203594,
+              "p95Ratio": 0.8494485765553693,
+              "budgetPass": true
+            },
+            "pageReadyMs": {
+              "n": 40,
+              "medianRatio": 0.9536446037713051,
+              "p95Ratio": 0.8762478212644589,
+              "budgetPass": true
+            }
+          }
+        },
+        "long": {
+          "attemptedArms": 80,
+          "strictEquivalencePairs": 40,
+          "orderValid": true,
+          "balancedMatchedOrder": {
+            "BA": 20,
+            "AB": 20
+          },
+          "warmupArms": 20,
+          "invalidWarmupBlocks": [],
+          "incompleteOrInvalidPairs": [],
+          "ratios": {
+            "previewMs": {
+              "n": 40,
+              "medianRatio": 1.012355891019232,
+              "p95Ratio": 0.9543099726579609,
+              "budgetPass": true
+            }
+          }
+        },
+        "small": {
+          "attemptedArms": 80,
+          "strictEquivalencePairs": 40,
+          "orderValid": true,
+          "balancedMatchedOrder": {
+            "BA": 20,
+            "AB": 20
+          },
+          "warmupArms": 20,
+          "invalidWarmupBlocks": [],
+          "incompleteOrInvalidPairs": [],
+          "ratios": {
+            "smallPreviewMs": {
+              "n": 40,
+              "medianRatio": 1.0056716417921647,
+              "p95Ratio": 1.2105147382295145,
+              "budgetPass": false
+            },
+            "editPreviewMs": {
+              "n": 40,
+              "medianRatio": 0.9965445749811183,
+              "p95Ratio": 1.2449861153979136,
+              "budgetPass": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "procedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+  "driverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+  "allScheduledMeasurementsEquivalent": false,
+  "allTimeBudgetsPass": false
+}

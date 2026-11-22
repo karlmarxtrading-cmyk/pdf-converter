@@ -1,0 +1,1470 @@
+{
+  "schema": 1,
+  "runId": "a9bef82e-ee9d-4e1f-81d8-adfb0a0151b5",
+  "pid": 21,
+  "cohort": 1,
+  "before": {
+    "rc6": {
+      "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+      "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+      "manifestSha256": "6827509a82bf2b903bda374e6782e3df77ec1cccb940739c31911fce49340279",
+      "version": "3.0.0-rc.6"
+    },
+    "candidate": {
+      "candidateSha256": "04cd3038a66f8bc3c78440456b6319c22af52dade47bd411362b6bb967435f35",
+      "distTreeSha256": "f5c8558a3b058ff2fdb2591989c39d2c92e314fe9f205a95ef5bbedba1a54db6",
+      "manifestSha256": "1aae3dc490ec1038358613ade91420160f730e20911da2ef1a9c27f2674a0ed3",
+      "version": "3.0.0-rc.8"
+    },
+    "fixture": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "oracle": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "acceptedReference": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "harness": "373050415f4debdf9e5efb0d5b5b213a3834203c32add7f579b242e9a3558e47",
+    "settings": "6f8d19307eaede2ec6b05047bf56a71d1f338340a0278e24dda13db4438eef80",
+    "benchmarkDependencies": {
+      "rc6": "774d75eec73c9088e839e3b252e2f6cc26e3c8fef1beba192b8a95d35204130c",
+      "candidate": "ef77e877abfc9dccc5fa3dba56f968d73ededbc84368ece98d80957ae5857e68"
+    }
+  },
+  "environment": {
+    "node": "v24.22.3",
+    "nodeExecutableSha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa",
+    "browserExecutableSha256": "53a15d6c3a3d27dfb54c4ba60278b1683136f70cf1e67e989da7dfbd3d451ef0",
+    "os": [
+      "linux",
+      "6.18.57",
+      "x64"
+    ],
+    "cpus": 2,
+    "model": "AMD EPYC 9V74 80-Core Processor",
+    "memoryBytes": 10451427328,
+    "initialLoad": {
+      "loadavg": [
+        7.57,
+        6.04,
+        4.74
+      ],
+      "at": "2026-11-21T21:20:52.392Z"
+    },
+    "affinity": "0-1",
+    "browser": "HeadlessChrome/153.0.8010.0"
+  },
+  "protocol": {
+    "schema": 1,
+    "baselineSource": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+    "baselineDist": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+    "trigSource": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "referenceHtml": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "dateFrozen": "2026-11-22",
+    "cohorts": 2,
+    "pairs": 40,
+    "warmupsPerCase": 1,
+    "order": "Even rounds start with RC6 in cohort 1 and candidate in cohort 2. Odd rounds reverse. Each cohort starts a new process and empty browser profile. Warmups and errors are retained. No trimming or reruns for a favorable timing.",
+    "medianRatio": 1.05,
+    "p95Ratio": 1.1,
+    "settings": {
+      "template": "BUS-01",
+      "paper": "A4",
+      "orientation": "portrait",
+      "viewport": [
+        1366,
+        900
+      ],
+      "locale": "id-ID",
+      "browserCache": "warm after warmup",
+      "nodeFonts": "locked local WOFF2"
+    },
+    "browserFlows": {
+      "trig": [
+        "previewMs",
+        "htmlExportMs",
+        "pageReadyMs"
+      ],
+      "long": [
+        "previewMs"
+      ],
+      "small": [
+        "smallPreviewMs",
+        "editPreviewMs"
+      ]
+    },
+    "nodeFlows": {
+      "trigonometry": [
+        "refreshMs",
+        "htmlExportMs",
+        "printPayloadMs"
+      ],
+      "long": [
+        "refreshMs"
+      ],
+      "small-edit": [
+        "editedRefreshMs",
+        "htmlExportMs",
+        "printPayloadMs"
+      ],
+      "empty-core": [
+        "refreshMs"
+      ]
+    },
+    "statistics": "Median averages both center values. p95 nearest-rank. Report spread and each cohort separately. GC, file validation and oracle run outside timed intervals. Browser polling ~12ms, clocks high-resolution monotonic. Shared Linux host; sample load separately, no outlier exclusion.",
+    "capacity": {
+      "sections": [
+        6,
+        30,
+        118
+      ],
+      "reps": 5,
+      "heapIntervalMs": 200,
+      "previewMs": 10000,
+      "reeditPreviewMs": 10000,
+      "cancelToIdleMs": 2000,
+      "maxEventLoopGapMs": 1000,
+      "printReadyMs": 60000,
+      "afterCloseRetainedDriftBytes": 8388608,
+      "firstProgressMs": 2000,
+      "maxProgressGapMs": 5000,
+      "peakDefinition": "Maximum observed Runtime.getHeapUsage.usedSize bytes on the same page target as post-GC. Native/process/worker memory excluded. Unknown remains null. Five runs support completion checks only; estimate latency tail per size on a separate 40+40 sample per-size study before advertising a percentile SLA.",
+      "capacityClaim": "Measure the historical 6,30,118-section fixtures. Their page counts depend on actual pagination. No 500/1,000-page claim."
+    }
+  },
+  "runs": [
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 343.29999999981374,
+        "previewMs": 1379,
+        "htmlExportMs": 235.79999999981374,
+        "pageReadyMs": 4237.299999999814
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:20:53.081Z",
+      "load": [
+        7.57,
+        6.04,
+        4.74
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 397.09999999962747,
+        "previewMs": 1350.0999999996275,
+        "htmlExportMs": 284.20000000018626,
+        "pageReadyMs": 3069.5
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:20:59.886Z",
+      "load": [
+        8.03,
+        6.18,
+        4.8
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 220.09999999962747,
+        "previewMs": 1294.9000000003725,
+        "htmlExportMs": 231.8999999994412,
+        "pageReadyMs": 3621.2000000001863
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:05.340Z",
+      "load": [
+        8.91,
+        6.4,
+        4.88
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 231.59999999962747,
+        "previewMs": 984.9000000003725,
+        "htmlExportMs": 163.20000000018626,
+        "pageReadyMs": 3368
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:10.992Z",
+      "load": [
+        9.48,
+        6.56,
+        4.94
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 149.5,
+        "previewMs": 1010.4000000003725,
+        "htmlExportMs": 137.29999999981374,
+        "pageReadyMs": 3395.5
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:16.066Z",
+      "load": [
+        9.44,
+        6.6,
+        4.96
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 156.1000000005588,
+        "previewMs": 1215.2000000001863,
+        "htmlExportMs": 199.1000000005588,
+        "pageReadyMs": 2986.7999999998137
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:21.065Z",
+      "load": [
+        9.24,
+        6.61,
+        4.97
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 189.8999999994412,
+        "previewMs": 926.7999999998137,
+        "htmlExportMs": 225.09999999962747,
+        "pageReadyMs": 3099.600000000559
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:25.978Z",
+      "load": [
+        8.98,
+        6.6,
+        4.98
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 155.29999999981374,
+        "previewMs": 927.6999999992549,
+        "htmlExportMs": 256.29999999981374,
+        "pageReadyMs": 3512.7999999998137
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:30.645Z",
+      "load": [
+        8.74,
+        6.58,
+        4.98
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 150.19999999925494,
+        "previewMs": 1047.2999999998137,
+        "htmlExportMs": 287.79999999981374,
+        "pageReadyMs": 3202.9000000003725
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:35.787Z",
+      "load": [
+        9,
+        6.68,
+        5.02
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 173.5,
+        "previewMs": 1773.2000000001863,
+        "htmlExportMs": 226,
+        "pageReadyMs": 4043.9000000003725
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:40.867Z",
+      "load": [
+        9.08,
+        6.73,
+        5.05
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 181.79999999981374,
+        "previewMs": 956,
+        "htmlExportMs": 405.20000000018626,
+        "pageReadyMs": 3092.5
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:47.461Z",
+      "load": [
+        9.24,
+        6.8,
+        5.08
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 128.20000000018626,
+        "previewMs": 1093.800000000745,
+        "htmlExportMs": 127.8999999994412,
+        "pageReadyMs": 3101.2000000001863
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:52.463Z",
+      "load": [
+        9.06,
+        6.81,
+        5.09
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 5,
+      "times": {
+        "emptyReadyMs": 150.5,
+        "previewMs": 896,
+        "htmlExportMs": 218.70000000018626,
+        "pageReadyMs": 3865.4000000003725
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:21:57.151Z",
+      "load": [
+        9.13,
+        6.86,
+        5.12
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 5,
+      "times": {
+        "emptyReadyMs": 176.1000000005588,
+        "previewMs": 1014,
+        "htmlExportMs": 439.1000000005588,
+        "pageReadyMs": 3113.100000000559
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:22:02.614Z",
+      "load": [
+        9.36,
+        6.94,
+        5.15
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 6,
+      "times": {
+        "emptyReadyMs": 142.6000000005588,
+        "previewMs": 1138.8999999994412,
+        "htmlExportMs": 208.59999999962747,
+        "pageReadyMs": 2848.5
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:22:07.620Z",
+      "load": [
+        9.25,
+        6.96,
+        5.17
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 6,
+      "times": {
+        "emptyReadyMs": 169.1000000005588,
+        "previewMs": 1338.699999999255,
+        "htmlExportMs": 176.5,
+        "pageReadyMs": 3116.7999999998137
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:22:12.233Z",
+      "load": [
+        9.72,
+        7.1,
+        5.22
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 7,
+      "times": {
+        "emptyReadyMs": 177.19999999925494,
+        "previewMs": 823.5999999996275,
+        "htmlExportMs": 185.20000000018626,
+        "pageReadyMs": 3472.800000000745
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:22:17.314Z",
+      "load": [
+        9.9,
+        7.18,
+        5.26
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 7,
+      "times": {
+        "emptyReadyMs": 136.70000000018626,
+        "previewMs": 963.5,
+        "htmlExportMs": 136.8999999994412,
+        "pageReadyMs": 3512.5
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:22:22.324Z",
+      "load": [
+        9.99,
+        7.24,
+        5.29
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 8,
+      "times": {
+        "emptyReadyMs": 152.79999999981374,
+        "previewMs": 928.7000000001863,
+        "htmlExportMs": 174.79999999981374,
+        "pageReadyMs": 3910.899999999441
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:22:27.372Z",
+      "load": [
+        10.15,
+        7.32,
+        5.33
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 8,
+      "times": {
+        "emptyReadyMs": 154.6000000005588,
+        "previewMs": 859.7999999998137,
+        "htmlExportMs": 178.29999999981374,
+        "pageReadyMs": 3285
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:22:32.775Z",
+      "load": [
+        10.22,
+        7.38,
+        5.36
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 9,
+      "times": {
+        "emptyReadyMs": 123.90000000037253,
+        "previewMs": 798.2999999998137,
+        "htmlExportMs": 170,
+        "pageReadyMs": 3949
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:22:37.501Z",
+      "load": [
+        10.68,
+        7.52,
+        5.42
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 9,
+      "times": {
+        "emptyReadyMs": 200.80000000074506,
+        "previewMs": 906.5,
+        "htmlExportMs": 227.69999999925494,
+        "pageReadyMs": 3825.600000000559
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:22:42.825Z",
+      "load": [
+        10.71,
+        7.58,
+        5.45
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 10,
+      "times": {
+        "emptyReadyMs": 194.90000000037253,
+        "previewMs": 991.0999999996275,
+        "htmlExportMs": 445.59999999962747,
+        "pageReadyMs": 3961.399999999441
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:22:48.275Z",
+      "load": [
+        10.89,
+        7.67,
+        5.49
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 10,
+      "times": {
+        "emptyReadyMs": 208.5,
+        "previewMs": 1043.2000000001863,
+        "htmlExportMs": 166,
+        "pageReadyMs": 3567.5999999996275
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:22:54.129Z",
+      "load": [
+        11.31,
+        7.87,
+        5.57
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 11,
+      "times": {
+        "emptyReadyMs": 124.1000000005588,
+        "previewMs": 900.5,
+        "htmlExportMs": 186,
+        "pageReadyMs": 3040.5
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:22:59.404Z",
+      "load": [
+        10.8,
+        7.82,
+        5.57
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 11,
+      "times": {
+        "emptyReadyMs": 175.40000000037253,
+        "previewMs": 887.7999999998137,
+        "htmlExportMs": 248.8999999994412,
+        "pageReadyMs": 3543
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:23:03.956Z",
+      "load": [
+        10.82,
+        7.87,
+        5.6
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 12,
+      "times": {
+        "emptyReadyMs": 207.70000000018626,
+        "previewMs": 875.7999999998137,
+        "htmlExportMs": 252.40000000037253,
+        "pageReadyMs": 3419.7000000001863
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:23:09.147Z",
+      "load": [
+        10.75,
+        7.91,
+        5.62
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 12,
+      "times": {
+        "emptyReadyMs": 156.79999999981374,
+        "previewMs": 973.4000000003725,
+        "htmlExportMs": 186.5,
+        "pageReadyMs": 3299.600000000559
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:23:14.175Z",
+      "load": [
+        11.01,
+        8.01,
+        5.67
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 13,
+      "times": {
+        "emptyReadyMs": 219.70000000018626,
+        "previewMs": 1002.7999999998137,
+        "htmlExportMs": 136.90000000037253,
+        "pageReadyMs": 2800.300000000745
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:23:19.053Z",
+      "load": [
+        10.45,
+        7.94,
+        5.66
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 13,
+      "times": {
+        "emptyReadyMs": 170.40000000037253,
+        "previewMs": 1118.9000000003725,
+        "htmlExportMs": 179.09999999962747,
+        "pageReadyMs": 3865.2999999998137
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:23:23.466Z",
+      "load": [
+        10.45,
+        7.94,
+        5.66
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 14,
+      "times": {
+        "emptyReadyMs": 194.90000000037253,
+        "previewMs": 2163.5,
+        "htmlExportMs": 211.70000000018626,
+        "pageReadyMs": 4344.200000000186
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:23:29.062Z",
+      "load": [
+        10.44,
+        8.03,
+        5.71
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 14,
+      "times": {
+        "emptyReadyMs": 213.29999999981374,
+        "previewMs": 1083.5,
+        "htmlExportMs": 176.20000000018626,
+        "pageReadyMs": 3219.2999999998137
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:23:36.283Z",
+      "load": [
+        10.25,
+        8.03,
+        5.72
+      ]
+    },
+    {
+      "label": "candidate",
+      "task": "trig",
+      "round": 15,
+      "times": {
+        "emptyReadyMs": 201.5,
+        "previewMs": 881.3000000007451,
+        "htmlExportMs": 455.29999999981374,
+        "pageReadyMs": 3242
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      },
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "timestamp": "2026-11-21T21:23:41.291Z",
+      "load": [
+        10.55,
+        8.12,
+        5.77
+      ]
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 15,
+      "times": {},
+      "oracle": {
+        "pass": false
+      },
+      "error": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+      "timestamp": "2026-11-21T21:23:46.329Z",
+      "load": [
+        10.58,
+        8.17,
+        5.8
+      ]
+    }
+  ],
+  "status": "FAIL",
+  "error": "Error: {\"label\":\"rc6\",\"task\":\"trig\",\"round\":15,\"times\":{},\"oracle\":{\"pass\":false},\"error\":\"Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.\"}\n    at file:///workspace/scratch/d77204dbc71b/rc8/tests/bench/performance-browser.mjs:46:28"
+}

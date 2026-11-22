@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-22T16:09:27.943Z",
+  "method": "synthetic source and clipboard MIME pairs in jsdom; no provider session or native clipboard used",
+  "cases": [
+    {
+      "id": "A/D",
+      "description": "GFM, footnote formula, hierarchy, lists, task items and empty/escaped table cells"
+    },
+    {
+      "id": "B",
+      "description": "12 equations checked with TeX annotation and mode, including aligned, matrix, cases, limit and integral"
+    },
+    {
+      "id": "C",
+      "description": "Currency, URLs, Windows path, regex, tex/latex fences, code indentation and blank line"
+    },
+    {
+      "id": "D",
+      "description": "Clipboard safe table preserves rowspan, colspan, empty cell, exact pre/code spacing, caption, KaTeX source"
+    },
+    {
+      "id": "E/F",
+      "description": "Unicode codepoints preserved in HTML text; unavailable asset retains alt and diagram source survives before export"
+    },
+    {
+      "id": "A/G-ChatGPT",
+      "description": "Synthetic transcript; literal label, exact text, selected order, source range"
+    },
+    {
+      "id": "A/G-Claude",
+      "description": "Synthetic transcript; literal label, exact text, selected order, source range"
+    },
+    {
+      "id": "A/G-Gemini",
+      "description": "Synthetic transcript; literal label, exact text, selected order, source range"
+    },
+    {
+      "id": "A/G-Copilot",
+      "description": "Synthetic transcript; literal label, exact text, selected order, source range"
+    },
+    {
+      "id": "A/G-DeepSeek",
+      "description": "Synthetic transcript; literal label, exact text, selected order, source range"
+    },
+    {
+      "id": "A/G-Grok",
+      "description": "Synthetic transcript; literal label, exact text, selected order, source range"
+    },
+    {
+      "id": "A/G-Perplexity",
+      "description": "Synthetic transcript; literal label, exact text, selected order, source range"
+    },
+    {
+      "id": "A/G-Qwen",
+      "description": "Synthetic transcript; literal label, exact text, selected order, source range"
+    },
+    {
+      "id": "A/G-MIME",
+      "description": "Synthetic paired plain and structured HTML, roles in source order and source offsets"
+    }
+  ]
+}

@@ -1,0 +1,651 @@
+{
+  "version": "3.0.0-rc.12",
+  "runId": "430401b2-82d5-4567-b002-14fd98349aca",
+  "identity": {
+    "candidateSha256": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+    "distTreeSha256": "573c87801f272ccc24222db5bbe2339cba495488bc34c095caa2b39e2eacc347",
+    "version": "3.0.0-rc.12",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "c41df1df044e3481ebf487aa32de57693bd7a17ccfa49770c2262b3043d06816",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "c12442cec73b0b2109e5ad2d61edeb3c3d8de2429046dc96fa119e119aa525a6",
+    "benchmarkHarnessSha256": "a3d3d2a9698371cc9c6a28902843529e839e25b21bbc609ca68a58dcc2d64470",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "02bb0dfdb5d9bfb1180e0b79384da012e619d854b225061a0625f6a6d8803d8a",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "12b75fb5648c192b83655e2a154581468518cb8bb209cb29d3106d62d377fec4"
+  },
+  "localSourceCommit": "475baff5d0fd3d9b3b4704a6a6664b8bae9e8a3b",
+  "decision": "NO_GO",
+  "date": "2026-11-22",
+  "totals": {
+    "PASS": 18,
+    "FAIL": 1,
+    "BLOCKED": 5
+  },
+  "baselines": {
+    "application": {
+      "name": "PAPERFORMA_STATIC_3.0.0-rc.11_SOURCE_DIST_EVIDENCE.zip",
+      "zipSha256": "0fc160bfbb29f668208c17f93a618b8d51810925e172f87a19580ee548159a4a",
+      "bytes": 84992214,
+      "manifestEntries": 2094
+    },
+    "audit": {
+      "name": "PAPERFORMA_RC11_AUDIT_PRODUKSI_DAN_ARAHAN_GO_20261122.zip",
+      "zipSha256": "879f71e27e21a236cda77ff1669764c7e9de7d5935330c1c77fa33d5ea91a831",
+      "manifestEntries": 136
+    },
+    "sourceSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+    "distSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496",
+    "recordedPriorRelease": {
+      "PASS": 19,
+      "BLOCKED": 5
+    },
+    "existingSuiteTotal": 675,
+    "newFindings": [
+      {
+        "id": "F11-01",
+        "severity": "P2",
+        "statusInAudit": "CONFIRMED_FRESH_NODE_JSDOM"
+      },
+      {
+        "id": "F11-02",
+        "severity": "P2",
+        "statusInAudit": "CONFIRMED_FRESH_NODE_JSDOM"
+      },
+      {
+        "id": "F11-03",
+        "severity": "P2",
+        "statusInAudit": "CONFIRMED_FRESH_NODE_JSDOM_AND_UI_BINDING_SOURCE"
+      },
+      {
+        "id": "RC11-SEC-01",
+        "severity": "P2",
+        "statusInAudit": "CONFIRMED_ADMISSION_GAP"
+      }
+    ]
+  },
+  "newFindings": [
+    {
+      "id": "F11-01",
+      "status": "PASS",
+      "source": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+      "runId": "430401b2-82d5-4567-b002-14fd98349aca",
+      "baseline": "Tiga varian anotasi rumus pada RC11 mengubah BR atau teks di sekitarnya.",
+      "rootCause": "Konversi lewat Markdown menghasilkan karakter tambahan atau kehilangan batas antara prosa, pindah baris dan TeX.",
+      "change": "Pertahankan teks dan BR eksplisit. Bandingkan proyeksi asli dengan hasil konversi. Marker display di dalam paragraf memakai pembungkus yang sah sehingga browser mempertahankan persamaan di blok asal.",
+      "sourceFiles": [
+        "src/core/clipboard.ts",
+        "src/core/clipboard-fidelity.ts",
+        "src/core/render.ts",
+        "src/core/raw-html-integrity.ts"
+      ],
+      "evidence": [
+        "evidence/rc12/audit/clipboard/closure.json",
+        "evidence/rc12/audit/accessible-tables/result.json"
+      ],
+      "scope": "Pindah baris, tanda baca, backslash, nilai TeX, mode, urutan dan jalur ekspor. Kontrol mutasi memeriksa apakah perubahan sengaja terdeteksi."
+    },
+    {
+      "id": "F11-02",
+      "status": "PASS",
+      "source": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+      "runId": "430401b2-82d5-4567-b002-14fd98349aca",
+      "baseline": "RC11 dapat menjadikan baris awal sebagai header baru atau menghilangkan hubungan header asli.",
+      "rootCause": "Tabel HTML diproyeksikan ke tabel GFM dengan asumsi adanya satu baris header.",
+      "change": "Pakai HTML aman ketika peran dan hubungan sel tidak dapat dituliskan secara utuh dalam GFM. Pertahankan scope, span, caption, posisi dan references ke header.",
+      "sourceFiles": [
+        "src/core/clipboard.ts",
+        "src/core/clipboard-fidelity.ts",
+        "src/core/raw-html-integrity.ts",
+        "src/core/sanitize.ts"
+      ],
+      "evidence": [
+        "evidence/rc12/audit/clipboard/closure.json",
+        "evidence/rc12/audit/accessible-tables/result.json"
+      ],
+      "scope": "Pada hasil offline, kedua sel suhu menunjuk header waktu dan ruang yang sesuai. Tabel kedua tetap berisi empat TD. Pohon aksesibilitas Chromium mengonfirmasi peran. Ucapan pembaca layar Windows diukur melalui G14."
+    },
+    {
+      "id": "F11-03",
+      "status": "PASS",
+      "source": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+      "runId": "430401b2-82d5-4567-b002-14fd98349aca",
+      "baseline": "Probe audit RC11 menghitung 28 kata dan nol tabel untuk isi tiga kata, satu tabel, satu rumus. Dialog juga mempertahankan angka revisi lama.",
+      "rootCause": "Penghitung mengandalkan markup mentah dan handler Markdown. Dialog yang sudah terbuka tidak membaca kembali statistik setelah revisi berganti.",
+      "change": "Hitung elemen pada pohon dokumen setelah sanitasi, dengan satu representasi untuk tiap rumus. Hubungkan statistik dan tombol ekspor pada revisi yang telah selesai.",
+      "sourceFiles": [
+        "src/core/content-stats.ts",
+        "src/core/render.ts",
+        "src/ui/main.ts",
+        "tests/unit/core/semantic-stats.test.ts",
+        "tests/unit/engine/semantic-stats-worker.test.ts"
+      ],
+      "evidence": [
+        "evidence/rc12/audit/stats/finding.json",
+        "evidence/rc12/audit/stats/browser.json",
+        "evidence/rc12/audit/stats/large-ui.json"
+      ],
+      "scope": "Tes editor dan dialog Chromium beserta kontrol besar 217.850 kata. Definisi penghitungan ada di docs/CORE_API.md."
+    },
+    {
+      "id": "RC11-SEC-01",
+      "status": "PASS",
+      "source": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+      "runId": "430401b2-82d5-4567-b002-14fd98349aca",
+      "baseline": "Audit RC11 mencatat pemanggilan dekoder pada stub. Inspeksi source aslinya mengonfirmasi bahwa validasi belum mendahului jalur dekode.",
+      "rootCause": "Jalur raster Mermaid dapat meneruskan data ke dekoder gambar sebelum memeriksa jenis, ukuran dan dimensi.",
+      "change": "Periksa jenis, byte, dimensi, piksel dan anggaran gabungan sebelum dekode. Pertahankan sumber asli apabila gambar tidak diterima.",
+      "sourceFiles": [
+        "src/core/assets.ts",
+        "src/render/diagram-policy.ts",
+        "src/render/diagram-raster.ts",
+        "src/render/mermaid-frame.ts"
+      ],
+      "evidence": [
+        "evidence/rc12/audit/raster/receipt.json",
+        "evidence/rc12/audit/raster/baseline-inspection.json",
+        "evidence/rc12/audit/raster/final-browser.json"
+      ],
+      "scope": "Sepuluh tes terarah dan pengamatan browser Chromium pada data aman. Baseline bersumber dari pemeriksaan source dan stub audit. Bukti sesudah perbaikan memakai dekoder asli Chromium, pratinjau, HTML, cetak standar, buku, pembatalan dan Retry."
+    }
+  ],
+  "priorFindings": [
+    {
+      "id": "A01",
+      "status": "PASS",
+      "previous": "PASS",
+      "proof": "evidence/rc12/audit/regressions/clipboard/print-results.json",
+      "additional": "evidence/rc12/audit/regressions/receipt.json"
+    },
+    {
+      "id": "A02",
+      "status": "PASS",
+      "previous": "PASS",
+      "proof": "evidence/rc12/audit/regressions/clipboard/print-results.json",
+      "additional": "evidence/rc12/audit/regressions/receipt.json"
+    },
+    {
+      "id": "A03",
+      "status": "PASS",
+      "previous": "PASS",
+      "proof": "evidence/rc12/audit/regressions/network/browser.json",
+      "additional": "evidence/rc12/audit/regressions/receipt.json"
+    },
+    {
+      "id": "A04",
+      "status": "PASS",
+      "previous": "PASS",
+      "proof": "evidence/rc12/audit/regressions/network/browser.json",
+      "additional": "evidence/rc12/audit/regressions/receipt.json"
+    },
+    {
+      "id": "A05",
+      "status": "PASS",
+      "previous": "PASS",
+      "proof": "evidence/rc12/audit/regressions/clipboard/print-results.json",
+      "additional": "evidence/rc12/audit/regressions/receipt.json"
+    },
+    {
+      "id": "A06",
+      "status": "PASS",
+      "previous": "PASS",
+      "proof": "evidence/rc12/audit/regressions/payload/browser.json",
+      "additional": "evidence/rc12/audit/regressions/receipt.json"
+    },
+    {
+      "id": "A07",
+      "status": "OPEN",
+      "reason": "Penerimaan lengkap mensyaratkan seluruh 24 gerbang pada kandidat yang sama.",
+      "evidence": "evidence/rc12/acceptance/all-gates.json"
+    },
+    {
+      "id": "A08",
+      "status": "BLOCKED",
+      "reason": "Build dengan verifier lengkap pada runner Cloudflare Pages aktual beserta ID dan durasi deployment belum tersedia.",
+      "evidence": "evidence/rc12/acceptance/all-gates.json"
+    }
+  ],
+  "gates": [
+    {
+      "id": "G01",
+      "status": "PASS",
+      "facts": "evidence/rc12/acceptance/facts/G01.json",
+      "observations": [
+        "input-1"
+      ],
+      "name": "Identitas dan checksum",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/G01.json",
+      "reason": ""
+    },
+    {
+      "id": "G02",
+      "status": "PASS",
+      "facts": "evidence/rc12/acceptance/facts/G02.json",
+      "observations": [
+        "clean-build-1"
+      ],
+      "name": "Instalasi/build/tes/HTTP",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/G02.json",
+      "reason": ""
+    },
+    {
+      "id": "G03",
+      "status": "PASS",
+      "facts": "evidence/rc12/acceptance/facts/G03.json",
+      "observations": [
+        "trig-new"
+      ],
+      "name": "Unduhan empat template",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/G03.json",
+      "reason": ""
+    },
+    {
+      "id": "G04",
+      "status": "PASS",
+      "facts": "evidence/rc12/acceptance/facts/G04.json",
+      "observations": [
+        "wrapper-new"
+      ],
+      "name": "Wrapper dan prosa",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/G04.json",
+      "reason": ""
+    },
+    {
+      "id": "G05",
+      "status": "PASS",
+      "facts": "evidence/rc12/acceptance/facts/G05.json",
+      "observations": [
+        "integrity-new"
+      ],
+      "name": "Rumus/mode/MathML",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/G05.json",
+      "reason": ""
+    },
+    {
+      "id": "G06",
+      "status": "PASS",
+      "facts": "evidence/rc12/acceptance/facts/G06.json",
+      "observations": [
+        "integrity-new"
+      ],
+      "name": "Deteksi perubahan isi",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/G06.json",
+      "reason": ""
+    },
+    {
+      "id": "G07",
+      "status": "PASS",
+      "facts": "evidence/rc12/acceptance/facts/G07.json",
+      "observations": [
+        "pdf-isolated-2"
+      ],
+      "name": "PDF/glif/font",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/G07.json",
+      "reason": ""
+    },
+    {
+      "id": "G08",
+      "status": "PASS",
+      "facts": "evidence/rc12/acceptance/facts/G08.json",
+      "observations": [
+        "pdf-isolated-2"
+      ],
+      "name": "Kode multihalaman",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/G08.json",
+      "reason": ""
+    },
+    {
+      "id": "G09",
+      "status": "FAIL",
+      "reason": "Seluruh percobaan dipertahankan. g09-node-2: empty-core/refreshMs Lihat evidence/rc12/performance/cohort-recount.json.",
+      "name": "Performa terhadap RC6",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/G09.json"
+    },
+    {
+      "id": "G10",
+      "status": "PASS",
+      "facts": "evidence/rc12/acceptance/facts/G10.json",
+      "observations": [
+        "capacity-1"
+      ],
+      "name": "Kapasitas/respons/heap",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/G10.json",
+      "reason": ""
+    },
+    {
+      "id": "G11",
+      "status": "PASS",
+      "facts": "evidence/rc12/acceptance/facts/G11.json",
+      "observations": [
+        "aggregate-new"
+      ],
+      "name": "Kontrol negatif verifier",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/G11.json",
+      "reason": ""
+    },
+    {
+      "id": "G12",
+      "status": "BLOCKED",
+      "reason": "Sesi ini menggunakan Linux. Clipboard asli dari antarmuka provider AI pada perangkat Windows sasaran belum dapat diukur.",
+      "name": "Clipboard provider asli Windows",
+      "previous": "BLOCKED",
+      "receipt": "evidence/rc12/acceptance/receipts/G12.json"
+    },
+    {
+      "id": "G13",
+      "status": "BLOCKED",
+      "reason": "Dialog Save dan Cancel pada Windows sasaran serta dua PDF yang disimpan operator belum tersedia.",
+      "name": "Dialog OS Save/Cancel/Retry",
+      "previous": "BLOCKED",
+      "receipt": "evidence/rc12/acceptance/receipts/G13.json"
+    },
+    {
+      "id": "G14",
+      "status": "BLOCKED",
+      "reason": "Belum ada sesi keyboard dan pembaca layar di Windows yang mencatat ucapan, fokus dan pemulihan. Pohon aksesibilitas browser merupakan bukti tambahan.",
+      "name": "Screen reader + pemulihan",
+      "previous": "BLOCKED",
+      "receipt": "evidence/rc12/acceptance/receipts/G14.json"
+    },
+    {
+      "id": "G15",
+      "status": "BLOCKED",
+      "reason": "GitHub menolak penulisan di repository tujuan dengan HTTP 403. Dashboard Pages meminta masuk. Belum ada deployment preview beserta ID, log build dan pengujian HTTPS kandidat.",
+      "name": "HTTPS preview Pages",
+      "previous": "BLOCKED",
+      "receipt": "evidence/rc12/acceptance/receipts/G15.json"
+    },
+    {
+      "id": "G16",
+      "status": "BLOCKED",
+      "reason": "Dashboard Pages belum dapat menampilkan deployment produksi dan target pemulihan yang diketahui baik. Belum ada otorisasi tindakan live pada pasangan ID tersebut atau verifikasi setelah rollback.",
+      "name": "Rollback produksi + otorisasi",
+      "previous": "BLOCKED",
+      "receipt": "evidence/rc12/acceptance/receipts/G16.json"
+    },
+    {
+      "id": "U01",
+      "status": "PASS",
+      "facts": "evidence/rc12/u-facts/U01.json",
+      "observations": [
+        "book-headings-on-2",
+        "book-long-table-off-1",
+        "book-original-default-1",
+        "book-paragraphs-off-1",
+        "book-paragraphs-on-1",
+        "book-single-paragraph-off-1"
+      ],
+      "name": "Cetak buku dari UI",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/U01.json",
+      "reason": ""
+    },
+    {
+      "id": "U02",
+      "status": "PASS",
+      "facts": "evidence/rc12/u-facts/U02.json",
+      "observations": [
+        "lifecycle-default-1",
+        "lifecycle-large-1",
+        "lifecycle-timing-1"
+      ],
+      "name": "Respons/batal/cleanup",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/U02.json",
+      "reason": ""
+    },
+    {
+      "id": "U03",
+      "status": "PASS",
+      "facts": "evidence/rc12/u-facts/U03.json",
+      "observations": [
+        "trace-browser-1",
+        "trace-control-1"
+      ],
+      "name": "Observasi percobaan/fase",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/U03.json",
+      "reason": ""
+    },
+    {
+      "id": "U04",
+      "status": "PASS",
+      "facts": "evidence/rc12/u-facts/U04.json",
+      "observations": [
+        "book-headings-on-2",
+        "book-long-table-off-1",
+        "book-original-default-1",
+        "book-paragraphs-off-1",
+        "book-paragraphs-on-1",
+        "book-single-paragraph-off-1"
+      ],
+      "name": "PDF buku fisik",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/U04.json",
+      "reason": ""
+    },
+    {
+      "id": "U05",
+      "status": "PASS",
+      "facts": "evidence/rc12/u-facts/U05.json",
+      "observations": [
+        "book-headings-on-2",
+        "book-long-table-off-1",
+        "book-original-default-1",
+        "book-paragraphs-off-1",
+        "book-paragraphs-on-1",
+        "book-single-paragraph-off-1",
+        "offline-navigation-2",
+        "trig-new"
+      ],
+      "name": "HTML offline/navigasi",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/U05.json",
+      "reason": ""
+    },
+    {
+      "id": "U06",
+      "status": "PASS",
+      "facts": "evidence/rc12/u-facts/U06.json",
+      "observations": [
+        "capacity-control-1"
+      ],
+      "name": "Kontradiksi kapasitas ditolak",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/U06.json",
+      "reason": ""
+    },
+    {
+      "id": "U07",
+      "status": "PASS",
+      "facts": "evidence/rc12/u-facts/U07.json",
+      "observations": [
+        "interleaved-1"
+      ],
+      "name": "Urutan dan mode TeX",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/U07.json",
+      "reason": ""
+    },
+    {
+      "id": "U08",
+      "status": "PASS",
+      "facts": "evidence/rc12/u-facts/U08.json",
+      "observations": [
+        "ordered-lists-1"
+      ],
+      "name": "Marker daftar fisik",
+      "previous": "PASS",
+      "receipt": "evidence/rc12/acceptance/receipts/U08.json",
+      "reason": ""
+    }
+  ],
+  "tests": {
+    "baseline": 675,
+    "vitest": 660,
+    "node": 13,
+    "acceptance": 26,
+    "total": 699
+  },
+  "performance": {
+    "node-1.json": {
+      "status": "PASS",
+      "rows": 328,
+      "failedRows": 0,
+      "worstP95": 0.9931703134446541
+    },
+    "node-2.json": {
+      "status": "FAIL",
+      "rows": 328,
+      "failedRows": 0,
+      "worstP95": 1.18487011126716
+    },
+    "recovery-cohort-1.json": {
+      "status": "PASS",
+      "rows": 300,
+      "failedRows": 0,
+      "worstP95": 1.0103913761282535
+    },
+    "recovery-cohort-2.json": {
+      "status": "PASS",
+      "rows": 300,
+      "failedRows": 0,
+      "worstP95": 1.0172511312260426
+    }
+  },
+  "books": [
+    {
+      "case": "headings-on",
+      "status": "PASS",
+      "pages": 621,
+      "blocks": 438,
+      "sourceBlocks": 438,
+      "gaps": 217412,
+      "missingGaps": 0,
+      "endMatches": true,
+      "bytes": 2507169,
+      "source": "evidence/rc12/book/headings-on.json"
+    },
+    {
+      "case": "long-table-off",
+      "status": "PASS",
+      "pages": 590,
+      "blocks": 2,
+      "sourceBlocks": 2,
+      "gaps": 217848,
+      "missingGaps": 0,
+      "endMatches": true,
+      "bytes": 2352735,
+      "source": "evidence/rc12/book/long-table-off.json"
+    },
+    {
+      "case": "original-default",
+      "status": "PASS",
+      "pages": 1284,
+      "blocks": 30039,
+      "sourceBlocks": 30039,
+      "gaps": 172188,
+      "missingGaps": 0,
+      "endMatches": true,
+      "bytes": 11005560,
+      "source": "evidence/rc12/book/original-default.json"
+    },
+    {
+      "case": "paragraphs-off",
+      "status": "PASS",
+      "pages": 628,
+      "blocks": 1092,
+      "sourceBlocks": 1092,
+      "gaps": 216758,
+      "missingGaps": 0,
+      "endMatches": true,
+      "bytes": 2477831,
+      "source": "evidence/rc12/book/paragraphs-off.json"
+    },
+    {
+      "case": "paragraphs-on",
+      "status": "PASS",
+      "pages": 628,
+      "blocks": 1092,
+      "sourceBlocks": 1092,
+      "gaps": 216758,
+      "missingGaps": 0,
+      "endMatches": true,
+      "bytes": 2477831,
+      "source": "evidence/rc12/book/paragraphs-on.json"
+    },
+    {
+      "case": "single-paragraph-off",
+      "status": "PASS",
+      "pages": 600,
+      "blocks": 3,
+      "sourceBlocks": 3,
+      "gaps": 217847,
+      "missingGaps": 0,
+      "endMatches": true,
+      "bytes": 2224806,
+      "source": "evidence/rc12/book/single-paragraph-off.json"
+    }
+  ],
+  "physical": {
+    "distTree": "573c87801f272ccc24222db5bbe2339cba495488bc34c095caa2b39e2eacc347",
+    "engine": "HeadlessChrome/153.0.8010.0",
+    "nativeSave": "NOT_TESTED_BY_THIS_AUTOMATION",
+    "layoutSettings": 24,
+    "totalJobs": 29,
+    "exported": 26,
+    "privateSourcesRefused": 3,
+    "originalMixed": true,
+    "supportedText": true,
+    "emoji": true,
+    "privateUseDecision": true,
+    "type3Policy": true,
+    "actualPdf": true,
+    "code112Lines": true,
+    "indentationAndBlankLines": true,
+    "labelWithCode": true,
+    "continuation": true,
+    "a5Boundary": true,
+    "referenceFormulaCrops": 924,
+    "identicalReferenceCrops": 924,
+    "physicalChecksPass": true
+  },
+  "archiveStage": {
+    "candidate": {
+      "archive": "detached-rc12.zip",
+      "zipBytes": 85490665,
+      "zipSha256": "c9ef722c5ffb860b906d07cc05ef03eea202154c2393e238f5ce6b7eeb87bb7c",
+      "verifiedChecksums": 2254,
+      "identicalDistFiles": 184,
+      "build": {
+        "app": "paperforma",
+        "version": "3.0.0-rc.12",
+        "profile": "production",
+        "candidateSha256": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+        "distTreeSha256": "573c87801f272ccc24222db5bbe2339cba495488bc34c095caa2b39e2eacc347",
+        "node": "v24.22.3",
+        "engines": {
+          "node": "24.22.3",
+          "npm": ">=11.6.0 <12"
+        }
+      },
+      "status": "PASS"
+    },
+    "delivery": "Setelah pengemasan arsip penyerahan, scripts/verify-archive.py mengulang verifikasi checksum dan build dari ekstraksi bersih. SHA-256 dan hasil eksternal dicantumkan di pesan penyerahan."
+  },
+  "external": "evidence/rc12/external/access-and-targets.json"
+}

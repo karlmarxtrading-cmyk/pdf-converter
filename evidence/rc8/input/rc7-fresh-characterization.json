@@ -1,0 +1,632 @@
+{
+  "method": "Independent source/DOM/API characterization using real RC7 implementations; no browser layout or PDF execution",
+  "originalFixture": {
+    "sourceHash": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "count": 231,
+    "expected": 231,
+    "display": 128,
+    "katex": 231,
+    "mathml": 231,
+    "changedBodies": 17,
+    "mismatches": [],
+    "errors": [],
+    "residualWarning": false,
+    "mathStatus": "review",
+    "integrityOk": true,
+    "recovery": {
+      "id": "issue-009",
+      "code": "MATH_COPY_RECOVERED",
+      "severity": "warning",
+      "scope": "math",
+      "message": "231 rumus dikenali dari format salinan. 17 rumus juga memerlukan pemulihan indeks atau pemisah baris; periksa tampilannya. Sumber asli tetap disimpan; pemulihan hanya dipakai untuk tampilan.",
+      "messageEn": "231 formulas were recognized from copied formatting. 17 formulas also needed subscript or row-separator recovery; review their appearance. The original source is retained; recovery is used only for display.",
+      "line": 7,
+      "detail": {
+        "count": 231,
+        "bodyAdaptations": 17,
+        "types": [
+          "copied-delimiters",
+          "copied-row-break",
+          "copied-subscript",
+          "copied-spacing"
+        ],
+        "samples": [
+          "{\"line\":20,\"before\":\" \\\\begin{aligned} \\\\tan x&=\\\\frac{\\\\sin x}{\\\\cos x}\\\\\\\\\\\\ \\\\cot x&=\\\\frac{\\\\cos x}{\\\\sin x}\\\\\\\\\\\\ \\\\csc x&=\\\\frac1{\\\\sin x}\\\\\\\\\\\\ \\\\sec x&=\\\\frac1{\\\\cos x}\\\\\\\\\\\\ \\\\cot x&=\\\\frac1{\\\\tan x} \\\\end{aligned} \",\"after\":\" \\\\begin{aligned} \\\\tan x&=\\\\frac{\\\\sin x}{\\\\cos x}\\\\\\\\ \\\\cot x&=\\\\frac{\\\\cos x}{\\\\sin x}\\\\\\\\ \\\\csc x&=\\\\frac1{\\\\sin x}\\\\\\\\ \\\\sec x&=\\\\frac1{\\\\cos x}\\\\\\\\ \\\\cot x&=\\\\frac1{\\\\tan x} \\\\end{aligned} \",\"adaptations\":[\"copied-delimiters\",\"copied-row-break\"]}",
+          "{\"line\":41,\"before\":\" \\\\theta\\\\_{\\\\text{rad}}=\\\\theta\\\\_{\\\\text{derajat}}\\\\frac{\\\\pi}{180} \",\"after\":\" \\\\theta_{\\\\text{rad}}=\\\\theta_{\\\\text{derajat}}\\\\frac{\\\\pi}{180} \",\"adaptations\":[\"copied-delimiters\",\"copied-subscript\"]}",
+          "{\"line\":43,\"before\":\" \\\\theta\\\\_{\\\\text{derajat}}=\\\\theta\\\\_{\\\\text{rad}}\\\\frac{180}{\\\\pi} \",\"after\":\" \\\\theta_{\\\\text{derajat}}=\\\\theta_{\\\\text{rad}}\\\\frac{180}{\\\\pi} \",\"adaptations\":[\"copied-delimiters\",\"copied-subscript\"]}"
+        ]
+      }
+    }
+  },
+  "mixedWrappers": [
+    {
+      "source": "<div data-latex=\"x+1\"><p>KEEP-INDEPENDENT-CONTENT</p><span>x+1</span></div>",
+      "route": "raw",
+      "output": "<div data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\"><p>KEEP-INDEPENDENT-CONTENT</p><span>x+1</span></div>",
+      "keptContent": true,
+      "formulas": 0,
+      "importIssues": [],
+      "renderIssues": [
+        "MATH_HTML_NO_TEX",
+        "SECURITY_ATTRIBUTE_REMOVED"
+      ],
+      "integrityOk": true,
+      "integrityIssues": [],
+      "mathStatus": "review"
+    },
+    {
+      "source": "<div data-latex=\"x+1\"><p>KEEP-INDEPENDENT-CONTENT</p><span>x+1</span></div>",
+      "route": "clipboard",
+      "markdown": "KEEP-INDEPENDENT-CONTENT\n\nx+1\n",
+      "output": "<p data-block-id=\"b-acf269ad\" data-line=\"1\">KEEP-INDEPENDENT-CONTENT</p>\n<p data-block-id=\"b-f12e8ae5\" data-line=\"3\">x+1</p>",
+      "keptContent": true,
+      "formulas": 0,
+      "importIssues": [
+        "CLIPBOARD_MATH_MIXED_SOURCE"
+      ],
+      "renderIssues": [],
+      "integrityOk": true,
+      "integrityIssues": [],
+      "mathStatus": "ready"
+    },
+    {
+      "source": "<div data-latex=\"x+1\"><section>KEEP-INDEPENDENT-CONTENT</section><span>x+1</span></div>",
+      "route": "raw",
+      "output": "<span class=\"pf-math pf-math-inline\" data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\" data-tex=\"x+1\" data-source-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span>",
+      "keptContent": false,
+      "formulas": 1,
+      "importIssues": [],
+      "renderIssues": [],
+      "integrityOk": true,
+      "integrityIssues": [],
+      "mathStatus": "ready"
+    },
+    {
+      "source": "<div data-latex=\"x+1\"><section>KEEP-INDEPENDENT-CONTENT</section><span>x+1</span></div>",
+      "route": "clipboard",
+      "markdown": "$x+1$\n",
+      "output": "<p data-block-id=\"b-130596e4\" data-line=\"1\"><span class=\"pf-math pf-math-inline\" data-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></p>",
+      "keptContent": false,
+      "formulas": 1,
+      "importIssues": [],
+      "renderIssues": [],
+      "integrityOk": true,
+      "integrityIssues": [],
+      "mathStatus": "ready"
+    },
+    {
+      "source": "<div data-latex=\"x+1\"><details><summary>KEEP-INDEPENDENT-CONTENT</summary>Extra content.</details><span>x+1</span></div>",
+      "route": "raw",
+      "output": "<span class=\"pf-math pf-math-inline\" data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\" data-tex=\"x+1\" data-source-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span>",
+      "keptContent": false,
+      "formulas": 1,
+      "importIssues": [],
+      "renderIssues": [],
+      "integrityOk": true,
+      "integrityIssues": [],
+      "mathStatus": "ready"
+    },
+    {
+      "source": "<div data-latex=\"x+1\"><details><summary>KEEP-INDEPENDENT-CONTENT</summary>Extra content.</details><span>x+1</span></div>",
+      "route": "clipboard",
+      "markdown": "$x+1$\n",
+      "output": "<p data-block-id=\"b-130596e4\" data-line=\"1\"><span class=\"pf-math pf-math-inline\" data-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></p>",
+      "keptContent": false,
+      "formulas": 1,
+      "importIssues": [],
+      "renderIssues": [],
+      "integrityOk": true,
+      "integrityIssues": [],
+      "mathStatus": "ready"
+    },
+    {
+      "source": "<div data-latex=\"x+1\"><dl><dt>KEEP-INDEPENDENT-CONTENT</dt><dd>Definition.</dd></dl><span>x+1</span></div>",
+      "route": "raw",
+      "output": "<span class=\"pf-math pf-math-inline\" data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\" data-tex=\"x+1\" data-source-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span>",
+      "keptContent": false,
+      "formulas": 1,
+      "importIssues": [],
+      "renderIssues": [],
+      "integrityOk": true,
+      "integrityIssues": [],
+      "mathStatus": "ready"
+    },
+    {
+      "source": "<div data-latex=\"x+1\"><dl><dt>KEEP-INDEPENDENT-CONTENT</dt><dd>Definition.</dd></dl><span>x+1</span></div>",
+      "route": "clipboard",
+      "markdown": "$x+1$\n",
+      "output": "<p data-block-id=\"b-130596e4\" data-line=\"1\"><span class=\"pf-math pf-math-inline\" data-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></p>",
+      "keptContent": false,
+      "formulas": 1,
+      "importIssues": [],
+      "renderIssues": [],
+      "integrityOk": true,
+      "integrityIssues": [],
+      "mathStatus": "ready"
+    },
+    {
+      "source": "<div data-latex=\"x+1\"><div>KEEP-INDEPENDENT-CONTENT</div><span>x+1</span></div>",
+      "route": "raw",
+      "output": "<span class=\"pf-math pf-math-inline\" data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\" data-tex=\"x+1\" data-source-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span>",
+      "keptContent": false,
+      "formulas": 1,
+      "importIssues": [],
+      "renderIssues": [],
+      "integrityOk": true,
+      "integrityIssues": [],
+      "mathStatus": "ready"
+    },
+    {
+      "source": "<div data-latex=\"x+1\"><div>KEEP-INDEPENDENT-CONTENT</div><span>x+1</span></div>",
+      "route": "clipboard",
+      "markdown": "$x+1$\n",
+      "output": "<p data-block-id=\"b-130596e4\" data-line=\"1\"><span class=\"pf-math pf-math-inline\" data-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></p>",
+      "keptContent": false,
+      "formulas": 1,
+      "importIssues": [],
+      "renderIssues": [],
+      "integrityOk": true,
+      "integrityIssues": [],
+      "mathStatus": "ready"
+    },
+    {
+      "source": "<div data-latex=\"x+1\"><figure><figcaption>KEEP-INDEPENDENT-CONTENT</figcaption></figure><span>x+1</span></div>",
+      "route": "raw",
+      "output": "<div data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\"><figure><figcaption>KEEP-INDEPENDENT-CONTENT</figcaption></figure><span>x+1</span></div>",
+      "keptContent": true,
+      "formulas": 0,
+      "importIssues": [],
+      "renderIssues": [
+        "MATH_HTML_NO_TEX",
+        "SECURITY_ATTRIBUTE_REMOVED"
+      ],
+      "integrityOk": true,
+      "integrityIssues": [],
+      "mathStatus": "review"
+    },
+    {
+      "source": "<div data-latex=\"x+1\"><figure><figcaption>KEEP-INDEPENDENT-CONTENT</figcaption></figure><span>x+1</span></div>",
+      "route": "clipboard",
+      "markdown": "KEEP-INDEPENDENT-CONTENT\n\nx+1\n",
+      "output": "<p data-block-id=\"b-acf269ad\" data-line=\"1\">KEEP-INDEPENDENT-CONTENT</p>\n<p data-block-id=\"b-f12e8ae5\" data-line=\"3\">x+1</p>",
+      "keptContent": true,
+      "formulas": 0,
+      "importIssues": [
+        "CLIPBOARD_MATH_MIXED_SOURCE"
+      ],
+      "renderIssues": [],
+      "integrityOk": true,
+      "integrityIssues": [],
+      "mathStatus": "ready"
+    }
+  ],
+  "formulaMutations": [
+    {
+      "source": "$x+1$",
+      "mutation": "emptyFormula",
+      "integrityOk": true,
+      "issues": [],
+      "katex": 0,
+      "mathml": 0,
+      "output": "<p data-block-id=\"b-130596e4\" data-line=\"1\"><span class=\"pf-math pf-math-inline\" data-tex=\"x+1\"></span></p>"
+    },
+    {
+      "source": "$x+1$",
+      "mutation": "eraseVisual",
+      "integrityOk": true,
+      "issues": [],
+      "katex": 1,
+      "mathml": 1,
+      "output": "<p data-block-id=\"b-130596e4\" data-line=\"1\"><span class=\"pf-math pf-math-inline\" data-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span></span></span></p>"
+    },
+    {
+      "source": "$x+1$",
+      "mutation": "eraseMathml",
+      "integrityOk": true,
+      "issues": [],
+      "katex": 1,
+      "mathml": 0,
+      "output": "<p data-block-id=\"b-130596e4\" data-line=\"1\"><span class=\"pf-math pf-math-inline\" data-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></p>"
+    },
+    {
+      "source": "$x+1$",
+      "mutation": "changeTexAnnotation",
+      "integrityOk": true,
+      "issues": [],
+      "katex": 1,
+      "mathml": 1,
+      "output": "<p data-block-id=\"b-130596e4\" data-line=\"1\"><span class=\"pf-math pf-math-inline\" data-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">y-999</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></p>"
+    },
+    {
+      "source": "$x+1$",
+      "mutation": "changeMathml",
+      "integrityOk": true,
+      "issues": [],
+      "katex": 1,
+      "mathml": 1,
+      "output": "<p data-block-id=\"b-130596e4\" data-line=\"1\"><span class=\"pf-math pf-math-inline\" data-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>z</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></p>"
+    },
+    {
+      "source": "$x+1$",
+      "mutation": "changeSourceAttribute",
+      "integrityOk": true,
+      "issues": [],
+      "katex": 1,
+      "mathml": 1,
+      "output": "<p data-block-id=\"b-130596e4\" data-line=\"1\"><span class=\"pf-math pf-math-inline\" data-tex=\"x+1\" data-source-tex=\"z-999\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></p>"
+    },
+    {
+      "source": "$x+1$",
+      "mutation": "changeDisplayMode",
+      "integrityOk": true,
+      "issues": [],
+      "katex": 1,
+      "mathml": 1,
+      "output": "<p data-block-id=\"b-130596e4\" data-line=\"1\"><span class=\"pf-math pf-math-inline pf-math-display\" data-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></p>"
+    },
+    {
+      "source": "$x+1$",
+      "mutation": "changeCanonicalAttribute",
+      "integrityOk": false,
+      "issues": [
+        "INTEGRITY_TOKEN_CHANGED",
+        "INTEGRITY_MATH_CHANGED"
+      ],
+      "katex": 1,
+      "mathml": 1,
+      "output": "<p data-block-id=\"b-130596e4\" data-line=\"1\"><span class=\"pf-math pf-math-inline\" data-tex=\"z-999\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></p>"
+    },
+    {
+      "source": "<div>Formula \\(x+1\\)</div>",
+      "mutation": "emptyFormula",
+      "integrityOk": true,
+      "issues": [],
+      "katex": 0,
+      "mathml": 0,
+      "output": "<div data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\">Formula <span class=\"pf-math pf-math-inline\" data-tex=\"x+1\" data-source-tex=\"x+1\"></span></div>"
+    },
+    {
+      "source": "<div>Formula \\(x+1\\)</div>",
+      "mutation": "eraseVisual",
+      "integrityOk": true,
+      "issues": [],
+      "katex": 1,
+      "mathml": 1,
+      "output": "<div data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\">Formula <span class=\"pf-math pf-math-inline\" data-tex=\"x+1\" data-source-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span></span></span></div>"
+    },
+    {
+      "source": "<div>Formula \\(x+1\\)</div>",
+      "mutation": "eraseMathml",
+      "integrityOk": true,
+      "issues": [],
+      "katex": 1,
+      "mathml": 0,
+      "output": "<div data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\">Formula <span class=\"pf-math pf-math-inline\" data-tex=\"x+1\" data-source-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></div>"
+    },
+    {
+      "source": "<div>Formula \\(x+1\\)</div>",
+      "mutation": "changeTexAnnotation",
+      "integrityOk": true,
+      "issues": [],
+      "katex": 1,
+      "mathml": 1,
+      "output": "<div data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\">Formula <span class=\"pf-math pf-math-inline\" data-tex=\"x+1\" data-source-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">y-999</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></div>"
+    },
+    {
+      "source": "<div>Formula \\(x+1\\)</div>",
+      "mutation": "changeMathml",
+      "integrityOk": true,
+      "issues": [],
+      "katex": 1,
+      "mathml": 1,
+      "output": "<div data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\">Formula <span class=\"pf-math pf-math-inline\" data-tex=\"x+1\" data-source-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>z</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></div>"
+    },
+    {
+      "source": "<div>Formula \\(x+1\\)</div>",
+      "mutation": "changeSourceAttribute",
+      "integrityOk": false,
+      "issues": [
+        "INTEGRITY_RAW_HTML_CHANGED"
+      ],
+      "katex": 1,
+      "mathml": 1,
+      "output": "<div data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\">Formula <span class=\"pf-math pf-math-inline\" data-tex=\"x+1\" data-source-tex=\"z-999\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></div>"
+    },
+    {
+      "source": "<div>Formula \\(x+1\\)</div>",
+      "mutation": "changeDisplayMode",
+      "integrityOk": false,
+      "issues": [
+        "INTEGRITY_RAW_HTML_CHANGED"
+      ],
+      "katex": 1,
+      "mathml": 1,
+      "output": "<div data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\">Formula <span class=\"pf-math pf-math-inline pf-math-display\" data-tex=\"x+1\" data-source-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></div>"
+    },
+    {
+      "source": "<div>Formula \\(x+1\\)</div>",
+      "mutation": "changeCanonicalAttribute",
+      "integrityOk": false,
+      "issues": [
+        "INTEGRITY_RAW_HTML_CHANGED"
+      ],
+      "katex": 1,
+      "mathml": 1,
+      "output": "<div data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\">Formula <span class=\"pf-math pf-math-inline\" data-tex=\"z-999\" data-source-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></div>"
+    }
+  ],
+  "rawScopes": [
+    {
+      "source": "<article>\\(x+1\\)</article>",
+      "output": "<span class=\"pf-math pf-math-inline\" data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\" data-tex=\"x+1\" data-source-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span>",
+      "projection": {
+        "signature": "[[\"math\",\"inline\",\"x+1\",\"x+1\"]]",
+        "counts": {
+          "tokens": 0,
+          "math": 1,
+          "links": 0,
+          "images": 0,
+          "code": 0,
+          "tables": 0,
+          "cells": 0
+        }
+      },
+      "integrityOk": true,
+      "integrityIssues": [],
+      "renderIssues": [
+        "SECURITY_ELEMENT_UNWRAPPED"
+      ],
+      "active": 0
+    },
+    {
+      "source": "<main>\\(x+1\\)</main>",
+      "output": "<span class=\"pf-math pf-math-inline\" data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\" data-tex=\"x+1\" data-source-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span>",
+      "projection": {
+        "signature": "[[\"math\",\"inline\",\"x+1\",\"x+1\"]]",
+        "counts": {
+          "tokens": 0,
+          "math": 1,
+          "links": 0,
+          "images": 0,
+          "code": 0,
+          "tables": 0,
+          "cells": 0
+        }
+      },
+      "integrityOk": true,
+      "integrityIssues": [],
+      "renderIssues": [
+        "SECURITY_ELEMENT_UNWRAPPED"
+      ],
+      "active": 0
+    },
+    {
+      "source": "<div>\\(x+1\\)</div>",
+      "output": "<div data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\"><span class=\"pf-math pf-math-inline\" data-tex=\"x+1\" data-source-tex=\"x+1\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x+1</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6667em;vertical-align:-0.0833em;\"></span><span class=\"mord mathnormal\">x</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">1</span></span></span></span></span></div>",
+      "projection": {
+        "signature": "[[\"start\",\"div\"],[\"math\",\"inline\",\"x+1\",\"x+1\"],[\"end\",\"div\"]]",
+        "counts": {
+          "tokens": 0,
+          "math": 1,
+          "links": 0,
+          "images": 0,
+          "code": 0,
+          "tables": 0,
+          "cells": 0
+        }
+      },
+      "integrityOk": true,
+      "integrityIssues": [],
+      "renderIssues": [],
+      "active": 0
+    },
+    {
+      "source": "<pre> KEEP \\(x+1\\) <span data-latex=\"z+2\">literal</span> </pre>",
+      "output": "<pre data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\"> KEEP \\(x+1\\) <span>literal</span> </pre>",
+      "projection": {
+        "signature": "[[\"start\",\"pre\"],[\"text\",\" KEEP \\\\(x+1\\\\) literal \"],[\"end\",\"pre\"]]",
+        "counts": {
+          "tokens": 9,
+          "math": 0,
+          "links": 0,
+          "images": 0,
+          "code": 1,
+          "tables": 0,
+          "cells": 0
+        }
+      },
+      "integrityOk": true,
+      "integrityIssues": [],
+      "renderIssues": [
+        "SECURITY_ATTRIBUTE_REMOVED"
+      ],
+      "active": 0
+    },
+    {
+      "source": "<details open><summary>Summary</summary>Body + 2.</details>",
+      "output": "<details open=\"\" data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\"><summary>Summary</summary>Body + 2.</details>",
+      "projection": {
+        "signature": "[[\"start\",\"details\"],[\"start\",\"summary\"],[\"text\",\"Summary\"],[\"end\",\"summary\"],[\"text\",\"Body + 2.\"],[\"end\",\"details\"]]",
+        "counts": {
+          "tokens": 5,
+          "math": 0,
+          "links": 0,
+          "images": 0,
+          "code": 0,
+          "tables": 0,
+          "cells": 0
+        }
+      },
+      "integrityOk": true,
+      "integrityIssues": [],
+      "renderIssues": [],
+      "active": 0
+    },
+    {
+      "source": "<div>plain <sub>1</sub><sup>2</sup></div>",
+      "output": "<div data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\">plain <sub>1</sub><sup>2</sup></div>",
+      "projection": {
+        "signature": "[[\"start\",\"div\"],[\"text\",\"plain\"],[\"start\",\"sub\"],[\"text\",\"1\"],[\"end\",\"sub\"],[\"start\",\"sup\"],[\"text\",\"2\"],[\"end\",\"sup\"],[\"end\",\"div\"]]",
+        "counts": {
+          "tokens": 3,
+          "math": 0,
+          "links": 0,
+          "images": 0,
+          "code": 0,
+          "tables": 0,
+          "cells": 0
+        }
+      },
+      "integrityOk": true,
+      "integrityIssues": [],
+      "renderIssues": [],
+      "active": 0
+    },
+    {
+      "source": "<div data-pf-raw-html=\"element\" data-block-id=\"fake\"><script>alert(1)</script><p onclick=\"alert(1)\">SAFE</p></div>",
+      "output": "<div data-pf-raw-html=\"element\" data-block-id=\"b-fe372c70\" data-line=\"1\"><p>SAFE</p></div>",
+      "projection": {
+        "signature": "[[\"start\",\"div\"],[\"start\",\"p\"],[\"text\",\"SAFE\"],[\"end\",\"p\"],[\"end\",\"div\"]]",
+        "counts": {
+          "tokens": 1,
+          "math": 0,
+          "links": 0,
+          "images": 0,
+          "code": 0,
+          "tables": 0,
+          "cells": 0
+        }
+      },
+      "integrityOk": true,
+      "integrityIssues": [],
+      "renderIssues": [
+        "SECURITY_ATTRIBUTE_REMOVED",
+        "SECURITY_SCRIPT_REMOVED",
+        "SECURITY_EVENT_HANDLER"
+      ],
+      "active": 0
+    }
+  ],
+  "erasedFormulaExport": {
+    "delivered": true,
+    "status": "pass",
+    "verdict": "pass",
+    "checks": [
+      {
+        "name": "katex-layout",
+        "status": "pass",
+        "detail": "no rendered math"
+      },
+      {
+        "name": "no-scripts",
+        "status": "pass",
+        "detail": "0"
+      },
+      {
+        "name": "no-network-resources",
+        "status": "pass",
+        "detail": "0"
+      },
+      {
+        "name": "internal-anchors",
+        "status": "pass",
+        "detail": "1 links, 0 broken, 0 duplicate"
+      },
+      {
+        "name": "fonts-embedded",
+        "status": "pass",
+        "detail": "3 subset tersemat"
+      },
+      {
+        "name": "glyph-coverage",
+        "status": "pass"
+      },
+      {
+        "name": "size-budget",
+        "status": "pass",
+        "detail": "140382 / 26214400 B"
+      },
+      {
+        "name": "integrity",
+        "status": "pass",
+        "detail": "sumber → keluaran utuh"
+      }
+    ],
+    "issues": [],
+    "mathWrappers": 1,
+    "katex": 0,
+    "mathml": 0
+  },
+  "addedProseExport": {
+    "status": "pass",
+    "verdict": "pass",
+    "addedProsePresent": true,
+    "checks": [
+      {
+        "name": "katex-layout",
+        "status": "pass",
+        "detail": "no rendered math"
+      },
+      {
+        "name": "no-scripts",
+        "status": "pass",
+        "detail": "0"
+      },
+      {
+        "name": "no-network-resources",
+        "status": "pass",
+        "detail": "0"
+      },
+      {
+        "name": "internal-anchors",
+        "status": "pass",
+        "detail": "1 links, 0 broken, 0 duplicate"
+      },
+      {
+        "name": "fonts-embedded",
+        "status": "pass",
+        "detail": "3 subset tersemat"
+      },
+      {
+        "name": "glyph-coverage",
+        "status": "pass"
+      },
+      {
+        "name": "size-budget",
+        "status": "pass",
+        "detail": "140372 / 26214400 B"
+      },
+      {
+        "name": "integrity",
+        "status": "pass",
+        "detail": "sumber → keluaran utuh"
+      }
+    ]
+  },
+  "addedProseMutations": [
+    {
+      "mutation": "ordinaryUnregisteredParagraph",
+      "integrityOk": true,
+      "issues": []
+    },
+    {
+      "mutation": "privateUnregisteredParagraph",
+      "integrityOk": true,
+      "issues": []
+    },
+    {
+      "mutation": "ordinaryTextInsideKnownBlock",
+      "integrityOk": false,
+      "issues": [
+        "INTEGRITY_TOKEN_CHANGED"
+      ]
+    },
+    {
+      "mutation": "unknownRegisteredParagraph",
+      "integrityOk": true,
+      "issues": [
+        "INTEGRITY_BLOCK_UNEXPECTED"
+      ]
+    }
+  ]
+}

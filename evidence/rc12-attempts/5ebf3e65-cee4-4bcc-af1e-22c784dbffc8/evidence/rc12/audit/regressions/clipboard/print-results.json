@@ -1,0 +1,56 @@
+{
+  "distTreeSha256": "131fb9a3290bdef125fbbae939dabf061b4b55f4aa5356bbd701c0c40f529e64",
+  "inputSha256": "ec4eca75f4191c04d41b96f27b7960f337474630e98a4a90e18d9aca328286e8",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "method": "Production HTML file import, visible publishing controls, exact print layout bytes, Chromium CDP PDF and Poppler PDF text; synthetic fixture.",
+  "results": [
+    {
+      "mode": "print",
+      "status": "PASS",
+      "equations": [
+        [
+          " x + 1 ",
+          false,
+          null,
+          " x + 1 "
+        ],
+        [
+          "x+2",
+          true,
+          "TH",
+          "x+2"
+        ]
+      ],
+      "physicalPages": 4,
+      "earlyMarkerPage": 2,
+      "lateMarkerPage": 4,
+      "layoutSha256": "60f007a656fe5c204d512fd67fb35cf95eb123190eb2f70e86d2b0b1f12ba917",
+      "pdfSha256": "611faef50e16e07fbd7000661416d851a00457fc8949b8a7007a6d4f97a4798e",
+      "pdfBytes": 60099
+    },
+    {
+      "mode": "print-book",
+      "status": "PASS",
+      "equations": [
+        [
+          " x + 1 ",
+          false,
+          null,
+          " x + 1 "
+        ],
+        [
+          "x+2",
+          true,
+          "TH",
+          "x+2"
+        ]
+      ],
+      "physicalPages": 4,
+      "earlyMarkerPage": 2,
+      "lateMarkerPage": 4,
+      "layoutSha256": "770ab8582f74af1aff258e5807575d45efdd59e80bb238c7e579caf1c3c4550c",
+      "pdfSha256": "f19be3fcae84aeaefd4de69af2eba2fe2a450d0b970c284acbdde441c0c91b11",
+      "pdfBytes": 68167
+    }
+  ]
+}

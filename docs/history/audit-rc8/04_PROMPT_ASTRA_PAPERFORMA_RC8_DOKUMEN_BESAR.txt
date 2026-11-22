@@ -1,0 +1,136 @@
+PROMPT PELAKSANAAN — PAPERFORMA RC8, DOKUMEN BESAR, DAN KESIAPAN PRODUKSI
+Disusun 22 November 2026 (Asia/Bangkok)
+
+PETUNJUK PEMAKAIAN
+Salin seluruh bagian MULAI PROMPT sampai AKHIR PROMPT ke percakapan kerja baru. Lampirkan ZIP audit ini dan ZIP aplikasi RC8 asli. Tambahkan ZIP aplikasi RC6 autentik untuk benchmark berpasangan serta naskah/.pfproj penyebab timeout jika tersedia. Prompt dapat mulai dikerjakan tanpa naskah itu; penutupan kasus asli harus tetap menunggu pembuktian input aslinya. Lampirkan baseline HTML yang berhasil jika belum ditemukan di dalam paket. Jangan memakai prompt ini sebagai bukti bahwa perbaikan telah dilaksanakan.
+
+==================== MULAI PROMPT ====================
+
+Anda bertugas sebagai engineer senior dan reviewer independen untuk meningkatkan PaperForma, sebuah aplikasi statis pemroses teks/Markdown/HTML menjadi HTML mandiri dan PDF melalui browser. Kerjakan implementasi, pengujian, pembuktian, dokumentasi, serta pengemasan sampai semua pekerjaan lokal yang dapat dilakukan benar-benar selesai. Jangan berhenti pada rencana, daftar saran, atau perubahan tampilan.
+
+TUJUAN DAN RUANG LINGKUP
+
+Tujuan utama saya: mempertahankan semua kemampuan RC8 yang sudah benar, memperbaiki kegagalan ekspor dokumen besar, menjaga kesetiaan isi dan performa lama, lalu menyerahkan tepat SATU ZIP aplikasi final yang lengkap dan dapat saya gunakan untuk deployment Cloudflare Pages. Situs saya sudah terhubung dengan repository https://github.com/karlmarxtrading-cmyk/performa. Jangan membuat proyek hosting pengganti.
+
+Saya mengizinkan perubahan source dan pengujian lokal yang diperlukan dalam salinan kerja. Batas kerja: ZIP dan pengujian lokal. Jangan push, publish branch, deploy, promosi produksi, atau mengubah akun/konfigurasi hosting. Selesaikan artefak lokal terlebih dahulu tanpa berulang kali meminta izin untuk tindakan lokal yang telah tercakup. Jika ada blokir akses, sampaikan tindakan yang terhalang dan alasannya, lalu teruskan pekerjaan lain yang dapat dilakukan. Jangan memintas kontrol akses atau mengarang hasil browser/perangkat/hosting yang tidak tersedia.
+
+Arti target “100% production ready” adalah seluruh kriteria penerimaan yang dinyatakan dalam kontrak dukungan telah dibuktikan, termasuk bukti operasional ketika akses dan izin untuk tahap itu tersedia. Jangan menerjemahkannya menjadi klaim tanpa batas, persentase perkiraan, atau semua tes harus diberi label PASS. Bedakan status paket lokal, kelayakan promosi, dan verifikasi layanan setelah deployment. Paket lokal yang selesai tetap harus diserahkan meskipun pengujian eksternal masih BLOCKED/NOT_RUN. Nyatakan kekurangan itu secara jelas; jangan menghapus gate agar terlihat selesai.
+
+INPUT WAJIB DAN IDENTITAS
+
+1. PAPERFORMA_STATIC_3.0.0-rc.8_SOURCE_DIST_EVIDENCE.zip.
+   SHA-256: 2ba9ea2114e9b3be401390eacf25dd7d68adacf85b891c91055fb5a04b9a5c18.
+   Paket audit membaca 1.060 berkas; 1.059 entri SHA256SUMS cocok; 181 berkas dist cocok setelah rebuild bersih.
+2. ZIP audit RC8 yang memuat laporan, 05_DAFTAR_TEMUAN.json, 06_MATRIKS_PENERIMAAN.json, cakupan semua file, reproducer dan bukti.
+3. Baseline sukses 231 rumus yang terdapat di paket, termasuk examples/reference-rc6/RUMUS TRIGONOMETRI 1.html dan fixture sumber autentik.
+4. Bila tersedia, naskah/.pfproj pengguna yang menimbulkan error: rev 1, hash prefix 6b96f92e5455, BUS-01, A4 tegak, 217850 kata, 1 tabel, 0 rumus, 0 gambar. Error: “Halaman cetak tidak merespons dalam 180000 ms.”
+5. Untuk menjalankan benchmark baru terhadap RC6, gunakan PAPERFORMA_STATIC_3.0.0-rc.6_AUDITED.zip atau ekstraksi source/dist autentiknya. SHA-256 ZIP RC6: 82e6d021c1b042a498440c0ce8957c035eb011f4c1b1fe8c16a450697a52be53. Aplikasi RC6 lengkap tidak termuat dalam ZIP RC8; HTML referensi tidak menggantikan runtime baseline. Bila belum tersedia, lanjutkan pekerjaan lain dan laporkan benchmark berpasangan kandidat baru sebagai terhambat. Jangan mengganti baseline atau menghapus FAIL historis G09 RC8.
+
+Verifikasi arsip dan hash terlebih dahulu. Inventaris source, dist, tests, fixtures, dokumen dan evidence. Pertahankan salinan input tanpa perubahan dan kerjakan salinan terpisah. Bila artefak belum dapat diakses, jangan berpura-pura membacanya. Gunakan input lokal yang benar-benar tersedia, laporkan kekurangan spesifik, dan jangan mengganti kode RC8 dengan proyek contoh.
+
+KONTEKS YANG TELAH DIBUKTIKAN AUDIT
+
+Audit RC8 merupakan dasar investigasi, bukan spesifikasi implementasi yang tidak boleh ditantang. Reproduksi temuan yang relevan pada kandidat sebelum memperbaikinya. Baca perbedaan antara bukti baru, data lama yang dihitung ulang, hipotesis dan batas pengujian.
+
+- Suite dasar RC8: 573 Vitest + 9 Node lulus; clean build 181/181 dist identik; HTTP lokal 185/185 lulus.
+- Temuan RC7 A01–A03 telah diperbaiki pada kasus aslinya: wrapper matematika campuran, rumus yang representasinya dihapus, dan isi tambahan di luar blok. Jangan membuka lagi celah tersebut demi kecepatan.
+- Baseline mempertahankan 231 formula, 103 inline/128 display, 254 blok, CSS KaTeX dan pemeriksaan representasi. Pemulihan 17 bagian tetap dilaporkan, tidak disembunyikan.
+- Keputusan rilis RC8 saat audit: NO_GO, 10 PASS, 1 FAIL, 4 BLOCKED, 1 NOT_RUN. G09/A04 masih gagal, G12–G14 dan G16 BLOCKED, G15 NOT_RUN. G10 lulus untuk korpus yang memang diuji.
+- Deadline dalam print-client adalah batas total 180000 ms, bukan batas diam. Progres valid pada 179000 ms tetap diikuti FRAME_TIMEOUT pada 180000 ms dalam fake-timer probe. issues kosong; kondisi frame tidak pernah ready mendapat error yang sama. Screenshot gagal sebelum penyiapan cetak selesai, bukan bukti dialog PDF native gagal menyimpan.
+- Korpus kapasitas terbesar hanya 68923 kata, 570616 byte, 118 tabel dan 201 halaman. Ada 15 run valid dari tiga ukuran; seluruhnya forcedBreaks=0. PDF 201 halaman tidak dipersistenkan runner. Rasio kata terhadap kasus pengguna sekitar 3,16; jangan mengubahnya menjadi perkiraan linear halaman/waktu.
+- Dua fixture sintetis 217850 kata/satu tabel/0 rumus/0 gambar lulus core, HTML mandiri dan print payload dalam Node/jsdom. Ini bukan paginasi browser atau PDF, dan bukan reproduksi naskah asli. Cover/TOC dimatikan pada diagnostik tersebut.
+- Repair penuh dapat menghasilkan sampai 28 pemanggilan preview pada batas loop default. Jumlah pass dan waktu fase yang dikembalikan hanya merekam attempt terakhir; total elapsed tetap mencakup seluruh kerja. Tidak terbukti bahwa kasus pengguna menjalani 28 pass.
+- Masih ada fase DOM/inventaris/geometri tanpa checkpoint progres/cancel. Paged.js 0.4.3 memasukkan seluruh suffix text node panjang; dampak runtime pada naskah asli belum diukur.
+- Enam kontradiksi receipt diterima verifyCapacity dalam clone in-memory; data asli G10 bersih. Ini celah validator, bukan bukti pemalsuan atau bypass hash.
+- Dua masalah terpisah: pemeriksa string/DOM memakai referensi formula render terakhir; daftar clipboard ol reversed kehilangan arah penomoran. Dampak normal UI masalah cache belum dibuktikan.
+
+PRINSIP YANG HARUS DIPERTAHANKAN
+
+Sumber pengguna tidak boleh dipotong, disederhanakan, ditulis ulang, atau diubah semantiknya secara diam-diam. Jangan menghapus formula, gambar, Unicode, whitespace kode, baris tabel, catatan kaki, tautan, TOC atau font agar tes menjadi cepat. Jangan mengganti PDF menjadi screenshot seluruh halaman tanpa seleksi/pencarian teks. Pertahankan preview, template, ekspor HTML, backup/.pfproj, privasi lokal, pembatalan dan pemulihan yang sudah bekerja.
+
+Gunakan perubahan terarah berdasarkan profiling. Penggantian engine/dependency harus mempunyai alasan, pembanding dan bukti migrasi; jangan melakukan rewrite besar hanya karena lebih mudah. Pertahankan arsitektur statis tanpa akun/backend/layanan konversi berbayar kecuali ada kebutuhan yang benar-benar tidak dapat dicapai dan izin baru yang eksplisit. Jangan mengirim naskah ke layanan eksternal. Jangan menambah CDN wajib pada HTML mandiri.
+
+Validasi semantik harus independen dari fungsi transformasi yang diuji. Menghitung rumus/kata saja tidak cukup: urutan, nilai, karakter, struktur, mode formula dan representasi visual/MathML harus benar. Cache tidak boleh mengubah jawaban pemeriksaan karena dokumen lain dirender sebelumnya.
+
+TAHAP 1 — BASELINE DAN REPRODUKSI
+
+Jalankan instalasi sesuai lockfile, runtime yang dinyatakan paket, typecheck, lint, suite, build, verifier statis, negative controls dan HTTP lokal. Rekam perintah, exit code, runtime, versi browser, identitas source/dist, sumber fixture serta setelan. Pisahkan kegagalan lingkungan dari kegagalan aplikasi.
+
+Jalankan reproducer audit pada salinan bersih. Bawa kasus negatif menjadi acceptance tests yang menyatakan perilaku yang benar, bukan sekadar mempertahankan bug. Kunci golden data 231 formula, 254 blok, CSS/font yang diperlukan, contoh PDF/HTML yang berhasil dan kontrol isi. Simpan raw input HTML clipboard sebelum konversi untuk pembanding.
+
+Jika naskah asli tersedia, hitung ulang statistik menggunakan penghitung aplikasi, cocokkan hash snapshot dan semua setelan, lalu reproduksi lewat jalur UI produksi. Jangan menganggap label hash sebagai kode error. Jika source tidak tersedia, teruskan dengan surrogate berlabel; status kasus asli tetap NOT_REPRODUCED. Jika sumber ternyata mempunyai rumus tetapi UI melaporkan 0, buka investigasi pengenalan math tersendiri.
+
+TAHAP 2 — DIAGNOSIS DAN LIFECYCLE CETAK (RC8-01/03/04)
+
+Buat trace per job/snapshot yang menunjukkan parse/analisis, konversi, integrity, font/aset, payload, iframe startup/ready, paginasi, setiap attempt/pass/repair, TOC, inventaris, flattening, geometri, verifikasi final, serialization, print-ready dan pemanggilan dialog native. Catat waktu kumulatif, jumlah kerja selesai, jumlah halaman yang benar-benar diproses, totalPreviewCalls, alasan repair dan progres terakhir. Jangan menganggap putaran yang dibuang tidak pernah terjadi.
+
+Rancang startup timeout, inactivity watchdog dan batas total secara terpisah. Waktu tunggu harus mengikuti kontrak ukuran/perangkat yang diukur dan masih melindungi aplikasi dari macet. Reset inactivity hanya saat ada kemajuan nyata, bukan timer heartbeat tanpa kerja. Penyesuaian batas total harus disertai profiling, batas yang jelas dan pengujian; menaikkan 180 detik atau membuat timeout tak terbatas bukan penyelesaian.
+
+Error perlu memberi kategori yang benar: gagal memuat iframe/asset/CSP, macet pada fase tertentu, batas sumber daya, deadline total, integritas gagal, dibatalkan, atau snapshot berganti. Sertakan diagnosis yang bisa disalin tanpa membuka isi pribadi secara default. Tombol Pemeriksaan harus menampilkan diagnosis pekerjaan yang gagal meskipun tidak ada layout issue. UI menjelaskan tahap/kemajuan nyata tanpa persentase rekaan.
+
+Pecah kerja sinkron besar menjadi unit terbatas dengan yield yang memberi kesempatan input/paint dan AbortSignal/deadline check. Worker sesuai untuk komputasi murni, tetapi DOM/layout harus ditangani sesuai kemampuan browser. Jangan sekadar membagi fungsi tanpa yield yang benar. Hentikan chunker pada batas aman, bersihkan iframe, listener, timer, object URL, cache dan sesi pekerjaan saat batal/error/snapshot berubah. Cegah hasil lama menimpa revisi baru. Uji retry setelah setiap jenis kegagalan.
+
+TAHAP 3 — OPTIMASI DOKUMEN BESAR DENGAN ISI UTUH (RC8-02/03/05)
+
+Profilkan bagian yang dominan sebelum memilih solusi. Periksa full repagination saat repair/TOC, cloning dan serialisasi DOM, lookup ID/index/style/rect berulang, inventaris final, serta paragraf/sel sangat panjang. Catat juga visibility/tab/background sebagai variabel uji jika relevan; jangan menuduh browser throttling tanpa trace.
+
+Evaluasi penggabungan repair yang aman, penggunaan indeks per job, cache beridentitas snapshot, pengurangan serialisasi berulang dan fragmen presentasi yang terukur. Jika memecah paragraf/cell untuk layout, raw source harus tetap sama; pertahankan mapping offset/source ID, inline spans, Unicode, tautan, formula, urutan dan whitespace. Fragmentasi tidak boleh menambah/menghilangkan spasi atau isi. Jangan menonaktifkan integrity, TOC atau pemeriksaan clipping demi angka lebih kecil.
+
+Sediakan batas dukungan yang jujur berdasarkan data. Input di luar batas harus ditangani dengan sumber tetap utuh, alasan dan alternatif aman. Fallback itu berguna, tetapi jangan menghitung penolakan dokumen target 217850 kata sebagai keberhasilan fitur PDF yang saya minta. Pemisahan dokumen menjadi beberapa file boleh menjadi opsi pengguna; itu tidak sama dengan berhasil menghasilkan satu PDF utuh.
+
+TAHAP 4 — PERBAIKAN VERIFIER DAN SEMANTIK (RC8-07/08/09)
+
+verifyCapacity wajib memeriksa status layout/verification, error dan blocking, progres mentah beserta urutan/waktunya, ringkasan firstProgress/maxGap, heap, serta state setelah pembatalan. Jalankan enam mutasi audit melalui fungsi validator dan jalur record/verify dengan receipt yang diikat secara sah. Bukti valid harus tetap lulus. Jangan hanya menguji hash stale yang sudah pasti ditolak sebelum validator detail dijalankan.
+
+Perbaiki kepemilikan expected formula agar pemeriksaan object/string/Element/Document terhadap A tetap benar sebelum maupun sesudah B, termasuk render berselang-seling. Cache harus bounded dan tidak menonaktifkan pemeriksaan visual/MathML ketika data tidak ditemukan. Rusakkan rumus secara sengaja untuk membuktikan gate tetap menolak.
+
+Pertahankan reversed/start/li value, nested lists dan semantik rich clipboard yang tidak dapat direpresentasikan GFM melalui HTML aman atau jalur preservasi yang jelas. Bandingkan dengan HTML asal sebelum konversi. Jangan memperluas sanitizer untuk script, handler, URL aktif atau resource jaringan tanpa kebijakan aman. Uji wrapper math dengan prosa, daftar dan tabel; pastikan tidak ganda atau hilang.
+
+TAHAP 5 — CAKUPAN TEKS AI DAN OUTPUT
+
+Buat matriks dukungan berdasarkan format dan sampel aktual, bukan merek AI atau klaim “semua AI” tanpa bukti. Cakup teks polos, CommonMark/GFM, tabel escaped pipe dan multiline yang didukung, heading/list/quote/task list, tautan/catatan kaki, code fence, rich HTML clipboard, percakapan dan metadata kutipan jika memang ada.
+
+Untuk matematika, pertahankan jalur $...$, $$...$$, \(...\), \[...\], lingkungan aligned/cases/matrix, persamaan bernomor jika didukung, rumus di tabel/list serta metadata KaTeX/MathML yang aman. Bedakan delimiter dari mata uang/escape/kode. Jangan menerapkan regex global yang menghapus backslash atau mengubah formula dalam code fence. TeX yang belum didukung harus mempertahankan sumber dan diagnosis; jangan menghasilkan rumus berbeda secara diam-diam.
+
+Uji bahasa Indonesia/Inggris, Unicode yang font-nya tersedia, emoji dan glyph khusus sesuai kontrak. PUA tanpa pemetaan/font asal perlu diagnosis, bukan pengganti yang dianggap setara. Sertakan gambar/Mermaid/SVG hanya dalam dukungan yang dinyatakan, disanitasi dan tetap utuh. Pertahankan HTML mandiri offline dengan CSS/font/aset tertanam, tanpa script atau resource jaringan wajib menurut kontrak ekspor. Buka ulang hasil aktual, jangan memeriksa string manifest saja.
+
+PDF harus berasal dari dokumen terpaginasi yang telah diperiksa: tidak ada teks hilang/ganda, halaman terakhir utuh, tabel terbelah aman, label kode tidak yatim, link dan TOC benar, rumus/glyph terbaca dan teks tetap dapat dicari/disalin sesuai kontrak. Jangan menyamakan page.pdf otomatis dengan keberhasilan dialog native Save as PDF. Bila native save belum dapat dijalankan, laporkan gate tersebut dengan jujur sambil tetap menyelesaikan semua pengujian PDF otomatis yang tersedia.
+
+TAHAP 6 — MATRIKS PENGUJIAN WAJIB
+
+A. Baseline dan regresi: seluruh suite RC8, A01–A03 negatif/positif, 231 formula/254 blok, contoh HTML/PDF, keamanan statis, penyimpanan, undo/redo, backup, quota error, cancel/retry, multi-tab, aksesibilitas yang relevan dan ekspor offline.
+
+B. Dokumen target: tepat 217850 kata menurut penghitung aplikasi, satu tabel, tanpa formula/gambar; banyak paragraf normal dan satu paragraf sangat panjang. Tambahkan bentuk satu tabel panjang/sel sangat panjang, heading padat/TOC, kode panjang, Unicode, lalu bentuk campuran dengan formula/gambar. Gunakan ukuran kecil sebagai kontrol dan ukuran lebih besar untuk batas yang diumumkan. BUS-01 A4 tegak wajib; TOC on/off dan setelan aktual pengguna diuji terpisah. Jumlah kata sama bukan bukti bentuk sama.
+
+C. Jalur UI produksi: import/paste -> preview -> persiapkan cetak -> paginasi/verifikasi -> output PDF aktual yang disimpan -> buka ulang dan periksa. Simpan sumber, settings, hash kandidat/dist/output, page count, trace lengkap dan screenshot halaman representatif. PDF kapasitas besar harus dipersistenkan; byte count saja tidak cukup. Periksa semua konten dengan oracle semantik independen, ditambah visual halaman awal/akhir, batas tabel/kode/rumus dan sampel terencana di tengah. Jelaskan normalisasi ekstraksi PDF tanpa menyembunyikan perubahan nilai atau kode.
+
+D. Lifecycle: startup tidak ready, asset gagal, CSP/load error, progres sehat melampaui 180 detik dalam kebijakan yang ditetapkan, stall nyata, pembatalan pada setiap fase, background/foreground jika didukung, pergantian revisi, retry dan beberapa ekspor berurutan. Periksa sumber tetap sama dan resource setelah selesai/batal kembali ke keadaan yang benar.
+
+E. Performa: pertahankan kontrak frozen RC6, median <=1,05x dan p95 <=1,10x pada setiap metrik/cohort yang diwajibkan. Dua cohort browser dan dua cohort Node mengikuti protokol 40 pasangan per alur dengan AB/BA, warmup dan lifecycle yang ditetapkan. Jangan membuang outlier/gagal, memilih cohort terbaik atau memperbaiki angka dengan keluaran lebih miskin. Ambang baru kapasitas/long-task/cancel dibekukan sebelum run, diberi alasan perangkat dan volume; jangan menebak percentile dari lima sampel. Catat metrik gagal, bukan hanya rerun yang berhasil.
+
+TAHAP 7 — BUILD, CLOUDFLARE DAN PAKET FINAL
+
+Gunakan proyek Cloudflare Pages/repository yang sudah ada. Periksa dokumentasi resmi terkini bila perlu, tetapi jangan memakai web sebagai pengganti pembacaan source/config yang tersedia. Jangan menyebut identity live sama dengan RC8 hanya berdasarkan tautan repository.
+
+Pertahankan jalur build lokal dan preview yang dapat dijalankan tanpa deployment. Verifikasi npm run build:pages, output dist, runtime, entry/print/worker/font/assets, CSP/header, jalur relatif, cache/version identity, 404 dan asset MIME. Cabang produksi harus mempunyai kontrol promosi yang nyata. Jangan mengubah main menjadi preview atau melemahkan gate untuk membuat log hijau.
+
+Jika penerimaan yang membutuhkan deployment menimbulkan siklus ketergantungan dengan build pertama, rancang tahapan pra-deploy, preview dan pascadeploy secara eksplisit. G15 memerlukan bukti preview yang kelak diotorisasi sebelum promosi; G16 memerlukan target rollback, drill dan persetujuan sebelum promosi produksi. Smoke pascadeployment produksi merupakan pemeriksaan tambahan, bukan pengganti atau penundaan G15/G16. Jangan menghapus kewajiban native/perangkat/hosting atau mengubah NOT_RUN menjadi PASS. Dokumentasikan gate yang menentukan paket lokal selesai, gate sebelum promosi, dan pemeriksaan sesudah deployment yang sah. Jangan melakukan tindakan remote untuk mengejar label 100% dalam tugas lokal ini.
+
+Setelah fix terakhir, bangun dari ekstraksi bersih, jalankan tes yang bermakna, pastikan source/dist/manifest/evidence terikat kandidat final. Evidence lama menjadi riwayat, tidak boleh dilabel sebagai pengujian build baru. Jika refactor mengubah source setelah bukti dibuat, perbarui build dan bukti yang terpengaruh. Verifikasi bundel ZIP final setelah diekstrak, bukan hanya folder kerja sebelum dikemas.
+
+KELUARAN WAJIB: TEPAT SATU ZIP APLIKASI FINAL
+
+Gunakan versi berikutnya yang konsisten dengan repository; jangan mengubah nama RC8 agar tampak baru. ZIP harus berisi source lengkap dan lockfile; dist siap ditempatkan sebagai output Pages; tests dan fixtures yang diperlukan; tools verifikasi; contoh HTML/PDF aktual yang lulus; manifest dan SHA256SUMS; laporan perubahan dan audit; compatibility/known limits; raw evidence/receipt yang dapat ditelusuri; serta panduan GitHub -> Cloudflare untuk pemilik menjalankan sendiri.
+
+Sertakan README_MULAI_DI_SINI yang menjelaskan konfigurasi build, struktur ZIP, cara ekstraksi bersih, perintah pengujian dan rollback lokal. Jangan memuat node_modules, secret, credential, browser profile, cache besar atau dokumen pribadi yang tidak perlu. Naskah pengguna hanya dimasukkan bila memang diizinkan sebagai fixture; untuk evidence gunakan hash dan diagnostik yang memadai serta jelaskan jika source privat disimpan terpisah.
+
+Laporan akhir harus menjawab: apa penyebab yang terbukti, apa yang diperbaiki, bukti sebelum/sesudah, apakah kasus 217850 kata asli atau surrogate selesai sampai PDF, apakah baseline 231 rumus dan performa lama bertahan, status setiap gate, batas dukungan yang masih ada, dan apa yang perlu diuji pemilik setelah deployment. Jangan menyatakan keberhasilan PDF bila hanya payload/HTML terbentuk. Jangan menyatakan native Save as PDF selesai hanya dari event afterprint.
+
+Berikan link satu ZIP final, ukuran byte dan SHA-256, ringkasan hasil serta pekerjaan eksternal yang tersisa jika ada. Tetap tuntaskan seluruh implementasi dan validasi lokal yang memungkinkan. Gunakan label seperti “paket lokal tervalidasi” hanya sesuai bukti; klaim produksi menyeluruh menunggu seluruh kriteria wajib yang relevan benar-benar terpenuhi.
+
+Mulai dengan memverifikasi input, mereproduksi kegagalan yang telah dibuktikan, dan mengunci baseline, kemudian kerjakan sampai paket final siap diserahkan.
+
+==================== AKHIR PROMPT ====================
+
+CATATAN AUDIT
+Prompt ini adalah instruksi pekerjaan berikutnya. ZIP audit yang memuatnya bukan paket aplikasi hasil perbaikan dan bukan bukti bahwa gate yang masih gagal sudah lulus.

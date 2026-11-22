@@ -1,0 +1,185 @@
+{
+  "purpose": "Independent sample completeness and absolute ratio verification. The overall original release decision is retained separately.",
+  "inputs": {
+    "recovery-cohort-1.json": "634bffb2a8ce902b49f5fc4d1c2700d6e55ce82ca01471cda9f45e956131f9c8",
+    "recovery-cohort-2.json": "0f9213127324eaf5f1f7ab1c56526ae4ba0f54c044e4d31557fb75c7f9d75bb0"
+  },
+  "cohorts": {
+    "1": {
+      "runId": "21221689-e7ac-416a-aef9-3c74cabc7397",
+      "status": "FAIL",
+      "boundBeforeAndAfter": true,
+      "incidents": [],
+      "cases": {
+        "trig": {
+          "attemptedArms": 80,
+          "strictEquivalencePairs": 40,
+          "orderValid": true,
+          "balancedMatchedOrder": {
+            "AB": 20,
+            "BA": 20
+          },
+          "warmupArms": 20,
+          "invalidWarmupBlocks": [],
+          "incompleteOrInvalidPairs": [],
+          "ratios": {
+            "previewMs": {
+              "n": 40,
+              "medianRatio": 0.9818359487269983,
+              "p95Ratio": 1.1465848042966498,
+              "budgetPass": false
+            },
+            "htmlExportMs": {
+              "n": 40,
+              "medianRatio": 0.8824022346373003,
+              "p95Ratio": 0.8973084886097513,
+              "budgetPass": true
+            },
+            "pageReadyMs": {
+              "n": 40,
+              "medianRatio": 1.023767230353978,
+              "p95Ratio": 1.0455379858936724,
+              "budgetPass": true
+            }
+          }
+        },
+        "long": {
+          "attemptedArms": 80,
+          "strictEquivalencePairs": 40,
+          "orderValid": true,
+          "balancedMatchedOrder": {
+            "AB": 20,
+            "BA": 20
+          },
+          "warmupArms": 20,
+          "invalidWarmupBlocks": [],
+          "incompleteOrInvalidPairs": [],
+          "ratios": {
+            "previewMs": {
+              "n": 40,
+              "medianRatio": 0.9575161652317897,
+              "p95Ratio": 0.8891083774820688,
+              "budgetPass": true
+            }
+          }
+        },
+        "small": {
+          "attemptedArms": 80,
+          "strictEquivalencePairs": 40,
+          "orderValid": true,
+          "balancedMatchedOrder": {
+            "AB": 20,
+            "BA": 20
+          },
+          "warmupArms": 20,
+          "invalidWarmupBlocks": [],
+          "incompleteOrInvalidPairs": [],
+          "ratios": {
+            "smallPreviewMs": {
+              "n": 40,
+              "medianRatio": 0.9984013951438879,
+              "p95Ratio": 1.027670028448767,
+              "budgetPass": true
+            },
+            "editPreviewMs": {
+              "n": 40,
+              "medianRatio": 1.0024548483260927,
+              "p95Ratio": 1.2098138747884941,
+              "budgetPass": false
+            }
+          }
+        }
+      }
+    },
+    "2": {
+      "runId": "fbce7740-4f30-4ccc-8e05-17d18f032d56",
+      "status": "PASS",
+      "boundBeforeAndAfter": true,
+      "incidents": [],
+      "cases": {
+        "trig": {
+          "attemptedArms": 80,
+          "strictEquivalencePairs": 40,
+          "orderValid": true,
+          "balancedMatchedOrder": {
+            "BA": 20,
+            "AB": 20
+          },
+          "warmupArms": 20,
+          "invalidWarmupBlocks": [],
+          "incompleteOrInvalidPairs": [],
+          "ratios": {
+            "previewMs": {
+              "n": 40,
+              "medianRatio": 0.9621143375676195,
+              "p95Ratio": 1.0080539615423276,
+              "budgetPass": true
+            },
+            "htmlExportMs": {
+              "n": 40,
+              "medianRatio": 0.8690189788825212,
+              "p95Ratio": 0.8659047619005045,
+              "budgetPass": true
+            },
+            "pageReadyMs": {
+              "n": 40,
+              "medianRatio": 0.9850877638413892,
+              "p95Ratio": 1.043601925361,
+              "budgetPass": true
+            }
+          }
+        },
+        "long": {
+          "attemptedArms": 80,
+          "strictEquivalencePairs": 40,
+          "orderValid": true,
+          "balancedMatchedOrder": {
+            "BA": 20,
+            "AB": 20
+          },
+          "warmupArms": 20,
+          "invalidWarmupBlocks": [],
+          "incompleteOrInvalidPairs": [],
+          "ratios": {
+            "previewMs": {
+              "n": 40,
+              "medianRatio": 0.9602449768991161,
+              "p95Ratio": 0.9911940824234001,
+              "budgetPass": true
+            }
+          }
+        },
+        "small": {
+          "attemptedArms": 80,
+          "strictEquivalencePairs": 40,
+          "orderValid": true,
+          "balancedMatchedOrder": {
+            "BA": 20,
+            "AB": 20
+          },
+          "warmupArms": 20,
+          "invalidWarmupBlocks": [],
+          "incompleteOrInvalidPairs": [],
+          "ratios": {
+            "smallPreviewMs": {
+              "n": 40,
+              "medianRatio": 0.9961389961395515,
+              "p95Ratio": 1.0383246646540072,
+              "budgetPass": true
+            },
+            "editPreviewMs": {
+              "n": 40,
+              "medianRatio": 0.9966870095863487,
+              "p95Ratio": 0.9550781250035291,
+              "budgetPass": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "procedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+  "driverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+  "allScheduledMeasurementsEquivalent": true,
+  "allTimeBudgetsPass": false
+}

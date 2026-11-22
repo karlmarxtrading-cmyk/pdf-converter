@@ -1,0 +1,290 @@
+
+ RUN  v5.1.0 /workspace/scratch/c635819e0476/math-baseline
+
+ ❯ tests/unit/render/rc11-clipboard-fidelity.test.ts (12 tests | 10 failed) 790ms
+   ❯ Original HTML through clipboard, render, standalone HTML and both print paths (12)
+     × preserves the two original rows, prose and display formula in the header 280ms
+     × preserves the two original rows, prose and display formula in the body 26ms
+     × preserves annotation bytes, mode and surrounding text for spaces in data attribute 31ms
+     × preserves annotation bytes, mode and surrounding text for spaces in MathML 27ms
+     × preserves annotation bytes, mode and surrounding text for literal backticks 66ms
+     × keeps adjacent annotations separate and retains deliberate GitHub and dollar syntax 70ms
+     × preserves a valid annotation immediately followed by a digit, with the original prose and code 65ms
+     × preserves bullet overrides on ordered items and ordinal overrides on unordered items, including empty book markers 51ms
+     × retains per-item marker overrides, resets, nesting and reference text through clipboard 68ms
+     × blocks changing a per-item marker before export and detects marker changes on later pages 7ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/render/rc11-clipboard-fidelity.test.ts > Original HTML through clipboard, render, standalone HTML and both print paths > preserves the two original rows, prose and display formula in the header
+AssertionError: expected [] to deeply equal [ [ [ 'th', …(1) ], …(1) ], …(1) ]
+
+- Expected
++ Received
+
+- [
+-   [
+-     [
+-       "th",
+-       [
+-         "Before ",
+-         [
+-           "math",
+-           "E=mc^2",
+-           true,
+-         ],
+-         " after",
+-       ],
+-     ],
+-     [
+-       "th",
+-       [
+-         "B",
+-       ],
+-     ],
+-   ],
+-   [
+-     [
+-       "td",
+-       [
+-         "C",
+-       ],
+-     ],
+-     [
+-       "td",
+-       [
+-         "D",
+-       ],
+-     ],
+-   ],
+- ]
++ []
+
+ ❯ tests/unit/render/rc11-clipboard-fidelity.test.ts:55:20
+     53|     for (const root of await outputs(clipboard(html,plain))) {
+     54|       const rows = Array.from(root.querySelectorAll('table tr'),row=>A…
+     55|       expect(rows).toEqual([[['th',where==='header'?rich:['A']],['th',…
+       |                    ^
+     56|     }
+     57|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+
+ FAIL  tests/unit/render/rc11-clipboard-fidelity.test.ts > Original HTML through clipboard, render, standalone HTML and both print paths > preserves the two original rows, prose and display formula in the body
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ outputs tests/unit/render/rc11-clipboard-fidelity.test.ts:16:52
+     14| const outputs = async (source: string) => {
+     15|   const doc = await realDoc(source, 'BUS-01', {cover:false, toc:false}…
+     16|   expect(checkRenderIntegrity(source,doc.body).ok).toBe(true);
+       |                                                    ^
+     17|   const payload = await buildPrintPayload(doc.snapshot,doc.body,{fontS…
+     18|   const exported = await exportHtml({...doc, profile:'standalone',font…
+ ❯ tests/unit/render/rc11-clipboard-fidelity.test.ts:53:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/10]⎯
+
+ FAIL  tests/unit/render/rc11-clipboard-fidelity.test.ts > Original HTML through clipboard, render, standalone HTML and both print paths > preserves annotation bytes, mode and surrounding text for spaces in data attribute
+ FAIL  tests/unit/render/rc11-clipboard-fidelity.test.ts > Original HTML through clipboard, render, standalone HTML and both print paths > preserves annotation bytes, mode and surrounding text for spaces in MathML
+AssertionError: expected [ 'Before $  x + 1  $after' ] to deeply equal [ 'Before ', …(2) ]
+
+- Expected
++ Received
+
+  [
+-   "Before ",
+-   [
+-     "math",
+-     " x + 1 ",
+-     false,
+-   ],
+-   " after",
++   "Before $  x + 1  $after",
+  ]
+
+ ❯ tests/unit/render/rc11-clipboard-fidelity.test.ts:65:87
+     63|   ])('preserves annotation bytes, mode and surrounding text for %s', a…
+     64|     const source = clipboard('<p>Before '+tag+' after</p>', 'Before x …
+     65|     for (const root of await outputs(source)) expect(parts(root.queryS…
+       |                                                                                       ^
+     66|   });
+     67|   it('keeps adjacent annotations separate and retains deliberate GitHu…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/10]⎯
+
+ FAIL  tests/unit/render/rc11-clipboard-fidelity.test.ts > Original HTML through clipboard, render, standalone HTML and both print paths > preserves annotation bytes, mode and surrounding text for literal backticks
+AssertionError: expected [ 'Before ', …(2) ] to deeply equal [ 'Before ', …(2) ]
+
+- Expected
++ Received
+
+  [
+    "Before ",
+    [
+      "math",
+-     "`x`",
++     "x",
+      false,
+    ],
+    " after",
+  ]
+
+ ❯ tests/unit/render/rc11-clipboard-fidelity.test.ts:65:87
+     63|   ])('preserves annotation bytes, mode and surrounding text for %s', a…
+     64|     const source = clipboard('<p>Before '+tag+' after</p>', 'Before x …
+     65|     for (const root of await outputs(source)) expect(parts(root.queryS…
+       |                                                                                       ^
+     66|   });
+     67|   it('keeps adjacent annotations separate and retains deliberate GitHu…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/10]⎯
+
+ FAIL  tests/unit/render/rc11-clipboard-fidelity.test.ts > Original HTML through clipboard, render, standalone HTML and both print paths > keeps adjacent annotations separate and retains deliberate GitHub and dollar syntax
+AssertionError: expected [ 'X', [ 'math', 'a', false ], …(2) ] to deeply equal [ 'X', [ 'math', ' a ', false ], …(2) ]
+
+- Expected
++ Received
+
+@@ -1,10 +1,10 @@
+  [
+    "X",
+    [
+      "math",
+-     " a ",
++     "a",
+      false,
+    ],
+    [
+      "math",
+      "`b`",
+
+ ❯ tests/unit/render/rc11-clipboard-fidelity.test.ts:71:29
+     69|     for (const root of await outputs(source+'\nPrice \\$5 and $`c+d`$.…
+     70|       const ps = root.querySelectorAll('p');
+     71|       expect(parts(ps[0]!)).toEqual(['X',formula(' a '),formula('`b`')…
+       |                             ^
+     72|       expect(parts(ps[1]!)).toEqual(['Price $5 and ',formula('c+d'),'.…
+     73|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/10]⎯
+
+ FAIL  tests/unit/render/rc11-clipboard-fidelity.test.ts > Original HTML through clipboard, render, standalone HTML and both print paths > preserves a valid annotation immediately followed by a digit, with the original prose and code
+AssertionError: expected [ 'Read $x$2 and let a = 2.' ] to deeply equal [ 'Read ', …(2) ]
+
+- Expected
++ Received
+
+  [
+-   "Read ",
+-   [
+-     "math",
+-     "x",
+-     false,
+-   ],
+-   "2 and let a = 2.",
++   "Read $x$2 and let a = 2.",
+  ]
+
+ ❯ tests/unit/render/rc11-clipboard-fidelity.test.ts:77:86
+     75|   it('preserves a valid annotation immediately followed by a digit, wi…
+     76|     const source=clipboard('<p>Read <span data-tex="x">X</span>2 and <…
+     77|     for(const root of await outputs(source)) expect(parts(root.querySe…
+       |                                                                                      ^
+     78|   });
+     79|   it('preserves bullet overrides on ordered items and ordinal override…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/10]⎯
+
+ FAIL  tests/unit/render/rc11-clipboard-fidelity.test.ts > Original HTML through clipboard, render, standalone HTML and both print paths > preserves bullet overrides on ordered items and ordinal overrides on unordered items, including empty book markers
+AssertionError: expected [ null, null, null, null ] to deeply equal [ 'circle', 'A', 'bogus', 'none' ]
+
+- Expected
++ Received
+
+  [
+-   "circle",
+-   "A",
+-   "bogus",
+-   "none",
++   null,
++   null,
++   null,
++   null,
+  ]
+
+ ❯ tests/unit/render/rc11-clipboard-fidelity.test.ts:82:108
+     80|     const html='<ol><li type="circle"></li></ol><ul type="square"><li …
+     81|     const views=await outputs(clipboard(html));
+     82|     for(const output of views) expect([...output.querySelectorAll('li'…
+       |                                                                                                            ^
+     83|     expect([...views.at(-1)!.querySelectorAll('li')].map(el=>el.getAtt…
+     84|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/10]⎯
+
+ FAIL  tests/unit/render/rc11-clipboard-fidelity.test.ts > Original HTML through clipboard, render, standalone HTML and both print paths > retains per-item marker overrides, resets, nesting and reference text through clipboard
+AssertionError: expected [ [ null, null ], [ null, '3' ], …(2) ] to deeply equal [ [ null, null ], [ 'A', '3' ], …(2) ]
+
+- Expected
++ Received
+
+@@ -2,15 +2,15 @@
+    [
+      null,
+      null,
+    ],
+    [
+-     "A",
++     null,
+      "3",
+    ],
+    [
+-     "I",
++     null,
+      null,
+    ],
+    [
+      null,
+      null,
+
+ ❯ tests/unit/render/rc11-clipboard-fidelity.test.ts:89:21
+     87|     for (const root of await outputs(route==='raw'?list:clipboard(list…
+     88|       const items=Array.from(root.querySelectorAll('li'),li=>[li.getAt…
+     89|       expect(items).toEqual([[null,null],['A','3'],['I',null],[null,nu…
+       |                     ^
+     90|       expect(root.querySelector('p')?.textContent).toBe('Refer to C.');
+     91|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/10]⎯
+
+ FAIL  tests/unit/render/rc11-clipboard-fidelity.test.ts > Original HTML through clipboard, render, standalone HTML and both print paths > blocks changing a per-item marker before export and detects marker changes on later pages
+AssertionError: expected null to be 'A' // Object.is equality
+
+- Expected:
+"A"
+
++ Received:
+null
+
+ ❯ tests/unit/render/rc11-clipboard-fidelity.test.ts:98:41
+     96|     const dom=parse(doc.body.html);
+     97|     const target=dom.querySelectorAll('li')[1]!;
+     98|     expect(target.getAttribute('type')).toBe('A');
+       |                                         ^
+     99|     target.removeAttribute('type');
+    100|     const body={...doc.body,html:dom.body.innerHTML};
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/10]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  10 failed | 2 passed (12)
+   Start at  18:09:32
+   Duration  2.11s (environment 40%, tests 40%, import 13%, transform 7%)
+

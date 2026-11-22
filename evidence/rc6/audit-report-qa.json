@@ -1,0 +1,17 @@
+{
+  "file": "LAPORAN_AUDIT_PAPERFORMA_RC6_20261121.pdf",
+  "sha256": "a04016f1724da469a09a505ace3f546d3005591fb436bfaaa365be70433fdc42",
+  "bytes": 164948,
+  "pages": 6,
+  "a4": true,
+  "text_extracted_all_pages": true,
+  "visual_review": "All 6 pages rendered with pdftoppm at 115 dpi and visually inspected; no clipped text, overlap, or broken table layout. Pages 3, 5, and 6 reinspected after final validation, TOC/emphasis, and portable evidence-reference updates.",
+  "report_type": "ReportLab audit report, not PaperForma native PDF output",
+  "final_validation_included": true,
+  "final_test_counts": {
+    "vitest": 444,
+    "node": 9
+  },
+  "export_example_bytes": 934604,
+  "portable_evidence_paths": true
+}

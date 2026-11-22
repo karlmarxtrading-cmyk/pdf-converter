@@ -1,0 +1,127 @@
+{
+  "tool": "tests/e2e/run-e2e.mjs",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "chrome": "/tmp/chromium",
+  "node": "v24.22.3",
+  "candidateSha256": "daa1c16951f73b6980daa7b4f55e1b7140e0e841b8a15665d81d1edbb49b1705",
+  "distQaTreeSha256": "86e40bf5874369a812ad35893910b9790288c877152635580842415cfb07ff1d",
+  "at": "2026-11-21T19:44:34.277Z",
+  "summary": {
+    "total": 1,
+    "pass": 1,
+    "fail": 0
+  },
+  "results": [
+    {
+      "id": "E33",
+      "matrix": [
+        "MATH-EINSTEIN",
+        "ST-QA-16",
+        "ST-QA-19"
+      ],
+      "title": "Rumus Einstein di HTML ekspor (luring, file://) dan di dokumen cetak/PDF: KaTeX dirender, font KaTeX tersemat, tanpa TeX mentah",
+      "status": "pass",
+      "ms": 2893,
+      "details": {
+        "exportHtml": {
+          "katex": 11,
+          "tex": [
+            "m",
+            "E_0",
+            "\\boxed{E_0=mc^2}",
+            "v",
+            "\\gamma=\\frac{1}{\\sqrt{1-\\frac{v^2}{c^2}}}",
+            "E=\\gamma mc^2",
+            "\\Delta E = \\Delta m\\, c^2",
+            "\\begin{pmatrix} ct' \\\\ x' \\end{pmatrix} = \\begin{pmatrix} \\gamma & -\\gamma\\beta \\\\ -\\gamma\\beta & \\gamma \\end{pmatrix} \\begin{pmatrix} ct \\\\ x \\end{pmatrix}",
+            "\\tau = \\int_{t_1}^{t_2} \\sqrt{1-\\frac{v(t)^2}{c^2}}\\,dt",
+            "E_0=mc^2",
+            "p=\\gamma m v"
+          ],
+          "display": [
+            false,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "raw": [],
+          "katexFonts": [
+            "KaTeX_Main",
+            "KaTeX_Math",
+            "KaTeX_Size1",
+            "KaTeX_Size3"
+          ],
+          "boxed": true
+        },
+        "print": {
+          "pages": 1,
+          "tex": [
+            "m",
+            "E_0",
+            "\\boxed{E_0=mc^2}",
+            "v",
+            "\\gamma=\\frac{1}{\\sqrt{1-\\frac{v^2}{c^2}}}",
+            "E=\\gamma mc^2",
+            "\\Delta E = \\Delta m\\, c^2",
+            "\\begin{pmatrix} ct' \\\\ x' \\end{pmatrix} = \\begin{pmatrix} \\gamma & -\\gamma\\beta \\\\ -\\gamma\\beta & \\gamma \\end{pmatrix} \\begin{pmatrix} ct \\\\ x \\end{pmatrix}",
+            "\\tau = \\int_{t_1}^{t_2} \\sqrt{1-\\frac{v(t)^2}{c^2}}\\,dt",
+            "E_0=mc^2",
+            "p=\\gamma m v"
+          ],
+          "katex": 11,
+          "errors": 0,
+          "display": [
+            false,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        "pages": 1,
+        "pdfPages": 1,
+        "rasterPages": [
+          1
+        ],
+        "orderedProse": {
+          "pass": true,
+          "matched": 11,
+          "total": 11,
+          "mode": "logical",
+          "firstMissing": null
+        },
+        "mathGlyphs": [
+          "γ",
+          "Δ",
+          "β",
+          "∫"
+        ],
+        "pdfKatexFonts": [
+          "KaTeX_Math-Italic",
+          "KaTeX_Main-Regular",
+          "KaTeX_Size3-Regular",
+          "KaTeX_Size1-Regular"
+        ],
+        "pdfRawTex": [],
+        "evidence": [
+          "evidence/math/export-html.png",
+          "evidence/math/pdf-page-1.png",
+          "evidence/math/einstein.chrome.pdf"
+        ]
+      }
+    }
+  ]
+}

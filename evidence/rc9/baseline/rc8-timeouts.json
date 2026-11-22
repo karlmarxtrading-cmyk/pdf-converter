@@ -1,0 +1,47 @@
+{
+  "scope": "FRESH_JS_DOM_FAKE_TIMER_CHARACTERIZATION_NOT_BROWSER_LAYOUT",
+  "source": "src/render/print-client.ts",
+  "cases": [
+    {
+      "id": "active_progress",
+      "totalMs": 180000,
+      "lastProgressMs": 179000,
+      "progressCallbacks": 6,
+      "outcome": {
+        "status": "rejected",
+        "code": "FRAME_TIMEOUT",
+        "message": "Halaman cetak tidak merespons dalam 180000 ms.",
+        "issues": []
+      },
+      "removed": true
+    },
+    {
+      "id": "no_ready_message",
+      "totalMs": 180000,
+      "outcome": {
+        "code": "FRAME_TIMEOUT",
+        "message": "Halaman cetak tidak merespons dalam 180000 ms.",
+        "issues": []
+      },
+      "distinctionFromActiveWork": "none in failure payload"
+    },
+    {
+      "id": "result_before_deadline",
+      "resultMs": 179999,
+      "outcome": "resolved",
+      "preservedFrame": true
+    },
+    {
+      "id": "explicit_timeout_override",
+      "totalMs": 240000,
+      "outcome": "FRAME_TIMEOUT"
+    },
+    {
+      "id": "abort_cleanup",
+      "outcome": "ABORTED",
+      "removedFrame": true,
+      "limit": "Does not measure cancellation latency while browser main thread is blocked."
+    }
+  ],
+  "limit": "No original user document, native PDF or real 180-second browser run is reproduced by this probe."
+}

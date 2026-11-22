@@ -1,0 +1,606 @@
+{
+  "version": "3.0.0-rc.10",
+  "status": "NO_GO",
+  "candidateSha256": "473bb0292bf940a33e7871ab3564bb6e09038c79ba3870298d87e305f1b424cd",
+  "distTreeSha256": "6cca0e1a658eb5a462d14c83c20b66016c5820ce4dfe1eb4c777cb90c4f1535f",
+  "runId": "9a656b4f-0c91-43f7-8c88-094502eb9a2c",
+  "identity": {
+    "candidateSha256": "473bb0292bf940a33e7871ab3564bb6e09038c79ba3870298d87e305f1b424cd",
+    "distTreeSha256": "6cca0e1a658eb5a462d14c83c20b66016c5820ce4dfe1eb4c777cb90c4f1535f",
+    "version": "3.0.0-rc.10",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "1df668d1f1d6f79c67b570e08699407024a1225b2390699625a91da86f7fa804",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "750fa18ec92529e2abfacc30a2126fa79f9f2716ab907d3110e8314ebed54642",
+    "benchmarkHarnessSha256": "3a98d120dd7ee54718895e3b7e39d1a96cfe693c33f383b3c038f27dd7c798aa",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "06885d9ed359f8b4b1520fbdccda92141fcb9b78e8c4c5aee4e2eccc26832849",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "b15716f12528aa8f317a0253b7e1912366cb8983810a65a8c71765b330d45bc6"
+  },
+  "gateCounts": {
+    "PASS": 17,
+    "FAIL": 2,
+    "BLOCKED": 4,
+    "NOT_RUN": 1
+  },
+  "gates": {
+    "G01": {
+      "id": "G01",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G01.json",
+      "observations": [
+        "verified-input-archives",
+        "local-build"
+      ]
+    },
+    "G02": {
+      "id": "G02",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G02.json",
+      "observations": [
+        "local-build"
+      ]
+    },
+    "G03": {
+      "id": "G03",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G03.json",
+      "observations": [
+        "trig-new"
+      ]
+    },
+    "G04": {
+      "id": "G04",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G04-full-retry.json",
+      "observations": [
+        "wrapper-output-directory-retry"
+      ]
+    },
+    "G05": {
+      "id": "G05",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G05.json",
+      "observations": [
+        "integrity-new"
+      ]
+    },
+    "G06": {
+      "id": "G06",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G06.json",
+      "observations": [
+        "integrity-new"
+      ]
+    },
+    "G07": {
+      "id": "G07",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G07.json",
+      "observations": [
+        "pdf-new"
+      ]
+    },
+    "G08": {
+      "id": "G08",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G08.json",
+      "observations": [
+        "pdf-new"
+      ]
+    },
+    "G09": {
+      "id": "G09",
+      "status": "FAIL",
+      "reason": "Empat kohort resmi sudah dijalankan. Pemeriksaan gagal pada node-1.json (small-edit/editedRefreshMs), node-2.json (small-edit/editedRefreshMs), recovery-cohort-1.json (3 lengan gagal, trig/previewMs), recovery-cohort-2.json (trig/previewMs, long/previewMs). Hasil per metrik dan semua sampel tersedia di evidence/rc10/performance/cohort-recount.json."
+    },
+    "G10": {
+      "id": "G10",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G10.json",
+      "observations": [
+        "capacity-final"
+      ]
+    },
+    "G11": {
+      "id": "G11",
+      "status": "PASS",
+      "facts": "evidence/rc10/acceptance/facts/G11.json",
+      "observations": [
+        "aggregate-new"
+      ]
+    },
+    "G12": {
+      "id": "G12",
+      "status": "BLOCKED",
+      "reason": "Clipboard asli dari penyedia yang ditargetkan di Windows belum dapat diukur. Uji Linux lokal tersedia terpisah."
+    },
+    "G13": {
+      "id": "G13",
+      "status": "BLOCKED",
+      "reason": "Dialog Save/Cancel/Retry bersistem operasi dan berkas simpan pengguna tidak tersedia pada perangkat uji. PDF otomatis diukur terpisah."
+    },
+    "G14": {
+      "id": "G14",
+      "status": "BLOCKED",
+      "reason": "Navigasi pembaca layar dengan perangkat bantu pada perangkat sasaran belum dapat diverifikasi."
+    },
+    "G15": {
+      "id": "G15",
+      "status": "NOT_RUN",
+      "reason": "Pemilik memilih ZIP dan pengujian lokal. Tidak ada deployment preview kandidat ini."
+    },
+    "G16": {
+      "id": "G16",
+      "status": "BLOCKED",
+      "reason": "Latihan rollback hosting pada target baik yang dikenal dan persetujuan promosi belum tersedia. Pengujian dilakukan secara lokal."
+    },
+    "U01": {
+      "id": "U01",
+      "status": "PASS",
+      "facts": "evidence/rc10/u-facts/U01.json",
+      "observations": [
+        "book-headings-on",
+        "book-long-table-off",
+        "book-original-default-retry1",
+        "book-paragraphs-off",
+        "book-paragraphs-on",
+        "book-single-paragraph-off"
+      ]
+    },
+    "U02": {
+      "id": "U02",
+      "status": "FAIL",
+      "reason": "Final 217,850-word UI cancellation run exceeded the frozen post-GC retained-heap budget of 8,388,608 bytes at startup-ready (21,335,340 bytes), inventory-reopen (8,710,632 bytes), and geometry (8,733,304 bytes). The verified-pages wait failed. Ten measured large cancellations reached idle within 296 ms; maximum observed consecutive event-loop gap was 887 ms. The 11-stage standard input passed. See lifecycle/large-cancel.json, lifecycle/cancel-stages.json and the lifecycle-large observation."
+    },
+    "U03": {
+      "id": "U03",
+      "status": "PASS",
+      "facts": "evidence/rc10/u-facts/U03.json",
+      "observations": [
+        "trace-browser",
+        "trace-control"
+      ]
+    },
+    "U04": {
+      "id": "U04",
+      "status": "PASS",
+      "facts": "evidence/rc10/u-facts/U04.json",
+      "observations": [
+        "book-headings-on",
+        "book-long-table-off",
+        "book-original-default-retry1",
+        "book-paragraphs-off",
+        "book-paragraphs-on",
+        "book-single-paragraph-off"
+      ]
+    },
+    "U05": {
+      "id": "U05",
+      "status": "PASS",
+      "facts": "evidence/rc10/u-facts/U05.json",
+      "observations": [
+        "book-headings-on",
+        "book-long-table-off",
+        "book-original-default-retry1",
+        "book-paragraphs-off",
+        "book-paragraphs-on",
+        "book-single-paragraph-off",
+        "offline-nav-final",
+        "trig-new"
+      ]
+    },
+    "U06": {
+      "id": "U06",
+      "status": "PASS",
+      "facts": "evidence/rc10/u-facts/U06.json",
+      "observations": [
+        "capacity-validator-control"
+      ]
+    },
+    "U07": {
+      "id": "U07",
+      "status": "PASS",
+      "facts": "evidence/rc10/u-facts/U07.json",
+      "observations": [
+        "interleaved-final"
+      ]
+    },
+    "U08": {
+      "id": "U08",
+      "status": "PASS",
+      "facts": "evidence/rc10/u-facts/U08.json",
+      "observations": [
+        "ordered-lists-final"
+      ]
+    }
+  },
+  "findings": [
+    {
+      "id": "RC9-F01",
+      "title": "Jalur cetak buku dari editor",
+      "status": "VERIFIED",
+      "gates": [
+        "U01",
+        "U04"
+      ],
+      "change": "Cetak buku menyiapkan HTML final, mempertahankan kapitalisasi dan marker serta membuka dialog cetak. PDF fisik dibandingkan dengan sumber.",
+      "evidence": [
+        "evidence/rc10/acceptance/receipts/U01.json",
+        "evidence/rc10/acceptance/receipts/U04.json",
+        "evidence/rc10/u-facts/U01.json",
+        "evidence/rc10/u-facts/U04.json"
+      ]
+    },
+    {
+      "id": "RC9-F02",
+      "title": "Performa terhadap RC6",
+      "status": "IMPLEMENTED_NOT_VERIFIED",
+      "gates": [
+        "G09"
+      ],
+      "change": "Pemakaian kembali DOM yang cocok dengan byte sumber dan optimasi pemeriksaan font. Keputusan dihitung dari empat cohort protokol beku.",
+      "evidence": [
+        "evidence/rc10/acceptance/receipts/G09.json"
+      ]
+    },
+    {
+      "id": "RC9-F03",
+      "title": "Validasi semantik delapan gerbang U",
+      "status": "VERIFIED",
+      "gates": [
+        "G11"
+      ],
+      "change": "Verifier memeriksa fakta per gerbang, asal observasi dan identitas. Agregator memeriksa kedua kelompok dan menyimpan 24 putusan.",
+      "evidence": [
+        "evidence/rc10/acceptance/facts/G11.json",
+        "evidence/rc10/acceptance/observations/aggregate-new.json",
+        "evidence/rc10/acceptance/receipts/G11.json",
+        "evidence/rc10/aggregate-tests/results.json",
+        "evidence/rc10/aggregate-tests/test.log",
+        "evidence/rc10/baseline/rc9-guard.json"
+      ]
+    },
+    {
+      "id": "RC9-F04",
+      "title": "Respons, pembatalan dan pelepasan sumber daya",
+      "status": "IMPLEMENTED_NOT_VERIFIED",
+      "gates": [
+        "U02"
+      ],
+      "change": "Pekerjaan paginasi dipecah, penggunaan frame dibatalkan dan hasil job lama diabaikan. Batas dan pengukuran aktual berada pada bukti lifecycle.",
+      "evidence": [
+        "evidence/rc10/acceptance/receipts/U02.json"
+      ]
+    },
+    {
+      "id": "RC9-F05",
+      "title": "Akuntansi seluruh percobaan dan fase",
+      "status": "VERIFIED",
+      "gates": [
+        "U03"
+      ],
+      "change": "Trace menjumlah percobaan selesai, dibuang atau dibatalkan. Hasil diverifikasi dari event pekerjaan.",
+      "evidence": [
+        "evidence/rc10/acceptance/receipts/U03.json",
+        "evidence/rc10/u-facts/U03.json"
+      ]
+    },
+    {
+      "id": "RC9-F06",
+      "title": "Jenis nomor daftar HTML dan clipboard",
+      "status": "VERIFIED",
+      "gates": [
+        "U08"
+      ],
+      "change": "Oracle menyertakan type, start, reversed, nilai item dan nesting. PDF fisik memperlihatkan marker yang dipakai pembaca.",
+      "evidence": [
+        "evidence/rc10/acceptance/receipts/U08.json",
+        "evidence/rc10/u-facts/U08.json"
+      ]
+    },
+    {
+      "id": "RC9-F07",
+      "title": "Identitas harness dan fixture per kandidat",
+      "status": "VERIFIED",
+      "gates": [
+        "G11"
+      ],
+      "change": "Hash berkas masukan pengujian berubah saat input berubah. File yang diwajibkan harus tersedia.",
+      "evidence": [
+        "evidence/rc10/acceptance/facts/G11.json",
+        "evidence/rc10/acceptance/observations/aggregate-new.json",
+        "evidence/rc10/acceptance/receipts/G11.json",
+        "evidence/rc10/aggregate-tests/results.json",
+        "evidence/rc10/aggregate-tests/test.log",
+        "evidence/rc10/baseline/rc9-guard.json"
+      ]
+    },
+    {
+      "id": "RC9-F08",
+      "title": "Dokumentasi aktif dan perintah reproduksi",
+      "status": "VERIFIED",
+      "gates": [
+        "G01",
+        "G02"
+      ],
+      "change": "README, pengujian, batas, rilis, performa dan panduan Pages mengacu pada RC10. Objek historis memakai nomor versinya.",
+      "evidence": [
+        "evidence/rc10/acceptance/facts/G01.json",
+        "evidence/rc10/acceptance/facts/G02.json",
+        "evidence/rc10/acceptance/receipts/G01.json",
+        "evidence/rc10/acceptance/receipts/G02.json",
+        "evidence/rc10/operations/active-docs.json"
+      ]
+    },
+    {
+      "id": "RC9-F09",
+      "title": "Penerimaan perangkat nyata dan hosting",
+      "status": "BLOCKED",
+      "gates": [
+        "G12",
+        "G13",
+        "G14",
+        "G15",
+        "G16"
+      ],
+      "change": "Uji lokal meliputi Chromium, penyimpanan, cetak otomatis, akses keyboard dan latihan rollback. Status eksternal mengikuti tiap gerbang.",
+      "evidence": [
+        "evidence/rc10/acceptance/receipts/G12.json",
+        "evidence/rc10/acceptance/receipts/G13.json",
+        "evidence/rc10/acceptance/receipts/G14.json",
+        "evidence/rc10/acceptance/receipts/G15.json",
+        "evidence/rc10/acceptance/receipts/G16.json"
+      ]
+    }
+  ],
+  "performance": [
+    {
+      "name": "node-1",
+      "status": "FAIL",
+      "runsIncludingWarmup": 328,
+      "path": "evidence/rc10/performance/node-1.json",
+      "failures": [
+        {
+          "flow": "small-edit",
+          "metric": "editedRefreshMs",
+          "medianRatio": 0.9130983776818794,
+          "p95Ratio": 1.8685193153299653
+        }
+      ],
+      "outputEquivalent": true,
+      "incidentCount": 0
+    },
+    {
+      "name": "node-2",
+      "status": "FAIL",
+      "runsIncludingWarmup": 328,
+      "path": "evidence/rc10/performance/node-2.json",
+      "failures": [
+        {
+          "flow": "small-edit",
+          "metric": "editedRefreshMs",
+          "medianRatio": 0.6197208118617632,
+          "p95Ratio": 1.169169993900798
+        }
+      ],
+      "outputEquivalent": true,
+      "incidentCount": 0
+    },
+    {
+      "name": "recovery-cohort-1",
+      "status": "FAIL",
+      "runsIncludingWarmup": 304,
+      "path": "evidence/rc10/performance/recovery-cohort-1.json",
+      "failures": [
+        {
+          "flow": "trig",
+          "metric": "previewMs",
+          "medianRatio": 1.0510492021958462,
+          "p95Ratio": 1.0601403274306715
+        }
+      ],
+      "outputEquivalent": false,
+      "incidentCount": 3
+    },
+    {
+      "name": "recovery-cohort-2",
+      "status": "FAIL",
+      "runsIncludingWarmup": 300,
+      "path": "evidence/rc10/performance/recovery-cohort-2.json",
+      "failures": [
+        {
+          "flow": "trig",
+          "metric": "previewMs",
+          "medianRatio": 1.0292099143554339,
+          "p95Ratio": 1.1159674736648368
+        },
+        {
+          "flow": "long",
+          "metric": "previewMs",
+          "medianRatio": 0.9507529722574389,
+          "p95Ratio": 1.1240573152337858
+        }
+      ],
+      "outputEquivalent": true,
+      "incidentCount": 0
+    }
+  ],
+  "books": [
+    {
+      "case": "original-default",
+      "sourceSha256": "88901d44a592ead82c757b65f57ce26e5f0003598a7a74064d6921439dbd0454",
+      "htmlSha256": "46fd2a2cd85604693a2ce6f1f941b02df1dbd2cfb69dcd789f4238d649a18fac",
+      "bookHtmlSha256": "ae3e6477ead097a6f3199e13d38a471500502b5a7e7fe76becd66e782222a564",
+      "pdfSha256": "0bbfb23c821f29fb4fd121814004930d5ae2aa2ac762ca42fdd191da1af688f4",
+      "pdfBytes": 11005560,
+      "status": "PASS",
+      "platform": "linux 6.18.57",
+      "browser": "HeadlessChrome/153.0.8010.0"
+    },
+    {
+      "case": "headings-on",
+      "sourceSha256": "a65fea105cf59350cdd0a12f336e5b5d43f3b5378ba4148fb06c8e05778b6043",
+      "htmlSha256": "29937f2662ae2502493d09c336df7079771006b4175106ef8c07db4d17445cad",
+      "bookHtmlSha256": "e9e1bed0324c3c84bf804888d9c8e007ddfce62d0656093f737319a9455f903b",
+      "pdfSha256": "224381837dd12505c6f728a9bd1c8639d7e07087d4a8b03580ee8b86d4be9f22",
+      "pdfBytes": 2507169,
+      "status": "PASS",
+      "platform": "linux 6.18.57",
+      "browser": "HeadlessChrome/153.0.8010.0"
+    },
+    {
+      "case": "long-table-off",
+      "sourceSha256": "dc36b244e653be7c2594261e6849850e03ef875a5be565234057d02f6ca3d620",
+      "htmlSha256": "fdeff545f63db9ac0d277f677544589a24dc10bfd5aacf4c59fff72efa924649",
+      "bookHtmlSha256": "ceb81d07b3273d2f55e455d20de6e953ea9a7c231068a30f3ecce9a14ca7949b",
+      "pdfSha256": "0a183e2f0dca35577e3df3428db995d376adf0fd47d1d8ffa30ea06c202031eb",
+      "pdfBytes": 2352735,
+      "status": "PASS",
+      "platform": "linux 6.18.57",
+      "browser": "HeadlessChrome/153.0.8010.0"
+    },
+    {
+      "case": "paragraphs-off",
+      "sourceSha256": "7ae082466becd7b1776b354a2abf28d0a7947108613f8f1a2fc813e3df3454b6",
+      "htmlSha256": "989e40cefe47913c9d55de866adb855e0475fb39c6954f4f9af9ebf74bf17052",
+      "bookHtmlSha256": "9743466a63bf0f519c2a5172f80c4fff315615346339a233649754f529ca9004",
+      "pdfSha256": "731a802904436780219441a8d723faf9ee123ed7afad122c17a8d5b0e74c38ac",
+      "pdfBytes": 2477831,
+      "status": "PASS",
+      "platform": "linux 6.18.57",
+      "browser": "HeadlessChrome/153.0.8010.0"
+    },
+    {
+      "case": "paragraphs-on",
+      "sourceSha256": "7ae082466becd7b1776b354a2abf28d0a7947108613f8f1a2fc813e3df3454b6",
+      "htmlSha256": "e3afc2f58ea4580215c5acd88520e7ad580c11f5f91cfc9b1820560a57f54361",
+      "bookHtmlSha256": "951adc93b4b38829e95feebfd20cbc708c65f7b0c556b0faaa38820bda644c59",
+      "pdfSha256": "afc66f0eb543d2e1460c7111c0cf85f820b0e17fae7cfe18c7b4868b2e4dffc1",
+      "pdfBytes": 2477831,
+      "status": "PASS",
+      "platform": "linux 6.18.57",
+      "browser": "HeadlessChrome/153.0.8010.0"
+    },
+    {
+      "case": "single-paragraph-off",
+      "sourceSha256": "b3a64a1dedd54b8e250f0bf4dcbf2121196fb27b54e6b72f40d21171d4e0f812",
+      "htmlSha256": "6ad662f9ed6763ed1bf43aa38e28e8b364c46daa9b3f361343c7021c1943e334",
+      "bookHtmlSha256": "a59b902a69852190a7aae0b3a487f8837a01cab066b85631da0cd6df0ed4a227",
+      "pdfSha256": "793df5b195ee8e00e90928f05ad07c982122ab15b97131c2056ade2ca3c926fe",
+      "pdfBytes": 2224806,
+      "status": "PASS",
+      "platform": "linux 6.18.57",
+      "browser": "HeadlessChrome/153.0.8010.0"
+    }
+  ],
+  "inputs": "evidence/rc10/input/identity.json",
+  "localOnly": true,
+  "privateContentInPackage": false,
+  "legacyA01toA09": {
+    "A01": {
+      "gates": [
+        "G04"
+      ],
+      "currentGateStatus": {
+        "G04": "PASS"
+      },
+      "status": "VERIFIED"
+    },
+    "A02": {
+      "gates": [
+        "G05"
+      ],
+      "currentGateStatus": {
+        "G05": "PASS"
+      },
+      "status": "VERIFIED"
+    },
+    "A03": {
+      "gates": [
+        "G06"
+      ],
+      "currentGateStatus": {
+        "G06": "PASS"
+      },
+      "status": "VERIFIED"
+    },
+    "A04": {
+      "gates": [
+        "G09"
+      ],
+      "currentGateStatus": {
+        "G09": "FAIL"
+      },
+      "status": "IMPLEMENTED_NOT_VERIFIED"
+    },
+    "A05": {
+      "gates": [
+        "G11"
+      ],
+      "currentGateStatus": {
+        "G11": "PASS"
+      },
+      "status": "VERIFIED",
+      "currentExtendedControls": {
+        "F03": "VERIFIED",
+        "F07": "VERIFIED"
+      }
+    },
+    "A06": {
+      "gates": [
+        "G07",
+        "U04"
+      ],
+      "currentGateStatus": {
+        "G07": "PASS",
+        "U04": "PASS"
+      },
+      "status": "VERIFIED"
+    },
+    "A07": {
+      "gates": [
+        "G08"
+      ],
+      "currentGateStatus": {
+        "G08": "PASS"
+      },
+      "status": "VERIFIED"
+    },
+    "A08": {
+      "gates": [
+        "G10"
+      ],
+      "currentGateStatus": {
+        "G10": "PASS"
+      },
+      "status": "VERIFIED"
+    },
+    "A09": {
+      "gates": [
+        "G12",
+        "G13",
+        "G14",
+        "G15",
+        "G16"
+      ],
+      "currentGateStatus": {
+        "G12": "BLOCKED",
+        "G13": "BLOCKED",
+        "G14": "BLOCKED",
+        "G15": "NOT_RUN",
+        "G16": "BLOCKED"
+      },
+      "status": "BLOCKED"
+    }
+  },
+  "bookAttemptHistory": {
+    "prior": "evidence/rc10/book-history/original-default-first.json",
+    "diagnosis": "evidence/rc10/book-history/original-default-first-diagnosis.json",
+    "detachedPhysical": "evidence/rc10/book-history/original-default-first-physical.json",
+    "final": "evidence/rc10/book/original-default.json"
+  }
+}

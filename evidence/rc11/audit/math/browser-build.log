@@ -1,0 +1,190 @@
+vite v7.3.8 building client environment for production...
+transforming...
+✓ 2429 modules transformed.
+rendering chunks...
+[plugin vite:reporter] 
+(!) /workspace/scratch/c635819e0476/candidate/src/core/tex-renderer.ts is dynamically imported by /workspace/scratch/c635819e0476/candidate/src/core/render.ts, /workspace/scratch/c635819e0476/candidate/src/render/final-integrity.ts but also statically imported by /workspace/scratch/c635819e0476/candidate/src/core/integrity.ts, /workspace/scratch/c635819e0476/candidate/src/core/math.ts, dynamic import will not move module into another chunk.
+
+[plugin vite:reporter] 
+(!) /workspace/scratch/c635819e0476/candidate/node_modules/diff/libesm/index.js is dynamically imported by /workspace/scratch/c635819e0476/candidate/src/ui/review-diff.ts but also statically imported by /workspace/scratch/c635819e0476/candidate/src/core/wrapper.ts, dynamic import will not move module into another chunk.
+
+computing gzip size...
+../math-browser-dist/src/render/mermaid-frame.html                                     0.34 kB │ gzip:   0.24 kB
+../math-browser-dist/print.html                                                        1.09 kB │ gzip:   0.62 kB
+../math-browser-dist/assets/jetbrains-mono-cyrillic-ext-400-normal-C_uLvvQ5.woff2      1.16 kB
+../math-browser-dist/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2                         3.62 kB
+../math-browser-dist/assets/jetbrains-mono-vietnamese-400-normal-ByoDsISC.woff2        3.92 kB
+../math-browser-dist/assets/jetbrains-mono-greek-400-normal-C190GLew.woff2             4.23 kB
+../math-browser-dist/assets/KaTeX_Size4-Regular-Dl5lxZxV.woff2                         4.93 kB
+../math-browser-dist/assets/inter-vietnamese-400-normal-DMkecbls.woff2                 4.97 kB
+../math-browser-dist/assets/inter-vietnamese-600-normal-Cc8MFFhd.woff2                 5.10 kB
+../math-browser-dist/assets/inter-vietnamese-700-normal-DlLaEgI2.woff2                 5.10 kB
+../math-browser-dist/assets/inter-vietnamese-400-italic-Ceaj4WUo.woff2                 5.13 kB
+../math-browser-dist/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2                         5.21 kB
+../math-browser-dist/assets/inter-greek-ext-400-normal-DGGRlc-M.woff2                  5.26 kB
+../math-browser-dist/assets/inter-vietnamese-700-italic-BbJv01XC.woff2                 5.31 kB
+../math-browser-dist/assets/jetbrains-mono-cyrillic-400-normal-BEIGL1Tu.woff2          5.33 kB
+../math-browser-dist/assets/inter-vietnamese-600-italic-BuG6-S9s.woff2                 5.38 kB
+../math-browser-dist/assets/inter-greek-ext-600-normal-DRtmH8MT.woff2                  5.43 kB
+../math-browser-dist/assets/inter-greek-ext-700-normal-qfdV9bQt.woff2                  5.44 kB
+../math-browser-dist/assets/KaTeX_Size1-Regular-mCD8mA8B.woff2                         5.47 kB
+../math-browser-dist/assets/inter-greek-ext-400-italic-DgljI1UR.woff2                  5.53 kB
+../math-browser-dist/assets/inter-greek-ext-700-italic-5m0CTrl1.woff2                  5.74 kB
+../math-browser-dist/assets/inter-greek-ext-600-italic-BxS-O1qG.woff2                  5.76 kB
+../math-browser-dist/assets/source-serif-4-vietnamese-400-normal-DFDfvBrN.woff2        6.30 kB
+../math-browser-dist/assets/source-serif-4-vietnamese-400-italic-B7_QYl3c.woff2        6.36 kB
+../math-browser-dist/assets/source-serif-4-vietnamese-600-normal-B33FcZBi.woff2        6.37 kB
+../math-browser-dist/assets/source-serif-4-vietnamese-700-normal-CAL-i-xy.woff2        6.41 kB
+../math-browser-dist/assets/source-serif-4-vietnamese-700-italic-CVnjuq9C.woff2        6.52 kB
+../math-browser-dist/assets/source-serif-4-vietnamese-600-italic-CH0yWcxH.woff2        6.54 kB
+../math-browser-dist/assets/KaTeX_Caligraphic-Regular-Di6jR-x-.woff2                   6.91 kB
+../math-browser-dist/assets/KaTeX_Caligraphic-Bold-Dq_IR9rO.woff2                      6.91 kB
+../math-browser-dist/assets/source-serif-4-cyrillic-ext-400-normal-CWV284fw.woff2      7.15 kB
+../math-browser-dist/assets/source-serif-4-cyrillic-ext-400-italic-zoDFlEzN.woff2      7.28 kB
+../math-browser-dist/assets/source-serif-4-cyrillic-ext-600-normal-D_E8FDgP.woff2      7.29 kB
+../math-browser-dist/assets/jetbrains-mono-latin-ext-400-normal-Bc8Ftmh3.woff2         7.34 kB
+../math-browser-dist/assets/source-serif-4-cyrillic-ext-700-normal-B9R79AaY.woff2      7.45 kB
+../math-browser-dist/assets/source-serif-4-cyrillic-ext-700-italic-BdFI3uD2.woff2      7.53 kB
+../math-browser-dist/assets/source-serif-4-cyrillic-ext-600-italic-Cezqx4eN.woff2      7.57 kB
+../math-browser-dist/assets/inter-cyrillic-400-normal-obahsSVq.woff2                   7.71 kB
+../math-browser-dist/assets/inter-greek-400-normal-B4URO6DV.woff2                      7.78 kB
+../math-browser-dist/assets/inter-cyrillic-700-normal-CjBOestx.woff2                   7.90 kB
+../math-browser-dist/assets/inter-greek-700-normal-C3JjAnD8.woff2                      7.92 kB
+../math-browser-dist/assets/source-serif-4-greek-400-normal-Cw5-AHNN.woff2             7.92 kB
+../math-browser-dist/assets/inter-greek-600-normal-plRanbMR.woff2                      7.94 kB
+../math-browser-dist/assets/inter-cyrillic-600-normal-CWCymEST.woff2                   7.97 kB
+../math-browser-dist/assets/source-serif-4-greek-600-normal-DdRkKr-1.woff2             8.13 kB
+../math-browser-dist/assets/inter-cyrillic-400-italic-CIUtULAL.woff2                   8.22 kB
+../math-browser-dist/assets/source-serif-4-greek-400-italic-C7D4Dq0H.woff2             8.24 kB
+../math-browser-dist/assets/source-serif-4-greek-700-normal-BzuEQSqJ.woff2             8.41 kB
+../math-browser-dist/assets/inter-cyrillic-700-italic-Ppu1tTPz.woff2                   8.43 kB
+../math-browser-dist/assets/inter-greek-400-italic-SVIaMW7s.woff2                      8.44 kB
+../math-browser-dist/assets/source-serif-4-greek-600-italic-BCtDz1WS.woff2             8.47 kB
+../math-browser-dist/assets/inter-cyrillic-600-italic-BMNGqOVE.woff2                   8.48 kB
+../math-browser-dist/assets/source-serif-4-greek-700-italic-DbF55r_P.woff2             8.51 kB
+../math-browser-dist/assets/inter-greek-600-italic-MPI_Frmw.woff2                      8.62 kB
+../math-browser-dist/assets/inter-greek-700-italic-D5vwbaZX.woff2                      8.64 kB
+../math-browser-dist/assets/KaTeX_Script-Regular-D3wIWfF6.woff2                        9.64 kB
+../math-browser-dist/assets/inter-cyrillic-ext-400-normal-BQZuk6qB.woff2              10.23 kB
+../math-browser-dist/assets/KaTeX_SansSerif-Regular-DDBCnlJ7.woff2                    10.34 kB
+../math-browser-dist/assets/inter-cyrillic-ext-600-normal-Dfes3d0z.woff2              10.48 kB
+../math-browser-dist/assets/inter-cyrillic-ext-700-normal-BjwYoWNd.woff2              10.50 kB
+../math-browser-dist/assets/inter-cyrillic-ext-400-italic-CsfrDhJx.woff2              10.80 kB
+../math-browser-dist/assets/inter-cyrillic-ext-600-italic-La-to8Sa.woff2              11.10 kB
+../math-browser-dist/assets/inter-cyrillic-ext-700-italic-GPRkb3xU.woff2              11.11 kB
+../math-browser-dist/assets/KaTeX_Fraktur-Regular-CTYiF6lA.woff2                      11.32 kB
+../math-browser-dist/assets/KaTeX_Fraktur-Bold-CL6g_b3V.woff2                         11.35 kB
+../math-browser-dist/assets/KaTeX_SansSerif-Italic-C3H0VqGB.woff2                     12.03 kB
+../math-browser-dist/assets/KaTeX_SansSerif-Bold-D1sUS0GD.woff2                       12.22 kB
+../math-browser-dist/assets/KaTeX_Typewriter-Regular-CO6r4hn1.woff2                   13.57 kB
+../math-browser-dist/assets/source-serif-4-cyrillic-400-italic-BLN19cOa.woff2         13.75 kB
+../math-browser-dist/assets/source-serif-4-cyrillic-400-normal-C44pakCn.woff2         14.17 kB
+../math-browser-dist/assets/source-serif-4-cyrillic-600-italic-Bbpc5VXY.woff2         14.31 kB
+../math-browser-dist/assets/source-serif-4-cyrillic-700-italic-C5vSpb1a.woff2         14.35 kB
+../math-browser-dist/assets/source-serif-4-cyrillic-600-normal-BDP5YDHD.woff2         14.78 kB
+../math-browser-dist/assets/source-serif-4-cyrillic-700-normal-BmBwwUw2.woff2         14.86 kB
+../math-browser-dist/assets/KaTeX_Math-BoldItalic-CZnvNsCZ.woff2                      16.40 kB
+../math-browser-dist/assets/KaTeX_Math-Italic-t53AETM-.woff2                          16.44 kB
+../math-browser-dist/assets/KaTeX_Main-BoldItalic-DxDJ3AOS.woff2                      16.78 kB
+../math-browser-dist/assets/KaTeX_Main-Italic-NWA7e6Wa.woff2                          16.99 kB
+../math-browser-dist/assets/source-serif-4-latin-ext-400-normal-B5LksYz5.woff2        17.84 kB
+../math-browser-dist/assets/source-serif-4-latin-ext-600-normal-pa-C5Dkf.woff2        18.33 kB
+../math-browser-dist/assets/source-serif-4-latin-ext-400-italic-Cj8BerOQ.woff2        18.45 kB
+../math-browser-dist/assets/source-serif-4-latin-ext-700-normal-D0Q30MFM.woff2        18.47 kB
+../math-browser-dist/assets/source-serif-4-latin-ext-600-italic-BjDfKlFY.woff2        19.06 kB
+../math-browser-dist/assets/source-serif-4-latin-ext-700-italic-BD-KcGtX.woff2        19.16 kB
+../math-browser-dist/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2            20.09 kB
+../math-browser-dist/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2            20.09 kB
+../math-browser-dist/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2            21.17 kB
+../math-browser-dist/assets/source-serif-4-latin-700-italic-JqVfbRzb.woff2            21.48 kB
+../math-browser-dist/assets/source-serif-4-latin-600-normal-DouSKlru.woff2            21.53 kB
+../math-browser-dist/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2            21.59 kB
+../math-browser-dist/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2            21.72 kB
+../math-browser-dist/assets/inter-latin-400-normal-C38fXH4l.woff2                     23.66 kB
+../math-browser-dist/assets/inter-latin-700-normal-Yt3aPRUw.woff2                     24.36 kB
+../math-browser-dist/assets/inter-latin-600-normal-LgqL8muc.woff2                     24.45 kB
+../math-browser-dist/assets/inter-latin-400-italic-D1l0FflY.woff2                     25.04 kB
+../math-browser-dist/assets/KaTeX_Main-Bold-Cx986IdX.woff2                            25.32 kB
+../math-browser-dist/assets/inter-latin-600-italic-BJYrns_i.woff2                     25.81 kB
+../math-browser-dist/assets/inter-latin-700-italic-BsEzapPQ.woff2                     25.87 kB
+../math-browser-dist/assets/KaTeX_Main-Regular-B22Nviop.woff2                         26.27 kB
+../math-browser-dist/assets/KaTeX_AMS-Regular-BQhdFMY1.woff2                          28.08 kB
+../math-browser-dist/index.html                                                       32.79 kB │ gzip:   6.64 kB
+../math-browser-dist/assets/inter-latin-ext-400-normal-C1nco2VV.woff2                 35.00 kB
+../math-browser-dist/assets/inter-latin-ext-700-normal-Ca8adRJv.woff2                 36.24 kB
+../math-browser-dist/assets/inter-latin-ext-600-normal-D2bJ5OIk.woff2                 36.26 kB
+../math-browser-dist/assets/inter-latin-ext-400-italic-CGFCRmTM.woff2                 37.59 kB
+../math-browser-dist/assets/inter-latin-ext-600-italic-4pxPPAsx.woff2                 38.97 kB
+../math-browser-dist/assets/inter-latin-ext-700-italic-DtYkv-XI.woff2                 39.07 kB
+../math-browser-dist/assets/tex-renderer-CQV-53S6.js                                 262.29 kB
+../math-browser-dist/assets/noto-emoji-emoji-400-normal-D-RYmxYa.woff2               476.39 kB
+../math-browser-dist/assets/engine.worker-5MSRMqu4.js                                669.50 kB
+../math-browser-dist/assets/main-uujfRWOt.css                                         23.41 kB │ gzip:   5.79 kB
+../math-browser-dist/assets/chunk-2Q5K7J3B-U-UvySKW.js                                 0.20 kB │ gzip:   0.16 kB
+../math-browser-dist/assets/chunk-JWPE2WC7-BtSeTQfe.js                                 0.23 kB │ gzip:   0.17 kB
+../math-browser-dist/assets/chunk-XXDRQBXY-BMjBflQh.js                                 0.23 kB │ gzip:   0.21 kB
+../math-browser-dist/assets/_commonjsHelpers-Cpj98o6Y.js                               0.24 kB │ gzip:   0.18 kB
+../math-browser-dist/assets/chunk-5VM5RSS4-Bjfwcswq.js                                 0.37 kB │ gzip:   0.27 kB
+../math-browser-dist/assets/chunk-TU62E6Q5-jbI0-lbW.js                                 0.51 kB │ gzip:   0.36 kB
+../math-browser-dist/assets/swimlanesDiagram-OMPLPG4O-Ble_1Yyk.js                      0.59 kB │ gzip:   0.40 kB
+../math-browser-dist/assets/infoDiagram-KBXO4MBG-3Zj9hr0n.js                           0.66 kB │ gzip:   0.45 kB
+../math-browser-dist/assets/sizeCapture-INFHLROL-2aDtpBw3.js                           1.02 kB │ gzip:   0.57 kB
+../math-browser-dist/assets/diagram-8nhGTrMz.js                                        1.02 kB │ gzip:   0.63 kB
+../math-browser-dist/assets/railroadDiagram-MRQ6NCDL-DSZ4pVNs.js                       1.69 kB │ gzip:   0.80 kB
+../math-browser-dist/assets/preload-helper-DD1OZmLC.js                                 1.82 kB │ gzip:   0.93 kB
+../math-browser-dist/assets/chunk-HFQBQIA3-QInOfDcL.js                                 1.88 kB │ gzip:   0.83 kB
+../math-browser-dist/assets/abnfDiagram-S7VZAUFO-DFNjt5bk.js                           1.89 kB │ gzip:   0.93 kB
+../math-browser-dist/assets/pegDiagram-FD4XPPHP-B9AojDjb.js                            2.04 kB │ gzip:   0.97 kB
+../math-browser-dist/assets/ebnfDiagram-UZSYDL2S-9uSJxoHm.js                           2.09 kB │ gzip:   0.92 kB
+../math-browser-dist/assets/diagram-DNEMPZML-DVAEffKa.js                               4.36 kB │ gzip:   1.93 kB
+../math-browser-dist/assets/pieDiagram-J4AKIIQI-BkDi80Ie.js                            5.17 kB │ gzip:   2.21 kB
+../math-browser-dist/assets/bpmnIcons-APHXDYXF-ByGoYv9M.js                             5.21 kB │ gzip:   1.16 kB
+../math-browser-dist/assets/chunk-KS47KZWR-BeHPqu3z.js                                 5.60 kB │ gzip:   2.59 kB
+../math-browser-dist/assets/diagram-L3MUGCDN-BCEWmwea.js                               6.16 kB │ gzip:   2.67 kB
+../math-browser-dist/assets/diagram-XPFHEONP-CqPuCMT6.js                               8.30 kB │ gzip:   3.72 kB
+../math-browser-dist/assets/cynefinDiagram-L36ESFBY-CyCTxh-V.js                       10.18 kB │ gzip:   3.68 kB
+../math-browser-dist/assets/chunk-KQLB2F66-BvrePvr1.js                                10.46 kB │ gzip:   4.34 kB
+../math-browser-dist/assets/diagram-MHCOC4E2-BpD5SMTZ.js                              11.07 kB │ gzip:   4.32 kB
+../math-browser-dist/assets/paginate-error-CahJxry1.js                                13.07 kB │ gzip:   5.50 kB
+../math-browser-dist/assets/font-assets-Dn-Mr6mI.js                                   15.13 kB │ gzip:   2.67 kB
+../math-browser-dist/assets/chunk-OY52VR5R-BquC7vZe.js                                15.73 kB │ gzip:   4.40 kB
+../math-browser-dist/assets/diagram-LA4NIPWU-LWXSPn0h.js                              16.38 kB │ gzip:   5.86 kB
+../math-browser-dist/assets/ishikawaDiagram-M35NCXHK-BpDEP50X.js                      17.55 kB │ gzip:   6.70 kB
+../math-browser-dist/assets/kanban-definition-BZKZHSQY-Bmd9iUVT.js                    20.38 kB │ gzip:   7.26 kB
+../math-browser-dist/assets/mindmap-definition-I2QAS2VK-BzuOfuI2.js                   22.84 kB │ gzip:   7.65 kB
+../math-browser-dist/assets/journeyDiagram-OPLOXDXO-Db5vhdmq.js                       23.62 kB │ gzip:   8.38 kB
+../math-browser-dist/assets/graph-D8UmR1vK.js                                         23.89 kB │ gzip:   8.30 kB
+../math-browser-dist/assets/katex.min-DDtwLco6.js                                     24.83 kB │ gzip:   3.65 kB
+../math-browser-dist/assets/wardleyDiagram-S7YFUSEH-CxYgcVxz.js                       25.58 kB │ gzip:   6.84 kB
+../math-browser-dist/assets/gitGraphDiagram-STJD7YCW-BZ79jI_H.js                      29.50 kB │ gzip:   8.74 kB
+../math-browser-dist/assets/purify.es-TiGaGjtc.js                                     29.62 kB │ gzip:  11.48 kB
+../math-browser-dist/assets/erDiagram-EYBAPDEH-CtOFgS6q.js                            30.76 kB │ gzip:  10.60 kB
+../math-browser-dist/assets/timeline-definition-SEUHKTQE-BKePVBLK.js                  30.94 kB │ gzip:  10.22 kB
+../math-browser-dist/assets/requirementDiagram-Y7LWUY3S-CbH855Hp.js                   31.12 kB │ gzip:   9.82 kB
+../math-browser-dist/assets/quadrantDiagram-XTYBLID2-BQ44J18Y.js                      34.03 kB │ gzip:   9.98 kB
+../math-browser-dist/assets/sankeyDiagram-WGJFYUXA-DO5FeakH.js                        40.00 kB │ gzip:  15.15 kB
+../math-browser-dist/assets/d3-scale-4DPf7zan.js                                      41.33 kB │ gzip:  15.14 kB
+../math-browser-dist/assets/stateDiagram-v2-FJ4FJNEA-DhbWre_G.js                      41.84 kB │ gzip:  14.03 kB
+../math-browser-dist/assets/vennDiagram-NNMJR3RB-v6t8u2FV.js                          42.07 kB │ gzip:  15.75 kB
+../math-browser-dist/assets/blockDiagram-APKKGZFW-DxWY8F8t.js                         42.76 kB │ gzip:  14.10 kB
+../math-browser-dist/assets/xychartDiagram-GGNKY7IX-DqEcuFEC.js                       43.58 kB │ gzip:  12.15 kB
+../math-browser-dist/assets/dagre-SPEB5RXH-BAJ_8vcH.js                                46.20 kB │ gzip:  16.51 kB
+../math-browser-dist/assets/classDiagram-v2-L25IHNXF-EMfpw8vf.js                      49.95 kB │ gzip:  16.08 kB
+../math-browser-dist/assets/print-Dq7bfulM.js                                         50.01 kB │ gzip:  17.54 kB
+../math-browser-dist/assets/ganttDiagram-23REXITY-CdbVoSPO.js                         53.24 kB │ gzip:  18.34 kB
+../math-browser-dist/assets/flowDiagram-MALGAFMO-Db9LcgGS.js                          65.05 kB │ gzip:  20.99 kB
+../math-browser-dist/assets/c4Diagram-KJ2TOQU5-BXphjHf1.js                            65.89 kB │ gzip:  18.93 kB
+../math-browser-dist/assets/diagram-3B7GL73J-Dc86QByF.js                              81.19 kB │ gzip:  25.19 kB
+../math-browser-dist/assets/cose-bilkent-JH36ORCC-DF0SUoKP.js                         81.78 kB │ gzip:  22.52 kB
+../math-browser-dist/assets/sequenceDiagram-5NDRBG5M-Bhf2Kru_.js                     119.00 kB │ gzip:  32.03 kB
+../math-browser-dist/assets/swimlanes-UMQ2AFYF-CE2fnz61.js                           123.36 kB │ gzip:  45.43 kB
+../math-browser-dist/assets/architectureDiagram-YGSQEFNW-Cgqaq5hG.js                 151.91 kB │ gzip:  43.18 kB
+../math-browser-dist/assets/usecaseDiagram-AFA6YXN4-OS4Z4UDL.js                      189.97 kB │ gzip:  50.73 kB
+../math-browser-dist/assets/katex-C-g2SbSj.js                                        262.06 kB │ gzip:  77.95 kB
+../math-browser-dist/assets/cytoscape.esm-BHa1VTXv.js                                450.32 kB │ gzip: 144.03 kB
+../math-browser-dist/assets/src-DAW3wOpX.js                                          512.42 kB │ gzip: 103.40 kB
+../math-browser-dist/assets/mermaid.core-VgZke8WG.js                                 639.68 kB │ gzip: 152.65 kB
+../math-browser-dist/assets/cynefin-EF2NZ3EQ-D2oTtVRS.js                             653.75 kB │ gzip: 136.53 kB
+../math-browser-dist/assets/main-CE9DvwXY.js                                       1,087.80 kB │ gzip: 349.63 kB
+../math-browser-dist/assets/elk-XV6XMXQE-LLw4wLAO.js                               1,513.08 kB │ gzip: 463.63 kB
+✓ built in 33.33s

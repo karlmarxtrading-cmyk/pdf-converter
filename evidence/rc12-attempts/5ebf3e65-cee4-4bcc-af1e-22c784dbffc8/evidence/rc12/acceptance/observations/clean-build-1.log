@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/c635819e0476/rc12-work/app/scripts/verify-local-bundle.py", line 34, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/scratch/c635819e0476/rc12-work/app/scripts/verify-local-bundle.py", line 23, in main
+    clean=run('clean-build',[sys.executable,'scripts/verify-archive.py',str(archive),*(['--offline'] if os.environ.get('PF_OFFLINE')=='1' else [])])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/c635819e0476/rc12-work/app/scripts/verify-local-bundle.py", line 15, in run
+    if p.returncode:raise RuntimeError(f'{name} failed with {p.returncode}, see {log.name}')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: clean-build failed with 1, see /workspace/scratch/c635819e0476/rc12-work/app/evidence/rc12/build-tests/clean-build.log

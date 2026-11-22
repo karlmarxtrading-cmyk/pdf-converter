@@ -1,0 +1,40 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> paperforma@3.0.0-rc.12 test:acceptance
+> node --test tests/scripts/release-acceptance.test.mjs tests/scripts/large-acceptance.test.mjs tests/scripts/trace-acceptance.test.mjs
+
+✔ U01 and U04 reject failed one-shot, external assembly, partial and stale production artifacts with coherent hashes (4.69468ms)
+✔ one failed JSON cannot satisfy any of eight claimed PASS rows; aggregate always reports 24 dispositions (8.235042ms)
+✔ U06 positive capacity control, repeated observation and altered heap after coherently rebinding (2.241157ms)
+✔ U07 independent A/B TeX, modes and eighteen same-count mutations (0.842374ms)
+✔ U08 reopens physical ordered markers and both HTML routes; rebound empty PDF label and native paste discrepancy reject (975.308813ms)
+✔ U05 full offline control and same-digest rebound mutations of source text, requests and link counts (4604.85256ms)
+▶ one synthetic release, real files and processes, mutation rejection
+  ✔ all sixteen complete synthetic controls yield exit 0 (1294.383335ms)
+  ✔ three attached input mutations invalidate sealed receipts and recording (467.201138ms)
+  ✔ U06 positive, fully rebound invalid raw capacity, stale run and aggregate after G FAIL (4549.421415ms)
+  ✔ six capacity contradictions fail after receipt rebinding and at record time (8292.503937ms)
+  ✔ median mutation rejects promotion even with coherent byte hashes (1290.52848ms)
+  ✔ p95 mutation rejects, but one slow sample alone does not (2616.890861ms)
+  ✔ one modified production byte rejects before any receipt (97.265836ms)
+  ✔ operator mutation at constant formula count fails independent HTML oracle (688.028807ms)
+  ✔ missing receipt rejects promotion (1107.970331ms)
+  ✔ old run ID rejects otherwise identical receipt (1172.250005ms)
+  ✔ short cohort rejects promotion (1192.674532ms)
+  ✔ changed immutable browser driver or procedure rejects before any receipt (188.039129ms)
+  ✔ forged driver identity and dropped failed block reject even after rebinding evidence (6264.441996ms)
+  ✔ native-save BLOCKED blocks production (1484.48994ms)
+  ✔ failed check, altered evidence and missing observations each reject (1430.950332ms)
+✔ one synthetic release, real files and processes, mutation rejection (38967.058937ms)
+✔ wrong AB order, missing warmup, or mismatched same-count formula oracle cannot pass (2.094599ms)
+✔ each flow requires ten consecutive four-pair blocks with paired, equivalent warmups (10.402528ms)
+✔ reconstructs invocation, logical pass, repair and interrupted phase accounting (27.196416ms)
+✔ rejects lifecycle overruns and missing observations even when the caller reports success (2.032346ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 39263.243333

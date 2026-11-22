@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "runId": "862feb27-d188-4f90-a381-c64533c2f220",
+  "name": "ordered-lists-final",
+  "before": {
+    "candidateSha256": "774465b21054bfd933b869ea7232d3d59ff8e1fa0422a8d83b18208b08b6abd6",
+    "distTreeSha256": "b2351cef15853b432dbe1fa9c02d0537308cc778a16fdbec551e2e243b9caefd",
+    "version": "3.0.0-rc.10",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "1df668d1f1d6f79c67b570e08699407024a1225b2390699625a91da86f7fa804",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "4174ba10ebe96eda2bf081cda816439c216555d72aacb9bdda6d8fe427a2bdba",
+    "benchmarkHarnessSha256": "3a98d120dd7ee54718895e3b7e39d1a96cfe693c33f383b3c038f27dd7c798aa",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "6156911386e12f5020f93453e496ae85026e4f8a26a594660cb7ca907d87b667",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "b15716f12528aa8f317a0253b7e1912366cb8983810a65a8c71765b330d45bc6"
+  },
+  "after": {
+    "candidateSha256": "774465b21054bfd933b869ea7232d3d59ff8e1fa0422a8d83b18208b08b6abd6",
+    "distTreeSha256": "b2351cef15853b432dbe1fa9c02d0537308cc778a16fdbec551e2e243b9caefd",
+    "version": "3.0.0-rc.10",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "1df668d1f1d6f79c67b570e08699407024a1225b2390699625a91da86f7fa804",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "4174ba10ebe96eda2bf081cda816439c216555d72aacb9bdda6d8fe427a2bdba",
+    "benchmarkHarnessSha256": "3a98d120dd7ee54718895e3b7e39d1a96cfe693c33f383b3c038f27dd7c798aa",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "6156911386e12f5020f93453e496ae85026e4f8a26a594660cb7ca907d87b667",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "b15716f12528aa8f317a0253b7e1912366cb8983810a65a8c71765b330d45bc6"
+  },
+  "started": "2026-11-22T01:40:44.882Z",
+  "ended": "2026-11-22T01:40:49.393Z",
+  "environment": {
+    "platform": "linux",
+    "osRelease": "6.18.57",
+    "arch": "x64",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "logicalCpuCount": 9,
+    "node": "v24.22.3",
+    "nodeExecutableSha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+  },
+  "command": [
+    "node",
+    "tests/e2e/ordered-list-proof.mjs"
+  ],
+  "executable": {
+    "name": "node",
+    "sha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+  },
+  "commandFiles": {
+    "tests/e2e/ordered-list-proof.mjs": "2dfbabb7a9364635f47606ea0576861a0608e6569c6e7135ff31939db1e5f715"
+  },
+  "projectInputs": {
+    "tests/e2e/ordered-list-proof.mjs": "2dfbabb7a9364635f47606ea0576861a0608e6569c6e7135ff31939db1e5f715"
+  },
+  "log": "evidence/rc10/acceptance/observations/ordered-lists-final.log",
+  "logSha256": "9d80959f24675dd709aae1dccd59b216e2ed12d9e552755b7873729b1fea7b1a",
+  "exitCode": 0,
+  "signal": null,
+  "failures": [],
+  "artifacts": {
+    "evidence/rc10/ordered-lists/clipboard/markers.pdf": "84ff649cfef37818d2a049ad0a57b465048eceb4e5752aa7f13e054637a76c17",
+    "evidence/rc10/ordered-lists/clipboard/markers.txt": "7bf4fca835daa952de981d421262bdacdb4d7eafeb374039f18224be87f1ff83",
+    "evidence/rc10/ordered-lists/clipboard/original-clipboard.html": "c804c818cdc312b102f25dda49f9532938e754ae61e2746b079a6d0b732ffa5d",
+    "evidence/rc10/ordered-lists/clipboard/print-payload-body.html": "be6da4ffff3ae49cdb1eff304212740a5d2c28b6b7413bc6c1779d567606a525",
+    "evidence/rc10/ordered-lists/clipboard/standalone.html": "1956156d6b7879c1e1dad49990e00d333c3416ec07ee7b180ea42e7218d9fcbd",
+    "evidence/rc10/ordered-lists/raw/markers.pdf": "7bc2260422d52df82051e5ff37494a1c79ca5b408a43e0e8a2f469446d71f30d",
+    "evidence/rc10/ordered-lists/raw/markers.txt": "7bf4fca835daa952de981d421262bdacdb4d7eafeb374039f18224be87f1ff83",
+    "evidence/rc10/ordered-lists/raw/print-payload-body.html": "cfbffcd21bee7a45e27fffc17519bd44c95b325d3bd304bbbb85223d9e8429f5",
+    "evidence/rc10/ordered-lists/raw/standalone.html": "494c22cb4a7d7d542bdf26b664b88518b2bac399ff2adf77c360cde837112c56",
+    "evidence/rc10/ordered-lists/result.json": "3d7f88d66348bb4f851e45b2097c6c57b742bd90ec03a52524d8e7235dbd9c1f"
+  }
+}

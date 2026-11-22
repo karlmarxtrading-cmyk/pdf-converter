@@ -1,0 +1,12 @@
+
+ RUN  v5.1.0 /workspace/scratch/c635819e0476/rc12-work/app
+
+············································
+
+ Test Files  3 passed (3)
+      Tests  44 passed (44)
+   Start at  21:56:22
+   Duration  2.12s (environment 56%, import 21%, tests 17%, transform 6%)
+
+raw PASS 2825add3cb010c71454f505dcfd2ace5d16d3d43f4e6e1d7aeab5feecaab5c1b 
+clipboard PASS 0e0c28a210569a949a45fb5e47dea22b350a8c941c6afb5dd706b977f2231642 

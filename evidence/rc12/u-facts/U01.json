@@ -1,0 +1,20 @@
+{
+  "observations": [
+    "book-headings-on-1",
+    "book-long-table-off-1",
+    "book-original-default-1",
+    "book-paragraphs-off-1",
+    "book-paragraphs-on-1",
+    "book-single-paragraph-off-1"
+  ],
+  "files": {
+    "books": {
+      "headings-on": "evidence/rc12/book/headings-on.json",
+      "long-table-off": "evidence/rc12/book/long-table-off.json",
+      "paragraphs-off": "evidence/rc12/book/paragraphs-off.json",
+      "paragraphs-on": "evidence/rc12/book/paragraphs-on.json",
+      "single-paragraph-off": "evidence/rc12/book/single-paragraph-off.json",
+      "original-default": "evidence/rc12/book/original-default.json"
+    }
+  }
+}

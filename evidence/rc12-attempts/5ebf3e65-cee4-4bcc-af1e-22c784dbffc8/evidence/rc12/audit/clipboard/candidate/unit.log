@@ -1,0 +1,13 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+ RUN  v5.1.0 /workspace/scratch/c635819e0476/rc12-work/app
+
+
+ Test Files  11 passed (11)
+      Tests  125 passed (125)
+   Start at  21:55:04
+   Duration  5.60s (environment 44%, tests 36%, import 17%, transform 2%)
+
+    Isolate  11 workers spawned · ~1.73s startup each (spawn + environment, per file)
+             at least ~649ms faster with isolate: false — reuses workers across files instead of one per file
+

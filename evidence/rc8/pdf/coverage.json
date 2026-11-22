@@ -1,0 +1,23 @@
+{
+  "distTree": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+  "engine": "HeadlessChrome/153.0.8010.0",
+  "nativeSave": "NOT_TESTED_BY_THIS_AUTOMATION",
+  "layoutSettings": 24,
+  "totalJobs": 29,
+  "exported": 26,
+  "privateSourcesRefused": 3,
+  "originalMixed": true,
+  "supportedText": true,
+  "emoji": true,
+  "privateUseDecision": true,
+  "type3Policy": true,
+  "actualPdf": true,
+  "code112Lines": true,
+  "indentationAndBlankLines": true,
+  "labelWithCode": true,
+  "continuation": true,
+  "a5Boundary": true,
+  "referenceFormulaCrops": 924,
+  "identicalReferenceCrops": 924,
+  "physicalChecksPass": true
+}

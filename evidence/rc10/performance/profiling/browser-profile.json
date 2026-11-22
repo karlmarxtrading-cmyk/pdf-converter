@@ -1,0 +1,212 @@
+{
+  "kind": "pre-freeze diagnostic",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "distIndex": {
+    "rc6": {
+      "version": "3.0.0-rc.6",
+      "indexSha256": "6d29b4ad4cd7638e4badbb0035a475039e3ae3336a8a5885c6025cf11c6eb5b2"
+    },
+    "rc9": {
+      "version": "3.0.0-rc.9",
+      "indexSha256": "8b4d27ae07cf1528a3f654793afa4ba510df3fd117410c456b4d75aedf1e88d2"
+    },
+    "rc10": {
+      "version": "3.0.0-rc.10",
+      "indexSha256": "02b2e92f6e103067c1e09f9c773988a25205f7e760ccada85ae8425833271f9f"
+    }
+  },
+  "rows": [
+    {
+      "name": "rc6",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 415.30000000074506,
+        "previewMs": 915.3999999985099,
+        "htmlExportMs": 212.39999999850988,
+        "pageReadyMs": 4422.39999999851
+      },
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      }
+    },
+    {
+      "name": "rc9",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 304.80000000074506,
+        "previewMs": 1040.300000000745,
+        "htmlExportMs": 149.30000000074506,
+        "pageReadyMs": 3741.10000000149
+      },
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 4 passes",
+        "pages": 15
+      }
+    },
+    {
+      "name": "rc10",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 296.4000000022352,
+        "previewMs": 1211.699999999255,
+        "htmlExportMs": 210.89999999850988,
+        "pageReadyMs": 3811.60000000149
+      },
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "observations": {
+        "htmlBytes": 906847,
+        "pagination": "Revision 1 · 15 pages · 4 passes",
+        "pages": 15
+      }
+    },
+    {
+      "name": "rc10",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 195.19999999925494,
+        "previewMs": 879.5,
+        "htmlExportMs": 150.10000000149012,
+        "pageReadyMs": 3213.800000000745
+      },
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "observations": {
+        "htmlBytes": 906847,
+        "pagination": "Revision 1 · 15 pages · 4 passes",
+        "pages": 15
+      }
+    },
+    {
+      "name": "rc9",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 176.70000000298023,
+        "previewMs": 1087.9000000022352,
+        "htmlExportMs": 200.59999999776483,
+        "pageReadyMs": 3339.699999999255
+      },
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "observations": {
+        "htmlBytes": 906846,
+        "pagination": "Revision 1 · 15 pages · 4 passes",
+        "pages": 15
+      }
+    },
+    {
+      "name": "rc6",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 210.80000000074506,
+        "previewMs": 1159.199999999255,
+        "htmlExportMs": 181.59999999776483,
+        "pageReadyMs": 3273.199999999255
+      },
+      "oracle": {
+        "pass": true,
+        "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39",
+        "projection": {
+          "preview": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040"
+          },
+          "html": {
+            "math": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3",
+            "body": "ed1721e62662e7188b64af50778bd1f8b4f76c2e2368e830975a5afc096c9040",
+            "css": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": "598769e024bb93a78eb9f31d4b070924d6bdd72878157ff249a6eeb8a75ceaac"
+          },
+          "print": "18e95cfc86746f088967c37ad7172a09b448fd0fc367220711d6006294ec87a3"
+        }
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "pages": 15
+      }
+    }
+  ]
+}

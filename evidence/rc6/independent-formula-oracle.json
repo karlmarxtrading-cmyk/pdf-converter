@@ -1,0 +1,1854 @@
+{
+  "input_sha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+  "method": "Independent exact-input regex extraction; only known fixture transport escapes normalized. No PaperForma parsing functions used.",
+  "formulas": [
+    {
+      "index": 0,
+      "line": 7,
+      "raw": "\\theta",
+      "expected": "\\theta",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 1,
+      "line": 11,
+      "raw": "\\displaystyle\\sin\\theta=\\frac{\\text{sisi depan}}{\\text{sisi miring}}",
+      "expected": "\\displaystyle\\sin\\theta=\\frac{\\text{sisi depan}}{\\text{sisi miring}}",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 2,
+      "line": 12,
+      "raw": "\\displaystyle\\cos\\theta=\\frac{\\text{sisi samping}}{\\text{sisi miring}}",
+      "expected": "\\displaystyle\\cos\\theta=\\frac{\\text{sisi samping}}{\\text{sisi miring}}",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 3,
+      "line": 13,
+      "raw": "\\displaystyle\\tan\\theta=\\frac{\\text{sisi depan}}{\\text{sisi samping}}",
+      "expected": "\\displaystyle\\tan\\theta=\\frac{\\text{sisi depan}}{\\text{sisi samping}}",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 4,
+      "line": 14,
+      "raw": "\\displaystyle\\csc\\theta=\\frac{\\text{sisi miring}}{\\text{sisi depan}}",
+      "expected": "\\displaystyle\\csc\\theta=\\frac{\\text{sisi miring}}{\\text{sisi depan}}",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 5,
+      "line": 15,
+      "raw": "\\displaystyle\\sec\\theta=\\frac{\\text{sisi miring}}{\\text{sisi samping}}",
+      "expected": "\\displaystyle\\sec\\theta=\\frac{\\text{sisi miring}}{\\text{sisi samping}}",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 6,
+      "line": 16,
+      "raw": "\\displaystyle\\cot\\theta=\\frac{\\text{sisi samping}}{\\text{sisi depan}}",
+      "expected": "\\displaystyle\\cot\\theta=\\frac{\\text{sisi samping}}{\\text{sisi depan}}",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 7,
+      "line": 20,
+      "raw": " \\begin{aligned} \\tan x&=\\frac{\\sin x}{\\cos x}\\\\\\ \\cot x&=\\frac{\\cos x}{\\sin x}\\\\\\ \\csc x&=\\frac1{\\sin x}\\\\\\ \\sec x&=\\frac1{\\cos x}\\\\\\ \\cot x&=\\frac1{\\tan x} \\end{aligned} ",
+      "expected": " \\begin{aligned} \\tan x&=\\frac{\\sin x}{\\cos x}\\\\ \\cot x&=\\frac{\\cos x}{\\sin x}\\\\ \\csc x&=\\frac1{\\sin x}\\\\ \\sec x&=\\frac1{\\cos x}\\\\ \\cot x&=\\frac1{\\tan x} \\end{aligned} ",
+      "display": true,
+      "changedPayload": true
+    },
+    {
+      "index": 8,
+      "line": 26,
+      "raw": "\\sin",
+      "expected": "\\sin",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 9,
+      "line": 26,
+      "raw": "\\cos",
+      "expected": "\\cos",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 10,
+      "line": 26,
+      "raw": "\\tan",
+      "expected": "\\tan",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 11,
+      "line": 28,
+      "raw": "0",
+      "expected": "0",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 12,
+      "line": 28,
+      "raw": "0",
+      "expected": "0",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 13,
+      "line": 28,
+      "raw": "1",
+      "expected": "1",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 14,
+      "line": 28,
+      "raw": "0",
+      "expected": "0",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 15,
+      "line": 29,
+      "raw": "\\pi/6",
+      "expected": "\\pi/6",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 16,
+      "line": 29,
+      "raw": "1/2",
+      "expected": "1/2",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 17,
+      "line": 29,
+      "raw": "\\sqrt3/2",
+      "expected": "\\sqrt3/2",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 18,
+      "line": 29,
+      "raw": "\\sqrt3/3",
+      "expected": "\\sqrt3/3",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 19,
+      "line": 30,
+      "raw": "\\pi/4",
+      "expected": "\\pi/4",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 20,
+      "line": 30,
+      "raw": "\\sqrt2/2",
+      "expected": "\\sqrt2/2",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 21,
+      "line": 30,
+      "raw": "\\sqrt2/2",
+      "expected": "\\sqrt2/2",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 22,
+      "line": 30,
+      "raw": "1",
+      "expected": "1",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 23,
+      "line": 31,
+      "raw": "\\pi/3",
+      "expected": "\\pi/3",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 24,
+      "line": 31,
+      "raw": "\\sqrt3/2",
+      "expected": "\\sqrt3/2",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 25,
+      "line": 31,
+      "raw": "1/2",
+      "expected": "1/2",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 26,
+      "line": 31,
+      "raw": "\\sqrt3",
+      "expected": "\\sqrt3",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 27,
+      "line": 32,
+      "raw": "\\pi/2",
+      "expected": "\\pi/2",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 28,
+      "line": 32,
+      "raw": "1",
+      "expected": "1",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 29,
+      "line": 32,
+      "raw": "0",
+      "expected": "0",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 30,
+      "line": 33,
+      "raw": "\\pi",
+      "expected": "\\pi",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 31,
+      "line": 33,
+      "raw": "0",
+      "expected": "0",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 32,
+      "line": 33,
+      "raw": "-1",
+      "expected": "-1",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 33,
+      "line": 33,
+      "raw": "0",
+      "expected": "0",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 34,
+      "line": 34,
+      "raw": "3\\pi/2",
+      "expected": "3\\pi/2",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 35,
+      "line": 34,
+      "raw": "-1",
+      "expected": "-1",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 36,
+      "line": 34,
+      "raw": "0",
+      "expected": "0",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 37,
+      "line": 35,
+      "raw": "2\\pi",
+      "expected": "2\\pi",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 38,
+      "line": 35,
+      "raw": "0",
+      "expected": "0",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 39,
+      "line": 35,
+      "raw": "1",
+      "expected": "1",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 40,
+      "line": 35,
+      "raw": "0",
+      "expected": "0",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 41,
+      "line": 39,
+      "raw": " 180^\\circ=\\pi\\text{ radian} ",
+      "expected": " 180^\\circ=\\pi\\text{ radian} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 42,
+      "line": 41,
+      "raw": " \\theta\\_{\\text{rad}}=\\theta\\_{\\text{derajat}}\\frac{\\pi}{180} ",
+      "expected": " \\theta_{\\text{rad}}=\\theta_{\\text{derajat}}\\frac{\\pi}{180} ",
+      "display": true,
+      "changedPayload": true
+    },
+    {
+      "index": 43,
+      "line": 43,
+      "raw": " \\theta\\_{\\text{derajat}}=\\theta\\_{\\text{rad}}\\frac{180}{\\pi} ",
+      "expected": " \\theta_{\\text{derajat}}=\\theta_{\\text{rad}}\\frac{180}{\\pi} ",
+      "display": true,
+      "changedPayload": true
+    },
+    {
+      "index": 44,
+      "line": 47,
+      "raw": " \\boxed{\\sin^2x+\\cos^2x=1} ",
+      "expected": " \\boxed{\\sin^2x+\\cos^2x=1} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 45,
+      "line": 49,
+      "raw": " \\boxed{1+\\tan^2x=\\sec^2x} ",
+      "expected": " \\boxed{1+\\tan^2x=\\sec^2x} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 46,
+      "line": 51,
+      "raw": " \\boxed{1+\\cot^2x=\\csc^2x} ",
+      "expected": " \\boxed{1+\\cot^2x=\\csc^2x} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 47,
+      "line": 55,
+      "raw": " \\begin{aligned} \\sin^2x&=1-\\cos^2x\\\\\\ \\cos^2x&=1-\\sin^2x\\\\\\ \\tan^2x&=\\sec^2x-1\\\\\\ \\cot^2x&=\\csc^2x-1 \\end{aligned} ",
+      "expected": " \\begin{aligned} \\sin^2x&=1-\\cos^2x\\\\ \\cos^2x&=1-\\sin^2x\\\\ \\tan^2x&=\\sec^2x-1\\\\ \\cot^2x&=\\csc^2x-1 \\end{aligned} ",
+      "display": true,
+      "changedPayload": true
+    },
+    {
+      "index": 48,
+      "line": 72,
+      "raw": " \\begin{aligned} \\sin(-x)&=-\\sin x\\\\\\ \\cos(-x)&=\\cos x\\\\\\ \\tan(-x)&=-\\tan x\\\\\\ \\cot(-x)&=-\\cot x\\\\\\ \\sec(-x)&=\\sec x\\\\\\ \\csc(-x)&=-\\csc x \\end{aligned} ",
+      "expected": " \\begin{aligned} \\sin(-x)&=-\\sin x\\\\ \\cos(-x)&=\\cos x\\\\ \\tan(-x)&=-\\tan x\\\\ \\cot(-x)&=-\\cot x\\\\ \\sec(-x)&=\\sec x\\\\ \\csc(-x)&=-\\csc x \\end{aligned} ",
+      "display": true,
+      "changedPayload": true
+    },
+    {
+      "index": 49,
+      "line": 76,
+      "raw": " \\begin{aligned} \\sin(90^\\circ-x)&=\\cos x\\\\\\ \\cos(90^\\circ-x)&=\\sin x\\\\\\ \\tan(90^\\circ-x)&=\\cot x\\\\\\ \\cot(90^\\circ-x)&=\\tan x\\\\\\ \\sec(90^\\circ-x)&=\\csc x\\\\\\ \\csc(90^\\circ-x)&=\\sec x \\end{aligned} ",
+      "expected": " \\begin{aligned} \\sin(90^\\circ-x)&=\\cos x\\\\ \\cos(90^\\circ-x)&=\\sin x\\\\ \\tan(90^\\circ-x)&=\\cot x\\\\ \\cot(90^\\circ-x)&=\\tan x\\\\ \\sec(90^\\circ-x)&=\\csc x\\\\ \\csc(90^\\circ-x)&=\\sec x \\end{aligned} ",
+      "display": true,
+      "changedPayload": true
+    },
+    {
+      "index": 50,
+      "line": 78,
+      "raw": "90^\\circ+x",
+      "expected": "90^\\circ+x",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 51,
+      "line": 80,
+      "raw": " \\begin{aligned} \\sin(90^\\circ+x)&=\\cos x\\\\\\ \\cos(90^\\circ+x)&=-\\sin x\\\\\\ \\tan(90^\\circ+x)&=-\\cot x \\end{aligned} ",
+      "expected": " \\begin{aligned} \\sin(90^\\circ+x)&=\\cos x\\\\ \\cos(90^\\circ+x)&=-\\sin x\\\\ \\tan(90^\\circ+x)&=-\\cot x \\end{aligned} ",
+      "display": true,
+      "changedPayload": true
+    },
+    {
+      "index": 52,
+      "line": 82,
+      "raw": "180^\\circ-x",
+      "expected": "180^\\circ-x",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 53,
+      "line": 84,
+      "raw": " \\begin{aligned} \\sin(180^\\circ-x)&=\\sin x\\\\\\ \\cos(180^\\circ-x)&=-\\cos x\\\\\\ \\tan(180^\\circ-x)&=-\\tan x \\end{aligned} ",
+      "expected": " \\begin{aligned} \\sin(180^\\circ-x)&=\\sin x\\\\ \\cos(180^\\circ-x)&=-\\cos x\\\\ \\tan(180^\\circ-x)&=-\\tan x \\end{aligned} ",
+      "display": true,
+      "changedPayload": true
+    },
+    {
+      "index": 54,
+      "line": 86,
+      "raw": "180^\\circ+x",
+      "expected": "180^\\circ+x",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 55,
+      "line": 88,
+      "raw": " \\begin{aligned} \\sin(180^\\circ+x)&=-\\sin x\\\\\\ \\cos(180^\\circ+x)&=-\\cos x\\\\\\ \\tan(180^\\circ+x)&=\\tan x \\end{aligned} ",
+      "expected": " \\begin{aligned} \\sin(180^\\circ+x)&=-\\sin x\\\\ \\cos(180^\\circ+x)&=-\\cos x\\\\ \\tan(180^\\circ+x)&=\\tan x \\end{aligned} ",
+      "display": true,
+      "changedPayload": true
+    },
+    {
+      "index": 56,
+      "line": 90,
+      "raw": "270^\\circ\\pm x",
+      "expected": "270^\\circ\\pm x",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 57,
+      "line": 92,
+      "raw": " \\begin{aligned} \\sin(270^\\circ-x)&=-\\cos x\\\\\\ \\cos(270^\\circ-x)&=-\\sin x\\\\\\ \\tan(270^\\circ-x)&=\\cot x\\\\\\\\[4pt] \\sin(270^\\circ+x)&=-\\cos x\\\\\\ \\cos(270^\\circ+x)&=\\sin x\\\\\\ \\tan(270^\\circ+x)&=-\\cot x \\end{aligned} ",
+      "expected": " \\begin{aligned} \\sin(270^\\circ-x)&=-\\cos x\\\\ \\cos(270^\\circ-x)&=-\\sin x\\\\ \\tan(270^\\circ-x)&=\\cot x\\\\[4pt] \\sin(270^\\circ+x)&=-\\cos x\\\\ \\cos(270^\\circ+x)&=\\sin x\\\\ \\tan(270^\\circ+x)&=-\\cot x \\end{aligned} ",
+      "display": true,
+      "changedPayload": true
+    },
+    {
+      "index": 58,
+      "line": 94,
+      "raw": "360^\\circ-x",
+      "expected": "360^\\circ-x",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 59,
+      "line": 96,
+      "raw": " \\begin{aligned} \\sin(360^\\circ-x)&=-\\sin x\\\\\\ \\cos(360^\\circ-x)&=\\cos x\\\\\\ \\tan(360^\\circ-x)&=-\\tan x \\end{aligned} ",
+      "expected": " \\begin{aligned} \\sin(360^\\circ-x)&=-\\sin x\\\\ \\cos(360^\\circ-x)&=\\cos x\\\\ \\tan(360^\\circ-x)&=-\\tan x \\end{aligned} ",
+      "display": true,
+      "changedPayload": true
+    },
+    {
+      "index": 60,
+      "line": 100,
+      "raw": "k",
+      "expected": "k",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 61,
+      "line": 102,
+      "raw": " \\begin{aligned} \\sin(x+360^\\circ k)&=\\sin x\\\\\\ \\cos(x+360^\\circ k)&=\\cos x\\\\\\ \\tan(x+180^\\circ k)&=\\tan x\\\\\\ \\cot(x+180^\\circ k)&=\\cot x \\end{aligned} ",
+      "expected": " \\begin{aligned} \\sin(x+360^\\circ k)&=\\sin x\\\\ \\cos(x+360^\\circ k)&=\\cos x\\\\ \\tan(x+180^\\circ k)&=\\tan x\\\\ \\cot(x+180^\\circ k)&=\\cot x \\end{aligned} ",
+      "display": true,
+      "changedPayload": true
+    },
+    {
+      "index": 62,
+      "line": 108,
+      "raw": " \\boxed{\\sin(A+B)=\\sin A\\cos B+\\cos A\\sin B} ",
+      "expected": " \\boxed{\\sin(A+B)=\\sin A\\cos B+\\cos A\\sin B} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 63,
+      "line": 110,
+      "raw": " \\boxed{\\sin(A-B)=\\sin A\\cos B-\\cos A\\sin B} ",
+      "expected": " \\boxed{\\sin(A-B)=\\sin A\\cos B-\\cos A\\sin B} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 64,
+      "line": 114,
+      "raw": " \\boxed{\\cos(A+B)=\\cos A\\cos B-\\sin A\\sin B} ",
+      "expected": " \\boxed{\\cos(A+B)=\\cos A\\cos B-\\sin A\\sin B} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 65,
+      "line": 116,
+      "raw": " \\boxed{\\cos(A-B)=\\cos A\\cos B+\\sin A\\sin B} ",
+      "expected": " \\boxed{\\cos(A-B)=\\cos A\\cos B+\\sin A\\sin B} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 66,
+      "line": 120,
+      "raw": " \\boxed{\\tan(A+B)=\\frac{\\tan A+\\tan B}{1-\\tan A\\tan B}} ",
+      "expected": " \\boxed{\\tan(A+B)=\\frac{\\tan A+\\tan B}{1-\\tan A\\tan B}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 67,
+      "line": 122,
+      "raw": " \\boxed{\\tan(A-B)=\\frac{\\tan A-\\tan B}{1+\\tan A\\tan B}} ",
+      "expected": " \\boxed{\\tan(A-B)=\\frac{\\tan A-\\tan B}{1+\\tan A\\tan B}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 68,
+      "line": 126,
+      "raw": " \\cot(A+B)=\\frac{\\cot A\\cot B-1}{\\cot A+\\cot B} ",
+      "expected": " \\cot(A+B)=\\frac{\\cot A\\cot B-1}{\\cot A+\\cot B} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 69,
+      "line": 128,
+      "raw": " \\cot(A-B)=\\frac{\\cot A\\cot B+1}{\\cot B-\\cot A} ",
+      "expected": " \\cot(A-B)=\\frac{\\cot A\\cot B+1}{\\cot B-\\cot A} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 70,
+      "line": 134,
+      "raw": " \\boxed{\\sin 2x=2\\sin x\\cos x} ",
+      "expected": " \\boxed{\\sin 2x=2\\sin x\\cos x} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 71,
+      "line": 138,
+      "raw": " \\boxed{\\cos 2x=\\cos^2x-\\sin^2x} ",
+      "expected": " \\boxed{\\cos 2x=\\cos^2x-\\sin^2x} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 72,
+      "line": 142,
+      "raw": " \\boxed{\\cos 2x=1-2\\sin^2x} ",
+      "expected": " \\boxed{\\cos 2x=1-2\\sin^2x} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 73,
+      "line": 144,
+      "raw": " \\boxed{\\cos 2x=2\\cos^2x-1} ",
+      "expected": " \\boxed{\\cos 2x=2\\cos^2x-1} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 74,
+      "line": 148,
+      "raw": " \\boxed{\\tan 2x=\\frac{2\\tan x}{1-\\tan^2x}} ",
+      "expected": " \\boxed{\\tan 2x=\\frac{2\\tan x}{1-\\tan^2x}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 75,
+      "line": 152,
+      "raw": " \\cot 2x=\\frac{\\cot^2x-1}{2\\cot x} ",
+      "expected": " \\cot 2x=\\frac{\\cot^2x-1}{2\\cot x} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 76,
+      "line": 158,
+      "raw": " \\boxed{\\sin 3x=3\\sin x-4\\sin^3x} ",
+      "expected": " \\boxed{\\sin 3x=3\\sin x-4\\sin^3x} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 77,
+      "line": 162,
+      "raw": " \\sin 3x=\\sin x(3-4\\sin^2x) ",
+      "expected": " \\sin 3x=\\sin x(3-4\\sin^2x) ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 78,
+      "line": 166,
+      "raw": " \\boxed{\\cos 3x=4\\cos^3x-3\\cos x} ",
+      "expected": " \\boxed{\\cos 3x=4\\cos^3x-3\\cos x} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 79,
+      "line": 170,
+      "raw": " \\cos 3x=\\cos x(4\\cos^2x-3) ",
+      "expected": " \\cos 3x=\\cos x(4\\cos^2x-3) ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 80,
+      "line": 174,
+      "raw": " \\boxed{\\tan 3x=\\frac{3\\tan x-\\tan^3x}{1-3\\tan^2x}} ",
+      "expected": " \\boxed{\\tan 3x=\\frac{3\\tan x-\\tan^3x}{1-3\\tan^2x}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 81,
+      "line": 178,
+      "raw": " \\cot 3x=\\frac{\\cot^3x-3\\cot x}{3\\cot^2x-1} ",
+      "expected": " \\cot 3x=\\frac{\\cot^3x-3\\cot x}{3\\cot^2x-1} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 82,
+      "line": 184,
+      "raw": " \\boxed{\\sin^2\\frac{x}{2}=\\frac{1-\\cos x}{2}} ",
+      "expected": " \\boxed{\\sin^2\\frac{x}{2}=\\frac{1-\\cos x}{2}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 83,
+      "line": 186,
+      "raw": " \\sin\\frac{x}{2}=\\pm\\sqrt{\\frac{1-\\cos x}{2}} ",
+      "expected": " \\sin\\frac{x}{2}=\\pm\\sqrt{\\frac{1-\\cos x}{2}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 84,
+      "line": 190,
+      "raw": " \\boxed{\\cos^2\\frac{x}{2}=\\frac{1+\\cos x}{2}} ",
+      "expected": " \\boxed{\\cos^2\\frac{x}{2}=\\frac{1+\\cos x}{2}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 85,
+      "line": 192,
+      "raw": " \\cos\\frac{x}{2}=\\pm\\sqrt{\\frac{1+\\cos x}{2}} ",
+      "expected": " \\cos\\frac{x}{2}=\\pm\\sqrt{\\frac{1+\\cos x}{2}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 86,
+      "line": 196,
+      "raw": " \\boxed{\\tan\\frac{x}{2}=\\frac{\\sin x}{1+\\cos x}} ",
+      "expected": " \\boxed{\\tan\\frac{x}{2}=\\frac{\\sin x}{1+\\cos x}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 87,
+      "line": 198,
+      "raw": " \\boxed{\\tan\\frac{x}{2}=\\frac{1-\\cos x}{\\sin x}} ",
+      "expected": " \\boxed{\\tan\\frac{x}{2}=\\frac{1-\\cos x}{\\sin x}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 88,
+      "line": 200,
+      "raw": " \\tan\\frac{x}{2}=\\pm\\sqrt{\\frac{1-\\cos x}{1+\\cos x}} ",
+      "expected": " \\tan\\frac{x}{2}=\\pm\\sqrt{\\frac{1-\\cos x}{1+\\cos x}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 89,
+      "line": 202,
+      "raw": "x/2",
+      "expected": "x/2",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 90,
+      "line": 208,
+      "raw": " \\boxed{2\\sin A\\sin B=\\cos(A-B)-\\cos(A+B)} ",
+      "expected": " \\boxed{2\\sin A\\sin B=\\cos(A-B)-\\cos(A+B)} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 91,
+      "line": 212,
+      "raw": " \\boxed{2\\cos A\\cos B=\\cos(A-B)+\\cos(A+B)} ",
+      "expected": " \\boxed{2\\cos A\\cos B=\\cos(A-B)+\\cos(A+B)} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 92,
+      "line": 216,
+      "raw": " \\boxed{2\\sin A\\cos B=\\sin(A+B)+\\sin(A-B)} ",
+      "expected": " \\boxed{2\\sin A\\cos B=\\sin(A+B)+\\sin(A-B)} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 93,
+      "line": 220,
+      "raw": " \\boxed{2\\cos A\\sin B=\\sin(A+B)-\\sin(A-B)} ",
+      "expected": " \\boxed{2\\cos A\\sin B=\\sin(A+B)-\\sin(A-B)} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 94,
+      "line": 226,
+      "raw": " \\boxed{\\sin A+\\sin B=2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}} ",
+      "expected": " \\boxed{\\sin A+\\sin B=2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 95,
+      "line": 230,
+      "raw": " \\boxed{\\sin A-\\sin B=2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}} ",
+      "expected": " \\boxed{\\sin A-\\sin B=2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 96,
+      "line": 234,
+      "raw": " \\boxed{\\cos A+\\cos B=2\\cos\\frac{A+B}{2}\\cos\\frac{A-B}{2}} ",
+      "expected": " \\boxed{\\cos A+\\cos B=2\\cos\\frac{A+B}{2}\\cos\\frac{A-B}{2}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 97,
+      "line": 238,
+      "raw": " \\boxed{\\cos A-\\cos B=-2\\sin\\frac{A+B}{2}\\sin\\frac{A-B}{2}} ",
+      "expected": " \\boxed{\\cos A-\\cos B=-2\\sin\\frac{A+B}{2}\\sin\\frac{A-B}{2}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 98,
+      "line": 244,
+      "raw": " \\sin^2x=\\frac{1-\\cos 2x}{2} ",
+      "expected": " \\sin^2x=\\frac{1-\\cos 2x}{2} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 99,
+      "line": 246,
+      "raw": " \\cos^2x=\\frac{1+\\cos 2x}{2} ",
+      "expected": " \\cos^2x=\\frac{1+\\cos 2x}{2} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 100,
+      "line": 248,
+      "raw": " \\sin x\\cos x=\\frac{\\sin 2x}{2} ",
+      "expected": " \\sin x\\cos x=\\frac{\\sin 2x}{2} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 101,
+      "line": 252,
+      "raw": " \\sin^3x=\\frac{3\\sin x-\\sin 3x}{4} ",
+      "expected": " \\sin^3x=\\frac{3\\sin x-\\sin 3x}{4} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 102,
+      "line": 254,
+      "raw": " \\cos^3x=\\frac{3\\cos x+\\cos 3x}{4} ",
+      "expected": " \\cos^3x=\\frac{3\\cos x+\\cos 3x}{4} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 103,
+      "line": 258,
+      "raw": " \\sin^4x=\\frac{3-4\\cos 2x+\\cos 4x}{8} ",
+      "expected": " \\sin^4x=\\frac{3-4\\cos 2x+\\cos 4x}{8} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 104,
+      "line": 260,
+      "raw": " \\cos^4x=\\frac{3+4\\cos 2x+\\cos 4x}{8} ",
+      "expected": " \\cos^4x=\\frac{3+4\\cos 2x+\\cos 4x}{8} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 105,
+      "line": 266,
+      "raw": "\\sin",
+      "expected": "\\sin",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 106,
+      "line": 266,
+      "raw": "\\frac{\\sqrt6-\\sqrt2}{4}",
+      "expected": "\\frac{\\sqrt6-\\sqrt2}{4}",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 107,
+      "line": 266,
+      "raw": "\\frac{\\sqrt6+\\sqrt2}{4}",
+      "expected": "\\frac{\\sqrt6+\\sqrt2}{4}",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 108,
+      "line": 267,
+      "raw": "\\cos",
+      "expected": "\\cos",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 109,
+      "line": 267,
+      "raw": "\\frac{\\sqrt6+\\sqrt2}{4}",
+      "expected": "\\frac{\\sqrt6+\\sqrt2}{4}",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 110,
+      "line": 267,
+      "raw": "\\frac{\\sqrt6-\\sqrt2}{4}",
+      "expected": "\\frac{\\sqrt6-\\sqrt2}{4}",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 111,
+      "line": 268,
+      "raw": "\\tan",
+      "expected": "\\tan",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 112,
+      "line": 268,
+      "raw": "2-\\sqrt3",
+      "expected": "2-\\sqrt3",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 113,
+      "line": 268,
+      "raw": "2+\\sqrt3",
+      "expected": "2+\\sqrt3",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 114,
+      "line": 269,
+      "raw": "\\cot",
+      "expected": "\\cot",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 115,
+      "line": 269,
+      "raw": "2+\\sqrt3",
+      "expected": "2+\\sqrt3",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 116,
+      "line": 269,
+      "raw": "2-\\sqrt3",
+      "expected": "2-\\sqrt3",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 117,
+      "line": 271,
+      "raw": "105^\\circ=60^\\circ+45^\\circ",
+      "expected": "105^\\circ=60^\\circ+45^\\circ",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 118,
+      "line": 273,
+      "raw": "a\\sin x+b\\cos x",
+      "expected": "a\\sin x+b\\cos x",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 119,
+      "line": 277,
+      "raw": " \\boxed{a\\sin x+b\\cos x=R\\sin(x+\\alpha)} ",
+      "expected": " \\boxed{a\\sin x+b\\cos x=R\\sin(x+\\alpha)} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 120,
+      "line": 281,
+      "raw": " R=\\sqrt{a^2+b^2} ",
+      "expected": " R=\\sqrt{a^2+b^2} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 121,
+      "line": 283,
+      "raw": " \\cos\\alpha=\\frac aR,\\qquad \\sin\\alpha=\\frac bR ",
+      "expected": " \\cos\\alpha=\\frac aR,\\qquad \\sin\\alpha=\\frac bR ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 122,
+      "line": 285,
+      "raw": "R>0",
+      "expected": "R>0",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 123,
+      "line": 285,
+      "raw": "\\alpha",
+      "expected": "\\alpha",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 124,
+      "line": 289,
+      "raw": " a\\sin x+b\\cos x=R\\cos(x-\\beta) ",
+      "expected": " a\\sin x+b\\cos x=R\\cos(x-\\beta) ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 125,
+      "line": 293,
+      "raw": " \\sin\\beta=\\frac aR,\\qquad \\cos\\beta=\\frac bR ",
+      "expected": " \\sin\\beta=\\frac aR,\\qquad \\cos\\beta=\\frac bR ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 126,
+      "line": 297,
+      "raw": " \\boxed{\\max(a\\sin x+b\\cos x)=\\sqrt{a^2+b^2}} ",
+      "expected": " \\boxed{\\max(a\\sin x+b\\cos x)=\\sqrt{a^2+b^2}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 127,
+      "line": 299,
+      "raw": " \\boxed{\\min(a\\sin x+b\\cos x)=-\\sqrt{a^2+b^2}} ",
+      "expected": " \\boxed{\\min(a\\sin x+b\\cos x)=-\\sqrt{a^2+b^2}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 128,
+      "line": 303,
+      "raw": " \\sin x+\\cos x=\\sqrt2\\sin(x+45^\\circ) ",
+      "expected": " \\sin x+\\cos x=\\sqrt2\\sin(x+45^\\circ) ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 129,
+      "line": 305,
+      "raw": " \\sin x-\\cos x=\\sqrt2\\sin(x-45^\\circ) ",
+      "expected": " \\sin x-\\cos x=\\sqrt2\\sin(x-45^\\circ) ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 130,
+      "line": 307,
+      "raw": " \\max(\\sin x+\\cos x)=\\sqrt2 ",
+      "expected": " \\max(\\sin x+\\cos x)=\\sqrt2 ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 131,
+      "line": 309,
+      "raw": " \\min(\\sin x+\\cos x)=-\\sqrt2 ",
+      "expected": " \\min(\\sin x+\\cos x)=-\\sqrt2 ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 132,
+      "line": 313,
+      "raw": "ABC",
+      "expected": "ABC",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 133,
+      "line": 313,
+      "raw": "a,b,c",
+      "expected": "a,b,c",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 134,
+      "line": 313,
+      "raw": "A,B,C",
+      "expected": "A,B,C",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 135,
+      "line": 317,
+      "raw": " \\boxed{\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}=2R} ",
+      "expected": " \\boxed{\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}=2R} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 136,
+      "line": 319,
+      "raw": "R",
+      "expected": "R",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 137,
+      "line": 323,
+      "raw": " \\boxed{a^2=b^2+c^2-2bc\\cos A} ",
+      "expected": " \\boxed{a^2=b^2+c^2-2bc\\cos A} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 138,
+      "line": 325,
+      "raw": " b^2=a^2+c^2-2ac\\cos B ",
+      "expected": " b^2=a^2+c^2-2ac\\cos B ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 139,
+      "line": 327,
+      "raw": " c^2=a^2+b^2-2ab\\cos C ",
+      "expected": " c^2=a^2+b^2-2ab\\cos C ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 140,
+      "line": 331,
+      "raw": " \\cos A=\\frac{b^2+c^2-a^2}{2bc} ",
+      "expected": " \\cos A=\\frac{b^2+c^2-a^2}{2bc} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 141,
+      "line": 333,
+      "raw": " \\cos B=\\frac{a^2+c^2-b^2}{2ac} ",
+      "expected": " \\cos B=\\frac{a^2+c^2-b^2}{2ac} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 142,
+      "line": 335,
+      "raw": " \\cos C=\\frac{a^2+b^2-c^2}{2ab} ",
+      "expected": " \\cos C=\\frac{a^2+b^2-c^2}{2ab} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 143,
+      "line": 339,
+      "raw": " \\boxed{L=\\frac12bc\\sin A} ",
+      "expected": " \\boxed{L=\\frac12bc\\sin A} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 144,
+      "line": 341,
+      "raw": " L=\\frac12ac\\sin B ",
+      "expected": " L=\\frac12ac\\sin B ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 145,
+      "line": 343,
+      "raw": " L=\\frac12ab\\sin C ",
+      "expected": " L=\\frac12ab\\sin C ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 146,
+      "line": 345,
+      "raw": " L=\\frac{abc}{4R} ",
+      "expected": " L=\\frac{abc}{4R} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 147,
+      "line": 347,
+      "raw": "r",
+      "expected": "r",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 148,
+      "line": 347,
+      "raw": "s=(a+b+c)/2",
+      "expected": "s=(a+b+c)/2",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 149,
+      "line": 349,
+      "raw": " L=rs ",
+      "expected": " L=rs ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 150,
+      "line": 353,
+      "raw": " A+B+C=180^\\circ ",
+      "expected": " A+B+C=180^\\circ ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 151,
+      "line": 355,
+      "raw": " \\sin(A+B)=\\sin C ",
+      "expected": " \\sin(A+B)=\\sin C ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 152,
+      "line": 357,
+      "raw": " \\cos(A+B)=-\\cos C ",
+      "expected": " \\cos(A+B)=-\\cos C ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 153,
+      "line": 359,
+      "raw": " \\tan(A+B)=-\\tan C ",
+      "expected": " \\tan(A+B)=-\\tan C ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 154,
+      "line": 363,
+      "raw": " \\boxed{\\tan A+\\tan B+\\tan C=\\tan A\\tan B\\tan C} ",
+      "expected": " \\boxed{\\tan A+\\tan B+\\tan C=\\tan A\\tan B\\tan C} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 155,
+      "line": 367,
+      "raw": "k\\in\\mathbb Z",
+      "expected": "k\\in\\mathbb Z",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 156,
+      "line": 371,
+      "raw": " \\sin x=\\sin\\alpha ",
+      "expected": " \\sin x=\\sin\\alpha ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 157,
+      "line": 375,
+      "raw": " \\boxed{x=\\alpha+360^\\circ k} ",
+      "expected": " \\boxed{x=\\alpha+360^\\circ k} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 158,
+      "line": 379,
+      "raw": " \\boxed{x=180^\\circ-\\alpha+360^\\circ k} ",
+      "expected": " \\boxed{x=180^\\circ-\\alpha+360^\\circ k} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 159,
+      "line": 383,
+      "raw": " \\cos x=\\cos\\alpha ",
+      "expected": " \\cos x=\\cos\\alpha ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 160,
+      "line": 387,
+      "raw": " \\boxed{x=\\pm\\alpha+360^\\circ k} ",
+      "expected": " \\boxed{x=\\pm\\alpha+360^\\circ k} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 161,
+      "line": 391,
+      "raw": " \\tan x=\\tan\\alpha ",
+      "expected": " \\tan x=\\tan\\alpha ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 162,
+      "line": 395,
+      "raw": " \\boxed{x=\\alpha+180^\\circ k} ",
+      "expected": " \\boxed{x=\\alpha+180^\\circ k} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 163,
+      "line": 397,
+      "raw": "360^\\circ",
+      "expected": "360^\\circ",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 164,
+      "line": 397,
+      "raw": "2\\pi",
+      "expected": "2\\pi",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 165,
+      "line": 397,
+      "raw": "180^\\circ",
+      "expected": "180^\\circ",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 166,
+      "line": 397,
+      "raw": "\\pi",
+      "expected": "\\pi",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 167,
+      "line": 401,
+      "raw": " \\sin x=c,\\qquad -1\\le c\\le1 ",
+      "expected": " \\sin x=c,\\qquad -1\\le c\\le1 ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 168,
+      "line": 403,
+      "raw": "\\alpha=\\arcsin c",
+      "expected": "\\alpha=\\arcsin c",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 169,
+      "line": 405,
+      "raw": " x=\\alpha+2k\\pi \\quad\\text{atau}\\quad x=\\pi-\\alpha+2k\\pi ",
+      "expected": " x=\\alpha+2k\\pi \\quad\\text{atau}\\quad x=\\pi-\\alpha+2k\\pi ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 170,
+      "line": 407,
+      "raw": " \\cos x=c,\\qquad -1\\le c\\le1 ",
+      "expected": " \\cos x=c,\\qquad -1\\le c\\le1 ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 171,
+      "line": 409,
+      "raw": "\\beta=\\arccos c",
+      "expected": "\\beta=\\arccos c",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 172,
+      "line": 411,
+      "raw": " x=\\pm\\beta+2k\\pi ",
+      "expected": " x=\\pm\\beta+2k\\pi ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 173,
+      "line": 413,
+      "raw": " \\tan x=c ",
+      "expected": " \\tan x=c ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 174,
+      "line": 415,
+      "raw": " x=\\arctan c+k\\pi ",
+      "expected": " x=\\arctan c+k\\pi ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 175,
+      "line": 421,
+      "raw": "y=\\sin x",
+      "expected": "y=\\sin x",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 176,
+      "line": 421,
+      "raw": "2\\pi",
+      "expected": "2\\pi",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 177,
+      "line": 421,
+      "raw": "[-1,1]",
+      "expected": "[-1,1]",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 178,
+      "line": 422,
+      "raw": "y=\\cos x",
+      "expected": "y=\\cos x",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 179,
+      "line": 422,
+      "raw": "2\\pi",
+      "expected": "2\\pi",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 180,
+      "line": 422,
+      "raw": "[-1,1]",
+      "expected": "[-1,1]",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 181,
+      "line": 423,
+      "raw": "y=\\tan x",
+      "expected": "y=\\tan x",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 182,
+      "line": 423,
+      "raw": "\\pi",
+      "expected": "\\pi",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 183,
+      "line": 423,
+      "raw": "\\mathbb R",
+      "expected": "\\mathbb R",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 184,
+      "line": 424,
+      "raw": "y=\\cot x",
+      "expected": "y=\\cot x",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 185,
+      "line": 424,
+      "raw": "\\pi",
+      "expected": "\\pi",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 186,
+      "line": 424,
+      "raw": "\\mathbb R",
+      "expected": "\\mathbb R",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 187,
+      "line": 425,
+      "raw": "y=\\sec x",
+      "expected": "y=\\sec x",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 188,
+      "line": 425,
+      "raw": "2\\pi",
+      "expected": "2\\pi",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 189,
+      "line": 425,
+      "raw": "(-\\infty,-1]\\cup[1,\\infty)",
+      "expected": "(-\\infty,-1]\\cup[1,\\infty)",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 190,
+      "line": 426,
+      "raw": "y=\\csc x",
+      "expected": "y=\\csc x",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 191,
+      "line": 426,
+      "raw": "2\\pi",
+      "expected": "2\\pi",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 192,
+      "line": 426,
+      "raw": "(-\\infty,-1]\\cup[1,\\infty)",
+      "expected": "(-\\infty,-1]\\cup[1,\\infty)",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 193,
+      "line": 430,
+      "raw": " \\boxed{y=a\\sin(bx+c)+d} ",
+      "expected": " \\boxed{y=a\\sin(bx+c)+d} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 194,
+      "line": 434,
+      "raw": " y=a\\cos(bx+c)+d ",
+      "expected": " y=a\\cos(bx+c)+d ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 195,
+      "line": 436,
+      "raw": "b\\ne0",
+      "expected": "b\\ne0",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 196,
+      "line": 438,
+      "raw": " \\text{Amplitudo}=|a| ",
+      "expected": " \\text{Amplitudo}=|a| ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 197,
+      "line": 440,
+      "raw": " \\text{Periode}=\\frac{2\\pi}{|b|} ",
+      "expected": " \\text{Periode}=\\frac{2\\pi}{|b|} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 198,
+      "line": 442,
+      "raw": " \\text{Pergeseran horizontal}=-\\frac cb ",
+      "expected": " \\text{Pergeseran horizontal}=-\\frac cb ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 199,
+      "line": 444,
+      "raw": " \\text{Garis tengah}=y=d ",
+      "expected": " \\text{Garis tengah}=y=d ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 200,
+      "line": 446,
+      "raw": " \\text{Nilai maksimum}=d+|a| ",
+      "expected": " \\text{Nilai maksimum}=d+|a| ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 201,
+      "line": 448,
+      "raw": " \\text{Nilai minimum}=d-|a| ",
+      "expected": " \\text{Nilai minimum}=d-|a| ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 202,
+      "line": 452,
+      "raw": "y=a\\tan(bx+c)+d",
+      "expected": "y=a\\tan(bx+c)+d",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 203,
+      "line": 452,
+      "raw": "b\\ne0",
+      "expected": "b\\ne0",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 204,
+      "line": 454,
+      "raw": " \\text{Periode}=\\frac{\\pi}{|b|} ",
+      "expected": " \\text{Periode}=\\frac{\\pi}{|b|} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 205,
+      "line": 462,
+      "raw": " t=\\tan\\frac{x}{2} ",
+      "expected": " t=\\tan\\frac{x}{2} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 206,
+      "line": 466,
+      "raw": " \\boxed{\\sin x=\\frac{2t}{1+t^2}} ",
+      "expected": " \\boxed{\\sin x=\\frac{2t}{1+t^2}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 207,
+      "line": 468,
+      "raw": " \\boxed{\\cos x=\\frac{1-t^2}{1+t^2}} ",
+      "expected": " \\boxed{\\cos x=\\frac{1-t^2}{1+t^2}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 208,
+      "line": 470,
+      "raw": " \\boxed{\\tan x=\\frac{2t}{1-t^2}} ",
+      "expected": " \\boxed{\\tan x=\\frac{2t}{1-t^2}} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 209,
+      "line": 472,
+      "raw": "t",
+      "expected": "t",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 210,
+      "line": 472,
+      "raw": "1-t^2\\ne0",
+      "expected": "1-t^2\\ne0",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 211,
+      "line": 478,
+      "raw": " \\cos(A-B)=\\cos A\\cos B+\\sin A\\sin B ",
+      "expected": " \\cos(A-B)=\\cos A\\cos B+\\sin A\\sin B ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 212,
+      "line": 480,
+      "raw": " \\sin(A-B)=\\sin A\\cos B-\\cos A\\sin B ",
+      "expected": " \\sin(A-B)=\\sin A\\cos B-\\cos A\\sin B ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 213,
+      "line": 484,
+      "raw": " \\cos^2x-\\sin^2x=\\cos 2x ",
+      "expected": " \\cos^2x-\\sin^2x=\\cos 2x ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 214,
+      "line": 486,
+      "raw": " (\\sin x+\\cos x)^2=1+\\sin 2x ",
+      "expected": " (\\sin x+\\cos x)^2=1+\\sin 2x ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 215,
+      "line": 488,
+      "raw": " (\\sin x-\\cos x)^2=1-\\sin 2x ",
+      "expected": " (\\sin x-\\cos x)^2=1-\\sin 2x ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 216,
+      "line": 492,
+      "raw": " \\tan A+\\tan B =\\frac{\\sin(A+B)}{\\cos A\\cos B} ",
+      "expected": " \\tan A+\\tan B =\\frac{\\sin(A+B)}{\\cos A\\cos B} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 217,
+      "line": 494,
+      "raw": " \\tan A-\\tan B =\\frac{\\sin(A-B)}{\\cos A\\cos B} ",
+      "expected": " \\tan A-\\tan B =\\frac{\\sin(A-B)}{\\cos A\\cos B} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 218,
+      "line": 498,
+      "raw": " \\begin{aligned} \\sin(A+B+C) ={}&\\sin A\\cos B\\cos C\\\\\\ &+\\cos A\\sin B\\cos C\\\\\\ &+\\cos A\\cos B\\sin C\\\\\\ &-\\sin A\\sin B\\sin C \\end{aligned} ",
+      "expected": " \\begin{aligned} \\sin(A+B+C) ={}&\\sin A\\cos B\\cos C\\\\ &+\\cos A\\sin B\\cos C\\\\ &+\\cos A\\cos B\\sin C\\\\ &-\\sin A\\sin B\\sin C \\end{aligned} ",
+      "display": true,
+      "changedPayload": true
+    },
+    {
+      "index": 219,
+      "line": 500,
+      "raw": " \\begin{aligned} \\cos(A+B+C) ={}&\\cos A\\cos B\\cos C\\\\\\ &-\\cos A\\sin B\\sin C\\\\\\ &-\\sin A\\cos B\\sin C\\\\\\ &-\\sin A\\sin B\\cos C \\end{aligned} ",
+      "expected": " \\begin{aligned} \\cos(A+B+C) ={}&\\cos A\\cos B\\cos C\\\\ &-\\cos A\\sin B\\sin C\\\\ &-\\sin A\\cos B\\sin C\\\\ &-\\sin A\\sin B\\cos C \\end{aligned} ",
+      "display": true,
+      "changedPayload": true
+    },
+    {
+      "index": 220,
+      "line": 504,
+      "raw": "n",
+      "expected": "n",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 221,
+      "line": 506,
+      "raw": " \\boxed{\\sum\\_{k=0}^{n-1}\\sin(a+kd)= \\frac{\\sin\\frac{nd}{2}\\\\;\\sin\\left(a+\\frac{(n-1)d}{2}\\right)} {\\sin\\frac d2}} ",
+      "expected": " \\boxed{\\sum_{k=0}^{n-1}\\sin(a+kd)= \\frac{\\sin\\frac{nd}{2}\\;\\sin\\left(a+\\frac{(n-1)d}{2}\\right)} {\\sin\\frac d2}} ",
+      "display": true,
+      "changedPayload": true
+    },
+    {
+      "index": 222,
+      "line": 508,
+      "raw": " \\boxed{\\sum\\_{k=0}^{n-1}\\cos(a+kd)= \\frac{\\sin\\frac{nd}{2}\\\\;\\cos\\left(a+\\frac{(n-1)d}{2}\\right)} {\\sin\\frac d2}} ",
+      "expected": " \\boxed{\\sum_{k=0}^{n-1}\\cos(a+kd)= \\frac{\\sin\\frac{nd}{2}\\;\\cos\\left(a+\\frac{(n-1)d}{2}\\right)} {\\sin\\frac d2}} ",
+      "display": true,
+      "changedPayload": true
+    },
+    {
+      "index": 223,
+      "line": 510,
+      "raw": "\\sin(d/2)\\ne0",
+      "expected": "\\sin(d/2)\\ne0",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 224,
+      "line": 514,
+      "raw": "i^2=-1",
+      "expected": "i^2=-1",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 225,
+      "line": 518,
+      "raw": " \\boxed{e^{ix}=\\cos x+i\\sin x} ",
+      "expected": " \\boxed{e^{ix}=\\cos x+i\\sin x} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 226,
+      "line": 522,
+      "raw": " \\cos x=\\frac{e^{ix}+e^{-ix}}2 ",
+      "expected": " \\cos x=\\frac{e^{ix}+e^{-ix}}2 ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 227,
+      "line": 524,
+      "raw": " \\sin x=\\frac{e^{ix}-e^{-ix}}{2i} ",
+      "expected": " \\sin x=\\frac{e^{ix}-e^{-ix}}{2i} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 228,
+      "line": 528,
+      "raw": "n",
+      "expected": "n",
+      "display": false,
+      "changedPayload": false
+    },
+    {
+      "index": 229,
+      "line": 530,
+      "raw": " \\boxed{(\\cos x+i\\sin x)^n=\\cos(nx)+i\\sin(nx)} ",
+      "expected": " \\boxed{(\\cos x+i\\sin x)^n=\\cos(nx)+i\\sin(nx)} ",
+      "display": true,
+      "changedPayload": false
+    },
+    {
+      "index": 230,
+      "line": 538,
+      "raw": " \\begin{aligned} \\sin^2x+\\cos^2x&=1\\\\\\ 1+\\tan^2x&=\\sec^2x\\\\\\ \\tan x&=\\frac{\\sin x}{\\cos x}\\\\\\\\[3pt] \\sin(A+B)&=\\sin A\\cos B+\\cos A\\sin B\\\\\\ \\cos(A+B)&=\\cos A\\cos B-\\sin A\\sin B\\\\\\ \\sin2x&=2\\sin x\\cos x\\\\\\ \\cos2x&=1-2\\sin^2x\\\\\\ \\cos2x&=2\\cos^2x-1\\\\\\ \\sin^2x&=\\frac{1-\\cos2x}{2}\\\\\\ \\cos^2x&=\\frac{1+\\cos2x}{2} \\end{aligned} ",
+      "expected": " \\begin{aligned} \\sin^2x+\\cos^2x&=1\\\\ 1+\\tan^2x&=\\sec^2x\\\\ \\tan x&=\\frac{\\sin x}{\\cos x}\\\\[3pt] \\sin(A+B)&=\\sin A\\cos B+\\cos A\\sin B\\\\ \\cos(A+B)&=\\cos A\\cos B-\\sin A\\sin B\\\\ \\sin2x&=2\\sin x\\cos x\\\\ \\cos2x&=1-2\\sin^2x\\\\ \\cos2x&=2\\cos^2x-1\\\\ \\sin^2x&=\\frac{1-\\cos2x}{2}\\\\ \\cos^2x&=\\frac{1+\\cos2x}{2} \\end{aligned} ",
+      "display": true,
+      "changedPayload": true
+    }
+  ]
+}

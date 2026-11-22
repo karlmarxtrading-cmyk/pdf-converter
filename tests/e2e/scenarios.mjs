@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { unzipSync, strFromU8 } from 'fflate';
 import { generateStress } from '../../scripts/generate-stress.mjs';
+import { orderedTextCheck } from './pdf-oracle.mjs';
 
 const assert = (c, msg) => { if (!c) throw new Error(msg); };
 const P1 = '', P4 = '', PF = '', P0 = '';
@@ -712,7 +713,14 @@ export const SCENARIOS = [
     id: 'E20', matrix: ['ST-QA-19(engine)', 'ST-QA-20(N/A)'], title: 'Mesin cetak Chrome (headless printToPDF) atas HTML terpaginasi: teks dapat dicari, jumlah halaman sama',
     async run(ctx) {
       const p = await studio(ctx);
-      await loadSource(ctx, p, `# Uji cetak\n\nTeks unik ALFA-0007 dengan ${P1}PUA${P4}, $5, dan $x^2$.\n\n` + generateStress(4));
+      const original = `# Uji cetak\n\nTeks unik ALFA-0007 dengan ${P1}PUA${P4}, $5, dan $x^2$.\n\n` + generateStress(4);
+      await loadSource(ctx, p, original);
+      await openPublish(p, 'print');
+      await p.waitForFunction(() => document.querySelector('#pub-go').disabled && /U\+E001/.test(document.querySelector('#dlg-publish').textContent));
+      assert((await ctx.state(p)).source === original, 'PUA source changed after strict print refusal');
+      await p.keyboard.press('Escape');
+      // A different, supported document exercises the actual searchable PDF output.
+      await loadSource(ctx, p, original.replace(`${P1}PUA${P4}`, 'label yang didukung'));
       await openPublish(p, 'print'); await p.click('#pub-go');
       const r = await publishResult(p, 240000);
       assert(/banner-ok/.test(r.cls), r.text);
@@ -1193,25 +1201,48 @@ export const SCENARIOS = [
       assert(flat && flat.verification.status === 'pass', 'verifikasi paginasi: ' + JSON.stringify(flat?.verification));
       const q = await ctx.env.browser.newPage();
       await q.setContent(flat.html, { waitUntil: 'load' }); await q.evaluate(() => document.fonts.ready);
-      const printed = await q.evaluate(() => ({ katex: document.querySelectorAll('.pagedjs_page .pf-math .katex').length, errors: document.querySelectorAll('.pf-math-error').length, display: [...document.querySelectorAll('.pagedjs_page .pf-math[data-tex]')].map((e) => !!e.querySelector('.katex-display')) }));
+      const printed = await q.evaluate(() => ({ pages: document.querySelectorAll('.pagedjs_page').length, tex: [...document.querySelectorAll('.pagedjs_page .pf-math[data-tex]')].map(e => e.getAttribute('data-tex').replace(/\s+/g, ' ').trim()), katex: document.querySelectorAll('.pagedjs_page .pf-math .katex').length, errors: document.querySelectorAll('.pf-math-error').length, display: [...document.querySelectorAll('.pagedjs_page .pf-math[data-tex]')].map((e) => !!e.querySelector('.katex-display')) }));
       const pdf = join(dl.dir, 'einstein.pdf');
       writeFileSync(pdf, await q.pdf({ preferCSSPageSize: true, printBackground: true }));
       await q.close(); await p.close();
       const text = execFileSync('pdftotext', ['-enc', 'UTF-8', pdf, '-'], { encoding: 'utf8' });
       const fonts = execFileSync('pdffonts', [pdf], { encoding: 'utf8' });
-      execFileSync('pdftoppm', ['-png', '-r', '80', '-f', '2', '-l', '3', pdf, 'evidence/math/pdf-page']);
+      const info = execFileSync('pdfinfo', [pdf], { encoding: 'utf8' });
+      const pdfPages = Number(/^Pages:\s+(\d+)/m.exec(info)?.[1]);
+      assert(pdfPages > 0 && pdfPages === flat.pages && pdfPages === printed.pages,
+        `jumlah halaman berbeda: PDF ${pdfPages}, paginasi ${flat.pages}, DOM cetak ${printed.pages}`);
+      const rasterPages = [...new Set([1, Math.ceil(pdfPages / 2), pdfPages])];
+      const rasterFiles = rasterPages.map(page => {
+        const prefix = `evidence/math/pdf-page-${page}`;
+        execFileSync('pdftoppm', ['-png', '-r', '80', '-f', String(page), '-l', String(page), '-singlefile', pdf, prefix]);
+        const path = prefix + '.png', png = readFileSync(path);
+        assert(png.length > 32 && png.subarray(0,8).toString('hex') === '89504e470d0a1a0a', 'raster PDF gagal: ' + page);
+        return path;
+      });
       writeFileSync('evidence/math/einstein.chrome.pdf', readFileSync(pdf));
       // kode yang SENGAJA literal (blok bash & kode sebaris) dikeluarkan dulu; sisa teks tidak boleh memuat TeX mentah
       const nows = (x) => x.replace(/\s+/g, '');
       const prose = nows(text).replace(nows('echo "\\(x\\) tetap teks, $HOME juga"'), '').replace('\\[a\\]', '');
       const rawPdf = ['\\(', '\\[', '\\boxed', '\\frac', '\\gamma', '\\sqrt', '$$'].filter((x) => prose.includes(x));
-      const katexPdfFonts = [...new Set(fonts.split('\n').filter((l) => /KaTeX/.test(l)).map((l) => l.split(/\s+/)[0].replace(/^[A-Z]{6}\+/, '')))];
-      assert(printed.katex === EINSTEIN_TEX.length && printed.errors === 0 && JSON.stringify(printed.display) === JSON.stringify(EINSTEIN_DISPLAY), 'cetak: ' + JSON.stringify(printed));
+      const katexRows = fonts.split('\n').filter(line => /KaTeX/.test(line)).map(line => line.trim().split(/\s+/));
+      const katexPdfFonts = [...new Set(katexRows.map(row => row[0].replace(/^[A-Z]{6}\+/, '')))];
+      assert(katexRows.every(row => row.at(-5) === 'yes'), 'font KaTeX terdaftar tanpa embedding pada PDF');
+      assert(printed.katex === EINSTEIN_TEX.length && printed.errors === 0 &&
+        JSON.stringify(printed.tex) === JSON.stringify(EINSTEIN_TEX) &&
+        JSON.stringify(printed.display) === JSON.stringify(EINSTEIN_DISPLAY), 'cetak: ' + JSON.stringify(printed));
       assert(!rawPdf.length, 'PDF memuat TeX mentah: ' + rawPdf.join(' '));
       assert(katexPdfFonts.length >= 2, 'font KaTeX tidak tersemat di PDF');
-      assert(/PENUTUP-EINSTEIN/.test(text) && /\$5/.test(text) && /\$10/.test(text), 'teks/mata uang hilang di PDF');
+      const orderedProse = orderedTextCheck([
+        'Relativitas khusus Einstein', 'Energi diam sebuah benda bermassa', 'faktor Lorentz didefinisikan sebagai',
+        'sehingga energi total menjadi', 'Transformasi Lorentz dalam bentuk matriks', 'Waktu sebagai integral',
+        'Besaran', 'Momentum', 'Biaya cetak buku ini $5 untuk versi hitam-putih dan $10 untuk versi berwarna.',
+        String.raw`echo "\(x\) tetap teks, $HOME juga"`, String.raw`Kode sebaris $PATH dan \[a\] tidak diubah. PENUTUP-EINSTEIN.`,
+      ], { logical: text, layout: execFileSync('pdftotext', ['-layout', '-enc', 'UTF-8', pdf, '-'], {encoding:'utf8'}) });
+      assert(orderedProse.pass, 'isi PDF Einstein hilang atau tertukar: ' + orderedProse.firstMissing);
+      const mathGlyphs = ['γ', 'Δ', 'β', '∫'];
+      assert(mathGlyphs.every(char => text.includes(char)), 'simbol rumus tidak ditemukan dalam teks PDF');
       await wipeStorage(ctx);
-      return { exportHtml: exp, print: printed, pages: flat.pages, pdfKatexFonts: katexPdfFonts, pdfRawTex: rawPdf, evidence: ['evidence/math/export-html.png', 'evidence/math/pdf-page-*.png', 'evidence/math/einstein.chrome.pdf'] };
+      return { exportHtml: exp, print: printed, pages: flat.pages, pdfPages, rasterPages, orderedProse, mathGlyphs, pdfKatexFonts: katexPdfFonts, pdfRawTex: rawPdf, evidence: ['evidence/math/export-html.png', ...rasterFiles, 'evidence/math/einstein.chrome.pdf'] };
     },
   },
 ];

@@ -1,0 +1,12 @@
+
+ RUN  v5.1.0 /workspace/scratch/c635819e0476/candidate
+
+············································
+
+ Test Files  3 passed (3)
+      Tests  44 passed (44)
+   Start at  18:14:31
+   Duration  1.58s (environment 45%, import 26%, tests 22%, transform 7%)
+
+raw PASS 1a6281f4f09e2fae69c8e28028420c99c5d76d076295c6b94af1c8bbc5753a6b 
+clipboard PASS 38ff58b3c91f087b1a25cd5a85cbf460eb0dcafe02eaf0d5b75745f2429427b1 

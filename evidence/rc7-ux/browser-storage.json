@@ -1,0 +1,50 @@
+{
+  "build": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.7",
+    "profile": "production",
+    "candidateSha256": "104d8a48a2c384cc3ebfd0fb4af2fbab926857e8e4530f6fb3bca68828ceb2f9",
+    "distTreeSha256": "4cb03c96ad20f34dc32098ca1e8a33e5e7407737d190b4c91d617189fd141631",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "tests": {
+    "narrow": {
+      "status": "PASS",
+      "viewport": 360,
+      "source": {
+        "viewport": 360,
+        "content": 360
+      },
+      "format": {
+        "viewport": 360,
+        "content": 360
+      },
+      "preview": {
+        "viewport": 360,
+        "content": 360
+      },
+      "clipboard": "navigator.clipboard.writeText + Ctrl+V; synthetic fixture in browser session",
+      "undoRedo": true,
+      "focusMessagesAndEdu": true
+    },
+    "conflict": {
+      "status": "PASS",
+      "bothReopened": true,
+      "secondTabStatus": "conflict"
+    },
+    "quotaBackup": {
+      "status": "PASS",
+      "quotaLimitBytes": 3072,
+      "storageStatus": "quota",
+      "syntheticSourceBytes": 10019,
+      "sourceRestored": true,
+      "downloadBytes": 9827,
+      "downloadSha256": "9e9b8541055a81aa8d1d7cc95015b13ef212d5cb37255c4590e16eec74cde243"
+    }
+  }
+}

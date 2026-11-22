@@ -1,0 +1,117 @@
+{
+  "pre": {
+    "candidate": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+    "dist": "573c87801f272ccc24222db5bbe2339cba495488bc34c095caa2b39e2eacc347"
+  },
+  "environment": {
+    "browser": "HeadlessChrome/153.0.8010.0",
+    "binarySha256": "53a15d6c3a3d27dfb54c4ba60278b1683136f70cf1e67e989da7dfbd3d451ef0",
+    "node": "v24.22.3",
+    "platform": "linux",
+    "runAt": "2026-11-22T15:10:46.344Z"
+  },
+  "cases": {
+    "keyboardClipboardMimeAndOriginal": {
+      "status": "PASS",
+      "source": "Independent local synthetic HTML page. Browser keyboard Ctrl+A/C and Ctrl+V, not a ClipboardEvent constructed by this harness.",
+      "operatorSource": "No external provider session.",
+      "location": "browser-profile clipboard on Linux",
+      "originalFixtureSha256": "18751c4137ccedb01de2fd7e70059b4ff6f31456227f0af47c42d666436aac75",
+      "mimes": {
+        "text/plain": {
+          "sha256": "36cbcce82c54fb8d7b54e964f01840b7cbbe8c71ef0c1830a90d42a394fe6ca8",
+          "bytes": 156
+        },
+        "text/html": {
+          "sha256": "9622d98edca7f46485d0f978f8c12b7ffd2a98b990eb773220d5912637973f24",
+          "bytes": 3134
+        }
+      },
+      "rawHtmlSha256": "a99211fbd933c2ed2fc82a56f74fb9a2f50d3f50909e8ecbe7f076d81a09aef5",
+      "trustedPasteEvent": true,
+      "rawHtmlMatchesDeliveredEvent": true,
+      "rawPlainMatchesDeliveredEvent": true,
+      "sourceMarkers": [
+        [
+          "KEEP-INDEPENDENT-CONTENT",
+          true
+        ],
+        [
+          "x-17",
+          true
+        ],
+        [
+          "007",
+          true
+        ],
+        [
+          "[3]",
+          true
+        ],
+        [
+          "return x-17",
+          true
+        ]
+      ],
+      "convertedMarkers": [
+        [
+          "KEEP-INDEPENDENT-CONTENT",
+          true
+        ],
+        [
+          "x-17",
+          true
+        ],
+        [
+          "007",
+          true
+        ],
+        [
+          "return x-17",
+          true
+        ],
+        [
+          "[3]",
+          true
+        ],
+        [
+          "α",
+          true
+        ]
+      ]
+    },
+    "cancelRetryAndLatestRevision": {
+      "status": "PASS",
+      "visibleCancelStatus": "Process cancelled. Source and settings are intact.\nRetry",
+      "successfulPrintPreparationAfterRetry": "Pages ready to print\n\n16 pages · rev 3 · content verification: pass\n\nSHA-256 of the paginated HTML (not a PDF file): 5f72857236cd9f2353df921e0aae9fb9ffde7daee900e3c87ebf586287154d29\n\n✓ content-inventory — pass\n✓ page-structure — 0 selisih (nomor halaman, daftar isi, tautan internal)\n✓ page-count — 16\n✓ toc-stable — 4 putaran\n✓ no-overflow\n✓ no-blank-pages\n– browser-print-output — berkas PDF dibuat oleh dialog cetak peramban/OS; byte tidak teramati aplikasi\n\nPress “Open print dialog”, then choose a PDF destination.\n\nOpen print dialog\nSave work bundle",
+      "latestSourceAndPreviewAgree": true,
+      "nativeDialog": "Separate, not used in this case"
+    },
+    "productionKeyboardAxeAndScale": {
+      "status": "PASS",
+      "violations": {
+        "landing": [],
+        "workspace": [],
+        "publishDialog": []
+      },
+      "semanticAx": {
+        "namedTextbox": true,
+        "tablist": true,
+        "liveRegions": 3,
+        "readout": "Chromium accessibility tree; no synthesized screen-reader speech"
+      },
+      "focusRestored": "publish",
+      "reflow": {
+        "width": 640,
+        "scrollWidth": 640,
+        "dpr": 2
+      },
+      "scale": "2x DPR at half-width, emulated viewport. Native optical zoom and screen reader hardware require separate evidence."
+    }
+  },
+  "post": {
+    "candidate": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+    "dist": "573c87801f272ccc24222db5bbe2339cba495488bc34c095caa2b39e2eacc347"
+  },
+  "sameBytes": true
+}

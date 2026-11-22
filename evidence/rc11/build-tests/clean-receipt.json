@@ -1,0 +1,20 @@
+{
+  "archive": "detached-rc11.zip",
+  "zipBytes": 63655415,
+  "zipSha256": "ae6c8b4cb80603d635f34e77c9418aff07b6fff2c72884a022f200f14a5680e4",
+  "verifiedChecksums": 1783,
+  "identicalDistFiles": 184,
+  "build": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.11",
+    "profile": "production",
+    "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+    "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "status": "PASS"
+}

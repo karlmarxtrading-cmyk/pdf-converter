@@ -1,0 +1,283 @@
+{
+  "mode": "calibrate",
+  "at": "2026-11-21T19:42:07.065Z",
+  "status": "COMPLETE",
+  "runs": [
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 302.5,
+        "smallPreviewMs": 414.79999999993015,
+        "editPreviewMs": 284.9000000000233
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 176,
+        "smallPreviewMs": 378.0999999999767,
+        "editPreviewMs": 281.69999999995343
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 132.5,
+        "smallPreviewMs": 359.9000000000233,
+        "editPreviewMs": 280
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 164.09999999997672,
+        "smallPreviewMs": 351.20000000006985,
+        "editPreviewMs": 287.5
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 129.69999999995343,
+        "smallPreviewMs": 341.80000000004657,
+        "editPreviewMs": 286.9000000000233
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 131.89999999990687,
+        "smallPreviewMs": 336.0999999999767,
+        "editPreviewMs": 275.9000000000233
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 5,
+      "times": {
+        "emptyReadyMs": 132.59999999997672,
+        "smallPreviewMs": 301.30000000004657,
+        "editPreviewMs": 275.9000000000233
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 98.5,
+        "previewMs": 1127.5,
+        "htmlExportMs": 207.19999999995343,
+        "pageReadyMs": 3311.5999999999767
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 148.5,
+        "previewMs": 1623.9000000000233,
+        "htmlExportMs": 263.9000000000233,
+        "pageReadyMs": 3776.3000000000466
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 117.59999999997672,
+        "previewMs": 812.7999999999302,
+        "htmlExportMs": 186.29999999993015,
+        "pageReadyMs": 3448.4000000000233
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 140.20000000006985,
+        "previewMs": 812.2999999999302
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 106.80000000004657,
+        "previewMs": 1138.3000000000466
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 134.39999999990687,
+        "previewMs": 826.0999999999767
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "memory",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 95.79999999993015
+      },
+      "observations": {
+        "repeatedEditHeap": [
+          {
+            "revision": 1,
+            "preGcBytes": 16753540,
+            "afterGcBytes": 6115828
+          },
+          {
+            "revision": 4,
+            "preGcBytes": 7770320,
+            "afterGcBytes": 6203812
+          },
+          {
+            "revision": 8,
+            "preGcBytes": 8500620,
+            "afterGcBytes": 6422752
+          }
+        ],
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "memory",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 150.10000000009313
+      },
+      "observations": {
+        "repeatedEditHeap": [
+          {
+            "revision": 1,
+            "preGcBytes": 6741904,
+            "afterGcBytes": 5457128
+          },
+          {
+            "revision": 4,
+            "preGcBytes": 7316980,
+            "afterGcBytes": 5553204
+          },
+          {
+            "revision": 8,
+            "preGcBytes": 7819804,
+            "afterGcBytes": 5799316
+          }
+        ],
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "memory",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 163.10000000009313
+      },
+      "observations": {
+        "repeatedEditHeap": [
+          {
+            "revision": 1,
+            "preGcBytes": 6462788,
+            "afterGcBytes": 5464552
+          },
+          {
+            "revision": 4,
+            "preGcBytes": 7150852,
+            "afterGcBytes": 5561372
+          },
+          {
+            "revision": 8,
+            "preGcBytes": 7835676,
+            "afterGcBytes": 5793668
+          }
+        ],
+        "heapUsedBytes": 10000000
+      }
+    }
+  ],
+  "node": "v24.22.3",
+  "versions": {
+    "rc6": {
+      "app": "paperforma",
+      "version": "3.0.0-rc.6",
+      "profile": "production",
+      "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+      "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+      "node": "v24.22.3",
+      "engines": {
+        "node": "24.22.3",
+        "npm": ">=11.6.0 <12"
+      }
+    }
+  },
+  "method": "Actual production files on an independent loopback origin per revision, production response headers for the app and print. Only the /perf QA page adds permission to read the Blob delivered by the app. Separate persistent contexts, one warmup and fresh studio iframe per turn. AB/BA order alternates. 12ms DOM polling. GC measurements outside timed sections for the memory cohort, including the harness and current live editor in that target; excludes native/other worker processes. Input events are synthetic. No QA hook is injected into the app, no cold network or native file write is timed.",
+  "browser": "HeadlessChrome/153.0.8010.0"
+}

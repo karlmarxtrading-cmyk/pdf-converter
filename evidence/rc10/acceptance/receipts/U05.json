@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "runId": "862feb27-d188-4f90-a381-c64533c2f220",
+  "identity": {
+    "candidateSha256": "774465b21054bfd933b869ea7232d3d59ff8e1fa0422a8d83b18208b08b6abd6",
+    "distTreeSha256": "b2351cef15853b432dbe1fa9c02d0537308cc778a16fdbec551e2e243b9caefd",
+    "version": "3.0.0-rc.10",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "1df668d1f1d6f79c67b570e08699407024a1225b2390699625a91da86f7fa804",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "4174ba10ebe96eda2bf081cda816439c216555d72aacb9bdda6d8fe427a2bdba",
+    "benchmarkHarnessSha256": "3a98d120dd7ee54718895e3b7e39d1a96cfe693c33f383b3c038f27dd7c798aa",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "6156911386e12f5020f93453e496ae85026e4f8a26a594660cb7ca907d87b667",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "b15716f12528aa8f317a0253b7e1912366cb8983810a65a8c71765b330d45bc6"
+  },
+  "at": "2026-11-22T01:47:32.411Z",
+  "id": "U05",
+  "status": "PASS",
+  "facts": "evidence/rc10/u-facts/U05.json",
+  "factsSha256": "f37e511488b30290f4d700d6254069db53ff528f193deedcbb5b4aa62f386aca",
+  "observationHashes": {
+    "book-headings-on": "af50e783f0b813d1b9c8f77333996efd9f6967a72a0a940031a8dbdb2aff38b0",
+    "book-long-table-off": "ed7da918322455b8a814c687276d6f15f31b54f050c59de9e71919399a79f651",
+    "book-original-default": "74416ef78fe0874fe441154640683d7173ee55860ebac908af44df0a66a0252d",
+    "book-paragraphs-off": "07d4429e4a80230f356fa0a5187523409b4afbff9b1242d8facd63680c8d1739",
+    "book-paragraphs-on": "4bcce496b8372092c1086308fa56e3f07ae4abc849db4d416ad09688d979facd",
+    "book-single-paragraph-off": "a39cd22f37212637098b1f2f2b06be7db93509e7451c769e39a442d6e422f755",
+    "offline-nav-final": "a866c0d81a954de73eb02791ce32cad3b6120d11c6fb389c680e18a7509b0044",
+    "trig-new": "99db0333dae23c5457662c5f338cf08971c5f5e5aa1c1e4480f4c5e18f44ee9c"
+  }
+}

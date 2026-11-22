@@ -1,0 +1,177 @@
+
+ RUN  v5.1.0 /workspace/scratch/c635819e0476/rc12-work/qa/stats/baseline/input
+
+ ❯ tests/unit/engine/semantic-stats-worker.test.ts (2 tests | 1 failed) 551ms
+   × counts accepted raw structures before DOM finishing in the Worker pipeline 64ms
+ ❯ tests/unit/core/semantic-stats.test.ts (6 tests | 6 failed) 237ms
+   ❯ semantic document statistics (5)
+     × counts the same authored content in Markdown 93ms
+     × counts the same authored content in raw HTML 28ms
+     × counts the same authored content in clipboard HTML 50ms
+     × counts combined inline text once, break/cell boundaries separately and excludes markup and inactive content 15ms
+     × reports Mermaid independently from ordinary code and footnote prose once without automatic numbering or labels 22ms
+   × omits composition labels only for their identified source revision 27ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/engine/semantic-stats-worker.test.ts > counts accepted raw structures before DOM finishing in the Worker pipeline
+AssertionError: expected { Object (words, tables, ...) } to deeply equal { words: 3, tables: 1, math: 1, …(3) }
+
+- Expected
++ Received
+
+  {
+    "code": 0,
+    "images": 0,
+    "math": 1,
+    "mermaid": 0,
+-   "tables": 1,
+-   "words": 3,
++   "tables": 0,
++   "words": 30,
+  }
+
+ ❯ tests/unit/engine/semantic-stats-worker.test.ts:10:26
+      8|   const r = await analyze({ source, options: { assets: [], template: '…
+      9|   expect(r.stage1.slots).toHaveLength(1);
+     10|   expect(r.stage1.stats).toEqual({ words: 3, tables: 1, math: 1, image…
+       |                          ^
+     11| });
+     12|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  tests/unit/core/semantic-stats.test.ts > semantic document statistics > counts the same authored content in Markdown
+ FAIL  tests/unit/core/semantic-stats.test.ts > semantic document statistics > counts the same authored content in clipboard HTML
+AssertionError: expected { words: 17, tables: 1, math: 1, …(3) } to deeply equal { words: 8, tables: 1, code: 1, …(3) }
+
+- Expected
++ Received
+
+@@ -2,7 +2,7 @@
+    "code": 1,
+    "images": 1,
+    "math": 1,
+    "mermaid": 0,
+    "tables": 1,
+-   "words": 8,
++   "words": 17,
+  }
+
+ ❯ tests/unit/core/semantic-stats.test.ts:33:24
+     31|     expect(dom.querySelectorAll('.pf-math .katex-mathml')).toHaveLengt…
+     32|     expect(dom.querySelectorAll('pre')).toHaveLength(1);
+     33|     expect(body.stats).toEqual(expected);
+       |                        ^
+     34|   });
+     35|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  tests/unit/core/semantic-stats.test.ts > semantic document statistics > counts the same authored content in raw HTML
+AssertionError: expected { Object (words, tables, ...) } to deeply equal { words: 8, tables: 1, code: 1, …(3) }
+
+- Expected
++ Received
+
+  {
+-   "code": 1,
++   "code": 0,
+    "images": 1,
+    "math": 1,
+    "mermaid": 0,
+-   "tables": 1,
+-   "words": 8,
++   "tables": 0,
++   "words": 55,
+  }
+
+ ❯ tests/unit/core/semantic-stats.test.ts:33:24
+     31|     expect(dom.querySelectorAll('.pf-math .katex-mathml')).toHaveLengt…
+     32|     expect(dom.querySelectorAll('pre')).toHaveLength(1);
+     33|     expect(body.stats).toEqual(expected);
+       |                        ^
+     34|   });
+     35|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  tests/unit/core/semantic-stats.test.ts > semantic document statistics > counts combined inline text once, break/cell boundaries separately and excludes markup and inactive content
+AssertionError: expected { words: 36, tables: +0, …(4) } to deeply equal { words: 5, tables: 1, math: +0, …(3) }
+
+- Expected
++ Received
+
+  {
+    "code": 0,
+    "images": 0,
+    "math": 0,
+    "mermaid": 0,
+-   "tables": 1,
+-   "words": 5,
++   "tables": 0,
++   "words": 36,
+  }
+
+ ❯ tests/unit/core/semantic-stats.test.ts:41:28
+     39|       + '<kbd>Ctrl Space</kbd></div>';
+     40|     const rendered = await renderBody(input, options);
+     41|     expect(rendered.stats).toEqual({ words: 5, tables: 1, math: 0, ima…
+       |                            ^
+     42|   });
+     43|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  tests/unit/core/semantic-stats.test.ts > semantic document statistics > reports Mermaid independently from ordinary code and footnote prose once without automatic numbering or labels
+AssertionError: expected { words: 14, tables: +0, …(4) } to deeply equal { Object (words, tables, ...) }
+
+- Expected
++ Received
+
+  {
+-   "code": 1,
++   "code": 0,
+    "images": 0,
+    "math": 0,
+    "mermaid": 1,
+    "tables": 0,
+-   "words": 3,
++   "words": 14,
+  }
+
+ ❯ tests/unit/core/semantic-stats.test.ts:47:28
+     45|     const input = 'Utama[^a].\n\n[^a]: Catatan asli.\n\n```mermaid\ngr…
+     46|     const rendered = await renderBody(input, options);
+     47|     expect(rendered.stats).toEqual({ words: 3, tables: 0, math: 0, ima…
+       |                            ^
+     48|   });
+     49| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  tests/unit/core/semantic-stats.test.ts > omits composition labels only for their identified source revision
+AssertionError: expected 5 to be 3 // Object.is equality
+
+- Expected
++ Received
+
+- 3
++ 5
+
+ ❯ tests/unit/core/semantic-stats.test.ts:58:29
+     56|   conv.publication = publicationFor(conv, built);
+     57|   const first = await renderBody(built.markdown, { ...options, convers…
+     58|   expect(first.stats.words).toBe(3);
+       |                             ^
+     59|   const edited = await renderBody(built.markdown + '\n\nRevisi.', { ..…
+     60|   expect(edited.stats.words).toBe(6);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  7 failed | 1 passed (8)
+   Start at  21:52:48
+   Duration  1.80s (environment 36%, tests 30%, import 23%, transform 11%)
+

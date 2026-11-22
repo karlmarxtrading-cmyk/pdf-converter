@@ -12,7 +12,12 @@
  *  - UI-07  satu pintu "Buka berkas"; HTML clipboard hanya dipakai bila masih sepadan dengan teks yang terlihat.
  *  - UI-08  semua temuan dan revisi dapat dijangkau (paging, filter, cari, unduh laporan lengkap).
  */
+import { releaseSourceProjection } from '../render/final-integrity';
 import './styles.css';
+import { toHast } from 'mdast-util-to-hast';
+import { toText } from 'hast-util-to-text';
+import { revokeDiagramRequests } from '../render/diagram-policy';
+import { restorerFor } from '../core/math';
 import * as C from '../core/index';
 import type { AssetRecord, BrandKit, Conversation, Issue, OutputMode, Project, RenderedBody, Role, Settings, Snapshot, TemplateId } from '../core/index';
 import * as R from '../render/index';
@@ -22,12 +27,14 @@ import { $, $$, announce, choiceDialog, confirmDialog, downloadBytes, el, fmtByt
 import { SAMPLE_MD, SAMPLE_CONVERSATION } from './samples';
 import { EngineClient, EngineError, assetMeta, type WorkerLike } from '../engine/client';
 import { detectCompat } from './compat';
+import { prepareBook } from '../render/flow-book';
 import { reviewDiff } from './review-diff';
 
 type Target = 'html' | 'print';
 type ViewStatus = 'idle' | 'processing' | 'ready' | 'failed';
 type SaveUi = 'empty' | 'off' | 'bundle' | 'pending' | 'saved' | 'failed' | 'quota' | 'blocked' | 'unavailable' | 'conflict' | 'deleted';
-type PubKind = 'print' | 'html-standalone' | 'html-zip' | 'html-publication';
+let bookSession: { dispose(): void; printing: boolean; frame: HTMLIFrameElement } | null = null;
+type PubKind = 'print' | 'print-book' | 'html-standalone' | 'html-zip' | 'html-publication';
 
 /* =============================== state =============================== */
 /** QA saja: `localStorage['pf.qa.engine']='main'` memaksa fallback thread utama untuk menguji jalur tanpa Worker. */
@@ -70,8 +77,8 @@ const S = {
     issues: [] as Issue[], result: null as R.PaginationResult | null, abort: null as AbortController | null,
     promise: null as Promise<void> | null,
   },
-  payloadCache: null as null | { hash: string; payload: R.PrintPayload },
-  reports: { html: null as C.PreflightReport | null, print: null as C.PreflightReport | null },
+  payloadCache: null as R.PrintPayload | null,
+  reports: { html: null as C.PreflightReport | null, print: null as C.PreflightReport | null, book: null as C.PreflightReport | null },
   revGuard: new C.RevisionGuard(),
   exportGuard: new R.ExportGuard(),
   storage: null as C.ProjectStorage | null,
@@ -174,7 +181,7 @@ function wireGlobal(): void {
   }));
   $<HTMLInputElement>('#s-leading').addEventListener('input', (e) => { $('#s-leading-out').textContent = (e.target as HTMLInputElement).value; });
   $<HTMLSelectElement>('#s-brand').addEventListener('change', (e) => { const id = (e.target as HTMLSelectElement).value; applyBrandKit(S.brandKits.find((b) => b.id === id)); });
-  $<HTMLInputElement>('#opt-external').addEventListener('change', (e) => commit({ settings: { ...S.project.settings, allowExternalImages: (e.target as HTMLInputElement).checked } }, 'external-images'));
+  $<HTMLInputElement>('#opt-external').addEventListener('change', (e) => commit({ settings: { ...S.project.settings, allowExternalImages: (e.target as HTMLInputElement).checked } }, 'external-images', { record: false }));
   $<HTMLInputElement>('#opt-localsave').addEventListener('change', (e) => void toggleLocalSave((e.target as HTMLInputElement).checked));
   // berkas
   $<HTMLInputElement>('#file-open').addEventListener('change', (e) => { const inp = e.target as HTMLInputElement; const files = [...(inp.files ?? [])]; inp.value = ''; void openFiles(files); });
@@ -213,7 +220,7 @@ function wireGlobal(): void {
   $('#history-prev').addEventListener('click', () => { S.historyPage = Math.max(0, S.historyPage - 1); renderHistory(); });
   $('#history-next').addEventListener('click', () => { S.historyPage++; renderHistory(); });
   // ekspor
-  $$<HTMLInputElement>('input[name=pub-kind]').forEach((r) => r.addEventListener('change', () => { S.publish.ack = false; refreshPublishDialog(); }));
+  $$<HTMLInputElement>('input[name=pub-kind]').forEach((r) => r.addEventListener('change', () => { closeBook(); S.publish.ack = false; setPublishPhase('idle'); refreshPublishDialog(); }));
   $<HTMLInputElement>('#pub-online').addEventListener('change', () => refreshPublishDialog());
   $('#pub-go').addEventListener('click', () => void runPublish());
   $('#pub-cancel').addEventListener('click', () => cancelPublish());
@@ -279,6 +286,14 @@ function commit(changes: Parameters<typeof C.commitRevision>[1], label: string, 
     const next = C.commitRevision(before, changes, label);
     if (opts.record !== false) S.undo.record(before, label, opts.undoKey);
     S.project = next;
+    if (before.settings.allowExternalImages && !next.settings.allowExternalImages) {
+      revokeDiagramRequests();
+      $('#live-frame').removeAttribute('srcdoc');
+    }
+    if (before.name !== next.name || before.settings.title !== next.settings.title) {
+      $<HTMLInputElement>('#doc-title').value = next.settings.title || next.name || '';
+      $<HTMLInputElement>('#s-title').value = next.settings.title;
+    }
     invalidateOutput();
   } catch (e) {
     if (S.ledger.text !== S.project.source) S.ledger.rejectLastEdit();
@@ -357,6 +372,7 @@ async function convertFragment(fragId: string): Promise<void> {
 /* ---------------- undo/redo transaksi proyek (UI-06) ---------------- */
 function applyUndoState(entry: C.UndoEntry, label: 'undo' | 'redo'): boolean {
   const changes = C.changesFor(entry.state, S.project);
+  if (changes.settings) changes.settings = { ...changes.settings, allowExternalImages: S.project.settings.allowExternalImages };
   if (!commit(changes, label, { record: false })) return false;
   S.ledger = new C.PasteLedger(S.project.source);
   setEditorFromProject();
@@ -481,10 +497,11 @@ async function submitPaste(): Promise<void> {
 }
 
 /* =============================== input: berkas (UI-07, satu dispatcher) =============================== */
-type FileKind = 'text' | 'zip' | 'bundle' | 'image' | 'pdf' | 'docx' | 'unknown';
+type FileKind = 'text' | 'html' | 'zip' | 'bundle' | 'image' | 'pdf' | 'docx' | 'unknown';
 export function classifyFile(name: string): FileKind {
   const n = name.toLowerCase();
   if (/\.(md|markdown|txt)$/.test(n)) return 'text';
+  if (/\.html?$/.test(n)) return 'html';
   if (n.endsWith('.pfproj')) return 'bundle';
   if (n.endsWith('.zip')) return 'zip';
   if (/\.(png|jpe?g|gif|webp|svg)$/.test(n)) return 'image';
@@ -499,17 +516,17 @@ async function openFiles(files: File[]): Promise<void> {
   for (const f of files) {
     const k = classifyFile(f.name);
     if (k === 'image') { images.push(f); continue; }
-    if (k === 'text') { if (textUsed) { notify('warning', pick(`${f.name} dilewati: buka satu naskah teks per kali.`, `${f.name} skipped: open one text document at a time.`)); continue; } textUsed = true; await importMarkdownFile(f); continue; }
+    if (k === 'text' || k === 'html') { if (textUsed) { notify('warning', pick(`${f.name} dilewati: buka satu naskah teks per kali.`, `${f.name} skipped: open one text document at a time.`)); continue; } textUsed = true; await importDocumentFile(f, k === 'html'); continue; }
     if (k === 'zip') { await importZipFile(f); continue; }
     if (k === 'bundle') { await importBundleFile(f); continue; }
     if (k === 'pdf') { notify('error', pick(`${f.name}: impor PDF belum didukung. Salin teksnya lalu gunakan “Tempel teks”.`, `${f.name}: PDF import is not supported. Copy its text and use “Paste text”.`)); continue; }
     if (k === 'docx') { notify('error', pick(`${f.name}: impor DOCX/ODT/RTF belum didukung. Simpan sebagai Markdown/teks, atau salin lalu tempel.`, `${f.name}: DOCX/ODT/RTF import is not supported. Save it as Markdown/text, or copy and paste.`)); continue; }
-    notify('error', pick(`${f.name}: jenis berkas tidak didukung. Didukung: .md .markdown .txt .zip .pfproj dan gambar PNG/JPEG/WebP/GIF/SVG.`, `${f.name}: unsupported file type. Supported: .md .markdown .txt .zip .pfproj and PNG/JPEG/WebP/GIF/SVG images.`));
+    notify('error', pick(`${f.name}: jenis berkas tidak didukung. Didukung: .md .markdown .txt .html .htm .zip .pfproj dan gambar PNG/JPEG/WebP/GIF/SVG.`, `${f.name}: unsupported file type. Supported: .md .markdown .txt .html .htm .zip .pfproj and PNG/JPEG/WebP/GIF/SVG images.`));
   }
   if (images.length) await addAssetFiles(images);
 }
 
-async function importMarkdownFile(f: File): Promise<void> {
+async function importDocumentFile(f: File, htmlFile: boolean): Promise<void> {
   const owner = S.project, ledger = S.ledger;
   const t0 = performance.now();
   const r = await C.readFileWithinBudget(f, 'markdown');
@@ -517,14 +534,24 @@ async function importMarkdownFile(f: File): Promise<void> {
   if (!r.ok) { notify('error', pick(r.budget.message, r.budget.messageEn)); return; }
   const dec = C.decodeUtf8Strict(r.bytes);
   if (!dec.ok) { notify('error', pick(`${f.name} bukan teks UTF-8 yang valid. Simpan ulang sebagai UTF-8.`, `${f.name} is not valid UTF-8 text. Re-save it as UTF-8.`)); return; }
-  const input = await C.makeInputRecord('markdown-file', dec.text, { name: f.name });
+  const input = await C.makeInputRecord(htmlFile ? 'html-file' : 'markdown-file', dec.text, { name: f.name });
   if (S.project !== owner || S.ledger !== ledger) return;
-  const replace = !S.project.source || (await confirmDialog(pick(`Ganti seluruh sumber dengan ${f.name}? Anda dapat mengurungkannya.`, `Replace the entire source with ${f.name}? You can undo this.`)));
-  if (!replace || S.project !== owner || S.ledger !== ledger) return;
-  const lr = S.ledger.replaceAll({ plain: dec.text }, { confirmed: true });
+  let markdown = dec.text;
+  if (htmlFile) {
+    const converted = C.htmlToMarkdown(dec.text, { wholeDocument: true });
+    if (!converted.ok) { notify('error', pick(converted.message, converted.messageEn)); return; }
+    markdown = converted.markdown;
+    const agreed = await showDiff(dec.text, markdown, pick(
+      `Tinjau isi ${f.name} yang akan menggantikan teks editor. Sumber HTML asli tetap tersedia di panel Sumber.`,
+      `Review the content of ${f.name} before replacing the editor text. The original HTML stays available in Sources.`,
+    ), converted.issues);
+    if (!agreed) return;
+  } else if (S.project.source && !(await confirmDialog(pick(`Ganti seluruh sumber dengan ${f.name}? Anda dapat mengurungkannya.`, `Replace the entire source with ${f.name}? You can undo this.`)))) return;
+  if (S.project !== owner || S.ledger !== ledger) return;
+  const lr = S.ledger.replaceAll({ plain: markdown }, { confirmed: true });
   if (!lr.ok) { notify('error', pick(lr.message, lr.messageEn)); return; }
   goWorkspace();
-  if (!commitLedger('open-file', { sourcePath: undefined, inputs: [...S.project.inputs, input], conversation: undefined, name: S.project.name || f.name.replace(/\.(md|markdown|txt)$/i, '') }, 0)) return;
+  if (!commitLedger('open-file', { sourcePath: undefined, inputs: [...S.project.inputs, input], conversation: undefined, name: S.project.name || f.name.replace(/\.(md|markdown|txt|html?)$/i, '') }, 0)) { S.ledger.rejectLastEdit(); return; }
   metric('ingest', t0);
   autoTitle();
   if (dec.hadBom || /\r\n/.test(dec.text)) notify('info', pick('BOM/akhir baris CRLF dipertahankan pada sumber asli; tampilan tidak berubah.', 'BOM/CRLF line endings are kept in the original source; display is unaffected.'));
@@ -548,7 +575,8 @@ async function importZipFile(f: File): Promise<void> {
       r.markdown.forEach((m, i) => sel.append(el('option', { value: String(i), text: `${m.path} (${fmtBytes(m.bytes)})` })));
       sel.value = S.project.source ? '' : '0';
       const ok = await confirmDialog(pick(`ZIP berisi ${r.markdown.length} naskah. Pilih naskah yang dipakai sebagai sumber:`, `The ZIP contains ${r.markdown.length} documents. Choose the one to use as source:`), sel);
-      chosen = ok && sel.value !== '' ? r.markdown[Number(sel.value)]! : null;
+      if (!ok) return;
+      chosen = sel.value !== '' ? r.markdown[Number(sel.value)]! : null;
     }
   }
   if (S.project !== owner) return;
@@ -644,7 +672,7 @@ async function importBundleFile(f: File): Promise<void> {
   let imported = r.project;
   const collision = imported.projectId === S.project.projectId || (S.saveEnabled && await S.storage?.load(imported.projectId));
   if (collision) imported = { ...imported, projectId: C.createProject().projectId };
-  loadProject(imported, pick(`Paket proyek dibuka${r.migrated ? ' (dimigrasi dari versi lama; asli tetap di dalam paket)' : ''}. Urungkan untuk kembali ke proyek sebelumnya.`, `Project bundle opened${r.migrated ? ' (migrated from an older version; the original is kept in the bundle)' : ''}. Undo returns to the previous project.`));
+  loadProject(imported, pick(`Paket proyek dibuka${r.migrated ? ' (dimigrasi dari versi lama; asli tetap di dalam paket)' : ''}. Gambar eksternal dinonaktifkan. Urungkan untuk kembali ke proyek sebelumnya.`, `Project bundle opened${r.migrated ? ' (migrated from an older version; the original is kept in the bundle)' : ''}. External images are off. Undo returns to the previous project.`));
   if (collision) notify('info', pick('Paket dibuka sebagai salinan karena ID proyek sudah digunakan di perangkat ini.', 'This bundle opened as a separate copy because the project ID is already in use on this device.'));
 }
 
@@ -674,19 +702,23 @@ async function guardUnsaved(): Promise<boolean> {
 }
 
 function invalidateOutput(): void {
+  S.payloadCache = null;
   S.revGuard.invalidate();
   // UI-02: status turun ke "memproses revisi N" SEKETIKA; tidak ada label siap milik revisi lama
   S.view.status = 'processing';
-  S.reports = { html: null, print: null };
-  if (S.layout.hash && S.layout.hash !== S.cache?.hash) { /* layout tetap terikat hash lamanya */ }
+  S.reports = { html: null, print: null, book: null };
+  S.progress = null;
   abortLayout();
   if (S.publish.abort && S.publish.running) S.publish.abort.abort(new DOMException('stale', 'AbortError'));
   S.publish.last = null;
+  closeBook();
   if (S.publish.session && S.publish.session.state === 'prepared') { S.publish.session.dispose(); S.publish.session = null; }
   updateReadiness(); renderChecks(); updateRenderState();
+  if ($<HTMLDialogElement>('#dlg-publish').open) refreshPublishDialog();
 }
 
 function loadProject(p: Project, msg?: string, opts: { keepPrev?: boolean } = {}): void {
+  revokeDiagramRequests();
   const c = p.conversation;
   if (c && !c.editable) {
     const res = C.composeConversation(c, { lang: p.settings.contentLang.startsWith('en') ? 'en' : 'id', mainSource: p.source });
@@ -706,6 +738,14 @@ function loadProject(p: Project, msg?: string, opts: { keepPrev?: boolean } = {}
   S.project = p;
   S.undo.clear();
   S.cache = null; S.payloadCache = null; S.brandDraft = null;
+  // A previous project's content and metadata must disappear before the next render completes.
+  Object.assign(S.view, { revision: -1, snapshot: null, rendered: null, hash: '', previewIssues: [], fontChecked: false, integrity: null, assets: null, error: '' });
+  Object.assign(S.layout, { hash: '', status: 'none', issues: [], result: null });
+  const frame = $<HTMLIFrameElement>('#live-frame');
+  frame.onload = null;
+  frame.removeAttribute('srcdoc');
+  $('#src-hash').textContent = '';
+  renderOutline();
   invalidateOutput();
   if (S.saveEnabled) S.autosave?.schedule(p);
   S.ledger = new C.PasteLedger(p.source);
@@ -735,8 +775,22 @@ async function loadSample(): Promise<void> {
 
 function autoTitle(): void {
   if (S.project.settings.title) return;
-  const m = /^#\s+(.+)$/m.exec(S.project.source);
-  if (m) { const ti = m[1]!.trim().slice(0, 160); commit({ name: S.project.name || ti, settings: { ...S.project.settings, title: ti } }, 'auto-title', { record: false }); /* bagian dari transaksi yang memicunya */ syncSettingsUi(); }
+  const source = S.project.source;
+  if (!/^(?: {0,3}#(?:[ \t]|$)| {0,3}=+[ \t]*$)/m.test(source)) return;
+  // An initial ATX heading is self-contained unless a reference may be defined later.
+  const leading = /^\uFEFF?(?:[ \t]*\r?\n)* {0,3}#(?:[ \t][^\r\n]*|(?=\r?$))/u.exec(source);
+  const input = leading && !leading[0].includes('[') ? leading[0] : source;
+  try {
+    const { tree, scan } = C.parseMarkdown(input);
+    const heading = tree.children.find(node => node.type === 'heading' && node.depth === 1);
+    if (!heading) return;
+    const visible = toHast({ type: 'root', children: [heading, ...tree.children.filter(node => node.type === 'definition')] });
+    const title = visible && restorerFor(scan)(toText(visible)).replace(/\s+/g, ' ').trim().slice(0, 160);
+    if (title) commit({ name: S.project.name || title, settings: { ...S.project.settings, title } }, 'auto-title', { record: false });
+  } catch (error) {
+    // A rendering budget failure is reported by the scheduled document analysis.
+    if (!(error instanceof C.BudgetError)) throw error;
+  }
 }
 
 /* =============================== pipeline pratinjau =============================== */
@@ -759,7 +813,7 @@ function updateRenderState(): void {
     st.textContent = pg && label ? pick(`Memproses revisi ${rev} — tahap ${pg.done + 1}/${pg.total}: ${label[0]}…`, `Processing revision ${rev} — step ${pg.done + 1}/${pg.total}: ${label[1]}…`) : pick(`Memproses revisi ${rev}…`, `Processing revision ${rev}…`);
   }
   else if (v.status === 'failed') st.textContent = pick(`Revisi ${rev} gagal diproses`, `Revision ${rev} failed to process`);
-  else if (v.status === 'ready' && v.rendered) st.textContent = pick(`Revisi ${v.revision} · ${v.rendered.stats.words} kata`, `Revision ${v.revision} · ${v.rendered.stats.words} words`);
+  else if (v.status === 'ready' && v.revision === rev && v.rendered) st.textContent = pick(`Revisi ${v.revision} · ${v.rendered.stats.words} kata`, `Revision ${v.revision} · ${v.rendered.stats.words} words`);
   else st.textContent = '';
   // UI-02: pratinjau lama diberi label jelas sampai revisi baru selesai
   const stale = $('#stale-banner');
@@ -770,12 +824,38 @@ function updateRenderState(): void {
     : pick(`Pratinjau revisi sebelumnya (${v.revision}) — revisi ${rev} sedang diproses.`, `Previous revision preview (${v.revision}) — revision ${rev} is being processed.`);
 }
 
+// Rendering, integrity verification, and preview composition each traverse a large
+// document. Yield between busy phases so input, cancel and stale-revision actions
+// can run. The synchronous validators themselves retain their complete snapshot.
+function yieldToEditor(): Promise<void> {
+  return new Promise(resolve => window.setTimeout(resolve, 0));
+}
+// In srcdoc the browser resolves "#id" against the *embedding* page URL.
+// Use the current document's actual anchor instead of navigating into the studio.
+function bindPreviewAnchors(frame: HTMLIFrameElement): void {
+  const doc = frame.contentDocument;
+  if (!doc) return;
+  doc.addEventListener('click', event => {
+    if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    // Frame elements have a different Window/Element constructor from the studio.
+    const link = (event.target as Element | null)?.closest?.('a[href^="#"]');
+    const fragment = link?.getAttribute('href');
+    if (!fragment || link?.hasAttribute('download') || (link?.getAttribute('target') && link.getAttribute('target') !== '_self')) return;
+    let id: string;
+    try { id = decodeURIComponent(fragment.slice(1)); } catch { return; }
+    const target = doc.getElementById(id);
+    if (!target) return;
+    event.preventDefault();
+    if (!target.hasAttribute('tabindex') && target.tabIndex < 0) target.tabIndex = -1;
+    target.focus({preventScroll:true});
+    target.scrollIntoView({block:'start'});
+  });
+}
 async function refresh(): Promise<void> {
   if (currentRoute() !== 'workspace') return;
   const tok = S.revGuard.begin();
   const p = S.project;
   $('#empty-state').hidden = hasContent(p);
-  ($<HTMLInputElement>('#doc-title')).value = p.settings.title || p.name || '';
   $('#src-stats').textContent = `${p.source.split('\n').length} ${pick('baris', 'lines')} · ${fmtBytes(C.utf8Length(p.source))}`;
   S.view.status = 'processing'; updateRenderState(); updateReadiness();
   const t0 = performance.now();
@@ -798,23 +878,27 @@ async function refresh(): Promise<void> {
       metric(`analyze-${S.engine.stats.mode}`, t1);
       if (S.engine.stats.mode === 'fallback') renderCompat();
       for (const [k, ms] of Object.entries(analysis.timings)) S.metrics.push({ phase: `engine-${k}`, ms: Math.round(ms), at: Date.now(), revision: S.project.revision });
+      const longDocument = snapshot.source.length >= 100_000;
       const tf = performance.now();
       S.progress = { phase: 'finish', done: 4, total: 5 }; updateRenderState();
       const rendered = C.finishRender(analysis.stage1, snapshot.assets);
       metric('finish', tf);
+      if (longDocument) { await yieldToEditor(); if (!S.revGuard.isCurrent(tok)) return; }
       const t2 = performance.now();
       const integrity = C.checkRenderIntegrity(snapshot.source, rendered, { conversation: snapshot.conversation, expected: analysis.expected });
       metric('integrity', t2);
+      if (longDocument) { await yieldToEditor(); if (!S.revGuard.isCurrent(tok)) return; }
       const t3 = performance.now();
       const { html, issues } = await composeScreen(snapshot, rendered);
       if (!S.revGuard.isCurrent(tok)) return;
       metric('compose', t3);
+      if (longDocument) { await yieldToEditor(); if (!S.revGuard.isCurrent(tok)) return; }
       entry = { hash: snapshot.renderInputHash, rendered, html, previewIssues: issues, integrity, assets: analysis.assets };
       S.cache = entry;
       const fr = $<HTMLIFrameElement>('#live-frame');
       const scroll = fr.contentWindow?.scrollY ?? 0;
+      fr.onload = () => { bindPreviewAnchors(fr); fr.contentWindow?.scrollTo(0, scroll); };
       fr.srcdoc = html;
-      fr.onload = () => { fr.contentWindow?.scrollTo(0, scroll); };
     }
     S.progress = null;
     Object.assign(S.view, { status: 'ready', revision: snapshot.revision, snapshot, rendered: entry.rendered, hash: snapshot.renderInputHash, previewIssues: entry.previewIssues, fontChecked: true, integrity: entry.integrity, assets: entry.assets, error: '' });
@@ -830,16 +914,17 @@ async function refresh(): Promise<void> {
     if (!S.revGuard.isCurrent(tok)) return;
     if (e instanceof EngineError && (e.code === 'ENGINE_STALE' || e.code === 'ENGINE_ABORTED')) return; // digantikan revisi lebih baru
     S.view.status = 'failed'; S.view.error = (e as Error).message;
-    S.reports = { html: null, print: null };
+    S.reports = { html: null, print: null, book: null };
     updateRenderState(); updateReadiness(); renderChecks();
     notify('error', pick(`Pratinjau revisi ${p.revision} gagal dibuat: ${(e as Error).message}. Sumber Anda tetap utuh.`, `Preview of revision ${p.revision} failed: ${(e as Error).message}. Your source is intact.`));
   }
+  if ($<HTMLDialogElement>('#dlg-publish').open) refreshPublishDialog();
 }
 
 const fontUrlCache = new Map<string, string>();
 /** Font pratinjau: kegagalan dicatat sebagai issue lingkup font (EN-007), bukan ditelan. */
-async function previewFonts(html: string, settings: Settings, brandKit?: BrandKit): Promise<{ css: string; issues: Issue[] }> {
-  const plan = R.planFonts({ html, settings, mode: 'screen', headingFont: brandKit?.headingFont, brandKit });
+async function previewFonts(html: string, settings: Settings, brandKit?: BrandKit, fontText?: string): Promise<{ css: string; issues: Issue[] }> {
+  const plan = R.planFonts({ html, fontText, settings, mode: 'screen', headingFont: brandKit?.headingFont, brandKit });
   const { browserFontSource } = await import('../render/font-assets');
   const css: string[] = [];
   const issues: Issue[] = [...plan.issues];
@@ -848,7 +933,6 @@ async function previewFonts(html: string, settings: Settings, brandKit?: BrandKi
     if (!url) {
       try {
         const b = await browserFontSource(spec);
-        if (b.length < 12 || b[0] !== 0x77 || b[1] !== 0x4f || b[2] !== 0x46 || b[3] !== 0x32) throw new Error('bukan WOFF2');
         // The hero, template cards and editor may finish the same fetch together.
         url = fontUrlCache.get(spec.file);
         if (!url) {
@@ -867,8 +951,18 @@ async function previewFonts(html: string, settings: Settings, brandKit?: BrandKi
 
 async function composeScreen(snapshot: Snapshot, body: RenderedBody): Promise<{ html: string; issues: Issue[] }> {
   const prepared = await R.prepareBody(snapshot, body, { mode: 'screen', renderMermaid: true, allowExternalImages: snapshot.settings.allowExternalImages });
-  const fonts = await previewFonts(prepared.html, snapshot.settings, snapshot.brandKit);
-  const doc = await R.composeDocument(snapshot, { mode: 'screen', prepared, fontCss: fonts.css, adaptive: true });
+  const fonts = await previewFonts(prepared.html, snapshot.settings, snapshot.brandKit, prepared.fontText);
+  // The editable preview retains the full DOM and native find, selection and anchors.
+  // Defer layout of distant prose and table blocks only in long, interactive previews.
+  const longPreviewStyles = snapshot.source.length < 100_000 ? undefined :
+    '<style data-pf="long-preview">@media screen{' +
+    '.pf-doc > p[data-block-id]{content-visibility:auto;contain-intrinsic-block-size:auto 5em}' +
+    '.pf-doc > .pf-table-wrap{content-visibility:auto;contain-intrinsic-block-size:auto 15em}' +
+    '}</style>';
+  const doc = await R.composeDocument(snapshot, {
+    mode: 'screen', prepared, fontCss: fonts.css, adaptive: true, extraHead: longPreviewStyles,
+    csp: `default-src 'none'; img-src data: blob:${snapshot.settings.allowExternalImages ? ' https:' : ''}; style-src 'unsafe-inline'; font-src 'self' data: blob:; base-uri 'none'; form-action 'none'`,
+  });
   // EN-007: issue Mermaid/gambar dari prepareBody dan issue font diteruskan ke panel Pemeriksaan
   return { html: doc.html, issues: C.dedupeIssues([...prepared.issues, ...fonts.issues]) };
 }
@@ -884,13 +978,13 @@ function abortLayout(): void {
 }
 
 /** Meminta paginasi snapshot aktif. Permintaan untuk hash yang sama berbagi satu pekerjaan. */
-function requestLayout(_why: 'tab' | 'button' | 'publish'): Promise<void> {
+function requestLayout(why: 'tab' | 'button' | 'publish'): Promise<void> {
   const v = S.view;
   if (v.status !== 'ready' || !v.snapshot || !v.rendered) return Promise.resolve();
   const shown = !!$('#p-pages').querySelector('iframe');
   // Hasil untuk hash yang sama dipakai ulang; bila hasil berasal dari persiapan cetak (frame tersembunyi milik sesi cetak),
   // tampilan halaman dibuat sekali saat diminta.
-  if (S.layout.hash === v.hash && (S.layout.status === 'failed' || (S.layout.status === 'done' && (shown || _why === 'publish')))) return Promise.resolve();
+  if (S.layout.hash === v.hash && ((S.layout.status === 'failed' && why !== 'button') || (S.layout.status === 'done' && (shown || why === 'publish')))) return Promise.resolve();
   if (S.layout.hash === v.hash && S.layout.status === 'running' && S.layout.promise) return S.layout.promise;
   abortLayout();
   const jobId = ++S.layout.jobId;
@@ -904,12 +998,12 @@ function requestLayout(_why: 'tab' | 'button' | 'publish'): Promise<void> {
   const run = (async () => {
     try {
       const payload = await getPayload(snapshot, rendered, ctrl.signal);
-      if (jobId !== S.layout.jobId) return;
-      const { result } = await R.paginateInFrame(payload, {
+      if (ctrl.signal.aborted || jobId !== S.layout.jobId) return;
+      const { result, frame } = await R.paginateInFrame(payload, {
         mount: stage, keepFrame: true, signal: ctrl.signal,
         onProgress: (pr) => { if (jobId === S.layout.jobId) $('#render-state').textContent = `${pick('Halaman', 'Pages')}: ${pr.phase}${pr.pages ? ` · ${pr.pages}` : ''}`; },
       });
-      if (jobId !== S.layout.jobId) { stage.querySelectorAll('iframe').forEach((f) => f.remove()); return; }
+      if (ctrl.signal.aborted || jobId !== S.layout.jobId) { frame?.remove(); return; }
       metric('layout', t0);
       Object.assign(S.layout, { status: 'done', issues: result.issues, result, abort: null });
       const fr = stage.querySelector('iframe');
@@ -944,18 +1038,29 @@ function fitPages(fr: HTMLIFrameElement): void {
 }
 
 async function getPayload(snapshot: Snapshot, rendered: RenderedBody, signal?: AbortSignal): Promise<R.PrintPayload> {
-  if (S.payloadCache?.hash === snapshot.renderInputHash) return S.payloadCache.payload;
+  signal?.throwIfAborted();
+  const owner = S.project;
+  const cached = S.payloadCache;
+  if (cached && cached.snapshot.projectId === snapshot.projectId && cached.snapshot.revision === snapshot.revision &&
+      cached.snapshot.rawSourceHash === snapshot.rawSourceHash && cached.snapshot.renderInputHash === snapshot.renderInputHash) return cached;
   const t0 = performance.now();
   const payload = await R.buildPrintPayload(snapshot, rendered, { signal });
+  signal?.throwIfAborted();
+  if (owner !== S.project || owner.projectId !== snapshot.projectId || owner.revision !== snapshot.revision) {
+    throw new R.StaleExportError(snapshot.revision, S.project.revision);
+  }
   metric('print-payload', t0);
-  S.payloadCache = { hash: snapshot.renderInputHash, payload };
+  S.payloadCache = payload;
   return payload;
 }
 
 async function runLayoutCheck(): Promise<void> {
+  const owner = S.project;
   if (S.view.status !== 'ready') { await refresh(); }
+  if (owner !== S.project || S.view.status !== 'ready') return;
   ($('#t-pages') as HTMLButtonElement).click(); // memanggil requestLayout yang sama (dedupe)
   await requestLayout('button');
+  if (owner !== S.project) return;
   const n = issueCount(S.reports.print);
   notify(S.layout.status === 'failed' ? 'error' : 'info', S.layout.status === 'done'
     ? pick(`Pemeriksaan halaman selesai: ${S.layout.result?.pageCount ?? 0} halaman, ${n} temuan.`, `Page check finished: ${S.layout.result?.pageCount ?? 0} pages, ${n} findings.`)
@@ -965,7 +1070,7 @@ async function runLayoutCheck(): Promise<void> {
 /* =============================== laporan & kesiapan (UI-02, EN-002) =============================== */
 function rebuildReports(): void {
   const v = S.view;
-  if (v.status !== 'ready' || !v.snapshot || !v.rendered || !v.integrity) { S.reports = { html: null, print: null }; return; }
+  if (v.status !== 'ready' || !v.snapshot || !v.rendered || !v.integrity) { S.reports = { html: null, print: null, book: null }; return; }
   const identity = { projectId: v.snapshot.projectId, revision: v.snapshot.revision, renderInputHash: v.hash };
   const base = { integrity: v.integrity, renderedForHash: v.hash, ...(v.assets ? { assets: v.assets } : {}) };
   // Issue pratinjau (font/Mermaid) dicek nyata untuk revisi ini → kategori font "diperiksa"
@@ -973,11 +1078,16 @@ function rebuildReports(): void {
   const otherPreview = v.previewIssues.filter((i) => i.scope !== 'font');
   const html = C.preflight(v.snapshot, { ...v.rendered, issues: [...v.rendered.issues, ...otherPreview] }, { ...base, target: 'html', identity, external: { font: fontIssues } });
   const layoutHere = S.layout.hash === v.hash && (S.layout.status === 'done' || S.layout.status === 'failed');
-  const print = C.preflight(v.snapshot, { ...v.rendered, issues: [...v.rendered.issues, ...otherPreview] }, {
-    ...base, target: 'print', identity: { ...identity, ...(layoutHere ? { layoutJobId: String(S.layout.jobId) } : {}) },
-    external: { font: fontIssues, ...(layoutHere ? { layout: S.layout.issues } : {}) },
-  });
-  S.reports = { html, print };
+  const printInput = { issues: [...v.rendered.issues, ...otherPreview] };
+  const printFonts = [...fontIssues.filter(i => i.code !== 'PDF_PRIVATE_GLYPH'), ...R.pdfGlyphRestrictions(fontIssues, v.snapshot.source)];
+  const book = C.preflight(v.snapshot, printInput, { ...base, target: 'print', identity, external: { font: printFonts } });
+  // Paged.js may report font, integrity or geometry failures after layout.
+  // Only its own route consumes that result. Both routes check the inputs.
+  const print = layoutHere ? C.preflight(v.snapshot, printInput, {
+    ...base, target: 'print', identity: { ...identity, layoutJobId: String(S.layout.jobId) },
+    external: { font: printFonts, layout: S.layout.issues },
+  }) : book;
+  S.reports = { html, print, book };
 }
 
 const STATUS_KEY: Record<string, Key> = { ready: 'status.ready', review: 'status.review', fix: 'status.fix', unchecked: 'status.unchecked' };
@@ -1736,7 +1846,7 @@ function downloadRaw(): void { const r = rawSelected(); downloadBytes(new TextEn
 
 /* =============================== periksa & ekspor (UI-04, QA-01, EN-005, EN-012) =============================== */
 function pubKind(): PubKind { return ($<HTMLInputElement>('input[name=pub-kind]:checked')).value as PubKind; }
-const targetOf = (k: PubKind): Target => (k === 'print' ? 'print' : 'html');
+const targetOf = (k: PubKind): Target => (k === 'print' || k === 'print-book' ? 'print' : 'html');
 
 async function openPublish(src: HTMLElement): Promise<void> {
   if (!hasContent()) { notify('info', t('empty.desc')); return; }
@@ -1766,28 +1876,29 @@ function setPhaseText(s: string): void { $('#publish-progress .phase').textConte
 
 /** Ringkasan + gerbang per target dari laporan revisi aktif. */
 function refreshPublishDialog(): void {
-  const dlg = $<HTMLDialogElement>('#dlg-publish');
-  if (!dlg.open && pubPhase === 'idle' && !S.publish.running) { /* tetap dibangun saat dibuka */ }
   const kind = pubKind();
   $('#pub-options').hidden = kind !== 'html-publication';
+  $('#book-help').hidden = kind !== 'print-book';
   $('#print-help').hidden = kind !== 'print';
   if (kind === 'print') ($<HTMLDetailsElement>('#print-help')).open = true;
   const v = S.view;
   const sum = $('#publish-summary'); sum.replaceChildren();
-  if (v.snapshot && v.rendered) {
+  if (v.status === 'ready' && v.revision === S.project.revision && v.snapshot && v.rendered) {
     const s = v.snapshot.settings;
     sum.append(el('dl', { class: 'kv' },
       el('dt', { text: t('export.snapshot') }), el('dd', { text: `rev ${v.snapshot.revision} · ${v.hash.slice(0, 12)}` }),
       el('dt', { text: pick('Format', 'Format') }), el('dd', { text: `${s.template} · ${s.paper} ${s.orientation === 'landscape' ? t('set.landscape') : t('set.portrait')}` }),
-      el('dt', { text: pick('Isi', 'Content') }), el('dd', { text: `${v.rendered.stats.words} ${pick('kata', 'words')} · ${v.rendered.stats.tables} ${pick('tabel', 'tables')} · ${v.rendered.stats.math} ${pick('rumus', 'formulas')} · ${v.rendered.stats.images} ${pick('gambar', 'images')}` })));
+      el('dt', { text: pick('Isi', 'Content') }), el('dd', { text: `${v.rendered.stats.words} ${pick('kata', 'words')} · ${v.rendered.stats.tables} ${pick('tabel', 'tables')} · ${v.rendered.stats.math} ${pick('rumus', 'formulas')} · ${v.rendered.stats.images} ${pick('gambar', 'images')} · ${v.rendered.stats.code} ${pick('blok kode', 'code blocks')} · ${v.rendered.stats.mermaid} ${pick('diagram Mermaid', 'Mermaid diagrams')}` })));
+  } else if (v.status === 'processing') {
+    sum.append(el('p', { text: pick(`Memproses revisi ${S.project.revision}…`, `Processing revision ${S.project.revision}…`) }));
   }
   renderGate();
 }
 
 function gateFor(kind: PubKind): C.Verdict | null {
-  const rep = S.reports[targetOf(kind)];
+  const rep = S.reports[kind === 'print-book' ? 'book' : targetOf(kind)];
   if (!rep) return null;
-  let issues = rep.categories.flatMap((c) => c.issues);
+  let issues = rep.categories.flatMap(c => c.issues);
   // Lapisan cetak dijalankan saat ekspor; issue layout dari pemeriksaan sebelumnya untuk hash yang sama tetap berlaku
   if (kind === 'html-publication' && ($<HTMLInputElement>('#pub-online')).checked) issues = issues.filter((i) => i.code !== 'EXTERNAL_IMAGE_EXCLUDED');
   return C.verdictOf(issues);
@@ -1808,6 +1919,7 @@ function renderGate(): void {
   if (g.status === 'blocked') {
     box.className = 'gate banner banner-error';
     box.append(el('p', { text: t('export.blocked') }), list(g.block), goChecks);
+    if (g.block.some(issue => issue.code === 'PDF_PRIVATE_GLYPH')) box.append(btn(t('export.savebundle'), () => void saveBundle()));
   } else {
     box.className = 'gate banner banner-warn';
     const cb = el('input', { type: 'checkbox', id: 'pub-ack' }) as HTMLInputElement;
@@ -1821,7 +1933,7 @@ function renderGate(): void {
 function refreshGoButton(): void {
   const go = $<HTMLButtonElement>('#pub-go');
   const kind = pubKind();
-  go.textContent = t(kind === 'print' ? 'export.go.print' : 'export.go');
+  go.textContent = t(targetOf(kind) === 'print' ? 'export.go.print' : 'export.go');
   if (pubPhase === 'running') { go.disabled = true; return; }
   if (pubPhase === 'print-ready') { go.hidden = true; return; }
   go.hidden = false;
@@ -1834,7 +1946,16 @@ function cancelPublish(): void {
   S.publish.abort?.abort(new DOMException('cancelled', 'AbortError'));
 }
 
+function closeBook(): void {
+  const session = bookSession;
+  bookSession = null;
+  if (!session) return;
+  if (session.printing) session.frame.removeAttribute('id');
+  else session.dispose();
+}
+
 function onPublishClosed(): void {
+  closeBook();
   // Sesi cetak dipertahankan selama dialog native mungkin masih terbuka; dibuang setelah lifecycle selesai
   const s = S.publish.session;
   if (s && s.state !== 'dialog-requested') { s.dispose(); S.publish.session = null; }
@@ -1871,10 +1992,12 @@ async function runPublish(): Promise<void> {
   const t0 = performance.now();
   try {
     if (kind === 'print') await runPrint(snapshot, body, ctrl);
+    else if (kind === 'print-book') await runBook(snapshot, body, ctrl);
     else await runHtml(kind, snapshot, body, ctrl);
     metric(`export-${kind}`, t0);
   } catch (e) {
     if (ctrl.signal.aborted) {
+      if (snapshot.source.length >= 1_000_000) releaseSourceProjection(body);
       const stale = (ctrl.signal.reason as DOMException | undefined)?.message === 'stale';
       setPublishPhase('cancelled');
       showResult('warn', stale ? t('export.stale') : t('export.cancelled'), [], [btn(t('export.retry'), () => { setPublishPhase('idle'); refreshPublishDialog(); void runPublish(); })]);
@@ -1893,12 +2016,12 @@ async function runPublish(): Promise<void> {
     const pe = e as R.PaginationError;
     setPublishPhase('failed');
     if (kind === 'print' && pe.issues?.length) { Object.assign(S.layout, { hash: S.view.hash, status: 'failed', issues: pe.issues, result: null }); rebuildReports(); renderChecks(); updateReadiness(); }
-    showResult('error', t('export.failed'), [pe.failure?.message ?? (e as Error).message, ...(pe.issues?.length ? [issueList(pe.issues.filter((i) => i.severity !== 'info'))] : [])],
+    showResult('error', t('export.failed'), [pe.failure?.message ?? (e instanceof C.BudgetError ? pick(e.result.message, e.result.messageEn) : (e as Error).message), ...(pe.issues?.length ? [issueList(pe.issues.filter((i) => i.severity !== 'info'))] : [])],
       [btn(t('export.retry'), () => { setPublishPhase('idle'); refreshPublishDialog(); void runPublish(); }, 'btn btn-primary btn-sm'), btn(t('export.gotochecks'), () => gotoChecks())]);
   } finally { if (S.publish.abort === ctrl) S.publish.abort = null; }
 }
 
-async function runHtml(kind: Exclude<PubKind, 'print'>, snapshot: Snapshot, body: RenderedBody, ctrl: AbortController): Promise<void> {
+async function runHtml(kind: Exclude<PubKind, 'print' | 'print-book'>, snapshot: Snapshot, body: RenderedBody, ctrl: AbortController): Promise<void> {
   const profile = kind === 'html-standalone' ? 'standalone' : kind === 'html-zip' ? 'zip' : 'publication';
   const online = profile === 'publication' && ($<HTMLInputElement>('#pub-online')).checked;
   const enh = profile === 'publication' && ($<HTMLInputElement>('#pub-enhance')).checked;
@@ -1941,6 +2064,51 @@ async function runHtml(kind: Exclude<PubKind, 'print'>, snapshot: Snapshot, body
   deliver();
 }
 
+async function runBook(snapshot: Snapshot, body: RenderedBody, ctrl: AbortController): Promise<void> {
+  closeBook();
+  setPhaseText(pick('Memeriksa isi dan memuat font…', 'Checking content and loading fonts…'));
+  const payload = await getPayload(snapshot, body, ctrl.signal);
+  setPhaseText(pick('Menyiapkan dokumen cetak dan gambar…', 'Preparing the print document and images…'));
+  const prepared = await prepareBook(payload, ctrl.signal);
+  const current = () => S.project.projectId === snapshot.projectId && S.project.revision === snapshot.revision && S.view.hash === snapshot.renderInputHash;
+  if (!current() || ctrl.signal.aborted) { prepared.dispose(); throw ctrl.signal.reason ?? new R.StaleExportError(snapshot.revision, S.project.revision); }
+  let printTimer: number | undefined;
+  const session = { frame: prepared.frame, printing: false, dispose() { clearTimeout(printTimer); prepared.dispose(); } };
+  bookSession = session;
+  const name = safeFileName((snapshot.settings.title || S.project.name || 'dokumen') + '-cetak', 'html');
+  const state = el('p', { class: 'print-state', 'aria-live': 'polite', text: pick('Pilih Simpan sebagai PDF di dialog cetak. Matikan header dan footer tambahan browser agar alamat dan tanggal tidak ikut tercetak.', 'Choose Save as PDF in the print dialog. Turn off browser headers and footers to omit the address and date.') });
+  const open = btn(t('print.open'), () => {
+    if (!current() || bookSession !== session) { state.textContent = t('export.stale'); return; }
+    const win = prepared.frame.contentWindow;
+    if (!win) { state.textContent = t('print.unknown'); return; }
+    if (session.printing) return;
+    session.printing = true;
+    printTimer = window.setTimeout(() => finishPrint('unknown'), 120_000);
+    state.textContent = t('print.requested');
+    try { win.focus(); win.print(); } catch { finishPrint('unknown'); }
+  }, 'btn btn-primary btn-sm');
+  function finishPrint(outcome: 'returned' | 'unknown'): void {
+    clearTimeout(printTimer);
+    session.printing = false;
+    state.textContent = t(outcome === 'returned' ? 'print.returned' : 'print.unknown');
+    if (!current() || !$<HTMLDialogElement>('#dlg-publish').open || bookSession !== session) {
+      session.dispose(); if (bookSession === session) bookSession = null;
+    }
+  }
+  prepared.frame.contentWindow!.addEventListener('afterprint', () => finishPrint('returned'));
+  open.id = 'book-open-print';
+  const save = btn(t('book.download'), () => {
+    if (current() && bookSession === session) downloadBytes(prepared.bytes, name, 'text/html;charset=utf-8');
+  });
+  save.id = 'book-save-html';
+  setPublishPhase('print-ready');
+  showResult('ok', t('book.ready'), [
+    el('p', { id: 'book-html-hash', 'data-sha256': prepared.hash, text: `rev ${snapshot.revision} · SHA-256 HTML ${prepared.hash}` }),
+    state
+  ], [open, save, btn(t('export.savebundle'), () => void saveBundle())]);
+  open.focus();
+}
+
 async function runPrint(snapshot: Snapshot, body: RenderedBody, ctrl: AbortController): Promise<void> {
   S.publish.session?.dispose(); S.publish.session = null;
   setPhaseText(pick('Memuat font dan gambar…', 'Loading fonts and images…'));
@@ -1954,10 +2122,14 @@ async function runPrint(snapshot: Snapshot, body: RenderedBody, ctrl: AbortContr
   Object.assign(S.layout, { hash: snapshot.renderInputHash, status: 'done', issues: session.result.issues, result: session.result });
   rebuildReports(); renderChecks(); updateReadiness();
   const manifest = await R.localPrintManifest(session.result, snapshot.settings);
+  const current = () => S.publish.session === session && S.project.projectId === snapshot.projectId &&
+    S.project.revision === snapshot.revision && S.view.hash === snapshot.renderInputHash;
+  if (!current() || ctrl.signal.aborted) { session.dispose(); throw ctrl.signal.reason ?? new R.StaleExportError(snapshot.revision, S.project.revision); }
   setPublishPhase('print-ready');
   ($<HTMLDetailsElement>('#print-help')).open = false;
   const state = el('p', { class: 'print-state', 'aria-live': 'polite', text: pick('Tekan “Buka dialog cetak”, lalu pilih tujuan PDF.', 'Press “Open print dialog”, then choose a PDF destination.') });
   const printBtn = btn(t('print.open'), () => {
+    if (!current()) { state.textContent = t('export.stale'); return; }
     state.textContent = t('print.requested');
     printBtn.textContent = t('print.again');
     void session.print().then((res) => {

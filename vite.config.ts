@@ -11,7 +11,7 @@ const treeshake = {
 export default defineConfig({
   build: {
     outDir: process.env.PF_OUT_DIR || 'dist', emptyOutDir: true, target: 'es2022', sourcemap: process.env.PF_SOURCEMAP === '1',
-    rollupOptions: { treeshake, input: { main: resolve(__dirname, 'index.html'), print: resolve(__dirname, 'print.html') } },
+    rollupOptions: { treeshake, input: { main: resolve(__dirname, 'index.html'), print: resolve(__dirname, 'print.html'), diagram: resolve(__dirname, 'src/render/mermaid-frame.html') } },
     chunkSizeWarningLimit: 2600,
     // Font tidak diinline sebagai data: — pemuat font memakai fetch(), dan CSP produksi (connect-src 'self') menolak fetch data:.
     assetsInlineLimit: (file: string) => (/\.(woff2?|ttf|otf)$/i.test(file) ? false : undefined),

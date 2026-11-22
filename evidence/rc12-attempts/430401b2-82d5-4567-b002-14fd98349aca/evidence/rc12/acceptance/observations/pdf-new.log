@@ -1,0 +1,50 @@
+trigonometry-BUS-01-A4-portrait PASS 16 
+mixed-supported-BUS-01-A4-landscape PASS 14 
+mixed-supported-BUS-01-A5-portrait FAIL  Error: Waiting for selector `#publish-result:not([hidden])` failed
+conversation-BUS-01-A5-landscape PASS 3 
+conversation-BUS-01-Letter-portrait PASS 2 
+trigonometry-BUS-01-Letter-landscape PASS 21 
+mixed-supported-EDU-01-A4-portrait PASS 11 
+conversation-EDU-01-A4-landscape PASS 1 
+conversation-EDU-01-A5-portrait PASS 1 
+trigonometry-EDU-01-A5-landscape PASS 46 
+trigonometry-EDU-01-Letter-portrait PASS 20 
+mixed-supported-EDU-01-Letter-landscape PASS 14 
+conversation-EDT-01-A4-portrait PASS 1 
+trigonometry-EDT-01-A4-landscape PASS 20 
+mixed-supported-EDT-01-A5-portrait PASS 19 
+mixed-supported-EDT-01-A5-landscape PASS 21 
+mixed-supported-EDT-01-Letter-portrait PASS 10 
+conversation-EDT-01-Letter-landscape PASS 1 
+trigonometry-CON-01-A4-portrait PASS 14 
+mixed-supported-CON-01-A4-landscape PASS 12 
+mixed-supported-CON-01-A5-portrait PASS 18 
+conversation-CON-01-A5-landscape PASS 1 
+conversation-CON-01-Letter-portrait PASS 1 
+trigonometry-CON-01-Letter-landscape PASS 19 
+mixed-original-EDU-01-A4-portrait UNSUPPORTED_BLOCKED 11 
+mixed-original-BUS-01-Letter-landscape UNSUPPORTED_BLOCKED 14 
+mixed-original-EDT-01-A5-portrait UNSUPPORTED_BLOCKED 19 
+trigonometry-EDU-01-A4-portrait PASS 19 
+trigonometry-EDT-01-A5-portrait PASS 20 
+Physical PDF cases: 29 passed: 28 failed: ['mixed-supported-BUS-01-A5-portrait']
+node:internal/errors:986
+  const err = new Error(message);
+              ^
+
+Error: Command failed: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 tests/e2e/rc8-pdf-physical.py examples/rc12/pdf evidence/rc12/pdf
+    at genericNodeError (node:internal/errors:986:15)
+    at wrappedFn (node:internal/errors:540:14)
+    at checkExecSyncError (node:child_process:943:11)
+    at execFileSync (node:child_process:979:15)
+    at file:///workspace/scratch/c635819e0476/rc12-work/app/tests/e2e/rc8-pdf.mjs:8:1
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  status: 1,
+  signal: null,
+  output: [ null, null, null ],
+  pid: 3819,
+  stdout: null,
+  stderr: null
+}
+
+Node.js v24.22.3

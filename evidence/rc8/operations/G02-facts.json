@@ -1,0 +1,43 @@
+{
+  "observations": [
+    "local-build"
+  ],
+  "checks": {
+    "lockedInstall": {
+      "pass": true,
+      "evidence": "evidence/rc8/build-tests/clean-build.log"
+    },
+    "typecheck": {
+      "pass": true,
+      "evidence": "evidence/rc8/build-tests/clean-build.log"
+    },
+    "lint": {
+      "pass": true,
+      "evidence": "evidence/rc8/build-tests/clean-build.log"
+    },
+    "unit": {
+      "pass": true,
+      "evidence": "evidence/rc8/build-tests/clean-build.log"
+    },
+    "static": {
+      "pass": true,
+      "evidence": "evidence/rc8/build-tests/static.log"
+    },
+    "http": {
+      "pass": true,
+      "evidence": "evidence/rc8/build-tests/http-verification-local.json"
+    },
+    "mutations": {
+      "pass": true,
+      "evidence": "evidence/rc8/build-tests/release-gate.json"
+    },
+    "secretScan": {
+      "pass": true,
+      "evidence": "evidence/rc8/build-tests/secret-scan.json"
+    },
+    "cleanBuild": {
+      "pass": true,
+      "evidence": "evidence/rc8/build-tests/clean-receipt.json"
+    }
+  }
+}

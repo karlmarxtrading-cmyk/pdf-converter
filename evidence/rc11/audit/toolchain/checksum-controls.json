@@ -1,0 +1,8 @@
+{
+  "matchingBytes": "PASS",
+  "corruptionRejected": {
+    "digest": "Checksum or length mismatch for out-digest",
+    "size": "out-size exceeds locked size"
+  },
+  "implementationSha256": "9f4a64524ad86b0fb3a2865734a249cf89c06dd332a9d9066d71c912572b53bf"
+}

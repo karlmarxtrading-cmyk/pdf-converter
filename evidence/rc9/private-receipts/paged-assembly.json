@@ -1,0 +1,153 @@
+{
+  "pages": 1311,
+  "groups": 28,
+  "restoredInternalLinks": 31,
+  "externalLinks": 0,
+  "danglingInternalLinks": 0,
+  "source": "88901d44a592ead82c757b65f57ce26e5f0003598a7a74064d6921439dbd0454",
+  "flat": "31e68351a7c1ff00571a7469a9719eaf684091164a752c638e0bcf0293a100a6",
+  "pdfSha256": "cf4b4172cba8c94136c7206a90c18e43dbad4bec0186467555aeb0ae8c7365a3",
+  "bytes": 4341478,
+  "groupOutputs": [
+    {
+      "first": 1,
+      "last": 48,
+      "sha256": "7752f9ce2a0637df89ccff6af8baec2b39884daafad456f699bb6de355d85462"
+    },
+    {
+      "first": 49,
+      "last": 96,
+      "sha256": "74cd03b8864d9cae64bf008dd1c4cd9ae21c931195898efb27523399f051a1d7"
+    },
+    {
+      "first": 97,
+      "last": 144,
+      "sha256": "c15bcf7ef43586327209c4490a7831ed522690476f473592903212a3a4a3a406"
+    },
+    {
+      "first": 145,
+      "last": 192,
+      "sha256": "6e433c5f8160d7a6afcc732a1a62e3555705796f709c37666951b4c6d3d8162f"
+    },
+    {
+      "first": 193,
+      "last": 240,
+      "sha256": "ef5b61c11f5ec17c8647585546f0960f530a707bc9a18df2a35a649fb11fd633"
+    },
+    {
+      "first": 241,
+      "last": 288,
+      "sha256": "80feacf947e97ad9dddff0da6ae80b8e90923a0a19b50ca67a464ec6e0c07318"
+    },
+    {
+      "first": 289,
+      "last": 336,
+      "sha256": "79ac092034c2c469756493c333f2a39e029a80212def165fda4f5915e6f0f81a"
+    },
+    {
+      "first": 337,
+      "last": 384,
+      "sha256": "4b8575919b39c278064a7a858300c689ead4fe58472a26c419c03c9cfc744e13"
+    },
+    {
+      "first": 385,
+      "last": 432,
+      "sha256": "7b2b3f3627a02ec55206027072a66b500bc7404e541373db0c2ff42fbb6839bc"
+    },
+    {
+      "first": 433,
+      "last": 480,
+      "sha256": "09bea732a3e80b8296db3ab8f7a5de1850724122856e6f91061984c74754af6c"
+    },
+    {
+      "first": 481,
+      "last": 528,
+      "sha256": "047e4d0261f38af52c7277d93ec6d7e52392f2e6e49b1a996b17153aec9ed7ea"
+    },
+    {
+      "first": 529,
+      "last": 576,
+      "sha256": "81b97aec19bb35309e29b83d2f0774ab528d507ba298e5bc2cc127de6052a82e"
+    },
+    {
+      "first": 577,
+      "last": 624,
+      "sha256": "0edeabdcb41d657661042cf3b0f58b9130702a95e8a3cb280263f1b4eb268ff7"
+    },
+    {
+      "first": 625,
+      "last": 672,
+      "sha256": "09ca74cc0ba8444183922559ddb0269e59591343882c1bc46922537066d0a2f3"
+    },
+    {
+      "first": 673,
+      "last": 720,
+      "sha256": "5c4d2476a58549fa8e73c48000cefc75a7b376fe89fb7bc6b405f455a34c9c75"
+    },
+    {
+      "first": 721,
+      "last": 768,
+      "sha256": "dfa1d9c7f5906f45e144be0023eddcf76179e43b71df3fe51cee9562678c329f"
+    },
+    {
+      "first": 769,
+      "last": 816,
+      "sha256": "04532f1643ae1afc3666ea4b941c2bfaaf28aabe641ff14a6fef8c09a79ef174"
+    },
+    {
+      "first": 817,
+      "last": 864,
+      "sha256": "74bf4f0b0ff8e109b1aaf51b980d0a8c7e0e3a533b212aa5ed84634015c9555d"
+    },
+    {
+      "first": 865,
+      "last": 912,
+      "sha256": "45115175719a470ab5a1f2b524f0fd9adfe70f4afd02466ccbba183c6e2f43f7"
+    },
+    {
+      "first": 913,
+      "last": 960,
+      "sha256": "487c433fa7a35cfa6d46a884e8f251de5143c8781f5607ecd45dbab9db83c6de"
+    },
+    {
+      "first": 961,
+      "last": 1008,
+      "sha256": "818102bfe7a51be2c8a0068e0f1e79bcbdaafa8c9c2f0234f075fb7184f3943b"
+    },
+    {
+      "first": 1009,
+      "last": 1056,
+      "sha256": "0e97b065ab9f9346f6df172839ca831ac5169e4d283b08122570e5ba625704dd"
+    },
+    {
+      "first": 1057,
+      "last": 1104,
+      "sha256": "462e2cdf24a4ac2ea548eb2fa44b5cc4f798cb4de0f18014c20090407fe33884"
+    },
+    {
+      "first": 1105,
+      "last": 1152,
+      "sha256": "0cefd8dbcd2e26c2b0e20d631f8ffbd427bc3729276a98318b25de981383ea43"
+    },
+    {
+      "first": 1153,
+      "last": 1200,
+      "sha256": "5352bae24a462c6b3f869f3d9116160213e79bd475ae01beb79c2607f9763d49"
+    },
+    {
+      "first": 1201,
+      "last": 1248,
+      "sha256": "571fdca4fc8ea38ab5b196dc11ba0f8c2a34d56d334404df26eb7ab127c73803"
+    },
+    {
+      "first": 1249,
+      "last": 1296,
+      "sha256": "b807d2800f17350d3ae0f14f7c513b9cc9050466d319fdf844d977e3569b8506"
+    },
+    {
+      "first": 1297,
+      "last": 1311,
+      "sha256": "0e4d149d92be316380fb87eee3b70ebb211b417bc9d73f784abdf84e87f72af6"
+    }
+  ]
+}

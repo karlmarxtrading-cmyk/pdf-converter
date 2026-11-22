@@ -1,0 +1,12 @@
+file:///workspace/scratch/c635819e0476/rc12-work/app/node_modules/puppeteer-core/lib/puppeteer/cdp/Frame.js:191
+                        ? new Error(`${response.errorText} at ${url}`)
+                          ^
+
+Error: net::ERR_FILE_NOT_FOUND at file:///workspace/scratch/c635819e0476/rc12-work/app/examples/rc12/book/headings-on/dokumen.html
+    at navigate (file:///workspace/scratch/c635819e0476/rc12-work/app/node_modules/puppeteer-core/lib/puppeteer/cdp/Frame.js:191:27)
+    at async Deferred.race (file:///workspace/scratch/c635819e0476/rc12-work/app/node_modules/puppeteer-core/lib/puppeteer/util/Deferred.js:33:20)
+    at async CdpFrame.goto (file:///workspace/scratch/c635819e0476/rc12-work/app/node_modules/puppeteer-core/lib/puppeteer/cdp/Frame.js:153:25)
+    at async CdpPage.goto (file:///workspace/scratch/c635819e0476/rc12-work/app/node_modules/puppeteer-core/lib/puppeteer/api/Page.js:587:20)
+    at async file:///workspace/scratch/c635819e0476/rc12-work/app/docs/verification-tools/offline-navigation.mjs:10:34
+
+Node.js v24.22.3

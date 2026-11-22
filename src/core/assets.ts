@@ -95,6 +95,19 @@ export function normalizeAssetPath(url: string, sourcePath?: string): string | n
 /* ---------------- sanitasi SVG ---------------- */
 export interface SvgSanitizeResult { bytes: Uint8Array; removed: string[]; ok: boolean }
 
+// SVG presentation attributes may also reference resources. A local paint/filter
+// server is meaningful in a standalone image; a URL outside that image is not.
+const SVG_REFERENCE_ATTRIBUTES = new Set([
+  'fill', 'stroke', 'filter', 'clip-path', 'mask', 'cursor', 'color-profile',
+  'marker', 'marker-start', 'marker-mid', 'marker-end',
+]);
+function standaloneSvgPaint(value: string): boolean {
+  // CSS escape syntax is unnecessary for the supported local reference format.
+  if (value.includes('\\') || value.includes('/*')) return false;
+  const withoutLocal = value.replace(/url\(\s*(?:(["'])#[\w.:-]+\1|#[\w.:-]+)\s*\)/gi, '');
+  return !/url\s*\(/i.test(withoutLocal);
+}
+
 /** SVG aman: DOMPurify profil svg, tanpa foreignObject/skrip/handler; href hanya #fragment atau data:image raster. */
 export function sanitizeSvgBytes(bytes: Uint8Array): SvgSanitizeResult {
   const text = new TextDecoder().decode(bytes);
@@ -102,11 +115,18 @@ export function sanitizeSvgBytes(bytes: Uint8Array): SvgSanitizeResult {
   if (!w?.document) {
     // Tanpa DOM: tolak konservatif bila ada pola aktif.
     const risky = /<script|\son[a-z]+\s*=|javascript:|<foreignObject|<iframe|<!ENTITY|xlink:href\s*=\s*["']\s*(?!#)|\shref\s*=\s*["']\s*(?!#|data:image\/(png|jpeg|gif|webp))/i.test(text);
-    return risky ? { bytes: new Uint8Array(), removed: ['svg-unsanitizable-without-dom'], ok: false } : { bytes, removed: [], ok: true };
+    const presentation = Array.from(text.matchAll(/(?:^|\s)([\w:-]+)\s*=\s*(["'])([\s\S]*?)\2/g));
+    const externalPaint = presentation.some(([, name, , value]) =>
+      SVG_REFERENCE_ATTRIBUTES.has(name!.toLowerCase()) && !standaloneSvgPaint(value!));
+    return risky || externalPaint || /<style\b|\sstyle\s*=/i.test(text) ? { bytes: new Uint8Array(), removed: ['svg-unsanitizable-without-dom'], ok: false } : { bytes, removed: [], ok: true };
   }
   const purify = DOMPurify(w);
   const removed: string[] = [];
   purify.addHook('uponSanitizeAttribute', (_node, data) => {
+    if (SVG_REFERENCE_ATTRIBUTES.has(data.attrName.toLowerCase()) && !standaloneSvgPaint(data.attrValue)) {
+      data.keepAttr = false;
+      removed.push(data.attrName);
+    }
     if ((data.attrName === 'href' || data.attrName === 'xlink:href') && !/^\s*(#|data:image\/(png|jpeg|gif|webp);)/i.test(data.attrValue)) {
       data.keepAttr = false; removed.push(`${data.attrName}=${data.attrValue.slice(0, 60)}`);
     }
@@ -201,7 +221,7 @@ export type InlineImageInspection =
  * This is bounded resource admission, not a full image decoder or a proof that every frame is valid.
  * Encoded size is checked before atob/Uint8Array, then MIME and declared dimensions are checked.
  */
-export function inspectInlineImage(url: string, limits: Limits = LIMITS): InlineImageInspection {
+export function inspectInlineImage(url: string, limits: Limits = LIMITS, pixelLimits: Readonly<{maxDimension: number; maxPixels: number}> = IMAGE_BUDGET): InlineImageInspection {
   const invalid = (): InlineImageInspection => ({ ok: false, code: 'INLINE_IMAGE_INVALID',
     message: 'Gambar inline memiliki base64, MIME, atau header dimensi yang tidak valid. Gambar tidak didekode; sumber asli tetap tersedia.',
     messageEn: 'The inline image has invalid base64, MIME, or dimension headers. It was not decoded; the original source is retained.' });
@@ -229,10 +249,10 @@ export function inspectInlineImage(url: string, limits: Limits = LIMITS): Inline
   const dim = imageDimensions(bytes, mime);
   if (!dim || !Number.isFinite(dim.width) || !Number.isFinite(dim.height) || dim.width < 1 || dim.height < 1) return invalid();
   const pixels = dim.width * dim.height;
-  if (dim.width > IMAGE_BUDGET.maxDimension || dim.height > IMAGE_BUDGET.maxDimension || pixels > IMAGE_BUDGET.maxPixels) return {
+  if (dim.width > pixelLimits.maxDimension || dim.height > pixelLimits.maxDimension || pixels > pixelLimits.maxPixels) return {
     ok: false, code: 'IMAGE_PIXELS_EXCEEDED',
-    message: `Gambar inline terlalu besar untuk didekode (${dim.width}×${dim.height} piksel; batas ${IMAGE_BUDGET.maxDimension} per sisi dan ${IMAGE_BUDGET.maxPixels / 1e6} MP). Perkecil gambar; sumber tidak diubah.`,
-    messageEn: `The inline image is too large to decode (${dim.width}×${dim.height} px; limit ${IMAGE_BUDGET.maxDimension} per side and ${IMAGE_BUDGET.maxPixels / 1e6} MP). Resize the image; the source was not changed.`,
+    message: `Gambar inline terlalu besar untuk didekode (${dim.width}×${dim.height} piksel; batas ${pixelLimits.maxDimension} per sisi dan ${pixelLimits.maxPixels / 1e6} MP). Perkecil gambar; sumber tidak diubah.`,
+    messageEn: `The inline image is too large to decode (${dim.width}×${dim.height} px; limit ${pixelLimits.maxDimension} per side and ${pixelLimits.maxPixels / 1e6} MP). Resize the image; the source was not changed.`,
   };
   return { ok: true, id: sha256HexSync(bytes), mime, ...dim, pixels, byteLength: bytes.byteLength };
 }

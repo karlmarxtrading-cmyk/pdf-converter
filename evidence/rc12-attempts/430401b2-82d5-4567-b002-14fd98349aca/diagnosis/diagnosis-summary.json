@@ -1,0 +1,240 @@
+{
+  "kind": "diagnostic, not an acceptance observation",
+  "frozenBeforeRunId": "430401b2-82d5-4567-b002-14fd98349aca",
+  "frozenBeforeSourceSha256": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+  "newPatchSha256": "f9a3059959f1fe9c3af9d1f2611a766fd6a33b654f997b810a0f9fceb553da6c",
+  "protocol": "Independent child processes, CPUs 6 and 7, 5 warm-up pairs then 80 measured AB/BA pairs, same instrumented RC12 performance worker in all variants. Each before/after pair compares the full preview HTML SHA-256 and the independent frozen content oracle. All trials were retained. Revisions used the same JS runtime, dependencies, settings and generated blank editor project.",
+  "cohorts": {
+    "iteration": {
+      "raw": "empty-iteration-comparison.json",
+      "sha256": "a77a3223132f946d1e9d88d0f6373edb15e162ffc6f207041755d4cb074968d4",
+      "equivalentPairsIncludingWarmup": 85,
+      "timingsMs": {
+        "refreshMs": {
+          "before": {
+            "median": 4.637918000000354,
+            "p95": 11.237753000000339
+          },
+          "after": {
+            "median": 3.4543150000001788,
+            "p95": 7.703223000000435
+          }
+        },
+        "snapshot": {
+          "before": {
+            "median": 0.5162685000004785,
+            "p95": 5.718692000000374
+          },
+          "after": {
+            "median": 0.6544134999999187,
+            "p95": 4.930976000001465
+          }
+        },
+        "analyze": {
+          "before": {
+            "median": 0.9653224999992744,
+            "p95": 1.8748459999997067
+          },
+          "after": {
+            "median": 0.7534180000011474,
+            "p95": 1.5711580000006506
+          }
+        },
+        "finish": {
+          "before": {
+            "median": 1.817892000000029,
+            "p95": 2.467763999999079
+          },
+          "after": {
+            "median": 1.1980389999994259,
+            "p95": 1.7431780000006256
+          }
+        },
+        "integrity": {
+          "before": {
+            "median": 0.4319915000005494,
+            "p95": 0.8728819999996631
+          },
+          "after": {
+            "median": 0.1080445000002328,
+            "p95": 0.20736800000122457
+          }
+        },
+        "prepare": {
+          "before": {
+            "median": 0.19562150000001566,
+            "p95": 0.32026000000041677
+          },
+          "after": {
+            "median": 0.1124124999992091,
+            "p95": 0.18921700000009878
+          }
+        },
+        "compose": {
+          "before": {
+            "median": 0.07219800000075338,
+            "p95": 0.24825000000055297
+          },
+          "after": {
+            "median": 0.07076549999965209,
+            "p95": 0.26408500000025015
+          }
+        }
+      }
+    },
+    "hash": {
+      "raw": "empty-hash-comparison.json",
+      "sha256": "cadbdf76edd0993e3d27a9fa8d4953eb182186e1bdd9248ff99b5a43d0af73aa",
+      "equivalentPairsIncludingWarmup": 85,
+      "timingsMs": {
+        "refreshMs": {
+          "before": {
+            "median": 4.411337999999432,
+            "p95": 8.796014000001378
+          },
+          "after": {
+            "median": 4.378773999999794,
+            "p95": 8.090935000000172
+          }
+        },
+        "snapshot": {
+          "before": {
+            "median": 0.48711000000048443,
+            "p95": 4.3939650000002075
+          },
+          "after": {
+            "median": 0.2734624999998232,
+            "p95": 0.49256199999990713
+          }
+        },
+        "analyze": {
+          "before": {
+            "median": 1.0037339999998949,
+            "p95": 2.1206740000006903
+          },
+          "after": {
+            "median": 1.0239800000003925,
+            "p95": 2.2252900000003137
+          }
+        },
+        "finish": {
+          "before": {
+            "median": 1.8155765000001338,
+            "p95": 2.463206999999784
+          },
+          "after": {
+            "median": 1.8963384999997288,
+            "p95": 5.779685999999856
+          }
+        },
+        "integrity": {
+          "before": {
+            "median": 0.44638450000002194,
+            "p95": 0.7295859999994718
+          },
+          "after": {
+            "median": 0.43826250000029177,
+            "p95": 1.9792560000005324
+          }
+        },
+        "prepare": {
+          "before": {
+            "median": 0.19225149999874702,
+            "p95": 0.3266170000006241
+          },
+          "after": {
+            "median": 0.19916149999971822,
+            "p95": 0.3777030000001105
+          }
+        },
+        "compose": {
+          "before": {
+            "median": 0.0745004999998855,
+            "p95": 0.27034199999980046
+          },
+          "after": {
+            "median": 0.0754624999999578,
+            "p95": 0.24077800000031857
+          }
+        }
+      }
+    },
+    "combined": {
+      "raw": "empty-combined-comparison.json",
+      "sha256": "0f75f405585f1f2c4e0962a75a444135663f2521650b74ba46dd91a84a85481b",
+      "equivalentPairsIncludingWarmup": 85,
+      "timingsMs": {
+        "refreshMs": {
+          "before": {
+            "median": 4.658752499999537,
+            "p95": 9.752694000000702
+          },
+          "after": {
+            "median": 2.519842499999868,
+            "p95": 4.795831999999791
+          }
+        },
+        "snapshot": {
+          "before": {
+            "median": 0.5085124999995969,
+            "p95": 4.801951999999801
+          },
+          "after": {
+            "median": 0.27178449999973964,
+            "p95": 0.37590000000091095
+          }
+        },
+        "analyze": {
+          "before": {
+            "median": 0.9987074999999095,
+            "p95": 2.0649049999992712
+          },
+          "after": {
+            "median": 0.7387555000000248,
+            "p95": 1.2619489999997313
+          }
+        },
+        "finish": {
+          "before": {
+            "median": 1.7723594999997658,
+            "p95": 3.037593000000925
+          },
+          "after": {
+            "median": 1.1288210000000163,
+            "p95": 1.9052980000001298
+          }
+        },
+        "integrity": {
+          "before": {
+            "median": 0.4324290000004112,
+            "p95": 1.1454659999999421
+          },
+          "after": {
+            "median": 0.10508699999991222,
+            "p95": 0.20177100000000792
+          }
+        },
+        "prepare": {
+          "before": {
+            "median": 0.19767950000050405,
+            "p95": 0.3907020000006014
+          },
+          "after": {
+            "median": 0.10753050000039366,
+            "p95": 0.18316300000014962
+          }
+        },
+        "compose": {
+          "before": {
+            "median": 0.06922799999938434,
+            "p95": 0.2829409999994823
+          },
+          "after": {
+            "median": 0.06935350000003382,
+            "p95": 0.23930700000028082
+          }
+        }
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@ export {
   customizedKeys, SETTING_GROUPS, PAPER_MM, pageSizeMm, READABILITY, resolveStyle,
 } from './templates';
 export type { TemplateDef, TemplateTokens, TemplateCapabilities, ApplyTemplateResult, SettingGroup, ResolvedStyle } from './templates';
+export { pdfGlyphRestrictions } from './pdf-glyphs';
 export { planFonts, loadFonts, fontFaceCss, fontManifest, isCoveredByBundledFonts, scriptOf } from './fonts';
 export type { FontPlan, FontFaceSpec, FontManifestEntry, FontSource, FontLoadOptions, LoadedFont, MissingGlyphs } from './fonts';
 export { prepareBody, composeDocument, documentStyles, tocEntries } from './document';

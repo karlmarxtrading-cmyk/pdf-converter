@@ -1,0 +1,1257 @@
+{
+  "schema": 1,
+  "title": "Matriks penerimaan audit RC8: gate asli dan usulan kasus pengguna",
+  "date": "2026-11-22",
+  "timezone": "Asia/Bangkok",
+  "identity": {
+    "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+    "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+    "version": "3.0.0-rc.8",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "f68252a1d37606299e9ef5d1d42a05ecd93461e1b2098d4775baa925a4bb40ab",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "a96288f2d95b466dcac1f3494a4a8bbbae89708927aed4b858aa90a7c6846dbf",
+    "benchmarkHarnessSha256": "88aa736309e18cd6a9902959f7804a9d69de6f2fbb1e920e149a9b8f90210b6a",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "67819b470d4c71edb87e653a4437b5f0ce27729346cf3207e5f11b3f3e58ed14",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "440d201c5b8c8cdd3c3e69366f7241891468df2d2803e95371fbb0973fa3c1b8"
+  },
+  "acceptanceRunId": "d58c2ce4-cce6-45dc-a95c-e615f8660e14",
+  "statusRules": {
+    "original": "G01–G16 statuses copied exactly from fresh decision; names, meanings and limits copied exactly from original RC8 ledger. No relabelling or waiver.",
+    "proposed": "U01–U08 are recommendations, PROPOSED_NOT_RUN as complete acceptance. Narrow previous diagnostics do not grant these gates PASS.",
+    "newCandidate": "Re-establish every PASS on the eventual final source/dist and frozen run. Never reuse stale receipts after changes to source, harness, oracle or settings.",
+    "unavailable": "FAIL/BLOCKED/NOT_RUN remain distinct; build success, mocks or synthetic evidence cannot replace missing physical/operational evidence."
+  },
+  "readiness": {
+    "packageLocalReproducibility": {
+      "status": "VERIFIED_WITHIN_BUILD_SCOPE",
+      "evidence": [
+        "evidence/fresh-build-verification.json",
+        "release_review/fresh-release-verification.json"
+      ],
+      "meaning": "Clean install/tests/build/dist identity; not full functionality, capacity or production qualification."
+    },
+    "candidateQualification": {
+      "status": "INCOMPLETE",
+      "reason": "G09 FAIL; new workload, cache/list and verifier findings remain."
+    },
+    "operationalPromotion": {
+      "status": "NO_GO",
+      "originalGateCounts": {
+        "PASS": 10,
+        "FAIL": 1,
+        "BLOCKED": 4,
+        "NOT_RUN": 1
+      },
+      "authorizationNow": "ZIP/local tests only. No push, publish, remote changes or live rollback."
+    }
+  },
+  "originalGates": [
+    {
+      "id": "G01",
+      "name": "Paket dan identitas",
+      "status": "PASS",
+      "meaning": "Semua checksum, path/CRC dan input receipt cocok; tiap rilis baru diverifikasi ulang",
+      "limits": "Paket di dalam receipt local-build adalah arsip kandidat awal dengan source/dist identik. Seluruh isi ZIP distribusi dan rebuild final diperiksa lagi secara terpisah setelah pemaketan.",
+      "requiredChecks": [
+        "archivePaths",
+        "archiveChecksums",
+        "inputIdentity"
+      ],
+      "sourceRefs": [
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/LEDGER.json",
+          "pointer": "/gates/0",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/receipts/G01.json",
+          "kind": "file"
+        },
+        {
+          "scope": "audit",
+          "path": "release_review/fresh-release-decision.json",
+          "pointer": "/gates/0",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/operations/G01-facts.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/input/identity.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/build-tests/clean-receipt.json",
+          "kind": "file"
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "name": "Build dan suite dasar",
+      "status": "PASS",
+      "meaning": "ci/typecheck/lint/tes/build/static/HTTP/mutation gates lulus; clean rebuild identik",
+      "limits": "Pengujian HTTP dilaksanakan di loopback. Hasil suite browser dan kinerja memakai gate sendiri.",
+      "requiredChecks": [
+        "lockedInstall",
+        "typecheck",
+        "lint",
+        "unit",
+        "static",
+        "http",
+        "mutations",
+        "secretScan",
+        "cleanBuild"
+      ],
+      "sourceRefs": [
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/LEDGER.json",
+          "pointer": "/gates/1",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/receipts/G02.json",
+          "kind": "file"
+        },
+        {
+          "scope": "audit",
+          "path": "release_review/fresh-release-decision.json",
+          "pointer": "/gates/1",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/operations/G02-facts.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/build-tests/clean-receipt.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/build-tests/clean-build.log",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/build-tests/static.log",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/build-tests/http-verification-local.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/build-tests/release-gate.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/operations/dependency-audit.json",
+          "kind": "file"
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "name": "Baseline trigonometri",
+      "status": "PASS",
+      "meaning": "231 rumus/raw/canonical/mode/annotation;17 recovery;254 blok;CSS/font utuh",
+      "limits": "Cakupan kesetaraan adalah korpus pengguna dan profil template yang ditentukan. Jumlah font yang diperlukan berbeda antar-template.",
+      "requiredChecks": [
+        "productionUiDownload",
+        "offlineLayout",
+        "fourTemplates"
+      ],
+      "sourceRefs": [
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/LEDGER.json",
+          "pointer": "/gates/2",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/receipts/G03.json",
+          "kind": "file"
+        },
+        {
+          "scope": "audit",
+          "path": "release_review/fresh-release-decision.json",
+          "pointer": "/gates/2",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/facts/G03.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/browser/results/trigonometry-downloads.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/browser/results/oracle.json",
+          "kind": "file"
+        }
+      ]
+    },
+    {
+      "id": "G04",
+      "name": "Isi wrapper campuran A01",
+      "status": "PASS",
+      "meaning": "Semua prosa/struktur aman dipertahankan; ambiguitas dilaporkan; tidak ada kehilangan diam-diam",
+      "limits": "Cakupan keluarga wrapper, kontrol ambigu dan multiple-math tercantum per baris dalam fixture. Untuk masukan ambigu editor memberi tahu pengguna.",
+      "requiredChecks": [
+        "rawWrapper",
+        "clipboardWrapper",
+        "independentText",
+        "ambiguity",
+        "pureAndMultipleControls"
+      ],
+      "sourceRefs": [
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/LEDGER.json",
+          "pointer": "/gates/3",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/receipts/G04.json",
+          "kind": "file"
+        },
+        {
+          "scope": "audit",
+          "path": "release_review/fresh-release-decision.json",
+          "pointer": "/gates/3",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/facts/G04.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/wrappers/wrapper-final.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/wrappers/rc7-baseline.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/wrappers/wrapper-downloads.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/operations/rich-import.json",
+          "kind": "file"
+        }
+      ]
+    },
+    {
+      "id": "G05",
+      "name": "Representasi rumus A02",
+      "status": "PASS",
+      "meaning": "Kehilangan/kerusakan visual,MathML,annotation,CSS memblokir; fallback persis dan jelas",
+      "limits": "Pemeriksaan menyatakan kesetiaan representasi pada sumber. Kebenaran matematika penulis berada di luar cakupan.",
+      "requiredChecks": [
+        "emptyFormula",
+        "visual",
+        "mathML",
+        "annotation",
+        "operatorAndMode",
+        "cssAndFonts",
+        "fallback",
+        "htmlAndPrint"
+      ],
+      "sourceRefs": [
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/LEDGER.json",
+          "pointer": "/gates/4",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/receipts/G05.json",
+          "kind": "file"
+        },
+        {
+          "scope": "audit",
+          "path": "release_review/fresh-release-decision.json",
+          "pointer": "/gates/4",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/facts/G05.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/integrity/acceptance.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/integrity/final-bytes.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/integrity/rc7-control.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/browser/results/oracle.json",
+          "kind": "file"
+        }
+      ]
+    },
+    {
+      "id": "G06",
+      "name": "Cakupan seluruh isi A03",
+      "status": "PASS",
+      "meaning": "Node liar,unknown/duplicate block,perubahan angka/operator/urutan diblokir",
+      "limits": "Pengecualian untuk dekorasi berasal dari struktur yang dibuat renderer dan konten tepercaya yang tepat.",
+      "requiredChecks": [
+        "rootText",
+        "untrackedNode",
+        "foreignId",
+        "duplicateId",
+        "order",
+        "spoofedDecoration",
+        "generatedControls"
+      ],
+      "sourceRefs": [
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/LEDGER.json",
+          "pointer": "/gates/5",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/receipts/G06.json",
+          "kind": "file"
+        },
+        {
+          "scope": "audit",
+          "path": "release_review/fresh-release-decision.json",
+          "pointer": "/gates/5",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/facts/G06.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/integrity/acceptance.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/integrity/final-bytes.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/integrity/pre-correction-source-ids.json",
+          "kind": "file"
+        }
+      ]
+    },
+    {
+      "id": "G07",
+      "name": "Kontrak glyph PDF A06",
+      "status": "PASS",
+      "meaning": "Fixture asli setia untuk karakter didukung; unsupported diputuskan jelas tanpa klaim utuh",
+      "limits": "Pada tiga konfigurasi asli PDF diagnostik masih memperlihatkan glif kotak. Artefak ini tersimpan di evidence, di luar keluaran yang diizinkan. Native Save ada di G13.",
+      "requiredChecks": [
+        "originalMixed",
+        "supportedText",
+        "emoji",
+        "privateUseDecision",
+        "type3Policy",
+        "actualPdf"
+      ],
+      "sourceRefs": [
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/LEDGER.json",
+          "pointer": "/gates/6",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/receipts/G07.json",
+          "kind": "file"
+        },
+        {
+          "scope": "audit",
+          "path": "release_review/fresh-release-decision.json",
+          "pointer": "/gates/6",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/facts/G07.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/pdf/results.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/pdf/physical-verification.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/pdf-review/mixed.json",
+          "kind": "file"
+        }
+      ]
+    },
+    {
+      "id": "G08",
+      "name": "Paginasi kode A07",
+      "status": "PASS",
+      "meaning": "Label kode melekat ke baris nyata;lanjutan sesuai isi;112 baris lengkap",
+      "limits": "Korpus bersama mencakup 4 template × 3 ukuran × 2 orientasi; tiap kombinasi mempunyai fixture terdaftar. Bukti visual rinci EDT/A5 dan empat PDF acuan tersedia.",
+      "requiredChecks": [
+        "code112Lines",
+        "indentationAndBlankLines",
+        "labelWithCode",
+        "continuation",
+        "a5Boundary"
+      ],
+      "sourceRefs": [
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/LEDGER.json",
+          "pointer": "/gates/7",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/receipts/G08.json",
+          "kind": "file"
+        },
+        {
+          "scope": "audit",
+          "path": "release_review/fresh-release-decision.json",
+          "pointer": "/gates/7",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/facts/G08.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/pdf/coverage.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/pdf/physical-verification.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/pdf-review/reference-pages.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/pdf-review/mixed.json",
+          "kind": "file"
+        }
+      ]
+    },
+    {
+      "id": "G09",
+      "name": "Performa A04",
+      "status": "FAIL",
+      "meaning": "Median <=1,05x baseline;p95 <=1,10x;cohort/sampel sah;output tetap benar",
+      "limits": "Ambang per metrik dan per cohort adalah rasio median ≤1,05 dan p95 ≤1,10. Waktu CPU, cache dan variasi host berlaku untuk lingkungan pengukuran. Semua pasangan tetap tercantum.",
+      "requiredChecks": [
+        "outputOracle",
+        "frozenProtocol",
+        "browserCohorts",
+        "nodeCohorts"
+      ],
+      "sourceRefs": [
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/LEDGER.json",
+          "pointer": "/gates/8",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/receipts/G09.json",
+          "kind": "file"
+        },
+        {
+          "scope": "audit",
+          "path": "release_review/fresh-release-decision.json",
+          "pointer": "/gates/8",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/performance/recovery-cohort-1.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/performance/recovery-cohort-2.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/performance/node-1.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/performance/node-2.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/performance/METHODE.md",
+          "kind": "file"
+        }
+      ]
+    },
+    {
+      "id": "G10",
+      "name": "Kapasitas/memori A08",
+      "status": "PASS",
+      "meaning": "Protokol kapasitas berulang,SLA responsivitas/cancel dan metrik memori konsisten",
+      "limits": "Nilai puncak adalah maksimum sampel JS heap pada target yang sama. Tidak mencakup memori native atau worker; lima ulangan tidak cukup untuk menyatakan p95 produksi.",
+      "requiredChecks": [
+        "fiveRepetitions",
+        "measuredPages",
+        "editSla",
+        "cancelSla",
+        "memorySamples",
+        "memoryTrend"
+      ],
+      "sourceRefs": [
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/LEDGER.json",
+          "pointer": "/gates/9",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/receipts/G10.json",
+          "kind": "file"
+        },
+        {
+          "scope": "audit",
+          "path": "release_review/fresh-release-decision.json",
+          "pointer": "/gates/9",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/facts/G10.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/performance/capacity.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/performance/METHODE.md",
+          "kind": "file"
+        }
+      ]
+    },
+    {
+      "id": "G11",
+      "name": "Gerbang rilis A05",
+      "status": "PASS",
+      "meaning": "Aggregate menolak missing/stale/FAIL/BLOCKED/kurang sampel;hash byte aktual dan oracle utuh",
+      "limits": "Ini merupakan gerbang promosi di aplikasi. Penerapan konfigurasi di layanan hosting dinilai dalam G15 dan G16.",
+      "requiredChecks": [
+        "positiveControl",
+        "thresholdMutation",
+        "distMutation",
+        "formulaMutation",
+        "missingReceipt",
+        "staleReceipt",
+        "shortCohort",
+        "nativeBlocked"
+      ],
+      "sourceRefs": [
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/LEDGER.json",
+          "pointer": "/gates/10",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/receipts/G11.json",
+          "kind": "file"
+        },
+        {
+          "scope": "audit",
+          "path": "release_review/fresh-release-decision.json",
+          "pointer": "/gates/10",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/facts/G11.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/aggregate-tests",
+          "kind": "directory"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/operations/promotion-rehearsal.json",
+          "kind": "file"
+        }
+      ]
+    },
+    {
+      "id": "G12",
+      "name": "Browser dan clipboard nyata A09",
+      "status": "BLOCKED",
+      "meaning": "Matriks OS/browser/penyedia sumber yang diumumkan diuji pada kandidat final",
+      "limits": "Perangkat Windows, macOS/iOS, Android dan sesi penyedia AI nyata yang diminta belum tersedia.",
+      "requiredChecks": [
+        "targetWindows",
+        "realClipboard",
+        "bothMimeTypes",
+        "sourceProvenance",
+        "otherDeclaredPlatforms"
+      ],
+      "sourceRefs": [
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/LEDGER.json",
+          "pointer": "/gates/11",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/receipts/G12.json",
+          "kind": "file"
+        },
+        {
+          "scope": "audit",
+          "path": "release_review/fresh-release-decision.json",
+          "pointer": "/gates/11",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/browser/results/uat.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/browser/results/content-outputs.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/browser/results/playwright-firefox.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/browser/results/playwright-webkit.json",
+          "kind": "file"
+        }
+      ]
+    },
+    {
+      "id": "G13",
+      "name": "Simpan PDF native A09",
+      "status": "BLOCKED",
+      "meaning": "PDF benar-benar disimpan/dibaca/di-hash;math+prosa+layout benar;batal/retry jelas",
+      "limits": "Layar dan soket layanan display lokal tidak dapat dibuka. PDF mesin cetak otomatis di G07–G08 tetap dapat diunduh dalam paket.",
+      "requiredChecks": [
+        "nativeDialog",
+        "savedBytes",
+        "verifiedContent",
+        "cancel",
+        "retry"
+      ],
+      "sourceRefs": [
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/LEDGER.json",
+          "pointer": "/gates/12",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/receipts/G13.json",
+          "kind": "file"
+        },
+        {
+          "scope": "audit",
+          "path": "release_review/fresh-release-decision.json",
+          "pointer": "/gates/12",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/browser/results/native-save.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/browser/results/local-desktop-capabilities.json",
+          "kind": "file"
+        }
+      ]
+    },
+    {
+      "id": "G14",
+      "name": "Operasi data dan aksesibilitas",
+      "status": "BLOCKED",
+      "meaning": "UAT build final:recovery,quota,dua tab,Undo/Redo,keyboard/zoom/screen reader sesuai cakupan",
+      "limits": "Sesi pembaca layar dan zoom native pada perangkat sasaran belum dapat diverifikasi. Pemeriksaan otomatis memiliki cakupan terpisah.",
+      "requiredChecks": [
+        "projectRoundTrip",
+        "rawSource",
+        "undoRedo",
+        "quotaRecovery",
+        "twoTabs",
+        "reload",
+        "deleteData",
+        "keyboardFocus",
+        "zoom360",
+        "screenReader"
+      ],
+      "sourceRefs": [
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/LEDGER.json",
+          "pointer": "/gates/13",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/receipts/G14.json",
+          "kind": "file"
+        },
+        {
+          "scope": "audit",
+          "path": "release_review/fresh-release-decision.json",
+          "pointer": "/gates/13",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/browser/results/browser-storage.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/browser/results/uat.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/browser/results/local-desktop-capabilities.json",
+          "kind": "file"
+        }
+      ]
+    },
+    {
+      "id": "G15",
+      "name": "Preview/hosting A09",
+      "status": "NOT_RUN",
+      "meaning": "URL aktual cocok source/dist;HTTP/MIME/CSP/cache/worker/font/print lulus",
+      "limits": "Pemilik memilih ZIP dan pengujian lokal. Tidak ada URL Cloudflare aktual untuk kandidat ini.",
+      "requiredChecks": [
+        "actualPreviewUrl",
+        "sourceIdentity",
+        "files",
+        "mimeCspCache",
+        "workersFonts",
+        "printRoute",
+        "exportOnHost"
+      ],
+      "sourceRefs": [
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/LEDGER.json",
+          "pointer": "/gates/14",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/receipts/G15.json",
+          "kind": "file"
+        },
+        {
+          "scope": "audit",
+          "path": "release_review/fresh-release-decision.json",
+          "pointer": "/gates/14",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/build-tests/http-verification-local.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/operations/remote-readonly.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/operations/promotion-rehearsal.json",
+          "kind": "file"
+        }
+      ]
+    },
+    {
+      "id": "G16",
+      "name": "Rollback dan persetujuan rilis",
+      "status": "BLOCKED",
+      "meaning": "Target rollback valid,langkah pemulihan terbukti,semua gate wajib final diterima",
+      "limits": "Tidak ada promosi publik, otorisasi rollback hosting atau latihan terhadap deployment produksi. Pemilik membatasi pekerjaan pada ZIP dan pengujian lokal.",
+      "requiredChecks": [
+        "knownGoodTarget",
+        "rollbackDrill",
+        "restoredIdentity",
+        "promotionAuthorization"
+      ],
+      "sourceRefs": [
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/LEDGER.json",
+          "pointer": "/gates/15",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/acceptance/receipts/G16.json",
+          "kind": "file"
+        },
+        {
+          "scope": "audit",
+          "path": "release_review/fresh-release-decision.json",
+          "pointer": "/gates/15",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/operations/rollback-local.json",
+          "kind": "file"
+        },
+        {
+          "scope": "original-package",
+          "path": "evidence/rc8/operations/remote-readonly.json",
+          "kind": "file"
+        }
+      ]
+    }
+  ],
+  "thresholds": {
+    "T-FROZEN-RC8": {
+      "state": "ALREADY_FROZEN_FOR_EXISTING_RC8_PROTOCOL",
+      "source": "source_original/tests/bench/performance-protocol.json",
+      "G09": {
+        "cohortsPerRuntime": 2,
+        "measuredPairsPerFlowPerCohort": 40,
+        "medianRatioMax": 1.05,
+        "nearestRankP95RatioMax": 1.1,
+        "browserPairsPerFreshBlock": 4,
+        "browserWarmupPairsPerBlock": 1,
+        "rule": "Each metric/cohort separately; no dropping errors/outliers; paired output equivalence and identities mandatory."
+      },
+      "G10": {
+        "sections": [
+          6,
+          30,
+          118
+        ],
+        "reps": 5,
+        "heapIntervalMs": 200,
+        "previewMs": 10000,
+        "reeditPreviewMs": 10000,
+        "cancelToIdleMs": 2000,
+        "maxEventLoopGapMs": 1000,
+        "printReadyMs": 60000,
+        "afterCloseRetainedDriftBytes": 8388608,
+        "firstProgressMs": 2000,
+        "maxProgressGapMs": 5000,
+        "peakDefinition": "Maximum observed Runtime.getHeapUsage.usedSize bytes on the same page target as post-GC. Native/process/worker memory excluded. Unknown remains null. Five runs support completion checks only; estimate latency tail per size on a separate 40+40 sample per-size study before advertising a percentile SLA.",
+        "capacityClaim": "Measure the historical 6,30,118-section fixtures. Their page counts depend on actual pagination. No 500/1,000-page claim."
+      },
+      "scope": "G10 budgets apply to 6/30/118 sections. They do not automatically prove or impose identical completion-time SLA for 217,850-word shapes."
+    },
+    "T-NEW-CAPACITY": {
+      "state": "SUGGESTED_NOT_FROZEN",
+      "proposedCompletionRunsPerShape": 5,
+      "proposedInteractiveBudgetsMs": {
+        "cancelToIdle": 2000,
+        "maxEventLoopGap": 1000,
+        "firstMeaningfulProgress": 2000,
+        "maxMeaningfulProgressGap": 5000
+      },
+      "totalDurationAndMemory": "Select explicit total/stall/stage/memory limits from diagnostic profiling and product targets BEFORE acceptance. No new numeric total timeout/heap ceiling is invented or accepted here.",
+      "rules": [
+        "Freeze fixtures, provenance, settings, runtime/device and budgets before acceptance; keep diagnostics separate.",
+        "Five runs support completion/per-run limits, not production p95. A tail claim requires the separate 40+40 per-size study described in the existing protocol.",
+        "Do not raise/remove deadlines, reduce input, drop integrity, discard failures or select favorable runs for PASS.",
+        "Safe rejection of unsupported shape preserves source/backup but is not PASS support for that shape."
+      ]
+    },
+    "T-INTEGRITY": {
+      "state": "NEW_CASE_REQUIREMENTS_PROPOSED; EXISTING_BASELINE_FROZEN",
+      "rules": [
+        "No lost/duplicated/reordered/changed content; independent source oracle.",
+        "Actual output and reopening for each claimed route; payload API does not prove layout/PDF/native save/offline browser.",
+        "Preserve original 231 formulas, 103 inline / 128 display, 17 body recoveries, 254 blocks plus source/canonical/annotation/visual/MathML/CSS/font invariants."
+      ]
+    }
+  },
+  "proposedNewGates": [
+    {
+      "id": "U01",
+      "name": "Bentuk dokumen 217.850 kata dan pemeliharaan sumber",
+      "status": "PROPOSED_NOT_RUN",
+      "related": [
+        "IA-RC8-REL-02",
+        "PG-03",
+        "PG-04"
+      ],
+      "prerequisites": [
+        "S0",
+        "S1",
+        "frozen production source/dist/settings"
+      ],
+      "acceptance": [
+        "Matriks bentuk: banyak paragraf normal + 1 tabel; satu paragraf sangat panjang + 1 tabel; satu tabel panjang dengan sel panjang; heading/TOC padat. Catat source hash, byte, kata menurut aplikasi, baris/sel, node terpanjang dan setting. Samakan 217.850 kata bila membuat surrogate angka pengguna.",
+        "Dokumen asli pengguna, bila tersedia, adalah baris tersendiri dengan byte/settings aslinya. Jika belum diterima, reproduksi asli tetap NOT_RUN; sintetis tidak disebut asli.",
+        "Jalankan UI produksi sampai layout akhir dan hubungkan U02–U05. Semua bentuk yang diklaim didukung harus selesai dalam batas yang dibekukan sebelum acceptance, tanpa truncation atau isi hilang/berlipat/berubah.",
+        "Bentuk di luar dukungan harus diberi hasil eksplisit dengan sumber/backup utuh; penolakan aman tidak dihitung PASS dukungan bentuk tersebut."
+      ],
+      "thresholdRef": "T-NEW-CAPACITY",
+      "existingAuditEvidence": [
+        "evidence/large-document-paragraphs.json",
+        "evidence/large-document-single-paragraph.json",
+        "root_review/fixtures/paragraphs-217850.md",
+        "root_review/fixtures/single-paragraph-217850.md"
+      ],
+      "currentEvidenceLimit": "Dua bentuk sintetis telah lulus core/HTML/print payload Node/jsdom. Browser pagination dan PDF aktual belum diuji untuk 217.850 kata."
+    },
+    {
+      "id": "U02",
+      "name": "Fase, progres nyata, deadline, cancel dan retry",
+      "status": "PROPOSED_NOT_RUN",
+      "related": [
+        "FRAME_TIMEOUT",
+        "PG-02"
+      ],
+      "prerequisites": [
+        "S0",
+        "S1"
+      ],
+      "acceptance": [
+        "Bedakan startup/handshake, aktif, stall, batas total, user cancel dan hasil siap. Log job/revision ID, fase, actual completed units, last progress, elapsed, deadline dan alasan akhir.",
+        "Tes deterministik serta browser nyata: hasil tepat sebelum deadline, progres mendekati batas, handshake hilang, macet tanpa progres, pesan stale/foreign, cancel tiap fase, cleanup dan retry.",
+        "Persiapan, layout, repair, inventory, geometry dan serialization mempunyai progres/checkpoint yang bermakna; heartbeat kosong tidak mereset watchdog stall.",
+        "Kebijakan active/stall/total eksplisit dan terbatas. Cancel-to-idle terukur, frame/listener/timer/job bersih, sumber hash tetap, hasil job lama tidak mengganggu retry. Menaikkan/menghapus timeout saja tidak cukup."
+      ],
+      "thresholdRef": "T-NEW-CAPACITY",
+      "existingAuditEvidence": [
+        "evidence/print-timeout-probe.json"
+      ],
+      "currentEvidenceLimit": "Fake timer menunjukkan timeout absolut 180.000 ms meski progres 179.000 ms. Bukan run browser 180 detik atau reproduksi dokumen asli."
+    },
+    {
+      "id": "U03",
+      "name": "Seluruh lintasan, repair dan biaya paginasi",
+      "status": "PROPOSED_NOT_RUN",
+      "related": [
+        "PG-01",
+        "PG-04"
+      ],
+      "prerequisites": [
+        "S1"
+      ],
+      "acceptance": [
+        "Catat attemptId/globalPass/totalPreviewCalls, discarded attempts dan alasan, seluruh durasi per fase/attempt dan kumulatif. Field final-attempt terpisah.",
+        "Kontrol sintetis harus mencatat 14/28 calls yang sebenarnya, bukan 2/4 final. Fixture browser memerlukan 0/1/6 repair, TOC hidup/mati, paragraf panjang dan sel panjang.",
+        "Anggaran kerja kumulatif dan hasil ketika habis eksplisit; pemeriksaan isi/TOC tetap lengkap. Optimasi fragmen/cache menjaga pemetaan sumber dan setiap karakter/semantik.",
+        "Biaya geometri/browser diukur langsung; volume append sintetis bukan klaim runtime/memori atau penyebab pasti screenshot."
+      ],
+      "thresholdRef": "T-NEW-CAPACITY",
+      "existingAuditEvidence": [
+        "pagination_review/pagination-accounting.json",
+        "pagination_review/paged-longtext.json"
+      ],
+      "currentEvidenceLimit": "Probe control flow dan append jsdom belum mengukur geometri atau beban asli pengguna."
+    },
+    {
+      "id": "U04",
+      "name": "PDF aktual dokumen besar dan pembacaan ulang isi",
+      "status": "PROPOSED_NOT_RUN",
+      "related": [
+        "G07",
+        "G08",
+        "G13",
+        "PG-03"
+      ],
+      "prerequisites": [
+        "U01",
+        "U02",
+        "U03",
+        "same source/settings as layout"
+      ],
+      "acceptance": [
+        "Simpan byte PDF aktual setiap bentuk yang diklaim lulus; catat source/settings/build SHA, metode, OS/browser, output SHA, page count dan receipt.",
+        "Buka ulang secara independen; periksa awal/akhir, urutan teks/baris/sel, font/glif, clipping, duplikasi, continuation, link internal dan formula. Oracle berasal dari sumber, bukan output yang sedang dinilai.",
+        "pdfBytes>0, payload HTML, atau screenshot halaman siap saja tidak cukup. Mutasi isi hilang/berubah/duplikat harus ditolak; baseline matematika/kode tetap utuh.",
+        "Automated browser PDF dan native Save adalah rute terpisah. U04 otomatis tidak menggantikan G13 native Save/Cancel/Retry; bila native tidak tersedia, G13 tetap BLOCKED."
+      ],
+      "thresholdRef": "T-INTEGRITY",
+      "existingAuditEvidence": [
+        "pagination_review/pdf-artifacts.json",
+        "source_original/evidence/rc8/performance/capacity.json"
+      ],
+      "currentEvidenceLimit": "Runner kapasitas menyimpan jumlah byte, bukan buffer PDF 201 halaman; PDF RC8 aktual yang tersedia maksimum 46 halaman."
+    },
+    {
+      "id": "U05",
+      "name": "HTML mandiri besar dibuka luring",
+      "status": "PROPOSED_NOT_RUN",
+      "related": [
+        "G03",
+        "U01"
+      ],
+      "prerequisites": [
+        "S1",
+        "production UI export",
+        "frozen source/build/settings"
+      ],
+      "acceptance": [
+        "Unduh melalui UI produksi dan buka kembali file aktual tanpa jaringan. Ikat source/build/settings/font/aset dan hash output.",
+        "Periksa isi lengkap/akhir, daftar/tabel, anchors, seleksi/navigasi, dan formula/MathML/CSS/font bila ada; tidak ada network dependency tersembunyi.",
+        "Seluruh bentuk yang diklaim dibuka dan terbaca luring. Baseline 231 rumus/254 blok/17 pemulihan, literal code, sumber dan aturan keamanan tetap terpelihara."
+      ],
+      "thresholdRef": "T-INTEGRITY",
+      "existingAuditEvidence": [
+        "evidence/large-document-paragraphs.json",
+        "evidence/large-document-single-paragraph.json"
+      ],
+      "currentEvidenceLimit": "API Node/jsdom dan HTML tersimpan bukan bukti pembukaan luring dalam browser sasaran."
+    },
+    {
+      "id": "U06",
+      "name": "Verifier menolak kontradiksi kapasitas",
+      "status": "PROPOSED_NOT_RUN",
+      "related": [
+        "IA-RC8-REL-03",
+        "A05",
+        "G10",
+        "G11"
+      ],
+      "prerequisites": [
+        "S1"
+      ],
+      "acceptance": [
+        "Control valid tetap PASS; enam mutasi ditolak: layout failed, blocking, browser errors, progres kosong, progres raw bertentangan/melewati SLA, print session masih berjalan setelah cancel.",
+        "Hitung ulang firstProgress/maxGap dari event mentah dan durasi layout; validasi waktu/urutan/status/error/cleanup. Pertahankan kontrol heap/threshold/hash.",
+        "Mutasi dengan binding baru yang koheren harus mencapai validator detail serta jalur record/verify G10. Mengubah file tanpa memperbarui hash bukan satu-satunya kontrol.",
+        "Missing/FAIL/BLOCKED/NOT_RUN, cohort kurang, stale atau identitas berubah tidak boleh menjadi production PASS."
+      ],
+      "thresholdRef": "T-FROZEN-RC8",
+      "existingAuditEvidence": [
+        "release_review/acceptance-consistency-probes.json"
+      ],
+      "currentEvidenceLimit": "Raw kapasitas asli konsisten. Temuan adalah kelemahan validator kontradiksi, bukan bypass hash receipt asli."
+    },
+    {
+      "id": "U07",
+      "name": "Referensi formula tidak mengikuti dokumen terakhir",
+      "status": "PROPOSED_NOT_RUN",
+      "related": [
+        "RC8-M01"
+      ],
+      "prerequisites": [
+        "S1"
+      ],
+      "acceptance": [
+        "A valid harus menghasilkan hasil sama sebelum/sesudah render B untuk object/string/Element/Document, urutan berselang, pengulangan, cache miss/eviction dan ekspor interleaved.",
+        "Mutasi visual/MathML/anotasi/TeX/provenance/mode A dengan jumlah formula tetap selalu ditolak. Cache miss tidak melewati verifikasi.",
+        "Expected context terikat sumber/version yang benar dan cache dibatasi; baseline 231/254 serta export/print payload asli tetap lulus."
+      ],
+      "thresholdRef": "T-INTEGRITY",
+      "existingAuditEvidence": [
+        "math_review/findings.json",
+        "math_review/probe-results.json"
+      ],
+      "currentEvidenceLimit": "False rejection API string/DOM terkonfirmasi; kegagalan UI normal tidak dibuktikan oleh probe."
+    },
+    {
+      "id": "U08",
+      "name": "Semantik daftar terbalik pada clipboard",
+      "status": "PROPOSED_NOT_RUN",
+      "related": [
+        "RC8-C01"
+      ],
+      "prerequisites": [
+        "S1"
+      ],
+      "acceptance": [
+        "Uji ol reversed dengan/tanpa start, nested, mixed math wrapper dan daftar biasa; bandingkan raw dan clipboard terhadap sumber HTML independen.",
+        "Arah menurun/start, nesting dan isi terpelihara pada HTML serta tampilan browser aktual. Gunakan safe rich HTML bila Markdown tidak dapat mewakili semantik.",
+        "Formula/prosa tidak hilang/berlipat; sanitizer atribut aktif tetap ketat. Verifikasi Markdown hasil konversi saja tidak membuktikan kesetiaan sumber awal."
+      ],
+      "thresholdRef": "T-INTEGRITY",
+      "existingAuditEvidence": [
+        "math_review/findings.json",
+        "math_review/probe-results.json"
+      ],
+      "currentEvidenceLimit": "Kehilangan semantik markup terkonfirmasi; belum dibuktikan sebagai regresi baru runtime RC7 atau penomoran visual browser."
+    }
+  ],
+  "stages": [
+    {
+      "id": "S0",
+      "name": "Input dan baseline",
+      "dependsOn": [],
+      "requirements": [
+        "Preserve original ZIP/source/input hashes and RC6 accepted baseline.",
+        "Record original user-source availability; label synthetic shapes and independent expected content."
+      ]
+    },
+    {
+      "id": "S1",
+      "name": "Implementasi dan kontrol lokal",
+      "dependsOn": [
+        "S0",
+        "separate next implementation authorization"
+      ],
+      "requirements": [
+        "Fix in working copy; no edits authorized by this audit artifact.",
+        "Run U02/U03/U06/U07/U08 controls plus original baseline and integrity mutations.",
+        "No speedup by losing content, skipping checks or changing semantics."
+      ]
+    },
+    {
+      "id": "S2",
+      "name": "Browser dan artefak lokal",
+      "dependsOn": [
+        "S1"
+      ],
+      "requirements": [
+        "Freeze final candidate/harness/protocol before acceptance.",
+        "Run U01–U05 on production build; distinguish automated/native PDF.",
+        "Requalify G01–G11 including frozen G09; preserve unavailable platform statuses."
+      ]
+    },
+    {
+      "id": "S3",
+      "name": "Penyerahan ZIP dan keputusan",
+      "dependsOn": [
+        "S2 or documented FAIL/BLOCKED results"
+      ],
+      "requirements": [
+        "Deliver source/dist/evidence; clean extraction verification and external ZIP SHA receipt.",
+        "Separate runnable package from full candidate qualification and production NO_GO.",
+        "Finish authorized local work even when external evidence is unavailable; never label remaining mandatory gates PASS."
+      ]
+    },
+    {
+      "id": "S4",
+      "name": "Perangkat, native Save dan aksesibilitas",
+      "dependsOn": [
+        "same final candidate on actual target devices"
+      ],
+      "requirements": [
+        "Complete G12/G13/G14 with OS/browser, actual trusted MIME, native saved bytes/Cancel/Retry, screen reader and native zoom.",
+        "Can be local; does not authorize publication. Retain BLOCKED if unavailable."
+      ]
+    },
+    {
+      "id": "S5",
+      "name": "Hosting dan promosi bersyarat",
+      "dependsOn": [
+        "S3",
+        "explicit later external authorization",
+        "G01–G14 and relevant new gates qualified"
+      ],
+      "requirements": [
+        "Actual authorized preview establishes G15; publishing is not prerequisite to creating the ZIP.",
+        "Real known-good rollback target, authorized drill and approval evidence establish G16 before production promotion.",
+        "Promote only with all original 16 PASS, valid final evidence and authorization; do not bypass guard."
+      ],
+      "currentStatus": "NOT_AUTHORIZED_NOW; current G15 NOT_RUN and G16 BLOCKED unchanged."
+    }
+  ],
+  "portableReadOnlyAuditCommands": [
+    "From candidate/work root: npm run verify:release (current RC8 expected exit 1)",
+    "From candidate/work with locked dependencies: npm run test:acceptance (fresh audit 15/15)",
+    "From audit folder: python recompute-release-data.py ../source_original --baseline ../../paperforma_rc6",
+    "From audit folder: node acceptance-consistency-probes.mjs ../source_original"
+  ],
+  "provenance": {
+    "namesMeaningsLimits": "source_original/evidence/rc8/LEDGER.json#/gates",
+    "statuses": "release_review/fresh-release-decision.json#/gates",
+    "checkNames": "source_original/scripts/acceptance-policy.mjs export requirements",
+    "newRecommendations": [
+      "release_review/findings.json",
+      "math_review/findings.json",
+      "pagination_review/findings.json",
+      "evidence/print-timeout-probe.json"
+    ],
+    "boundary": "Preserves recorded status; not independent certification of every original requirement. Proposed gates are future acceptance work."
+  }
+}

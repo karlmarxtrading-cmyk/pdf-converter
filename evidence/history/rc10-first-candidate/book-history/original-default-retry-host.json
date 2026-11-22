@@ -1,0 +1,560 @@
+{
+  "observerName": "book-original-default-retry1",
+  "runId": "9a656b4f-0c91-43f7-8c88-094502eb9a2c",
+  "exitCode": 0,
+  "hostMemorySamples": [
+    {
+      "time": "2026-11-22T01:21:43.104586+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 3746240,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:21:44.107057+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 3382044,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:21:45.107552+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2975220,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:21:46.111127+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2915284,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:21:47.111638+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2744544,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:21:48.112056+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 3095836,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:21:49.112582+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2769436,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:21:50.115388+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2644528,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:21:51.117253+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2747972,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:21:52.117659+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2794668,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:21:53.130697+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2608576,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:21:54.131248+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2414508,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:21:55.131635+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2317484,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:21:56.131977+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2252952,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:21:57.132338+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2740520,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:21:58.135583+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2549484,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:21:59.135932+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2259044,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:00.136274+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2030452,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:01.136627+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 1808480,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:02.137115+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 1699624,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:03.137442+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2549020,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:04.155263+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2271268,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:05.159128+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 1945888,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:06.159461+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 1776092,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:07.163232+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 1612464,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:08.167096+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2489876,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:09.168481+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 3405148,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:10.169067+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 3259596,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:11.169430+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2964908,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:12.169998+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2811040,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:13.170309+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2715380,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:14.171930+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2532272,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:15.172241+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2453336,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:16.193302+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2447468,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:17.194071+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2348916,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:18.194440+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2295620,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:19.195196+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2218884,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:20.195487+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2168168,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:21.195878+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2091148,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:22.196276+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2031756,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:23.196932+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2000684,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:24.197254+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2187480,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:25.197866+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2164612,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:26.198193+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2030700,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:27.198788+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2008656,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:28.199786+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2071224,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:29.205922+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2253532,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:30.206308+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2224440,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:31.206620+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2218280,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:32.207095+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2228628,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:33.207392+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2156812,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:34.207724+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2119680,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:35.208032+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 3161100,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:36.208329+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2966228,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:37.208643+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 3078300,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:38.209186+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 3023880,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:39.209538+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2774148,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:40.209917+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2638744,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:41.210355+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2602968,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:42.210652+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2425216,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:43.211005+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2246008,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:44.211396+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2049028,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:45.211776+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 1988660,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:46.212207+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2097192,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:47.212585+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 2080168,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:48.212939+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 1945604,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:49.213271+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 1965504,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:50.213767+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 1983752,
+        "SwapFree": 0
+      }
+    },
+    {
+      "time": "2026-11-22T01:22:51.214186+00:00",
+      "hostKB": {
+        "MemTotal": 10206472,
+        "MemAvailable": 1926328,
+        "SwapFree": 0
+      }
+    }
+  ],
+  "scope": "Aggregate host memory readings during the retry; process-specific consumption and cause of the earlier renderer crash were not measured."
+}

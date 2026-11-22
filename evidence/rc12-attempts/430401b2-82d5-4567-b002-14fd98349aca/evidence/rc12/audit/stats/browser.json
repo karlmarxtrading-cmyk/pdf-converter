@@ -1,0 +1,31 @@
+{
+  "candidateSha256": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+  "distTreeSha256": "573c87801f272ccc24222db5bbe2339cba495488bc34c095caa2b39e2eacc347",
+  "method": "Production Chromium, actual editor input and publish dialog. The second edit is dispatched while the dialog is open.",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "initial": {
+    "editor": "Revision 1 · 4 words",
+    "summary": "Revisionrev 1 · 90030ee88d1bFormatBUS-01 · A4 PortraitContent4 words · 1 tables · 1 formulas · 0 images · 1 code blocks · 0 Mermaid diagrams",
+    "snapshot": " · raw a78ff1dfa2 · rev 1",
+    "goDisabled": false
+  },
+  "pending": {
+    "editor": "Processing revision 2…",
+    "summary": "Processing revision 2…",
+    "snapshot": " · raw a78ff1dfa2 · rev 1",
+    "goDisabled": true
+  },
+  "edited": {
+    "editor": "Revision 2 · 6 words",
+    "summary": "Revisionrev 2 · f4cb312f6789FormatBUS-01 · A4 PortraitContent6 words · 0 tables · 0 formulas · 0 images · 0 code blocks · 0 Mermaid diagrams",
+    "snapshot": " · raw f3a45cca1e · rev 2",
+    "goDisabled": false
+  },
+  "reopened": {
+    "editor": "Revision 2 · 6 words",
+    "summary": "Revisionrev 2 · f4cb312f6789FormatBUS-01 · A4 PortraitContent6 words · 0 tables · 0 formulas · 0 images · 0 code blocks · 0 Mermaid diagrams",
+    "snapshot": " · raw f3a45cca1e · rev 2",
+    "goDisabled": false
+  },
+  "pass": true
+}

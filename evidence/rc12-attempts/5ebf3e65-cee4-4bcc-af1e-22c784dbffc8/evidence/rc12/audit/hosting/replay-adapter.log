@@ -1,0 +1,14 @@
+✔ local Pages simulator rejects malformed paths and sibling-directory traversal, then remains usable (48.493988ms)
+✔ deployment preflight rejects stale sources, alternate output bytes and QA builds of the same version (203.379663ms)
+✔ release identity invalidates changed toolchain pins and Git checkout settings (3.591878ms)
+✔ Pages requires promotion checks on main and rejects a mismatched production setting (2.396268ms)
+✔ a named preview rehearsal executes the full production verifier without changing the production branch (0.365525ms)
+✔ external collector rejects unrelated source, provider URL, deployment ID and public notes without an observation (777.058202ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1162.985114

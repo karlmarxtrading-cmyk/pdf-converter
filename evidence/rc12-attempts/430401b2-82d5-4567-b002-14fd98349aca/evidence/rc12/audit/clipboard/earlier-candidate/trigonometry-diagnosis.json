@@ -1,0 +1,117 @@
+{
+  "changes": [
+    {
+      "kind": "structured-table-as-html",
+      "detail": "Struktur tabel dan rumus yang tidak dapat diwakili tabel Markdown disimpan dalam HTML.",
+      "count": 1
+    },
+    {
+      "kind": "formula-block-as-html",
+      "detail": "Rumus dan teks pendamping dipertahankan dalam HTML aman.",
+      "count": 14
+    },
+    {
+      "kind": "math-literal-delimiters",
+      "detail": "Delimiter rumus di teks (\\(…\\), \\[…\\], $…$, $$…$$) dipertahankan apa adanya, tidak di-escape",
+      "count": 1
+    }
+  ],
+  "issues": [
+    {
+      "id": "integrity-001",
+      "code": "INTEGRITY_RAW_HTML_CHANGED",
+      "severity": "error",
+      "scope": "integrity",
+      "message": "Isi atau susunan blok HTML di baris 23 berubah. Periksa teks, rumus, tautan, gambar, dan batas elemen.",
+      "messageEn": "Content or structure of the HTML block at line 23 changed. Review its text, formulas, links, images and element boundaries.",
+      "line": 23,
+      "blockId": "b-fe372c70-5",
+      "blocking": true
+    },
+    {
+      "id": "integrity-002",
+      "code": "INTEGRITY_RAW_HTML_CHANGED",
+      "severity": "error",
+      "scope": "integrity",
+      "message": "Isi atau susunan blok HTML di baris 25 berubah. Periksa teks, rumus, tautan, gambar, dan batas elemen.",
+      "messageEn": "Content or structure of the HTML block at line 25 changed. Review its text, formulas, links, images and element boundaries.",
+      "line": 25,
+      "blockId": "b-fe372c70-6",
+      "blocking": true
+    },
+    {
+      "id": "integrity-003",
+      "code": "INTEGRITY_RAW_HTML_CHANGED",
+      "severity": "error",
+      "scope": "integrity",
+      "message": "Isi atau susunan blok HTML di baris 29 berubah. Periksa teks, rumus, tautan, gambar, dan batas elemen.",
+      "messageEn": "Content or structure of the HTML block at line 29 changed. Review its text, formulas, links, images and element boundaries.",
+      "line": 29,
+      "blockId": "b-fe372c70-7",
+      "blocking": true
+    },
+    {
+      "id": "integrity-004",
+      "code": "INTEGRITY_RAW_HTML_CHANGED",
+      "severity": "error",
+      "scope": "integrity",
+      "message": "Isi atau susunan blok HTML di baris 31 berubah. Periksa teks, rumus, tautan, gambar, dan batas elemen.",
+      "messageEn": "Content or structure of the HTML block at line 31 changed. Review its text, formulas, links, images and element boundaries.",
+      "line": 31,
+      "blockId": "b-fe372c70-8",
+      "blocking": true
+    },
+    {
+      "id": "integrity-005",
+      "code": "INTEGRITY_RAW_HTML_CHANGED",
+      "severity": "error",
+      "scope": "integrity",
+      "message": "Isi atau susunan blok HTML di baris 51 berubah. Periksa teks, rumus, tautan, gambar, dan batas elemen.",
+      "messageEn": "Content or structure of the HTML block at line 51 changed. Review its text, formulas, links, images and element boundaries.",
+      "line": 51,
+      "blockId": "b-fe372c70-13",
+      "blocking": true
+    },
+    {
+      "id": "integrity-006",
+      "code": "INTEGRITY_RAW_HTML_CHANGED",
+      "severity": "error",
+      "scope": "integrity",
+      "message": "Isi atau susunan blok HTML di baris 53 berubah. Periksa teks, rumus, tautan, gambar, dan batas elemen.",
+      "messageEn": "Content or structure of the HTML block at line 53 changed. Review its text, formulas, links, images and element boundaries.",
+      "line": 53,
+      "blockId": "b-fe372c70-14",
+      "blocking": true
+    },
+    {
+      "id": "integrity-007",
+      "code": "INTEGRITY_RAW_HTML_CHANGED",
+      "severity": "error",
+      "scope": "integrity",
+      "message": "Isi atau susunan blok HTML di baris 55 berubah. Periksa teks, rumus, tautan, gambar, dan batas elemen.",
+      "messageEn": "Content or structure of the HTML block at line 55 changed. Review its text, formulas, links, images and element boundaries.",
+      "line": 55,
+      "blockId": "b-fe372c70-15",
+      "blocking": true
+    },
+    {
+      "id": "integrity-008",
+      "code": "INTEGRITY_ARTICLE_UNTRACKED",
+      "severity": "error",
+      "scope": "integrity",
+      "message": "Isi artikel di luar blok sumber atau label yang ditetapkan terdeteksi.",
+      "messageEn": "The article contains content outside its source blocks or authorized labels.",
+      "blocking": true
+    },
+    {
+      "id": "integrity-009",
+      "code": "INTEGRITY_FORMULA_REPRESENTATION",
+      "severity": "error",
+      "scope": "integrity",
+      "message": "Rumus, sumber TeX, mode atau hasil visual/MathML berbeda di blok sumber ini.",
+      "messageEn": "Formula source, mode, visual markup or MathML differs in this source block.",
+      "blockId": "b-fe372c70-5",
+      "blocking": true
+    }
+  ]
+}

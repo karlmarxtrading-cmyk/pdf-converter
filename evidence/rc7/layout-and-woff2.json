@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "method": "RC6 reproduction and candidate are direct Node/jsdom standalone exports of fixtures/rc6/user-trigonometry.md. CSS was compared independently with the installed KaTeX stylesheet after removing package @font-face rules; embedded fonts are handled separately. Baseline failure is intentionally retained as evidence.",
+  "sourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+  "katexPackageVersion": "0.19.1",
+  "exports": {
+    "rc6UserBus": {
+      "generator": "PaperForma 3.0.0-rc.6 (BUS-01 v2.0.0, rev 2)",
+      "layoutBytes": 19710,
+      "layoutSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+      "layoutIdenticalToInstalledKatexWithoutFontFaces": true,
+      "katex": 231,
+      "mathml": 231,
+      "embeddedFontDefinitions": 10,
+      "htmlBytes": 902592
+    },
+    "rc6SuppliedEdu": {
+      "generator": "PaperForma 3.0.0-rc.6 (EDU-01 v2.0.0, rev 1)",
+      "layoutBytes": 0,
+      "layoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "layoutIdenticalToInstalledKatexWithoutFontFaces": false,
+      "katex": 231,
+      "mathml": 231,
+      "embeddedFontDefinitions": 12,
+      "htmlBytes": 934604
+    },
+    "rc6ReproducedEdu": {
+      "generator": "PaperForma 3.0.0-rc.6 (EDU-01 v2.0.0, rev 1)",
+      "layoutBytes": 0,
+      "layoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "layoutIdenticalToInstalledKatexWithoutFontFaces": false,
+      "katex": 231,
+      "mathml": 231,
+      "embeddedFontDefinitions": 12,
+      "htmlBytes": 934604
+    },
+    "rc7ReproducedEdu": {
+      "generator": "PaperForma 3.0.0-rc.7 (EDU-01 v2.0.0, rev 1)",
+      "layoutBytes": 19710,
+      "layoutSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+      "layoutIdenticalToInstalledKatexWithoutFontFaces": true,
+      "katex": 231,
+      "mathml": 231,
+      "embeddedFontDefinitions": 12,
+      "htmlBytes": 954314
+    }
+  },
+  "rootCause": "Vitest 5.1.0 defaults to disabling CSS transforms; its post transform emits an empty string even for katex.min.css?raw. The production Vite bundle already used the correct layout.",
+  "regressionTests": {
+    "command": "npx vitest run tests/unit/render/rc7-katex-style.test.ts tests/unit/render/rc6-user-export.test.ts tests/unit/render/fonts.test.ts tests/unit/render/static-export.test.ts",
+    "passed": 24,
+    "failed": 0,
+    "baselineTruncation": "RC6 loadFonts accepted 48-byte prefixes of real WOFF2 files with zero issues.",
+    "mutations": [
+      "missing stylesheet",
+      "empty stylesheet",
+      "wrong KaTeX version marker",
+      "missing fraction layout rule",
+      "packaged stylesheet not linked",
+      "real WOFF2 header with missing payload",
+      "browser source retry after truncated HTTP response (simulated fetch)"
+    ]
+  },
+  "shippedWoff2Headers": {
+    "valid": 104,
+    "tested": 104
+  },
+  "limits": "This comparison measures the CSS bytes and programmatic output. It does not measure browser layout, installed-font decoding, OS clipboard or native printer dialogs.",
+  "embeddedFontDecode": {
+    "method": "FreeType FT_New_Memory_Face opens each embedded WOFF2 from the saved HTML; FT_Load_Char with FT_LOAD_RENDER rasterizes up to four mapped characters per font at 20 pixels. This validates the font payload independently of browser layout.",
+    "rc6UserBus": {
+      "facesDecoded": 10,
+      "glyphsRasterized": 40,
+      "families": [
+        "Inter",
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "KaTeX_Size2",
+        "KaTeX_Size3",
+        "KaTeX_Size4"
+      ]
+    },
+    "rc7JsdomEdu": {
+      "facesDecoded": 12,
+      "glyphsRasterized": 48,
+      "families": [
+        "Inter",
+        "KaTeX_AMS",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "KaTeX_Size1",
+        "KaTeX_Size2",
+        "KaTeX_Size3",
+        "KaTeX_Size4",
+        "Source Serif 4"
+      ]
+    }
+  }
+}

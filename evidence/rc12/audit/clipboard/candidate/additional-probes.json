@@ -1,0 +1,518 @@
+{
+  "at": "2026-11-22T16:04:56.356Z",
+  "method": "Fresh Node/jsdom core, rawHTML, clipboard and real fonts export route; no real clipboard provider, browser pagination or OS dialog",
+  "rows": [
+    {
+      "name": "annotated-display-table-real-katex",
+      "input": "<table><tr><th>Name</th><th>Formula</th></tr><tr><td>Energy</td><td><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math><semantics><mrow><mi>E</mi></mrow><annotation encoding=\"application/x-tex\">E=mc^2</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span>E=mc²</span></span></span></span></td></tr></table>",
+      "markdown": "<table><tbody><tr><th>Name</th><th>Formula</th></tr><tr><td>Energy</td><td><code data-pf-formula=\"display\">E=mc^2</code></td></tr></tbody></table>\n",
+      "conversionIssues": [],
+      "rawRoute": {
+        "formulas": [
+          {
+            "tex": "E=mc^2",
+            "display": true,
+            "inTable": true
+          }
+        ],
+        "cells": [
+          "Name",
+          "Formula",
+          "Energy",
+          "E=mc2E=mc^2E=mc2"
+        ],
+        "text": "NameFormulaEnergyE=mc2E=mc^2E=mc2",
+        "issues": []
+      },
+      "convertedRoute": {
+        "formulas": [
+          {
+            "tex": "E=mc^2",
+            "display": true,
+            "inTable": true
+          }
+        ],
+        "cells": [
+          "Name",
+          "Formula",
+          "Energy",
+          "E=mc2E=mc^2E=mc2"
+        ],
+        "text": "NameFormulaEnergyE=mc2E=mc^2E=mc2",
+        "issues": []
+      },
+      "integrity": {
+        "scope": {
+          "id": "Memeriksa keutuhan format: blok yang diperiksa tersaji berurutan dengan token, tanda, angka, sel tabel, rumus, kode, tautan, aset, dan catatan kaki yang sama. TIDAK memeriksa kebenaran fakta atau matematika.",
+          "en": "Checks format integrity: covered source blocks are present in order with identical tokens, signs, numbers, table cells, formulas, code, links, assets and footnotes. Does NOT check factual or mathematical correctness."
+        },
+        "ok": true,
+        "checkedBlocks": 1,
+        "skippedBlocks": [],
+        "coverage": {
+          "blocks": 1,
+          "tokens": 0,
+          "tables": 1,
+          "cells": 4,
+          "math": 0,
+          "code": 0,
+          "links": 0,
+          "images": 0,
+          "footnoteRefs": 0,
+          "footnoteDefs": 0
+        },
+        "issues": []
+      },
+      "print": {
+        "status": "pass",
+        "issues": []
+      },
+      "html": {
+        "status": "pass",
+        "issues": []
+      }
+    },
+    {
+      "name": "inline-space-trim",
+      "input": "<p>Before <span data-tex=\" x + 1 \">x+1</span> after</p>",
+      "markdown": "Before \\( x + 1 \\) after\n",
+      "conversionIssues": [],
+      "rawRoute": {
+        "formulas": [
+          {
+            "tex": " x + 1 ",
+            "display": false,
+            "inTable": false
+          }
+        ],
+        "cells": [],
+        "text": "Before x+1 x + 1 x+1 after",
+        "issues": []
+      },
+      "convertedRoute": {
+        "formulas": [
+          {
+            "tex": " x + 1 ",
+            "display": false,
+            "inTable": false
+          }
+        ],
+        "cells": [],
+        "text": "Before x+1 x + 1 x+1 after",
+        "issues": []
+      },
+      "integrity": {
+        "scope": {
+          "id": "Memeriksa keutuhan format: blok yang diperiksa tersaji berurutan dengan token, tanda, angka, sel tabel, rumus, kode, tautan, aset, dan catatan kaki yang sama. TIDAK memeriksa kebenaran fakta atau matematika.",
+          "en": "Checks format integrity: covered source blocks are present in order with identical tokens, signs, numbers, table cells, formulas, code, links, assets and footnotes. Does NOT check factual or mathematical correctness."
+        },
+        "ok": true,
+        "checkedBlocks": 1,
+        "skippedBlocks": [],
+        "coverage": {
+          "blocks": 1,
+          "tokens": 3,
+          "tables": 0,
+          "cells": 0,
+          "math": 1,
+          "code": 0,
+          "links": 0,
+          "images": 0,
+          "footnoteRefs": 0,
+          "footnoteDefs": 0
+        },
+        "issues": []
+      },
+      "print": {
+        "status": "pass",
+        "issues": []
+      },
+      "html": {
+        "status": "pass",
+        "issues": []
+      },
+      "bothMime": {
+        "plain": "Before x+1 after",
+        "result": {
+          "ok": true,
+          "markdown": "Before \\( x + 1 \\) after\n",
+          "changes": [
+            {
+              "kind": "math-from-source-attribute",
+              "detail": "LaTeX diambil dari atribut sumber data-latex/data-tex; tampilan visual tidak diduplikasi",
+              "count": 1
+            }
+          ],
+          "issues": [],
+          "stats": {
+            "inputBytes": 55,
+            "outputChars": 25,
+            "tables": 0,
+            "math": 1,
+            "mergedTables": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "inline-annotation-space",
+      "input": "<p>Before <span class=\"katex\"><span class=\"katex-mathml\"><math><semantics><mi>x</mi><annotation encoding=\"application/x-tex\"> x + 1 </annotation></semantics></math></span></span> after</p>",
+      "markdown": "Before \\( x + 1 \\) after\n",
+      "conversionIssues": [],
+      "rawRoute": {
+        "formulas": [
+          {
+            "tex": " x + 1 ",
+            "display": false,
+            "inTable": false
+          }
+        ],
+        "cells": [],
+        "text": "Before x+1 x + 1 x+1 after",
+        "issues": []
+      },
+      "convertedRoute": {
+        "formulas": [
+          {
+            "tex": " x + 1 ",
+            "display": false,
+            "inTable": false
+          }
+        ],
+        "cells": [],
+        "text": "Before x+1 x + 1 x+1 after",
+        "issues": []
+      },
+      "integrity": {
+        "scope": {
+          "id": "Memeriksa keutuhan format: blok yang diperiksa tersaji berurutan dengan token, tanda, angka, sel tabel, rumus, kode, tautan, aset, dan catatan kaki yang sama. TIDAK memeriksa kebenaran fakta atau matematika.",
+          "en": "Checks format integrity: covered source blocks are present in order with identical tokens, signs, numbers, table cells, formulas, code, links, assets and footnotes. Does NOT check factual or mathematical correctness."
+        },
+        "ok": true,
+        "checkedBlocks": 1,
+        "skippedBlocks": [],
+        "coverage": {
+          "blocks": 1,
+          "tokens": 3,
+          "tables": 0,
+          "cells": 0,
+          "math": 1,
+          "code": 0,
+          "links": 0,
+          "images": 0,
+          "footnoteRefs": 0,
+          "footnoteDefs": 0
+        },
+        "issues": []
+      },
+      "print": {
+        "status": "pass",
+        "issues": []
+      },
+      "html": {
+        "status": "pass",
+        "issues": []
+      },
+      "bothMime": {
+        "plain": "Before x+1 after",
+        "result": {
+          "ok": true,
+          "markdown": "Before \\( x + 1 \\) after\n",
+          "changes": [
+            {
+              "kind": "math-from-annotation",
+              "detail": "LaTeX diambil dari anotasi; tampilan visual & MathML tidak diduplikasi",
+              "count": 1
+            }
+          ],
+          "issues": [],
+          "stats": {
+            "inputBytes": 188,
+            "outputChars": 25,
+            "tables": 0,
+            "math": 1,
+            "mergedTables": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "inline-backtick",
+      "input": "<p><span data-tex=\"`x`\">x</span></p>",
+      "markdown": "\\(`x`\\)\n",
+      "conversionIssues": [],
+      "rawRoute": {
+        "formulas": [
+          {
+            "tex": "`x`",
+            "display": false,
+            "inTable": false
+          }
+        ],
+        "cells": [],
+        "text": "‘x‘`x`‘x‘",
+        "issues": []
+      },
+      "convertedRoute": {
+        "formulas": [
+          {
+            "tex": "`x`",
+            "display": false,
+            "inTable": false
+          }
+        ],
+        "cells": [],
+        "text": "‘x‘`x`‘x‘",
+        "issues": []
+      },
+      "integrity": {
+        "scope": {
+          "id": "Memeriksa keutuhan format: blok yang diperiksa tersaji berurutan dengan token, tanda, angka, sel tabel, rumus, kode, tautan, aset, dan catatan kaki yang sama. TIDAK memeriksa kebenaran fakta atau matematika.",
+          "en": "Checks format integrity: covered source blocks are present in order with identical tokens, signs, numbers, table cells, formulas, code, links, assets and footnotes. Does NOT check factual or mathematical correctness."
+        },
+        "ok": true,
+        "checkedBlocks": 1,
+        "skippedBlocks": [],
+        "coverage": {
+          "blocks": 1,
+          "tokens": 1,
+          "tables": 0,
+          "cells": 0,
+          "math": 1,
+          "code": 0,
+          "links": 0,
+          "images": 0,
+          "footnoteRefs": 0,
+          "footnoteDefs": 0
+        },
+        "issues": []
+      },
+      "print": {
+        "status": "pass",
+        "issues": []
+      },
+      "html": {
+        "status": "pass",
+        "issues": []
+      }
+    },
+    {
+      "name": "inline-double-dollar",
+      "input": "<p><span data-tex=\"x + \\text{USD $$}\">x</span></p>",
+      "markdown": "\\(x + \\text{USD $$}\\)\n",
+      "conversionIssues": [],
+      "rawRoute": {
+        "formulas": [
+          {
+            "tex": "x + \\text{USD $$}",
+            "display": false,
+            "inTable": false
+          }
+        ],
+        "cells": [],
+        "text": "x+USD x + \\text{USD $$}x+USD ",
+        "issues": [
+          {
+            "id": "issue-001",
+            "code": "MATH_UNTERMINATED",
+            "severity": "warning",
+            "scope": "math",
+            "message": "Rumus di baris 1 belum ditutup. Tambahkan $$ pada akhir rumus.",
+            "messageEn": "The formula at line 1 is not closed. Add $$ at the end of the formula.",
+            "line": 1,
+            "detail": {
+              "snippet": "<p><span data-tex=\"x + \\text{USD $$}\">x</span></p>"
+            }
+          }
+        ]
+      },
+      "convertedRoute": {
+        "formulas": [
+          {
+            "tex": "x + \\text{USD $$}",
+            "display": false,
+            "inTable": false
+          }
+        ],
+        "cells": [],
+        "text": "x+USD x + \\text{USD $$}x+USD ",
+        "issues": []
+      },
+      "integrity": {
+        "scope": {
+          "id": "Memeriksa keutuhan format: blok yang diperiksa tersaji berurutan dengan token, tanda, angka, sel tabel, rumus, kode, tautan, aset, dan catatan kaki yang sama. TIDAK memeriksa kebenaran fakta atau matematika.",
+          "en": "Checks format integrity: covered source blocks are present in order with identical tokens, signs, numbers, table cells, formulas, code, links, assets and footnotes. Does NOT check factual or mathematical correctness."
+        },
+        "ok": true,
+        "checkedBlocks": 1,
+        "skippedBlocks": [],
+        "coverage": {
+          "blocks": 1,
+          "tokens": 1,
+          "tables": 0,
+          "cells": 0,
+          "math": 1,
+          "code": 0,
+          "links": 0,
+          "images": 0,
+          "footnoteRefs": 0,
+          "footnoteDefs": 0
+        },
+        "issues": []
+      },
+      "print": {
+        "status": "pass",
+        "issues": []
+      },
+      "html": {
+        "status": "pass",
+        "issues": []
+      }
+    },
+    {
+      "name": "display-table-header",
+      "input": "<table><tr><th><span data-tex=\"x\" data-display=\"true\">x</span></th><th>B</th></tr><tr><td>C</td><td>D</td></tr></table>",
+      "markdown": "<table><tbody><tr><th><code data-pf-formula=\"display\">x</code></th><th>B</th></tr><tr><td>C</td><td>D</td></tr></tbody></table>\n",
+      "conversionIssues": [],
+      "rawRoute": {
+        "formulas": [
+          {
+            "tex": "x",
+            "display": true,
+            "inTable": true
+          }
+        ],
+        "cells": [
+          "xxx",
+          "B",
+          "C",
+          "D"
+        ],
+        "text": "xxxBCD",
+        "issues": []
+      },
+      "convertedRoute": {
+        "formulas": [
+          {
+            "tex": "x",
+            "display": true,
+            "inTable": true
+          }
+        ],
+        "cells": [
+          "xxx",
+          "B",
+          "C",
+          "D"
+        ],
+        "text": "xxxBCD",
+        "issues": []
+      },
+      "integrity": {
+        "scope": {
+          "id": "Memeriksa keutuhan format: blok yang diperiksa tersaji berurutan dengan token, tanda, angka, sel tabel, rumus, kode, tautan, aset, dan catatan kaki yang sama. TIDAK memeriksa kebenaran fakta atau matematika.",
+          "en": "Checks format integrity: covered source blocks are present in order with identical tokens, signs, numbers, table cells, formulas, code, links, assets and footnotes. Does NOT check factual or mathematical correctness."
+        },
+        "ok": true,
+        "checkedBlocks": 1,
+        "skippedBlocks": [],
+        "coverage": {
+          "blocks": 1,
+          "tokens": 0,
+          "tables": 1,
+          "cells": 4,
+          "math": 0,
+          "code": 0,
+          "links": 0,
+          "images": 0,
+          "footnoteRefs": 0,
+          "footnoteDefs": 0
+        },
+        "issues": []
+      },
+      "print": {
+        "status": "pass",
+        "issues": []
+      },
+      "html": {
+        "status": "pass",
+        "issues": []
+      },
+      "bothMime": {
+        "plain": "x\tB\nC\tD",
+        "result": {
+          "ok": true,
+          "markdown": "<table><tbody><tr><th><code data-pf-formula=\"display\">x</code></th><th>B</th></tr><tr><td>C</td><td>D</td></tr></tbody></table>\n",
+          "changes": [
+            {
+              "kind": "math-from-source-attribute",
+              "detail": "LaTeX diambil dari atribut sumber data-latex/data-tex; tampilan visual tidak diduplikasi",
+              "count": 1
+            },
+            {
+              "kind": "structured-table-as-html",
+              "detail": "Struktur tabel dan rumus yang tidak dapat diwakili tabel Markdown disimpan dalam HTML.",
+              "count": 1
+            }
+          ],
+          "issues": [],
+          "stats": {
+            "inputBytes": 119,
+            "outputChars": 128,
+            "tables": 1,
+            "math": 1,
+            "mergedTables": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "li-type-raw",
+      "input": "<ol type=\"1\"><li>one</li><li type=\"A\">two</li><li>three</li></ol>",
+      "markdown": "<ol type=\"1\"><li>one</li><li type=\"A\">two</li><li>three</li></ol>\n",
+      "conversionIssues": [],
+      "rawRoute": {
+        "formulas": [],
+        "cells": [],
+        "text": "onetwothree",
+        "issues": []
+      },
+      "convertedRoute": {
+        "formulas": [],
+        "cells": [],
+        "text": "onetwothree",
+        "issues": []
+      },
+      "integrity": {
+        "scope": {
+          "id": "Memeriksa keutuhan format: blok yang diperiksa tersaji berurutan dengan token, tanda, angka, sel tabel, rumus, kode, tautan, aset, dan catatan kaki yang sama. TIDAK memeriksa kebenaran fakta atau matematika.",
+          "en": "Checks format integrity: covered source blocks are present in order with identical tokens, signs, numbers, table cells, formulas, code, links, assets and footnotes. Does NOT check factual or mathematical correctness."
+        },
+        "ok": true,
+        "checkedBlocks": 1,
+        "skippedBlocks": [],
+        "coverage": {
+          "blocks": 1,
+          "tokens": 3,
+          "tables": 0,
+          "cells": 0,
+          "math": 0,
+          "code": 0,
+          "links": 0,
+          "images": 0,
+          "footnoteRefs": 0,
+          "footnoteDefs": 0
+        },
+        "issues": []
+      },
+      "print": {
+        "status": "pass",
+        "issues": []
+      },
+      "html": {
+        "status": "pass",
+        "issues": []
+      }
+    }
+  ]
+}

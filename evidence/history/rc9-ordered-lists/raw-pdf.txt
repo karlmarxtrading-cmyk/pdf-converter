@@ -1,0 +1,262 @@
+Rujukan ke bagian AC, iv dan XI.
+
+ Y. Alfa
+AC. Bravo
+       i. Charlie
+      iv. Delta
+      iii. Echo
+AD. Foxtrot
+
+ab. Golf
+         Hotel
+           X. India
+         XI. Juliet
+aa. Kilo
+
+18. Lima
+19.
+20. Mike
+
+ 1. DecimalForwardDefaultCountOne
+ 2. DecimalForwardDefaultCountTwo
+ 3. DecimalForwardDefaultCountThree
+
+ 1. DecimalForwardDefaultResetOne
+27. DecimalForwardDefaultResetTwo
+28. DecimalForwardDefaultResetThree
+
+ 4. DecimalForwardWithstartCountOne
+ 5. DecimalForwardWithstartCountTwo
+ 6. DecimalForwardWithstartCountThree
+
+ 4. DecimalForwardWithstartResetOne
+27. DecimalForwardWithstartResetTwo
+28. DecimalForwardWithstartResetThree
+
+ 1. DecimalReverseDefaultCountOne
+ 0. DecimalReverseDefaultCountTwo
+-1. DecimalReverseDefaultCountThree
+
+ 1. DecimalReverseDefaultResetOne
+27. DecimalReverseDefaultResetTwo
+26. DecimalReverseDefaultResetThree
+
+ 4. DecimalReverseWithstartCountOne
+ 3. DecimalReverseWithstartCountTwo
+ 2. DecimalReverseWithstartCountThree
+
+
+
+                                        1
+ 4. DecimalReverseWithstartResetOne
+27. DecimalReverseWithstartResetTwo
+26. DecimalReverseWithstartResetThree
+
+ a. LowerForwardDefaultCountOne
+ b. LowerForwardDefaultCountTwo
+ c. LowerForwardDefaultCountThree
+
+ a. LowerForwardDefaultResetOne
+aa. LowerForwardDefaultResetTwo
+ab. LowerForwardDefaultResetThree
+
+ d. LowerForwardWithstartCountOne
+ e. LowerForwardWithstartCountTwo
+ f. LowerForwardWithstartCountThree
+
+ d. LowerForwardWithstartResetOne
+aa. LowerForwardWithstartResetTwo
+ab. LowerForwardWithstartResetThree
+
+ a. LowerReverseDefaultCountOne
+ 0. LowerReverseDefaultCountTwo
+-1. LowerReverseDefaultCountThree
+
+ a. LowerReverseDefaultResetOne
+aa. LowerReverseDefaultResetTwo
+ z. LowerReverseDefaultResetThree
+
+ d. LowerReverseWithstartCountOne
+ c. LowerReverseWithstartCountTwo
+ b. LowerReverseWithstartCountThree
+
+ d. LowerReverseWithstartResetOne
+aa. LowerReverseWithstartResetTwo
+ z. LowerReverseWithstartResetThree
+
+ A. UpperForwardDefaultCountOne
+ B. UpperForwardDefaultCountTwo
+ C. UpperForwardDefaultCountThree
+
+ A. UpperForwardDefaultResetOne
+AA. UpperForwardDefaultResetTwo
+AB. UpperForwardDefaultResetThree
+
+ D. UpperForwardWithstartCountOne
+ E. UpperForwardWithstartCountTwo
+ F. UpperForwardWithstartCountThree
+
+
+                                        2
+   D. UpperForwardWithstartResetOne
+ AA. UpperForwardWithstartResetTwo
+  AB. UpperForwardWithstartResetThree
+
+   A. UpperReverseDefaultCountOne
+   0. UpperReverseDefaultCountTwo
+  -1. UpperReverseDefaultCountThree
+
+   A. UpperReverseDefaultResetOne
+ AA. UpperReverseDefaultResetTwo
+   Z. UpperReverseDefaultResetThree
+
+   D. UpperReverseWithstartCountOne
+   C. UpperReverseWithstartCountTwo
+   B. UpperReverseWithstartCountThree
+
+   D. UpperReverseWithstartResetOne
+ AA. UpperReverseWithstartResetTwo
+   Z. UpperReverseWithstartResetThree
+
+    i. RomanlowerForwardDefaultCountOne
+   ii. RomanlowerForwardDefaultCountTwo
+   iii. RomanlowerForwardDefaultCountThree
+
+    i. RomanlowerForwardDefaultResetOne
+xxvii. RomanlowerForwardDefaultResetTwo
+xxviii. RomanlowerForwardDefaultResetThree
+
+   iv. RomanlowerForwardWithstartCountOne
+   v. RomanlowerForwardWithstartCountTwo
+   vi. RomanlowerForwardWithstartCountThree
+
+   iv. RomanlowerForwardWithstartResetOne
+xxvii. RomanlowerForwardWithstartResetTwo
+xxviii. RomanlowerForwardWithstartResetThree
+
+    i. RomanlowerReverseDefaultCountOne
+   0. RomanlowerReverseDefaultCountTwo
+  -1. RomanlowerReverseDefaultCountThree
+
+    i. RomanlowerReverseDefaultResetOne
+xxvii. RomanlowerReverseDefaultResetTwo
+xxvi. RomanlowerReverseDefaultResetThree
+
+   iv. RomanlowerReverseWithstartCountOne
+   iii. RomanlowerReverseWithstartCountTwo
+   ii. RomanlowerReverseWithstartCountThree
+
+
+                                               3
+   iv. RomanlowerReverseWithstartResetOne
+ xxvii. RomanlowerReverseWithstartResetTwo
+ xxvi. RomanlowerReverseWithstartResetThree
+
+    I. RomanupperForwardDefaultCountOne
+    II. RomanupperForwardDefaultCountTwo
+   III. RomanupperForwardDefaultCountThree
+
+    I. RomanupperForwardDefaultResetOne
+XXVII. RomanupperForwardDefaultResetTwo
+XXVIII. RomanupperForwardDefaultResetThree
+
+   IV. RomanupperForwardWithstartCountOne
+    V. RomanupperForwardWithstartCountTwo
+   VI. RomanupperForwardWithstartCountThree
+
+   IV. RomanupperForwardWithstartResetOne
+XXVII. RomanupperForwardWithstartResetTwo
+XXVIII. RomanupperForwardWithstartResetThree
+
+    I. RomanupperReverseDefaultCountOne
+    0. RomanupperReverseDefaultCountTwo
+  -1. RomanupperReverseDefaultCountThree
+
+    I. RomanupperReverseDefaultResetOne
+XXVII. RomanupperReverseDefaultResetTwo
+ XXVI. RomanupperReverseDefaultResetThree
+
+   IV. RomanupperReverseWithstartCountOne
+   III. RomanupperReverseWithstartCountTwo
+    II. RomanupperReverseWithstartCountThree
+
+   IV. RomanupperReverseWithstartResetOne
+XXVII. RomanupperReverseWithstartResetTwo
+ XXVI. RomanupperReverseWithstartResetThree
+
+ 160. LintasHalaman01
+ 159. LintasHalaman02
+ 158. LintasHalaman03
+ 157. LintasHalaman04
+ 156. LintasHalaman05
+  69. LintasHalaman06
+  68. LintasHalaman07
+  67. LintasHalaman08
+  66. LintasHalaman09
+  65. LintasHalaman10
+
+
+                                               4
+170. LintasHalaman11
+169. LintasHalaman12
+168. LintasHalaman13
+167. LintasHalaman14
+166. LintasHalaman15
+165. LintasHalaman16
+164. LintasHalaman17
+163. LintasHalaman18
+162. LintasHalaman19
+161. LintasHalaman20
+160. LintasHalaman21
+159. LintasHalaman22
+158. LintasHalaman23
+157. LintasHalaman24
+156. LintasHalaman25
+155. LintasHalaman26
+154. LintasHalaman27
+153. LintasHalaman28
+152. LintasHalaman29
+151. LintasHalaman30
+150. LintasHalaman31
+149. LintasHalaman32
+148. LintasHalaman33
+147. LintasHalaman34
+146. LintasHalaman35
+145. LintasHalaman36
+144. LintasHalaman37
+143. LintasHalaman38
+142. LintasHalaman39
+141. LintasHalaman40
+140. LintasHalaman41
+139. LintasHalaman42
+138. LintasHalaman43
+137. LintasHalaman44
+136. LintasHalaman45
+135. LintasHalaman46
+134. LintasHalaman47
+133. LintasHalaman48
+132. LintasHalaman49
+131. LintasHalaman50
+130. LintasHalaman51
+
+
+
+                       5
+211. LintasHalaman52
+210. LintasHalaman53
+209. LintasHalaman54
+208. LintasHalaman55
+207. LintasHalaman56
+206. LintasHalaman57
+205. LintasHalaman58
+204. LintasHalaman59
+203. LintasHalaman60
+202. LintasHalaman61
+201. LintasHalaman62
+200. LintasHalaman63
+
+
+
+
+                       6
+

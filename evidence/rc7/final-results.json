@@ -1,0 +1,304 @@
+{
+  "version": "3.0.0-rc.7",
+  "decision": "CANDIDATE_FOR_STAGING",
+  "productionAcceptance": "OPEN",
+  "build": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.7",
+    "profile": "production",
+    "candidateSha256": "99b799225ac28add26bdda08cb59724a431dedd4728b4e465d6a0646dbf75f73",
+    "distTreeSha256": "9d2ce6c321ffd305614859932cb8b8fc8cdad73f4f6d5b53b46eec2ddc86d234",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "qaBuild": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.7",
+    "profile": "qa",
+    "candidateSha256": "99b799225ac28add26bdda08cb59724a431dedd4728b4e465d6a0646dbf75f73",
+    "distTreeSha256": "8a4e31dac0fb0afa48b099cd1e48a984bc1ffdb0d683839298fdf636f1662e3f",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "sourceChecks": {
+    "npmCi": "PASS",
+    "typecheck": "PASS",
+    "lint": "PASS",
+    "vitestFiles": 59,
+    "vitestPassed": 496,
+    "nodePassed": 9,
+    "productionBuild": "PASS",
+    "qaBuild": "PASS",
+    "static": "PASS",
+    "httpPassed": 184,
+    "httpTotal": 184,
+    "fileBytesCompared": 179,
+    "releaseGateCases": 13,
+    "releaseGatePass": true,
+    "secretScan": "PASS",
+    "smokePassed": 12,
+    "browserE2e": {
+      "total": 33,
+      "pass": 33,
+      "fail": 0
+    }
+  },
+  "legacyPdfSuite": {
+    "documentsPassed": 3,
+    "documentsTested": 7,
+    "failures": "Type 3 fonts in four mixed documents",
+    "memoryCheck": "PASS"
+  },
+  "supplementaryLoad": {
+    "pages": [
+      12,
+      52,
+      201
+    ],
+    "passed": 3,
+    "repetitionsEach": 1
+  },
+  "formulaOracle": {
+    "inputBytes": 15280,
+    "total": 231,
+    "inline": 103,
+    "display": 128,
+    "reviewChanges": 17,
+    "blocks": 254,
+    "headings": 77,
+    "tables": 5,
+    "tableRows": 33,
+    "tableCells": 115,
+    "syntheticContentMutationsDetected": 17,
+    "syntheticContentMutationCount": 17,
+    "rc6Detected": 0
+  },
+  "htmlDownloads": [
+    {
+      "template": "BUS-01",
+      "sha256": "b2c21b1bb3bdf24706209d7e98afb34dcc81478b31d942d1adec28d51b8d1ef4",
+      "bytes": 902499,
+      "fonts": 10,
+      "title": "Kumpulan Rumus Trigonometri Lengkap"
+    },
+    {
+      "template": "CON-01",
+      "sha256": "8c35b6d8eed603a4a5d41254d95af1d51f2b233adcef0c2e8cebad02992a7cfd",
+      "bytes": 865522,
+      "fonts": 9,
+      "title": "Kumpulan Rumus Trigonometri Lengkap"
+    },
+    {
+      "template": "EDT-01",
+      "sha256": "f45c56c9102b5ab23a8af6d9b7d74db720a0cb09455990d41c3c45b57f9ed312",
+      "bytes": 1008013,
+      "fonts": 14,
+      "title": "Kumpulan Rumus Trigonometri Lengkap"
+    },
+    {
+      "template": "EDU-01",
+      "sha256": "3fc826221c8f207764683d7f97dacb2234c68ed304bb157fdadd88dd7760e09a",
+      "bytes": 957699,
+      "fonts": 12,
+      "title": "Kumpulan Rumus Trigonometri Lengkap"
+    }
+  ],
+  "pdf": [
+    {
+      "id": "trigonometry-BUS-A4",
+      "pages": 16,
+      "pdfBytes": 192339,
+      "status": "PASS",
+      "checks": {
+        "formulaInventory": true,
+        "pages": true,
+        "embeddedFonts": true,
+        "noType3": true,
+        "externalLinks": true,
+        "internalLinks": true,
+        "physicalPageSizes": true,
+        "pageLabels": true,
+        "nonempty": true,
+        "proseOrder": true,
+        "cellOrder": true
+      },
+      "pdfSha256": "494f3051f259de1e4fc8dab7a6b66eeb76fb82e19131511febfac33b7d62097f"
+    },
+    {
+      "id": "trigonometry-EDU-A4",
+      "pages": 19,
+      "pdfBytes": 202397,
+      "status": "PASS",
+      "checks": {
+        "formulaInventory": true,
+        "pages": true,
+        "embeddedFonts": true,
+        "noType3": true,
+        "externalLinks": true,
+        "internalLinks": true,
+        "physicalPageSizes": true,
+        "pageLabels": true,
+        "nonempty": true,
+        "proseOrder": true,
+        "cellOrder": true
+      },
+      "pdfSha256": "566e969471591d0de7a25e73a5f0917fac596e3e4837e303fd62b599bd48fc44"
+    },
+    {
+      "id": "trigonometry-EDT-A5",
+      "pages": 20,
+      "pdfBytes": 184026,
+      "status": "PASS",
+      "checks": {
+        "formulaInventory": true,
+        "pages": true,
+        "embeddedFonts": true,
+        "noType3": true,
+        "externalLinks": true,
+        "internalLinks": true,
+        "physicalPageSizes": true,
+        "pageLabels": true,
+        "nonempty": true,
+        "proseOrder": true,
+        "cellOrder": true
+      },
+      "pdfSha256": "a85eb01646b45de711c55903ab988b3a57e51840a325980a7145eb432eb915e7"
+    },
+    {
+      "id": "trigonometry-CON-Letter-landscape",
+      "pages": 19,
+      "pdfBytes": 165061,
+      "status": "PASS",
+      "checks": {
+        "formulaInventory": true,
+        "pages": true,
+        "embeddedFonts": true,
+        "noType3": true,
+        "externalLinks": true,
+        "internalLinks": true,
+        "physicalPageSizes": true,
+        "pageLabels": true,
+        "nonempty": true,
+        "proseOrder": true,
+        "cellOrder": true
+      },
+      "pdfSha256": "b2329cac42625d21890d96d5f8303c7729d835e66b6cb67651b550c754977891"
+    },
+    {
+      "id": "mixed-EDU-A4",
+      "pages": 11,
+      "pdfBytes": 358638,
+      "status": "FAIL",
+      "checks": {
+        "formulaInventory": true,
+        "pages": true,
+        "embeddedFonts": true,
+        "noType3": false,
+        "externalLinks": true,
+        "internalLinks": true,
+        "physicalPageSizes": true,
+        "pageLabels": true,
+        "nonempty": true,
+        "proseOrder": false,
+        "cellOrder": true
+      },
+      "pdfSha256": "bcb7a2a23a15ce78a7adcecdecd90a63f2fee99ffff1fed1306e927d487dad9c"
+    },
+    {
+      "id": "mixed-BUS-Letter-landscape",
+      "pages": 14,
+      "pdfBytes": 360448,
+      "status": "FAIL",
+      "checks": {
+        "formulaInventory": true,
+        "pages": true,
+        "embeddedFonts": true,
+        "noType3": false,
+        "externalLinks": true,
+        "internalLinks": true,
+        "physicalPageSizes": true,
+        "pageLabels": true,
+        "nonempty": true,
+        "proseOrder": false,
+        "cellOrder": true
+      },
+      "pdfSha256": "f0781470d255ccb840126f3971c1edde5d1ec77cedfe01863158e88f47f85fc0"
+    },
+    {
+      "id": "mixed-EDT-A5",
+      "pages": 19,
+      "pdfBytes": 372873,
+      "status": "FAIL",
+      "checks": {
+        "formulaInventory": true,
+        "pages": true,
+        "embeddedFonts": true,
+        "noType3": false,
+        "externalLinks": true,
+        "internalLinks": true,
+        "physicalPageSizes": true,
+        "pageLabels": true,
+        "nonempty": true,
+        "proseOrder": false,
+        "cellOrder": true
+      },
+      "pdfSha256": "2444df7674ec7e1096928537401bf07e75a67e675d3ad9f483618d1b2672abe2"
+    }
+  ],
+  "nativeSaveDialog": "BLOCKED: print requested, no native save dialog observed",
+  "productionEngines": {
+    "firefox": {
+      "version": "153.0",
+      "launch": "PASS",
+      "preview": "PASS",
+      "download": "PASS",
+      "offline": "PASS",
+      "pagination": "PASS",
+      "pages": 16
+    },
+    "webkit": {
+      "version": "26.5",
+      "launch": "PASS",
+      "preview": "PASS",
+      "download": "PASS",
+      "offline": "PASS",
+      "pagination": "PASS",
+      "pages": 16
+    }
+  },
+  "chromiumProduction": {
+    "offlineDownloads": 4,
+    "engine": "HeadlessChrome/153.0.8010.0",
+    "realDownloads": "PASS",
+    "printing": "Four trigonometry PDFs passed from paginated print result; original mixed unsupported glyph corpus has recorded strict failures."
+  },
+  "perfBrowser": {
+    "engine": "HeadlessChrome/153.0.8010.0",
+    "method": "Alternating production pairs, see complete data and independent repeat/diagnostics under evidence/rc7-perf.",
+    "statuses": {
+      "small.emptyReadyMs": "PASS",
+      "small.smallPreviewMs": "VARIABEL",
+      "small.editPreviewMs": "VARIABEL",
+      "trig.previewMs": "VARIABEL",
+      "trig.htmlExportMs": "FAIL",
+      "trig.pageReadyMs": "PASS",
+      "long.previewMs": "VARIABEL",
+      "memory.edit1AfterGcMiB": "PASS",
+      "memory.edit4AfterGcMiB": "PASS",
+      "memory.edit8AfterGcMiB": "PASS"
+    }
+  },
+  "performanceGate": "FAIL: same-build browser pairs exceeded p95 timing thresholds on preview and pagination; p95 print preparation also exceeded threshold on two jsdom runs. See performance report per scenario.",
+  "deploy": "NOT_RUN; no push, merge or public deployment.",
+  "limitations": [
+    "PDF mixed original corpus has glyph coverage and extractable-text failures with emoji and PUA.",
+    "Physical devices, native print save, screen reader hardware and provider-specific clipboard sessions were not verified.",
+    "Hosted production and repository HEAD were not tested."
+  ]
+}

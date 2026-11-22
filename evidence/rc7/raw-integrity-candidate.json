@@ -1,0 +1,206 @@
+{
+  "type": "Synthetic input, production core modules via Vite SSR, DOM from jsdom",
+  "version": "3.0.0-rc.7",
+  "controls": [
+    {
+      "name": "self-contained HTML between two Markdown blocks",
+      "accepted": true,
+      "checkedBlocks": 3,
+      "skippedBlocks": [],
+      "coverage": {
+        "blocks": 3,
+        "tokens": 16,
+        "tables": 1,
+        "cells": 2,
+        "math": 1,
+        "code": 1,
+        "links": 1,
+        "images": 1,
+        "footnoteRefs": 0,
+        "footnoteDefs": 0
+      },
+      "issueCodes": []
+    },
+    {
+      "name": "Markdown link with rewritten fragment",
+      "accepted": true,
+      "checkedBlocks": 3,
+      "skippedBlocks": [],
+      "coverage": {
+        "blocks": 3,
+        "tokens": 3,
+        "tables": 0,
+        "cells": 0,
+        "math": 0,
+        "code": 0,
+        "links": 1,
+        "images": 0,
+        "footnoteRefs": 0,
+        "footnoteDefs": 0
+      },
+      "issueCodes": []
+    },
+    {
+      "name": "Markdown embedded image",
+      "accepted": true,
+      "checkedBlocks": 1,
+      "skippedBlocks": [],
+      "coverage": {
+        "blocks": 1,
+        "tokens": 1,
+        "tables": 0,
+        "cells": 0,
+        "math": 0,
+        "code": 0,
+        "links": 0,
+        "images": 1,
+        "footnoteRefs": 0,
+        "footnoteDefs": 0
+      },
+      "issueCodes": []
+    },
+    {
+      "name": "Markdown missing asset placeholder",
+      "accepted": true,
+      "checkedBlocks": 1,
+      "skippedBlocks": [],
+      "coverage": {
+        "blocks": 1,
+        "tokens": 1,
+        "tables": 0,
+        "cells": 0,
+        "math": 0,
+        "code": 0,
+        "links": 0,
+        "images": 1,
+        "footnoteRefs": 0,
+        "footnoteDefs": 0
+      },
+      "issueCodes": []
+    }
+  ],
+  "mutations": [
+    {
+      "name": "operator",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_RAW_HTML_CHANGED"
+      ]
+    },
+    {
+      "name": "formula removed",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_RAW_HTML_CHANGED"
+      ]
+    },
+    {
+      "name": "formula provenance",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_RAW_HTML_CHANGED"
+      ]
+    },
+    {
+      "name": "paragraph removed",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_RAW_HTML_CHANGED"
+      ]
+    },
+    {
+      "name": "nested element order",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_RAW_HTML_CHANGED"
+      ]
+    },
+    {
+      "name": "whole block order",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_BLOCK_ORDER"
+      ]
+    },
+    {
+      "name": "nested table row",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_RAW_HTML_CHANGED"
+      ]
+    },
+    {
+      "name": "link destination",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_RAW_HTML_CHANGED"
+      ]
+    },
+    {
+      "name": "image removed",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_RAW_HTML_CHANGED"
+      ]
+    },
+    {
+      "name": "alternative text",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_REFERENCE_TARGET_CHANGED",
+        "INTEGRITY_RAW_HTML_CHANGED"
+      ]
+    },
+    {
+      "name": "image title",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_RAW_HTML_CHANGED"
+      ]
+    },
+    {
+      "name": "caption semantics",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_RAW_HTML_CHANGED"
+      ]
+    },
+    {
+      "name": "code indentation",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_RAW_HTML_CHANGED"
+      ]
+    },
+    {
+      "name": "actual href points to another existing id",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_REFERENCE_TARGET_CHANGED"
+      ]
+    },
+    {
+      "name": "target id removed",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_REFERENCE_TARGET_CHANGED"
+      ]
+    },
+    {
+      "name": "embedded image src removed",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_REFERENCE_TARGET_CHANGED"
+      ]
+    },
+    {
+      "name": "visible placeholder label removed",
+      "detected": true,
+      "issueCodes": [
+        "INTEGRITY_REFERENCE_TARGET_CHANGED"
+      ]
+    }
+  ],
+  "total": 17,
+  "detected": 17
+}

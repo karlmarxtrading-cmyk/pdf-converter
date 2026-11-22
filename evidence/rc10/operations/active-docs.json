@@ -1,0 +1,37 @@
+{
+  "version": "3.0.0-rc.10",
+  "documents": 12,
+  "relativeLinks": 56,
+  "npmScripts": [
+    "build:pages",
+    "build:qa",
+    "lint",
+    "scan:secrets",
+    "test:e2e",
+    "test:gate",
+    "test:smoke",
+    "typecheck",
+    "verify:deployment",
+    "verify:http",
+    "verify:release",
+    "verify:static"
+  ],
+  "problems": [],
+  "status": "PASS",
+  "source": "774465b21054bfd933b869ea7232d3d59ff8e1fa0422a8d83b18208b08b6abd6",
+  "releaseCommand": {
+    "command": "npm run verify:release",
+    "exitCode": 1,
+    "decision": "NO_GO",
+    "reopenedAllGateStatuses": true,
+    "runId": "862feb27-d188-4f90-a381-c64533c2f220"
+  },
+  "previewCommand": {
+    "command": "npm run preview",
+    "port": 4173,
+    "identicalBytes": [
+      "index.html",
+      "print.html"
+    ]
+  }
+}

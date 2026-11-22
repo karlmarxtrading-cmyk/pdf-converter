@@ -1,0 +1,64 @@
+{
+  "build": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.12",
+    "profile": "production",
+    "candidateSha256": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+    "distTreeSha256": "573c87801f272ccc24222db5bbe2339cba495488bc34c095caa2b39e2eacc347",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "tests": {
+    "narrow": {
+      "status": "PASS",
+      "viewport": 360,
+      "source": {
+        "viewport": 360,
+        "content": 360
+      },
+      "format": {
+        "viewport": 360,
+        "content": 360
+      },
+      "preview": {
+        "viewport": 360,
+        "content": 360
+      },
+      "clipboard": "navigator.clipboard.writeText + Ctrl+V; synthetic fixture in browser session",
+      "undoRedo": true,
+      "focusMessagesAndEdu": true
+    },
+    "optIn": {
+      "status": "PASS",
+      "freshContext": true,
+      "uncheckedBeforeExplicitOptIn": true,
+      "indexedDatabasesBeforeOptIn": 0
+    },
+    "conflict": {
+      "status": "PASS",
+      "bothReopened": true,
+      "secondTabStatus": "conflict"
+    },
+    "reloadAndDelete": {
+      "status": "PASS",
+      "originalAndConflictCopyReopened": true,
+      "savedSourceSurvivedReload": true,
+      "cancelKeptOriginal": true,
+      "explicitDeleteRemovedOnlyDisposableOriginal": true,
+      "verifiedAgainAfterReload": true
+    },
+    "quotaBackup": {
+      "status": "PASS",
+      "quotaLimitBytes": 3072,
+      "storageStatus": "quota",
+      "syntheticSourceBytes": 10019,
+      "sourceRestored": true,
+      "downloadBytes": 9823,
+      "downloadSha256": "ce4b990fe1b1c22e819dec39441bffb11b515779b796d0b2ffdb9aba1e389d53"
+    }
+  }
+}

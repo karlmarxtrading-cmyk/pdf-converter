@@ -1,0 +1,208 @@
+{
+  "outputs": [
+    {
+      "document": "A",
+      "route": "standalone",
+      "formulas": [
+        {
+          "tex": "x-2",
+          "mode": "inline"
+        },
+        {
+          "tex": "a+7",
+          "mode": "display"
+        }
+      ]
+    },
+    {
+      "document": "B",
+      "route": "print",
+      "formulas": [
+        {
+          "tex": "z+9",
+          "mode": "inline"
+        }
+      ]
+    },
+    {
+      "document": "A",
+      "route": "print",
+      "formulas": [
+        {
+          "tex": "x-2",
+          "mode": "inline"
+        },
+        {
+          "tex": "a+7",
+          "mode": "display"
+        }
+      ]
+    },
+    {
+      "document": "B",
+      "route": "standalone",
+      "formulas": [
+        {
+          "tex": "z+9",
+          "mode": "inline"
+        }
+      ]
+    }
+  ],
+  "trials": [
+    {
+      "mutation": "visual",
+      "form": "Document",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "visual",
+      "form": "Element",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "visual",
+      "form": "string",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "mathml",
+      "form": "Document",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "mathml",
+      "form": "Element",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "mathml",
+      "form": "string",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "annotation",
+      "form": "Document",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "annotation",
+      "form": "Element",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "annotation",
+      "form": "string",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "provenance",
+      "form": "Document",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "provenance",
+      "form": "Element",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "provenance",
+      "form": "string",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "tex",
+      "form": "Document",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "tex",
+      "form": "Element",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "tex",
+      "form": "string",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "mode",
+      "form": "Document",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "mode",
+      "form": "Element",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    },
+    {
+      "mutation": "mode",
+      "form": "string",
+      "beforeCount": 2,
+      "afterCount": 2,
+      "accepted": false
+    }
+  ],
+  "evictionKeys": 160,
+  "parallelExports": [
+    "A standalone",
+    "B print",
+    "A print",
+    "B standalone"
+  ],
+  "formulas": [
+    2,
+    1,
+    2,
+    1
+  ],
+  "damagedForms": [
+    "Document",
+    "Element",
+    "string"
+  ],
+  "unchangedCounts": true,
+  "rejected": [
+    "visual",
+    "mathml",
+    "annotation",
+    "provenance",
+    "tex",
+    "mode"
+  ],
+  "pass": true
+}

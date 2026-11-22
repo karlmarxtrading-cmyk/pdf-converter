@@ -1,0 +1,13 @@
+{
+  "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+  "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496",
+  "method": "Inspeksi visual lembar hasil raster PDF publik dari tujuh dokumen. Lihat pages.json untuk nomor halaman dan hash setiap PDF.",
+  "pagesExamined": 17,
+  "observations": [
+    "Dua sampul clipboard memperlihatkan judul dan bidang warna. Di halaman isi, tabel memiliki dua kolom, rumus berada pada kolom kiri, dan daftar berlanjut ke halaman penutup yang memuat referensi marker.",
+    "Pada trigonometri A4, tabel perbandingan, pecahan bertingkat dan deretan persamaan terpisah secara visual. Catatan penutup terlihat di bawah deretan identitas pada halaman 16.",
+    "Dokumen campuran A5 memperlihatkan kata penutup serta dua catatan kaki. PDF percakapan lanskap memuat penutup dan nomor halaman.",
+    "Tabel sintetis mempertahankan baris kepala pada sampel awal, tengah dan akhir. Halaman terakhir tabel dan buku paragraf memiliki ruang bawah serta nomor halaman. Tidak terlihat potongan di tepi halaman yang diperiksa."
+  ],
+  "scope": "Penilaian visual pada halaman sampel dilengkapi validasi teks terstruktur dan laporan inspeksi matriks terpisah."
+}

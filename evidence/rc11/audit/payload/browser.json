@@ -1,0 +1,84 @@
+{
+  "candidateSha256AtStart": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+  "buildMode": "local production modules plus isolated QA adapter; native print dialog excluded",
+  "sourceModulesSha256": "cdc1117a9128d3f3096fcac1fe354e70e5c839498f43e09813fd486d7960bedf",
+  "cases": [
+    {
+      "mode": "standard",
+      "delta": -1,
+      "targetBytes": 47185919,
+      "actual": 47185919,
+      "pages": 1,
+      "state": "prepared",
+      "ending": true,
+      "clean": true,
+      "intact": true,
+      "ok": true
+    },
+    {
+      "mode": "standard",
+      "delta": 0,
+      "targetBytes": 47185920,
+      "actual": 47185920,
+      "pages": 1,
+      "state": "prepared",
+      "ending": true,
+      "clean": true,
+      "intact": true,
+      "ok": true
+    },
+    {
+      "mode": "standard",
+      "delta": 1,
+      "targetBytes": 47185921,
+      "refusal": {
+        "code": "BUDGET_EXCEEDED",
+        "kind": "pdfPayload",
+        "limit": 47185920,
+        "message": "Muatan PDF melebihi batas: 47,185,921 byte (45.00 MiB) > 47,185,920 byte (45.00 MiB). Input ditolak utuh; tidak ada bagian yang dipotong dan dokumen aktif tidak berubah."
+      },
+      "clean": true,
+      "intact": true,
+      "ok": true
+    },
+    {
+      "mode": "book",
+      "delta": -1,
+      "targetBytes": 47185919,
+      "actual": 47185919,
+      "htmlHash": "ac2a3d54f20eb5896fbbce080a62dd63106ea227dc28a2408acfeb50f1513913",
+      "ending": true,
+      "clean": true,
+      "intact": true,
+      "ok": true
+    },
+    {
+      "mode": "book",
+      "delta": 0,
+      "targetBytes": 47185920,
+      "actual": 47185920,
+      "htmlHash": "a90ebe8181dbaa063ef680ff4cd4b99a9cff0edf99d1e531766051c2191c7ff3",
+      "ending": true,
+      "clean": true,
+      "intact": true,
+      "ok": true
+    },
+    {
+      "mode": "book",
+      "delta": 1,
+      "targetBytes": 47185921,
+      "refusal": {
+        "code": "BUDGET_EXCEEDED",
+        "kind": "pdfPayload",
+        "limit": 47185920,
+        "message": "Muatan PDF melebihi batas: 47,185,921 byte (45.00 MiB) > 47,185,920 byte (45.00 MiB). Input ditolak utuh; tidak ada bagian yang dipotong dan dokumen aktif tidak berubah."
+      },
+      "clean": true,
+      "intact": true,
+      "ok": true
+    }
+  ],
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "ok": true,
+  "candidateSha256AtEnd": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876"
+}

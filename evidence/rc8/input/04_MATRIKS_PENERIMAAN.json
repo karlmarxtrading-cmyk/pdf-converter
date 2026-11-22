@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "meaning": "Proposed production acceptance matrix; current RC7 status uses the full named scope of each row. NOT_RUN does not imply every component has no prior tests. No readiness percentage is computed.",
+  "gates": [
+    {
+      "id": "G01",
+      "gate": "Paket dan identitas",
+      "statusRC7": "PASS",
+      "acceptance": "Semua checksum, path/CRC dan input receipt cocok; tiap rilis baru diverifikasi ulang",
+      "observed": "708 checksum/709 berkas cocok; receipt cocok",
+      "evidence": "evidence/archive-inventory.json",
+      "scope": "Semua kandidat"
+    },
+    {
+      "id": "G02",
+      "gate": "Build dan suite dasar",
+      "statusRC7": "PASS",
+      "acceptance": "ci/typecheck/lint/tes/build/static/HTTP/mutation gates lulus; clean rebuild identik",
+      "observed": "496 Vitest + 9 Node;180 dist identik;HTTP184/184;13 gate cases",
+      "evidence": "evidence/fresh-build-verification.json",
+      "scope": "Semua kandidat"
+    },
+    {
+      "id": "G03",
+      "gate": "Baseline trigonometri",
+      "statusRC7": "PASS",
+      "acceptance": "231 rumus/raw/canonical/mode/annotation;17 recovery;254 blok;CSS/font utuh",
+      "observed": "Probe sumber dan6 HTML RC7 cocok; bukan validasi seluruh glyph PDF",
+      "evidence": "math_review/probe-results.json;pdf_review/html-verification.json",
+      "scope": "Semua perubahan parsing/render"
+    },
+    {
+      "id": "G04",
+      "gate": "Isi wrapper campuran A01",
+      "statusRC7": "FAIL",
+      "acceptance": "Semua prosa/struktur aman dipertahankan; ambiguitas dilaporkan; tidak ada kehilangan diam-diam",
+      "observed": "Empat keluarga tag gagal pada raw HTML dan clipboard",
+      "evidence": "math_review/probe-results.json",
+      "scope": "Input HTML/clipboard"
+    },
+    {
+      "id": "G05",
+      "gate": "Representasi rumus A02",
+      "statusRC7": "FAIL",
+      "acceptance": "Kehilangan/kerusakan visual,MathML,annotation,CSS memblokir; fallback persis dan jelas",
+      "observed": "Formula kosong dikirim dengan export pass",
+      "evidence": "math_review/probe-results.json",
+      "scope": "Semua profil ekspor"
+    },
+    {
+      "id": "G06",
+      "gate": "Cakupan seluruh isi A03",
+      "statusRC7": "FAIL",
+      "acceptance": "Node liar,unknown/duplicate block,perubahan angka/operator/urutan diblokir",
+      "observed": "Paragraf tambahan lolos; ID asing hanya warning",
+      "evidence": "math_review/probe-results.json",
+      "scope": "Semua profil ekspor"
+    },
+    {
+      "id": "G07",
+      "gate": "Kontrak glyph PDF A06",
+      "statusRC7": "FAIL",
+      "acceptance": "Fixture asli setia untuk karakter didukung; unsupported diputuskan jelas tanpa klaim utuh",
+      "observed": "Tiga PDF campuran menampilkan kotak PUA; strict gates gagal",
+      "evidence": "pdf_review/findings.json",
+      "scope": "Cakupan karakter PDF yang diumumkan"
+    },
+    {
+      "id": "G08",
+      "gate": "Paginasi kode A07",
+      "statusRC7": "FAIL",
+      "acceptance": "Label kode melekat ke baris nyata;lanjutan sesuai isi;112 baris lengkap",
+      "observed": "A5 halaman10 label saja;halaman11 salah lanjutan",
+      "evidence": "pdf_review/findings.json",
+      "scope": "Kualitas visual A5;P3"
+    },
+    {
+      "id": "G09",
+      "gate": "Performa A04",
+      "statusRC7": "FAIL",
+      "acceptance": "Median <=1,05x baseline;p95 <=1,10x;cohort/sampel sah;output tetap benar",
+      "observed": "Gate RC7 FAIL;raw arithmetic cocok;sebab belum pasti",
+      "evidence": "perf_review/recomputed.json",
+      "scope": "Alur utama dan kontrak nonregresi"
+    },
+    {
+      "id": "G10",
+      "gate": "Kapasitas/memori A08",
+      "statusRC7": "NOT_RUN",
+      "acceptance": "Protokol kapasitas berulang,SLA responsivitas/cancel dan metrik memori konsisten",
+      "observed": "Ada1run12/52/201halaman;belum memenuhi protokol ini",
+      "evidence": "perf_review/findings.json",
+      "scope": "Ukuran/perangkat yang diiklankan"
+    },
+    {
+      "id": "G11",
+      "gate": "Gerbang rilis A05",
+      "statusRC7": "FAIL",
+      "acceptance": "Aggregate menolak missing/stale/FAIL/BLOCKED/kurang sampel;hash byte aktual dan oracle utuh",
+      "observed": "Build/perf COMPLETE tidak menggabungkan semua syarat;runner perlu penguatan",
+      "evidence": "perf_review/findings.json",
+      "scope": "Promosi produksi"
+    },
+    {
+      "id": "G12",
+      "gate": "Browser dan clipboard nyata A09",
+      "statusRC7": "NOT_RUN",
+      "acceptance": "Matriks OS/browser/penyedia sumber yang diumumkan diuji pada kandidat final",
+      "observed": "Log Chromium/Firefox/WebKit ditelaah;matriks penuh belum tersedia/diulang",
+      "evidence": "input/VERIFIKASI_PAPERFORMA_RC7.json",
+      "scope": "Dukungan yang dipublikasikan"
+    },
+    {
+      "id": "G13",
+      "gate": "Simpan PDF native A09",
+      "statusRC7": "BLOCKED",
+      "acceptance": "PDF benar-benar disimpan/dibaca/di-hash;math+prosa+layout benar;batal/retry jelas",
+      "observed": "Receipt native save BLOCKED;PDF mesin otomatis adalah jalur lain",
+      "evidence": "pdf_review/findings.json",
+      "scope": "Fitur Cetak/Simpan PDF"
+    },
+    {
+      "id": "G14",
+      "gate": "Operasi data dan aksesibilitas",
+      "statusRC7": "NOT_RUN",
+      "acceptance": "UAT build final:recovery,quota,dua tab,Undo/Redo,keyboard/zoom/screen reader sesuai cakupan",
+      "observed": "Suite lokal lulus;beberapa bukti browser tersedia;protokol UAT lengkap belum ditutup",
+      "evidence": "evidence/fresh-build-verification.json;input/VERIFIKASI_PAPERFORMA_RC7.json",
+      "scope": "Perangkat sasaran"
+    },
+    {
+      "id": "G15",
+      "gate": "Preview/hosting A09",
+      "statusRC7": "NOT_RUN",
+      "acceptance": "URL aktual cocok source/dist;HTTP/MIME/CSP/cache/worker/font/print lulus",
+      "observed": "Hosting tidak dijalankan dalam audit paket",
+      "evidence": "root_review/external-references.json",
+      "scope": "Cloudflare Pages target"
+    },
+    {
+      "id": "G16",
+      "gate": "Rollback dan persetujuan rilis",
+      "statusRC7": "NOT_RUN",
+      "acceptance": "Target rollback valid,langkah pemulihan terbukti,semua gate wajib final diterima",
+      "observed": "Panduan ada;deployment/rollback langsung belum diperiksa",
+      "evidence": "input/VERIFIKASI_PAPERFORMA_RC7.json",
+      "scope": "Promosi ke main/produksi"
+    }
+  ]
+}

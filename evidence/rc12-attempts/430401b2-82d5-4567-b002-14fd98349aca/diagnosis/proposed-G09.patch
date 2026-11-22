@@ -1,0 +1,166 @@
+--- a/src/core/render.ts
++++ b/src/core/render.ts
+@@ -147,6 +147,7 @@
+ }
+ 
+ function renderedHeadingToc(body: HTMLElement, toc: TocEntry[]): TocEntry[] {
++  if (!toc.length) return [];
+   const headings = new Map([...body.querySelectorAll('h1, h2, h3, h4, h5, h6')].map(el => [el.id, el]));
+   return toc.map(entry => {
+     const heading = headings.get(entry.id);
+@@ -742,6 +743,12 @@
+     const line = source.slice(0, m.index).split('\n').length + ctx.lineOffset;
+     ctx.issues.push(mkIssue('CITATION_UNRESOLVED', 'info', 'structure', { id: `Token sitasi AI "${m[1]}" di baris ${line} tidak membawa URL/metadata; tidak ada tautan yang dikarang. Teks asli dipertahankan.`, en: `AI citation token "${m[1]}" at line ${line} carries no URL/metadata; no link was invented. Original text kept.` }, { line, detail: { token: m[1]! } }));
+   }
++  // Empty, whitespace-only, and metadata-only inputs can finish after parsing
++  // and reporting their source diagnostics. No Markdown nodes require conversion.
++  if (!root.children.length) {
++    ctx.curBlock = undefined;
++    return { nodes: [] };
++  }
+   const t = docLabels(ctx.lang);
+   const handlers = makeHandlers(ctx);
+   if (containsRawHtml) handlers.html = (state, node) => {
+@@ -981,7 +988,7 @@
+   const assetSrc = new Map(s1.assetSrc);
+   const byId = new Map(assets.map((a) => [a.id, a]));
+   // atribut pasca-sanitasi (kunci bernonce; nilai di-escape oleh serializer DOM)
+-  for (const el of Array.from(body.querySelectorAll('[data-post]'))) {
++  for (const el of body.firstElementChild ? body.querySelectorAll('[data-post]') : []) {
+     const key = el.getAttribute('data-post') ?? '';
+     el.removeAttribute('data-post');
+     const attrs = post.get(key);
+@@ -997,7 +1004,7 @@
+   // render only. Independent clones preserve MathML/SVG namespaces and permit
+   // later accessibility decoration without mutating the first occurrence.
+   const parsedSlots = new Map<string, globalThis.Element>();
+-  for (const el of Array.from(body.querySelectorAll('[data-slot]'))) {
++  for (const el of body.firstElementChild ? body.querySelectorAll('[data-slot]') : []) {
+     const key = el.getAttribute('data-slot') ?? '';
+     const s = slotMap.get(key);
+     el.removeAttribute('data-slot');
+--- a/src/core/hash.ts
++++ b/src/core/hash.ts
+@@ -61,9 +61,13 @@
+   return Array.from(H, (x) => x.toString(16).padStart(8, '0')).join('');
+ }
+ 
+-/** SHA-256 hex dari bytes atau string (string di-encode UTF-8). Memakai WebCrypto bila ada. */
++/** SHA-256 hex dari bytes atau string (string di-encode UTF-8). */
+ export async function sha256Hex(data: Uint8Array | string): Promise<string> {
+   const bytes = typeof data === 'string' ? enc.encode(data) : data;
++  // Small immutable strings are common in project revisions and canonical settings.
++  // Digest them locally to avoid native-job scheduling latency on each edit.
++  // Limit main-thread work by UTF-8 byte length; binary assets still use WebCrypto.
++  if (typeof data === 'string' && bytes.byteLength <= 2048) return sha256HexSync(bytes);
+   const subtle = (globalThis as { crypto?: Crypto }).crypto?.subtle;
+   if (subtle) {
+     try {
+--- a/src/core/integrity.ts
++++ b/src/core/integrity.ts
+@@ -137,6 +137,7 @@
+ export function extractRenderedBlocks(html: string | Document | Element): RenderedBlock[] {
+   const root: ParentNode = typeof html === 'string' ? parseInert(html).body : html;
+   const out: RenderedBlock[] = [];
++  if (!root.firstElementChild) return out;
+   for (const el of Array.from(root.querySelectorAll('[data-block-id]'))) {
+     // blok bersarang (mis. data-block-id di dalam data-block-id) tidak diharapkan; ambil yang terluar
+     if (el.parentElement?.closest('[data-block-id]')) continue;
+--- a/src/core/article-integrity.ts
++++ b/src/core/article-integrity.ts
+@@ -13,6 +13,7 @@
+  * user-supplied data-pf-generated attribute. Only exact generated labels
+  * whose owner exists in the source are eligible for an exemption. */
+ export function articleCoverage(root: Element, blocks: BlockModel[], conversation?: Conversation): CoreIssue[] {
++  if (!root.hasChildNodes()) return [];
+   const sourceIds = new Map(blocks.map(b => [b.id,b]));
+   const referencedNotes = new Set(blocks.flatMap(b => b.fnRefs.map(label => label.toLowerCase())));
+   const found = new Set<string>();
+@@ -67,7 +68,7 @@
+ 
+ export function verifyFormulaRepresentations(root: Element, blocks: BlockModel[], refs: FormulaReferences): CoreIssue[] {
+   const byBlock = new Map<string, Element[]>();
+-  const nodes = root.querySelectorAll('.pf-math');
++  const nodes = root.getElementsByClassName('pf-math');
+   for (const el of nodes) {
+     const owner = el.closest('[data-block-id]')?.getAttribute('data-block-id') ?? '';
+     const group = byBlock.get(owner);
+--- a/src/render/document.ts
++++ b/src/render/document.ts
+@@ -216,7 +216,7 @@
+ 
+ /** Mermaid → SVG inline. Gagal/tidak tersedia → sumber tetap terlihat + issue (tidak pernah gambar kosong). */
+ export async function renderMermaid(root: HTMLElement, opts: { enabled: boolean; labels: DocLabels; idPrefix?: string; allowExternalImages?: boolean; generation?: number; assets?: Snapshot['assets']; signal?: AbortSignal }): Promise<{ issues: Issue[]; rendered: number; failed: number }> {
+-  const blocks = [...root.querySelectorAll('pre.pf-mermaid')];
++  const blocks = root.firstElementChild ? [...root.querySelectorAll('pre.pf-mermaid')] : [];
+   const issues: Issue[] = [];
+   let rendered = 0, failed = 0;
+   if (!blocks.length) return { issues, rendered, failed };
+--- /dev/null
++++ b/tests/unit/core/empty-document.test.ts
+@@ -0,0 +1,45 @@
++// @vitest-environment jsdom
++import { describe, expect, it } from 'vitest';
++import { renderBody } from '../../../src/core/render';
++import { checkRenderIntegrity } from '../../../src/core/integrity';
++import { purifyToBody } from '../../../src/core/sanitize';
++
++const options = { template: 'BUS-01' as const, assets: [], allowExternalImages: false };
++
++describe('empty document preparation', () => {
++  it('returns independent inert DOM and removal reports after an editor reset', () => {
++    const initial = purifyToBody('');
++    const originalReport = structuredClone(initial.report);
++    initial.body.setAttribute('title', 'Changed in previous output');
++    initial.body.append('Earlier revision');
++    initial.report.removed.push({ kind: 'element', name: 'test' });
++    const reset = purifyToBody('');
++    expect(reset.body).not.toBe(initial.body);
++    expect(reset.body.ownerDocument).not.toBe(initial.body.ownerDocument);
++    expect(reset.body.innerHTML).toBe('');
++    expect(reset.body.getAttribute('title')).toBeNull();
++    expect(reset.report).toEqual(originalReport);
++    expect(reset.body.ownerDocument.defaultView).toBeNull();
++    expect(purifyToBody('<p>Revision B</p>').body.textContent).toBe('Revision B');
++  });
++
++  it('preserves metadata, whitespace and source integrity around empty block sequences', async () => {
++    const empty = await renderBody('', options);
++    expect(empty.html).toBe('');
++    expect(empty.stats.words).toBe(0);
++    for (const source of [' \n\n', '---\ntitle: Metadata only\n---\n']) {
++      const rendered = await renderBody(source, options);
++      expect(rendered.html).toBe('');
++      expect(checkRenderIntegrity(source, rendered).ok).toBe(true);
++      if (source.startsWith('---')) expect(rendered.frontmatter).toBeDefined();
++    }
++    const citedMetadata = await renderBody('---\ntitle: Rekap citeturn0search1\n---\n', options);
++    expect(citedMetadata.issues.some(issue => issue.code === 'CITATION_UNRESOLVED')).toBe(true);
++    const content = await renderBody('Original content.', options);
++    expect(checkRenderIntegrity('Original content.', content).ok).toBe(true);
++    expect(checkRenderIntegrity('Original content.', empty).ok).toBe(false);
++    expect(checkRenderIntegrity('', content).ok).toBe(false);
++    expect(checkRenderIntegrity('', 'Extra text outside a block.').ok).toBe(false);
++    expect(checkRenderIntegrity('$x+1$', empty).ok).toBe(false);
++  });
++});
+--- /dev/null
++++ b/tests/unit/core/hash-utf8.test.ts
+@@ -0,0 +1,17 @@
++// @vitest-environment node
++import { createHash } from 'node:crypto';
++import { describe, expect, it } from 'vitest';
++import { sha256Hex } from '../../../src/core/hash';
++
++describe('SHA-256 revision metadata', () => {
++  it('matches native SHA-256 for UTF-8 source and canonical metadata at both sides of the byte limit', async () => {
++    const metadata = JSON.stringify({ title: 'Rumus π²', author: 'Ayu', nested: { value: 'a\\b\nc' } });
++    const samples = [
++      '', metadata, 'A'.repeat(55), 'B'.repeat(56), 'x'.repeat(2047), 'x'.repeat(2048), 'x'.repeat(2049),
++      '𝔸'.repeat(512), '𝔸'.repeat(512) + 'π',
++    ];
++    for (const input of samples) {
++      expect(await sha256Hex(input)).toBe(createHash('sha256').update(input, 'utf8').digest('hex'));
++    }
++  });
++});

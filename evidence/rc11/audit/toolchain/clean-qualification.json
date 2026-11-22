@@ -1,0 +1,60 @@
+{
+  "scope": "Clean Linux QA and reproducible toolchain; no hosting deployment or OS screen reader tested",
+  "observedAt": "2026-11-22T11:12:56.967011+00:00",
+  "lockedDownloadBytes": 150720335,
+  "lockedCondaArchives": 90,
+  "wheelCount": 1,
+  "check": "PASS",
+  "before": {
+    "beforePath": {
+      "pdfinfo": null,
+      "pdftotext": null,
+      "pdffonts": null,
+      "pandoc": null,
+      "python": null,
+      "python3": null
+    },
+    "isolatedBootstrapModules": "[None, None, None, None]",
+    "emptyHome": true
+  },
+  "runtime": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "versions": {
+      "pymupdf": "1.26.6",
+      "lxml": "6.1.1",
+      "pypdf": "6.21.4",
+      "pillow": "13.0.0",
+      "python": "3.12.14",
+      "pandoc": "3.1.11.1",
+      "pdfinfo": "26.05.0",
+      "pdftotext": "26.05.0",
+      "pdffonts": "26.05.0"
+    },
+    "pdfHtmlProbesPassed": true,
+    "isolatedOriginsChecked": true,
+    "lockSha256": "c610f60e2df1cbda8de4a39e853e6249507e0ec7ccd08d88f8c619c279535382",
+    "versionMismatches": {}
+  },
+  "actualCommand": "python3 tests/scripts/clean-toolchain.py acceptance-tests",
+  "exitCode": 0,
+  "acceptanceContractTestsPassed": 26,
+  "provisionerInputs": {
+    "scripts/toolchain/provision.py": "9f4a64524ad86b0fb3a2865734a249cf89c06dd332a9d9066d71c912572b53bf",
+    "scripts/toolchain/qualified-run.mjs": "1c2e4ee155c528324824c29c6bb2edb392deccf7c6848f6499be08bdffca43fe",
+    "scripts/toolchain/check.py": "4f5144db89031f2bdfe754e601bfe17f06f36ffe22c30969f26c401fbb4760c7",
+    "scripts/toolchain/linux-64.lock.json": "c610f60e2df1cbda8de4a39e853e6249507e0ec7ccd08d88f8c619c279535382",
+    "tests/scripts/clean-toolchain.py": "47dbe3bfea096b58929de2789e73476f2b892efd45a740ae2239e7116d239760",
+    "scripts/pages-build.mjs": "1a79fa48280283d5588a040489c321b98a6cf64895359bcabd6939527602c49e",
+    "scripts/fingerprint.mjs": "75d629c6b79f972634703d24c7909683cbc5362f8cfb68e59763b53ebc370822",
+    "scripts/acceptance.mjs": "e59f4d8c77980a4f9a6b1aa2248565f9188d97a836c2b57e6539bcc62fbcea58",
+    "tests/scripts/static-server.test.mjs": "2b14436cfbbdb4af319a5efa0d14b9f9aeee493bc1f875684fa6afc06301cad5"
+  },
+  "logs": {
+    "clean-install.log": "8095175ba8805fbe8512cc3ff79992f42fc1dfd12d88aa925d937068b88fac3a",
+    "clean-rules.log": "cd7917bf62a8ff9eedee9c1bb503d704d02dd0407c666c807ad8fe5888761510",
+    "isolated-before.log": "7b98827a9372c8428fa07a9a4b6d75f67edb8c9fdba70d4cea37eb6f8da12743",
+    "isolated-final.log": "b3336804d4c31927a1d4092f4d551ae535f557dce38566e250363079e5aaf18d",
+    "isolated-run.log": "83a7d3b3429ae2f22e2d9a67aeb4627a822a6e1624b989d26506d683e2093cc2"
+  },
+  "earlierFailure": "isolated-run.log captured a missing Python helper in two temporary synthetic test fixtures. isolated-final.log records both passing after the test fixture repair."
+}

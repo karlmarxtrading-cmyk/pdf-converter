@@ -1,0 +1,23 @@
+{
+  "scope": "Historical comparison on frozen RC7 production bytes. The RC8 test harness was invoked on the unchanged RC7 distribution before deploying any candidate build locally. These observations do not count as verification of RC8.",
+  "serveTreeSha256": "9d2ce6c321ffd305614859932cb8b8fc8cdad73f4f6d5b53b46eec2ddc86d234",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "capturedAt": "2026-11-21T21:06:27.299Z",
+  "nativeKeyboardCopyFromSyntheticHtmlThenConvert": {
+    "status": "FAIL",
+    "message": "[[\"KEEP-INDEPENDENT-CONTENT\",false],[\"x-17\",true],[\"007\",true],[\"return x-17\",true],[\"[3]\",true],[\"α\",true]]"
+  },
+  "directHtmlFileImport": {
+    "id": "wrapper-rumus",
+    "fixture": "evidence/rc8/browser/mixed-formula.html",
+    "fixtureSha256": "33f2a330ebbe197786d1763921314a6e70b174e3666449da30049d6ffc46f451",
+    "template": "EDU-01",
+    "status": "FAIL",
+    "message": "Waiting for selector `#dlg-diff[open]` failed",
+    "ui": [
+      "⚠ Error:mixed-formula.html: unsupported file type. Supported: .md .markdown .txt .zip .pfproj and PNG/JPEG/WebP/GIF/SVG images.\n×",
+      "Revision 0 · 0 words",
+      ""
+    ]
+  }
+}

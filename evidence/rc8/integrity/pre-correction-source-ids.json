@@ -1,0 +1,84 @@
+{
+  "src": "# Title\n\nSome words.\n\n[ref]: https://example.org\n\n---",
+  "blocks": [
+    {
+      "id": "b-297cd947",
+      "kind": "heading",
+      "line": 1,
+      "endLine": 1,
+      "start": 0,
+      "end": 7,
+      "text": "Title",
+      "tokens": [
+        "Title"
+      ],
+      "links": [],
+      "images": [],
+      "fnRefs": [],
+      "math": [],
+      "depth": 1
+    },
+    {
+      "id": "b-4321ea9c",
+      "kind": "paragraph",
+      "line": 3,
+      "endLine": 3,
+      "start": 9,
+      "end": 20,
+      "text": "Some words.",
+      "tokens": [
+        "Some",
+        "words",
+        "."
+      ],
+      "links": [],
+      "images": [],
+      "fnRefs": [],
+      "math": []
+    },
+    {
+      "id": "b-8c0dcfe0",
+      "kind": "definition",
+      "line": 5,
+      "endLine": 5,
+      "start": 22,
+      "end": 48,
+      "text": "",
+      "tokens": [],
+      "links": [],
+      "images": [],
+      "fnRefs": [],
+      "math": []
+    },
+    {
+      "id": "b-6863cba3",
+      "kind": "thematicBreak",
+      "line": 7,
+      "endLine": 7,
+      "start": 50,
+      "end": 53,
+      "text": "",
+      "tokens": [],
+      "links": [],
+      "images": [],
+      "fnRefs": [],
+      "math": []
+    }
+  ],
+  "rows": [
+    [
+      "definition",
+      "b-8c0dcfe0",
+      null,
+      true,
+      []
+    ],
+    [
+      "thematicBreak",
+      "b-6863cba3",
+      "<hr data-block-id=\"b-6863cba3\" data-line=\"7\">",
+      true,
+      []
+    ]
+  ]
+}

@@ -1,0 +1,178 @@
+[
+  {
+    "side": "candidate",
+    "repo": "rc9f",
+    "task": "small-edit",
+    "round": 0,
+    "times": {
+      "refreshMs": 65.23507400000017,
+      "parseAndRenderMs": 27.76901399999997,
+      "integrityModelMs": 1.9849710000003142,
+      "editedRefreshMs": 23.417324000000008,
+      "htmlExportMs": 57.296972000000096,
+      "printPayloadMs": 16.839594999999917,
+      "refreshMsDOM": {
+        "parseFromString": 3,
+        "querySelectorAll": 4.3,
+        "innerHTMLset": 4.5,
+        "innerHTMLget": 1.2
+      },
+      "editedRefreshMsDOM": {
+        "parseFromString": 1.1,
+        "querySelectorAll": 3.5,
+        "innerHTMLset": 2.3,
+        "innerHTMLget": 0.9
+      },
+      "htmlExportMsDOM": {
+        "parseFromString": 3.5,
+        "querySelectorAll": 3.6,
+        "innerHTMLget": 0.9,
+        "innerHTMLset": 29.4
+      },
+      "printPayloadMsDOM": {
+        "parseFromString": 4.9,
+        "querySelectorAll": 2.3,
+        "innerHTMLget": 0.7,
+        "innerHTMLset": 3.1
+      }
+    },
+    "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda"
+  },
+  {
+    "side": "candidate",
+    "repo": "rc9f",
+    "task": "empty-core",
+    "round": 0,
+    "times": {
+      "refreshMs": 11.278775000000223,
+      "parseAndRenderMs": 2.395991000000322,
+      "integrityModelMs": 0.442497000000003,
+      "refreshMsDOM": {
+        "parseFromString": 1.4,
+        "querySelectorAll": 2.4,
+        "innerHTMLget": 0
+      }
+    },
+    "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2"
+  },
+  {
+    "side": "candidate",
+    "repo": "rc9f",
+    "task": "trigonometry",
+    "round": 0,
+    "times": {
+      "refreshMs": 890.746439,
+      "parseAndRenderMs": 265.93866100000014,
+      "integrityModelMs": 76.14678700000013,
+      "htmlExportMs": 683.4659439999996,
+      "printPayloadMs": 520.0984929999995,
+      "refreshMsDOM": {
+        "parseFromString": 31.2,
+        "querySelectorAll": 154.7,
+        "innerHTMLset": 166.8,
+        "innerHTMLget": 57.7
+      },
+      "htmlExportMsDOM": {
+        "parseFromString": 139.7,
+        "querySelectorAll": 134.9,
+        "innerHTMLget": 64.6,
+        "innerHTMLset": 173.8
+      },
+      "printPayloadMsDOM": {
+        "parseFromString": 143.8,
+        "querySelectorAll": 94.9,
+        "innerHTMLget": 61.1,
+        "innerHTMLset": 169.2
+      }
+    },
+    "digest": "c0679db2bec54bca24c8360a6aedb216a85b19e1e3b4acbe707c16c52e94a76a"
+  },
+  {
+    "side": "candidate",
+    "repo": "rc9f",
+    "task": "small-edit",
+    "round": 1,
+    "times": {
+      "refreshMs": 26.75985700000001,
+      "parseAndRenderMs": 6.747791000000689,
+      "integrityModelMs": 1.3786190000000715,
+      "editedRefreshMs": 13.758451000000605,
+      "htmlExportMs": 21.84876600000007,
+      "printPayloadMs": 6.061859999999797,
+      "refreshMsDOM": {
+        "parseFromString": 2.7,
+        "querySelectorAll": 2.6,
+        "innerHTMLset": 4,
+        "innerHTMLget": 0.5
+      },
+      "editedRefreshMsDOM": {
+        "parseFromString": 0.8,
+        "querySelectorAll": 2.2,
+        "innerHTMLset": 1.3,
+        "innerHTMLget": 0.3
+      },
+      "htmlExportMsDOM": {
+        "parseFromString": 2.3,
+        "querySelectorAll": 1.2,
+        "innerHTMLget": 0.2,
+        "innerHTMLset": 13.3
+      },
+      "printPayloadMsDOM": {
+        "parseFromString": 2.1,
+        "querySelectorAll": 0.8,
+        "innerHTMLget": 0.2,
+        "innerHTMLset": 1.4
+      }
+    },
+    "digest": "f24ffb082dce708fd42ee80d5691a78d94eee9e2bf0fd8cd3c74ad965fbeeeda"
+  },
+  {
+    "side": "candidate",
+    "repo": "rc9f",
+    "task": "empty-core",
+    "round": 1,
+    "times": {
+      "refreshMs": 6.279905000000326,
+      "parseAndRenderMs": 1.3005929999999353,
+      "integrityModelMs": 0.1816899999994348,
+      "refreshMsDOM": {
+        "parseFromString": 0.6,
+        "querySelectorAll": 1.1,
+        "innerHTMLget": 0
+      }
+    },
+    "digest": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2"
+  },
+  {
+    "side": "candidate",
+    "repo": "rc9f",
+    "task": "trigonometry",
+    "round": 1,
+    "times": {
+      "refreshMs": 700.145117,
+      "parseAndRenderMs": 91.4165350000003,
+      "integrityModelMs": 28.970562999999856,
+      "htmlExportMs": 691.9016730000003,
+      "printPayloadMs": 469.3975190000001,
+      "refreshMsDOM": {
+        "parseFromString": 18.9,
+        "querySelectorAll": 182.6,
+        "innerHTMLset": 194.4,
+        "innerHTMLget": 60.3
+      },
+      "htmlExportMsDOM": {
+        "parseFromString": 150.7,
+        "querySelectorAll": 119.7,
+        "innerHTMLget": 71.5,
+        "innerHTMLset": 184.2
+      },
+      "printPayloadMsDOM": {
+        "parseFromString": 132.6,
+        "querySelectorAll": 83.7,
+        "innerHTMLget": 55.9,
+        "innerHTMLset": 156
+      }
+    },
+    "digest": "c0679db2bec54bca24c8360a6aedb216a85b19e1e3b4acbe707c16c52e94a76a"
+  }
+]

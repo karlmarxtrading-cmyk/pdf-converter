@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "frozenAt": "2026-11-22T04:27:00+07:00",
+  "cause": "Both persistent-controller cohorts timed out at the outer CDP Runtime.callFunctionOn deadline on opposite revisions. Their raw rows, terminal errors and all original evidence are retained.",
+  "pairsPerBlock": 4,
+  "cdpTimeoutMs": 60000,
+  "method": "Two independent Chromium processes/cohorts, separate origin contexts per version, same unmodified tests/bench/performance-page.js and performance-oracle.mjs, unchanged measurements, fixtures, binary, settings, ratios, 40 preassigned AB/BA pairs per task. At the beginning of every fixed block of four pairs restart Chromium, open two fresh isolated contexts, then warm each version outside measured time. Healthy warm caches persist inside the block. Close and reopen both contexts together if an arm fails. This is a distinct protocol; never pool it with the two original cohorts.",
+  "failedSamples": "Each scheduled arm is attempted once in measured data. Preserve failed rows, partial-pair identities and warmups. If an arm fails, still attempt the other side. Recover the session and add a paired warmup before the next pair. No replacement measured sample, dropping, threshold adjustments or retries of completed pairs. The status stays FAIL whenever output equivalence, count or latency fails. Continue other cases.",
+  "roles": "The tests/bench suite and candidate remain frozen. This independently hashed supplemental command under docs/verification-tools is an additional release observation. Original official failures retain their own decision."
+}

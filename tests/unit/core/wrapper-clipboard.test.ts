@@ -74,7 +74,9 @@ describe('Clipboard HTML → Markdown', () => {
     const html = `<div class="${'x'.repeat(2000)}">kecil</div>`;
     const r = htmlToMarkdown(html, { limits: lim });
     expect(r.ok).toBe(false);
-    if (!r.ok) { expect(r.budget.actual).toBe(new TextEncoder().encode(html).length); expect(r.message).toMatch(/ditolak utuh/); }
+    if (r.ok || r.code !== 'BUDGET_EXCEEDED') throw Error('Expected a budget rejection');
+    expect(r.budget.actual).toBe(new TextEncoder().encode(html).length);
+    expect(r.message).toMatch(/ditolak utuh/);
     const exact = '<p>' + 'é'.repeat((1000 - 7) / 2 | 0) + '</p>';
     expect(htmlToMarkdown(exact, { limits: lim }).ok).toBe(new TextEncoder().encode(exact).length <= 1000);
   });

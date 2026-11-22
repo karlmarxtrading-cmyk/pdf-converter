@@ -1,0 +1,80 @@
+{
+  "version": "3.0.0-rc.11",
+  "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+  "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496",
+  "environment": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "node": "v24.22.3",
+  "chromium": "HeadlessChrome/153.0.8010.0",
+  "poppler": "pdftoppm version 26.05.0",
+  "unitTests": 13,
+  "publicBrowserPrintOutputs": [
+    {
+      "mode": "print",
+      "status": "PASS",
+      "equations": [
+        [
+          " x + 1 ",
+          false,
+          null,
+          " x + 1 "
+        ],
+        [
+          "x+2",
+          true,
+          "TH",
+          "x+2"
+        ]
+      ],
+      "physicalPages": 4,
+      "earlyMarkerPage": 2,
+      "lateMarkerPage": 4,
+      "layoutSha256": "d394bd0394278d97c1757d2ffc2f45f6c8a8de0ef4d0fc16a522882442f40fdf",
+      "pdfSha256": "95db47fe29a14980597c07c21f4806c5f102670d8fd48eb037c581c81f30a5d8",
+      "pdfBytes": 60099
+    },
+    {
+      "mode": "print-book",
+      "status": "PASS",
+      "equations": [
+        [
+          " x + 1 ",
+          false,
+          null,
+          " x + 1 "
+        ],
+        [
+          "x+2",
+          true,
+          "TH",
+          "x+2"
+        ]
+      ],
+      "physicalPages": 4,
+      "earlyMarkerPage": 2,
+      "lateMarkerPage": 4,
+      "layoutSha256": "77ba5d87c0e2e22fedabb4d74378397760ec9e061e5a5aaa4ad4ce5d5cddf20a",
+      "pdfSha256": "8a7c95c3d824b76f6639ade27725a4b09e2c27c8bc7bacaa52b71e25bc6ac4cb",
+      "pdfBytes": 68167
+    }
+  ],
+  "originalFixtureSha256": "ec4eca75f4191c04d41b96f27b7960f337474630e98a4a90e18d9aca328286e8",
+  "files": {
+    "README.md": "2bea23f1a7befda2c96c0fbb158e8e0c4061b82492836cef0c8c28d8add40589",
+    "browser-build.log": "510962381f374375ae791cd0934caff3ff075e8f5e21cfde521864bb250dd5b2",
+    "browser-final/clipboard-input.html": "ec4eca75f4191c04d41b96f27b7960f337474630e98a4a90e18d9aca328286e8",
+    "browser-final/print-book.html": "77ba5d87c0e2e22fedabb4d74378397760ec9e061e5a5aaa4ad4ce5d5cddf20a",
+    "browser-final/print-book.pdf": "8a7c95c3d824b76f6639ade27725a4b09e2c27c8bc7bacaa52b71e25bc6ac4cb",
+    "browser-final/print-results.json": "d5222d8108407c6adb6b0c7f161c9ca4763909ab4d16c9e520740e02b9040fc6",
+    "browser-final/print.html": "d394bd0394278d97c1757d2ffc2f45f6c8a8de0ef4d0fc16a522882442f40fdf",
+    "browser-final/print.pdf": "95db47fe29a14980597c07c21f4806c5f102670d8fd48eb037c581c81f30a5d8",
+    "browser-final.log": "5c757f107e6399b379025a1337e7964edc601a7e1db6eff8fed75b22fcb8a883",
+    "conversion.log": "f3c95a94334215e7f3024c9a361987e59248222bd10728c5973df5f7b58983cf",
+    "core-regressions.log": "1d60bd2be7728082c9f0da289ba2920099e49bf0e66dac31af6fcad25285daff",
+    "final-unit.log": "44e3c5315c53982327c7690781b59fed6a6779aa8f7b24d5299eeefea07bbf5f",
+    "lint.log": "8c88991d077c10a379813ec6d92b3e5ff5236d6014b73767510171997274a0b1",
+    "rc10-negative.log": "8d0018f3154cbeb34a0c4d4f8d8e9328a590fa390094db61f100a2ac3b5e2b6a",
+    "scope-sha256.json": "8c4cbe58faa5b38dd87ea40497e1488f2e5f951d0e0c3d4d38b5afe23b449384",
+    "typecheck.log": "3bb8fa70a9d6f66d0cff1191ef7bcf857a5b3e1b7d123718a1648c490ea4cbc6"
+  },
+  "visualReview": "Kedua PDF terdiri dari empat halaman. Halaman fisik 2 dan 4 masing-masing PDF diperiksa sesudah dirasterisasi dengan Poppler. Pada halaman 2, rumus inline berada antara “Before” dan “after”, rumus display berada di header kiri dengan “Left” dan “right”, serta “C. Third marker” terbaca. Halaman 4 memuat “vii. Late marker”, item sesudahnya dan kalimat akhir. Tidak terlihat benturan teks, clipping atau sel yang hilang pada empat halaman yang diperiksa."
+}

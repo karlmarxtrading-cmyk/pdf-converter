@@ -1,0 +1,119 @@
+{
+  "fixture": "fixtures/mixed-document.md",
+  "candidate": "9d2ce6c321ffd305614859932cb8b8fc8cdad73f4f6d5b53b46eec2ddc86d234",
+  "checks": [
+    {
+      "case": "mixed-EDU-A4",
+      "page": 4,
+      "pdfSha256": "bcb7a2a23a15ce78a7adcecdecd90a63f2fee99ffff1fed1306e927d487dad9c",
+      "engines": [
+        {
+          "engine": "PyMuPDF",
+          "normalization": "NFC; whitespace, soft hyphen and zero-width space removed; every other codepoint retained",
+          "differences": [
+            {
+              "operation": "replace",
+              "source": "\ue000",
+              "extraction": "\u0000"
+            }
+          ]
+        },
+        {
+          "engine": "Poppler",
+          "normalization": "NFC; whitespace, soft hyphen and zero-width space removed; every other codepoint retained",
+          "differences": [
+            {
+              "operation": "insert",
+              "source": "",
+              "extraction": "\u00a9.KarakterPUA:dan\uf8ff."
+            },
+            {
+              "operation": "delete",
+              "source": "\u00a9.KarakterPUA:\ue000dan\uf8ff.",
+              "extraction": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "mixed-BUS-Letter-landscape",
+      "page": 5,
+      "pdfSha256": "f0781470d255ccb840126f3971c1edde5d1ec77cedfe01863158e88f47f85fc0",
+      "engines": [
+        {
+          "engine": "PyMuPDF",
+          "normalization": "NFC; whitespace, soft hyphen and zero-width space removed; every other codepoint retained",
+          "differences": [
+            {
+              "operation": "replace",
+              "source": "\ue000",
+              "extraction": "\u0000"
+            }
+          ]
+        },
+        {
+          "engine": "Poppler",
+          "normalization": "NFC; whitespace, soft hyphen and zero-width space removed; every other codepoint retained",
+          "differences": [
+            {
+              "operation": "delete",
+              "source": "\ud83d\ude00\ud83d\ude80\ud83d\udc69\u200d\ud83d\udcbb",
+              "extraction": ""
+            },
+            {
+              "operation": "delete",
+              "source": "\ue000",
+              "extraction": ""
+            },
+            {
+              "operation": "insert",
+              "source": "",
+              "extraction": "\ud83d\ude80\ud83d\udc69\u200d\ud83d\udcbb\ud83d\ude00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "mixed-EDT-A5",
+      "page": 5,
+      "pdfSha256": "2444df7674ec7e1096928537401bf07e75a67e675d3ad9f483618d1b2672abe2",
+      "engines": [
+        {
+          "engine": "PyMuPDF",
+          "normalization": "NFC; whitespace, soft hyphen and zero-width space removed; every other codepoint retained",
+          "differences": [
+            {
+              "operation": "replace",
+              "source": "\ue000",
+              "extraction": "\u0000"
+            }
+          ]
+        },
+        {
+          "engine": "Poppler",
+          "normalization": "NFC; whitespace, soft hyphen and zero-width space removed; every other codepoint retained",
+          "differences": [
+            {
+              "operation": "insert",
+              "source": "",
+              "extraction": "\uf8ff."
+            },
+            {
+              "operation": "delete",
+              "source": "\ue000",
+              "extraction": ""
+            },
+            {
+              "operation": "delete",
+              "source": "\uf8ff.",
+              "extraction": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rasterInspection": "EDU A4 page 4: Latin/Greek/Cyrillic text, emoji and mathematical annotations are visible. Boxes with crossed interiors appear at both private-use codepoints U+E000 and U+F8FF. PDF embeds a Type 3 NotoColorEmoji font. Glyph shapes should not be inferred from text extraction returning U+F8FF."
+}

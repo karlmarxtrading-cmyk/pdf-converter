@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "fiveRepetitions": {
+      "pass": true,
+      "evidence": "evidence/rc8/performance/capacity.json"
+    },
+    "measuredPages": {
+      "pass": true,
+      "evidence": "evidence/rc8/performance/capacity.json"
+    },
+    "editSla": {
+      "pass": true,
+      "evidence": "evidence/rc8/performance/capacity.json"
+    },
+    "cancelSla": {
+      "pass": true,
+      "evidence": "evidence/rc8/performance/capacity.json"
+    },
+    "memorySamples": {
+      "pass": true,
+      "evidence": "evidence/rc8/performance/capacity.json"
+    },
+    "memoryTrend": {
+      "pass": true,
+      "evidence": "evidence/rc8/performance/capacity.json"
+    }
+  },
+  "observations": [
+    "perf-capacity"
+  ],
+  "capacity": "evidence/rc8/performance/capacity.json"
+}

@@ -1,0 +1,281 @@
+{
+  "status": "PASS",
+  "distribution": "dist",
+  "input": {
+    "generator": "generateStress(118)",
+    "bytes": 570616,
+    "sha256": "c6b92df1227628cab794fc54b17b5545c16335f45d4dda55f2ef0046228d6e81"
+  },
+  "controls": [
+    {
+      "cssEnabled": false,
+      "visibility": "visible",
+      "offscreen": true,
+      "windowFind": false,
+      "windowFindSelection": ""
+    },
+    {
+      "cssEnabled": true,
+      "visibility": "auto",
+      "offscreen": true,
+      "windowFind": false,
+      "windowFindSelection": ""
+    }
+  ],
+  "navigation": [
+    {
+      "cssEnabled": false,
+      "interaction": "mouse",
+      "sameDocument": true,
+      "url": "about:srcdoc",
+      "focus": "h-bagian-0118",
+      "y": -0.4375,
+      "viewport": 743
+    },
+    {
+      "cssEnabled": false,
+      "interaction": "keyboard",
+      "sameDocument": true,
+      "url": "about:srcdoc",
+      "focus": "h-bagian-0118",
+      "y": -0.4375,
+      "viewport": 743
+    },
+    {
+      "cssEnabled": true,
+      "interaction": "mouse",
+      "sameDocument": true,
+      "url": "about:srcdoc",
+      "focus": "h-bagian-0118",
+      "y": 0.09375,
+      "viewport": 743
+    },
+    {
+      "cssEnabled": true,
+      "interaction": "keyboard",
+      "sameDocument": true,
+      "url": "about:srcdoc",
+      "focus": "h-bagian-0118",
+      "y": -0.28125,
+      "viewport": 743
+    }
+  ],
+  "selection": [
+    {
+      "cssEnabled": false,
+      "method": "trusted pointer drag over actual text after navigation",
+      "selected": "START_SECTION_0118"
+    },
+    {
+      "cssEnabled": true,
+      "method": "trusted pointer drag over actual text after navigation",
+      "selected": "START_SECTION_0118"
+    }
+  ],
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "structure": {
+    "headingIds": [
+      "h-bagian-0001",
+      "h-bagian-0002",
+      "h-bagian-0003",
+      "h-bagian-0004",
+      "h-bagian-0005",
+      "h-bagian-0006",
+      "h-bagian-0007",
+      "h-bagian-0008",
+      "h-bagian-0009",
+      "h-bagian-0010",
+      "h-bagian-0011",
+      "h-bagian-0012",
+      "h-bagian-0013",
+      "h-bagian-0014",
+      "h-bagian-0015",
+      "h-bagian-0016",
+      "h-bagian-0017",
+      "h-bagian-0018",
+      "h-bagian-0019",
+      "h-bagian-0020",
+      "h-bagian-0021",
+      "h-bagian-0022",
+      "h-bagian-0023",
+      "h-bagian-0024",
+      "h-bagian-0025",
+      "h-bagian-0026",
+      "h-bagian-0027",
+      "h-bagian-0028",
+      "h-bagian-0029",
+      "h-bagian-0030",
+      "h-bagian-0031",
+      "h-bagian-0032",
+      "h-bagian-0033",
+      "h-bagian-0034",
+      "h-bagian-0035",
+      "h-bagian-0036",
+      "h-bagian-0037",
+      "h-bagian-0038",
+      "h-bagian-0039",
+      "h-bagian-0040",
+      "h-bagian-0041",
+      "h-bagian-0042",
+      "h-bagian-0043",
+      "h-bagian-0044",
+      "h-bagian-0045",
+      "h-bagian-0046",
+      "h-bagian-0047",
+      "h-bagian-0048",
+      "h-bagian-0049",
+      "h-bagian-0050",
+      "h-bagian-0051",
+      "h-bagian-0052",
+      "h-bagian-0053",
+      "h-bagian-0054",
+      "h-bagian-0055",
+      "h-bagian-0056",
+      "h-bagian-0057",
+      "h-bagian-0058",
+      "h-bagian-0059",
+      "h-bagian-0060",
+      "h-bagian-0061",
+      "h-bagian-0062",
+      "h-bagian-0063",
+      "h-bagian-0064",
+      "h-bagian-0065",
+      "h-bagian-0066",
+      "h-bagian-0067",
+      "h-bagian-0068",
+      "h-bagian-0069",
+      "h-bagian-0070",
+      "h-bagian-0071",
+      "h-bagian-0072",
+      "h-bagian-0073",
+      "h-bagian-0074",
+      "h-bagian-0075",
+      "h-bagian-0076",
+      "h-bagian-0077",
+      "h-bagian-0078",
+      "h-bagian-0079",
+      "h-bagian-0080",
+      "h-bagian-0081",
+      "h-bagian-0082",
+      "h-bagian-0083",
+      "h-bagian-0084",
+      "h-bagian-0085",
+      "h-bagian-0086",
+      "h-bagian-0087",
+      "h-bagian-0088",
+      "h-bagian-0089",
+      "h-bagian-0090",
+      "h-bagian-0091",
+      "h-bagian-0092",
+      "h-bagian-0093",
+      "h-bagian-0094",
+      "h-bagian-0095",
+      "h-bagian-0096",
+      "h-bagian-0097",
+      "h-bagian-0098",
+      "h-bagian-0099",
+      "h-bagian-0100",
+      "h-bagian-0101",
+      "h-bagian-0102",
+      "h-bagian-0103",
+      "h-bagian-0104",
+      "h-bagian-0105",
+      "h-bagian-0106",
+      "h-bagian-0107",
+      "h-bagian-0108",
+      "h-bagian-0109",
+      "h-bagian-0110",
+      "h-bagian-0111",
+      "h-bagian-0112",
+      "h-bagian-0113",
+      "h-bagian-0114",
+      "h-bagian-0115",
+      "h-bagian-0116",
+      "h-bagian-0117",
+      "h-bagian-0118"
+    ],
+    "cells": 1888,
+    "paragraphs": 945,
+    "url": "about:srcdoc",
+    "sandbox": "allow-same-origin"
+  },
+  "trustedEvents": [
+    {
+      "type": "mouseup",
+      "trusted": true,
+      "key": null,
+      "tag": "A"
+    },
+    {
+      "type": "click",
+      "trusted": true,
+      "key": null,
+      "tag": "A"
+    },
+    {
+      "type": "keydown",
+      "trusted": true,
+      "key": "Enter",
+      "tag": "A"
+    },
+    {
+      "type": "click",
+      "trusted": true,
+      "key": null,
+      "tag": "A"
+    },
+    {
+      "type": "mouseup",
+      "trusted": true,
+      "key": null,
+      "tag": "P"
+    },
+    {
+      "type": "click",
+      "trusted": true,
+      "key": null,
+      "tag": "MAIN"
+    },
+    {
+      "type": "mouseup",
+      "trusted": true,
+      "key": null,
+      "tag": "A"
+    },
+    {
+      "type": "click",
+      "trusted": true,
+      "key": null,
+      "tag": "A"
+    },
+    {
+      "type": "keydown",
+      "trusted": true,
+      "key": "Enter",
+      "tag": "A"
+    },
+    {
+      "type": "click",
+      "trusted": true,
+      "key": null,
+      "tag": "A"
+    },
+    {
+      "type": "mouseup",
+      "trusted": true,
+      "key": null,
+      "tag": "P"
+    },
+    {
+      "type": "click",
+      "trusted": true,
+      "key": null,
+      "tag": "MAIN"
+    }
+  ],
+  "nativeBrowserFind": {
+    "status": "NOT_RUN",
+    "reason": "The headless automation session does not expose the browser Find bar. The legacy window.find API observations are recorded for both CSS settings."
+  },
+  "sourceAfterSha256": "c6b92df1227628cab794fc54b17b5545c16335f45d4dda55f2ef0046228d6e81"
+}

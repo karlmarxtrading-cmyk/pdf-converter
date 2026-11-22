@@ -36,7 +36,9 @@ export async function waitReady(p, timeout = 60000) {
 }
 export async function openStudio(p, base) {
   await p.goto(base + '/#/workspace', { waitUntil: 'load' });
-  await p.waitForFunction(() => !!window.__pf, { timeout: 30000 });
+  await p.waitForFunction(() => window.__pf &&
+    !document.querySelector('#view-workspace')?.hidden &&
+    /rev \d+/.test(document.querySelector('#src-hash')?.textContent || ''), { timeout: 90000 });
 }
 /** Ganti isi editor seperti mengetik (event input). */
 export async function setSource(p, text) {

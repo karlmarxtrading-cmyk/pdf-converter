@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "method": "Fresh Chromium browser context. No cache or service worker. Network offline before unmodified exported HTML bytes are parsed with page.setContent(). No file URL navigation, external server or document rewriting.",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "input": "examples/rc7/ASSET-MANDIRI.html",
+  "bytes": 228576,
+  "sha256": "35f419af6d513dc63a77c7bd4bd63f44b41d436b85fa82e5a8bdea0d9d6a380e",
+  "externalOrFileRequestCount": 0,
+  "online": false,
+  "generator": "PaperForma 3.0.0-rc.7 (BUS-01 v2.0.0, rev 1)",
+  "title": "Uji aset mandiri RC7",
+  "images": [
+    {
+      "alt": "Kotak warna tiga kali dua",
+      "title": "Palet inline",
+      "naturalWidth": 3,
+      "naturalHeight": 2,
+      "complete": true
+    },
+    {
+      "alt": "Grafik proyek",
+      "title": "Grafik lokal",
+      "naturalWidth": 32,
+      "naturalHeight": 32,
+      "complete": true
+    }
+  ],
+  "fontFaces": [
+    {
+      "family": "Inter",
+      "weight": "400",
+      "status": "loaded"
+    },
+    {
+      "family": "Inter",
+      "weight": "600",
+      "status": "loaded"
+    },
+    {
+      "family": "Inter",
+      "weight": "700",
+      "status": "loaded"
+    },
+    {
+      "family": "KaTeX_Main",
+      "weight": "400",
+      "status": "loaded"
+    },
+    {
+      "family": "KaTeX_Math",
+      "weight": "400",
+      "status": "loaded"
+    },
+    {
+      "family": "KaTeX_Size3",
+      "weight": "400",
+      "status": "loaded"
+    }
+  ],
+  "vlistDisplay": "inline-table",
+  "mathmlPosition": "absolute",
+  "fractionLineStyle": "solid",
+  "fractionLineWidthPx": 7,
+  "href": "https://example.org/paperforma?x=1&y=2",
+  "linkTitle": "Rujukan pengujian",
+  "linkText": "Lihat penjelasan"
+}

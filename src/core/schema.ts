@@ -69,7 +69,7 @@ export function validateProject(p: Project): void {
   const inputs = new Map(p.inputs.map(i => [i.id, i]));
   requireField(inputs.size === p.inputs.length, 'input.ids');
   for (const i of p.inputs) {
-    requireField(id(i.id) && member(i.kind, ['markdown-file','paste-plain','paste-html','zip','project']) && date(i.importedAt) && digest(i.rawSourceHash) && optional(i.name, 8192), 'input.identity');
+    requireField(id(i.id) && member(i.kind, ['markdown-file','html-file','paste-plain','paste-html','zip','project']) && date(i.importedAt) && digest(i.rawSourceHash) && optional(i.name, 8192), 'input.identity');
     requireField(string(i.rawPlain,LIMITS.pasteBytes) && optional(i.rawHtml,LIMITS.pasteHtmlBytes) && wellFormed(i.rawPlain) && wellFormed(i.rawHtml ?? ''), 'input.raw');
     const plain = utf8Length(i.rawPlain), html = utf8Length(i.rawHtml ?? '');
     assertBudget('paste', plain); assertBudget('pasteHtml', html);

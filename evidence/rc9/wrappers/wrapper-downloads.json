@@ -1,0 +1,51 @@
+{
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "productionTree": "876bae95926bce4b4730864c66598f4192cf64c36c0ab02214dd9c3693656b0a",
+  "sourceSha256": "4caf475efbdf38e6d1e82c88a82ee4dbdd88d1c0f1f74c3d883e087163026841",
+  "results": [
+    {
+      "route": "raw",
+      "status": "PASS",
+      "content": {
+        "note": true,
+        "details": "DefinitionRetained body",
+        "caption": "Weights",
+        "rowSpan": 2,
+        "colSpan": 2,
+        "emptyCells": 1,
+        "annotations": [
+          "x+1",
+          "x+1",
+          "x+1"
+        ],
+        "scripts": 0
+      },
+      "externalRequests": 0,
+      "bytes": 224489,
+      "sha256": "89c7bdc56dac0df3e9f01cd6930eac592682774921c4e67fc8f7a2cf3a95914f",
+      "artifact": "mixed-wrappers-raw.html"
+    },
+    {
+      "route": "clipboard",
+      "status": "PASS",
+      "content": {
+        "note": true,
+        "details": "DefinitionRetained body",
+        "caption": "Weights",
+        "rowSpan": 2,
+        "colSpan": 2,
+        "emptyCells": 1,
+        "annotations": [
+          "x+1",
+          "x+1",
+          "x+1"
+        ],
+        "scripts": 0
+      },
+      "externalRequests": 0,
+      "bytes": 224423,
+      "sha256": "ba5ea2b57890fb73ea7fecdf2bfe9389e6cbb10855c1eba3ba590e178b07e1e5",
+      "artifact": "mixed-wrappers-clipboard.html"
+    }
+  ]
+}

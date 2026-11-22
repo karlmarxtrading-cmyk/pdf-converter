@@ -1,0 +1,10 @@
+{
+  "observations": [
+    "trace-browser",
+    "trace-control"
+  ],
+  "files": {
+    "browser": "evidence/rc10/accounting/browser.json",
+    "control": "evidence/rc10/accounting/control-flow.json"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "candidate": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.9",
+    "profile": "production",
+    "candidateSha256": "37277f20b922b1a6a9f734b0d69e96a61a8298a6d71aad24a86fd53731178bc9",
+    "distTreeSha256": "876bae95926bce4b4730864c66598f4192cf64c36c0ab02214dd9c3693656b0a",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "standaloneHTML": "c686149451c6a0866e01e980eb974bec36058f3ed4269e3c49db5d183bd210c1",
+  "source": "88901d44a592ead82c757b65f57ce26e5f0003598a7a74064d6921439dbd0454",
+  "pdf": "63ce26810e162e610a8b15ca26d1cd8284bd854cb64e827295be73ab046e45ca",
+  "derivation": "Final studio HTML printed offline with case-preserving headings and visible ordinal/bullet labels for textless items. The local verified PDF is separate from the Paged.js job.",
+  "sourceIncluded": false,
+  "pdfIncluded": false
+}

@@ -1,0 +1,53 @@
+{
+  "build": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.10",
+    "profile": "production",
+    "candidateSha256": "774465b21054bfd933b869ea7232d3d59ff8e1fa0422a8d83b18208b08b6abd6",
+    "distTreeSha256": "b2351cef15853b432dbe1fa9c02d0537308cc778a16fdbec551e2e243b9caefd",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "source": "7ae082466becd7b1776b354a2abf28d0a7947108613f8f1a2fc813e3df3454b6",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "rows": [
+    {
+      "job": "startup",
+      "created": 4042.099999997765,
+      "cancel": 4042.2999999970198,
+      "terminated": 4042.39999999851,
+      "idle": 4053.7999999970198,
+      "frames": 0
+    },
+    {
+      "job": "computing",
+      "created": 4376.599999997765,
+      "ready": 4424.79999999702,
+      "sent": 4424.89999999851,
+      "postMs": 1.699999999254942,
+      "sourceUnits": 2397443,
+      "cancel": 4426.599999997765,
+      "terminated": 4426.79999999702,
+      "idle": 4451.099999997765,
+      "frames": 0
+    },
+    {
+      "job": "retry",
+      "created": 4540.5,
+      "ready": 4581.89999999851,
+      "sent": 4582,
+      "postMs": 1.8999999985098839,
+      "sourceUnits": 2397443,
+      "reply": 5428.599999997765,
+      "keyUnits": 6055636,
+      "terminated": 5447.29999999702,
+      "cancel": 5584.79999999702,
+      "idle": 5592,
+      "frames": 0
+    }
+  ],
+  "pass": true
+}

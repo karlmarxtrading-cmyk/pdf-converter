@@ -1,0 +1,17 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> paperforma@3.0.0-rc.11 test:smoke
+> node tests/e2e/static-smoke.mjs
+
+✓ beranda tampil
+✓ tidak ada kait QA (window.__pf) di produksi
+✓ studio merender pratinjau
+✓ print.html tanpa kait QA — {"pfPaginate":"undefined","result":"undefined"}
+✓ tanpa permintaan eksternal — []
+✓ tanpa error konsol — []
+✓ /api/pdf → 404 — 404
+✓ /api/account → 404 — 404
+✓ /api/v1/ready → 404 — 404
+✓ /api/checkout → 404 — 404
+✓ / CSP connect-src 'self' & frame-ancestors — "default-src 'self'; script-src 'self'; style-src 'self' 'uns"
+✓ /print.html CSP connect-src 'self' & frame-ancestors — "default-src 'self'; script-src 'self'; style-src 'self' 'uns"

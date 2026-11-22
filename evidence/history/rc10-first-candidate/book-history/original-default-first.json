@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "runId": "9a656b4f-0c91-43f7-8c88-094502eb9a2c",
+  "candidateSha256": "473bb0292bf940a33e7871ab3564bb6e09038c79ba3870298d87e305f1b424cd",
+  "distTreeSha256": "6cca0e1a658eb5a462d14c83c20b66016c5820ce4dfe1eb4c777cb90c4f1535f",
+  "case": "original-default",
+  "sourceSha256": "88901d44a592ead82c757b65f57ce26e5f0003598a7a74064d6921439dbd0454",
+  "sourceBytes": 1659854,
+  "route": "print-book",
+  "toc": "default",
+  "platform": "linux 6.18.57",
+  "startedAt": "2026-11-22T01:15:25.039Z",
+  "status": "FAIL",
+  "events": [
+    {
+      "phase": "import",
+      "elapsedMs": 532
+    },
+    {
+      "phase": "editor-verified",
+      "elapsedMs": 11601
+    },
+    {
+      "phase": "standalone-request",
+      "elapsedMs": 11744
+    },
+    {
+      "phase": "standalone-downloaded",
+      "elapsedMs": 16916
+    },
+    {
+      "phase": "prepare-book",
+      "elapsedMs": 17209
+    },
+    {
+      "phase": "book-downloaded",
+      "elapsedMs": 21146
+    },
+    {
+      "phase": "product-print-requested",
+      "elapsedMs": 21454
+    },
+    {
+      "phase": "product-document-bound",
+      "elapsedMs": 23957
+    },
+    {
+      "phase": "pdf-saved",
+      "elapsedMs": 45256
+    },
+    {
+      "phase": "offline-reopened",
+      "elapsedMs": 46457
+    }
+  ],
+  "method": "Production import, standalone HTML browser download, book print control, exact official book document rendered by Chromium PrintToPDF (headless). Native OS Save is a separate gate.",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "sourceEditorSha256": "88901d44a592ead82c757b65f57ce26e5f0003598a7a74064d6921439dbd0454",
+  "settings": {
+    "paper": "A4",
+    "orientation": "portrait",
+    "bodyFont": "inter",
+    "baseSizePt": "10.5",
+    "lineHeight": "1.5",
+    "cover": true,
+    "toc": true,
+    "tocDepth": "2",
+    "chapterBreak": false,
+    "pageNumbers": true,
+    "pageNumberStart": "1",
+    "contentLang": "id"
+  },
+  "settingsTitleSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "settingsTitleLength": 0,
+  "htmlBytes": 4187118,
+  "htmlSha256": "46fd2a2cd85604693a2ce6f1f941b02df1dbd2cfb69dcd789f4238d649a18fac",
+  "receiptSha256": "20a77c54544a07d61c632edf4728f01f2f85ec7c3f6afa4349e5c48f1d84b9f8",
+  "bookHtmlBytes": 4170485,
+  "bookHtmlSha256": "20a77c54544a07d61c632edf4728f01f2f85ec7c3f6afa4349e5c48f1d84b9f8",
+  "printResponseSha256": "20a77c54544a07d61c632edf4728f01f2f85ec7c3f6afa4349e5c48f1d84b9f8",
+  "profile": {
+    "browserPaginationAndPdfSerializationMs": 20706,
+    "readPdfStreamAndWriteFileMs": 573
+  },
+  "pdfSha256": "b170aa07213aa241ad6c3c927808458e4b01851c1f2caefa0a22ed4dfc475130",
+  "pdfBytes": 11005560,
+  "savedPdfSha256": "b170aa07213aa241ad6c3c927808458e4b01851c1f2caefa0a22ed4dfc475130",
+  "offline": {
+    "sourceBlocks": 31073,
+    "anchors": 32,
+    "valid": 32,
+    "firstAnchorNavigates": true,
+    "selectionReadable": true,
+    "scripts": 0,
+    "fonts": 6,
+    "fontsLoaded": 6,
+    "images": 0,
+    "imagesLoaded": 0,
+    "networkRequests": []
+  },
+  "pageErrorHashes": [
+    "5f0724317efcf73cc742c41f59afc82e9ba51b744e3aafd028fad134bb4c6666"
+  ],
+  "error": "Private case stopped during offline-reopened",
+  "finishedAt": "2026-11-22T01:16:11.545Z"
+}

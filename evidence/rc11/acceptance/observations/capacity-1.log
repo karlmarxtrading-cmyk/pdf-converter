@@ -1,0 +1,16 @@
+sections=6 rep=1: pages=12 preview=427 layout=1095 verify=60 pdf=263 sampledHeapBytes=27847808 pass 
+sections=6 rep=2: pages=12 preview=425 layout=612 verify=41 pdf=233 sampledHeapBytes=22736108 pass 
+sections=6 rep=3: pages=12 preview=422 layout=635 verify=42 pdf=178 sampledHeapBytes=22260128 pass 
+sections=6 rep=4: pages=12 preview=457 layout=586 verify=40 pdf=178 sampledHeapBytes=21309028 pass 
+sections=6 rep=5: pages=12 preview=479 layout=1119 verify=42 pdf=177 sampledHeapBytes=22181988 pass 
+sections=30 rep=1: pages=52 preview=1011 layout=2698 verify=147 pdf=932 sampledHeapBytes=34140680 pass 
+sections=30 rep=2: pages=52 preview=982 layout=2849 verify=322 pdf=1039 sampledHeapBytes=41194864 pass 
+sections=30 rep=3: pages=52 preview=1054 layout=2211 verify=122 pdf=935 sampledHeapBytes=34008208 pass 
+sections=30 rep=4: pages=52 preview=987 layout=2143 verify=114 pdf=778 sampledHeapBytes=35202720 pass 
+sections=30 rep=5: pages=52 preview=969 layout=2149 verify=126 pdf=811 sampledHeapBytes=44081044 pass 
+sections=118 rep=1: pages=201 preview=2114 layout=13653 verify=1061 pdf=4033 sampledHeapBytes=77075568 pass 
+sections=118 rep=2: pages=201 preview=2519 layout=14841 verify=952 pdf=3816 sampledHeapBytes=84221408 pass 
+sections=118 rep=3: pages=201 preview=2501 layout=13321 verify=917 pdf=3698 sampledHeapBytes=84562484 pass 
+sections=118 rep=4: pages=201 preview=2532 layout=14000 verify=890 pdf=4066 sampledHeapBytes=76214812 pass 
+sections=118 rep=5: pages=201 preview=2616 layout=13582 verify=827 pdf=3826 sampledHeapBytes=79830896 pass 
+[{"sections":6,"pages":12,"reps":5,"verified":true,"closedProjectHeapDriftBytes":-2536368,"failingSLA":[]},{"sections":30,"pages":52,"reps":5,"verified":true,"closedProjectHeapDriftBytes":2094236,"failingSLA":[]},{"sections":118,"pages":201,"reps":5,"verified":true,"closedProjectHeapDriftBytes":1213228,"failingSLA":[]}]

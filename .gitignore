@@ -10,3 +10,7 @@ dist-qa
 # bukti rilis disimpan di repository
 !evidence/*.log
 !evidence/**/*.log
+
+# Local Python verifier bytecode
+__pycache__/
+*.py[cod]

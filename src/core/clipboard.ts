@@ -12,50 +12,33 @@ import remarkStringify from 'remark-stringify';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import { toText } from 'hast-util-to-text';
-import { defaultHandlers } from 'hast-util-to-mdast';
+import { defaultHandlers, type Handle } from 'hast-util-to-mdast';
 import type { Root as MRoot, RootContent as MContent, Parent as MParent, PhrasingContent } from 'mdast';
-import { scanMath } from './math';
+import { clipboardMathInventory, clipboardMathMatches } from './clipboard-fidelity';
+import { scanMath, type MathSpan } from './math';
+import { recoverHtmlLiteralMath } from './html-math';
+import { readHtmlMathSource, recoverMixedMathChild, isMathPresentationBranch, isHtmlMathContainer, hasSeparateMathContent, hasHtmlMathAnnotation, findHtmlMathAnnotation } from './html-math-source';
 import type { Element, Root as HRoot, RootContent as HContent, Properties } from 'hast';
 import type { Limits } from './contracts';
-import { LIMITS, checkTextBudget, type BudgetResult } from './limits';
-import { parseHtmlWithinBudget } from './html';
-import { classifyUrl, DROP_WITH_CONTENT } from './sanitize';
+import { LIMITS, checkTextBudget, BudgetError, type BudgetResult } from './limits';
+import { parseHtmlWithinBudget, parseHtmlDocumentBody } from './html';
+import { classifyUrl, DROP_WITH_CONTENT, ALLOWED_TAGS } from './sanitize';
 import { orderedTokens } from './markdown';
-import { mkIssue, numberIssues, type CoreIssue } from './util';
+import { escapeHtml, mkIssue, numberIssues, type CoreIssue } from './util';
 
-export interface ConversionChange { kind: 'removed-element' | 'removed-attribute' | 'math-from-annotation' | 'math-from-alttext' | 'math-from-mathjax-script' | 'math-literal-delimiters' | 'math-no-tex' | 'merged-table-as-html' | 'structured-table-as-html' | 'unsafe-link' | 'remote-image-reference' | 'unwrapped'; detail: string; count: number }
+export interface ConversionChange { kind: 'removed-element' | 'removed-attribute' | 'math-from-annotation' | 'math-from-alttext' | 'math-from-source-attribute' | 'math-from-mathjax-script' | 'math-literal-delimiters' | 'math-adjacent-delimiters' | 'math-recovered-copy' | 'math-no-tex' | 'merged-table-as-html' | 'structured-table-as-html' | 'formula-block-as-html' | 'unsafe-link' | 'remote-image-reference' | 'unwrapped'; detail: string; count: number }
 
 export type ClipboardResult =
   | { ok: true; markdown: string; changes: ConversionChange[]; issues: CoreIssue[]; stats: { inputBytes: number; outputChars: number; tables: number; math: number; mergedTables: number } }
+  | { ok: false; code: 'CLIPBOARD_INTEGRITY'; message: string; messageEn: string }
   | { ok: false; code: 'BUDGET_EXCEEDED'; budget: BudgetResult; message: string; messageEn: string };
 
-const MERGE_TABLE_TAGS = new Set(['table', 'caption', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td', 'colgroup', 'col', 'br', 'b', 'strong', 'i', 'em', 'code', 'sub', 'sup', 'span', 'p', 'a', 'img']);
+const ORDERED_LIST_TYPES = new Set(['1', 'a', 'A', 'i', 'I']);
+const INERT_CLIPBOARD_TAGS = new Set<string>(ALLOWED_TAGS.filter(tag => tag !== 'input'));
 
 function cls(el: Element): string[] { const c: unknown = el.properties?.className; return Array.isArray(c) ? c.map(String) : typeof c === 'string' ? c.split(/\s+/) : []; }
 
-function findAnnotation(el: Element): string | null {
-  let found: string | null = null;
-  const walk = (n: Element) => {
-    for (const c of n.children) {
-      if (found !== null) return;
-      if (c.type === 'element') {
-        if (c.tagName === 'annotation' && String(c.properties?.encoding ?? '').toLowerCase() === 'application/x-tex') {
-          // An annotation stores source code. Preserve its whitespace.
-          const literal = (el: Element): string => el.children.map(child => {
-            if (child.type === 'text') return child.value;
-            return child.type === 'element' ? literal(child) : '';
-          }).join('');
-          found = literal(c);
-          return;
-        }
-        walk(c);
-      }
-    }
-  };
-  walk(el);
-  return found;
-}
-
+const CODE_TAGS = new Set(['pre', 'code', 'kbd', 'samp']);
 /** MathJax 2 places its optional preview and rendered element immediately before a TeX script.
  * Only discard that representation; another complete equation can share the same paragraph. */
 function mathJaxDuplicates(children: HContent[]): Set<HContent> {
@@ -70,10 +53,14 @@ function mathJaxDuplicates(children: HContent[]): Set<HContent> {
       if (sibling.type === 'comment' || (sibling.type === 'text' && !sibling.value.trim())) continue;
       if (sibling.type !== 'element') break;
       const classes = cls(sibling);
-      if (classes.includes('MathJax_Preview')) { duplicates.add(sibling); break; }
+      if (classes.includes('MathJax_Preview')) {
+        if (!hasSeparateMathContent(sibling) && !hasHtmlMathAnnotation(sibling)) duplicates.add(sibling);
+        break;
+      }
       if (visualFound || !(sibling.tagName === 'mjx-container' || classes.some(c => /^(MathJax|MJX)(?:$|[-_])/.test(c)))) break;
-      const annotation = findAnnotation(sibling);
-      if (annotation !== null && annotation.trim() !== tex) break;
+      const source = readHtmlMathSource(sibling);
+      if (!source && (hasSeparateMathContent(sibling) || hasHtmlMathAnnotation(sibling))) break;
+      if (source && source.tex.trim() !== tex) break;
       duplicates.add(sibling);
       visualFound = true;
     }
@@ -83,80 +70,17 @@ function mathJaxDuplicates(children: HContent[]): Set<HContent> {
 
 /** Penanda rumus internal: span (inline) / div (display) agar spasi di sekitarnya tidak hilang saat minifikasi whitespace. */
 function mathNode(tex: string, display: boolean): Element {
-  // anak teks (TeX) membuat elemen tidak kosong sehingga spasi di sekitarnya dipertahankan; handler hanya membaca dataTex
+  // A non-whitespace placeholder keeps surrounding prose spaces independent of whitespace inside TeX.
   const properties: Properties = { dataPfMath: display ? 'display' : 'inline', dataTex: tex };
-  // remark-stringify otherwise wraps an inline equation containing a dollar in double
-  // dollars, which the PaperForma input contract explicitly designates as display math.
-  if (!display && tex.includes('$') && !tex.includes('\\)')) properties.dataPfLiteral = '\\(' + tex + '\\)';
-  return { type: 'element', tagName: display ? 'div' : 'span', properties, children: [{ type: 'text', value: tex || ' ' }] };
+  // Whitespace, backticks and dollar signs each have special meanings in dollar-delimited Markdown.
+  if (!display && /^\s|\s$|[`$]/u.test(tex)) properties.dataPfLiteral = inlineLiteral(tex);
+  return { type: 'element', tagName: display ? 'div' : 'span', properties, children: [{ type: 'text', value: 'x' }] };
+}
+/** Explicit boundaries distinguish literal annotation text from author-entered GitHub math. */
+function inlineLiteral(tex: string): string {
+  return tex.includes('\\)') ? `<code data-pf-formula="inline">${escapeHtml(tex)}</code>` : '\\(' + tex + '\\)';
 }
 const isMathNode = (n: HContent | Element): n is Element => n.type === 'element' && typeof n.properties?.dataPfMath === 'string';
-
-/** RC4-M01/02/03: read delimiters across harmless inline wrappers before Markdown escaping.
- * Only the matched formula loses presentation wrappers; every outside fragment keeps its original markup.
- * Code, links, images and block boundaries are never joined into a formula. Link labels are visited separately.
- */
-const MATH_TEXT_WRAPPERS = new Set(['span', 'strong', 'b', 'em', 'i', 'u', 's', 'del', 'mark', 'small']);
-function protectHtmlLiteralMath(parent: HRoot | Element): number {
-  const textCache = new WeakMap<HContent, string | null>();
-  const literal = (n: HContent): string | null => {
-    if (textCache.has(n)) return textCache.get(n)!;
-    if (n.type === 'text') return n.value;
-    if (n.type !== 'element' || typeof n.properties?.dataPfMath === 'string') return null;
-    if (n.tagName === 'br') return '\n';
-    if (!MATH_TEXT_WRAPPERS.has(n.tagName)) return null;
-    const parts = n.children.map(c => literal(c as HContent));
-    const value = parts.some(s => s === null) ? null : parts.join('');
-    textCache.set(n, value);
-    return value;
-  };
-  const rangeCache = new WeakMap<HContent[], number[]>();
-  const slice = (nodes: HContent[], start: number, end: number): HContent[] => {
-    const out: HContent[] = [];
-    if (start >= end) return out;
-    let ends = rangeCache.get(nodes);
-    if (!ends) { let total = 0; ends = nodes.map(n => total += literal(n)!.length); rangeCache.set(nodes, ends); }
-    let lo = 0, hi = ends.length;
-    while (lo < hi) { const mid = (lo + hi) >>> 1; if (ends[mid]! <= start) lo = mid + 1; else hi = mid; }
-    let pos = lo ? ends[lo - 1]! : 0;
-    for (let k = lo; k < nodes.length && pos < end; k++) {
-      const n = nodes[k]!;
-      const value = literal(n)!;
-      const a = Math.max(0, start - pos), b = Math.min(value.length, end - pos);
-      if (a < b) {
-        if (a === 0 && b === value.length) out.push(n);
-        else if (n.type === 'text') out.push({ ...n, value: value.slice(a, b) });
-        else if (n.type === 'element') out.push({ ...n, children: slice(n.children as HContent[], a, b) as Element['children'] });
-      }
-      pos += value.length;
-      if (pos >= end) break;
-    }
-    return out;
-  };
-  const out: HContent[] = [];
-  const nodes = parent.children as HContent[];
-  let count = 0, i = 0;
-  while (i < nodes.length) {
-    if (literal(nodes[i]!) === null) { out.push(nodes[i++]!); continue; }
-    let j = i, value = '';
-    while (j < nodes.length) { const t = literal(nodes[j]!); if (t === null) break; value += t; j++; }
-    const run = nodes.slice(i, j), spans = scanMath(value).spans;
-    if (!spans.length) { out.push(...run); i = j; continue; }
-    let pos = 0;
-    for (const span of spans) {
-      out.push(...slice(run, pos, span.start));
-      const node = mathNode(span.tex, span.display);
-      node.properties.dataPfLiteral = value.slice(span.start, span.end);
-      out.push(node); pos = span.end; count++;
-    }
-    out.push(...slice(run, pos, value.length));
-    i = j;
-  }
-  parent.children = out as typeof parent.children;
-  return count;
-}
-/** alttext MathML hanya dipakai sebagai TeX bila jelas berbentuk TeX (perintah \, ^, _ atau kurung kurawal). */
-function texLike(s: string): boolean { return /\\[A-Za-z]+|[\^_{}]/.test(s); }
 
 function hasMerge(el: Element): boolean {
   let m = false;
@@ -164,13 +88,24 @@ function hasMerge(el: Element): boolean {
   walk(el); return m;
 }
 
-function cleanTable(el: Element): Element {
+function cleanRichHtml(el: Element, fragments: WeakMap<Element, Element>): Element {
   const keep: Properties = {};
   const p = el.properties ?? {};
   if (p.rowSpan !== undefined) keep.rowSpan = p.rowSpan;
   if (p.colSpan !== undefined) keep.colSpan = p.colSpan;
   if (p.align !== undefined) keep.align = p.align;
   if (p.scope !== undefined) keep.scope = p.scope;
+  if (el.tagName === 'th' && typeof p.abbr === 'string') keep.abbr = p.abbr;
+  if ((el.tagName === 'colgroup' || el.tagName === 'col') && p.span !== undefined) keep.span = p.span;
+  if ((el.tagName === 'th' || el.tagName === 'td') && p.headers !== undefined) keep.headers = p.headers;
+  if (typeof p.title === 'string') keep.title = p.title;
+  if (el.tagName === 'details' && p.open === true) keep.open = true;
+  if (el.tagName === 'ol' && typeof p.type === 'string' && ORDERED_LIST_TYPES.has(p.type)) keep.type = p.type;
+  if ((el.tagName === 'li' || el.tagName === 'ul') && typeof p.type === 'string') keep.type = p.type;
+  if (el.tagName === 'ol' && p.reversed === true) keep.reversed = true;
+  if (el.tagName === 'li' && /^-?\d+$/.test(String(p.value))) keep.value = p.value;
+  if (el.tagName === 'ol' && p.start !== undefined) keep.start = p.start;
+  for (const key of ['dir', 'lang', 'id']) if (typeof p[key] === 'string') keep[key] = p[key];
   if (el.tagName === 'a' && typeof p.href === 'string' && classifyUrl(p.href).ok) keep.href = p.href;
   if (el.tagName === 'img') {
     if (typeof p.src === 'string' && classifyUrl(p.src, true).ok) keep.src = p.src;
@@ -184,58 +119,111 @@ function cleanTable(el: Element): Element {
       properties: { dataPfFormula: c.properties.dataPfMath === 'display' ? 'display' : 'inline' },
       children: [{ type: 'text', value: String(c.properties.dataTex) }] }];
     const ce = c as Element;
-    if (!MERGE_TABLE_TAGS.has(ce.tagName)) return cleanTable({ ...ce, tagName: 'span' }).children;
-    return [cleanTable(ce)];
+    const fragment = fragments.get(ce);
+    if (fragment) return [fragment];
+    if (!INERT_CLIPBOARD_TAGS.has(ce.tagName)) return cleanRichHtml({ ...ce, tagName: 'span' }, fragments).children;
+    return [cleanRichHtml(ce, fragments)];
   });
   return { type: 'element', tagName: el.tagName, properties: keep, children };
 }
 
-export function htmlToMarkdown(html: string, opts: { plain?: string; limits?: Limits } = {}): ClipboardResult {
+/** GFM has no subscript/superscript token. Retain those two inert tag names
+ * around converted content, so a displayed exponent cannot turn into a normal digit. */
+const keepScriptPosition: Handle = (state, node) => [
+  { type: 'html', value: `<${node.tagName}>` }, ...state.all(node),
+  { type: 'html', value: `</${node.tagName}>` },
+];
+
+type ClipboardOptions = { plain?: string; limits?: Limits; wholeDocument?: boolean };
+
+export function htmlToMarkdown(html: string, opts: ClipboardOptions = {}): ClipboardResult {
+  try {
+    return convertHtml(html, opts, false);
+  } catch (error) {
+    if (!(error instanceof BudgetError)) throw error;
+    return {ok:false,code:'BUDGET_EXCEEDED',budget:error.result,message:error.result.message,messageEn:error.result.messageEn};
+  }
+}
+
+function convertHtml(html: string, opts: ClipboardOptions, keepMathBlocks: boolean): ClipboardResult {
   const budget = checkTextBudget('pasteHtml', html, opts.limits ?? LIMITS);
   if (!budget.ok) return { ok: false, code: 'BUDGET_EXCEEDED', budget, message: `${budget.message} Gunakan impor berkas atau tempel teks biasa.`, messageEn: `${budget.messageEn} Use file import or paste plain text.` };
-  const parsed = parseHtmlWithinBudget(html, opts.limits ?? LIMITS);
+  const parsed = opts.wholeDocument ? parseHtmlDocumentBody(html, opts.limits ?? LIMITS) : parseHtmlWithinBudget(html, opts.limits ?? LIMITS);
   if (!parsed.ok) return { ok: false, code: 'BUDGET_EXCEEDED', budget: parsed.budget, message: parsed.budget.message, messageEn: parsed.budget.messageEn };
   const tree = parsed.tree;
+  const fragments = new WeakMap<Element, Element>();
+  const originalFragments = new WeakMap<Element, Element>();
+  const richFragment = (node: Element): Element => {
+    const clean = cleanRichHtml(node, fragments);
+    // Blank lines terminate Markdown HTML blocks; HTML character references preserve the text.
+    const dataHtml = unified().use(rehypeStringify).stringify({type: 'root', children: [clean]}).replace(/\n/g, '&#10;');
+    const marker: Element = {type: 'element', tagName: 'pf-rawtable', properties: {dataHtml}, children: []};
+    fragments.set(marker, clean);
+    originalFragments.set(marker, node);
+    return marker;
+  };
   const changes = new Map<string, ConversionChange>();
   const note = (kind: ConversionChange['kind'], detail: string) => { const k = `${kind}|${detail}`; const c = changes.get(k); if (c) c.count++; else changes.set(k, { kind, detail, count: 1 }); };
   const issues: CoreIssue[] = [];
-  let math = 0, tables = 0, merged = 0, htmlLiteralMath = 0;
+  let math = 0, tables = 0, merged = 0, htmlLiteralMath = 0, hasHardBreak = false;
+  const recovered: MathSpan[] = [];
+  const recordAdaptation = (span?: MathSpan) => { if (span?.adaptations?.length) recovered.push(span); };
 
+  const containsFormulaOrBreak = (n: HContent): boolean => n.type === 'element' && (n.tagName === 'br' || typeof n.properties.dataPfMath === 'string' || n.children.some(containsFormulaOrBreak));
   const walk = (parent: HRoot | Element, inCode = false): void => {
-    inCode ||= parent.type === 'element' && ['pre', 'code', 'kbd', 'samp'].includes(parent.tagName);
+    inCode ||= parent.type === 'element' && CODE_TAGS.has(parent.tagName);
     const out: HContent[] = [];
     const pairedVisuals = inCode ? undefined : mathJaxDuplicates(parent.children as HContent[]);
+    let katexDuplicate: Element | undefined;
+    if (!inCode && parent.type === 'element' && cls(parent).includes('katex')) {
+      const branches = parent.children.filter((child): child is Element => child.type === 'element');
+      const assistive = branches.find(child => cls(child).includes('katex-mathml'));
+      const visual = branches.find(child => cls(child).includes('katex-html'));
+      if (assistive && visual && isMathPresentationBranch(assistive) && isMathPresentationBranch(visual)) {
+        if (findHtmlMathAnnotation(assistive) !== null) katexDuplicate = visual;
+        else if (!hasHtmlMathAnnotation(assistive) && toText(visual).trim()) katexDuplicate = assistive;
+      }
+    }
     for (const n of parent.children as HContent[]) {
       if (n.type === 'comment' || n.type === 'doctype') continue;
       if (n.type !== 'element') { out.push(n); continue; }
       const tag = n.tagName.toLowerCase();
+      if (tag === 'br') hasHardBreak = true;
+      const literalCode = inCode || CODE_TAGS.has(tag);
       // Internal conversion nodes can only be created below, never supplied by the clipboard.
       if (tag === 'pf-rawtable' || typeof n.properties?.dataPfMath === 'string') { delete n.properties.dataPfMath; delete n.properties.dataTex; }
       delete n.properties.dataPfLiteral;
       if (tag === 'pf-rawtable') { walk(n, inCode); out.push(...n.children); continue; }
       const c = cls(n);
       // MathJax v2: <script type="math/tex[; mode=display]"> menyimpan sumber TeX (data, tidak dijalankan)
-      if (!inCode && tag === 'script' && /^math\/tex\b/i.test(String(n.properties?.type ?? ''))) {
+      if (!literalCode && tag === 'script' && /^math\/tex\b/i.test(String(n.properties?.type ?? ''))) {
         const tex = n.children.map((x) => (x.type === 'text' ? x.value : '')).join('');
         math++; note('math-from-mathjax-script', 'LaTeX diambil dari skrip data MathJax (tidak dijalankan)');
         out.push(mathNode(tex.trim(), /mode\s*=\s*display/i.test(String(n.properties?.type))));
         continue;
       }
       // tampilan visual MathJax v2/v3 bila sumber TeX tersedia sebagai saudara (skrip math/tex) → jangan diduplikasi
-      if (pairedVisuals?.has(n)) continue;
-      if (!inCode && (c.includes('katex') || c.includes('katex-display') || tag === 'math' || tag === 'mjx-container' || c.includes('MathJax'))) {
-        const display = c.includes('katex-display') || String(n.properties?.display ?? '') === 'block';
-        const tex = findAnnotation(n);
-        if (tex !== null) {
-          math++; note('math-from-annotation', 'LaTeX diambil dari anotasi; tampilan visual & MathML tidak diduplikasi');
-          out.push(mathNode(tex, display));
+      if (pairedVisuals?.has(n) || n === katexDuplicate) continue;
+      const mathSource = !literalCode ? readHtmlMathSource(n) : null;
+      const ambiguous = !literalCode && isHtmlMathContainer(n) && !mathSource && hasSeparateMathContent(n);
+      if (!literalCode && isHtmlMathContainer(n)) {
+        if (mathSource) {
+          math++;
+          if (mathSource.origin === 'annotation') note('math-from-annotation', 'LaTeX diambil dari anotasi; tampilan visual & MathML tidak diduplikasi');
+          else if (mathSource.origin === 'source-attribute') note('math-from-source-attribute', 'LaTeX diambil dari atribut sumber data-latex/data-tex; tampilan visual tidak diduplikasi');
+          else note('math-from-alttext', 'LaTeX diambil dari atribut alttext MathML');
+          recordAdaptation(mathSource.span);
+          const marker = mathNode(mathSource.tex, mathSource.display);
+          originalFragments.set(marker, n); // Independently re-read the original annotation in the round-trip check.
+          out.push(marker);
           continue;
         }
-        const alt = tag === 'math' ? String(n.properties?.alttext ?? '') : '';
-        if (alt && texLike(alt)) {
-          math++; note('math-from-alttext', 'LaTeX diambil dari atribut alttext MathML');
-          out.push(mathNode(alt, display));
-          continue;
+        if (ambiguous) {
+          recoverMixedMathChild(n);
+          issues.push(mkIssue('CLIPBOARD_MATH_MIXED_SOURCE', 'warning', 'math', {
+            id: 'Atribut TeX berada pada pembungkus yang juga memuat isi lain. Teks dan rumus di dalamnya dipertahankan. Bandingkan dengan HTML asli.',
+            en: 'A TeX attribute is attached to a wrapper containing other content. The inner text and equations were retained. Compare with the original HTML.',
+          }, {line: n.position?.start.line, detail: { tag, sourceAttribute: String(n.properties.dataLatex ?? n.properties.dataTex ?? '').slice(0,300) }}));
         }
         if (c.includes('katex')) {
           note('math-no-tex', 'KaTeX tanpa anotasi LaTeX: teks visual dipertahankan');
@@ -247,9 +235,11 @@ export function htmlToMarkdown(html: string, opts: { plain?: string; limits?: Li
           out.push({ type: 'text', value: toText(n) });
           continue;
         }
-        // KaTeX tanpa anotasi: ambil hanya sisi visual sekali (abaikan .katex-mathml)
+        if (tag === 'mjx-container' || c.some(c => /^MathJax(?:$|_)/.test(c))) {
+          note('math-no-tex', 'MathJax tanpa sumber LaTeX: representasi teks dipertahankan');
+          issues.push(mkIssue('CLIPBOARD_MATH_NO_TEX', 'warning', 'math', { id: 'Rumus MathJax tanpa sumber LaTeX; tampilan teks dipertahankan dan perlu diperiksa. Salin sumber Markdown/LaTeX untuk pemulihan yang tepat.', en: 'MathJax formula without LaTeX source; its text representation was kept and needs review. Copy the Markdown/LaTeX source for exact recovery.' }));
+        }
       }
-      if (c.includes('katex-mathml')) continue;
       if (DROP_WITH_CONTENT.has(tag) || tag === 'script') {
         note('removed-element', `<${tag}>`);
         issues.push(mkIssue('SECURITY_ELEMENT_REMOVED', 'warning', 'security', { id: `Elemen <${tag}> dari clipboard dibuang dan tidak dijalankan.`, en: `Clipboard element <${tag}> was removed and not executed.` }, { detail: { tag } }));
@@ -259,6 +249,12 @@ export function htmlToMarkdown(html: string, opts: { plain?: string; limits?: Li
       for (const k of Object.keys(p)) {
         if (/^on/i.test(k)) { delete p[k]; note('removed-attribute', k.toLowerCase()); issues.push(mkIssue('SECURITY_EVENT_HANDLER', 'warning', 'security', { id: `Atribut ${k.toLowerCase()} pada <${tag}> dibuang.`, en: `Attribute ${k.toLowerCase()} on <${tag}> was removed.` })); }
         else if (k === 'style') { delete p[k]; note('removed-attribute', 'style'); }
+      }
+      // Known presentation components copied from AI answers become semantic blocks;
+      // their props are never executed or interpreted as application code.
+      if (!literalCode && (tag === 'box' || tag === 'text')) {
+        note('unwrapped', `<${tag}> menjadi blok teks; atribut presentasi tidak dijalankan`);
+        n.tagName = tag === 'text' ? 'p' : 'div';
       }
       if (tag === 'a' && p.href !== undefined) {
         const v = classifyUrl(String(p.href));
@@ -270,38 +266,90 @@ export function htmlToMarkdown(html: string, opts: { plain?: string; limits?: Li
         const mergedCells = hasMerge(n);
         walk(n, inCode);
         const sections = n.children.filter((c): c is Element => c.type === 'element');
-        const needsRawMath = (el: Element): boolean => (isMathNode(el) && /[|\n]/.test(String(el.properties.dataTex))) || el.children.some(c => c.type === 'element' && needsRawMath(c));
+        const needsRawMath = (el: Element): boolean => (isMathNode(el) && (el.properties.dataPfMath === 'display' || /[|\n]/.test(String(el.properties.dataTex)))) || el.children.some(c => c.type === 'element' && needsRawMath(c));
         const structured = sections.some(s => s.tagName === 'caption' || s.tagName === 'tfoot' ||
           (s.tagName === 'thead' && s.children.filter(c => c.type === 'element' && c.tagName === 'tr').length > 1)) ||
-          sections.filter(s => s.tagName === 'tbody').length > 1 || needsRawMath(n);
+          sections.filter(s => s.tagName === 'tbody').length > 1 || needsRawMath(n) || keepMathBlocks;
         if (mergedCells || structured) {
           if (mergedCells) merged++;
-          const cleaned = cleanTable(n);
-          const htmlTable = unified().use(rehypeStringify).stringify({ type: 'root', children: [cleaned] })
-            // A blank line terminates a raw Markdown HTML block. Character references preserve exact cell/TeX text.
-            .replace(/\n/g, '&#10;');
           if (mergedCells) {
             note('merged-table-as-html', 'tabel dengan rowspan/colspan dipertahankan sebagai blok HTML tabel');
             issues.push(mkIssue('TABLE_MERGED_CELLS_HTML', 'warning', 'table', { id: 'Tabel dengan sel gabungan (rowspan/colspan) tidak dapat diwakili tabel Markdown; dipertahankan sebagai blok HTML tabel tersanitasi. Periksa sebelum ekspor.', en: 'A table with merged cells (rowspan/colspan) cannot be represented as a Markdown table; it was kept as a sanitized HTML table block. Review before export.' }, { detail: { kind: 'merged-cells' } }));
           } else {
             note('structured-table-as-html', 'Struktur tabel dan rumus yang tidak dapat diwakili tabel Markdown disimpan dalam HTML.');
           }
-          out.push({ type: 'element', tagName: 'pf-rawtable', properties: { dataHtml: htmlTable }, children: [] });
+          out.push(richFragment(n));
           continue;
         }
         out.push(n); continue;
       }
+      const needsListHtml = (el: Element): boolean =>
+        (el.tagName === 'ol' && (el.properties.reversed === true || ORDERED_LIST_TYPES.has(String(el.properties.type)))) ||
+        (el.tagName === 'ul' && typeof el.properties.type === 'string') ||
+        (el.tagName === 'li' && (el.properties.value !== undefined || typeof el.properties.type === 'string')) ||
+        el.children.some(child => child.type === 'element' && needsListHtml(child));
+      const richList = (tag === 'ol' || tag === 'ul') && needsListHtml(n);
       walk(n, inCode);
-      out.push(n);
+      if (richList) out.push(richFragment(n));
+      else if (keepMathBlocks && /^(?:p|pre|div|h[1-6]|blockquote|ol|ul|section)$/.test(n.tagName) && containsFormulaOrBreak(n)) {
+        out.push(richFragment(n));
+        note('formula-block-as-html', 'Rumus dan teks pendamping dipertahankan dalam HTML aman.');
+      }
+      else if (ambiguous && (tag === 'div' || tag === 'span')) out.push(richFragment(n));
+      else out.push(n);
     }
     parent.children = out as typeof parent.children;
-    if (!inCode) htmlLiteralMath += protectHtmlLiteralMath(parent);
+    if (!inCode) htmlLiteralMath += recoverHtmlLiteralMath(parent, (span, source) => {
+      recordAdaptation(span);
+      const node = mathNode(span.renderTex ?? span.tex, span.display);
+      const literal = source.slice(span.start, span.end);
+      // Markdown fences discard the delimiter-line newline on either side of
+      // the equation. Use a data-only block for this literal only.
+      node.properties.dataPfLiteral = span.display && literal.startsWith('$$') && /^\s|\s$/u.test(span.tex)
+        ? '<div><code data-pf-formula="display">' + escapeHtml(String(node.properties.dataTex)).replace(/\n/g,'&#10;') + '</code></div>'
+        : literal;
+      return node;
+    }, isMathNode);
+    // RC6-CLIP09: `$a$$b$` is ambiguous with display delimiters. Preserve adjacent
+    // equations separately without inserting whitespace into the user's content.
+    const inlineMath = (n: HContent | undefined): n is Element => !!n && isMathNode(n) && n.properties.dataPfMath === 'inline';
+    for (let i = 0; i < parent.children.length; i++) {
+      const n = parent.children[i];
+      if (!inlineMath(n) || !(inlineMath(parent.children[i - 1]) || inlineMath(parent.children[i + 1]))) continue;
+      const tex = String(n.properties.dataTex ?? '');
+      const literal = inlineLiteral(tex);
+      if (n.properties.dataPfLiteral !== literal) {
+        n.properties.dataPfLiteral = literal;
+        note('math-adjacent-delimiters', 'Rumus inline berdampingan memakai pembatas yang tidak ambigu, tanpa menambah spasi');
+      }
+    }
   };
   walk(tree);
+  // A clipboard fragment may start with inline siblings instead of a paragraph.
+  if (keepMathBlocks && tree.children.some(containsFormulaOrBreak)) {
+    const wrapped: Element = {type:'element', tagName:'div', properties:{}, children:tree.children.filter(n=>n.type !== 'doctype')};
+    tree.children = [richFragment(wrapped)];
+    note('formula-block-as-html', 'Rumus dan teks pendamping dipertahankan dalam HTML aman.');
+  }
 
+  if (recovered.length) {
+    const bodyChanges = recovered.filter(s => s.renderTex !== undefined && s.renderTex !== s.tex);
+    const sample = (bodyChanges.length ? bodyChanges : recovered).slice(0, 3);
+    const adaptations = [...new Set(recovered.flatMap(s => s.adaptations ?? []))];
+    note('math-recovered-copy', `${recovered.length} rumus salinan dipulihkan; ${bodyChanges.length} memerlukan penyesuaian TeX`);
+    issues.push(mkIssue('CLIPBOARD_MATH_RECOVERED', bodyChanges.length ? 'warning' : 'info', 'math', {
+      id: bodyChanges.length ? `${recovered.length} rumus dari clipboard dipulihkan; ${bodyChanges.length} memuat escape salinan pada isi TeX yang ditafsirkan ulang. Periksa rumus hasilnya; HTML asli tetap tersedia pada masukan proyek.` : `${recovered.length} pembatas rumus ber-escape dari clipboard dikenali kembali. Isi TeX dipertahankan.`,
+      en: bodyChanges.length ? `${recovered.length} clipboard formulas recovered; ${bodyChanges.length} contain copied TeX escapes that were reinterpreted. Review the formulas; the original HTML remains in the project input.` : `${recovered.length} copied escaped math delimiters were recognized. The TeX body was preserved.`,
+    }, { detail: { count: recovered.length, bodyChanges: bodyChanges.length, adaptations, raw: sample.map(s => s.tex.slice(0, 300)), rendered: sample.map(s => (s.renderTex ?? s.tex).slice(0, 300)) } }));
+  }
+
+  // Snapshot annotations and their containing cells before either stringifier can change them.
+  const expected = math || htmlLiteralMath || tables || hasHardBreak ? clipboardMathInventory(tree, originalFragments) : undefined;
   hoistDisplayMath(tree);
   const mdast = unified().use(rehypeRemark, {
     handlers: {
+      sub: keepScriptPosition,
+      sup: keepScriptPosition,
       span: (state, node: Element) => (isMathNode(node) ? (typeof node.properties.dataPfLiteral === 'string' ? { type: 'html', value: node.properties.dataPfLiteral } : { type: 'inlineMath', value: String(node.properties.dataTex ?? '') }) : defaultHandlers.span!(state, node)),
       div: (state, node: Element) => (isMathNode(node) ? (typeof node.properties.dataPfLiteral === 'string' ? { type: 'html', value: node.properties.dataPfLiteral } : { type: 'math', value: String(node.properties.dataTex ?? '') }) : defaultHandlers.div!(state, node)),
       'pf-rawtable': (_state, node: Element) => ({ type: 'html', value: String(node.properties?.dataHtml ?? '') }),
@@ -312,6 +360,14 @@ export function htmlToMarkdown(html: string, opts: { plain?: string; limits?: Li
   const markdown = unified().use(remarkGfm).use(remarkMath).use(remarkStringify, { bullet: '-', fences: true, rule: '-', emphasis: '*', strong: '*', listItemIndent: 'one' })
     .stringify(mdast as never) as unknown as string;
 
+  if (expected && !clipboardMathMatches(expected, markdown)) {
+    // Markdown delimiters also depend on adjacent text (e.g. a digit after a
+    // dollar closer). Retry from the original input, retaining the affected blocks.
+    if (!keepMathBlocks) return convertHtml(html,opts,true);
+    return { ok: false, code: 'CLIPBOARD_INTEGRITY',
+      message: 'Konversi mengubah rumus, pemisah teks atau isi sel. HTML asli tetap tersedia. Impor HTML atau tinjau teks biasa.',
+      messageEn: 'Conversion changed a formula, text boundary or table cell. The original HTML is preserved. Review the plain text or the HTML.' };
+  }
   if (opts.plain !== undefined) {
     // cakupan teks: token alfanumerik text/plain yang tidak muncul di Markdown (indikasi kehilangan isi)
     const have = new Map<string, number>();
@@ -353,6 +409,18 @@ function hoistDisplayMath(root: HRoot | Element): void {
  */
 function protectLiteralMath(root: MRoot): number {
   let count = 0;
+  // A delimiter left over after HTML math recovery can straddle a link or a
+  // subscript. Encoding its literal slash prevents a later Markdown parse from
+  // consuming the link destination or the markup itself as TeX.
+  const appendLiteral = (out: MContent[], value: string) => {
+    let start = 0;
+    for (const match of value.matchAll(/\\+(?=[()[\]])/g)) {
+      if (match.index! > start) out.push({ type: 'text', value: value.slice(start, match.index) });
+      out.push({ type: 'html', value: '&#92;'.repeat(match[0].length) });
+      start = match.index! + match[0].length;
+    }
+    if (start < value.length) out.push({ type: 'text', value: value.slice(start) });
+  };
   const visit = (parent: MParent, inTable: boolean): void => {
     const kids = parent.children as MContent[];
     const out: MContent[] = [];
@@ -367,9 +435,15 @@ function protectLiteralMath(root: MRoot): number {
       while (j < kids.length && (kids[j]!.type === 'text' || kids[j]!.type === 'break')) { const x = kids[j]!; str += x.type === 'text' ? x.value : '\n'; j++; }
       const scan = scanMath(str);
       const spans = scan.spans.filter((sp) => !(inTable && str.slice(sp.start, sp.end).includes('\n')));
-      if (!spans.length) { out.push(...kids.slice(i, j)); i = j; continue; }
+      if (!spans.length) {
+        for (const node of kids.slice(i, j)) {
+          if (node.type === 'text' && node.value.includes('\\')) appendLiteral(out, node.value);
+          else out.push(node);
+        }
+        i = j; continue;
+      }
       let pos = 0;
-      const pushText = (t: string) => { t.split('\n').forEach((part, idx) => { if (idx) out.push({ type: 'break' }); if (part) out.push({ type: 'text', value: part }); }); };
+      const pushText = (t: string) => { t.split('\n').forEach((part, idx) => { if (idx) out.push({ type: 'break' }); if (part) appendLiteral(out, part); }); };
       for (const sp of spans) {
         pushText(str.slice(pos, sp.start));
         out.push({ type: 'html', value: str.slice(sp.start, sp.end) } as PhrasingContent);

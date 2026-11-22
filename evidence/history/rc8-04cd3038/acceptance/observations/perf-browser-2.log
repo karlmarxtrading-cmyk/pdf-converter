@@ -1,0 +1,4 @@
+trig 0
+trig 5
+Error: {"label":"candidate","task":"trig","round":7,"times":{},"oracle":{"pass":false},"error":"Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed."}
+    at file:///workspace/scratch/d77204dbc71b/rc8/tests/bench/performance-browser.mjs:46:28

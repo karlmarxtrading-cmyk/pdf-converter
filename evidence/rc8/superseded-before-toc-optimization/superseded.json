@@ -1,0 +1,12 @@
+{
+  "note": "Stopped by release coordinator after independent canonical-TOC correction; decisions used controlled isolated ablation. No incomplete samples used for acceptance. Files ending .json.tmp were directory sentinels for cancellation.",
+  "at": "2026-11-22T04:14:31+0700",
+  "armCounts": {
+    "cohort-2": 1,
+    "node-1": 3,
+    "cohort-1": 1,
+    "node-2": 3
+  },
+  "controllerExit": 130,
+  "noCapacityMeasurementStarted": true
+}

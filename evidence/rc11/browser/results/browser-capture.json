@@ -1,0 +1,107 @@
+{
+  "engine": "HeadlessChrome/153.0.8010.0",
+  "distTree": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496",
+  "input": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+  "records": [
+    {
+      "template": "BUS-01",
+      "bytes": 907051,
+      "sha256": "b15acdae3e9f78e1e14e7ac6cbd5dba6946eb67ff205d9c3eaaccee8f7ec8057",
+      "offline": {
+        "title": "Kumpulan Rumus Trigonometri Lengkap",
+        "template": "BUS-01",
+        "intended": "BUS-01",
+        "count": 231,
+        "katex": 231,
+        "mathml": 231,
+        "differences": [],
+        "tables": 5,
+        "toc": 22,
+        "broken": 0,
+        "styled": true,
+        "visibleMath": 231,
+        "fontFaces": 10,
+        "fontsLoaded": 10,
+        "scripts": 0,
+        "errorMarkers": 0
+      },
+      "externalRequests": [],
+      "status": "PASS"
+    },
+    {
+      "template": "EDU-01",
+      "bytes": 962251,
+      "sha256": "a317ce77723b2e71c48384a69848f21c83b0c5d06c4d73e01bafc96589f5a792",
+      "offline": {
+        "title": "Kumpulan Rumus Trigonometri Lengkap",
+        "template": "EDU-01",
+        "intended": "EDU-01",
+        "count": 231,
+        "katex": 231,
+        "mathml": 231,
+        "differences": [],
+        "tables": 5,
+        "toc": 22,
+        "broken": 0,
+        "styled": true,
+        "visibleMath": 231,
+        "fontFaces": 12,
+        "fontsLoaded": 12,
+        "scripts": 0,
+        "errorMarkers": 0
+      },
+      "externalRequests": [],
+      "status": "PASS"
+    },
+    {
+      "template": "EDT-01",
+      "bytes": 1012562,
+      "sha256": "91595cecc1c3057e920f0b370a835d7e1a4548effaee640b3dac86bc57abb127",
+      "offline": {
+        "title": "Kumpulan Rumus Trigonometri Lengkap",
+        "template": "EDT-01",
+        "intended": "EDT-01",
+        "count": 231,
+        "katex": 231,
+        "mathml": 231,
+        "differences": [],
+        "tables": 5,
+        "toc": 0,
+        "broken": 0,
+        "styled": true,
+        "visibleMath": 231,
+        "fontFaces": 14,
+        "fontsLoaded": 14,
+        "scripts": 0,
+        "errorMarkers": 0
+      },
+      "externalRequests": [],
+      "status": "PASS"
+    },
+    {
+      "template": "CON-01",
+      "bytes": 870071,
+      "sha256": "6e07899061144542e8e61fc813eea1caef3ed72dc113c4a270845d8f079fd78e",
+      "offline": {
+        "title": "Kumpulan Rumus Trigonometri Lengkap",
+        "template": "CON-01",
+        "intended": "CON-01",
+        "count": 231,
+        "katex": 231,
+        "mathml": 231,
+        "differences": [],
+        "tables": 5,
+        "toc": 0,
+        "broken": 0,
+        "styled": true,
+        "visibleMath": 231,
+        "fontFaces": 9,
+        "fontsLoaded": 9,
+        "scripts": 0,
+        "errorMarkers": 0
+      },
+      "externalRequests": [],
+      "status": "PASS"
+    }
+  ]
+}

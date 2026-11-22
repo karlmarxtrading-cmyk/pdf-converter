@@ -1,0 +1,14 @@
+[
+  {"name":"section","html":"<div data-latex=\"x+1\"><section>KEEP-INDEPENDENT-CONTENT</section><span>x+1</span></div>","structure":["section"],"words":["KEEP-INDEPENDENT-CONTENT","[x+1]"],"tex":["x+1"],"review":true},
+  {"name":"collapse","html":"<div data-tex=\"x+1\"><details open><summary>Definition</summary>Retained body</details><span>x+1</span></div>","structure":["details[open] > summary"],"words":["Definition","Retained body","[x+1]"],"tex":["x+1"],"review":true},
+  {"name":"glossary","html":"<div data-tex=\"x+1\"><dl><dt>Lemma</dt><dd>Explanation.</dd></dl><span>x+1</span></div>","structure":["dl > dt","dl > dd"],"words":["Lemma","Explanation.","[x+1]"],"tex":["x+1"],"review":true},
+  {"name":"div-before","html":"<div data-tex=\"x+1\"><div>Never remove</div><span>x+1</span></div>","structure":["div > div"],"words":["Never remove","[x+1]"],"tex":["x+1"],"review":true},
+  {"name":"direct-text-and-math","html":"<div data-tex=\"x+1\">Before <span>x+1</span> after.</div>","structure":[],"words":["Before","[x+1]","after."],"tex":["x+1"],"review":true},
+  {"name":"direct-prose","html":"<span data-tex=\"x+1\">Retain these words between terms.</span>","structure":[],"words":["Retain these words between terms."],"tex":[],"review":true},
+  {"name":"ambiguous-copies","html":"<div data-tex=\"x+1\"><span>x+1</span><span>x+1</span></div>","structure":[],"words":["x+1","x+1"],"tex":[],"review":true},
+  {"name":"pure","html":"<div><span data-tex=\"x+1\"><span>x+1</span></span></div>","structure":[],"words":["[x+1]"],"tex":["x+1"],"review":false},
+  {"name":"nested-independent-math","html":"<div data-tex=\"outer\"><section>Heading</section><span data-tex=\"u+1\">u+1</span><span data-tex=\"v+2\">v+2</span></div>","structure":["section"],"words":["Heading","[u+1]","[v+2]"],"tex":["u+1","v+2"],"review":true},
+  {"name":"nested-safe-formatting","html":"<div data-tex=\"x+1\"><span><em>Keep emphasis</em></span><span>x+1</span></div>","structure":["em"],"words":["Keep emphasis","[x+1]"],"tex":["x+1"],"review":true},
+  {"name":"math-in-table-with-note","html":"<div data-tex=\"x+1\"><table><caption>Weights</caption><tr><th rowspan=\"2\">Group A</th><td colspan=\"2\">Empty below</td></tr><tr><td></td><td>End</td></tr></table><span>x+1</span></div>","structure":["th[rowspan='2']","td[colspan='2']","caption","td:empty"],"words":["Weights","Group A","Empty below","End","[x+1]"],"tex":["x+1"],"review":true},
+  {"name":"mixed-annotated","html":"<div class=\"math\"><section>Independent annotation note</section><span class=\"katex\"><math><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span></div>","structure":["section"],"words":["Independent annotation note","[x]"],"tex":["x"],"review":true}
+]

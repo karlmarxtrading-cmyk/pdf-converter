@@ -1,0 +1,43 @@
+{
+  "scope": "RC6 clipboard/import compatibility; synthetic format tests, not live provider tests",
+  "files": [
+    "src/core/clipboard.ts",
+    "src/core/html-math.ts",
+    "src/core/html-math-source.ts",
+    "tests/unit/core/rc6-clipboard.test.ts"
+  ],
+  "test_command": "npx vitest run tests/unit/core/rc6-clipboard.test.ts tests/unit/core/wrapper-clipboard.test.ts tests/unit/core/rc5-math.test.ts tests/unit/core/math-einstein.test.ts tests/unit/core/rc4-reading-regressions.test.ts tests/unit/core/rc6-independent.test.ts",
+  "test_result": {
+    "files_passed": 6,
+    "tests_passed": 106,
+    "tests_failed": 0,
+    "new_rc6_clipboard_tests": 31,
+    "independent_audit_tests": 23
+  },
+  "lint_command": "npx oxlint -c .oxlintrc.json --deny-warnings src/core/clipboard.ts src/core/html-math.ts src/core/html-math-source.ts tests/unit/core/rc6-clipboard.test.ts",
+  "lint_exit": 0,
+  "implemented_and_unit_verified": [
+    "RC6-CLIP01 explicit source metadata attributes",
+    "RC6-CLIP02 display modes",
+    "RC6-CLIP03 TeX annotation aliases",
+    "RC6-CLIP04 literal code and active HTML exclusion",
+    "RC6-CLIP05 source-free MathJax warning",
+    "RC6-CLIP06 known AI presentation components",
+    "RC6-CLIP07 adaptation provenance in merged HTML tables",
+    "RC6-CLIP08 isolate single math representations; preserve broad wrappers/prose/code",
+    "RC6-CLIP09 unambiguous adjacent inline formula delimiters without added whitespace"
+  ],
+  "limits": [
+    "No live provider acceptance claimed.",
+    "No formula recovery is invented for MathJax/MathML without a TeX source.",
+    "Shared html-math helper traverses only the current parent; callers must recurse and exclude literal code."
+  ],
+  "exports": [
+    "recoverHtmlLiteralMath(parent,createFormula,isFormula?)",
+    "readHtmlMathSource(el)",
+    "isHtmlMathContainer(el)",
+    "findHtmlMathAnnotation(el)",
+    "hasHtmlMathAnnotation(el)"
+  ],
+  "shared_source_refactor_verified": true
+}

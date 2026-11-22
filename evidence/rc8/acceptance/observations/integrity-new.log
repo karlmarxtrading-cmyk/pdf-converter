@@ -1,0 +1,9 @@
+
+ RUN  v5.1.0 /workspace/scratch/d77204dbc71b/rc8-next
+
+
+ Test Files  2 passed (2)
+      Tests  29 passed (29)
+   Start at  04:47:48
+   Duration  5.42s (transform 30%, tests 30%, environment 25%, import 15%)
+

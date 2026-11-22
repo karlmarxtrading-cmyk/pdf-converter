@@ -1,0 +1,214 @@
+{
+  "method": "Selected whole physical pages re-rendered using PyMuPDF, including the original manuscript first/last and a four-digit list page. Public contact sheet contains only synthetic examples. Raster hashes describe RGB buffers, not PNG encoding.",
+  "records": [
+    {
+      "case": "headings-on",
+      "pdfSha256": "c9f21e34accd21aee5306b5c4263c4cac37859efd58f064605eb57f203e127a8",
+      "page": 1,
+      "selection": "daftar isi",
+      "rasterSha256": "b7d37a1c101ab5cb527f0ada84fe77ed90cbf4d5868c517e116237fe4c4ba607",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "headings-on",
+      "pdfSha256": "c9f21e34accd21aee5306b5c4263c4cac37859efd58f064605eb57f203e127a8",
+      "page": 7,
+      "selection": "isi pertama",
+      "rasterSha256": "174507d986eb2555ad2d0828dd494277fbff5da5df839370ccdb66b79f417839",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "headings-on",
+      "pdfSha256": "c9f21e34accd21aee5306b5c4263c4cac37859efd58f064605eb57f203e127a8",
+      "page": 621,
+      "selection": "akhir",
+      "rasterSha256": "777a64504e141b8dc34f924a9f0c5126374cc07c83b98cf8322a23c803256fc9",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "long-table-off",
+      "pdfSha256": "9806dc1272790932932e76121654aef012b322128c571542446e30bc47130d2b",
+      "page": 1,
+      "selection": "awal",
+      "rasterSha256": "46002f4a97eece23e7a4cd8e182ab9dfa6db87f301f53f9d3a5eadb1d687ab2b",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "long-table-off",
+      "pdfSha256": "9806dc1272790932932e76121654aef012b322128c571542446e30bc47130d2b",
+      "page": 296,
+      "selection": "tengah",
+      "rasterSha256": "9317d011bad0ed039f4c3d7bae21609b15931909fc0914835bedb2129f263547",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "long-table-off",
+      "pdfSha256": "9806dc1272790932932e76121654aef012b322128c571542446e30bc47130d2b",
+      "page": 590,
+      "selection": "akhir",
+      "rasterSha256": "88a886f84a5b5b490f6b831377471acd2506267a148e3d0a4e119f76b7dd6c87",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "paragraphs-off",
+      "pdfSha256": "aecf4128d2b46b4f9d43060139d7b78108e96159531fd4cbf4071e32731ac93c",
+      "page": 1,
+      "selection": "awal",
+      "rasterSha256": "6ced70af53295bbff6ec68f70bb3f70493bb0b37f1dddd534b346296331fb226",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "paragraphs-off",
+      "pdfSha256": "aecf4128d2b46b4f9d43060139d7b78108e96159531fd4cbf4071e32731ac93c",
+      "page": 315,
+      "selection": "tengah",
+      "rasterSha256": "591a89980c146a16dceb36a10b3843807747c124f5687762ca9daa69b579667f",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "paragraphs-off",
+      "pdfSha256": "aecf4128d2b46b4f9d43060139d7b78108e96159531fd4cbf4071e32731ac93c",
+      "page": 628,
+      "selection": "akhir",
+      "rasterSha256": "c6d95fba7473fb536b43d532ef75754a33e52bb26082f8fdaf4099ee0941a1c1",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "paragraphs-on",
+      "pdfSha256": "65b4769689cf9d2ba0a9f34bc7acab5e9911224a67eb7b5ce4fae9b5b3d6a9e1",
+      "page": 1,
+      "selection": "awal",
+      "rasterSha256": "6ced70af53295bbff6ec68f70bb3f70493bb0b37f1dddd534b346296331fb226",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "paragraphs-on",
+      "pdfSha256": "65b4769689cf9d2ba0a9f34bc7acab5e9911224a67eb7b5ce4fae9b5b3d6a9e1",
+      "page": 315,
+      "selection": "tengah",
+      "rasterSha256": "591a89980c146a16dceb36a10b3843807747c124f5687762ca9daa69b579667f",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "paragraphs-on",
+      "pdfSha256": "65b4769689cf9d2ba0a9f34bc7acab5e9911224a67eb7b5ce4fae9b5b3d6a9e1",
+      "page": 628,
+      "selection": "akhir",
+      "rasterSha256": "c6d95fba7473fb536b43d532ef75754a33e52bb26082f8fdaf4099ee0941a1c1",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "single-paragraph-off",
+      "pdfSha256": "4eb6efbd03429efa2e5ac06230e73aabf2b3b4a95fab906e04c2a3b4333954f2",
+      "page": 1,
+      "selection": "awal",
+      "rasterSha256": "ebcfc6d5fbc7e2bab01853b5622822bcc35751cb7ce5c5fc2d97d68099eb19b6",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "single-paragraph-off",
+      "pdfSha256": "4eb6efbd03429efa2e5ac06230e73aabf2b3b4a95fab906e04c2a3b4333954f2",
+      "page": 301,
+      "selection": "tengah",
+      "rasterSha256": "7c9e387965d6ba94e8e8fea25fc7e01fc90da15c65fb951c69599d3cc0694e1a",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "single-paragraph-off",
+      "pdfSha256": "4eb6efbd03429efa2e5ac06230e73aabf2b3b4a95fab906e04c2a3b4333954f2",
+      "page": 600,
+      "selection": "akhir",
+      "rasterSha256": "90f76a3ad7501a11e3fd9272b4209bf7d0631e61440118a38b018bc9e4a48909",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "original-default",
+      "pdfSha256": "3e8209256d7563f05667a9b2a4b502016dfeec4cd282d06ce4f69bf15175531d",
+      "page": 1,
+      "selection": "daftar isi",
+      "rasterSha256": "ab55509a145fce87f36f340ae52519bd5aa9760eba0a307774e9a005174635d4",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "original-default",
+      "pdfSha256": "3e8209256d7563f05667a9b2a4b502016dfeec4cd282d06ce4f69bf15175531d",
+      "page": 2,
+      "selection": "isi pertama",
+      "rasterSha256": "126132acaf7a96ac9d29bc315b55add50a062ea51de042171075933649b0cc4e",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "original-default",
+      "pdfSha256": "3e8209256d7563f05667a9b2a4b502016dfeec4cd282d06ce4f69bf15175531d",
+      "page": 169,
+      "selection": "penanda empat digit",
+      "rasterSha256": "f182fcc37bcb9a04f4c88cabf560367c8bedae673db141a0e3e8993dc42beba6",
+      "pixels": [
+        429,
+        607
+      ]
+    },
+    {
+      "case": "original-default",
+      "pdfSha256": "3e8209256d7563f05667a9b2a4b502016dfeec4cd282d06ce4f69bf15175531d",
+      "page": 1284,
+      "selection": "akhir",
+      "rasterSha256": "c00d1ba527b8b6bf53b1074cd8645ba9edde7d3aff43329800fab7f561e04d19",
+      "pixels": [
+        429,
+        607
+      ]
+    }
+  ]
+}

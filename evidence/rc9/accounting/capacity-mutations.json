@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "method": "Only exported validator functions and in-memory evidence copies; no build, browser, deployment, app mutation, or receipt mutation.",
+  "capacity": [
+    {
+      "name": "control",
+      "accepted": true
+    },
+    {
+      "name": "layout_failed",
+      "accepted": false,
+      "reason": "Layout, integrity or browser errors in capacity run"
+    },
+    {
+      "name": "blocking_integrity_error",
+      "accepted": false,
+      "reason": "Layout, integrity or browser errors in capacity run"
+    },
+    {
+      "name": "browser_error",
+      "accepted": false,
+      "reason": "Layout, integrity or browser errors in capacity run"
+    },
+    {
+      "name": "no_progress_observations",
+      "accepted": false,
+      "reason": "Missing or unordered observed progress"
+    },
+    {
+      "name": "raw_progress_exceeds_sla",
+      "accepted": false,
+      "reason": "Missing or unordered observed progress"
+    },
+    {
+      "name": "unfinished_print_session_after_cancel",
+      "accepted": false,
+      "reason": "Print session survived cancellation"
+    },
+    {
+      "name": "real_numeric_threshold_control",
+      "accepted": false,
+      "reason": "Missing or exceeded capacity SLA printReadyMs"
+    },
+    {
+      "name": "inconsistent_heap_control",
+      "accepted": false,
+      "reason": "Heap values do not match raw observations"
+    }
+  ],
+  "branches": [
+    {
+      "name": "local",
+      "requiresPromotionEvidence": false
+    },
+    {
+      "name": "preview",
+      "requiresPromotionEvidence": false
+    },
+    {
+      "name": "production",
+      "requiresPromotionEvidence": true
+    },
+    {
+      "name": "custom",
+      "requiresPromotionEvidence": true
+    },
+    {
+      "name": "missing",
+      "rejected": true,
+      "reason": "Cloudflare Pages did not identify the Git branch."
+    }
+  ]
+}

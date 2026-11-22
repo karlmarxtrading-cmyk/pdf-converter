@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "runId": "430401b2-82d5-4567-b002-14fd98349aca",
+  "candidateSha256": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+  "distTreeSha256": "573c87801f272ccc24222db5bbe2339cba495488bc34c095caa2b39e2eacc347",
+  "case": "headings-on",
+  "sourceSha256": "a65fea105cf59350cdd0a12f336e5b5d43f3b5378ba4148fb06c8e05778b6043",
+  "sourceBytes": 2397443,
+  "route": "print-book",
+  "toc": "on",
+  "platform": "linux 6.18.57",
+  "startedAt": "2026-11-22T15:04:37.972Z",
+  "status": "FAIL",
+  "events": [],
+  "method": "Production import, standalone HTML browser download, book print control, exact official book document rendered by Chromium PrintToPDF (headless). Native OS Save is a separate gate.",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "error": "Waiting failed: 150000ms exceeded",
+  "finishedAt": "2026-11-22T15:07:08.312Z"
+}

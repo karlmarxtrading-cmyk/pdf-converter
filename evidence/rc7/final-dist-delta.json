@@ -1,0 +1,46 @@
+{
+  "before": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.7",
+    "profile": "production",
+    "candidateSha256": "104d8a48a2c384cc3ebfd0fb4af2fbab926857e8e4530f6fb3bca68828ceb2f9",
+    "distTreeSha256": "4cb03c96ad20f34dc32098ca1e8a33e5e7407737d190b4c91d617189fd141631",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "after": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.7",
+    "profile": "production",
+    "candidateSha256": "fed74962c5c0f7df7a478e91e30bf53111c7db458009b06ac955e03b5b6b5f5b",
+    "distTreeSha256": "9d2ce6c321ffd305614859932cb8b8fc8cdad73f4f6d5b53b46eec2ddc86d234",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "sameBytes": 178,
+  "changed": [
+    "assets/print-CaWvjQgN.js",
+    "assets/print-sDiEA8h1.js",
+    "print.html"
+  ],
+  "note": "Only the print entry and its pagination chunk changed after the title fix. Browser storage, editor clipboard and standalone HTML receipts retain the build identity observed during each run. Final build runs also exercise the UI and printing.",
+  "packagedBuild": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.7",
+    "profile": "production",
+    "candidateSha256": "99b799225ac28add26bdda08cb59724a431dedd4728b4e465d6a0646dbf75f73",
+    "distTreeSha256": "9d2ce6c321ffd305614859932cb8b8fc8cdad73f4f6d5b53b46eec2ddc86d234",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "packagingNote": "After the final application tests, the standalone timing harness was changed to copy symlink targets into its temporary staging directory. The production app tree is byte-identical. The source fingerprint includes the timing harness."
+}

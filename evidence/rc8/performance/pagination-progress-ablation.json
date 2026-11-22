@@ -1,0 +1,319 @@
+{
+  "baseline": {
+    "candidate": {
+      "candidateSha256": "04cd3038a66f8bc3c78440456b6319c22af52dade47bd411362b6bb967435f35",
+      "distTreeSha256": "f5c8558a3b058ff2fdb2591989c39d2c92e314fe9f205a95ef5bbedba1a54db6",
+      "manifestSha256": "1aae3dc490ec1038358613ade91420160f730e20911da2ef1a9c27f2674a0ed3",
+      "version": "3.0.0-rc.8"
+    },
+    "qa": {
+      "candidateSha256": "04cd3038a66f8bc3c78440456b6319c22af52dade47bd411362b6bb967435f35",
+      "distTreeSha256": "7eb9287689ea074dff679fe7750e65119df4010a318b52afc154e4684c8c2a12",
+      "manifestSha256": "c493c7b8be1aa4a65a8dd63c948bc3f3fb6c8a774ee538516dfa5101987d39c7",
+      "version": "3.0.0-rc.8"
+    },
+    "protocol": "6f8d19307eaede2ec6b05047bf56a71d1f338340a0278e24dda13db4438eef80"
+  },
+  "environment": {
+    "node": "v24.22.3",
+    "nodeExecutableSha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa",
+    "browserExecutableSha256": "53a15d6c3a3d27dfb54c4ba60278b1683136f70cf1e67e989da7dfbd3d451ef0",
+    "os": [
+      "linux",
+      "6.18.57",
+      "x64"
+    ],
+    "cpus": 4,
+    "model": "AMD EPYC 9V74 80-Core Processor",
+    "memoryBytes": 10451427328,
+    "initialLoad": {
+      "loadavg": [
+        8.25,
+        8.04,
+        6.18
+      ],
+      "at": "2026-11-21T21:26:49.692Z"
+    },
+    "affinity": "0-3",
+    "browser": "HeadlessChrome/153.0.8010.0"
+  },
+  "baseline118": [
+    {
+      "rep": 1,
+      "pages": 201,
+      "verification": "pass",
+      "blocking": [],
+      "previewMs": 3015,
+      "maxProgressGapMs": 5025,
+      "maxEventLoopGapMs": {
+        "preview": 318,
+        "layout": 753,
+        "pdf": 46,
+        "reedit": 420,
+        "cancel": 1721
+      },
+      "firstProgressMs": 454,
+      "cancelToIdleMs": 83,
+      "SLA": {
+        "preview": true,
+        "reedit": true,
+        "print": true,
+        "firstProgress": true,
+        "progressGap": false,
+        "cancel": true,
+        "responsiveness": true,
+        "observedHeap": true
+      },
+      "progressEvents": 10
+    },
+    {
+      "rep": 2,
+      "pages": 201,
+      "verification": "pass",
+      "blocking": [],
+      "previewMs": 2594,
+      "maxProgressGapMs": 4256,
+      "maxEventLoopGapMs": {
+        "preview": 1655,
+        "layout": 409,
+        "pdf": 41,
+        "reedit": 1111,
+        "cancel": 1013
+      },
+      "firstProgressMs": 141,
+      "cancelToIdleMs": 172,
+      "SLA": {
+        "preview": true,
+        "reedit": true,
+        "print": true,
+        "firstProgress": true,
+        "progressGap": true,
+        "cancel": true,
+        "responsiveness": false,
+        "observedHeap": true
+      },
+      "progressEvents": 9
+    },
+    {
+      "rep": 3,
+      "pages": 201,
+      "verification": "pass",
+      "blocking": [],
+      "previewMs": 3471,
+      "maxProgressGapMs": 5212,
+      "maxEventLoopGapMs": {
+        "preview": 2546,
+        "layout": 1018,
+        "pdf": 57,
+        "reedit": 340,
+        "cancel": 1144
+      },
+      "firstProgressMs": 135,
+      "cancelToIdleMs": 216,
+      "SLA": {
+        "preview": true,
+        "reedit": true,
+        "print": true,
+        "firstProgress": true,
+        "progressGap": false,
+        "cancel": true,
+        "responsiveness": false,
+        "observedHeap": true
+      },
+      "progressEvents": 9
+    },
+    {
+      "rep": 4,
+      "pages": 201,
+      "verification": "pass",
+      "blocking": [],
+      "previewMs": 2441,
+      "maxProgressGapMs": 5968,
+      "maxEventLoopGapMs": {
+        "preview": 1565,
+        "layout": 904,
+        "pdf": 42,
+        "reedit": 341,
+        "cancel": 963
+      },
+      "firstProgressMs": 176,
+      "cancelToIdleMs": 44,
+      "SLA": {
+        "preview": true,
+        "reedit": true,
+        "print": true,
+        "firstProgress": true,
+        "progressGap": false,
+        "cancel": true,
+        "responsiveness": false,
+        "observedHeap": true
+      },
+      "progressEvents": 9
+    },
+    {
+      "rep": 5,
+      "pages": 201,
+      "verification": "pass",
+      "blocking": [],
+      "previewMs": 2406,
+      "maxProgressGapMs": 4662,
+      "maxEventLoopGapMs": {
+        "preview": 2060,
+        "layout": 573,
+        "pdf": 32,
+        "reedit": 324,
+        "cancel": 1371
+      },
+      "firstProgressMs": 209,
+      "cancelToIdleMs": 47,
+      "SLA": {
+        "preview": true,
+        "reedit": true,
+        "print": true,
+        "firstProgress": true,
+        "progressGap": true,
+        "cancel": true,
+        "responsiveness": false,
+        "observedHeap": true
+      },
+      "progressEvents": 9
+    }
+  ],
+  "trial118": [
+    {
+      "rep": 1,
+      "pages": 201,
+      "verification": "pass",
+      "blocking": [],
+      "previewMs": 2636,
+      "maxProgressGapMs": 682,
+      "maxEventLoopGapMs": {
+        "preview": 188,
+        "layout": 665,
+        "pdf": 79,
+        "reedit": 362,
+        "cancel": 979
+      },
+      "firstProgressMs": 462,
+      "cancelToIdleMs": 91,
+      "SLA": {
+        "preview": true,
+        "reedit": true,
+        "print": true,
+        "firstProgress": true,
+        "progressGap": true,
+        "cancel": true,
+        "responsiveness": true,
+        "observedHeap": true
+      },
+      "progressEvents": 37
+    },
+    {
+      "rep": 2,
+      "pages": 201,
+      "verification": "pass",
+      "blocking": [],
+      "previewMs": 2605,
+      "maxProgressGapMs": 543,
+      "maxEventLoopGapMs": {
+        "preview": 1743,
+        "layout": 453,
+        "pdf": 35,
+        "reedit": 399,
+        "cancel": 1214
+      },
+      "firstProgressMs": 195,
+      "cancelToIdleMs": 71,
+      "SLA": {
+        "preview": true,
+        "reedit": true,
+        "print": true,
+        "firstProgress": true,
+        "progressGap": true,
+        "cancel": true,
+        "responsiveness": false,
+        "observedHeap": true
+      },
+      "progressEvents": 42
+    }
+  ],
+  "trialScope": "Two diagnostic repetitions on shared hardware, unmodified fixture, configured capacity SLA, independent PDF verification, no release PASS claim. Only local server port differs from the frozen harness.",
+  "trialE26": {
+    "tool": "tests/e2e/run-e2e.mjs",
+    "browser": "HeadlessChrome/153.0.8010.0",
+    "chrome": "/tmp/chromium",
+    "node": "v24.22.3",
+    "candidateSha256": "70273b79b2f972bccd3a9d3e23be2f183e9082eefc47f60c529219cb6d4aba40",
+    "distQaTreeSha256": "5c35d8ed01d38ae2c74bbcf086583d0ef98efeca9da98d4dd367d9fc8459afed",
+    "at": "2026-11-21T21:33:33.989Z",
+    "summary": {
+      "total": 1,
+      "pass": 1,
+      "fail": 0
+    },
+    "results": [
+      {
+        "id": "E26",
+        "matrix": [
+          "MESIN-36",
+          "ST-QA-26",
+          "F.1"
+        ],
+        "title": "Responsivitas: jeda maksimum event loop utama selama analisis 196 halaman (Worker vs fallback)",
+        "status": "pass",
+        "ms": 6863,
+        "details": {
+          "worker": {
+            "mode": "worker",
+            "readyMs": 2709,
+            "maxEventLoopGapMs": 131,
+            "topLongTasksMs": [
+              67,
+              56
+            ],
+            "timerLatencyMs": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "digest": {
+              "length": 651918,
+              "sha256": "55e384e6dc2f8faa3529d3e6a525032c2f8b885f2ca5dd98b4063fa6c93f0277"
+            },
+            "integrityErrors": 0
+          },
+          "fallback": {
+            "mode": "fallback",
+            "readyMs": 2406,
+            "maxEventLoopGapMs": 874,
+            "topLongTasksMs": [
+              406,
+              281,
+              133,
+              59
+            ],
+            "timerLatencyMs": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "digest": {
+              "length": 651918,
+              "sha256": "55e384e6dc2f8faa3529d3e6a525032c2f8b885f2ca5dd98b4063fa6c93f0277"
+            },
+            "integrityErrors": 0
+          },
+          "env": "Chrome headless Linux container (bukan perangkat referensi)"
+        }
+      }
+    ]
+  },
+  "sourcePatch": {
+    "src/ui/main.ts": "fa88b5006d77e0758f21fbac15d23cfcd4186fe069c77cfe0f13f4dab729f696",
+    "src/render/paginate.ts": "4e61866e88c110bc8dd9147bef2b5cd6493d7caf6e7e02aee7c69383d5f1fcc9"
+  }
+}

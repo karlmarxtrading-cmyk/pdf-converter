@@ -1,0 +1,125 @@
+{
+  "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+  "basis": "Fixture oracle plus per-formula raw and canonical comparison in api-oracle.json",
+  "changed": [
+    {
+      "index1": 8,
+      "sourceLine": 20,
+      "mode": "display",
+      "before": " \\begin{aligned} \\tan x&=\\frac{\\sin x}{\\cos x}\\\\\\ \\cot x&=\\frac{\\cos x}{\\sin x}\\\\\\ \\csc x&=\\frac1{\\sin x}\\\\\\ \\sec x&=\\frac1{\\cos x}\\\\\\ \\cot x&=\\frac1{\\tan x} \\end{aligned} ",
+      "after": " \\begin{aligned} \\tan x&=\\frac{\\sin x}{\\cos x}\\\\ \\cot x&=\\frac{\\cos x}{\\sin x}\\\\ \\csc x&=\\frac1{\\sin x}\\\\ \\sec x&=\\frac1{\\cos x}\\\\ \\cot x&=\\frac1{\\tan x} \\end{aligned} "
+    },
+    {
+      "index1": 43,
+      "sourceLine": 41,
+      "mode": "display",
+      "before": " \\theta\\_{\\text{rad}}=\\theta\\_{\\text{derajat}}\\frac{\\pi}{180} ",
+      "after": " \\theta_{\\text{rad}}=\\theta_{\\text{derajat}}\\frac{\\pi}{180} "
+    },
+    {
+      "index1": 44,
+      "sourceLine": 43,
+      "mode": "display",
+      "before": " \\theta\\_{\\text{derajat}}=\\theta\\_{\\text{rad}}\\frac{180}{\\pi} ",
+      "after": " \\theta_{\\text{derajat}}=\\theta_{\\text{rad}}\\frac{180}{\\pi} "
+    },
+    {
+      "index1": 48,
+      "sourceLine": 55,
+      "mode": "display",
+      "before": " \\begin{aligned} \\sin^2x&=1-\\cos^2x\\\\\\ \\cos^2x&=1-\\sin^2x\\\\\\ \\tan^2x&=\\sec^2x-1\\\\\\ \\cot^2x&=\\csc^2x-1 \\end{aligned} ",
+      "after": " \\begin{aligned} \\sin^2x&=1-\\cos^2x\\\\ \\cos^2x&=1-\\sin^2x\\\\ \\tan^2x&=\\sec^2x-1\\\\ \\cot^2x&=\\csc^2x-1 \\end{aligned} "
+    },
+    {
+      "index1": 49,
+      "sourceLine": 72,
+      "mode": "display",
+      "before": " \\begin{aligned} \\sin(-x)&=-\\sin x\\\\\\ \\cos(-x)&=\\cos x\\\\\\ \\tan(-x)&=-\\tan x\\\\\\ \\cot(-x)&=-\\cot x\\\\\\ \\sec(-x)&=\\sec x\\\\\\ \\csc(-x)&=-\\csc x \\end{aligned} ",
+      "after": " \\begin{aligned} \\sin(-x)&=-\\sin x\\\\ \\cos(-x)&=\\cos x\\\\ \\tan(-x)&=-\\tan x\\\\ \\cot(-x)&=-\\cot x\\\\ \\sec(-x)&=\\sec x\\\\ \\csc(-x)&=-\\csc x \\end{aligned} "
+    },
+    {
+      "index1": 50,
+      "sourceLine": 76,
+      "mode": "display",
+      "before": " \\begin{aligned} \\sin(90^\\circ-x)&=\\cos x\\\\\\ \\cos(90^\\circ-x)&=\\sin x\\\\\\ \\tan(90^\\circ-x)&=\\cot x\\\\\\ \\cot(90^\\circ-x)&=\\tan x\\\\\\ \\sec(90^\\circ-x)&=\\csc x\\\\\\ \\csc(90^\\circ-x)&=\\sec x \\end{aligned} ",
+      "after": " \\begin{aligned} \\sin(90^\\circ-x)&=\\cos x\\\\ \\cos(90^\\circ-x)&=\\sin x\\\\ \\tan(90^\\circ-x)&=\\cot x\\\\ \\cot(90^\\circ-x)&=\\tan x\\\\ \\sec(90^\\circ-x)&=\\csc x\\\\ \\csc(90^\\circ-x)&=\\sec x \\end{aligned} "
+    },
+    {
+      "index1": 52,
+      "sourceLine": 80,
+      "mode": "display",
+      "before": " \\begin{aligned} \\sin(90^\\circ+x)&=\\cos x\\\\\\ \\cos(90^\\circ+x)&=-\\sin x\\\\\\ \\tan(90^\\circ+x)&=-\\cot x \\end{aligned} ",
+      "after": " \\begin{aligned} \\sin(90^\\circ+x)&=\\cos x\\\\ \\cos(90^\\circ+x)&=-\\sin x\\\\ \\tan(90^\\circ+x)&=-\\cot x \\end{aligned} "
+    },
+    {
+      "index1": 54,
+      "sourceLine": 84,
+      "mode": "display",
+      "before": " \\begin{aligned} \\sin(180^\\circ-x)&=\\sin x\\\\\\ \\cos(180^\\circ-x)&=-\\cos x\\\\\\ \\tan(180^\\circ-x)&=-\\tan x \\end{aligned} ",
+      "after": " \\begin{aligned} \\sin(180^\\circ-x)&=\\sin x\\\\ \\cos(180^\\circ-x)&=-\\cos x\\\\ \\tan(180^\\circ-x)&=-\\tan x \\end{aligned} "
+    },
+    {
+      "index1": 56,
+      "sourceLine": 88,
+      "mode": "display",
+      "before": " \\begin{aligned} \\sin(180^\\circ+x)&=-\\sin x\\\\\\ \\cos(180^\\circ+x)&=-\\cos x\\\\\\ \\tan(180^\\circ+x)&=\\tan x \\end{aligned} ",
+      "after": " \\begin{aligned} \\sin(180^\\circ+x)&=-\\sin x\\\\ \\cos(180^\\circ+x)&=-\\cos x\\\\ \\tan(180^\\circ+x)&=\\tan x \\end{aligned} "
+    },
+    {
+      "index1": 58,
+      "sourceLine": 92,
+      "mode": "display",
+      "before": " \\begin{aligned} \\sin(270^\\circ-x)&=-\\cos x\\\\\\ \\cos(270^\\circ-x)&=-\\sin x\\\\\\ \\tan(270^\\circ-x)&=\\cot x\\\\\\\\[4pt] \\sin(270^\\circ+x)&=-\\cos x\\\\\\ \\cos(270^\\circ+x)&=\\sin x\\\\\\ \\tan(270^\\circ+x)&=-\\cot x \\end{aligned} ",
+      "after": " \\begin{aligned} \\sin(270^\\circ-x)&=-\\cos x\\\\ \\cos(270^\\circ-x)&=-\\sin x\\\\ \\tan(270^\\circ-x)&=\\cot x\\\\[4pt] \\sin(270^\\circ+x)&=-\\cos x\\\\ \\cos(270^\\circ+x)&=\\sin x\\\\ \\tan(270^\\circ+x)&=-\\cot x \\end{aligned} "
+    },
+    {
+      "index1": 60,
+      "sourceLine": 96,
+      "mode": "display",
+      "before": " \\begin{aligned} \\sin(360^\\circ-x)&=-\\sin x\\\\\\ \\cos(360^\\circ-x)&=\\cos x\\\\\\ \\tan(360^\\circ-x)&=-\\tan x \\end{aligned} ",
+      "after": " \\begin{aligned} \\sin(360^\\circ-x)&=-\\sin x\\\\ \\cos(360^\\circ-x)&=\\cos x\\\\ \\tan(360^\\circ-x)&=-\\tan x \\end{aligned} "
+    },
+    {
+      "index1": 62,
+      "sourceLine": 102,
+      "mode": "display",
+      "before": " \\begin{aligned} \\sin(x+360^\\circ k)&=\\sin x\\\\\\ \\cos(x+360^\\circ k)&=\\cos x\\\\\\ \\tan(x+180^\\circ k)&=\\tan x\\\\\\ \\cot(x+180^\\circ k)&=\\cot x \\end{aligned} ",
+      "after": " \\begin{aligned} \\sin(x+360^\\circ k)&=\\sin x\\\\ \\cos(x+360^\\circ k)&=\\cos x\\\\ \\tan(x+180^\\circ k)&=\\tan x\\\\ \\cot(x+180^\\circ k)&=\\cot x \\end{aligned} "
+    },
+    {
+      "index1": 219,
+      "sourceLine": 498,
+      "mode": "display",
+      "before": " \\begin{aligned} \\sin(A+B+C) ={}&\\sin A\\cos B\\cos C\\\\\\ &+\\cos A\\sin B\\cos C\\\\\\ &+\\cos A\\cos B\\sin C\\\\\\ &-\\sin A\\sin B\\sin C \\end{aligned} ",
+      "after": " \\begin{aligned} \\sin(A+B+C) ={}&\\sin A\\cos B\\cos C\\\\ &+\\cos A\\sin B\\cos C\\\\ &+\\cos A\\cos B\\sin C\\\\ &-\\sin A\\sin B\\sin C \\end{aligned} "
+    },
+    {
+      "index1": 220,
+      "sourceLine": 500,
+      "mode": "display",
+      "before": " \\begin{aligned} \\cos(A+B+C) ={}&\\cos A\\cos B\\cos C\\\\\\ &-\\cos A\\sin B\\sin C\\\\\\ &-\\sin A\\cos B\\sin C\\\\\\ &-\\sin A\\sin B\\cos C \\end{aligned} ",
+      "after": " \\begin{aligned} \\cos(A+B+C) ={}&\\cos A\\cos B\\cos C\\\\ &-\\cos A\\sin B\\sin C\\\\ &-\\sin A\\cos B\\sin C\\\\ &-\\sin A\\sin B\\cos C \\end{aligned} "
+    },
+    {
+      "index1": 222,
+      "sourceLine": 506,
+      "mode": "display",
+      "before": " \\boxed{\\sum\\_{k=0}^{n-1}\\sin(a+kd)= \\frac{\\sin\\frac{nd}{2}\\\\;\\sin\\left(a+\\frac{(n-1)d}{2}\\right)} {\\sin\\frac d2}} ",
+      "after": " \\boxed{\\sum_{k=0}^{n-1}\\sin(a+kd)= \\frac{\\sin\\frac{nd}{2}\\;\\sin\\left(a+\\frac{(n-1)d}{2}\\right)} {\\sin\\frac d2}} "
+    },
+    {
+      "index1": 223,
+      "sourceLine": 508,
+      "mode": "display",
+      "before": " \\boxed{\\sum\\_{k=0}^{n-1}\\cos(a+kd)= \\frac{\\sin\\frac{nd}{2}\\\\;\\cos\\left(a+\\frac{(n-1)d}{2}\\right)} {\\sin\\frac d2}} ",
+      "after": " \\boxed{\\sum_{k=0}^{n-1}\\cos(a+kd)= \\frac{\\sin\\frac{nd}{2}\\;\\cos\\left(a+\\frac{(n-1)d}{2}\\right)} {\\sin\\frac d2}} "
+    },
+    {
+      "index1": 231,
+      "sourceLine": 538,
+      "mode": "display",
+      "before": " \\begin{aligned} \\sin^2x+\\cos^2x&=1\\\\\\ 1+\\tan^2x&=\\sec^2x\\\\\\ \\tan x&=\\frac{\\sin x}{\\cos x}\\\\\\\\[3pt] \\sin(A+B)&=\\sin A\\cos B+\\cos A\\sin B\\\\\\ \\cos(A+B)&=\\cos A\\cos B-\\sin A\\sin B\\\\\\ \\sin2x&=2\\sin x\\cos x\\\\\\ \\cos2x&=1-2\\sin^2x\\\\\\ \\cos2x&=2\\cos^2x-1\\\\\\ \\sin^2x&=\\frac{1-\\cos2x}{2}\\\\\\ \\cos^2x&=\\frac{1+\\cos2x}{2} \\end{aligned} ",
+      "after": " \\begin{aligned} \\sin^2x+\\cos^2x&=1\\\\ 1+\\tan^2x&=\\sec^2x\\\\ \\tan x&=\\frac{\\sin x}{\\cos x}\\\\[3pt] \\sin(A+B)&=\\sin A\\cos B+\\cos A\\sin B\\\\ \\cos(A+B)&=\\cos A\\cos B-\\sin A\\sin B\\\\ \\sin2x&=2\\sin x\\cos x\\\\ \\cos2x&=1-2\\sin^2x\\\\ \\cos2x&=2\\cos^2x-1\\\\ \\sin^2x&=\\frac{1-\\cos2x}{2}\\\\ \\cos^2x&=\\frac{1+\\cos2x}{2} \\end{aligned} "
+    }
+  ]
+}

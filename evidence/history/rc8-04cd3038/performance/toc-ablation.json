@@ -1,0 +1,117 @@
+{
+  "source": "Final element equality branch of finalArticleMatches isolated on the accepted 231-formula HTML using the exact observed TOC serialization difference. Same already-parsed DOM, equal acceptance result for all arms. KaTeX subtree checks unchanged and outside the measured branch.",
+  "fixture": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+  "nodes": 15794,
+  "runs": [
+    {
+      "round": -1,
+      "mark": "after",
+      "ms": 47.77563199999986
+    },
+    {
+      "round": -1,
+      "mark": "before",
+      "ms": 567.4343860000004
+    },
+    {
+      "round": 0,
+      "mark": "before",
+      "ms": 355.48817599999984
+    },
+    {
+      "round": 0,
+      "mark": "after",
+      "ms": 47.37194499999987
+    },
+    {
+      "round": 1,
+      "mark": "after",
+      "ms": 41.40674399999989
+    },
+    {
+      "round": 1,
+      "mark": "before",
+      "ms": 424.30898700000034
+    },
+    {
+      "round": 2,
+      "mark": "before",
+      "ms": 331.65183700000034
+    },
+    {
+      "round": 2,
+      "mark": "after",
+      "ms": 42.57787999999982
+    },
+    {
+      "round": 3,
+      "mark": "after",
+      "ms": 62.37724700000035
+    },
+    {
+      "round": 3,
+      "mark": "before",
+      "ms": 496.93800199999987
+    },
+    {
+      "round": 4,
+      "mark": "before",
+      "ms": 378.7806009999995
+    },
+    {
+      "round": 4,
+      "mark": "after",
+      "ms": 58.23754800000006
+    },
+    {
+      "round": 5,
+      "mark": "after",
+      "ms": 58.30786800000078
+    },
+    {
+      "round": 5,
+      "mark": "before",
+      "ms": 365.4515540000002
+    },
+    {
+      "round": 6,
+      "mark": "before",
+      "ms": 457.36814999999933
+    },
+    {
+      "round": 6,
+      "mark": "after",
+      "ms": 57.725594999999885
+    },
+    {
+      "round": 7,
+      "mark": "after",
+      "ms": 47.98304800000005
+    },
+    {
+      "round": 7,
+      "mark": "before",
+      "ms": 441.6510769999986
+    },
+    {
+      "round": 8,
+      "mark": "before",
+      "ms": 550.1910920000009
+    },
+    {
+      "round": 8,
+      "mark": "after",
+      "ms": 56.4707729999991
+    },
+    {
+      "round": 9,
+      "mark": "after",
+      "ms": 104.29941300000064
+    },
+    {
+      "round": 9,
+      "mark": "before",
+      "ms": 402.1557270000012
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "mode": "calibrate",
+  "started": "2026-11-21T19:35:29.020Z",
+  "version": {
+    "rc6": {
+      "version": "3.0.0-rc.6",
+      "tree": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+      "src": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+      "printTreeMatches": true,
+      "index": "6d29b4ad4cd7638e4badbb0035a475039e3ae3336a8a5885c6025cf11c6eb5b2"
+    }
+  },
+  "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+  "method": "Production UI in fixed 1366×900 attached same-origin iframe; warm browser HTTP cache after a warm-up, fresh app frame per arm, BUS-01 defaults. Synthetic editor input; time through rendered revision and loaded preview fonts. Export to UI completion with output Blob captured from the real download link; browser file save and disk I/O excluded. Heap reading is coarse shared renderer heap without forced GC. Trigonometry and 24-section long source are unchanged.",
+  "runs": [
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 327,
+        "smallPreviewMs": 417.30000000004657,
+        "editPreviewMs": 284.80000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 12235892
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 196.20000000006985,
+        "smallPreviewMs": 318.5999999999767,
+        "editPreviewMs": 283.5999999999767
+      },
+      "observations": {
+        "heapUsedBytes": 17292483
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 190,
+        "smallPreviewMs": 322.80000000004657,
+        "editPreviewMs": 337.39999999990687
+      },
+      "observations": {
+        "heapUsedBytes": 23251366
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 222.59999999997672,
+        "smallPreviewMs": 326.5,
+        "editPreviewMs": 285.80000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 28890506
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 165.30000000004657,
+        "smallPreviewMs": 319.79999999993015,
+        "editPreviewMs": 285.5
+      },
+      "observations": {
+        "heapUsedBytes": 20130686
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 156,
+        "smallPreviewMs": 315.19999999995343,
+        "editPreviewMs": 284.10000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 25681581
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 156.09999999997672,
+        "previewMs": 910.1999999999534,
+        "htmlExportMs": 296.19999999995343,
+        "pageReadyMs": 32844.09999999998
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 53988840
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 622.7999999999302,
+        "previewMs": 1725.8999999999069,
+        "htmlExportMs": 210.19999999995343,
+        "pageReadyMs": 34855.90000000002
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 36131822
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 218,
+        "previewMs": 840.7999999999302,
+        "htmlExportMs": 183.70000000006985,
+        "pageReadyMs": 33780.20000000007
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 36350959
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 210.69999999995343,
+        "previewMs": 835
+      },
+      "observations": {
+        "heapUsedBytes": 18212348
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 182.80000000004657,
+        "previewMs": 827.4000000000233
+      },
+      "observations": {
+        "heapUsedBytes": 18369744
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 177.59999999997672,
+        "previewMs": 823.5999999999767
+      },
+      "observations": {
+        "heapUsedBytes": 24573294
+      }
+    }
+  ],
+  "status": "COMPLETE",
+  "sourceHash": {
+    "small": "2bbc1d0eb0b410a0fe3b902335c5115efa01c84816b2141c2a9959ff0d299d87",
+    "trig": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "long": "bc0cafeac154e55dd52d850fef1a88a0714249a3ed01fae8efb4955f7bb8abb8"
+  },
+  "ended": "2026-11-21T19:37:29.296Z"
+}

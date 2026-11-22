@@ -1,0 +1,20 @@
+{
+  "archive": "PAPERFORMA_RC8_SOURCE_FOR_CLEAN_VERIFICATION.zip",
+  "zipBytes": 14411369,
+  "zipSha256": "7213d2bb859236d09a77fcd66c4bb1e173b2ad00b8d619f71b932b65d5cd1fe6",
+  "verifiedChecksums": 906,
+  "identicalDistFiles": 181,
+  "build": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.8",
+    "profile": "production",
+    "candidateSha256": "0ecf3b0981925fd3c42fb49e1756b6ac99900ebfe330b94d7ded617194864064",
+    "distTreeSha256": "bd329e6b849839b5fd4c5e6ba51e3ee55d98fa607261dee1fbfbad62dd770436",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "status": "PASS"
+}

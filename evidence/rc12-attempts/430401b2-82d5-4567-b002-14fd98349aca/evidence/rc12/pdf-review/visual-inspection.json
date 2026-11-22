@@ -1,0 +1,50 @@
+{
+  "runId": "430401b2-82d5-4567-b002-14fd98349aca",
+  "identity": {
+    "candidateSha256": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+    "distTreeSha256": "573c87801f272ccc24222db5bbe2339cba495488bc34c095caa2b39e2eacc347",
+    "version": "3.0.0-rc.12",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "c41df1df044e3481ebf487aa32de57693bd7a17ccfa49770c2262b3043d06816",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "c12442cec73b0b2109e5ad2d61edeb3c3d8de2429046dc96fa119e119aa525a6",
+    "benchmarkHarnessSha256": "a3d3d2a9698371cc9c6a28902843529e839e25b21bbc609ca68a58dcc2d64470",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "02bb0dfdb5d9bfb1180e0b79384da012e619d854b225061a0625f6a6d8803d8a",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "12b75fb5648c192b83655e2a154581468518cb8bb209cb29d3106d62d377fec4"
+  },
+  "method": "Pemeriksaan visual oleh asisten atas raster PDF fisik publik. Seluruh lembar dilihat sebagai montase; lembar matrix-03, matrix-09 dan book-02 juga dibaca pada resolusi lembar aslinya.",
+  "index": "evidence/rc12/pdf-review/visual-samples/index.json",
+  "indexSha256": "c37ae5ec4e373e2464d1c3443a7a01f4bc61db32d17ed83117998c9530c670ff",
+  "matrixPdfs": 26,
+  "bookPdfs": 5,
+  "matrixSampledPages": 41,
+  "bookSampledPages": 15,
+  "sheets": [
+    "book-01.jpg",
+    "book-02.jpg",
+    "book-03.jpg",
+    "book-04.jpg",
+    "matrix-01.jpg",
+    "matrix-02.jpg",
+    "matrix-03.jpg",
+    "matrix-04.jpg",
+    "matrix-05.jpg",
+    "matrix-06.jpg",
+    "matrix-07.jpg",
+    "matrix-08.jpg",
+    "matrix-09.jpg",
+    "matrix-10.jpg",
+    "matrix-11.jpg"
+  ],
+  "observations": [
+    "Lembar matrix-09 memperlihatkan tabel sudut 15 dan 75 derajat, pecahan, akar, tanda minus, persamaan dalam kotak, dan paragraf penutup. Bagian matematika berada di dalam area halaman pada contoh potret dan lanskap.",
+    "Lembar matrix-03 memperlihatkan baris kode lanjutan, judul Penutup, penanda akhir, dan catatan kaki. Sejumlah halaman terakhir menyisakan ruang putih ketika hanya catatan pendek yang tersisa.",
+    "Pada lembar book-02, header dua kolom dari tabel panjang tampil di halaman 296 dan 590. Teks paragraf pada halaman buku tetap berada di antara margin serta terpisah dari nomor halaman.",
+    "Halaman awal, tengah atau akhir pada setiap buku publik telah diperiksa sesuai indeks. Isi ringkas pada halaman terakhir percakapan dan catatan kaki terlihat, tanpa tumpang-tindih yang terlihat di sampel."
+  ],
+  "scope": "56 halaman dari 26 PDF matriks dan lima buku publik. Perbandingan piksel seluruh 74 halaman empat PDF acuan tersimpan terpisah di reference-pages.json. Naskah privat diperiksa secara semantik dalam pengujian U, terpisah dari sampel visual publik."
+}

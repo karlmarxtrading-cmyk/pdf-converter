@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "source": {
+    "filename": "PAPERFORMA_STATIC_3.0.0-rc.11_SOURCE_DIST_EVIDENCE.zip",
+    "sha256": "0fc160bfbb29f668208c17f93a618b8d51810925e172f87a19580ee548159a4a",
+    "bytes": 84992214,
+    "files": 2095,
+    "verifiedChecksums": 2094,
+    "pathsAndCRC": "PASS"
+  },
+  "audit": {
+    "filename": "PAPERFORMA_RC11_AUDIT_PRODUKSI_DAN_ARAHAN_GO_20261122.zip",
+    "sha256": "879f71e27e21a236cda77ff1669764c7e9de7d5935330c1c77fa33d5ea91a831",
+    "bytes": 3830725,
+    "files": 137,
+    "verifiedChecksums": 136,
+    "pathsAndCRC": "PASS"
+  },
+  "candidateArchive": {
+    "filename": "detached-rc12.zip",
+    "sha256": "8d77b225ed189d6815bb958223aa65e7065c1c727037f665722c12b719db61e2",
+    "bytes": 86657497,
+    "files": 2579,
+    "verifiedChecksums": 2578,
+    "pathsAndCRC": "PASS"
+  },
+  "matchingApplicationFiles": 590,
+  "unchangedReferenceDigests": {
+    "fixtures/rc6/user-trigonometry.md": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "fixtures/rc6/user-trigonometry.expected.json": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "examples/reference-rc6/RUMUS TRIGONOMETRI 1.html": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "fixtures/rc9/headings-217850.md": "a65fea105cf59350cdd0a12f336e5b5d43f3b5378ba4148fb06c8e05778b6043",
+    "fixtures/rc9/long-table-217850.md": "dc36b244e653be7c2594261e6849850e03ef875a5be565234057d02f6ca3d620",
+    "fixtures/rc9/paragraphs-217850.md": "7ae082466becd7b1776b354a2abf28d0a7947108613f8f1a2fc813e3df3454b6",
+    "fixtures/rc9/single-paragraph-217850.md": "b3a64a1dedd54b8e250f0bf4dcbf2121196fb27b54e6b72f40d21171d4e0f812",
+    "examples/rc7/pdf/trigonometry-BUS-A4.pdf": "494f3051f259de1e4fc8dab7a6b66eeb76fb82e19131511febfac33b7d62097f",
+    "examples/rc7/pdf/trigonometry-CON-Letter-landscape.pdf": "b2329cac42625d21890d96d5f8303c7729d835e66b6cb67651b550c754977891",
+    "examples/rc7/pdf/trigonometry-EDT-A5.pdf": "a85eb01646b45de711c55903ab988b3a57e51840a325980a7145eb432eb915e7",
+    "examples/rc7/pdf/trigonometry-EDU-A4.pdf": "566e969471591d0de7a25e73a5f0917fac596e3e4837e303fd62b599bd48fc44"
+  }
+}

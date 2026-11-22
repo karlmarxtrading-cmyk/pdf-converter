@@ -79,12 +79,19 @@ const kpj = JSON.parse(readFileSync(path.join(root, 'node_modules/katex/package.
 const katexFonts = readdirSync(path.join(root, 'node_modules/katex/dist/fonts')).filter((n) => n.endsWith('.woff2')).map((n) => n.replace('.woff2', ''));
 const katexCov = {};
 for (const n of ['KaTeX_Main-Regular', 'KaTeX_AMS-Regular']) katexCov[n] = toRanges(cmapCodepoints(path.join(root, 'node_modules/katex/dist/fonts', n + '.woff2')));
+const emojiDir = path.join(root, 'node_modules/@fontsource/noto-emoji');
+const emojiName = 'noto-emoji-emoji-400-normal.woff2';
+const emojiFont = {
+  file: emojiName, version: JSON.parse(readFileSync(path.join(emojiDir, 'package.json'), 'utf8')).version,
+  covered: toRanges(cmapCodepoints(path.join(emojiDir, 'files', emojiName))),
+};
 const ts = `// DIHASILKAN oleh src/render/tools/gen-font-coverage.mjs — jangan disunting tangan.
 // covered = cmap ∩ unicode-range per subset (rentang kode Unicode inklusif) dari berkas woff2 400-normal yang terpasang.
 export type Range = [number, number];
 export interface SubsetCoverage { range: Range[]; covered: Range[] }
 export interface FamilyCoverage { family: string; pkg: string; version: string; license: string; subsets: Record<string, SubsetCoverage> }
 export const FONT_COVERAGE: Record<'inter' | 'source-serif-4' | 'jetbrains-mono', FamilyCoverage> = ${JSON.stringify(out)};
+export const EMOJI_FONT: { file: string; version: string; covered: Range[] } = ${JSON.stringify(emojiFont)};
 export const KATEX_FONT_INFO = ${JSON.stringify({ pkg: 'katex', version: kpj.version, license: 'OFL-1.1', files: katexFonts })};
 /** cmap penuh font simbol KaTeX yang dipakai sebagai cadangan simbol matematika di teks biasa (→ ≤ ≈ √ …). */
 export const KATEX_SYMBOL_COVERAGE: Record<string, Range[]> = ${JSON.stringify(katexCov)};

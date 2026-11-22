@@ -1,0 +1,191 @@
+{
+  "title": "Verifikasi paket PaperForma 3.0.0-rc.6",
+  "status": "PASS",
+  "archive": {
+    "archive": "PAPERFORMA_STATIC_3.0.0-rc.6_AUDITED.zip",
+    "zipBytes": 7409784,
+    "zipSha256": "82e6d021c1b042a498440c0ce8957c035eb011f4c1b1fe8c16a450697a52be53",
+    "verifiedChecksums": 550,
+    "identicalDistFiles": 180,
+    "build": {
+      "app": "paperforma",
+      "version": "3.0.0-rc.6",
+      "profile": "production",
+      "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+      "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+      "node": "v24.22.3",
+      "engines": {
+        "node": "24.22.3",
+        "npm": ">=11.6.0 <12"
+      }
+    },
+    "status": "PASS"
+  },
+  "packageFiles": 551,
+  "cleanVerification": {
+    "command": "python3 scripts/verify-archive.py ../output/PAPERFORMA_STATIC_3.0.0-rc.6_AUDITED.zip --offline",
+    "exitCode": 0,
+    "steps": [
+      "ZIP path and checksum verification",
+      "Fresh temporary-directory extraction",
+      "npm ci from lockfile using offline cache",
+      "TypeScript",
+      "Lint",
+      "444 Vitest tests + 9 Node tests",
+      "Production build and static verifier",
+      "184 HTTP checks against 179 public files",
+      "Byte comparison of all 180 dist files and production manifest"
+    ],
+    "transcript": "npm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.\nnpm warn deprecated @babel/polyfill@7.12.1: 🚨 This package has been deprecated in favor of separate inclusion of a polyfill and regenerator-runtime (when needed). See the @babel/polyfill docs (https://babeljs.io/docs/en/babel-polyfill) for more information.\nnpm warn deprecated core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.\n\nadded 352 packages in 6s\nnpm warn install-scripts 3 packages have install scripts not yet covered by allowScripts:\nnpm warn install-scripts   core-js@2.6.12 (postinstall: node -e \"try{require('./postinstall')}catch(e){}\")\nnpm warn install-scripts   es5-ext@0.10.64 (postinstall:  node -e \"try{require('./_postinstall')}catch(e){}\" || exit 0)\nnpm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js)\nnpm warn install-scripts\nnpm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.\n\n> paperforma@3.0.0-rc.6 typecheck\n> tsc --noEmit\n\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.\n\n> paperforma@3.0.0-rc.6 lint\n> oxlint -c .oxlintrc.json --deny-warnings src tests scripts\n\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.\n\n> paperforma@3.0.0-rc.6 test\n> vitest run && node --test tests/scripts/result-gates.test.mjs tests/scripts/static-server.test.mjs tests/e2e/pdf-oracle.test.mjs\n\n\n RUN  v5.1.0 /tmp/paperforma-verify-2f0__mb1\n\n\n Test Files  54 passed (54)\n      Tests  444 passed (444)\n   Start at  23:09:39\n   Duration  13.60s (tests 39%, environment 39%, import 17%, transform 5%)\n\n    Isolate  54 workers spawned · ~834ms startup each (spawn + environment, per file)\n             at least ~4.79s faster with isolate: false — reuses workers across files instead of one per file\n\n✔ PF-R4-06 sign removal never passes as the same quantity (1.027163ms)\n✔ PF-R4-06 raw fallback cannot pass reversed blocks or reuse the same occurrence (0.286413ms)\n✔ PF-R4-06 unsupported glyph omission requires an explicit caller decision (0.210098ms)\n✔ PF-R4-06 prosa and cells around math/images are included in the oracle (91.374285ms)\n✔ deployment rejects old/missing versions and page errors even when all formulas render (1.103568ms)\n✔ performance runner fails after pagination, PDF, or console errors (0.309859ms)\n✔ cross-browser success requires every supported engine and matching document digests (0.546185ms)\n✔ local Pages simulator rejects malformed paths and sibling-directory traversal, then remains usable (45.593071ms)\n✔ deployment preflight rejects stale sources, alternate output bytes and QA builds of the same version (49.710593ms)\nℹ tests 9\nℹ suites 0\nℹ pass 9\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 951.421243\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.\n\n> paperforma@3.0.0-rc.6 build\n> node scripts/build.mjs\n\n{\"total\":438,\"runtime\":255,\"unknownLicense\":0}\nvite v7.3.8 building client environment for production...\ntransforming...\n✓ 2411 modules transformed.\nrendering chunks...\n[plugin vite:reporter] \n(!) /tmp/paperforma-verify-2f0__mb1/node_modules/diff/libesm/index.js is dynamically imported by /tmp/paperforma-verify-2f0__mb1/src/ui/review-diff.ts but also statically imported by /tmp/paperforma-verify-2f0__mb1/src/core/wrapper.ts, dynamic import will not move module into another chunk.\n\ncomputing gzip size...\ndist/print.html                                                        1.01 kB │ gzip:   0.59 kB\ndist/assets/jetbrains-mono-cyrillic-ext-400-normal-C_uLvvQ5.woff2      1.16 kB\ndist/assets/KaTeX_Size3-Regular-gV2CO0n9.woff2                         3.62 kB\ndist/assets/jetbrains-mono-vietnamese-400-normal-ByoDsISC.woff2        3.92 kB\ndist/assets/jetbrains-mono-greek-400-normal-C190GLew.woff2             4.23 kB\ndist/assets/KaTeX_Size4-Regular-Dl5lxZxV.woff2                         4.93 kB\ndist/assets/inter-vietnamese-400-normal-DMkecbls.woff2                 4.97 kB\ndist/assets/inter-vietnamese-600-normal-Cc8MFFhd.woff2                 5.10 kB\ndist/assets/inter-vietnamese-700-normal-DlLaEgI2.woff2                 5.10 kB\ndist/assets/inter-vietnamese-400-italic-Ceaj4WUo.woff2                 5.13 kB\ndist/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2                         5.21 kB\ndist/assets/inter-greek-ext-400-normal-DGGRlc-M.woff2                  5.26 kB\ndist/assets/inter-vietnamese-700-italic-BbJv01XC.woff2                 5.31 kB\ndist/assets/jetbrains-mono-cyrillic-400-normal-BEIGL1Tu.woff2          5.33 kB\ndist/assets/inter-vietnamese-600-italic-BuG6-S9s.woff2                 5.38 kB\ndist/assets/inter-greek-ext-600-normal-DRtmH8MT.woff2                  5.43 kB\ndist/assets/inter-greek-ext-700-normal-qfdV9bQt.woff2                  5.44 kB\ndist/assets/KaTeX_Size1-Regular-mCD8mA8B.woff2                         5.47 kB\ndist/assets/inter-greek-ext-400-italic-DgljI1UR.woff2                  5.53 kB\ndist/assets/inter-greek-ext-700-italic-5m0CTrl1.woff2                  5.74 kB\ndist/assets/inter-greek-ext-600-italic-BxS-O1qG.woff2                  5.76 kB\ndist/assets/source-serif-4-vietnamese-400-normal-DFDfvBrN.woff2        6.30 kB\ndist/assets/source-serif-4-vietnamese-400-italic-B7_QYl3c.woff2        6.36 kB\ndist/assets/source-serif-4-vietnamese-600-normal-B33FcZBi.woff2        6.37 kB\ndist/assets/source-serif-4-vietnamese-700-normal-CAL-i-xy.woff2        6.41 kB\ndist/assets/source-serif-4-vietnamese-700-italic-CVnjuq9C.woff2        6.52 kB\ndist/assets/source-serif-4-vietnamese-600-italic-CH0yWcxH.woff2        6.54 kB\ndist/assets/KaTeX_Caligraphic-Regular-Di6jR-x-.woff2                   6.91 kB\ndist/assets/KaTeX_Caligraphic-Bold-Dq_IR9rO.woff2                      6.91 kB\ndist/assets/source-serif-4-cyrillic-ext-400-normal-CWV284fw.woff2      7.15 kB\ndist/assets/source-serif-4-cyrillic-ext-400-italic-zoDFlEzN.woff2      7.28 kB\ndist/assets/source-serif-4-cyrillic-ext-600-normal-D_E8FDgP.woff2      7.29 kB\ndist/assets/jetbrains-mono-latin-ext-400-normal-Bc8Ftmh3.woff2         7.34 kB\ndist/assets/source-serif-4-cyrillic-ext-700-normal-B9R79AaY.woff2      7.45 kB\ndist/assets/source-serif-4-cyrillic-ext-700-italic-BdFI3uD2.woff2      7.53 kB\ndist/assets/source-serif-4-cyrillic-ext-600-italic-Cezqx4eN.woff2      7.57 kB\ndist/assets/inter-cyrillic-400-normal-obahsSVq.woff2                   7.71 kB\ndist/assets/inter-greek-400-normal-B4URO6DV.woff2                      7.78 kB\ndist/assets/inter-cyrillic-700-normal-CjBOestx.woff2                   7.90 kB\ndist/assets/inter-greek-700-normal-C3JjAnD8.woff2                      7.92 kB\ndist/assets/source-serif-4-greek-400-normal-Cw5-AHNN.woff2             7.92 kB\ndist/assets/inter-greek-600-normal-plRanbMR.woff2                      7.94 kB\ndist/assets/inter-cyrillic-600-normal-CWCymEST.woff2                   7.97 kB\ndist/assets/source-serif-4-greek-600-normal-DdRkKr-1.woff2             8.13 kB\ndist/assets/inter-cyrillic-400-italic-CIUtULAL.woff2                   8.22 kB\ndist/assets/source-serif-4-greek-400-italic-C7D4Dq0H.woff2             8.24 kB\ndist/assets/source-serif-4-greek-700-normal-BzuEQSqJ.woff2             8.41 kB\ndist/assets/inter-cyrillic-700-italic-Ppu1tTPz.woff2                   8.43 kB\ndist/assets/inter-greek-400-italic-SVIaMW7s.woff2                      8.44 kB\ndist/assets/source-serif-4-greek-600-italic-BCtDz1WS.woff2             8.47 kB\ndist/assets/inter-cyrillic-600-italic-BMNGqOVE.woff2                   8.48 kB\ndist/assets/source-serif-4-greek-700-italic-DbF55r_P.woff2             8.51 kB\ndist/assets/inter-greek-600-italic-MPI_Frmw.woff2                      8.62 kB\ndist/assets/inter-greek-700-italic-D5vwbaZX.woff2                      8.64 kB\ndist/assets/KaTeX_Script-Regular-D3wIWfF6.woff2                        9.64 kB\ndist/assets/inter-cyrillic-ext-400-normal-BQZuk6qB.woff2              10.23 kB\ndist/assets/KaTeX_SansSerif-Regular-DDBCnlJ7.woff2                    10.34 kB\ndist/assets/inter-cyrillic-ext-600-normal-Dfes3d0z.woff2              10.48 kB\ndist/assets/inter-cyrillic-ext-700-normal-BjwYoWNd.woff2              10.50 kB\ndist/assets/inter-cyrillic-ext-400-italic-CsfrDhJx.woff2              10.80 kB\ndist/assets/inter-cyrillic-ext-600-italic-La-to8Sa.woff2              11.10 kB\ndist/assets/inter-cyrillic-ext-700-italic-GPRkb3xU.woff2              11.11 kB\ndist/assets/KaTeX_Fraktur-Regular-CTYiF6lA.woff2                      11.32 kB\ndist/assets/KaTeX_Fraktur-Bold-CL6g_b3V.woff2                         11.35 kB\ndist/assets/KaTeX_SansSerif-Italic-C3H0VqGB.woff2                     12.03 kB\ndist/assets/KaTeX_SansSerif-Bold-D1sUS0GD.woff2                       12.22 kB\ndist/assets/KaTeX_Typewriter-Regular-CO6r4hn1.woff2                   13.57 kB\ndist/assets/source-serif-4-cyrillic-400-italic-BLN19cOa.woff2         13.75 kB\ndist/assets/source-serif-4-cyrillic-400-normal-C44pakCn.woff2         14.17 kB\ndist/assets/source-serif-4-cyrillic-600-italic-Bbpc5VXY.woff2         14.31 kB\ndist/assets/source-serif-4-cyrillic-700-italic-C5vSpb1a.woff2         14.35 kB\ndist/assets/source-serif-4-cyrillic-600-normal-BDP5YDHD.woff2         14.78 kB\ndist/assets/source-serif-4-cyrillic-700-normal-BmBwwUw2.woff2         14.86 kB\ndist/assets/KaTeX_Math-BoldItalic-CZnvNsCZ.woff2                      16.40 kB\ndist/assets/KaTeX_Math-Italic-t53AETM-.woff2                          16.44 kB\ndist/assets/KaTeX_Main-BoldItalic-DxDJ3AOS.woff2                      16.78 kB\ndist/assets/KaTeX_Main-Italic-NWA7e6Wa.woff2                          16.99 kB\ndist/assets/source-serif-4-latin-ext-400-normal-B5LksYz5.woff2        17.84 kB\ndist/assets/source-serif-4-latin-ext-600-normal-pa-C5Dkf.woff2        18.33 kB\ndist/assets/source-serif-4-latin-ext-400-italic-Cj8BerOQ.woff2        18.45 kB\ndist/assets/source-serif-4-latin-ext-700-normal-D0Q30MFM.woff2        18.47 kB\ndist/assets/source-serif-4-latin-ext-600-italic-BjDfKlFY.woff2        19.06 kB\ndist/assets/source-serif-4-latin-ext-700-italic-BD-KcGtX.woff2        19.16 kB\ndist/assets/source-serif-4-latin-400-normal-DJ5YJwmz.woff2            20.09 kB\ndist/assets/source-serif-4-latin-400-italic-0j97Jm6B.woff2            20.09 kB\ndist/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2            21.17 kB\ndist/assets/source-serif-4-latin-700-italic-JqVfbRzb.woff2            21.48 kB\ndist/assets/source-serif-4-latin-600-normal-DouSKlru.woff2            21.53 kB\ndist/assets/source-serif-4-latin-600-italic-BYz3Th4E.woff2            21.59 kB\ndist/assets/source-serif-4-latin-700-normal-CGGdTIBe.woff2            21.72 kB\ndist/assets/inter-latin-400-normal-C38fXH4l.woff2                     23.66 kB\ndist/assets/inter-latin-700-normal-Yt3aPRUw.woff2                     24.36 kB\ndist/assets/inter-latin-600-normal-LgqL8muc.woff2                     24.45 kB\ndist/assets/inter-latin-400-italic-D1l0FflY.woff2                     25.04 kB\ndist/assets/KaTeX_Main-Bold-Cx986IdX.woff2                            25.32 kB\ndist/assets/inter-latin-600-italic-BJYrns_i.woff2                     25.81 kB\ndist/assets/inter-latin-700-italic-BsEzapPQ.woff2                     25.87 kB\ndist/assets/KaTeX_Main-Regular-B22Nviop.woff2                         26.27 kB\ndist/assets/KaTeX_AMS-Regular-BQhdFMY1.woff2                          28.08 kB\ndist/index.html                                                       32.33 kB │ gzip:   6.55 kB\ndist/assets/inter-latin-ext-400-normal-C1nco2VV.woff2                 35.00 kB\ndist/assets/inter-latin-ext-700-normal-Ca8adRJv.woff2                 36.24 kB\ndist/assets/inter-latin-ext-600-normal-D2bJ5OIk.woff2                 36.26 kB\ndist/assets/inter-latin-ext-400-italic-CGFCRmTM.woff2                 37.59 kB\ndist/assets/inter-latin-ext-600-italic-4pxPPAsx.woff2                 38.97 kB\ndist/assets/inter-latin-ext-700-italic-DtYkv-XI.woff2                 39.07 kB\ndist/assets/tex-renderer-BFCJwT4D.js                                 262.29 kB\ndist/assets/engine.worker-CP_mnqgv.js                                663.26 kB\ndist/assets/main-Yl4gEbVd.css                                         23.37 kB │ gzip:   5.77 kB\ndist/assets/chunk-2Q5K7J3B-DaXFI6OL.js                                 0.20 kB │ gzip:   0.16 kB\ndist/assets/chunk-JWPE2WC7-zw-sArWr.js                                 0.23 kB │ gzip:   0.17 kB\ndist/assets/chunk-XXDRQBXY-DWMPWJBo.js                                 0.23 kB │ gzip:   0.21 kB\ndist/assets/_commonjsHelpers-Cpj98o6Y.js                               0.24 kB │ gzip:   0.18 kB\ndist/assets/chunk-5VM5RSS4-C6UTmBDs.js                                 0.37 kB │ gzip:   0.27 kB\ndist/assets/chunk-TU62E6Q5--hbe9ZWm.js                                 0.51 kB │ gzip:   0.36 kB\ndist/assets/tex-renderer-B8QSyZr1.js                                   0.53 kB │ gzip:   0.38 kB\ndist/assets/swimlanesDiagram-OMPLPG4O-CzMFcYLI.js                      0.59 kB │ gzip:   0.40 kB\ndist/assets/infoDiagram-KBXO4MBG-UZxypm01.js                           0.66 kB │ gzip:   0.44 kB\ndist/assets/sizeCapture-INFHLROL-CqLpVOqq.js                           1.01 kB │ gzip:   0.57 kB\ndist/assets/railroadDiagram-MRQ6NCDL-D-_jHyDV.js                       1.68 kB │ gzip:   0.80 kB\ndist/assets/chunk-HFQBQIA3-C2oG9FSH.js                                 1.88 kB │ gzip:   0.83 kB\ndist/assets/abnfDiagram-S7VZAUFO-DCytFi3R.js                           1.88 kB │ gzip:   0.93 kB\ndist/assets/pegDiagram-FD4XPPHP-CRNi1kuv.js                            2.03 kB │ gzip:   0.96 kB\ndist/assets/ebnfDiagram-UZSYDL2S-BPRjfh0v.js                           2.08 kB │ gzip:   0.92 kB\ndist/assets/diagram-DNEMPZML-CJDrCywE.js                               4.35 kB │ gzip:   1.93 kB\ndist/assets/pieDiagram-J4AKIIQI-BC5WEjOr.js                            5.16 kB │ gzip:   2.20 kB\ndist/assets/bpmnIcons-APHXDYXF-ByGoYv9M.js                             5.21 kB │ gzip:   1.16 kB\ndist/assets/chunk-KS47KZWR-BM9jGkRd.js                                 5.60 kB │ gzip:   2.59 kB\ndist/assets/diagram-L3MUGCDN-jEY7Xj6i.js                               6.15 kB │ gzip:   2.67 kB\ndist/assets/diagram-XPFHEONP-DfRgmjgy.js                               8.29 kB │ gzip:   3.72 kB\ndist/assets/cynefinDiagram-L36ESFBY-COr2Jjzc.js                       10.17 kB │ gzip:   3.67 kB\ndist/assets/chunk-KQLB2F66-DF5fh_LH.js                                10.48 kB │ gzip:   4.35 kB\ndist/assets/diagram-MHCOC4E2-CLCIkVG4.js                              11.07 kB │ gzip:   4.32 kB\ndist/assets/paginate-error-Dmgrgk1h.js                                14.73 kB │ gzip:   6.21 kB\ndist/assets/font-assets-CPaV9xxU.js                                   14.75 kB │ gzip:   2.51 kB\ndist/assets/chunk-OY52VR5R-C6ZTW-Jn.js                                15.73 kB │ gzip:   4.40 kB\ndist/assets/diagram-LA4NIPWU-B4SbzrNw.js                              16.38 kB │ gzip:   5.86 kB\ndist/assets/ishikawaDiagram-M35NCXHK-DKl-iDGc.js                      17.54 kB │ gzip:   6.69 kB\ndist/assets/kanban-definition-BZKZHSQY-BSDOEtcu.js                    20.37 kB │ gzip:   7.25 kB\ndist/assets/mindmap-definition-I2QAS2VK-Ce1-eSTv.js                   22.84 kB │ gzip:   7.65 kB\ndist/assets/journeyDiagram-OPLOXDXO-CaPyOo25.js                       23.62 kB │ gzip:   8.38 kB\ndist/assets/graph-D8UmR1vK.js                                         23.89 kB │ gzip:   8.30 kB\ndist/assets/katex.min-DDtwLco6.js                                     24.83 kB │ gzip:   3.65 kB\ndist/assets/wardleyDiagram-S7YFUSEH-D7Ti73Tt.js                       25.58 kB │ gzip:   6.84 kB\ndist/assets/gitGraphDiagram-STJD7YCW-Bf-dz2_Z.js                      29.49 kB │ gzip:   8.74 kB\ndist/assets/erDiagram-EYBAPDEH-DHZymGv9.js                            30.75 kB │ gzip:  10.60 kB\ndist/assets/timeline-definition-SEUHKTQE-uOXGcON8.js                  30.93 kB │ gzip:  10.21 kB\ndist/assets/requirementDiagram-Y7LWUY3S-sL5IAPpq.js                   31.12 kB │ gzip:   9.82 kB\ndist/assets/quadrantDiagram-XTYBLID2-BwzRubz7.js                      34.02 kB │ gzip:   9.98 kB\ndist/assets/print-BWRr1Aft.js                                         38.47 kB │ gzip:  13.51 kB\ndist/assets/sankeyDiagram-WGJFYUXA-C04k8fxw.js                        39.99 kB │ gzip:  15.15 kB\ndist/assets/d3-scale-4DPf7zan.js                                      41.33 kB │ gzip:  15.14 kB\ndist/assets/stateDiagram-v2-FJ4FJNEA-BrZOGTo-.js                      41.83 kB │ gzip:  14.03 kB\ndist/assets/vennDiagram-NNMJR3RB-Ch2s2i12.js                          42.06 kB │ gzip:  15.75 kB\ndist/assets/blockDiagram-APKKGZFW-6CMc5BGJ.js                         42.75 kB │ gzip:  14.10 kB\ndist/assets/xychartDiagram-GGNKY7IX-Dr5rMrEG.js                       43.58 kB │ gzip:  12.15 kB\ndist/assets/dagre-SPEB5RXH-CvLSZxUg.js                                46.20 kB │ gzip:  16.51 kB\ndist/assets/classDiagram-v2-L25IHNXF-DOkjv4bi.js                      49.95 kB │ gzip:  16.08 kB\ndist/assets/ganttDiagram-23REXITY-DFYAZ1oa.js                         53.23 kB │ gzip:  18.34 kB\ndist/assets/flowDiagram-MALGAFMO-Cjmb5AOr.js                          65.04 kB │ gzip:  20.98 kB\ndist/assets/c4Diagram-KJ2TOQU5-DKQOXacd.js                            65.89 kB │ gzip:  18.93 kB\ndist/assets/diagram-3B7GL73J-BadKsSj_.js                              81.18 kB │ gzip:  25.19 kB\ndist/assets/cose-bilkent-JH36ORCC-NNnlCL-E.js                         81.78 kB │ gzip:  22.52 kB\ndist/assets/sequenceDiagram-5NDRBG5M-BmoTA3vZ.js                     119.00 kB │ gzip:  32.02 kB\ndist/assets/swimlanes-UMQ2AFYF-C_3NV3Oa.js                           123.35 kB │ gzip:  45.43 kB\ndist/assets/architectureDiagram-YGSQEFNW-ddiY1Hmq.js                 151.90 kB │ gzip:  43.18 kB\ndist/assets/usecaseDiagram-AFA6YXN4-5BSc_ecD.js                      189.97 kB │ gzip:  50.73 kB\ndist/assets/katex-C-g2SbSj.js                                        262.06 kB │ gzip:  77.95 kB\ndist/assets/cytoscape.esm-BHa1VTXv.js                                450.32 kB │ gzip: 144.03 kB\ndist/assets/src-DAW3wOpX.js                                          512.42 kB │ gzip: 103.40 kB\ndist/assets/mermaid.core-s4jRXFkh.js                                 639.79 kB │ gzip: 152.66 kB\ndist/assets/cynefin-EF2NZ3EQ-fO7s-8fI.js                             653.75 kB │ gzip: 136.53 kB\ndist/assets/main-iyKBOzpO.js                                       1,059.70 kB │ gzip: 341.50 kB\ndist/assets/elk-XV6XMXQE-B-OrtObp.js                               1,513.07 kB │ gzip: 463.63 kB\n✓ built in 26.27s\nVerifikasi statis lulus: {\"dir\":\"dist\",\"profile\":\"production\",\"files\":180,\"bytes\":9665309,\"maxFileBytes\":1513070}\nBuild production OK · candidate 4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497 · dist 60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9\nnpm warn Unknown env config \"http-proxy\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.\n\n> paperforma@3.0.0-rc.6 verify:http\n> node scripts/verify-http.mjs --local\n\nLULUS HTTP: 184/184; 179/179 berkas dibandingkan; versi 3.0.0-rc.6\n{\"archive\": \"PAPERFORMA_STATIC_3.0.0-rc.6_AUDITED.zip\", \"zipBytes\": 7409784, \"zipSha256\": \"82e6d021c1b042a498440c0ce8957c035eb011f4c1b1fe8c16a450697a52be53\", \"verifiedChecksums\": 550, \"identicalDistFiles\": 180, \"build\": {\"app\": \"paperforma\", \"version\": \"3.0.0-rc.6\", \"profile\": \"production\", \"candidateSha256\": \"4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497\", \"distTreeSha256\": \"60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9\", \"node\": \"v24.22.3\", \"engines\": {\"node\": \"24.22.3\", \"npm\": \">=11.6.0 <12\"}}, \"status\": \"PASS\"}\n",
+    "transcriptSha256": "198618a5cc53d088a0cfcb2a6311b0466feadc602037adb8bfba87257ebd1761"
+  },
+  "sourceValidation": {
+    "release": "3.0.0-rc.6",
+    "releaseDate": "2026-11-21",
+    "environment": {
+      "node": "v24.22.3",
+      "npm": "11.19.1",
+      "testEnvironment": "Node/jsdom"
+    },
+    "baseline": {
+      "archiveFiles": 496,
+      "checksumEntries": 495,
+      "checksumMatches": 495,
+      "vitestPassed": 356,
+      "nodePassed": 9,
+      "exactInputMathRendered": 0
+    },
+    "vitest": {
+      "passed": 444,
+      "failed": 0,
+      "files": 54,
+      "skipped": 0
+    },
+    "node": {
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0
+    },
+    "typecheck": "PASS",
+    "lint": "PASS",
+    "build": "PASS",
+    "static": "PASS",
+    "http": "PASS",
+    "httpDetails": {
+      "passed": 184,
+      "total": 184,
+      "filesCompared": 179,
+      "expectedFiles": 179
+    },
+    "releaseMutationGate": {
+      "status": "PASS",
+      "cases": 13,
+      "rejectedMutations": 12
+    },
+    "secretScan": {
+      "status": "PASS",
+      "filesScanned": 306,
+      "buildFindings": 0,
+      "otherFindings": 0
+    },
+    "npmAudit": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      },
+      "dependencies": {
+        "prod": 255,
+        "dev": 183,
+        "optional": 93,
+        "peer": 0,
+        "peerOptional": 0,
+        "total": 438
+      }
+    },
+    "sourceOracle": {
+      "kind": "Node/jsdom source audit",
+      "limits": [
+        "No live browser or operating-system clipboard",
+        "No visual or PDF verification",
+        "Does not validate mathematical truth"
+      ],
+      "inputSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+      "inputBytes": 15280,
+      "independentCounts": {
+        "formulas": 231,
+        "display": 128,
+        "inline": 103,
+        "changedPayloads": 17,
+        "tripleSlashRuns": 46,
+        "quadrupleSlashRuns": 2,
+        "escapedBracedSubscripts": 6
+      },
+      "rendered": 231,
+      "katex": 231,
+      "parseErrors": 0,
+      "differenceCount": 0,
+      "differences": [],
+      "mathIssueCodes": [
+        "MATH_COPY_RECOVERED"
+      ],
+      "sourceIntegrity": true,
+      "mutationDetected": true,
+      "pass": true
+    },
+    "export": {
+      "manifest": "examples/RC6_TRIGONOMETRI_PENGGUNA.manifest.json",
+      "formulas": 231,
+      "inline": 103,
+      "display": 128,
+      "bodyRecoveries": 17,
+      "fontFaces": 12,
+      "bytes": 934604,
+      "sha256": "328dbc489d9ba51b77f96d53b1d1c9ed54e53a1066e6b86f2839057b41a85ac1",
+      "mathPreflight": "review",
+      "requiredChecks": "PASS"
+    },
+    "buildManifest": {
+      "app": "paperforma",
+      "version": "3.0.0-rc.6",
+      "profile": "production",
+      "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+      "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+      "node": "v24.22.3",
+      "engines": {
+        "node": "24.22.3",
+        "npm": ">=11.6.0 <12"
+      }
+    },
+    "notRun": [
+      "Browser visual RC6",
+      "Operating-system/provider clipboard",
+      "Actual pagination RC6",
+      "Native print/PDF RC6",
+      "Firefox/WebKit/accessibility devices RC6",
+      "Live deployment RC6"
+    ],
+    "browserExecution": "BLOCKED: local Chromium AF_UNIX socket denied; cloud browser cannot access localhost and access policy prevented further observation.",
+    "archiveVerification": "Final ZIP verification is reported outside the ZIP to avoid self-reference.",
+    "limitations": [
+      "Entire original archive inventoried/hashed; targeted manual review is not a line-by-line vendor audit.",
+      "Raw HTML non-table blocks are outside ordered block-integrity comparison.",
+      "Residual-math warnings use a bounded heuristic, not recognition of all possible formulas.",
+      "The 17 recovered formula payloads remain reviewable; no mathematical truth validation."
+    ],
+    "commands": {
+      "typecheck": "npm run typecheck",
+      "lint": "npm run lint",
+      "tests": "npm test",
+      "build": "npm run build",
+      "http": "npm run verify:http -- --local",
+      "secrets": "npm run scan:secrets",
+      "releaseGate": "npm run test:gate",
+      "audit": "npm audit --json"
+    }
+  },
+  "limits": "Source/jsdom, production build and HTTP verified. Browser visuals, operating-system clipboard, actual pagination/native PDF and live deployment remain unverified. Archive checksum consistency does not certify every possible input."
+}

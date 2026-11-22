@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "date": "2026-11-22",
+  "timezone": "Asia/Bangkok",
+  "sourceArchiveSha256": "2ba9ea2114e9b3be401390eacf25dd7d68adacf85b891c91055fb5a04b9a5c18",
+  "scope": "READ_ONLY_AUDIT_NOT_REMEDIATED_RELEASE",
+  "summary": {
+    "findings": 9,
+    "P1": 2,
+    "P2": 7,
+    "P0": 0
+  },
+  "findings": [
+    {
+      "id": "RC8-01",
+      "priority": "P1",
+      "kind": "Lifecycle / diagnosis",
+      "title": "Deadline total 180.000 ms tetap memutus pekerjaan yang masih memberi progres",
+      "proof": "CONFIRMED_SOURCE_AND_FAKE_TIMER",
+      "originalUserRootCause": "PARTIAL: failure mechanism confirmed; expensive or stalled phase unknown",
+      "source": [
+        "src/render/print-client.ts:25-39",
+        "src/ui/main.ts:1966-1984",
+        "src/ui/main.ts:2027-2060"
+      ],
+      "evidence": [
+        "evidence/print-timeout-probe.json",
+        "root_review/print-timeout.audit.test.ts",
+        "evidence/SCREENSHOT_PENGGUNA.png"
+      ],
+      "observed": "Progres valid pada waktu virtual 179000 ms tidak memperpanjang deadline. Pada 180000 ms permintaan ditolak FRAME_TIMEOUT, issues kosong, iframe dihapus. Tidak ada ready message memberi error identik. UI produksi tidak memasok override timeout.",
+      "impact": "Pekerjaan aktif dapat dihentikan; pesan tidak membedakan startup gagal, progres aktif, fase lambat atau macet. Tidak membuktikan fase yang terjadi pada naskah asli.",
+      "fix": "Pisahkan startup timeout, inactivity watchdog berbasis kemajuan nyata, dan batas total yang terukur. Catat job/snapshot, fase, attempt, global pass, progres terakhir dan alasan. Sediakan yield/cancel/cleanup. Jangan hanya memperbesar atau menghapus timer.",
+      "acceptance": "Uji ready gagal, beban sehat melampaui 180 detik dalam batas kebijakan, stall nyata, akhir sebelum deadline, cancel/retry/edit snapshot, dan cleanup. Progres palsu tidak boleh memperpanjang pekerjaan tanpa batas. Reproduksi naskah asli memerlukan input dan setelan aslinya."
+    },
+    {
+      "id": "RC8-02",
+      "priority": "P2",
+      "kind": "Capacity evidence gap",
+      "title": "Kapasitas yang dibuktikan belum mencakup 217.850 kata dan bentuk dokumen pengguna",
+      "proof": "CONFIRMED_SCOPE_GAP",
+      "originalUserRootCause": "NOT_DETERMINED",
+      "source": [
+        "scripts/generate-stress.mjs:7-19",
+        "tests/e2e/perf-matrix.mjs:31-34,73-80",
+        "src/core/limits.ts:20-36"
+      ],
+      "evidence": [
+        "evidence/large-document-capacity-baseline.json",
+        "evidence/large-document-paragraphs.json",
+        "evidence/large-document-single-paragraph.json",
+        "pagination_review/capacity-shape.json",
+        "release_review/recomputed-release-data.json"
+      ],
+      "observed": "G10 asli konsisten pada 15 run, terbesar 68923 kata / 570616 byte / 118 tabel / 201 halaman. Screenshot 217850 kata / satu tabel sekitar 3,16 kali jumlah kata. PDF kapasitas 201 halaman tidak disimpan oleh runner. Dua bentuk sintetis 217850 kata lolos API core/HTML/payload; belum dipaginasi pada browser dalam audit ini.",
+      "impact": "Batas input 5 MiB bukan jaminan kapasitas cetak. Jumlah tabel tidak menjelaskan ukuran sel; jumlah halaman dan waktu tidak dapat diekstrapolasi dari rasio kata.",
+      "fix": "Perluas matriks bentuk dan ukuran, pertahankan G10 yang sudah valid, simpan sumber/setelan/trace/PDF aktual dan uji perangkat yang disebut dalam kontrak dukungan.",
+      "acceptance": "BUS-01 A4 tegak: 217850 kata dalam paragraf biasa, satu paragraf sangat panjang, tabel/sel panjang, dan heading/TOC padat; TOC on/off. Verifikasi urutan semua isi dan halaman terakhir. Naskah asli diuji terpisah jika tersedia; jangan menyebut surrogate sebagai reproduksi asli."
+    },
+    {
+      "id": "RC8-03",
+      "priority": "P2",
+      "kind": "Work amplification / accounting",
+      "title": "Repair dapat mengulang paginasi penuh; penghitung pass hanya menunjukkan attempt terakhir",
+      "proof": "CONFIRMED_SOURCE_AND_SYNTHETIC_CONTROL_FLOW",
+      "originalUserRootCause": "NOT_DETERMINED",
+      "source": [
+        "src/render/paginate.ts:893-936,943-951,970-980,1008-1017",
+        "src/render/print-payload.ts:60-64"
+      ],
+      "evidence": [
+        "pagination_review/pagination-accounting.json",
+        "pagination_review/probe-pagination-accounting.mjs"
+      ],
+      "observed": "Batas enam repair memberi tujuh attempt; empat pass per attempt dapat memberi 28 Previewer.preview. Probe menunjukkan 28 panggilan, passes=4 dan paginatePasses hanya 40 dari 280 unit waktu sintetis. timings.total tetap mencakup 280. Seluruh 15 run kapasitas bawaan memiliki forcedBreaks=0.",
+      "impact": "Beban repair berat belum diwakili benchmark kapasitas; diagnosis yang membaca passes saja meremehkan kerja. Jumlah 28 adalah batas struktural, bukan jumlah aktual pada screenshot.",
+      "fix": "Simpan cumulative timing, totalPreviewCalls, attempt/pass global dan repair reason. Profilkan dan batasi kerja kumulatif; evaluasi penggabungan repair aman tanpa menghapus verifikasi isi atau TOC.",
+      "acceptance": "Probe 1/2/7/14/28 panggilan melaporkan semua kerja. Browser menguji 0/1/6 repair dan TOC on/off; isi, nomor halaman, tabel, kode dan rumus tetap benar."
+    },
+    {
+      "id": "RC8-04",
+      "priority": "P2",
+      "kind": "Responsiveness / cancellation",
+      "title": "Fase persiapan dan verifikasi akhir belum memiliki checkpoint progres/cancel sendiri",
+      "proof": "CONFIRMED_SOURCE; RUNTIME_DURATION_UNMEASURED",
+      "originalUserRootCause": "NOT_DETERMINED",
+      "source": [
+        "src/render/paginate.ts:366-444,474-554,579-652,770-806,870-889,910-926,954-968"
+      ],
+      "evidence": [
+        "pagination_review/findings.json",
+        "pagination_review/NOTES.txt"
+      ],
+      "observed": "Parsing, cloning, inventaris, style/geometri dan flattening memproses DOM luas. Helper tersebut tidak menerima signal/progress. Race 20 detik dalam verifyFlattened membatasi penantian load/fonts, bukan seluruh loop sinkron setelahnya.",
+      "impact": "Fase besar berpotensi diam lama dan menunda pembatalan kooperatif. Durasi pada naskah asli tidak diukur. Pembersihan iframe induk merupakan jalur pembatalan lain yang perlu diuji pada browser.",
+      "fix": "Buat unit kerja terbatas dengan yield yang benar, pemeriksaan AbortSignal/deadline dan progres per fase. Gunakan indeks/cache per job yang tervalidasi untuk pencarian berulang. Hentikan chunker dan bersihkan state saat batal.",
+      "acceptance": "Batalkan pada tiap fase; UI kembali dapat digunakan, tidak ada frame/listener/job tersisa, sumber tidak berubah. Ukur long task dan progress gap aktual. Semua kontrol mutasi integritas tetap ditolak."
+    },
+    {
+      "id": "RC8-05",
+      "priority": "P2",
+      "kind": "Long text layout risk",
+      "title": "Jalur Paged.js memasukkan seluruh sisa text node pada kelanjutan paragraf/sel panjang",
+      "proof": "CONFIRMED_APPEND_BEHAVIOR; PERFORMANCE_EFFECT_INFERENCE",
+      "originalUserRootCause": "NOT_DETERMINED",
+      "source": [
+        "package-lock.json:4878-4884",
+        "node_modules/pagedjs/src/chunker/layout.js:165-209,279-300,640-665,732-789",
+        "node_modules/pagedjs/src/utils/dom.js:408-475"
+      ],
+      "evidence": [
+        "pagination_review/paged-longtext.json",
+        "pagination_review/probe-paged-longtext.mjs"
+      ],
+      "observed": "Actual Layout.append Paged.js 0.4.3 di jsdom menerima seluruh suffix sebelum pemeriksaan maxChars. Offset sintetis 1000 karakter menghasilkan volume kumulatif 55000/210000/820000 karakter untuk input 10000/20000/40000.",
+      "impact": "Paragraf/sel sangat panjang memerlukan pengukuran terpisah dari paragraf pendek. Hasil volume bukan bukti kompleksitas runtime, alokasi memori, jumlah halaman nyata atau penyebab timeout.",
+      "fix": "Ukur panjang node/sel dan suffix pada browser. Jika perlu, gunakan fragmen presentasi terbatas dengan pemetaan offset/sumber persis; jangan mengubah raw source atau memotong isi diam-diam.",
+      "acceptance": "Naikkan ukuran paragraf/sel panjang bertahap; pastikan setiap karakter/urutan/spasi kode/span Unicode/link/math terpelihara, tidak ganda atau hilang di batas pecahan, dan UI responsif."
+    },
+    {
+      "id": "RC8-06",
+      "priority": "P1",
+      "kind": "Performance contract",
+      "title": "A04/G09 tetap gagal pada empat hasil metrik/cohort terhadap RC6",
+      "proof": "CONFIRMED_RECOMPUTATION_OF_SUPPLIED_RAW",
+      "originalUserRootCause": "NO_DIRECT_CAUSAL_ATTRIBUTION",
+      "source": [
+        "tests/bench/performance-protocol.json",
+        "docs/RELEASE_REPORT.md:58-94"
+      ],
+      "evidence": [
+        "release_review/recomputed-release-data.json",
+        "release_review/fresh-release-decision.json"
+      ],
+      "observed": "Semua 560 pasangan lengkap dan konsisten. Browser C1: p95 trig preview 1,146585x, small edit 1,209814x. Node payload trig: C1 median/p95 1,173241x/1,297695x; C2 1,144757x/1,103313x. Batas median <=1,05x dan p95 <=1,10x. Browser C2 lulus seluruh metrik.",
+      "impact": "Kontrak performa lama belum dipenuhi. Tidak menyatakan seluruh alur, perangkat, atau setiap interaksi melambat.",
+      "fix": "Profilkan persiapan payload dan tail browser dengan output, font, fixture, lifecycle serta oracle yang sama. Jangan menukar baseline, melemahkan threshold, memilih cohort terbaik, atau membuang sampel gagal.",
+      "acceptance": "Dua cohort browser dan dua cohort Node baru pada kandidat final; seluruh pasangan menurut protokol lengkap, setiap metrik/cohort memenuhi batas, dan kesetaraan isi tetap lulus."
+    },
+    {
+      "id": "RC8-07",
+      "priority": "P2",
+      "kind": "Evidence verifier",
+      "title": "verifyCapacity menerima kontradiksi status, progres mentah dan cleanup",
+      "proof": "CONFIRMED_IN_MEMORY_VALIDATOR_PROBES",
+      "originalUserRootCause": "NOT_APPLICABLE",
+      "source": [
+        "scripts/acceptance-details.mjs:52-81",
+        "scripts/result-gates.mjs:9-13",
+        "tests/e2e/perf-matrix.mjs:69-73,101-111,138-146"
+      ],
+      "evidence": [
+        "release_review/acceptance-consistency-probes.json",
+        "release_review/acceptance-consistency-probes.mjs"
+      ],
+      "observed": "Enam clone diterima: layout failed; blocking integrity error; browser errors; progress kosong; raw first-progress 7000 ms dengan summary lama; printSessionAfterCancel masih running. Kontrol ambang printReady dan ketidakcocokan heap ditolak.",
+      "impact": "Validator detail dapat menerima bukti yang secara semantik kontradiktif. Data kapasitas asli bersih; ini bukan tuduhan bukti palsu, bypass binding hash, atau agregat rilis GO.",
+      "fix": "Periksa status/array diagnostik/cleanup, hitung ulang progress dan gap dari event mentah, lalu cocokkan summary. Uji validator detail dan jalur record/verify dengan binding baru yang benar.",
+      "acceptance": "Keenam kontradiksi ditolak dengan alasan spesifik, bukti valid tetap diterima, kontrol angka/heap/hash yang sudah bekerja tetap aktif."
+    },
+    {
+      "id": "RC8-08",
+      "priority": "P2",
+      "kind": "Formula reference ownership",
+      "title": "Pemeriksa integritas bentuk string/DOM bergantung pada referensi rumus render terakhir",
+      "proof": "CONFIRMED_API_ORDER_DEPENDENCE",
+      "originalUserRootCause": "NOT_CONNECTED_TO_SCREENSHOT",
+      "source": [
+        "src/core/formula-integrity.ts:8-17,38-43",
+        "src/core/integrity.ts:449-456",
+        "src/render/final-integrity.ts:19-34"
+      ],
+      "evidence": [
+        "math_review/probe-results.json",
+        "math_review/independent-rc8-audit.test.ts"
+      ],
+      "observed": "HTML A benar lulus sebelum render B, lalu salah ditolak setelah B dirender. Bentuk RenderedBody A dan kontrol export yang memulihkan referensi tetap lulus.",
+      "impact": "API string/Element/Document tidak deterministik terhadap urutan render. Kegagalan normal UI belum dibuktikan; bukan bukti baseline 231 rumus rusak.",
+      "fix": "Ikat expected formula ke source/snapshot/context masing-masing; hilangkan fallback latest-document. Cache boleh digunakan bila bounded, beridentitas stabil, dan tidak mengabaikan pemeriksaan pada cache miss.",
+      "acceptance": "A/B berselang-seling, semua signature API, hasil konsisten; kerusakan visual/MathML/anotasi/provenance tetap memblokir; baseline 231/254 tetap sama."
+    },
+    {
+      "id": "RC8-09",
+      "priority": "P2",
+      "kind": "Clipboard semantics",
+      "title": "Daftar HTML terbalik berubah menjadi naik tanpa issue saat clipboard dikonversi",
+      "proof": "CONFIRMED_CONVERSION_AND_MARKUP",
+      "originalUserRootCause": "NOT_CONNECTED_TO_SCREENSHOT",
+      "source": [
+        "src/core/clipboard.ts:85-114,256-258,294-307",
+        "src/core/raw-html-integrity.ts:54-58"
+      ],
+      "evidence": [
+        "math_review/probe-results.json",
+        "math_review/independent-rc8-audit.test.ts"
+      ],
+      "observed": "ol reversed start=3 dengan A,B menjadi Markdown 3. A / 4. B dan issue kosong. Jalur raw HTML mempertahankan reversed. Integritas terhadap Markdown hasil konversi lulus.",
+      "impact": "Semantik penomoran asal hilang sebelum oracle Markdown bekerja. Tidak diklaim sebagai regresi baru RC8 terhadap RC7, dan visual numbering browser belum diukur.",
+      "fix": "Pertahankan HTML aman untuk semantik yang tidak dapat dinyatakan GFM, termasuk reversed/start/value. Bandingkan keluaran dengan HTML clipboard asli secara independen.",
+      "acceptance": "Daftar reversed dengan/tanpa start, li value, nested, wrapper math campuran benar; daftar biasa tetap benar; tidak ada pelonggaran sanitasi atau duplikasi rumus/prosa."
+    }
+  ]
+}

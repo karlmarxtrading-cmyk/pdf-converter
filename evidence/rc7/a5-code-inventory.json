@@ -1,0 +1,164 @@
+{
+  "id": "RC7-PAGE-01",
+  "fixture": "fixtures/mixed-document.md",
+  "sourceSha256": "768ccfed2d55cda75efa6b977563ade0c2d9fa97b6b98846511ac64d630a02a1",
+  "template": "EDT-01",
+  "paper": "A5 portrait",
+  "browser": "Chromium Headless Shell 153",
+  "before": {
+    "applicationStatus": "FAIL",
+    "firstDiagnostic": "Isi berubah selama paginasi (codeText). Kode c1 berubah (termasuk spasi): null → \"\". Cetak tidak disiapkan.",
+    "observation": "DOM captured from production print frame at the reported error. Numbered lines compared independently with the actual fenced Python text, preserving spaces, order and empty lines.",
+    "matchingLines": 112,
+    "expectedLines": 112,
+    "stableIndices": true,
+    "exactCodeSha256": "14a2f1eb0db034f83026f69ba3159b24e3a0bb19338d8e8bd227330312d6c471",
+    "emptyFragment": "<pre class=\"pf-code pf-lines\" data-lang=\"python\" data-block-id=\"b-62fe9e4e\" data-line=\"134\" data-pf-code-id=\"c1\" data-ref=\"20ca4438-f091-4770-aad9-d49d3a55ed11\" data-previous-break-after=\"avoid\" data-split-to=\"20ca4438-f091-4770-aad9-d49d3a55ed11\" data-split-original=\"true\" data-last-split-element=\"true\" data-align-last-split-element=\"auto\"></pre>",
+    "fragments": [
+      {
+        "page": "10",
+        "codeId": "c1",
+        "ref": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "splitTo": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "splitFrom": null,
+        "lines": 0,
+        "first": null,
+        "last": null,
+        "textBytes": 0
+      },
+      {
+        "page": "11",
+        "codeId": "c1",
+        "ref": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "splitTo": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "splitFrom": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "lines": 17,
+        "first": "0",
+        "last": "16",
+        "textBytes": 1257
+      },
+      {
+        "page": "12",
+        "codeId": "c1",
+        "ref": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "splitTo": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "splitFrom": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "lines": 16,
+        "first": "17",
+        "last": "32",
+        "textBytes": 1312
+      },
+      {
+        "page": "13",
+        "codeId": "c1",
+        "ref": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "splitTo": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "splitFrom": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "lines": 16,
+        "first": "33",
+        "last": "48",
+        "textBytes": 1312
+      },
+      {
+        "page": "14",
+        "codeId": "c1",
+        "ref": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "splitTo": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "splitFrom": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "lines": 16,
+        "first": "49",
+        "last": "64",
+        "textBytes": 1312
+      },
+      {
+        "page": "15",
+        "codeId": "c1",
+        "ref": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "splitTo": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "splitFrom": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "lines": 16,
+        "first": "65",
+        "last": "80",
+        "textBytes": 1312
+      },
+      {
+        "page": "16",
+        "codeId": "c1",
+        "ref": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "splitTo": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "splitFrom": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "lines": 16,
+        "first": "81",
+        "last": "96",
+        "textBytes": 1312
+      },
+      {
+        "page": "17",
+        "codeId": "c1",
+        "ref": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "splitTo": null,
+        "splitFrom": "20ca4438-f091-4770-aad9-d49d3a55ed11",
+        "lines": 15,
+        "first": "97",
+        "last": "111",
+        "textBytes": 1252
+      }
+    ]
+  },
+  "candidateUnit": {
+    "suite": "tests/unit/render/pagination-regressions.test.ts — RC7-PAGE-01",
+    "checks": 9,
+    "positive": 1,
+    "negative": 8,
+    "retainedChecks": [
+      "all or one numbered line missing",
+      "empty source line missing",
+      "indentation changed",
+      "token changed",
+      "orphan split reference",
+      "space in opening pre",
+      "original empty inline code lost"
+    ],
+    "result": "PASS",
+    "command": "vitest run tests/unit/render/pagination-regressions.test.ts tests/unit/render/audit-rc4.test.ts",
+    "allFocusedTests": 34
+  },
+  "after": {
+    "uiStatus": "PASS",
+    "reportedPages": 19,
+    "exactDomCodeLines": 112,
+    "exactIndicesAndWhitespaceVerified": true,
+    "pdfSha256": "3227cbccb885adb893dbd625a843ab345c4c1e2f4576475345bf17f73f741dc7",
+    "pdfCodeOrderAfterLayoutWhitespaceNormalization": {
+      "-layout": {
+        "matched": 112,
+        "missingZeroBased": []
+      },
+      "-raw": {
+        "matched": 112,
+        "missingZeroBased": []
+      }
+    },
+    "pdfChecks": {
+      "formulaInventory": true,
+      "pages": true,
+      "embeddedFonts": true,
+      "noType3": false,
+      "externalLinks": true,
+      "internalLinks": true,
+      "physicalPageSizes": true,
+      "pageLabels": true,
+      "nonempty": true,
+      "proseOrder": false,
+      "cellOrder": true
+    },
+    "strictPdfStatus": "FAIL",
+    "firstMissingPdfFragment": [
+      [
+        5,
+        "bahasaindonesia,tiếngviệtcódấu,ελληνικάκείμενο,русскийтекст,français«guillemets»,españolñ,deutschß,polskiżółć.emoji:😀🚀👩‍💻.simbol:→≤≈√∞€£"
+      ]
+    ],
+    "limits": "Source and DOM code compared with exact spaces/tabs. PDF extraction can insert line and layout whitespace. Overall strict PDF status includes other content and fallback font checks."
+  }
+}

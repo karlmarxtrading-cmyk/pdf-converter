@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "runId": "a411c3b4-c630-4461-88ec-54810dbe1328",
+  "name": "pdf-new",
+  "before": {
+    "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+    "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496",
+    "version": "3.0.0-rc.11",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "fb35e25d5f19ec6c9a313318e58deebadcbd942b07de6c9757a6702dc5c4609e",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "82f80da7cf9aac0fbe3cf1b34fe0de8c2f5df7273212c8dd968b453cf2b6d86b",
+    "benchmarkHarnessSha256": "b270325c775336251cf7176bab8338bcff9b9a8e10c9d05d44e8dab360738bc2",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "866df23055e9b0e231095d3408e406eb7207644ed02fae7a93b9516bf8f9caf5",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "9c5f97a67bd9785f4205bed22f146b32596ac97389747e097d77558540d70378"
+  },
+  "after": {
+    "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+    "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496",
+    "version": "3.0.0-rc.11",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "fb35e25d5f19ec6c9a313318e58deebadcbd942b07de6c9757a6702dc5c4609e",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "82f80da7cf9aac0fbe3cf1b34fe0de8c2f5df7273212c8dd968b453cf2b6d86b",
+    "benchmarkHarnessSha256": "b270325c775336251cf7176bab8338bcff9b9a8e10c9d05d44e8dab360738bc2",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "866df23055e9b0e231095d3408e406eb7207644ed02fae7a93b9516bf8f9caf5",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "9c5f97a67bd9785f4205bed22f146b32596ac97389747e097d77558540d70378"
+  },
+  "started": "2026-11-22T11:14:35.949Z",
+  "ended": "2026-11-22T11:17:21.628Z",
+  "environment": {
+    "platform": "linux",
+    "osRelease": "6.18.57",
+    "arch": "x64",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "logicalCpuCount": 9,
+    "node": "v24.22.3",
+    "nodeExecutableSha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+  },
+  "command": [
+    "node",
+    "tests/e2e/rc8-pdf.mjs"
+  ],
+  "executable": {
+    "name": "node",
+    "sha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+  },
+  "commandFiles": {
+    "tests/e2e/rc8-pdf.mjs": "bd3c40161638aa9f5e170e72fefa283793562676debca7664d95e2aa5853cdf6"
+  },
+  "projectInputs": {
+    "tests/e2e/rc8-pdf.mjs": "bd3c40161638aa9f5e170e72fefa283793562676debca7664d95e2aa5853cdf6"
+  },
+  "log": "evidence/rc11/acceptance/observations/pdf-new.log",
+  "logSha256": "88c5194c556306fe1834ce709914d01e436a911a78762860cd6edb10294100e9",
+  "exitCode": 0,
+  "signal": null,
+  "failures": [],
+  "artifacts": {
+    "evidence/rc11/pdf/coverage.json": "2944401e49bf6a57d23aed2909a9eb650a8a14af665b081fac2179549d02c756",
+    "evidence/rc11/pdf/physical-verification.json": "d381604dd94557f158e00845f64647e9be9f810b9e368fd254e29698181c9a37",
+    "evidence/rc11/pdf/portrait-landscape.json": "4cbaceb027d88820de3d5fcae63855f3bc25502af52763a4dbece1228b98d589",
+    "evidence/rc11/pdf/results.json": "321ef61f216fe9c4ae14dd6decbbfebb3acdf00eed9c4119d9919fbb18a93de5",
+    "evidence/rc11/pdf/diagnostics/DIAGNOSTIC-mixed-original-BUS-01-Letter-landscape.pdf": "82fd212c6b76a7dfc234e8d94ecb4ad9f74a563c7ec6dcc3fda05840d2f7976c",
+    "evidence/rc11/pdf/diagnostics/DIAGNOSTIC-mixed-original-EDT-01-A5-portrait.pdf": "0a0eb6bc56ab793d9817828d11ea7b1a1ae1213483eca02024f91bb25bb371d0",
+    "evidence/rc11/pdf/diagnostics/DIAGNOSTIC-mixed-original-EDU-01-A4-portrait.pdf": "732fe35575d17be7b839cd764df147a5fe612eb07b8c1eb6cc6fbf4f719b1785",
+    "examples/rc11/pdf/conversation-BUS-01-A5-landscape.pdf": "01a7fcae0fdc6118e0c39ed143e3b116c86a7ee987a7f6ec10f5556d55cc784f",
+    "examples/rc11/pdf/conversation-BUS-01-Letter-portrait.pdf": "42d1c8e9cb58bbc8e79dde4f05f288f8282f8b87fa67e69b3963dda5c4addea4",
+    "examples/rc11/pdf/conversation-CON-01-A5-landscape.pdf": "622ef4822d5831a6f0a71715953999b97d2b8d07243c7b6bc02057b46c513f6d",
+    "examples/rc11/pdf/conversation-CON-01-Letter-portrait.pdf": "f278e21bc301edb209045d883c2011039a908c89369da815acbcec4be32efd8d",
+    "examples/rc11/pdf/conversation-EDT-01-A4-portrait.pdf": "642f4371e90bdc70bc026b1964c68e3aef0607fec98ca72293da2fc9b7eacb80",
+    "examples/rc11/pdf/conversation-EDT-01-Letter-landscape.pdf": "b0d53c7478b57e014643699d1657d1080bc507e935c2dbafdb4b8c7ad114a7c4",
+    "examples/rc11/pdf/conversation-EDU-01-A4-landscape.pdf": "6656b3678a5ad0d5a3e984b19b5db5cb24cae0260cda524946ad4e70dcdd5b39",
+    "examples/rc11/pdf/conversation-EDU-01-A5-portrait.pdf": "ceba3b7875f8f1ac3891cb578d17be283d012cb303a78263ac6c785963aabe20",
+    "examples/rc11/pdf/mixed-supported-BUS-01-A4-landscape.pdf": "a85150a0006af8cea96aa907d5324d4e8107e79e2a819f75cbfe84305bea25f3",
+    "examples/rc11/pdf/mixed-supported-BUS-01-A5-portrait.pdf": "1190be5a8ba5b07336e71c9789163104d6bef147bc923f609f66f6177a2fc588",
+    "examples/rc11/pdf/mixed-supported-CON-01-A4-landscape.pdf": "9dbe54e29a3e12a4bf5a460e74ab9510b328a00b09058079d670acb7da653296",
+    "examples/rc11/pdf/mixed-supported-CON-01-A5-portrait.pdf": "896ac9359a5c2994c238480d94732dbeb2b6181f7aea4ff9c2d38bc28ada0021",
+    "examples/rc11/pdf/mixed-supported-EDT-01-A5-landscape.pdf": "fedf0d8ccd883a1bd554c251ba6d38ae0e49ff8486d63ec142509b9cbb1766d2",
+    "examples/rc11/pdf/mixed-supported-EDT-01-A5-portrait.pdf": "11b863ac5c6e760a6d1470dfc99ac610962a6e28046fb28b518f2ff77ee50d04",
+    "examples/rc11/pdf/mixed-supported-EDT-01-Letter-portrait.pdf": "033e7b9a3f93e3a172efe0ab8deed26fdc9f8b2c16cc110a51fbc2c62eefe41b",
+    "examples/rc11/pdf/mixed-supported-EDU-01-A4-portrait.pdf": "6141d6520055d900c09eae5d8c759de6c95ee60187080e7dc9e391a045ec4db8",
+    "examples/rc11/pdf/mixed-supported-EDU-01-Letter-landscape.pdf": "a9de472db5c6147844fb2dd6b456b23f2d72dc26d464af11c2c885bf0ad3555f",
+    "examples/rc11/pdf/trigonometry-BUS-01-A4-portrait.pdf": "79195d35be1c3036ef7f4e5101a4010b14542d1c9dfae7d2054c212de149f449",
+    "examples/rc11/pdf/trigonometry-BUS-01-Letter-landscape.pdf": "331448744cc0e78e8f58ef6cf16954a78972133150436a7d2921f45ed22b7be0",
+    "examples/rc11/pdf/trigonometry-CON-01-A4-portrait.pdf": "14f7f65a0dc20ac740dedf94f95a42f96199ecc480b597a060614acb54530937",
+    "examples/rc11/pdf/trigonometry-CON-01-Letter-landscape.pdf": "96285d73ed526007c1d29a0aa9ed8059396141a96c2fb0aeb68731227990c2ff",
+    "examples/rc11/pdf/trigonometry-EDT-01-A4-landscape.pdf": "064e760fd53d3b717f9fa7dc345ec5562aaae972f236ffc07359fd5471cad059",
+    "examples/rc11/pdf/trigonometry-EDT-01-A5-portrait.pdf": "46b1d0ac3f1c01dfd88a6edb085ca88a1a72e31155a9d6760d68845b6a466954",
+    "examples/rc11/pdf/trigonometry-EDU-01-A4-portrait.pdf": "7d09f41fe93af50b7cd266f132f2b466235fde8c6a5fb41f661f22cf8c14608f",
+    "examples/rc11/pdf/trigonometry-EDU-01-A5-landscape.pdf": "4e2e2316a27e8605ecb4c54f648f8263d8c4aec8af48dacdc29892a867e2fff2",
+    "examples/rc11/pdf/trigonometry-EDU-01-Letter-portrait.pdf": "f94ff0da7b79b4ccfc7877165acd530b4f49c8730a5fedda043fd7ec7c14ca98"
+  }
+}

@@ -1,0 +1,337 @@
+{
+  "method": "Raster of each entire page at 86.4 DPI (72 \u00d7 1.2), PyMuPDF grayscale, including headers, TOC, numbers, equations and labels. Separate from physical-verification per-formula crops.",
+  "rows": [
+    {
+      "file": "examples/rc12/pdf/trigonometry-BUS-01-A4-portrait.pdf",
+      "sha256": "3a20d8203fbd3a574ab436444b07807e06fb4bac4d66bdde20c09f2dbab7ad11",
+      "reference": "examples/rc7/pdf/trigonometry-BUS-A4.pdf",
+      "referenceSha256": "494f3051f259de1e4fc8dab7a6b66eeb76fb82e19131511febfac33b7d62097f",
+      "samePageCount": true,
+      "pages": [
+        {
+          "page": 1,
+          "identical": true
+        },
+        {
+          "page": 2,
+          "identical": true
+        },
+        {
+          "page": 3,
+          "identical": true
+        },
+        {
+          "page": 4,
+          "identical": true
+        },
+        {
+          "page": 5,
+          "identical": true
+        },
+        {
+          "page": 6,
+          "identical": true
+        },
+        {
+          "page": 7,
+          "identical": true
+        },
+        {
+          "page": 8,
+          "identical": true
+        },
+        {
+          "page": 9,
+          "identical": true
+        },
+        {
+          "page": 10,
+          "identical": true
+        },
+        {
+          "page": 11,
+          "identical": true
+        },
+        {
+          "page": 12,
+          "identical": true
+        },
+        {
+          "page": 13,
+          "identical": true
+        },
+        {
+          "page": 14,
+          "identical": true
+        },
+        {
+          "page": 15,
+          "identical": true
+        },
+        {
+          "page": 16,
+          "identical": true
+        }
+      ]
+    },
+    {
+      "file": "examples/rc12/pdf/trigonometry-EDU-01-A4-portrait.pdf",
+      "sha256": "1b576d39d655a5df59e2aa6938062fd900cdb8723c3feb2b5a30e1ffd4dbcfad",
+      "reference": "examples/rc7/pdf/trigonometry-EDU-A4.pdf",
+      "referenceSha256": "566e969471591d0de7a25e73a5f0917fac596e3e4837e303fd62b599bd48fc44",
+      "samePageCount": true,
+      "pages": [
+        {
+          "page": 1,
+          "identical": true
+        },
+        {
+          "page": 2,
+          "identical": true
+        },
+        {
+          "page": 3,
+          "identical": true
+        },
+        {
+          "page": 4,
+          "identical": true
+        },
+        {
+          "page": 5,
+          "identical": true
+        },
+        {
+          "page": 6,
+          "identical": true
+        },
+        {
+          "page": 7,
+          "identical": true
+        },
+        {
+          "page": 8,
+          "identical": true
+        },
+        {
+          "page": 9,
+          "identical": true
+        },
+        {
+          "page": 10,
+          "identical": true
+        },
+        {
+          "page": 11,
+          "identical": true
+        },
+        {
+          "page": 12,
+          "identical": true
+        },
+        {
+          "page": 13,
+          "identical": true
+        },
+        {
+          "page": 14,
+          "identical": true
+        },
+        {
+          "page": 15,
+          "identical": true
+        },
+        {
+          "page": 16,
+          "identical": true
+        },
+        {
+          "page": 17,
+          "identical": true
+        },
+        {
+          "page": 18,
+          "identical": true
+        },
+        {
+          "page": 19,
+          "identical": true
+        }
+      ]
+    },
+    {
+      "file": "examples/rc12/pdf/trigonometry-EDT-01-A5-portrait.pdf",
+      "sha256": "c678da67dfc423caefa964b030616f88a11514f351638d62d622999811268b2c",
+      "reference": "examples/rc7/pdf/trigonometry-EDT-A5.pdf",
+      "referenceSha256": "a85eb01646b45de711c55903ab988b3a57e51840a325980a7145eb432eb915e7",
+      "samePageCount": true,
+      "pages": [
+        {
+          "page": 1,
+          "identical": true
+        },
+        {
+          "page": 2,
+          "identical": true
+        },
+        {
+          "page": 3,
+          "identical": true
+        },
+        {
+          "page": 4,
+          "identical": true
+        },
+        {
+          "page": 5,
+          "identical": true
+        },
+        {
+          "page": 6,
+          "identical": true
+        },
+        {
+          "page": 7,
+          "identical": true
+        },
+        {
+          "page": 8,
+          "identical": true
+        },
+        {
+          "page": 9,
+          "identical": true
+        },
+        {
+          "page": 10,
+          "identical": true
+        },
+        {
+          "page": 11,
+          "identical": true
+        },
+        {
+          "page": 12,
+          "identical": true
+        },
+        {
+          "page": 13,
+          "identical": true
+        },
+        {
+          "page": 14,
+          "identical": true
+        },
+        {
+          "page": 15,
+          "identical": true
+        },
+        {
+          "page": 16,
+          "identical": true
+        },
+        {
+          "page": 17,
+          "identical": true
+        },
+        {
+          "page": 18,
+          "identical": true
+        },
+        {
+          "page": 19,
+          "identical": true
+        },
+        {
+          "page": 20,
+          "identical": true
+        }
+      ]
+    },
+    {
+      "file": "examples/rc12/pdf/trigonometry-CON-01-Letter-landscape.pdf",
+      "sha256": "6d2d47fd45002a226192d5176859b14db40b0c1f0b9a878e383fd4c4a856e044",
+      "reference": "examples/rc7/pdf/trigonometry-CON-Letter-landscape.pdf",
+      "referenceSha256": "b2329cac42625d21890d96d5f8303c7729d835e66b6cb67651b550c754977891",
+      "samePageCount": true,
+      "pages": [
+        {
+          "page": 1,
+          "identical": true
+        },
+        {
+          "page": 2,
+          "identical": true
+        },
+        {
+          "page": 3,
+          "identical": true
+        },
+        {
+          "page": 4,
+          "identical": true
+        },
+        {
+          "page": 5,
+          "identical": true
+        },
+        {
+          "page": 6,
+          "identical": true
+        },
+        {
+          "page": 7,
+          "identical": true
+        },
+        {
+          "page": 8,
+          "identical": true
+        },
+        {
+          "page": 9,
+          "identical": true
+        },
+        {
+          "page": 10,
+          "identical": true
+        },
+        {
+          "page": 11,
+          "identical": true
+        },
+        {
+          "page": 12,
+          "identical": true
+        },
+        {
+          "page": 13,
+          "identical": true
+        },
+        {
+          "page": 14,
+          "identical": true
+        },
+        {
+          "page": 15,
+          "identical": true
+        },
+        {
+          "page": 16,
+          "identical": true
+        },
+        {
+          "page": 17,
+          "identical": true
+        },
+        {
+          "page": 18,
+          "identical": true
+        },
+        {
+          "page": 19,
+          "identical": true
+        }
+      ]
+    }
+  ]
+}

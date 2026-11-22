@@ -1,0 +1,272 @@
+[
+  {
+    "name": "plain-break-control",
+    "markdown": "A\\\nB\n",
+    "original": {
+      "breaks": 1,
+      "cells": []
+    },
+    "actual": {
+      "breaks": 1,
+      "text": "A\nB",
+      "cells": []
+    },
+    "issues": [],
+    "integrity": true,
+    "exportStatus": "pass"
+  },
+  {
+    "name": "simple-math-break-control",
+    "markdown": "A\\\n$x$\\\nB\n",
+    "original": {
+      "breaks": 2,
+      "cells": []
+    },
+    "actual": {
+      "breaks": 2,
+      "text": "A\n[MATH]\nB",
+      "cells": []
+    },
+    "issues": [],
+    "integrity": true,
+    "exportStatus": "pass"
+  },
+  {
+    "name": "space-math-break",
+    "markdown": "<p>A<br><code data-pf-formula=\"inline\"> x </code><br>B</p>\n",
+    "original": {
+      "breaks": 2,
+      "cells": []
+    },
+    "actual": {
+      "breaks": 2,
+      "text": "A[MATH]B",
+      "cells": []
+    },
+    "issues": [],
+    "integrity": true,
+    "exportStatus": "pass"
+  },
+  {
+    "name": "backtick-math-break",
+    "markdown": "<p>A<br><code data-pf-formula=\"inline\">`x`</code><br>B</p>\n",
+    "original": {
+      "breaks": 2,
+      "cells": []
+    },
+    "actual": {
+      "breaks": 2,
+      "text": "A[MATH]B",
+      "cells": []
+    },
+    "issues": [],
+    "integrity": true,
+    "exportStatus": "pass"
+  },
+  {
+    "name": "literal-math-break",
+    "markdown": "<p>A<br><code data-pf-formula=\"inline\">x</code><br>B</p>\n",
+    "original": {
+      "breaks": 2,
+      "cells": []
+    },
+    "actual": {
+      "breaks": 2,
+      "text": "A[MATH]B",
+      "cells": []
+    },
+    "issues": [],
+    "integrity": true,
+    "exportStatus": "pass"
+  },
+  {
+    "name": "digit-after-break-control",
+    "markdown": "<p>A<br><code data-pf-formula=\"inline\">x</code>2</p>\n",
+    "original": {
+      "breaks": 1,
+      "cells": []
+    },
+    "actual": {
+      "breaks": 1,
+      "text": "A[MATH]2",
+      "cells": []
+    },
+    "issues": [],
+    "integrity": true,
+    "exportStatus": "pass"
+  },
+  {
+    "name": "row-header",
+    "markdown": "<table><tbody><tr><th scope=\"row\">A</th><td>B</td></tr><tr><th scope=\"row\">C</th><td>D</td></tr></tbody></table>\n",
+    "original": {
+      "breaks": 0,
+      "cells": [
+        [
+          "th",
+          "row",
+          "A"
+        ],
+        [
+          "td",
+          null,
+          "B"
+        ],
+        [
+          "th",
+          "row",
+          "C"
+        ],
+        [
+          "td",
+          null,
+          "D"
+        ]
+      ]
+    },
+    "actual": {
+      "breaks": 0,
+      "text": "ABCD",
+      "cells": [
+        [
+          "th",
+          "row",
+          "A"
+        ],
+        [
+          "td",
+          null,
+          "B"
+        ],
+        [
+          "th",
+          "row",
+          "C"
+        ],
+        [
+          "td",
+          null,
+          "D"
+        ]
+      ]
+    },
+    "issues": [],
+    "integrity": true,
+    "exportStatus": "pass"
+  },
+  {
+    "name": "no-header",
+    "markdown": "<table><tbody><tr><td>A</td><td>B</td></tr><tr><td>C</td><td>D</td></tr></tbody></table>\n",
+    "original": {
+      "breaks": 0,
+      "cells": [
+        [
+          "td",
+          null,
+          "A"
+        ],
+        [
+          "td",
+          null,
+          "B"
+        ],
+        [
+          "td",
+          null,
+          "C"
+        ],
+        [
+          "td",
+          null,
+          "D"
+        ]
+      ]
+    },
+    "actual": {
+      "breaks": 0,
+      "text": "ABCD",
+      "cells": [
+        [
+          "td",
+          null,
+          "A"
+        ],
+        [
+          "td",
+          null,
+          "B"
+        ],
+        [
+          "td",
+          null,
+          "C"
+        ],
+        [
+          "td",
+          null,
+          "D"
+        ]
+      ]
+    },
+    "issues": [],
+    "integrity": true,
+    "exportStatus": "pass"
+  },
+  {
+    "name": "column-header-control",
+    "markdown": "| A | B |\n| - | - |\n| C | D |\n",
+    "original": {
+      "breaks": 0,
+      "cells": [
+        [
+          "th",
+          null,
+          "A"
+        ],
+        [
+          "th",
+          null,
+          "B"
+        ],
+        [
+          "td",
+          null,
+          "C"
+        ],
+        [
+          "td",
+          null,
+          "D"
+        ]
+      ]
+    },
+    "actual": {
+      "breaks": 0,
+      "text": "ABCD",
+      "cells": [
+        [
+          "th",
+          null,
+          "A"
+        ],
+        [
+          "th",
+          null,
+          "B"
+        ],
+        [
+          "td",
+          null,
+          "C"
+        ],
+        [
+          "td",
+          null,
+          "D"
+        ]
+      ]
+    },
+    "issues": [],
+    "integrity": true,
+    "exportStatus": "pass"
+  }
+]

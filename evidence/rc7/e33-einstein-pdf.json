@@ -1,0 +1,135 @@
+{
+  "case": "E33",
+  "method": "QA UI -> verified pagination -> flattened print HTML -> Chromium automated PDF -> independent Poppler inspection. No native dialog.",
+  "before": {
+    "status": "fail",
+    "failedCommand": "pdftoppm -png -r 80 -f 2 -l 3 ...",
+    "reproductionExitCode": 99,
+    "stderr": "Wrong page range given: the first page (2) can not be after the last page (1).",
+    "returnPdfBytes": 48553,
+    "returnPdfSha256": "d46f41f434ab591fd1d6ea63a2dcf8d9a3182f0ccd30cdb61e889236fe277302",
+    "pdfinfo": "Title:           Relativitas khusus Einstein\nCreator:         Chromium\nProducer:        Skia/PDF m153\nCreationDate:    Sun Nov 22 02:42:40 2026 +07\nModDate:         Sun Nov 22 02:42:40 2026 +07\nCustom Metadata: no\nMetadata Stream: no\nTagged:          yes\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       594.96 x 841.92 pts (A4)\nPage rot:        0\nFile size:       48553 bytes\nOptimized:       no\nPDF version:     1.4\n",
+    "sourceTestError": "Error: Command failed: pdftoppm -png -r 80 -f 2 -l 3 /tmp/pf-dl-XwZP99/einstein.pdf evidence/math/pdf-page\nWrong page range given: the first page (2) can not be after the last page (1).\n\n    at genericNodeError (node:internal/errors:986:15)\n    at wrappedFn (node:internal/errors:540:14)\n    at checkExecSyncError (node:child_process:943:11)\n    at execFileSync (node:child_process:979:15)\n    at Object.run (file:///workspace/scratch/d77204dbc71b/rc7/tests/e2e/scenarios.mjs:1202:7)\n    at async file:///workspace/scratch/d77204dbc71b/rc7/tests/e2e/run-e2e.mjs:20:24"
+  },
+  "after": {
+    "browser": "HeadlessChrome/153.0.8010.0",
+    "testStatus": "pass",
+    "scriptResult": {
+      "id": "E33",
+      "matrix": [
+        "MATH-EINSTEIN",
+        "ST-QA-16",
+        "ST-QA-19"
+      ],
+      "title": "Rumus Einstein di HTML ekspor (luring, file://) dan di dokumen cetak/PDF: KaTeX dirender, font KaTeX tersemat, tanpa TeX mentah",
+      "status": "pass",
+      "ms": 2893,
+      "details": {
+        "exportHtml": {
+          "katex": 11,
+          "tex": [
+            "m",
+            "E_0",
+            "\\boxed{E_0=mc^2}",
+            "v",
+            "\\gamma=\\frac{1}{\\sqrt{1-\\frac{v^2}{c^2}}}",
+            "E=\\gamma mc^2",
+            "\\Delta E = \\Delta m\\, c^2",
+            "\\begin{pmatrix} ct' \\\\ x' \\end{pmatrix} = \\begin{pmatrix} \\gamma & -\\gamma\\beta \\\\ -\\gamma\\beta & \\gamma \\end{pmatrix} \\begin{pmatrix} ct \\\\ x \\end{pmatrix}",
+            "\\tau = \\int_{t_1}^{t_2} \\sqrt{1-\\frac{v(t)^2}{c^2}}\\,dt",
+            "E_0=mc^2",
+            "p=\\gamma m v"
+          ],
+          "display": [
+            false,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "raw": [],
+          "katexFonts": [
+            "KaTeX_Main",
+            "KaTeX_Math",
+            "KaTeX_Size1",
+            "KaTeX_Size3"
+          ],
+          "boxed": true
+        },
+        "print": {
+          "pages": 1,
+          "tex": [
+            "m",
+            "E_0",
+            "\\boxed{E_0=mc^2}",
+            "v",
+            "\\gamma=\\frac{1}{\\sqrt{1-\\frac{v^2}{c^2}}}",
+            "E=\\gamma mc^2",
+            "\\Delta E = \\Delta m\\, c^2",
+            "\\begin{pmatrix} ct' \\\\ x' \\end{pmatrix} = \\begin{pmatrix} \\gamma & -\\gamma\\beta \\\\ -\\gamma\\beta & \\gamma \\end{pmatrix} \\begin{pmatrix} ct \\\\ x \\end{pmatrix}",
+            "\\tau = \\int_{t_1}^{t_2} \\sqrt{1-\\frac{v(t)^2}{c^2}}\\,dt",
+            "E_0=mc^2",
+            "p=\\gamma m v"
+          ],
+          "katex": 11,
+          "errors": 0,
+          "display": [
+            false,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ]
+        },
+        "pages": 1,
+        "pdfPages": 1,
+        "rasterPages": [
+          1
+        ],
+        "orderedProse": {
+          "pass": true,
+          "matched": 11,
+          "total": 11,
+          "mode": "logical",
+          "firstMissing": null
+        },
+        "mathGlyphs": [
+          "γ",
+          "Δ",
+          "β",
+          "∫"
+        ],
+        "pdfKatexFonts": [
+          "KaTeX_Math-Italic",
+          "KaTeX_Main-Regular",
+          "KaTeX_Size3-Regular",
+          "KaTeX_Size1-Regular"
+        ],
+        "pdfRawTex": [],
+        "evidence": [
+          "evidence/math/export-html.png",
+          "evidence/math/pdf-page-1.png",
+          "evidence/math/einstein.chrome.pdf"
+        ]
+      }
+    },
+    "pdfBytes": 48553,
+    "pdfSha256": "bd561025b527c057a829cd0280336b857c8b5090678edf479adb9cf773c4667a",
+    "pdfinfo": "Title:           Relativitas khusus Einstein\nCreator:         Chromium\nProducer:        Skia/PDF m153\nCreationDate:    Sun Nov 22 02:44:33 2026 +07\nModDate:         Sun Nov 22 02:44:33 2026 +07\nCustom Metadata: no\nMetadata Stream: no\nTagged:          yes\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       594.96 x 841.92 pts (A4)\nPage rot:        0\nFile size:       48553 bytes\nOptimized:       no\nPDF version:     1.4\n",
+    "pdffonts": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nAAAAAA+Inter-Regular                 CID TrueType      Identity-H       yes yes yes      4  0\nBAAAAA+Inter-Bold                    CID TrueType      Identity-H       yes yes yes      6  0\nCAAAAA+Inter-SemiBold                CID TrueType      Identity-H       yes yes yes      7  0\nDAAAAA+JetBrainsMono-Regular         CID TrueType      Identity-H       yes yes yes      8  0\nEAAAAA+KaTeX_Math-Italic             CID TrueType      Identity-H       yes yes yes      9  0\nFAAAAA+KaTeX_Main-Regular            CID TrueType      Identity-H       yes yes yes     10  0\nGAAAAA+KaTeX_Size3-Regular           CID TrueType      Identity-H       yes yes yes     11  0\nHAAAAA+KaTeX_Size1-Regular           CID TrueType      Identity-H       yes yes yes     12  0\n",
+    "poppler": "pdftoppm version 26.05.0",
+    "manualRasterReview": "Pada raster satu halaman, judul, rumus berkotak, pecahan dan akar, matriks, integral, tabel dua kolom, kode literal, kalimat penutup dan nomor 1 terlihat utuh. Hasil ini berlaku untuk fixture Einstein dan mesin cetak yang dipakai."
+  }
+}

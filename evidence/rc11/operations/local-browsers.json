@@ -1,0 +1,101 @@
+{
+  "method": "Preflight title read on an ordinary local page or data URL with unmodified browser executables; per-route results are in the acceptance observations. Native device qualification is separate. Locally staged WebKit shared libraries came from signature-verified Debian package indexes.",
+  "at": "2026-11-22T11:16:47.741981+00:00",
+  "runId": "a411c3b4-c630-4461-88ec-54810dbe1328",
+  "identity": {
+    "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+    "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496",
+    "version": "3.0.0-rc.11",
+    "browserDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "browserProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+    "fixtureSha256": "fb35e25d5f19ec6c9a313318e58deebadcbd942b07de6c9757a6702dc5c4609e",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "82f80da7cf9aac0fbe3cf1b34fe0de8c2f5df7273212c8dd968b453cf2b6d86b",
+    "benchmarkHarnessSha256": "b270325c775336251cf7176bab8338bcff9b9a8e10c9d05d44e8dab360738bc2",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "866df23055e9b0e231095d3408e406eb7207644ed02fae7a93b9516bf8f9caf5",
+    "settingsSha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "9c5f97a67bd9785f4205bed22f146b32596ac97389747e097d77558540d70378"
+  },
+  "engines": [
+    {
+      "engine": "chromium",
+      "observedVersion": "153.0.8010.0",
+      "distribution": "@sparticuz/chromium 153.0.0",
+      "executable": "chromium",
+      "bytes": 209022176,
+      "sha256": "53a15d6c3a3d27dfb54c4ba60278b1683136f70cf1e67e989da7dfbd3d451ef0"
+    },
+    {
+      "engine": "firefox",
+      "observedVersion": "153.0",
+      "distribution": "Playwright firefox-1538",
+      "executable": "firefox",
+      "bytes": 576240,
+      "sha256": "8d314974ef7412dfbfaf76a9557fc0f45ae4f72558e81d87385f6941cd7fec6e"
+    },
+    {
+      "engine": "webkit",
+      "observedVersion": "26.5",
+      "distribution": "Playwright webkit-2336",
+      "executable": "MiniBrowser",
+      "bytes": 2263728,
+      "sha256": "deee549ad18d8ee5c4a44d78f846bd62fe90959b3e115f0cd33d681897db592e"
+    }
+  ],
+  "localWebKitPackages": [
+    {
+      "file": "libcairo-script-interpreter2_1.18.4-1+b1_amd64.deb",
+      "sha256": "52b45eb6e49c53c0a35ef45555a9457b094482eafef27d27cd777b916a2f06de"
+    },
+    {
+      "file": "libgles2_1.7.0-1+b2_amd64.deb",
+      "sha256": "e12c18aa77939d122ee1dea520ba0440b97dc19200b7396e03dff03a3ece74c1"
+    },
+    {
+      "file": "libgraphene-1.0-0_1.10.8-5_amd64.deb",
+      "sha256": "ddcf98f17f6c0a7c76974d7238be1468e59c186034c1b806638d32d9f446ea6e"
+    },
+    {
+      "file": "libgtk-4-1_4.18.6+ds-2_amd64.deb",
+      "sha256": "51ab1114a57702e703cce745c24caf5bd31ec1d2a900c72fd15fe47c6c030e68"
+    },
+    {
+      "file": "libgtk-4-common_4.18.6+ds-2_all.deb",
+      "sha256": "32f0ad042f983b1d53cd2c260d4042eda9041b6debb71beb91937196b1ff3f6b"
+    },
+    {
+      "file": "libgudev-1.0-0_238-6_amd64.deb",
+      "sha256": "890a55ea26f52062f377389e6326abeadb72a14741c95ab6a1c5a19c77c3c3d0"
+    },
+    {
+      "file": "libharfbuzz-icu0_10.2.0-1+deb13u1_amd64.deb",
+      "sha256": "0b45d951629e98673c0da73b2bcd0886a467d833bb3b7499892a168f247165d2"
+    },
+    {
+      "file": "libhidapi-hidraw0_0.14.0-1+b2_amd64.deb",
+      "sha256": "89c546cb55be403ce63fe668baff2515979100a30fa07e2b97de186b9c07f01e"
+    },
+    {
+      "file": "libhyphen0_2.8.8-7+b2_amd64.deb",
+      "sha256": "fa9dca7b8cf1381fd52800c44a385c5725a78a88bd705f7c39b1046a5293435e"
+    },
+    {
+      "file": "liblzo2-2_2.10-3+b1_amd64.deb",
+      "sha256": "f3032201fe2928a87e13f05ce256ff3ac2a7860c7e594dc51ae6d7348a4466ce"
+    },
+    {
+      "file": "libmanette-0.2-0_0.2.12-1_amd64.deb",
+      "sha256": "98841a467692c46fd1870275113235691ebbfe71a3524f6b2a0fa7e9c33c6e56"
+    },
+    {
+      "file": "libwpe-1.0-1_1.16.2-1_amd64.deb",
+      "sha256": "8f07005fc74b2ff54e593c71d7bc2528315c085a64659ef25f9e122db538347e"
+    },
+    {
+      "file": "libwpebackend-fdo-1.0-1_1.16.0-1_amd64.deb",
+      "sha256": "8f571e0752981400586ba5aeb3d9939c2d23819e536b8d921f27f2bf93a5fcad"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "runId": "0968ffee-4f52-4980-a796-b7cc19cae40a",
+  "name": "perf-browser-recovery-2",
+  "before": {
+    "candidateSha256": "04cd3038a66f8bc3c78440456b6319c22af52dade47bd411362b6bb967435f35",
+    "distTreeSha256": "f5c8558a3b058ff2fdb2591989c39d2c92e314fe9f205a95ef5bbedba1a54db6",
+    "version": "3.0.0-rc.8",
+    "fixtureSha256": "f68252a1d37606299e9ef5d1d42a05ecd93461e1b2098d4775baa925a4bb40ab",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "a96288f2d95b466dcac1f3494a4a8bbbae89708927aed4b858aa90a7c6846dbf",
+    "benchmarkHarnessSha256": "373050415f4debdf9e5efb0d5b5b213a3834203c32add7f579b242e9a3558e47",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "906223ef030b1e5acb3aa4a45ef20f06482dc118ffb03c0fe015b8960b8dda53",
+    "settingsSha256": "6f8d19307eaede2ec6b05047bf56a71d1f338340a0278e24dda13db4438eef80",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "440d201c5b8c8cdd3c3e69366f7241891468df2d2803e95371fbb0973fa3c1b8"
+  },
+  "after": {
+    "candidateSha256": "04cd3038a66f8bc3c78440456b6319c22af52dade47bd411362b6bb967435f35",
+    "distTreeSha256": "f5c8558a3b058ff2fdb2591989c39d2c92e314fe9f205a95ef5bbedba1a54db6",
+    "version": "3.0.0-rc.8",
+    "fixtureSha256": "f68252a1d37606299e9ef5d1d42a05ecd93461e1b2098d4775baa925a4bb40ab",
+    "trigSourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+    "attachedHarnessSha256": "a96288f2d95b466dcac1f3494a4a8bbbae89708927aed4b858aa90a7c6846dbf",
+    "benchmarkHarnessSha256": "373050415f4debdf9e5efb0d5b5b213a3834203c32add7f579b242e9a3558e47",
+    "oracleSha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d",
+    "harnessSha256": "906223ef030b1e5acb3aa4a45ef20f06482dc118ffb03c0fe015b8960b8dda53",
+    "settingsSha256": "6f8d19307eaede2ec6b05047bf56a71d1f338340a0278e24dda13db4438eef80",
+    "referenceHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff",
+    "lockfileSha256": "440d201c5b8c8cdd3c3e69366f7241891468df2d2803e95371fbb0973fa3c1b8"
+  },
+  "started": "2026-11-21T21:30:25.583Z",
+  "ended": "2026-11-21T21:43:50.037Z",
+  "environment": {
+    "platform": "linux",
+    "osRelease": "6.18.57",
+    "arch": "x64",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "logicalCpuCount": 9,
+    "node": "v24.22.3",
+    "nodeExecutableSha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+  },
+  "command": [
+    "taskset",
+    "-c",
+    "2,3",
+    "node",
+    "docs/verification-tools/performance-browser-recovery.mjs",
+    "../rc6",
+    "2"
+  ],
+  "executable": {
+    "name": "taskset",
+    "sha256": "0c34de807bc9c617406360836fca2c7505eb86ede4df5a34854bde6eeddad9f3"
+  },
+  "commandFiles": {
+    "docs/verification-tools/performance-browser-recovery.mjs": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01"
+  },
+  "projectInputs": {
+    "docs/verification-tools/performance-browser-recovery.mjs": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01"
+  },
+  "log": "evidence/rc8/acceptance/observations/perf-browser-recovery-2.log",
+  "logSha256": "0b1a1715efb320b754d590c30ba2fda32fdadf9ce16972a086de62565f748108",
+  "exitCode": 1,
+  "signal": null,
+  "failures": [],
+  "artifacts": {
+    "evidence/rc8/performance/recovery-cohort-2.json": "9b6755636aa0c752b5a8357e3c4bd0f7ed8b04e36c4c6172131a64c36ce0d189"
+  }
+}

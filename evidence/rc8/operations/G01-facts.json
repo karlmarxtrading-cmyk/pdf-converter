@@ -1,0 +1,20 @@
+{
+  "observations": [
+    "inputs",
+    "local-build"
+  ],
+  "checks": {
+    "archivePaths": {
+      "pass": true,
+      "evidence": "evidence/rc8/build-tests/clean-receipt.json"
+    },
+    "archiveChecksums": {
+      "pass": true,
+      "evidence": "evidence/rc8/build-tests/clean-receipt.json"
+    },
+    "inputIdentity": {
+      "pass": true,
+      "evidence": "evidence/rc8/input/identity.json"
+    }
+  }
+}

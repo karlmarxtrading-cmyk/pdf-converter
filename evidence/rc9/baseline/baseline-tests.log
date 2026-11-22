@@ -1,0 +1,91 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> paperforma@3.0.0-rc.8 typecheck
+> tsc --noEmit
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> paperforma@3.0.0-rc.8 lint
+> oxlint -c .oxlintrc.json --deny-warnings src tests scripts
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> paperforma@3.0.0-rc.8 test
+> vitest run && node --test tests/scripts/result-gates.test.mjs tests/scripts/static-server.test.mjs tests/e2e/pdf-oracle.test.mjs
+
+
+ RUN  v5.1.0 /workspace/scratch/d77204dbc71b/work9/baseline/work
+
+
+ Test Files  68 passed (68)
+      Tests  573 passed (573)
+   Start at  06:07:19
+   Duration  23.03s (tests 42%, environment 38%, import 15%, transform 4%)
+
+    Isolate  68 workers spawned · ~1.14s startup each (spawn + environment, per file)
+             at least ~8.55s faster with isolate: false — reuses workers across files instead of one per file
+
+✔ PF-R4-06 sign removal never passes as the same quantity (0.992999ms)
+✔ PF-R4-06 raw fallback cannot pass reversed blocks or reuse the same occurrence (0.220697ms)
+✔ PF-R4-06 unsupported glyph omission requires an explicit caller decision (0.212304ms)
+✔ PF-R4-06 prosa and cells around math/images are included in the oracle (107.398149ms)
+✔ deployment rejects old/missing versions and page errors even when all formulas render (0.788407ms)
+✔ performance runner fails after pagination, PDF, or console errors (0.193937ms)
+✔ cross-browser success requires every supported engine and matching document digests (0.370818ms)
+✔ local Pages simulator rejects malformed paths and sibling-directory traversal, then remains usable (42.251524ms)
+✔ deployment preflight rejects stale sources, alternate output bytes and QA builds of the same version (81.447071ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 849.892629
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> paperforma@3.0.0-rc.8 test:acceptance
+> node --test tests/scripts/release-acceptance.test.mjs
+
+▶ one synthetic release, real files and processes, mutation rejection
+  ✔ all sixteen complete synthetic controls yield exit 0 (1445.054492ms)
+  ✔ median mutation rejects promotion even with coherent byte hashes (1054.881631ms)
+  ✔ p95 mutation rejects, but one slow sample alone does not (2526.084893ms)
+  ✔ one modified production byte rejects before any receipt (62.272482ms)
+  ✔ operator mutation at constant formula count fails independent HTML oracle (518.368097ms)
+  ✔ missing receipt rejects promotion (1427.981635ms)
+  ✔ old run ID rejects otherwise identical receipt (1361.85346ms)
+  ✔ short cohort rejects promotion (1082.962142ms)
+  ✔ changed immutable browser driver or procedure rejects before any receipt (165.556867ms)
+  ✔ forged driver identity and dropped failed block reject even after rebinding evidence (6618.064074ms)
+  ✔ native-save BLOCKED blocks production (1401.320752ms)
+  ✔ failed check, altered evidence and missing observations each reject (1257.370636ms)
+✔ one synthetic release, real files and processes, mutation rejection (23282.223145ms)
+✔ wrong AB order, missing warmup, or mismatched same-count formula oracle cannot pass (1.885358ms)
+✔ each flow requires ten consecutive four-pair blocks with paired, equivalent warmups (9.681998ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23520.00269
+
+ RUN  v5.1.0 /workspace/scratch/d77204dbc71b/work9/baseline/work
+
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  06:08:07
+   Duration  1.24s (environment 83%, transform 8%, tests 8%, import 1%)
+
+
+ RUN  v5.1.0 /workspace/scratch/d77204dbc71b/work9/baseline/work
+
+
+ Test Files  1 passed (1)
+      Tests  6 passed (6)
+   Start at  06:08:08
+   Duration  5.76s (tests 69%, transform 14%, environment 12%, import 6%)
+

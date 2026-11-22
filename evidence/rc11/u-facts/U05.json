@@ -1,0 +1,24 @@
+{
+  "observations": [
+    "book-headings-on-1",
+    "book-long-table-off-1",
+    "book-original-default-1",
+    "book-paragraphs-off-1",
+    "book-paragraphs-on-1",
+    "book-single-paragraph-off-1",
+    "offline-navigation-1",
+    "trig-new"
+  ],
+  "files": {
+    "navigation": "evidence/rc11/offline/navigation.json",
+    "trig": "evidence/rc11/browser/results/trigonometry-downloads.json",
+    "privateHtml": "evidence/rc11/book/original-default.json",
+    "html": {
+      "headings-on": "examples/rc11/book/headings-on/dokumen.html",
+      "long-table-off": "examples/rc11/book/long-table-off/dokumen.html",
+      "paragraphs-off": "examples/rc11/book/paragraphs-off/dokumen.html",
+      "paragraphs-on": "examples/rc11/book/paragraphs-on/dokumen.html",
+      "single-paragraph-off": "examples/rc11/book/single-paragraph-off/dokumen.html"
+    }
+  }
+}

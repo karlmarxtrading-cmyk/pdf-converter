@@ -1,0 +1,53 @@
++ ["node", "--input-type=module", "-e", "import {identity} from './scripts/acceptance.mjs';console.log(JSON.stringify(identity(process.cwd())))"]
++ ["node", "--input-type=module", "-e", "import {requirements} from './scripts/acceptance-policy.mjs';console.log(JSON.stringify(requirements))"]
++ ["node", "scripts/acceptance.mjs", "observe", "trig-new", "--out", "examples/rc12/html", "--out", "evidence/rc12/browser/results/trigonometry-downloads.json", "--out", "evidence/rc12/browser/results/oracle.json", "--out", "evidence/rc12/browser/results/browser-capture.json", "--", "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "evidence/rc12/browser/verify-trig.py"]
++ ["node", "scripts/acceptance.mjs", "observe", "integrity-new", "--out", "evidence/rc12/integrity/acceptance.json", "--out", "evidence/rc12/integrity/final-bytes.json", "--", "node", "node_modules/vitest/vitest.mjs", "run", "tests/unit/render/rc8-source-integrity.test.ts", "tests/unit/render/rc8-final-bytes.test.ts"]
++ ["node", "scripts/acceptance.mjs", "observe", "aggregate-new", "--out", "evidence/rc12/aggregate-tests/results.json", "--out", "evidence/rc12/aggregate-tests/test.log", "--", "node", "scripts/acceptance-selfcheck.mjs"]
+Measuring trig-new; command log: evidence/rc12/acceptance/observations/trig-new.log
+Measuring integrity-new; command log: evidence/rc12/acceptance/observations/integrity-new.log
+Measuring aggregate-new; command log: evidence/rc12/acceptance/observations/aggregate-new.log
++ ["node", "scripts/acceptance.mjs", "observe", "wrapper-new", "--out", "evidence/rc12/wrappers/wrapper-final.json", "--out", "evidence/rc12/wrappers/compatibility-final.json", "--out", "evidence/rc12/wrappers/mixed-wrappers-clipboard.html", "--out", "evidence/rc12/wrappers/mixed-wrappers-raw.html", "--out", "evidence/rc12/wrappers/wrapper-downloads.json", "--", "bash", "-c", "node node_modules/vitest/vitest.mjs run tests/unit/core/rc8-mixed-wrappers.test.ts tests/unit/core/rc8-compat-corpus.test.ts tests/unit/core/wrapper-clipboard.test.ts --reporter=dot && node tests/e2e/rc8-wrapper-download.mjs"]
+Measuring wrapper-new; command log: evidence/rc12/acceptance/observations/wrapper-new.log
++ ["node", "scripts/acceptance.mjs", "observe", "pdf-new", "--out", "evidence/rc12/pdf/coverage.json", "--out", "evidence/rc12/pdf/physical-verification.json", "--out", "evidence/rc12/pdf/portrait-landscape.json", "--out", "evidence/rc12/pdf/results.json", "--out", "evidence/rc12/pdf/diagnostics", "--out", "examples/rc12/pdf", "--", "node", "tests/e2e/rc8-pdf.mjs"]
+Measuring pdf-new; command log: evidence/rc12/acceptance/observations/pdf-new.log
++ ["node", "scripts/acceptance.mjs", "record", "G03", "PASS", "evidence/rc12/acceptance/facts/G03.json"]
+{"id":"G03","status":"PASS","facts":"evidence/rc12/acceptance/facts/G03.json","observations":["trig-new"]}
++ ["node", "scripts/acceptance.mjs", "record", "G04", "PASS", "evidence/rc12/acceptance/facts/G04.json"]
+{"id":"G04","status":"PASS","facts":"evidence/rc12/acceptance/facts/G04.json","observations":["wrapper-new"]}
++ ["node", "scripts/acceptance.mjs", "record", "G05", "PASS", "evidence/rc12/acceptance/facts/G05.json"]
+{"id":"G05","status":"PASS","facts":"evidence/rc12/acceptance/facts/G05.json","observations":["integrity-new"]}
++ ["node", "scripts/acceptance.mjs", "record", "G06", "PASS", "evidence/rc12/acceptance/facts/G06.json"]
+{"id":"G06","status":"PASS","facts":"evidence/rc12/acceptance/facts/G06.json","observations":["integrity-new"]}
+Observation is not eligible: pdf-new
++ ["node", "scripts/acceptance.mjs", "record", "G07", "FAIL", "--reason", "Candidate observation pdf-new did not satisfy G07: Observation is not eligible: pdf-new"]
+{"id":"G07","status":"FAIL","reason":"Candidate observation pdf-new did not satisfy G07: Observation is not eligible: pdf-new"}
+Observation is not eligible: pdf-new
++ ["node", "scripts/acceptance.mjs", "record", "G08", "FAIL", "--reason", "Candidate observation pdf-new did not satisfy G08: Observation is not eligible: pdf-new"]
+{"id":"G08","status":"FAIL","reason":"Candidate observation pdf-new did not satisfy G08: Observation is not eligible: pdf-new"}
++ ["node", "scripts/acceptance.mjs", "record", "G11", "PASS", "evidence/rc12/acceptance/facts/G11.json"]
+{"id":"G11","status":"PASS","facts":"evidence/rc12/acceptance/facts/G11.json","observations":["aggregate-new"]}
+{
+  "source": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+  "runId": "430401b2-82d5-4567-b002-14fd98349aca",
+  "gates": {
+    "G03": "PASS",
+    "G04": "PASS",
+    "G05": "PASS",
+    "G06": "PASS",
+    "G07": "FAIL",
+    "G08": "FAIL",
+    "G11": "PASS"
+  },
+  "observationExitCodes": {
+    "integrity-new": 0,
+    "trig-new": 0,
+    "aggregate-new": 0,
+    "wrapper-new": 0,
+    "pdf-new": 1
+  },
+  "supplementaryPDF": {
+    "pdf-dialogue-new": "NOT_RUN",
+    "pdf-mixed-new": "NOT_RUN",
+    "pdf-reference-new": "NOT_RUN"
+  }
+}

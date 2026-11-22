@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "rawHTML": "<h1>Daftar Uji</h1><ol reversed start=\"7\"><li>Urutan-A</li><li value=\"4\">Urutan-B</li><li>Urutan-C<ol reversed><li>Nested-D</li><li>Nested-E</li></ol></li></ol>",
+  "rawHash": "6d8066e726a3ad0a2c2a64aa70fb7d56831b723473cacbae38bd032bc2870756",
+  "method": "Real Ctrl+C/Ctrl+V through the production studio. Physical markers from Chromium rendering of the accepted preview list.",
+  "pdfSha256": "35995241d8f6a56ab2615e9343fe775e922769a276f8b4f55a2483af2e09800b",
+  "markers": "Daftar Uji\n 7. Urutan-A\n 4. Urutan-B\n 3. Urutan-C\n       2. Nested-D\n       1. Nested-E",
+  "identity": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.9",
+    "profile": "production",
+    "candidateSha256": "37277f20b922b1a6a9f734b0d69e96a61a8298a6d71aad24a86fd53731178bc9",
+    "distTreeSha256": "876bae95926bce4b4730864c66598f4192cf64c36c0ab02214dd9c3693656b0a",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  }
+}

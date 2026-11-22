@@ -132,3 +132,33 @@ describe('baris tabel terbelah antarhalaman (WebKit)', () => {
     expect(compareInventory(e, inv(T('<tr data-pf-row="0"><td>A panjang</td></tr>'))).find((x) => x.field === 'tableRows')?.kind).toBe('truncated');
   });
 });
+
+describe('RC7-PAGE-01 code at the A5 page boundary', () => {
+  const pre = '<pre class="pf-code pf-lines" data-block-id="b" data-pf-code-id="c1"';
+  const rows = '<code><span class="pf-line" data-pf-code-line="0">a:</span><span class="pf-line" data-pf-code-line="1"></span><span class="pf-line" data-pf-code-line="2">  run()</span></code>';
+  const source = inv(pre + '>' + rows + '</pre>');
+  const opening = pre + ' data-ref="r" data-split-to="r"></pre>';
+  const continuation = pre + ' data-ref="r" data-split-from="r">' + rows + '</pre>';
+  const diffs = (a: string, b: string) => compareInventory(source, inv(a,b));
+
+  it('matches an empty opening fragment with its numbered continuation', () => {
+    expect(diffs(opening, continuation)).toEqual([]);
+  });
+  it.each([
+    ['missing all lines', ''],
+    ['deleted line', continuation.replace(/<span[^>]+>a:<\/span>/, '')],
+    ['deleted empty line', continuation.replace('<span class="pf-line" data-pf-code-line="1"></span>', '')],
+    ['changed indentation', continuation.replace('  run()', ' run()')],
+    ['changed code', continuation.replace('run()', 'stop()')],
+    ['unrelated split reference', continuation.replace('data-split-from="r"','data-split-from="other"')],
+  ])('rejects %s', (_name, changed) => {
+    expect(diffs(opening, changed).some(d => d.field === 'codeText')).toBe(true);
+  });
+  it('retains any text in the first fragment, including one space', () => {
+    expect(diffs(opening.replace('</pre>', ' </pre>'), continuation).some(d => d.field === 'codeText')).toBe(true);
+  });
+  it('retains an empty original code element as a distinct element', () => {
+    expect(compareInventory(inv('<p data-block-id="x"><code data-pf-code-id="c2"></code></p>'),
+      inv('<p data-block-id="x"></p>')).some(d => d.field === 'codeText')).toBe(true);
+  });
+});

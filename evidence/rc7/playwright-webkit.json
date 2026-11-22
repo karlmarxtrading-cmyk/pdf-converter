@@ -1,0 +1,40 @@
+{
+  "engine": "webkit",
+  "distTreeSha256": "9d2ce6c321ffd305614859932cb8b8fc8cdad73f4f6d5b53b46eec2ddc86d234",
+  "fixtureHash": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+  "launch": "PASS",
+  "preview": "PASS",
+  "download": "PASS",
+  "offline": "PASS",
+  "pagination": "PASS",
+  "errors": [],
+  "version": "26.5",
+  "pageErrors": [],
+  "outputBytes": 902499,
+  "outputSha256": "8cbd8758f9616e0075928698008698df57ad2e09e1141a710bdf00958b0a4476",
+  "standalone": {
+    "online": false,
+    "template": "BUS-01",
+    "count": 231,
+    "inline": 103,
+    "mathml": 231,
+    "errors": 0,
+    "tables": 5,
+    "styles": [
+      "inline-table",
+      "absolute"
+    ],
+    "fontsLoaded": 10,
+    "fonts": 10,
+    "displayBoxes": 231,
+    "missingAnchors": 0,
+    "differences": []
+  },
+  "externalOrFileRequests": 0,
+  "layoutUI": "Revision 3 · 16 pages · 2 passes",
+  "pages": 16,
+  "pagedFormulaCount": 234,
+  "pagedOriginalFormulas": 231,
+  "pagedRepeatedFormulas": 3,
+  "pagedMismatchIndices": []
+}

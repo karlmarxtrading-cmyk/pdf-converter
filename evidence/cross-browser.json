@@ -1,0 +1,83 @@
+{
+  "tool": "tests/e2e/cross-browser.mjs",
+  "candidateSha256": "fed74962c5c0f7df7a478e91e30bf53111c7db458009b06ac955e03b5b6b5f5b",
+  "distQaTreeSha256": "8a4e31dac0fb0afa48b099cd1e48a984bc1ffdb0d683839298fdf636f1662e3f",
+  "at": "2026-11-21T19:53:12.442Z",
+  "note": "Mesin otomatis di Linux headless/Xvfb. WebKitGTK bukan Safari; tidak ada perangkat fisik atau pembaca layar.",
+  "pass": false,
+  "missing": [
+    "webkit"
+  ],
+  "failed": [
+    "firefox"
+  ],
+  "renderedHtmlIdenticalAcrossEngines": null,
+  "exitCode": 1,
+  "results": [
+    {
+      "engine": "chromium",
+      "browser": "Chromium HeadlessChrome/153.0.8010.0",
+      "steps": {
+        "landing": true,
+        "studioMs": 622,
+        "preview": {
+          "engine": {
+            "mode": "worker",
+            "started": 3,
+            "completed": 2,
+            "staleDropped": 0,
+            "cancelled": 1,
+            "timeouts": 0,
+            "errors": 0,
+            "respawns": 0,
+            "lastMs": 348,
+            "lastPhase": "references"
+          },
+          "integrityErrors": [],
+          "reports": {
+            "html": "review",
+            "print": "unchecked"
+          },
+          "liveHasEnd": true
+        },
+        "digest": {
+          "length": 51579,
+          "sha256": "4de52251b103e67ed7b657a63e86f5394f07e252ba54a3718ba05b7bff802a2b"
+        },
+        "layout": {
+          "status": "done",
+          "pages": 12,
+          "verification": {
+            "status": "pass",
+            "inventory": 0,
+            "structure": 0
+          },
+          "blocking": [],
+          "ms": 1830
+        },
+        "large": {
+          "status": "done",
+          "pages": 86,
+          "verification": "pass",
+          "ms": 4880
+        },
+        "storage": {
+          "idb": true,
+          "save": "off",
+          "worker": true
+        }
+      },
+      "errors": [],
+      "status": "pass"
+    },
+    {
+      "engine": "firefox",
+      "status": "fail",
+      "error": "ProtocolError: browsingContext.create timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.\n    at <instance_members_initializer> (file:///workspace/scratch/d77204dbc71b/rc7/node_modules/puppeteer-core/lib/puppeteer/common/CallbackRegistry.js:108:14)\n    at new Callback (file:///workspace/scratch/d77204dbc71b/rc7/node_modules/puppeteer-core/lib/puppeteer/common/CallbackRegistry.js:112:16)\n    at CallbackRegistry.create (file:///workspace/scratch/d77204dbc71b/rc7/node_modules/puppeteer-core/lib/puppeteer/common/CallbackRegistry.js:27:26)\n    a"
+    },
+    {
+      "engine": "webkit",
+      "status": "not-available"
+    }
+  ]
+}

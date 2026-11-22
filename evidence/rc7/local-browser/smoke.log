@@ -1,0 +1,23 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> paperforma@3.0.0-rc.7 test:smoke
+> node tests/e2e/static-smoke.mjs
+
+file:///workspace/scratch/d77204dbc71b/rc7/node_modules/@puppeteer/browsers/lib/launch.js:346
+                reject(new Error([
+                       ^
+
+Error: Failed to launch the browser process:  Code: null
+
+stderr:
+/usr/bin/chromium: 9: [: 5225713664: unexpected operator
+[31:31:1122/023947.739960:FATAL:chrome/browser/process_singleton_posix.cc:297] Check failed: . socket() failed: Operation not permitted (1)
+[1122/023947.740229:ERROR:third_party/crashpad/crashpad/util/linux/scoped_ptrace_attach.cc:27] ptrace: Operation not permitted (1)
+
+TROUBLESHOOTING: https://pptr.dev/troubleshooting
+
+    at ChildProcess.onClose (file:///workspace/scratch/d77204dbc71b/rc7/node_modules/@puppeteer/browsers/lib/launch.js:346:24)
+    at ChildProcess.emit (node:events:526:24)
+    at ChildProcess._handle.onexit (node:internal/child_process:324:12)
+
+Node.js v24.22.3

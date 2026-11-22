@@ -1,0 +1,59 @@
+{
+  "dateUtc": "2026-11-22T11:03:12.331146+00:00",
+  "reference": {
+    "name": "PAPERFORMA_STATIC_3.0.0-rc.6_AUDITED.zip",
+    "zipBytes": 7409784,
+    "zipSha256": "82e6d021c1b042a498440c0ce8957c035eb011f4c1b1fe8c16a450697a52be53",
+    "internalManifestSha256": "15bd97840f61ace84e2d51be28932bf05b02ae45a48b7dac22f0558ad52b3c79",
+    "internalManifestEntries": 550,
+    "internalManifestExit": 0,
+    "productionManifest": {
+      "app": "paperforma",
+      "version": "3.0.0-rc.6",
+      "profile": "production",
+      "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+      "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+      "node": "v24.22.3",
+      "engines": {
+        "node": "24.22.3",
+        "npm": ">=11.6.0 <12"
+      }
+    },
+    "actualTreeHashes": {
+      "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+      "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9"
+    },
+    "lockfileSha256": "67c081be8c3588272bcf5d3a7381c3a9903325e3950dd152bcce5ce67791a5ce",
+    "installedUsing": "npm ci --include=dev --no-audit --no-fund"
+  },
+  "protocol": {
+    "path": "tests/bench/performance-protocol.json",
+    "sha256": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e",
+    "officialDriverSha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+    "officialProcedureSha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f"
+  },
+  "prior": {
+    "RC10source": "774465b21054bfd933b869ea7232d3d59ff8e1fa0422a8d83b18208b08b6abd6",
+    "src": "RC10 evidence/rc10/performance/node-2.json",
+    "cohort2SmallEditPrint": {
+      "rc6": {
+        "n": 40,
+        "min": 5.205928000039421,
+        "median": 5.768351000006078,
+        "p95": 8.266957000014372,
+        "max": 9.81289800000377
+      },
+      "candidate": {
+        "n": 40,
+        "min": 3.2903819999773987,
+        "median": 4.1486265000130516,
+        "p95": 9.93249099998502,
+        "max": 26.350353999994695
+      },
+      "medianRatio": 0.7192049339592338,
+      "p95Ratio": 1.2014688113132501,
+      "ok": false
+    },
+    "notes": "RC10 failed threshold in three slow samples, without a demonstrated single-cause attribution. RC11 avoids recomputing cryptographic hashes and embedded base64 for unchanged validated WOFF2 bytes; unit tests include a mutable-source negative control."
+  }
+}

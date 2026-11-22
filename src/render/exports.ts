@@ -9,8 +9,10 @@ import fontNotices from '../../public/licenses/FONT_NOTICES.txt?raw';
 import type { ExportManifest, Issue, RenderedBody, Snapshot } from '../core/contracts';
 import { APP_VERSION } from '../core/contracts';
 import { LIMITS } from '../core/limits';
-import { checkRenderIntegrity } from '../core/integrity';
+import { finalArticleMatches, sourceCheck, type FinalArticleInput } from './final-integrity';
+import type { IntegrityReport } from '../core/integrity';
 import { verdictOf, dedupeIssues, type Verdict } from '../core/verdict';
+import { hasKatexLayout } from './katex-style';
 import { composeDocument, prepareBody, type PreparedBody } from './document';
 import { fontFaceCss, fontManifest, loadFonts, planFonts, type FontManifestEntry, type FontSource, type LoadedFont } from './fonts';
 import { dataUrlToBytes, escapeHtml, extOf, nowIso, sha256Hex, utf8 } from './util';
@@ -87,9 +89,9 @@ const snapPick = (s: Snapshot): ExportManifest['snapshot'] => ({
  * byte tersedia, tetapi UI wajib meminta keputusan eksplisit atas daftar spesifik itu sebelum mengunduh.
  */
 export const REQUIRED_CHECKS: Record<HtmlProfile, string[]> = {
-  standalone: ['no-scripts', 'no-network-resources', 'fonts-embedded', 'size-budget', 'integrity'],
-  zip: ['no-scripts', 'no-network-resources', 'relative-files', 'fonts-packaged', 'integrity'],
-  publication: ['no-scripts', 'no-network-resources', 'relative-files', 'fonts-packaged', 'integrity'],
+  standalone: ['no-scripts', 'no-network-resources', 'fonts-embedded', 'katex-layout', 'size-budget', 'integrity'],
+  zip: ['no-scripts', 'no-network-resources', 'relative-files', 'fonts-packaged', 'katex-layout', 'integrity'],
+  publication: ['no-scripts', 'no-network-resources', 'relative-files', 'fonts-packaged', 'katex-layout', 'integrity'],
 };
 export const REVIEW_CHECKS = ['internal-anchors', 'glyph-coverage'];
 
@@ -130,13 +132,29 @@ const ENHANCEMENT_CSS = `.pf-code-tools{display:flex;justify-content:flex-end;ma
 async function defaultFontSource(): Promise<FontSource> { return (await import('./font-assets')).browserFontSource; }
 
 /** Pemeriksaan statis keluaran: skrip, rujukan jaringan, anchor internal. */
-export function staticChecks(html: string, opts: { scriptsAllowed: boolean; networkAllowed: boolean; otherFiles?: Set<string>; cssFiles?: string[] }): RenderManifest['checks'] {
+export function staticChecks(html: string, opts: { scriptsAllowed: boolean; networkAllowed: boolean; otherFiles?: Set<string>; cssFiles?: string[]; expectedArticle?: FinalArticleInput; sourceMath?: boolean; fontCss?: string }): RenderManifest['checks'] {
   // Template contents have an inert owner document, including when an invalid
   // resource reference is inspected. Inspect attributes after HTML decoding.
   const template = document.createElement('template');
-  template.innerHTML = html;
-  const elements = [...template.content.querySelectorAll('*')];
+  // A standalone face sheet contains hundreds of kilobytes of base64. Assigning
+  // the exact raw-text payload to its parsed style element avoids tokenizing each
+  // byte as HTML. All checks below inspect the complete restored stylesheet.
+  const css = opts.fontCss;
+  const marker = '__pf_embedded_font_sheet__';
+  const startTag = '<style data-pf="fonts">';
+  const start = css && css.length > 4096 && !/[<\r\0]/.test(css) && !html.includes(marker)
+    ? html.indexOf(startTag + css + '</style>') : -1;
+  if (start >= 0 && css) {
+    const content = start + startTag.length;
+    template.innerHTML = html.slice(0, content) + marker + html.slice(content + css.length);
+    const style = template.content.querySelector('style[data-pf="fonts"]');
+    if (style?.textContent === marker) style.textContent = css;
+    else template.innerHTML = html;
+  } else template.innerHTML = html;
+  const elements = template.content.querySelectorAll('*');
   const ids = new Set<string>(), targets: string[] = [], missing: string[] = [];
+  let layoutCss = false;
+  let linkedDocumentCss = false;
   let duplicateIds = 0, forbiddenScript = 0, forbiddenResource = 0, enhancements = 0;
   const cssLoads = (css: string) => {
     // Styles consist of renderer-generated declarations, including packaged local fonts.
@@ -151,7 +169,12 @@ export function staticChecks(html: string, opts: { scriptsAllowed: boolean; netw
       if (valid) enhancements++; else forbiddenScript++;
     }
     if (['iframe','object','embed','base'].includes(tag) || (tag === 'meta' && node.getAttribute('http-equiv')?.toLowerCase() === 'refresh')) forbiddenResource++;
-    if (tag === 'style') cssLoads(node.textContent ?? '');
+    if (tag === 'style') {
+      const css = node.textContent ?? '';
+      cssLoads(css);
+      if (node.hasAttribute('data-pf') && node.getAttribute('data-pf') !== 'fonts' && hasKatexLayout(css)) layoutCss = true;
+    }
+    if (tag === 'link' && node.getAttribute('rel') === 'stylesheet' && node.getAttribute('href') === 'assets/document.css') linkedDocumentCss = true;
     for (const attr of node.attributes) {
       const key = attr.name.toLowerCase(), value = attr.value.trim();
       if (key.startsWith('on')) forbiddenScript++;
@@ -164,6 +187,8 @@ export function staticChecks(html: string, opts: { scriptsAllowed: boolean; netw
         } else if (/^[a-z][a-z0-9+.-]*:/i.test(value) && !/^(https?:|mailto:|tel:)/i.test(value)) forbiddenResource++;
         continue;
       }
+      const diagramImage = tag === 'image' && !!node.closest('figure.pf-mermaid-ok svg') && (key === 'href' || key === 'xlink:href');
+      if (diagramImage && (/^data:image\/(png|jpeg|gif|webp);base64,/i.test(value) || (opts.networkAllowed && /^https:\/\//i.test(value)))) continue;
       if (value.startsWith('#') || (/^data:image\/(?:png|jpeg|gif|webp|svg\+xml);base64,/i.test(value) && tag === 'img')) continue;
       if (opts.otherFiles?.has(value)) continue;
       if (opts.networkAllowed && tag === 'img' && key === 'src' && /^https:\/\//i.test(value)) continue;
@@ -172,25 +197,38 @@ export function staticChecks(html: string, opts: { scriptsAllowed: boolean; netw
     }
   }
   for (const text of opts.cssFiles ?? []) cssLoads(text);
+  const hasMath = opts.sourceMath ?? !!template.content.querySelector('.katex');
+  if (hasMath && linkedDocumentCss && opts.otherFiles?.has('assets/document.css')) layoutCss ||= (opts.cssFiles ?? []).some(hasKatexLayout);
   const broken = targets.filter(id => id && !ids.has(id));
   const checks: RenderManifest['checks'] = [
+    { name: 'katex-layout', status: !hasMath || layoutCss ? 'pass' : 'fail', detail: !hasMath ? 'no rendered math' : layoutCss ? 'KaTeX layout verified' : 'KaTeX layout missing or incomplete' },
     { name: 'no-scripts', status: forbiddenScript ? 'fail' : 'pass', detail: String(forbiddenScript) },
     { name: 'no-network-resources', status: forbiddenResource ? 'fail' : 'pass', detail: String(forbiddenResource) },
     { name: 'internal-anchors', status: broken.length || duplicateIds ? 'fail' : 'pass', detail: `${targets.length} links, ${broken.length} broken, ${duplicateIds} duplicate` },
   ];
+  if (opts.expectedArticle) {
+    const ok = finalArticleMatches(template.content, opts.expectedArticle);
+    checks.push({name:'integrity', status:ok ? 'pass':'fail', detail:ok ? 'Final article, formula representations and generated labels match.' : 'Final article differs from the source-checked document.'});
+  }
+  if (opts.fontCss !== undefined) {
+    const actual = template.content.querySelector('style[data-pf="fonts"]')?.textContent ?? '';
+    checks.push({name:'fonts-embedded',status:actual === opts.fontCss ? 'pass':'fail',detail:'Final font-face declarations and embedded bytes.'});
+  }
   if (opts.otherFiles) checks.push({ name: 'relative-files', status: missing.length ? 'fail' : 'pass', detail: String(missing.length) });
   return checks;
 }
 
-interface Prepared { prepared: PreparedBody; fonts: LoadedFont[]; issues: Issue[]; integrityOk: boolean }
+interface Prepared { prepared: PreparedBody; fonts: LoadedFont[]; issues: Issue[]; integrityOk: boolean; model:Awaited<ReturnType<typeof sourceCheck>> }
 async function prepareAll(req: HtmlExportRequest, allowExternal: boolean, signal?: AbortSignal): Promise<Prepared> {
   const hasDom = typeof window !== 'undefined' && typeof document !== 'undefined' && !(globalThis as { process?: unknown }).process;
-  const prepared = await prepareBody(req.snapshot, req.body, { mode: 'screen', renderMermaid: req.renderMermaid ?? hasDom, allowExternalImages: allowExternal });
-  const plan = planFonts({ html: prepared.html, settings: req.snapshot.settings, mode: 'screen', headingFont: req.snapshot.brandKit?.headingFont, brandKit: req.snapshot.brandKit });
+  const model = await sourceCheck(req.snapshot,req.body);
+  let integrity: IntegrityReport | undefined;
+  const prepared = await prepareBody(req.snapshot, req.body, { mode: 'screen', signal, verifyInput: root => { integrity = model.check(root); }, renderMermaid: req.renderMermaid ?? hasDom, allowExternalImages: allowExternal });
+  const plan = planFonts({ html: prepared.html, fontText: prepared.fontText, settings: req.snapshot.settings, mode: 'screen', headingFont: req.snapshot.brandKit?.headingFont, brandKit: req.snapshot.brandKit });
   const { fonts, issues: fIssues } = await loadFonts(plan, req.fontSource ?? (await defaultFontSource()), { signal, timeoutMs: req.fontTimeoutMs });
   // EN-012/QA-01: SEMUA issue mesin diteruskan (termasuk lingkup input yang memblokir), lalu integritas diperiksa ulang.
-  const integrity = checkRenderIntegrity(req.snapshot.source, req.body, { conversation: req.snapshot.conversation });
-  return { prepared, fonts, issues: dedupeIssues([...req.body.issues, ...integrity.issues, ...prepared.issues, ...plan.issues, ...fIssues]), integrityOk: integrity.ok };
+  if (!integrity) throw new Error('Source integrity check did not run');
+  return { prepared, fonts, model, issues: dedupeIssues([...req.body.issues, ...integrity.issues, ...prepared.issues, ...plan.issues, ...fIssues]), integrityOk: integrity.ok };
 }
 
 const baseName = (s: Snapshot) => (s.settings.title || 'dokumen').normalize('NFKD').replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-').slice(0, 60).toLowerCase() || 'dokumen';
@@ -215,7 +253,8 @@ export async function exportHtml(req: HtmlExportRequest): Promise<HtmlExportResu
     const p = await prepareAll(req, online, signal); check();
     const built = req.profile === 'standalone' ? await buildStandalone(req, p) : await buildFolder(req, p, online);
     check();
-    built.manifest.checks.push({ name: 'integrity', status: p.integrityOk ? 'pass' : 'fail', detail: p.integrityOk ? 'sumber → keluaran utuh' : 'isi berubah' });
+    const finalIntegrity = built.manifest.checks.find(check => check.name === 'integrity')!;
+    if (!p.integrityOk) { finalIntegrity.status = 'fail'; finalIntegrity.detail = 'Isi berbeda dari sumber.'; }
     const required = REQUIRED_CHECKS[req.profile];
     const failed = built.manifest.checks.filter((c) => required.includes(c.name) && c.status !== 'pass');
     const verdict = verdictOf(built.issues);
@@ -228,11 +267,14 @@ export async function exportHtml(req: HtmlExportRequest): Promise<HtmlExportResu
 
 type Built = Omit<HtmlExportResult, 'status' | 'verdict' | 'reviewChecks'>;
 async function buildStandalone(req: HtmlExportRequest, p: Prepared): Promise<Built> {
-  const doc = await composeDocument(req.snapshot, { mode: 'screen', prepared: p.prepared, fontCss: fontFaceCss(p.fonts, 'data'), adaptive: true, csp: STANDALONE_CSP,
+  const embedded = fontFaceCss(p.fonts,'data');
+  const doc = await composeDocument(req.snapshot, { mode: 'screen', sourceMath:p.model.hasMath, prepared: p.prepared, fontCss: embedded, adaptive: true, csp: STANDALONE_CSP,
     extraHead: `<meta name="paperforma-font-notices" content="${escapeHtml(fontNotices)}">` });
   const bytes = utf8(doc.html);
-  const checks = staticChecks(doc.html, { scriptsAllowed: false, networkAllowed: false });
-  checks.push({ name: 'fonts-embedded', status: p.fonts.length && !p.issues.some((i) => i.code === 'FONT_LOAD_FAILED') ? 'pass' : 'fail', detail: `${p.fonts.length} subset tersemat` });
+  const checks = staticChecks(doc.html, { scriptsAllowed: false, networkAllowed: false, sourceMath:p.model.hasMath, fontCss:embedded, expectedArticle:{...p.model,articleInner:doc.articleInner} });
+  const embeddedCheck = checks.find(check => check.name === 'fonts-embedded')!;
+  if (!p.fonts.length || p.issues.some(i => i.code === 'FONT_LOAD_FAILED')) embeddedCheck.status = 'fail';
+  embeddedCheck.detail = `${p.fonts.length} subset tersemat`;
   checks.push({ name: 'glyph-coverage', status: p.issues.some((i) => i.code === 'FONT_GLYPH_NOT_BUNDLED') ? 'warn' : 'pass' });
   const budget = (req.limits ?? LIMITS).standaloneHtmlBytes;
   checks.push({ name: 'size-budget', status: bytes.length <= budget ? 'pass' : 'fail', detail: `${bytes.length} / ${budget} B` });
@@ -269,14 +311,15 @@ async function buildFolder(req: HtmlExportRequest, p: Prepared, online: boolean)
     `<meta name="pf-profile" content="publication-${online ? 'online' : 'offline'}${script ? '+enhancement-script' : ''}">`,
     script ? `<script src="assets/enhance.js" defer data-pf-enhancement="copy-code"></script>` : '',
   ].filter(Boolean).join('\n') : `<meta name="pf-profile" content="zip-offline">`;
-  const doc = await composeDocument(req.snapshot, { mode: 'screen', prepared: p.prepared, fontCss: '', adaptive: true, csp: zipCsp(online, script), extraHead: seo + '\n<link rel="license" href="licenses/FONT_NOTICES.txt">', stylesheetHref: 'assets/document.css', fontStylesheetHref: 'assets/fonts.css' });
+  const doc = await composeDocument(req.snapshot, { mode: 'screen', sourceMath:p.model.hasMath, prepared: p.prepared, fontCss: '', adaptive: true, csp: zipCsp(online, script), extraHead: seo + '\n<link rel="license" href="licenses/FONT_NOTICES.txt">', stylesheetHref: 'assets/document.css', fontStylesheetHref: 'assets/fonts.css' });
   files.set('assets/fonts.css', utf8(fontFaceCss(p.fonts, 'relative', 'fonts/')));
-  files.set('assets/document.css', utf8(doc.styles.join('\n') + (script ? `\n${ENHANCEMENT_CSS}` : '')));
+  const documentCss = doc.styles.join('\n') + (script ? `\n${ENHANCEMENT_CSS}` : '');
+  files.set('assets/document.css', utf8(documentCss));
   if (script) files.set('assets/enhance.js', utf8(ENHANCEMENT_JS));
   const index = await externalizeImages(doc.html, files);
   files.set('index.html', utf8(index));
   const fileList = await Promise.all([...files.entries()].sort(([a], [b]) => a.localeCompare(b)).map(async ([path, b]) => ({ path, bytes: b.length, sha256: await sha256Hex(b) })));
-  const checks = staticChecks(index, { scriptsAllowed: script, networkAllowed: online, otherFiles: new Set(files.keys()), cssFiles: doc.styles });
+  const checks = staticChecks(index, { scriptsAllowed: script, networkAllowed: online, otherFiles: new Set(files.keys()), cssFiles: [documentCss], sourceMath:p.model.hasMath, expectedArticle:{...p.model,articleInner:await externalizeImages(doc.articleInner, files)} });
   checks.push({ name: 'fonts-packaged', status: p.fonts.length && !p.issues.some((i) => i.code === 'FONT_LOAD_FAILED') ? 'pass' : 'fail', detail: `${p.fonts.length} subset` });
   checks.push({ name: 'glyph-coverage', status: p.issues.some((i) => i.code === 'FONT_GLYPH_NOT_BUNDLED') ? 'warn' : 'pass' });
   const fileManifest = {

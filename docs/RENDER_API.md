@@ -37,7 +37,7 @@ const r = await exportHtml({ snapshot, body, profile: 'standalone' | 'zip' | 'pu
 ```
 - **Validator hasil akhir (QA-01)**: `REQUIRED_CHECKS[profile]` harus `pass` (standalone: `no-scripts`, `no-network-resources`,
   `fonts-embedded`, `size-budget`, `integrity`; zip/publication: `no-scripts`, `no-network-resources`, `relative-files`,
-  `fonts-packaged`, `integrity`) dan `verdictOf(issues)` tidak boleh `blocked`. `REVIEW_CHECKS` (`internal-anchors`,
+  `fonts-packaged`, `integrity`) serta `katex-layout` pada ketiga profil. `verdictOf(issues)` tidak boleh `blocked`. `REVIEW_CHECKS` (`internal-anchors`,
   `glyph-coverage`) yang gagal → `status:'confirm'`: byte ada, UI wajib meminta keputusan eksplisit sebelum mengunduh.
 - Kebijakan issue (`src/core/verdict.ts`): `block` = `blocking` atau error lingkup integrity/security; `confirm` = error lain;
   `note` = warning/info.
@@ -58,6 +58,14 @@ await session.print();          // 'returned' (afterprint teramati) | 'unknown';
 session.dispose();              // idempoten; tidak ada pembuangan berbasis timer (EN-005)
 const manifest = await localPrintManifest(session.result, settings); // hashOf:'paginated-html', pdfBytes:'not-observed'
 ```
+### Batas muatan cetak
+
+Kedua mode menerima hingga **47.185.920 byte (45 MiB)** per representasi. Pertama, PaperForma mengukur seluruh objek `PrintPayload` sebagai JSON ringkas UTF-8, termasuk escape JSON, isi artikel, setiap kemunculan gambar, CSS, font base64, metadata, daftar ID dan diagnosis. Pengiriman ke `print.html` memakai structured clone. Ukuran JSON memberi aturan yang sama untuk semua browser. Ukuran wrapper pesan, memori kerja mesin tata letak, HTML halaman hasil paginasi dan berkas PDF akhir berada di luar ukuran ini.
+
+Pada mode buku, batas yang sama juga berlaku untuk byte UTF-8 HTML akhir yang akan dimuat ke iframe dan dapat diunduh. Penghitungan mencakup wrapper HTML, gaya buku, escape CSS/atribut dan marker tambahan. Aplikasi menimbang fragmen sebelum menggabungkannya. Kedua mode menerima tepat pada batas dan menolak muatan yang melampauinya secara utuh. Penolakan awal dapat melaporkan batas bawah yang sudah cukup untuk membuktikan kelebihan ukuran. Naskah dan aset proyek tetap dapat diedit atau disimpan sebagai `.pfproj`. Setelah revisi, ekspor ulang menggunakan snapshot aktif. Persiapan yang lulus dapat membuka dialog cetak.
+
+Uji batas terarah menggunakan `npm exec -- vitest run tests/unit/render/rc11-print-budget.test.ts`. Jalankan `node tests/e2e/rc11-print-budget.mjs evidence/print-budget` untuk menguji keenam batas di Chromium lokal dengan font dan frame cetak sebenarnya. Harness membuat build uji sementara dengan akses ke modul cetak. Untuk menguji editor, jalankan `npm run build` lalu `node tests/e2e/rc11-print-budget-ui.mjs evidence/print-budget`. Skrip ini mengunggah PNG sintetis 1 × 1 piksel, menggunakannya 18 kali, memeriksa penolakan kedua mode, mengubah naskah, membatalkan persiapan buku, dan mencoba revisi terbaru melalui tombol ekspor. Kedua harness menguji persiapan, integritas sumber dan pembersihan frame.
+
 - Pesan postMessage hanya dari origin sama: `pf-print-ready`, `pf-print`, `pf-print-progress`, `pf-print-result`, `pf-print-error`.
   Kait global `pfPaginate`/`__pfPrintResult` hanya ada di build QA (`VITE_PF_QA=1`).
 - `PaginationResult` kini memuat `verification { status:'pass'|'fail'|'timeout', pages, inventory[], lostBlocks }` (EN-006).

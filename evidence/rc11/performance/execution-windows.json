@@ -1,0 +1,110 @@
+{
+  "runId": "a411c3b4-c630-4461-88ec-54810dbe1328",
+  "source": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+  "dist": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496",
+  "isolation": "Each official process ran sequentially. Other candidate heavy test jobs finished before launch. Host load is recorded with each arm.",
+  "start": "2026-11-22T11:25:53.656181+00:00",
+  "sequence": [
+    {
+      "name": "g09-node-1",
+      "started": "2026-11-22T11:25:53.656310+00:00",
+      "ended": "2026-11-22T11:31:47.020860+00:00",
+      "command": [
+        "taskset",
+        "-c",
+        "4,5",
+        "node",
+        "scripts/acceptance.mjs",
+        "observe",
+        "g09-node-1",
+        "--out",
+        "evidence/rc11/performance/node-1.json",
+        "--",
+        "node",
+        "tests/bench/performance-node.mjs",
+        "../rc6",
+        "1"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "rows": 328,
+      "sha256": "ba9d69d2f3b6ce8fe88a9989d23735b3aee5ac7a8e8f896176c9d8d6d2b06ce1"
+    },
+    {
+      "name": "g09-node-2",
+      "started": "2026-11-22T11:31:47.022685+00:00",
+      "ended": "2026-11-22T11:37:35.825002+00:00",
+      "command": [
+        "taskset",
+        "-c",
+        "6,7",
+        "node",
+        "scripts/acceptance.mjs",
+        "observe",
+        "g09-node-2",
+        "--out",
+        "evidence/rc11/performance/node-2.json",
+        "--",
+        "node",
+        "tests/bench/performance-node.mjs",
+        "../rc6",
+        "2"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "rows": 328,
+      "sha256": "f8d3107a606c1a26e5eebd0045a951f848ca11f48bd0575cadaafde72b665121"
+    },
+    {
+      "name": "g09-browser-1",
+      "started": "2026-11-22T11:37:35.825804+00:00",
+      "ended": "2026-11-22T11:48:38.247108+00:00",
+      "command": [
+        "taskset",
+        "-c",
+        "0,1",
+        "node",
+        "scripts/acceptance.mjs",
+        "observe",
+        "g09-browser-1",
+        "--out",
+        "evidence/rc11/performance/recovery-cohort-1.json",
+        "--",
+        "node",
+        "tests/bench/performance-browser-official.mjs",
+        "../rc6",
+        "1"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "rows": 300,
+      "sha256": "a0487ca7ca054e18e53392d09c782f75f3f95432a19f34a78633b3fd4e42f9d5"
+    },
+    {
+      "name": "g09-browser-2",
+      "started": "2026-11-22T11:48:38.247681+00:00",
+      "ended": "2026-11-22T11:59:45.186114+00:00",
+      "command": [
+        "taskset",
+        "-c",
+        "0,1",
+        "node",
+        "scripts/acceptance.mjs",
+        "observe",
+        "g09-browser-2",
+        "--out",
+        "evidence/rc11/performance/recovery-cohort-2.json",
+        "--",
+        "node",
+        "tests/bench/performance-browser-official.mjs",
+        "../rc6",
+        "2"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "rows": 300,
+      "sha256": "47fd7c3a4ce618e2045a8eb4863f90586674b38256fba8f0d4c1e7be6e8d203c"
+    }
+  ],
+  "end": "2026-11-22T11:59:45.423352+00:00"
+}

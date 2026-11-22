@@ -1,0 +1,53 @@
+{
+  "localResult": "PASS",
+  "target": "Disposable temporary Git repo; loopback HTTP only",
+  "runId": "cc0938e1-655c-4975-ae25-773dec283b8f",
+  "date": "2026-11-22T16:05:09.734699+00:00",
+  "events": [
+    {
+      "step": "prior-rc11",
+      "identity": {
+        "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+        "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496"
+      },
+      "localCommit": "d4438bea2856a67c7569e756db7eca7fefa1fbe0",
+      "tree": "a4b4c098f1908964d6d6bfb454eeef726634d95e",
+      "http": {
+        "paths": 188,
+        "filesCompared": 183,
+        "pass": true
+      }
+    },
+    {
+      "step": "candidate-rc12",
+      "identity": {
+        "candidateSha256": "3a3ee3e24ce43548a31386f1141638a567a59c7a161b7200de0945f0b5b62460",
+        "distTreeSha256": "1aede97a9168d8d2e4e703afc1d3f1272e3575d2eb8535f60a4ab3dfdad01e39"
+      },
+      "localCommit": "fc003b2a576271149c9a6a433a50a12aa4f7338f",
+      "tree": "b11ebbdcf5f46c2ab130176391a5ade3f9aec9a5",
+      "http": {
+        "paths": 188,
+        "filesCompared": 183,
+        "pass": true
+      }
+    },
+    {
+      "step": "restored-rc11",
+      "identity": {
+        "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+        "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496"
+      },
+      "localCommit": "2702bba277582b6836001f33c4be5376efbbb104",
+      "tree": "a4b4c098f1908964d6d6bfb454eeef726634d95e",
+      "http": {
+        "paths": 188,
+        "filesCompared": 183,
+        "pass": true
+      }
+    }
+  ],
+  "productionDeploymentId": null,
+  "cloudflareRollback": "NOT_RUN",
+  "G16": "BLOCKED"
+}

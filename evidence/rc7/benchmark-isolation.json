@@ -1,0 +1,11 @@
+{
+  "pass": true,
+  "setup": "Production dist supplied via symbolic link as input to a Chromium calibration. The harness completed with QA pages outside the original directory.",
+  "measuredRounds": 7,
+  "unchangedDist": {
+    "candidateSha256": "99b799225ac28add26bdda08cb59724a431dedd4728b4e465d6a0646dbf75f73",
+    "distTreeSha256": "9d2ce6c321ffd305614859932cb8b8fc8cdad73f4f6d5b53b46eec2ddc86d234"
+  },
+  "noPerfFolder": true,
+  "identicalHeaders": true
+}

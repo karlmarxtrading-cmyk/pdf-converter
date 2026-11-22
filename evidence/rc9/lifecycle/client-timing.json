@@ -1,0 +1,192 @@
+{
+  "build": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.9",
+    "profile": "production",
+    "candidateSha256": "37277f20b922b1a6a9f734b0d69e96a61a8298a6d71aad24a86fd53731178bc9",
+    "distTreeSha256": "876bae95926bce4b4730864c66598f4192cf64c36c0ab02214dd9c3693656b0a",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "method": "Bundled candidate print-client.ts, real browser messages and timers, controlled responders. Full Paged.js jobs and real UI cancellation are separate evidence.",
+  "rows": [
+    {
+      "kind": "no-ready",
+      "code": "FRAME_STARTUP_TIMEOUT",
+      "progress": [],
+      "elapsedMs": 502,
+      "remainingFrames": 0,
+      "pass": true
+    },
+    {
+      "kind": "repeat",
+      "code": "FRAME_STALLED",
+      "progress": [
+        {
+          "phase": "paginate",
+          "pages": 7,
+          "at": 98
+        }
+      ],
+      "elapsedMs": 499,
+      "remainingFrames": 0,
+      "pass": true
+    },
+    {
+      "kind": "total",
+      "code": "FRAME_DEADLINE",
+      "progress": [
+        {
+          "phase": "paginate",
+          "pages": 1,
+          "at": 77
+        },
+        {
+          "phase": "paginate",
+          "pages": 2,
+          "at": 142
+        },
+        {
+          "phase": "paginate",
+          "pages": 3,
+          "at": 207
+        },
+        {
+          "phase": "paginate",
+          "pages": 4,
+          "at": 272
+        },
+        {
+          "phase": "paginate",
+          "pages": 5,
+          "at": 337
+        },
+        {
+          "phase": "paginate",
+          "pages": 6,
+          "at": 402
+        },
+        {
+          "phase": "paginate",
+          "pages": 7,
+          "at": 467
+        },
+        {
+          "phase": "paginate",
+          "pages": 8,
+          "at": 532
+        },
+        {
+          "phase": "paginate",
+          "pages": 9,
+          "at": 597
+        },
+        {
+          "phase": "paginate",
+          "pages": 10,
+          "at": 662
+        },
+        {
+          "phase": "paginate",
+          "pages": 11,
+          "at": 727
+        },
+        {
+          "phase": "paginate",
+          "pages": 12,
+          "at": 792
+        },
+        {
+          "phase": "paginate",
+          "pages": 13,
+          "at": 857
+        },
+        {
+          "phase": "paginate",
+          "pages": 14,
+          "at": 922
+        }
+      ],
+      "elapsedMs": 951,
+      "remainingFrames": 0,
+      "pass": true
+    },
+    {
+      "kind": "stale",
+      "result": "official",
+      "progress": [],
+      "elapsedMs": 259,
+      "remainingFrames": 0,
+      "pass": true
+    },
+    {
+      "kind": "near",
+      "result": "official",
+      "progress": [
+        {
+          "phase": "paginate",
+          "pages": 1,
+          "at": 122
+        },
+        {
+          "phase": "paginate",
+          "pages": 2,
+          "at": 232
+        },
+        {
+          "phase": "paginate",
+          "pages": 3,
+          "at": 342
+        },
+        {
+          "phase": "paginate",
+          "pages": 4,
+          "at": 452
+        },
+        {
+          "phase": "paginate",
+          "pages": 5,
+          "at": 562
+        },
+        {
+          "phase": "paginate",
+          "pages": 6,
+          "at": 672
+        },
+        {
+          "phase": "paginate",
+          "pages": 7,
+          "at": 782
+        },
+        {
+          "phase": "paginate",
+          "pages": 8,
+          "at": 893
+        },
+        {
+          "phase": "paginate",
+          "pages": 9,
+          "at": 1002
+        },
+        {
+          "phase": "paginate",
+          "pages": 10,
+          "at": 1112
+        },
+        {
+          "phase": "paginate",
+          "pages": 11,
+          "at": 1222
+        }
+      ],
+      "elapsedMs": 1313,
+      "remainingFrames": 0,
+      "pass": true
+    }
+  ],
+  "pass": true
+}

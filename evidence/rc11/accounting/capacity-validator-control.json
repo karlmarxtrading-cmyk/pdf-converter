@@ -1,0 +1,729 @@
+{
+  "schema": 1,
+  "kind": "synthetic-positive-control-for-U06-only",
+  "runId": "a411c3b4-c630-4461-88ec-54810dbe1328",
+  "capacity": {
+    "status": "PASS",
+    "before": {
+      "candidate": {
+        "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+        "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496"
+      },
+      "qa": {
+        "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+        "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496"
+      },
+      "protocol": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e"
+    },
+    "after": {
+      "candidate": {
+        "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+        "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496"
+      },
+      "qa": {
+        "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+        "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496"
+      },
+      "protocol": "abbe39f8b456fc9d2b8f95e16f08062e38864bae6e507ac20b1ba78be01b737e"
+    },
+    "protocol": {
+      "sections": [
+        6,
+        30,
+        118
+      ],
+      "reps": 5,
+      "heapIntervalMs": 200,
+      "previewMs": 10000,
+      "reeditPreviewMs": 10000,
+      "cancelToIdleMs": 2000,
+      "maxEventLoopGapMs": 1000,
+      "printReadyMs": 60000,
+      "afterCloseRetainedDriftBytes": 8388608,
+      "firstProgressMs": 2000,
+      "maxProgressGapMs": 5000,
+      "peakDefinition": "Maximum observed Runtime.getHeapUsage.usedSize bytes on the same page target as post-GC. Native/process/worker memory excluded. Unknown remains null. Five runs support completion checks only; estimate latency tail per size on a separate 40+40 sample per-size study before advertising a percentile SLA.",
+      "capacityClaim": "Measure the historical 6,30,118-section fixtures. Their page counts depend on actual pagination. No 500/1,000-page claim."
+    },
+    "rows": [
+      {
+        "sections": 6,
+        "closedProjectHeapDriftBytes": 0,
+        "runs": [
+          {
+            "layoutWallMs": 10,
+            "progressEvents": [
+              {
+                "text": "start",
+                "ms": 5
+              }
+            ],
+            "layoutStatus": "done",
+            "errors": [],
+            "blocking": [],
+            "printSessionAfterCancel": null,
+            "pages": 2,
+            "verification": "pass",
+            "previewMs": 15,
+            "reeditPreviewMs": 20,
+            "cancelToIdleMs": 5,
+            "printReadyMs": 60,
+            "firstProgressMs": 5,
+            "maxProgressGapMs": 5,
+            "cancelOutcome": "cancelled",
+            "maxEventLoopGapMs": {
+              "preview": 10,
+              "layout": 10,
+              "reedit": 10
+            },
+            "heapSamples": [
+              {
+                "tMs": 0,
+                "bytes": 100
+              },
+              {
+                "tMs": 200,
+                "bytes": 110
+              }
+            ],
+            "maximumSampledTargetHeapBytes": 110,
+            "heapAfterGcBytes": 100,
+            "closedProjectHeapAfterGcBytes": 100,
+            "pdfBytes": 200,
+            "timestamp": "2026-11-22T11:18:49.818Z",
+            "rep": 1,
+            "sections": 6
+          },
+          {
+            "layoutWallMs": 10,
+            "progressEvents": [
+              {
+                "text": "start",
+                "ms": 5
+              }
+            ],
+            "layoutStatus": "done",
+            "errors": [],
+            "blocking": [],
+            "printSessionAfterCancel": null,
+            "pages": 2,
+            "verification": "pass",
+            "previewMs": 15,
+            "reeditPreviewMs": 20,
+            "cancelToIdleMs": 5,
+            "printReadyMs": 60,
+            "firstProgressMs": 5,
+            "maxProgressGapMs": 5,
+            "cancelOutcome": "cancelled",
+            "maxEventLoopGapMs": {
+              "preview": 10,
+              "layout": 10,
+              "reedit": 10
+            },
+            "heapSamples": [
+              {
+                "tMs": 0,
+                "bytes": 100
+              },
+              {
+                "tMs": 200,
+                "bytes": 110
+              }
+            ],
+            "maximumSampledTargetHeapBytes": 110,
+            "heapAfterGcBytes": 100,
+            "closedProjectHeapAfterGcBytes": 100,
+            "pdfBytes": 200,
+            "timestamp": "2026-11-22T11:18:49.818Z",
+            "rep": 2,
+            "sections": 6
+          },
+          {
+            "layoutWallMs": 10,
+            "progressEvents": [
+              {
+                "text": "start",
+                "ms": 5
+              }
+            ],
+            "layoutStatus": "done",
+            "errors": [],
+            "blocking": [],
+            "printSessionAfterCancel": null,
+            "pages": 2,
+            "verification": "pass",
+            "previewMs": 15,
+            "reeditPreviewMs": 20,
+            "cancelToIdleMs": 5,
+            "printReadyMs": 60,
+            "firstProgressMs": 5,
+            "maxProgressGapMs": 5,
+            "cancelOutcome": "cancelled",
+            "maxEventLoopGapMs": {
+              "preview": 10,
+              "layout": 10,
+              "reedit": 10
+            },
+            "heapSamples": [
+              {
+                "tMs": 0,
+                "bytes": 100
+              },
+              {
+                "tMs": 200,
+                "bytes": 110
+              }
+            ],
+            "maximumSampledTargetHeapBytes": 110,
+            "heapAfterGcBytes": 100,
+            "closedProjectHeapAfterGcBytes": 100,
+            "pdfBytes": 200,
+            "timestamp": "2026-11-22T11:18:49.818Z",
+            "rep": 3,
+            "sections": 6
+          },
+          {
+            "layoutWallMs": 10,
+            "progressEvents": [
+              {
+                "text": "start",
+                "ms": 5
+              }
+            ],
+            "layoutStatus": "done",
+            "errors": [],
+            "blocking": [],
+            "printSessionAfterCancel": null,
+            "pages": 2,
+            "verification": "pass",
+            "previewMs": 15,
+            "reeditPreviewMs": 20,
+            "cancelToIdleMs": 5,
+            "printReadyMs": 60,
+            "firstProgressMs": 5,
+            "maxProgressGapMs": 5,
+            "cancelOutcome": "cancelled",
+            "maxEventLoopGapMs": {
+              "preview": 10,
+              "layout": 10,
+              "reedit": 10
+            },
+            "heapSamples": [
+              {
+                "tMs": 0,
+                "bytes": 100
+              },
+              {
+                "tMs": 200,
+                "bytes": 110
+              }
+            ],
+            "maximumSampledTargetHeapBytes": 110,
+            "heapAfterGcBytes": 100,
+            "closedProjectHeapAfterGcBytes": 100,
+            "pdfBytes": 200,
+            "timestamp": "2026-11-22T11:18:49.818Z",
+            "rep": 4,
+            "sections": 6
+          },
+          {
+            "layoutWallMs": 10,
+            "progressEvents": [
+              {
+                "text": "start",
+                "ms": 5
+              }
+            ],
+            "layoutStatus": "done",
+            "errors": [],
+            "blocking": [],
+            "printSessionAfterCancel": null,
+            "pages": 2,
+            "verification": "pass",
+            "previewMs": 15,
+            "reeditPreviewMs": 20,
+            "cancelToIdleMs": 5,
+            "printReadyMs": 60,
+            "firstProgressMs": 5,
+            "maxProgressGapMs": 5,
+            "cancelOutcome": "cancelled",
+            "maxEventLoopGapMs": {
+              "preview": 10,
+              "layout": 10,
+              "reedit": 10
+            },
+            "heapSamples": [
+              {
+                "tMs": 0,
+                "bytes": 100
+              },
+              {
+                "tMs": 200,
+                "bytes": 110
+              }
+            ],
+            "maximumSampledTargetHeapBytes": 110,
+            "heapAfterGcBytes": 100,
+            "closedProjectHeapAfterGcBytes": 100,
+            "pdfBytes": 200,
+            "timestamp": "2026-11-22T11:18:49.818Z",
+            "rep": 5,
+            "sections": 6
+          }
+        ]
+      },
+      {
+        "sections": 30,
+        "closedProjectHeapDriftBytes": 0,
+        "runs": [
+          {
+            "layoutWallMs": 10,
+            "progressEvents": [
+              {
+                "text": "start",
+                "ms": 5
+              }
+            ],
+            "layoutStatus": "done",
+            "errors": [],
+            "blocking": [],
+            "printSessionAfterCancel": null,
+            "pages": 2,
+            "verification": "pass",
+            "previewMs": 15,
+            "reeditPreviewMs": 20,
+            "cancelToIdleMs": 5,
+            "printReadyMs": 60,
+            "firstProgressMs": 5,
+            "maxProgressGapMs": 5,
+            "cancelOutcome": "cancelled",
+            "maxEventLoopGapMs": {
+              "preview": 10,
+              "layout": 10,
+              "reedit": 10
+            },
+            "heapSamples": [
+              {
+                "tMs": 0,
+                "bytes": 100
+              },
+              {
+                "tMs": 200,
+                "bytes": 110
+              }
+            ],
+            "maximumSampledTargetHeapBytes": 110,
+            "heapAfterGcBytes": 100,
+            "closedProjectHeapAfterGcBytes": 100,
+            "pdfBytes": 200,
+            "timestamp": "2026-11-22T11:18:49.818Z",
+            "rep": 1,
+            "sections": 30
+          },
+          {
+            "layoutWallMs": 10,
+            "progressEvents": [
+              {
+                "text": "start",
+                "ms": 5
+              }
+            ],
+            "layoutStatus": "done",
+            "errors": [],
+            "blocking": [],
+            "printSessionAfterCancel": null,
+            "pages": 2,
+            "verification": "pass",
+            "previewMs": 15,
+            "reeditPreviewMs": 20,
+            "cancelToIdleMs": 5,
+            "printReadyMs": 60,
+            "firstProgressMs": 5,
+            "maxProgressGapMs": 5,
+            "cancelOutcome": "cancelled",
+            "maxEventLoopGapMs": {
+              "preview": 10,
+              "layout": 10,
+              "reedit": 10
+            },
+            "heapSamples": [
+              {
+                "tMs": 0,
+                "bytes": 100
+              },
+              {
+                "tMs": 200,
+                "bytes": 110
+              }
+            ],
+            "maximumSampledTargetHeapBytes": 110,
+            "heapAfterGcBytes": 100,
+            "closedProjectHeapAfterGcBytes": 100,
+            "pdfBytes": 200,
+            "timestamp": "2026-11-22T11:18:49.818Z",
+            "rep": 2,
+            "sections": 30
+          },
+          {
+            "layoutWallMs": 10,
+            "progressEvents": [
+              {
+                "text": "start",
+                "ms": 5
+              }
+            ],
+            "layoutStatus": "done",
+            "errors": [],
+            "blocking": [],
+            "printSessionAfterCancel": null,
+            "pages": 2,
+            "verification": "pass",
+            "previewMs": 15,
+            "reeditPreviewMs": 20,
+            "cancelToIdleMs": 5,
+            "printReadyMs": 60,
+            "firstProgressMs": 5,
+            "maxProgressGapMs": 5,
+            "cancelOutcome": "cancelled",
+            "maxEventLoopGapMs": {
+              "preview": 10,
+              "layout": 10,
+              "reedit": 10
+            },
+            "heapSamples": [
+              {
+                "tMs": 0,
+                "bytes": 100
+              },
+              {
+                "tMs": 200,
+                "bytes": 110
+              }
+            ],
+            "maximumSampledTargetHeapBytes": 110,
+            "heapAfterGcBytes": 100,
+            "closedProjectHeapAfterGcBytes": 100,
+            "pdfBytes": 200,
+            "timestamp": "2026-11-22T11:18:49.818Z",
+            "rep": 3,
+            "sections": 30
+          },
+          {
+            "layoutWallMs": 10,
+            "progressEvents": [
+              {
+                "text": "start",
+                "ms": 5
+              }
+            ],
+            "layoutStatus": "done",
+            "errors": [],
+            "blocking": [],
+            "printSessionAfterCancel": null,
+            "pages": 2,
+            "verification": "pass",
+            "previewMs": 15,
+            "reeditPreviewMs": 20,
+            "cancelToIdleMs": 5,
+            "printReadyMs": 60,
+            "firstProgressMs": 5,
+            "maxProgressGapMs": 5,
+            "cancelOutcome": "cancelled",
+            "maxEventLoopGapMs": {
+              "preview": 10,
+              "layout": 10,
+              "reedit": 10
+            },
+            "heapSamples": [
+              {
+                "tMs": 0,
+                "bytes": 100
+              },
+              {
+                "tMs": 200,
+                "bytes": 110
+              }
+            ],
+            "maximumSampledTargetHeapBytes": 110,
+            "heapAfterGcBytes": 100,
+            "closedProjectHeapAfterGcBytes": 100,
+            "pdfBytes": 200,
+            "timestamp": "2026-11-22T11:18:49.818Z",
+            "rep": 4,
+            "sections": 30
+          },
+          {
+            "layoutWallMs": 10,
+            "progressEvents": [
+              {
+                "text": "start",
+                "ms": 5
+              }
+            ],
+            "layoutStatus": "done",
+            "errors": [],
+            "blocking": [],
+            "printSessionAfterCancel": null,
+            "pages": 2,
+            "verification": "pass",
+            "previewMs": 15,
+            "reeditPreviewMs": 20,
+            "cancelToIdleMs": 5,
+            "printReadyMs": 60,
+            "firstProgressMs": 5,
+            "maxProgressGapMs": 5,
+            "cancelOutcome": "cancelled",
+            "maxEventLoopGapMs": {
+              "preview": 10,
+              "layout": 10,
+              "reedit": 10
+            },
+            "heapSamples": [
+              {
+                "tMs": 0,
+                "bytes": 100
+              },
+              {
+                "tMs": 200,
+                "bytes": 110
+              }
+            ],
+            "maximumSampledTargetHeapBytes": 110,
+            "heapAfterGcBytes": 100,
+            "closedProjectHeapAfterGcBytes": 100,
+            "pdfBytes": 200,
+            "timestamp": "2026-11-22T11:18:49.818Z",
+            "rep": 5,
+            "sections": 30
+          }
+        ]
+      },
+      {
+        "sections": 118,
+        "closedProjectHeapDriftBytes": 0,
+        "runs": [
+          {
+            "layoutWallMs": 10,
+            "progressEvents": [
+              {
+                "text": "start",
+                "ms": 5
+              }
+            ],
+            "layoutStatus": "done",
+            "errors": [],
+            "blocking": [],
+            "printSessionAfterCancel": null,
+            "pages": 2,
+            "verification": "pass",
+            "previewMs": 15,
+            "reeditPreviewMs": 20,
+            "cancelToIdleMs": 5,
+            "printReadyMs": 60,
+            "firstProgressMs": 5,
+            "maxProgressGapMs": 5,
+            "cancelOutcome": "cancelled",
+            "maxEventLoopGapMs": {
+              "preview": 10,
+              "layout": 10,
+              "reedit": 10
+            },
+            "heapSamples": [
+              {
+                "tMs": 0,
+                "bytes": 100
+              },
+              {
+                "tMs": 200,
+                "bytes": 110
+              }
+            ],
+            "maximumSampledTargetHeapBytes": 110,
+            "heapAfterGcBytes": 100,
+            "closedProjectHeapAfterGcBytes": 100,
+            "pdfBytes": 200,
+            "timestamp": "2026-11-22T11:18:49.818Z",
+            "rep": 1,
+            "sections": 118
+          },
+          {
+            "layoutWallMs": 10,
+            "progressEvents": [
+              {
+                "text": "start",
+                "ms": 5
+              }
+            ],
+            "layoutStatus": "done",
+            "errors": [],
+            "blocking": [],
+            "printSessionAfterCancel": null,
+            "pages": 2,
+            "verification": "pass",
+            "previewMs": 15,
+            "reeditPreviewMs": 20,
+            "cancelToIdleMs": 5,
+            "printReadyMs": 60,
+            "firstProgressMs": 5,
+            "maxProgressGapMs": 5,
+            "cancelOutcome": "cancelled",
+            "maxEventLoopGapMs": {
+              "preview": 10,
+              "layout": 10,
+              "reedit": 10
+            },
+            "heapSamples": [
+              {
+                "tMs": 0,
+                "bytes": 100
+              },
+              {
+                "tMs": 200,
+                "bytes": 110
+              }
+            ],
+            "maximumSampledTargetHeapBytes": 110,
+            "heapAfterGcBytes": 100,
+            "closedProjectHeapAfterGcBytes": 100,
+            "pdfBytes": 200,
+            "timestamp": "2026-11-22T11:18:49.818Z",
+            "rep": 2,
+            "sections": 118
+          },
+          {
+            "layoutWallMs": 10,
+            "progressEvents": [
+              {
+                "text": "start",
+                "ms": 5
+              }
+            ],
+            "layoutStatus": "done",
+            "errors": [],
+            "blocking": [],
+            "printSessionAfterCancel": null,
+            "pages": 2,
+            "verification": "pass",
+            "previewMs": 15,
+            "reeditPreviewMs": 20,
+            "cancelToIdleMs": 5,
+            "printReadyMs": 60,
+            "firstProgressMs": 5,
+            "maxProgressGapMs": 5,
+            "cancelOutcome": "cancelled",
+            "maxEventLoopGapMs": {
+              "preview": 10,
+              "layout": 10,
+              "reedit": 10
+            },
+            "heapSamples": [
+              {
+                "tMs": 0,
+                "bytes": 100
+              },
+              {
+                "tMs": 200,
+                "bytes": 110
+              }
+            ],
+            "maximumSampledTargetHeapBytes": 110,
+            "heapAfterGcBytes": 100,
+            "closedProjectHeapAfterGcBytes": 100,
+            "pdfBytes": 200,
+            "timestamp": "2026-11-22T11:18:49.818Z",
+            "rep": 3,
+            "sections": 118
+          },
+          {
+            "layoutWallMs": 10,
+            "progressEvents": [
+              {
+                "text": "start",
+                "ms": 5
+              }
+            ],
+            "layoutStatus": "done",
+            "errors": [],
+            "blocking": [],
+            "printSessionAfterCancel": null,
+            "pages": 2,
+            "verification": "pass",
+            "previewMs": 15,
+            "reeditPreviewMs": 20,
+            "cancelToIdleMs": 5,
+            "printReadyMs": 60,
+            "firstProgressMs": 5,
+            "maxProgressGapMs": 5,
+            "cancelOutcome": "cancelled",
+            "maxEventLoopGapMs": {
+              "preview": 10,
+              "layout": 10,
+              "reedit": 10
+            },
+            "heapSamples": [
+              {
+                "tMs": 0,
+                "bytes": 100
+              },
+              {
+                "tMs": 200,
+                "bytes": 110
+              }
+            ],
+            "maximumSampledTargetHeapBytes": 110,
+            "heapAfterGcBytes": 100,
+            "closedProjectHeapAfterGcBytes": 100,
+            "pdfBytes": 200,
+            "timestamp": "2026-11-22T11:18:49.818Z",
+            "rep": 4,
+            "sections": 118
+          },
+          {
+            "layoutWallMs": 10,
+            "progressEvents": [
+              {
+                "text": "start",
+                "ms": 5
+              }
+            ],
+            "layoutStatus": "done",
+            "errors": [],
+            "blocking": [],
+            "printSessionAfterCancel": null,
+            "pages": 2,
+            "verification": "pass",
+            "previewMs": 15,
+            "reeditPreviewMs": 20,
+            "cancelToIdleMs": 5,
+            "printReadyMs": 60,
+            "firstProgressMs": 5,
+            "maxProgressGapMs": 5,
+            "cancelOutcome": "cancelled",
+            "maxEventLoopGapMs": {
+              "preview": 10,
+              "layout": 10,
+              "reedit": 10
+            },
+            "heapSamples": [
+              {
+                "tMs": 0,
+                "bytes": 100
+              },
+              {
+                "tMs": 200,
+                "bytes": 110
+              }
+            ],
+            "maximumSampledTargetHeapBytes": 110,
+            "heapAfterGcBytes": 100,
+            "closedProjectHeapAfterGcBytes": 100,
+            "pdfBytes": 200,
+            "timestamp": "2026-11-22T11:18:49.818Z",
+            "rep": 5,
+            "sections": 118
+          }
+        ]
+      }
+    ]
+  }
+}

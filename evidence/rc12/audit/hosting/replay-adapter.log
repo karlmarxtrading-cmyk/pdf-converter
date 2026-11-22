@@ -1,0 +1,13 @@
+✔ deployment preflight rejects stale sources, alternate output bytes and QA builds of the same version (134.297037ms)
+✔ release identity invalidates changed toolchain pins and Git checkout settings (3.269769ms)
+✔ Pages requires promotion checks on main and rejects a mismatched production setting (1.642932ms)
+✔ a named preview rehearsal executes the full production verifier without changing the production branch (0.263373ms)
+✔ external collector rejects unrelated source, provider URL, deployment ID and public notes without an observation (965.956644ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1219.748898

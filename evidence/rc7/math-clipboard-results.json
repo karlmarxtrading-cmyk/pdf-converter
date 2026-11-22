@@ -1,0 +1,94 @@
+{
+  "area": "Clipboard HTML and residual formula diagnostics",
+  "execution": "Vitest 5.1.0, Node 24.22.3, jsdom. Synthetic HTML strings and Markdown unless identified as original RC6 trigonometry input.",
+  "sourceReceipt": [
+    {
+      "path": "src/core/math-diagnostics.ts",
+      "baselineSha256": "cce72fd79c8616ad865c29a89d121b18fa81a47928d97236abb4def6f0356f3b",
+      "candidateSha256AtTest": "4b88ea223265d8d34049ead3f0bd2d92481d3559c3c717a3cafdc15ede20185e"
+    },
+    {
+      "path": "src/core/html-math-source.ts",
+      "baselineSha256": "f69671752447d35614eb9a1280f8081271e978e00906fa1a737023eadf047086",
+      "candidateSha256AtTest": "35742e3eb184daddead7eef4c6fe69ceb0824612a168685a58a107f78437dd57"
+    },
+    {
+      "path": "src/core/clipboard.ts",
+      "baselineSha256": "a5f0f9820d26d722fbdae2161684493ccd29ed4a9aee77d99649b53d077befd4",
+      "candidateSha256AtTest": "23f8fff18dcf2fd535e73ba7f85b8c78703b3fd047239d364475eaba5e75757d"
+    },
+    {
+      "path": "src/core/render.ts",
+      "baselineSha256": "8ed9879cbaa4309961fc6f8795edd3bb976e1a61571d26c5d77611790f0d66d6",
+      "candidateSha256AtTest": "a9c6a5fb642820b71669b470fa8def58f03d36f822e74605c6e2f4930d6825d8"
+    }
+  ],
+  "regressionFile": "tests/unit/core/rc7-clipboard-math.test.ts",
+  "regressionFileSha256": "22b98eb01637af91bc66652a0838f4478455c359b13ff3c4f088520f5082c322",
+  "baseline": {
+    "status": "FAIL",
+    "tested": "clean copy of the rc6/src tree using the RC6 lock dependencies; only the candidate regression test was staged in its test path",
+    "passed": 9,
+    "failed": 12,
+    "total": 21,
+    "log": "math-baseline.log"
+  },
+  "candidate": {
+    "status": "PASS",
+    "newPassed": 21,
+    "newFailed": 0,
+    "extendedPassed": 121,
+    "extendedFailed": 0,
+    "extendedFiles": 9,
+    "log": "math-candidate.log"
+  },
+  "cases": [
+    [
+      "Split paired TeX/dollars and one split TeX command across a link, superscript or emphasis.",
+      "Raw HTML render → preflight",
+      "4 missed warnings; zero formulas in both versions.",
+      "Original content and link preserved; math status review."
+    ],
+    [
+      "Currency, plain words, code, different paragraphs or cells, link destination text, and already rendered math.",
+      "DOM diagnostic",
+      "7 controls passed.",
+      "7 controls passed; no warning."
+    ],
+    [
+      "Explicit source enclosing two nested source nodes, a code block and prose.",
+      "Clipboard HTML → Markdown → render, and raw HTML → render",
+      "Each path produced only the outer formula and lost the inner units.",
+      "Two correct inner formulas, code and prose kept; review warning."
+    ],
+    [
+      "Delimiter pairs crossed an HTML link, superscript or subscript.",
+      "Clipboard HTML → Markdown → render",
+      "Link syntax could be mistaken for TeX, superscript/subscript could flatten into digits.",
+      "Visible source, semantic tags and link href survive; no formula guessed; review warning."
+    ],
+    [
+      "MathJax visual containing explicit data-tex before math/tex data script.",
+      "Clipboard HTML → Markdown → render",
+      "Different formulas merged; identical pair correctly deduplicated.",
+      "Different pair retained, identical pair deduplicated."
+    ],
+    [
+      "KaTeX MathML with no TeX annotation or visual sibling; dual representation without annotation.",
+      "Clipboard HTML → Markdown → render",
+      "Single MathML branch disappeared; dual branch retained once.",
+      "Single textual fallback preserved; dual representation retained once. Neither output claims recovered TeX."
+    ],
+    [
+      "Caption and link/image titles in colspan table.",
+      "Clipboard HTML → serialized Markdown HTML table",
+      "Caption and alt remained, link and image titles lost.",
+      "Caption, alt and both titles retained."
+    ]
+  ],
+  "limits": [
+    "Review is a heuristic for paired delimiters crossing inline nodes with math-like content or known commands. It does not reconstruct arbitrary equations, parse printed mathematics, certify mathematical truth or combine markup across block/code boundaries.",
+    "Without source TeX, the available textual representation can omit spatial structure. The imported original remains authoritative. A simple source-attributed inline container without independent structural cues is treated as one formula.",
+    "Tests in this receipt do not use provider sessions, operating-system clipboard, physical assistive technology, or visual inspection."
+  ]
+}

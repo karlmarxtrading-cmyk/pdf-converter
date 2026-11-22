@@ -1,0 +1,1345 @@
+{
+  "mode": "calibrate",
+  "runtime": {
+    "node": "v24.22.3",
+    "os": "linux",
+    "arch": "x64",
+    "cpusVisible": 9
+  },
+  "at": "2026-11-21T19:32:38.517Z",
+  "budget": {
+    "medianRatio": 1.05,
+    "p95Ratio": 1.1,
+    "warmups": 2,
+    "shortPairs": 24,
+    "heavyPairs": 5
+  },
+  "method": "Identical local font bytes and raw KaTeX CSS, BUS-01 / A4, one persistent isolated Node process per revision, explicit GC before/after each sample outside timings. Two warmups per task and alternating AB/BA. Times exclude harness and DOM oracle. Preview covers snapshot, analysis, render, integrity, screen composition only. Browser layout/startup, typing debounce, actual downloads, OS print and PDF are excluded. Heap is process-level V8 retained heap after repeated actions and forced GC, not browser memory or a peak. Percentile is nearest-rank; with five heavy pairs p95 equals max.",
+  "roots": {
+    "rc6": {
+      "pathRole": "rc6",
+      "fingerprint": {
+        "sha256": "0b7e9c97ec62cdb2142041771dddcdc11f34da255c6d502f9706416377c82495",
+        "files": 72
+      },
+      "compiledManifestAtRun": {
+        "app": "paperforma",
+        "version": "3.0.0-rc.6",
+        "profile": "production",
+        "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+        "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+        "node": "v24.22.3",
+        "engines": {
+          "node": "24.22.3",
+          "npm": ">=11.6.0 <12"
+        }
+      }
+    }
+  },
+  "status": "PASS",
+  "runs": [
+    {
+      "task": "empty-core",
+      "round": -2,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 36.62947199999985,
+        "parseAndRenderMs": 9.276495000000068,
+        "integrityModelMs": 0.5573079999999209
+      },
+      "info": {
+        "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sourceBytes": 0
+      },
+      "heap": {
+        "before": 44505080,
+        "beforeFinalGc": 47408800,
+        "afterGc": 45858080,
+        "rss": 163229696
+      }
+    },
+    {
+      "task": "empty-core",
+      "round": -1,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 12.102170999999998,
+        "parseAndRenderMs": 2.575353999999834,
+        "integrityModelMs": 0.5060809999999947
+      },
+      "info": {
+        "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sourceBytes": 0
+      },
+      "heap": {
+        "before": 45671792,
+        "beforeFinalGc": 47269000,
+        "afterGc": 45997776,
+        "rss": 163360768
+      }
+    },
+    {
+      "task": "empty-core",
+      "round": 0,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 9.524662999999919,
+        "parseAndRenderMs": 2.2958790000000135,
+        "integrityModelMs": 0.4738440000000992
+      },
+      "info": {
+        "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sourceBytes": 0
+      },
+      "heap": {
+        "before": 45821200,
+        "beforeFinalGc": 47450808,
+        "afterGc": 46207616,
+        "rss": 163885056
+      }
+    },
+    {
+      "task": "empty-core",
+      "round": 1,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 7.860171000000037,
+        "parseAndRenderMs": 1.9896940000000995,
+        "integrityModelMs": 0.4575999999999567
+      },
+      "info": {
+        "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sourceBytes": 0
+      },
+      "heap": {
+        "before": 46038768,
+        "beforeFinalGc": 47576688,
+        "afterGc": 46341064,
+        "rss": 164016128
+      }
+    },
+    {
+      "task": "empty-core",
+      "round": 2,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 8.539449999999988,
+        "parseAndRenderMs": 2.127268999999842,
+        "integrityModelMs": 0.36300899999992
+      },
+      "info": {
+        "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sourceBytes": 0
+      },
+      "heap": {
+        "before": 46177856,
+        "beforeFinalGc": 47728008,
+        "afterGc": 46498904,
+        "rss": 164278272
+      }
+    },
+    {
+      "task": "empty-core",
+      "round": 3,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 7.675396999999975,
+        "parseAndRenderMs": 1.8993299999999635,
+        "integrityModelMs": 0.3231299999999919
+      },
+      "info": {
+        "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sourceBytes": 0
+      },
+      "heap": {
+        "before": 46337120,
+        "beforeFinalGc": 47775632,
+        "afterGc": 46548424,
+        "rss": 164409344
+      }
+    },
+    {
+      "task": "empty-core",
+      "round": 4,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 6.32769600000006,
+        "parseAndRenderMs": 1.4557720000000245,
+        "integrityModelMs": 0.2371130000001358
+      },
+      "info": {
+        "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sourceBytes": 0
+      },
+      "heap": {
+        "before": 46851776,
+        "beforeFinalGc": 47788424,
+        "afterGc": 46588536,
+        "rss": 164540416
+      }
+    },
+    {
+      "task": "empty-core",
+      "round": 5,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 6.392021999999997,
+        "parseAndRenderMs": 1.5715339999999287,
+        "integrityModelMs": 0.22973100000012892
+      },
+      "info": {
+        "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sourceBytes": 0
+      },
+      "heap": {
+        "before": 46425880,
+        "beforeFinalGc": 47826008,
+        "afterGc": 46627208,
+        "rss": 164671488
+      }
+    },
+    {
+      "task": "empty-core",
+      "round": 6,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 8.134189000000106,
+        "parseAndRenderMs": 1.7322520000000168,
+        "integrityModelMs": 0.22054800000000796
+      },
+      "info": {
+        "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sourceBytes": 0
+      },
+      "heap": {
+        "before": 46479848,
+        "beforeFinalGc": 48371816,
+        "afterGc": 47122096,
+        "rss": 165195776
+      }
+    },
+    {
+      "task": "empty-core",
+      "round": 7,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 9.696097000000009,
+        "parseAndRenderMs": 2.433052000000089,
+        "integrityModelMs": 0.43538599999988037
+      },
+      "info": {
+        "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sourceBytes": 0
+      },
+      "heap": {
+        "before": 46980328,
+        "beforeFinalGc": 48402800,
+        "afterGc": 47201984,
+        "rss": 165457920
+      }
+    },
+    {
+      "task": "empty-core",
+      "round": 8,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 9.080414000000019,
+        "parseAndRenderMs": 1.8670529999999417,
+        "integrityModelMs": 0.23624100000006365
+      },
+      "info": {
+        "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sourceBytes": 0
+      },
+      "heap": {
+        "before": 47046456,
+        "beforeFinalGc": 48426136,
+        "afterGc": 47252248,
+        "rss": 165588992
+      }
+    },
+    {
+      "task": "empty-core",
+      "round": 9,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 8.124679000000015,
+        "parseAndRenderMs": 1.2367769999998472,
+        "integrityModelMs": 0.17920600000002196
+      },
+      "info": {
+        "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sourceBytes": 0
+      },
+      "heap": {
+        "before": 47107616,
+        "beforeFinalGc": 48431632,
+        "afterGc": 47281856,
+        "rss": 165720064
+      }
+    },
+    {
+      "task": "empty-core",
+      "round": 10,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 5.64707599999997,
+        "parseAndRenderMs": 0.7014010000000326,
+        "integrityModelMs": 0.2678679999999076
+      },
+      "info": {
+        "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sourceBytes": 0
+      },
+      "heap": {
+        "before": 47134608,
+        "beforeFinalGc": 48393408,
+        "afterGc": 47285672,
+        "rss": 165720064
+      }
+    },
+    {
+      "task": "empty-core",
+      "round": 11,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 6.1028080000000955,
+        "parseAndRenderMs": 0.6568250000000262,
+        "integrityModelMs": 0.16516599999999926
+      },
+      "info": {
+        "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sourceBytes": 0
+      },
+      "heap": {
+        "before": 47140216,
+        "beforeFinalGc": 48404064,
+        "afterGc": 47301896,
+        "rss": 165851136
+      }
+    },
+    {
+      "task": "small-edit",
+      "round": -2,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 49.572820999999976,
+        "parseAndRenderMs": 19.30233199999998,
+        "integrityModelMs": 1.3957729999999628,
+        "editedRefreshMs": 18.79161399999998,
+        "htmlExportMs": 55.177232000000004,
+        "printPayloadMs": 16.835628999999926
+      },
+      "info": {
+        "sourceSha256": "3c43f3795ff7613d67e5a1729cbe2406bed662bdd0669e06548a96bc40613229",
+        "sourceBytes": 77,
+        "htmlBytes": 219862,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+        ],
+        "bodySha256": "988c672f193be5511f1a4dfd3fb00bfbd51f35bc117ca6a8bbf92790531c9343",
+        "printBodySha256": "6490ea8b1ce17dccc7d86467bf35211e3457778b302948383e617fcaf4f74425"
+      },
+      "heap": {
+        "before": 47152616,
+        "beforeFinalGc": 73727560,
+        "afterGc": 50315664,
+        "rss": 180506624
+      }
+    },
+    {
+      "task": "small-edit",
+      "round": -1,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 23.713902999999846,
+        "parseAndRenderMs": 4.446062000000211,
+        "integrityModelMs": 1.00501300000019,
+        "editedRefreshMs": 15.433717999999999,
+        "htmlExportMs": 37.245324999999866,
+        "printPayloadMs": 8.571578999999929
+      },
+      "info": {
+        "sourceSha256": "3c43f3795ff7613d67e5a1729cbe2406bed662bdd0669e06548a96bc40613229",
+        "sourceBytes": 77,
+        "htmlBytes": 219862,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+        ],
+        "bodySha256": "988c672f193be5511f1a4dfd3fb00bfbd51f35bc117ca6a8bbf92790531c9343",
+        "printBodySha256": "6490ea8b1ce17dccc7d86467bf35211e3457778b302948383e617fcaf4f74425"
+      },
+      "heap": {
+        "before": 49082688,
+        "beforeFinalGc": 73682808,
+        "afterGc": 50364552,
+        "rss": 181751808
+      }
+    },
+    {
+      "task": "small-edit",
+      "round": 0,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 22.92985899999985,
+        "parseAndRenderMs": 4.418881000000056,
+        "integrityModelMs": 0.824043999999958,
+        "editedRefreshMs": 16.458869999999933,
+        "htmlExportMs": 36.23503500000015,
+        "printPayloadMs": 7.248113000000103
+      },
+      "info": {
+        "sourceSha256": "3c43f3795ff7613d67e5a1729cbe2406bed662bdd0669e06548a96bc40613229",
+        "sourceBytes": 77,
+        "htmlBytes": 219862,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+        ],
+        "bodySha256": "988c672f193be5511f1a4dfd3fb00bfbd51f35bc117ca6a8bbf92790531c9343",
+        "printBodySha256": "6490ea8b1ce17dccc7d86467bf35211e3457778b302948383e617fcaf4f74425"
+      },
+      "heap": {
+        "before": 49268104,
+        "beforeFinalGc": 73576808,
+        "afterGc": 50450104,
+        "rss": 182255616
+      }
+    },
+    {
+      "task": "small-edit",
+      "round": 1,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 19.700493999999708,
+        "parseAndRenderMs": 3.8045290000000023,
+        "integrityModelMs": 0.8761110000000372,
+        "editedRefreshMs": 15.308150999999725,
+        "htmlExportMs": 32.624705000000176,
+        "printPayloadMs": 7.686685000000125
+      },
+      "info": {
+        "sourceSha256": "3c43f3795ff7613d67e5a1729cbe2406bed662bdd0669e06548a96bc40613229",
+        "sourceBytes": 77,
+        "htmlBytes": 219862,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+        ],
+        "bodySha256": "988c672f193be5511f1a4dfd3fb00bfbd51f35bc117ca6a8bbf92790531c9343",
+        "printBodySha256": "6490ea8b1ce17dccc7d86467bf35211e3457778b302948383e617fcaf4f74425"
+      },
+      "heap": {
+        "before": 49429248,
+        "beforeFinalGc": 73632600,
+        "afterGc": 50522640,
+        "rss": 182894592
+      }
+    },
+    {
+      "task": "small-edit",
+      "round": 2,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 23.887861000000157,
+        "parseAndRenderMs": 4.241888999999901,
+        "integrityModelMs": 0.8983440000001792,
+        "editedRefreshMs": 15.170246000000134,
+        "htmlExportMs": 35.440736000000015,
+        "printPayloadMs": 7.405236999999943
+      },
+      "info": {
+        "sourceSha256": "3c43f3795ff7613d67e5a1729cbe2406bed662bdd0669e06548a96bc40613229",
+        "sourceBytes": 77,
+        "htmlBytes": 219862,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+        ],
+        "bodySha256": "988c672f193be5511f1a4dfd3fb00bfbd51f35bc117ca6a8bbf92790531c9343",
+        "printBodySha256": "6490ea8b1ce17dccc7d86467bf35211e3457778b302948383e617fcaf4f74425"
+      },
+      "heap": {
+        "before": 49498352,
+        "beforeFinalGc": 74123032,
+        "afterGc": 50726648,
+        "rss": 183762944
+      }
+    },
+    {
+      "task": "small-edit",
+      "round": 3,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 18.69744300000002,
+        "parseAndRenderMs": 3.3006609999997636,
+        "integrityModelMs": 0.815049999999701,
+        "editedRefreshMs": 13.564301000000341,
+        "htmlExportMs": 29.220448999999917,
+        "printPayloadMs": 6.119396999999935
+      },
+      "info": {
+        "sourceSha256": "3c43f3795ff7613d67e5a1729cbe2406bed662bdd0669e06548a96bc40613229",
+        "sourceBytes": 77,
+        "htmlBytes": 219862,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+        ],
+        "bodySha256": "988c672f193be5511f1a4dfd3fb00bfbd51f35bc117ca6a8bbf92790531c9343",
+        "printBodySha256": "6490ea8b1ce17dccc7d86467bf35211e3457778b302948383e617fcaf4f74425"
+      },
+      "heap": {
+        "before": 49667624,
+        "beforeFinalGc": 73957944,
+        "afterGc": 50780632,
+        "rss": 184074240
+      }
+    },
+    {
+      "task": "small-edit",
+      "round": 4,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 18.416666000000077,
+        "parseAndRenderMs": 2.9652329999998983,
+        "integrityModelMs": 0.6663590000002841,
+        "editedRefreshMs": 13.601226000000224,
+        "htmlExportMs": 31.43742999999995,
+        "printPayloadMs": 7.335912999999891
+      },
+      "info": {
+        "sourceSha256": "3c43f3795ff7613d67e5a1729cbe2406bed662bdd0669e06548a96bc40613229",
+        "sourceBytes": 77,
+        "htmlBytes": 219862,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+        ],
+        "bodySha256": "988c672f193be5511f1a4dfd3fb00bfbd51f35bc117ca6a8bbf92790531c9343",
+        "printBodySha256": "6490ea8b1ce17dccc7d86467bf35211e3457778b302948383e617fcaf4f74425"
+      },
+      "heap": {
+        "before": 49741480,
+        "beforeFinalGc": 73936136,
+        "afterGc": 50784752,
+        "rss": 184344576
+      }
+    },
+    {
+      "task": "small-edit",
+      "round": 5,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 29.73977399999967,
+        "parseAndRenderMs": 8.80909500000007,
+        "integrityModelMs": 0.950521999999637,
+        "editedRefreshMs": 16.901966000000357,
+        "htmlExportMs": 36.54125900000008,
+        "printPayloadMs": 7.836014999999861
+      },
+      "info": {
+        "sourceSha256": "3c43f3795ff7613d67e5a1729cbe2406bed662bdd0669e06548a96bc40613229",
+        "sourceBytes": 77,
+        "htmlBytes": 219862,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+        ],
+        "bodySha256": "988c672f193be5511f1a4dfd3fb00bfbd51f35bc117ca6a8bbf92790531c9343",
+        "printBodySha256": "6490ea8b1ce17dccc7d86467bf35211e3457778b302948383e617fcaf4f74425"
+      },
+      "heap": {
+        "before": 49767088,
+        "beforeFinalGc": 73916200,
+        "afterGc": 50825272,
+        "rss": 184573952
+      }
+    },
+    {
+      "task": "small-edit",
+      "round": 6,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 21.812107999999625,
+        "parseAndRenderMs": 3.5440419999999904,
+        "integrityModelMs": 0.9265660000000935,
+        "editedRefreshMs": 17.798057999999855,
+        "htmlExportMs": 37.11171599999989,
+        "printPayloadMs": 7.90399699999989
+      },
+      "info": {
+        "sourceSha256": "3c43f3795ff7613d67e5a1729cbe2406bed662bdd0669e06548a96bc40613229",
+        "sourceBytes": 77,
+        "htmlBytes": 219862,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+        ],
+        "bodySha256": "988c672f193be5511f1a4dfd3fb00bfbd51f35bc117ca6a8bbf92790531c9343",
+        "printBodySha256": "6490ea8b1ce17dccc7d86467bf35211e3457778b302948383e617fcaf4f74425"
+      },
+      "heap": {
+        "before": 49801824,
+        "beforeFinalGc": 73698576,
+        "afterGc": 50965000,
+        "rss": 184991744
+      }
+    },
+    {
+      "task": "small-edit",
+      "round": 7,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 21.858392000000094,
+        "parseAndRenderMs": 4.127653999999893,
+        "integrityModelMs": 1.0713009999999485,
+        "editedRefreshMs": 14.968155999999908,
+        "htmlExportMs": 32.01504699999987,
+        "printPayloadMs": 6.510346000000027
+      },
+      "info": {
+        "sourceSha256": "3c43f3795ff7613d67e5a1729cbe2406bed662bdd0669e06548a96bc40613229",
+        "sourceBytes": 77,
+        "htmlBytes": 219862,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+        ],
+        "bodySha256": "988c672f193be5511f1a4dfd3fb00bfbd51f35bc117ca6a8bbf92790531c9343",
+        "printBodySha256": "6490ea8b1ce17dccc7d86467bf35211e3457778b302948383e617fcaf4f74425"
+      },
+      "heap": {
+        "before": 49920832,
+        "beforeFinalGc": 73772472,
+        "afterGc": 51065752,
+        "rss": 185266176
+      }
+    },
+    {
+      "task": "small-edit",
+      "round": 8,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 18.36288599999989,
+        "parseAndRenderMs": 2.928969000000052,
+        "integrityModelMs": 0.7655159999999341,
+        "editedRefreshMs": 13.060963000000356,
+        "htmlExportMs": 30.40842300000031,
+        "printPayloadMs": 6.309648999999808
+      },
+      "info": {
+        "sourceSha256": "3c43f3795ff7613d67e5a1729cbe2406bed662bdd0669e06548a96bc40613229",
+        "sourceBytes": 77,
+        "htmlBytes": 219862,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+        ],
+        "bodySha256": "988c672f193be5511f1a4dfd3fb00bfbd51f35bc117ca6a8bbf92790531c9343",
+        "printBodySha256": "6490ea8b1ce17dccc7d86467bf35211e3457778b302948383e617fcaf4f74425"
+      },
+      "heap": {
+        "before": 50017720,
+        "beforeFinalGc": 74126104,
+        "afterGc": 51138184,
+        "rss": 185896960
+      }
+    },
+    {
+      "task": "small-edit",
+      "round": 9,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 18.398189000000002,
+        "parseAndRenderMs": 2.9366110000000845,
+        "integrityModelMs": 0.7772239999999329,
+        "editedRefreshMs": 13.10037199999988,
+        "htmlExportMs": 29.44389000000001,
+        "printPayloadMs": 6.342787999999928
+      },
+      "info": {
+        "sourceSha256": "3c43f3795ff7613d67e5a1729cbe2406bed662bdd0669e06548a96bc40613229",
+        "sourceBytes": 77,
+        "htmlBytes": 219862,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+        ],
+        "bodySha256": "988c672f193be5511f1a4dfd3fb00bfbd51f35bc117ca6a8bbf92790531c9343",
+        "printBodySha256": "6490ea8b1ce17dccc7d86467bf35211e3457778b302948383e617fcaf4f74425"
+      },
+      "heap": {
+        "before": 50057608,
+        "beforeFinalGc": 74008928,
+        "afterGc": 51141304,
+        "rss": 186101760
+      }
+    },
+    {
+      "task": "small-edit",
+      "round": 10,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 18.118003000000044,
+        "parseAndRenderMs": 3.0050719999999274,
+        "integrityModelMs": 0.6830340000001343,
+        "editedRefreshMs": 12.781289000000015,
+        "htmlExportMs": 30.500022000000172,
+        "printPayloadMs": 7.783878000000186
+      },
+      "info": {
+        "sourceSha256": "3c43f3795ff7613d67e5a1729cbe2406bed662bdd0669e06548a96bc40613229",
+        "sourceBytes": 77,
+        "htmlBytes": 219862,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+        ],
+        "bodySha256": "988c672f193be5511f1a4dfd3fb00bfbd51f35bc117ca6a8bbf92790531c9343",
+        "printBodySha256": "6490ea8b1ce17dccc7d86467bf35211e3457778b302948383e617fcaf4f74425"
+      },
+      "heap": {
+        "before": 50120832,
+        "beforeFinalGc": 74043696,
+        "afterGc": 51190208,
+        "rss": 186359808
+      }
+    },
+    {
+      "task": "small-edit",
+      "round": 11,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 20.20759500000031,
+        "parseAndRenderMs": 3.195666000000074,
+        "integrityModelMs": 1.0376809999997931,
+        "editedRefreshMs": 14.217371000000185,
+        "htmlExportMs": 33.03288900000007,
+        "printPayloadMs": 7.5186939999998685
+      },
+      "info": {
+        "sourceSha256": "3c43f3795ff7613d67e5a1729cbe2406bed662bdd0669e06548a96bc40613229",
+        "sourceBytes": 77,
+        "htmlBytes": 219862,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+        ],
+        "bodySha256": "988c672f193be5511f1a4dfd3fb00bfbd51f35bc117ca6a8bbf92790531c9343",
+        "printBodySha256": "6490ea8b1ce17dccc7d86467bf35211e3457778b302948383e617fcaf4f74425"
+      },
+      "heap": {
+        "before": 50136000,
+        "beforeFinalGc": 73985392,
+        "afterGc": 51180640,
+        "rss": 186720256
+      }
+    },
+    {
+      "task": "trigonometry",
+      "round": -2,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 1198.4400669999995,
+        "parseAndRenderMs": 180.40455499999962,
+        "integrityModelMs": 45.42238499999985,
+        "htmlExportMs": 1043.8177259999993,
+        "printPayloadMs": 671.8830619999999
+      },
+      "info": {
+        "sourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+        "sourceBytes": 15280,
+        "htmlBytes": 902295,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+          "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+          "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+          "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+          "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0"
+        ],
+        "bodySha256": "a89e9634a9440edf5dd07b2665f72bf4704d1b3251d08eac78be7ca21d575816",
+        "printBodySha256": "865657d03a8cac63635c7c27ca209e69f26bc814f5d2423971207fd8c2b5045c"
+      },
+      "heap": {
+        "before": 50156168,
+        "beforeFinalGc": 343523312,
+        "afterGc": 84502832,
+        "rss": 529850368
+      }
+    },
+    {
+      "task": "trigonometry",
+      "round": -1,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 785.2687880000003,
+        "parseAndRenderMs": 87.66961600000013,
+        "integrityModelMs": 29.333104999999705,
+        "htmlExportMs": 1061.047364000001,
+        "printPayloadMs": 484.7914439999986
+      },
+      "info": {
+        "sourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+        "sourceBytes": 15280,
+        "htmlBytes": 902295,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+          "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+          "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+          "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+          "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0"
+        ],
+        "bodySha256": "a89e9634a9440edf5dd07b2665f72bf4704d1b3251d08eac78be7ca21d575816",
+        "printBodySha256": "865657d03a8cac63635c7c27ca209e69f26bc814f5d2423971207fd8c2b5045c"
+      },
+      "heap": {
+        "before": 52170160,
+        "beforeFinalGc": 194009688,
+        "afterGc": 83842544,
+        "rss": 531832832
+      }
+    },
+    {
+      "task": "trigonometry",
+      "round": 0,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 830.1546180000005,
+        "parseAndRenderMs": 95.35709099999985,
+        "integrityModelMs": 28.10454100000061,
+        "htmlExportMs": 1038.1491189999997,
+        "printPayloadMs": 485.8604349999987
+      },
+      "info": {
+        "sourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+        "sourceBytes": 15280,
+        "htmlBytes": 902295,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+          "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+          "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+          "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+          "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0"
+        ],
+        "bodySha256": "a89e9634a9440edf5dd07b2665f72bf4704d1b3251d08eac78be7ca21d575816",
+        "printBodySha256": "865657d03a8cac63635c7c27ca209e69f26bc814f5d2423971207fd8c2b5045c"
+      },
+      "heap": {
+        "before": 52009128,
+        "beforeFinalGc": 194537880,
+        "afterGc": 84159096,
+        "rss": 534548480
+      }
+    },
+    {
+      "task": "trigonometry",
+      "round": 1,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 854.9738199999993,
+        "parseAndRenderMs": 88.00354799999877,
+        "integrityModelMs": 28.956663999999364,
+        "htmlExportMs": 934.2364880000005,
+        "printPayloadMs": 467.8246220000001
+      },
+      "info": {
+        "sourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+        "sourceBytes": 15280,
+        "htmlBytes": 902295,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+          "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+          "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+          "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+          "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0"
+        ],
+        "bodySha256": "a89e9634a9440edf5dd07b2665f72bf4704d1b3251d08eac78be7ca21d575816",
+        "printBodySha256": "865657d03a8cac63635c7c27ca209e69f26bc814f5d2423971207fd8c2b5045c"
+      },
+      "heap": {
+        "before": 52273312,
+        "beforeFinalGc": 191163016,
+        "afterGc": 84012072,
+        "rss": 534396928
+      }
+    },
+    {
+      "task": "trigonometry",
+      "round": 2,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 805.1753549999994,
+        "parseAndRenderMs": 93.11047599999984,
+        "integrityModelMs": 27.090970000001107,
+        "htmlExportMs": 948.3801459999995,
+        "printPayloadMs": 545.6377989999983
+      },
+      "info": {
+        "sourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+        "sourceBytes": 15280,
+        "htmlBytes": 902295,
+        "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+        "fonts": [
+          "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+          "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+          "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+          "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+          "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+          "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+          "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+          "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+          "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+          "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0"
+        ],
+        "bodySha256": "a89e9634a9440edf5dd07b2665f72bf4704d1b3251d08eac78be7ca21d575816",
+        "printBodySha256": "865657d03a8cac63635c7c27ca209e69f26bc814f5d2423971207fd8c2b5045c"
+      },
+      "heap": {
+        "before": 52140304,
+        "beforeFinalGc": 190729912,
+        "afterGc": 81290696,
+        "rss": 532549632
+      }
+    },
+    {
+      "task": "long",
+      "round": -2,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 367.7301719999996,
+        "parseAndRenderMs": 129.61509500000102,
+        "integrityModelMs": 75.77959899999769
+      },
+      "info": {
+        "sourceSha256": "bc0cafeac154e55dd52d850fef1a88a0714249a3ed01fae8efb4955f7bb8abb8",
+        "sourceBytes": 116126
+      },
+      "heap": {
+        "before": 49435240,
+        "beforeFinalGc": 104217072,
+        "afterGc": 59478528,
+        "rss": 531697664
+      }
+    },
+    {
+      "task": "long",
+      "round": -1,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 386.6085810000004,
+        "parseAndRenderMs": 134.5026719999987,
+        "integrityModelMs": 83.33278700000301
+      },
+      "info": {
+        "sourceSha256": "bc0cafeac154e55dd52d850fef1a88a0714249a3ed01fae8efb4955f7bb8abb8",
+        "sourceBytes": 116126
+      },
+      "heap": {
+        "before": 49089712,
+        "beforeFinalGc": 101234224,
+        "afterGc": 59279512,
+        "rss": 532365312
+      }
+    },
+    {
+      "task": "long",
+      "round": 0,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 421.1484899999996,
+        "parseAndRenderMs": 127.68615300000238,
+        "integrityModelMs": 96.19223400000192
+      },
+      "info": {
+        "sourceSha256": "bc0cafeac154e55dd52d850fef1a88a0714249a3ed01fae8efb4955f7bb8abb8",
+        "sourceBytes": 116126
+      },
+      "heap": {
+        "before": 49262024,
+        "beforeFinalGc": 100588272,
+        "afterGc": 59453256,
+        "rss": 532619264
+      }
+    },
+    {
+      "task": "long",
+      "round": 1,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 419.374068000001,
+        "parseAndRenderMs": 185.45102499999848,
+        "integrityModelMs": 72.03727799999979
+      },
+      "info": {
+        "sourceSha256": "bc0cafeac154e55dd52d850fef1a88a0714249a3ed01fae8efb4955f7bb8abb8",
+        "sourceBytes": 116126
+      },
+      "heap": {
+        "before": 49363856,
+        "beforeFinalGc": 104558944,
+        "afterGc": 59598824,
+        "rss": 532824064
+      }
+    },
+    {
+      "task": "long",
+      "round": 2,
+      "label": "rc6",
+      "times": {
+        "refreshMs": 368.7277270000013,
+        "parseAndRenderMs": 122.59788900000058,
+        "integrityModelMs": 74.78386600000158
+      },
+      "info": {
+        "sourceSha256": "bc0cafeac154e55dd52d850fef1a88a0714249a3ed01fae8efb4955f7bb8abb8",
+        "sourceBytes": 116126
+      },
+      "heap": {
+        "before": 49497600,
+        "beforeFinalGc": 104598632,
+        "afterGc": 59565304,
+        "rss": 532832256
+      }
+    }
+  ],
+  "summary": {
+    "empty-core": {
+      "summary": {
+        "rc6": {
+          "refreshMs": {
+            "n": 12,
+            "min": 5.64707599999997,
+            "median": 7.992425000000026,
+            "p95": 9.696097000000009,
+            "max": 9.696097000000009,
+            "iqr": 2.211753999999928
+          },
+          "parseAndRenderMs": {
+            "n": 12,
+            "min": 0.6568250000000262,
+            "median": 1.7996524999999792,
+            "p95": 2.433052000000089,
+            "max": 2.433052000000089,
+            "iqr": 0.7529170000002523
+          },
+          "integrityModelMs": {
+            "n": 12,
+            "min": 0.16516599999999926,
+            "median": 0.2524905000000217,
+            "p95": 0.4738440000000992,
+            "max": 0.4738440000000992,
+            "iqr": 0.14246099999991202
+          },
+          "retainedHeapMiB": {
+            "n": 12,
+            "min": 44.0670166015625,
+            "median": 44.70315170288086,
+            "p95": 45.11060333251953,
+            "max": 45.11060333251953,
+            "iqr": 0.71844482421875
+          }
+        }
+      },
+      "equivalence": {
+        "rc6": [
+          {
+            "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "sourceBytes": 0
+          }
+        ]
+      },
+      "alerts": []
+    },
+    "small-edit": {
+      "summary": {
+        "rc6": {
+          "refreshMs": {
+            "n": 12,
+            "min": 18.118003000000044,
+            "median": 19.95404450000001,
+            "p95": 29.73977399999967,
+            "max": 29.73977399999967,
+            "iqr": 3.4602030000000923
+          },
+          "parseAndRenderMs": {
+            "n": 12,
+            "min": 2.928969000000052,
+            "median": 3.422351499999877,
+            "p95": 8.80909500000007,
+            "max": 8.80909500000007,
+            "iqr": 1.1624209999999948
+          },
+          "integrityModelMs": {
+            "n": 12,
+            "min": 0.6663590000002841,
+            "median": 0.8500774999999976,
+            "p95": 1.0713009999999485,
+            "max": 1.0713009999999485,
+            "iqr": 0.16105000000015934
+          },
+          "editedRefreshMs": {
+            "n": 12,
+            "min": 12.781289000000015,
+            "median": 14.592763500000046,
+            "p95": 17.798057999999855,
+            "max": 17.798057999999855,
+            "iqr": 2.207778999999846
+          },
+          "htmlExportMs": {
+            "n": 12,
+            "min": 29.220448999999917,
+            "median": 32.31987600000002,
+            "p95": 37.11171599999989,
+            "max": 37.11171599999989,
+            "iqr": 5.032312999999704
+          },
+          "printPayloadMs": {
+            "n": 12,
+            "min": 6.119396999999935,
+            "median": 7.370574999999917,
+            "p95": 7.90399699999989,
+            "max": 7.90399699999989,
+            "iqr": 1.3438970000001973
+          },
+          "retainedHeapMiB": {
+            "n": 12,
+            "min": 48.11296844482422,
+            "median": 48.537384033203125,
+            "p95": 48.81878662109375,
+            "max": 48.81878662109375,
+            "iqr": 0.3924713134765625
+          }
+        }
+      },
+      "equivalence": {
+        "rc6": [
+          {
+            "sourceSha256": "3c43f3795ff7613d67e5a1729cbe2406bed662bdd0669e06548a96bc40613229",
+            "sourceBytes": 77,
+            "htmlBytes": 219862,
+            "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": [
+              "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+              "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+              "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+              "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+              "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+            ],
+            "bodySha256": "988c672f193be5511f1a4dfd3fb00bfbd51f35bc117ca6a8bbf92790531c9343",
+            "printBodySha256": "6490ea8b1ce17dccc7d86467bf35211e3457778b302948383e617fcaf4f74425"
+          }
+        ]
+      },
+      "alerts": []
+    },
+    "trigonometry": {
+      "summary": {
+        "rc6": {
+          "refreshMs": {
+            "n": 3,
+            "min": 805.1753549999994,
+            "median": 830.1546180000005,
+            "p95": 854.9738199999993,
+            "max": 854.9738199999993,
+            "iqr": 49.79846499999985
+          },
+          "parseAndRenderMs": {
+            "n": 3,
+            "min": 88.00354799999877,
+            "median": 93.11047599999984,
+            "p95": 95.35709099999985,
+            "max": 95.35709099999985,
+            "iqr": 7.353543000001082
+          },
+          "integrityModelMs": {
+            "n": 3,
+            "min": 27.090970000001107,
+            "median": 28.10454100000061,
+            "p95": 28.956663999999364,
+            "max": 28.956663999999364,
+            "iqr": 1.865693999998257
+          },
+          "htmlExportMs": {
+            "n": 3,
+            "min": 934.2364880000005,
+            "median": 948.3801459999995,
+            "p95": 1038.1491189999997,
+            "max": 1038.1491189999997,
+            "iqr": 103.91263099999924
+          },
+          "printPayloadMs": {
+            "n": 3,
+            "min": 467.8246220000001,
+            "median": 485.8604349999987,
+            "p95": 545.6377989999983,
+            "max": 545.6377989999983,
+            "iqr": 77.81317699999818
+          },
+          "retainedHeapMiB": {
+            "n": 3,
+            "min": 77.52484893798828,
+            "median": 80.12015533447266,
+            "p95": 80.26036834716797,
+            "max": 80.26036834716797,
+            "iqr": 2.7355194091796875
+          }
+        }
+      },
+      "equivalence": {
+        "rc6": [
+          {
+            "sourceSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+            "sourceBytes": 15280,
+            "htmlBytes": 902295,
+            "mathCssSha256": "d6bbd6714ae9afa46acb2d272a6cff805c9b8b3fbbdf70bf1d1b46d837e977c8",
+            "fonts": [
+              "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+              "f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a",
+              "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+              "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+              "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+              "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+              "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+              "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+              "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+              "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0"
+            ],
+            "bodySha256": "a89e9634a9440edf5dd07b2665f72bf4704d1b3251d08eac78be7ca21d575816",
+            "printBodySha256": "865657d03a8cac63635c7c27ca209e69f26bc814f5d2423971207fd8c2b5045c"
+          }
+        ]
+      },
+      "alerts": []
+    },
+    "long": {
+      "summary": {
+        "rc6": {
+          "refreshMs": {
+            "n": 3,
+            "min": 368.7277270000013,
+            "median": 419.374068000001,
+            "p95": 421.1484899999996,
+            "max": 421.1484899999996,
+            "iqr": 52.42076299999826
+          },
+          "parseAndRenderMs": {
+            "n": 3,
+            "min": 122.59788900000058,
+            "median": 127.68615300000238,
+            "p95": 185.45102499999848,
+            "max": 185.45102499999848,
+            "iqr": 62.8531359999979
+          },
+          "integrityModelMs": {
+            "n": 3,
+            "min": 72.03727799999979,
+            "median": 74.78386600000158,
+            "p95": 96.19223400000192,
+            "max": 96.19223400000192,
+            "iqr": 24.15495600000213
+          },
+          "retainedHeapMiB": {
+            "n": 3,
+            "min": 56.69904327392578,
+            "median": 56.80590057373047,
+            "p95": 56.837867736816406,
+            "max": 56.837867736816406,
+            "iqr": 0.138824462890625
+          }
+        }
+      },
+      "equivalence": {
+        "rc6": [
+          {
+            "sourceSha256": "bc0cafeac154e55dd52d850fef1a88a0714249a3ed01fae8efb4955f7bb8abb8",
+            "sourceBytes": 116126
+          }
+        ]
+      },
+      "alerts": []
+    }
+  }
+}

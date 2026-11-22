@@ -1,0 +1,40 @@
+
+ RUN  v5.1.0 /workspace/scratch/c635819e0476/network-baseline
+
+ ❯ tests/unit/core/rc11-project-consent.test.ts (1 test | 1 failed) 42ms
+   × verifies portable content, preserves local assets and typography, resets sender permission including in historical revisions 41ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/core/rc11-project-consent.test.ts > verifies portable content, preserves local assets and typography, resets sender permission including in historical revisions
+AssertionError: expected { allowExternalImages: true, …(19) } to deeply equal { template: 'EDU-01', …(19) }
+
+- Expected
++ Received
+
+@@ -1,7 +1,7 @@
+  {
+-   "allowExternalImages": false,
++   "allowExternalImages": true,
+    "baseSizePt": 11.5,
+    "bodyFont": "source-serif-4",
+    "chapterBreak": false,
+    "contentLang": "id",
+    "cover": false,
+
+ ❯ tests/unit/core/rc11-project-consent.test.ts:17:37
+     15|   if (!imported.ok) throw new Error(imported.message);
+     16|   expect(edited.settings.allowExternalImages).toBe(true);
+     17|   expect(imported.project.settings).toEqual({ ...edited.settings, allo…
+       |                                     ^
+     18|   expect(imported.project.source).toBe(edited.source);
+     19|   expect(imported.project.assets[0]!.bytes).toEqual(image.asset.bytes);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  18:05:14
+   Duration  496ms (transform 65%, import 21%, tests 12%, worker 1%)
+

@@ -1,0 +1,1660 @@
+{
+  "schema": 1,
+  "method": "Independent Python arithmetic over all supplied final RC9 performance arms/capacity runs; direct SHA-256 of candidate/distribution/bindings/artifacts. Does not repeat latency measurements or establish independent physical-browser authenticity.",
+  "identity": {
+    "candidate": {
+      "sha256": "37277f20b922b1a6a9f734b0d69e96a61a8298a6d71aad24a86fd53731178bc9",
+      "files": 282
+    },
+    "dist": {
+      "sha256": "876bae95926bce4b4730864c66598f4192cf64c36c0ab02214dd9c3693656b0a",
+      "files": 179
+    },
+    "matchesAcceptance": true,
+    "manifestMatches": true,
+    "driver": {
+      "path": "docs/verification-tools/performance-browser-recovery.mjs",
+      "sha256": "ab5f5a9ea1d8bfb40da6267aaf7bd9d6ef00343f14e544822b0c2fa38a20fa01",
+      "matchesFrozen": true
+    },
+    "procedure": {
+      "path": "docs/verification-tools/browser-recovery-protocol.json",
+      "sha256": "8bab7df86397ea5287c8a589603aa51da1c196f78ce1c1cce4a4db30f5161c7f",
+      "matchesFrozen": true
+    },
+    "reference": {
+      "path": "examples/reference-rc6/RUMUS TRIGONOMETRI 1.html",
+      "sha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff"
+    },
+    "oracle": {
+      "path": "fixtures/rc6/user-trigonometry.expected.json",
+      "sha256": "5fc50ac50f7514df26b99583cf709521e8df67917c6ef1dc7f52336e11783c4d"
+    },
+    "fixture": {
+      "path": "fixtures/rc6/user-trigonometry.md",
+      "sha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f"
+    },
+    "baseline": {
+      "candidate": {
+        "sha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+        "files": 209
+      },
+      "dist": {
+        "sha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+        "files": 180
+      },
+      "matchesProtocol": true
+    }
+  },
+  "performance": {
+    "measuredPairs": 560,
+    "cohorts": [
+      {
+        "path": "evidence/rc9/performance/recovery-cohort-1.json",
+        "sha256": "6756275127b7c69566255b8443fe4599188798a618fd8a5e7f9a450da16c39c0",
+        "kind": "browser",
+        "cohort": 1,
+        "runId": "735f3ed9-f215-42d8-975d-5971612ca579",
+        "recordedStatus": "FAIL",
+        "issues": [],
+        "flows": {
+          "trig": {
+            "arms": 100,
+            "measuredArms": 80,
+            "warmupArms": 20,
+            "pairs": 40,
+            "errors": 0,
+            "orderCounts": {
+              "rc6→candidate": 20,
+              "candidate→rc6": 20
+            },
+            "equalOutputPairs": 40
+          },
+          "long": {
+            "arms": 100,
+            "measuredArms": 80,
+            "warmupArms": 20,
+            "pairs": 40,
+            "errors": 0,
+            "orderCounts": {
+              "rc6→candidate": 20,
+              "candidate→rc6": 20
+            },
+            "equalOutputPairs": 40
+          },
+          "small": {
+            "arms": 100,
+            "measuredArms": 80,
+            "warmupArms": 20,
+            "pairs": 40,
+            "errors": 0,
+            "orderCounts": {
+              "rc6→candidate": 20,
+              "candidate→rc6": 20
+            },
+            "equalOutputPairs": 40
+          }
+        },
+        "metrics": [
+          {
+            "task": "trig",
+            "metric": "previewMs",
+            "rc6": {
+              "n": 40,
+              "min": 821.2999999988824,
+              "median": 946.6500000003725,
+              "p95": 1525,
+              "max": 1787.699999999255
+            },
+            "candidate": {
+              "n": 40,
+              "min": 728.7999999988824,
+              "median": 958.6500000003725,
+              "p95": 1243.199999999255,
+              "max": 1332.7000000011176
+            },
+            "medianRatio": 1.0126762795119582,
+            "p95Ratio": 0.8152131147536098,
+            "pass": true
+          },
+          {
+            "task": "trig",
+            "metric": "htmlExportMs",
+            "rc6": {
+              "n": 40,
+              "min": 147.90000000037253,
+              "median": 192.84999999962747,
+              "p95": 268,
+              "max": 411.30000000074506
+            },
+            "candidate": {
+              "n": 40,
+              "min": 129.59999999962747,
+              "median": 189.15000000037253,
+              "p95": 353.19999999925494,
+              "max": 811.1999999992549
+            },
+            "medianRatio": 0.9808141042299088,
+            "p95Ratio": 1.317910447758414,
+            "pass": false
+          },
+          {
+            "task": "trig",
+            "metric": "pageReadyMs",
+            "rc6": {
+              "n": 40,
+              "min": 2808.10000000149,
+              "median": 3383.699999999255,
+              "p95": 4574.5,
+              "max": 5266.700000001118
+            },
+            "candidate": {
+              "n": 40,
+              "min": 2727,
+              "median": 3396.399999999441,
+              "p95": 3954.7000000011176,
+              "max": 4690.199999999255
+            },
+            "medianRatio": 1.0037532878210802,
+            "p95Ratio": 0.8645097824901339,
+            "pass": true
+          },
+          {
+            "task": "long",
+            "metric": "previewMs",
+            "rc6": {
+              "n": 40,
+              "min": 873.6999999992549,
+              "median": 983.0499999998137,
+              "p95": 1143.0999999996275,
+              "max": 1460.0999999996275
+            },
+            "candidate": {
+              "n": 40,
+              "min": 854.1999999992549,
+              "median": 918.7000000001863,
+              "p95": 1167.5999999996275,
+              "max": 1480
+            },
+            "medianRatio": 0.9345404608111086,
+            "p95Ratio": 1.0214329454990885,
+            "pass": true
+          },
+          {
+            "task": "small",
+            "metric": "smallPreviewMs",
+            "rc6": {
+              "n": 40,
+              "min": 323,
+              "median": 344.29999999981374,
+              "p95": 566.5,
+              "max": 621.3000000007451
+            },
+            "candidate": {
+              "n": 40,
+              "min": 314.09999999962747,
+              "median": 343.34999999962747,
+              "p95": 416.7000000011176,
+              "max": 722.9000000003725
+            },
+            "medianRatio": 0.9972407783903956,
+            "p95Ratio": 0.735569285085821,
+            "pass": true
+          },
+          {
+            "task": "small",
+            "metric": "editPreviewMs",
+            "rc6": {
+              "n": 40,
+              "min": 276,
+              "median": 288.7500000009313,
+              "p95": 304.40000000037253,
+              "max": 309.7999999988824
+            },
+            "candidate": {
+              "n": 40,
+              "min": 278,
+              "median": 289.55000000074506,
+              "p95": 307,
+              "max": 348.5
+            },
+            "medianRatio": 1.0027705627699088,
+            "p95Ratio": 1.0085413929028393,
+            "pass": true
+          }
+        ],
+        "recomputedTimingStatus": "FAIL"
+      },
+      {
+        "path": "evidence/rc9/performance/recovery-cohort-2.json",
+        "sha256": "0436e4a01e4210f30d2d950fdd91669682d02e5bebd1db1c81e3a2adeb9fc944",
+        "kind": "browser",
+        "cohort": 2,
+        "runId": "2acf7717-29ff-4b7d-86f9-3304fb06330f",
+        "recordedStatus": "PASS",
+        "issues": [],
+        "flows": {
+          "trig": {
+            "arms": 100,
+            "measuredArms": 80,
+            "warmupArms": 20,
+            "pairs": 40,
+            "errors": 0,
+            "orderCounts": {
+              "candidate→rc6": 20,
+              "rc6→candidate": 20
+            },
+            "equalOutputPairs": 40
+          },
+          "long": {
+            "arms": 100,
+            "measuredArms": 80,
+            "warmupArms": 20,
+            "pairs": 40,
+            "errors": 0,
+            "orderCounts": {
+              "candidate→rc6": 20,
+              "rc6→candidate": 20
+            },
+            "equalOutputPairs": 40
+          },
+          "small": {
+            "arms": 100,
+            "measuredArms": 80,
+            "warmupArms": 20,
+            "pairs": 40,
+            "errors": 0,
+            "orderCounts": {
+              "candidate→rc6": 20,
+              "rc6→candidate": 20
+            },
+            "equalOutputPairs": 40
+          }
+        },
+        "metrics": [
+          {
+            "task": "trig",
+            "metric": "previewMs",
+            "rc6": {
+              "n": 40,
+              "min": 773.4000000003725,
+              "median": 900.8999999994412,
+              "p95": 1097.0999999996275,
+              "max": 1271.0999999996275
+            },
+            "candidate": {
+              "n": 40,
+              "min": 736.7999999988824,
+              "median": 837.7999999998137,
+              "p95": 1006.7000000011176,
+              "max": 1205.0999999996275
+            },
+            "medianRatio": 0.9299589299593001,
+            "p95Ratio": 0.9176009479550263,
+            "pass": true
+          },
+          {
+            "task": "trig",
+            "metric": "htmlExportMs",
+            "rc6": {
+              "n": 40,
+              "min": 139.7000000011176,
+              "median": 166.15000000130385,
+              "p95": 248.09999999962747,
+              "max": 292.90000000037253
+            },
+            "candidate": {
+              "n": 40,
+              "min": 122.79999999888241,
+              "median": 155.7999999988824,
+              "p95": 260.40000000037253,
+              "max": 550.6999999992549
+            },
+            "medianRatio": 0.937706891349141,
+            "p95Ratio": 1.0495767835580956,
+            "pass": true
+          },
+          {
+            "task": "trig",
+            "metric": "pageReadyMs",
+            "rc6": {
+              "n": 40,
+              "min": 2536.39999999851,
+              "median": 2812.3499999996275,
+              "p95": 3240.7000000011176,
+              "max": 3686.7999999988824
+            },
+            "candidate": {
+              "n": 40,
+              "min": 2645.800000000745,
+              "median": 2881.300000000745,
+              "p95": 3285.4000000003725,
+              "max": 4025.5
+            },
+            "medianRatio": 1.0245168631219894,
+            "p95Ratio": 1.0137933162585984,
+            "pass": true
+          },
+          {
+            "task": "long",
+            "metric": "previewMs",
+            "rc6": {
+              "n": 40,
+              "min": 849.6999999992549,
+              "median": 928.7999999988824,
+              "p95": 1112.6000000014901,
+              "max": 1236.4000000003725
+            },
+            "candidate": {
+              "n": 40,
+              "min": 836.5,
+              "median": 879.9000000003725,
+              "p95": 986.1999999992549,
+              "max": 1300.300000000745
+            },
+            "medianRatio": 0.9473514211901715,
+            "p95Ratio": 0.8863922344040392,
+            "pass": true
+          },
+          {
+            "task": "small",
+            "metric": "smallPreviewMs",
+            "rc6": {
+              "n": 40,
+              "min": 318.5,
+              "median": 349.80000000074506,
+              "p95": 462.1000000014901,
+              "max": 502.19999999925494
+            },
+            "candidate": {
+              "n": 40,
+              "min": 310.8999999985099,
+              "median": 342.84999999962747,
+              "p95": 386.69999999925494,
+              "max": 511.3999999985099
+            },
+            "medianRatio": 0.9801315037132567,
+            "p95Ratio": 0.8368318545726205,
+            "pass": true
+          },
+          {
+            "task": "small",
+            "metric": "editPreviewMs",
+            "rc6": {
+              "n": 40,
+              "min": 280.19999999925494,
+              "median": 289.79999999701977,
+              "p95": 303.29999999701977,
+              "max": 328.69999999925494
+            },
+            "candidate": {
+              "n": 40,
+              "min": 275.30000000074506,
+              "median": 285.74999999813735,
+              "p95": 304.1000000014901,
+              "max": 504.9000000022352
+            },
+            "medianRatio": 0.9860248447242096,
+            "p95Ratio": 1.0026376525040495,
+            "pass": true
+          }
+        ],
+        "recomputedTimingStatus": "PASS"
+      },
+      {
+        "path": "evidence/rc9/performance/node-1.json",
+        "sha256": "ba6b547d60ead039203009cfa959b96465e4d0dfea0d0305db8ae408a7ab44d7",
+        "kind": "node",
+        "cohort": 1,
+        "runId": "0b5964da-e774-4523-a746-83480bc9019f",
+        "recordedStatus": "FAIL",
+        "issues": [],
+        "flows": {
+          "trigonometry": {
+            "arms": 82,
+            "measuredArms": 80,
+            "warmupArms": 2,
+            "pairs": 40,
+            "errors": 0,
+            "orderCounts": {
+              "rc6→candidate": 20,
+              "candidate→rc6": 20
+            },
+            "equalOutputPairs": 40
+          },
+          "long": {
+            "arms": 82,
+            "measuredArms": 80,
+            "warmupArms": 2,
+            "pairs": 40,
+            "errors": 0,
+            "orderCounts": {
+              "rc6→candidate": 20,
+              "candidate→rc6": 20
+            },
+            "equalOutputPairs": 40
+          },
+          "small-edit": {
+            "arms": 82,
+            "measuredArms": 80,
+            "warmupArms": 2,
+            "pairs": 40,
+            "errors": 0,
+            "orderCounts": {
+              "rc6→candidate": 20,
+              "candidate→rc6": 20
+            },
+            "equalOutputPairs": 40
+          },
+          "empty-core": {
+            "arms": 82,
+            "measuredArms": 80,
+            "warmupArms": 2,
+            "pairs": 40,
+            "errors": 0,
+            "orderCounts": {
+              "rc6→candidate": 20,
+              "candidate→rc6": 20
+            },
+            "equalOutputPairs": 40
+          }
+        },
+        "metrics": [
+          {
+            "task": "trigonometry",
+            "metric": "refreshMs",
+            "rc6": {
+              "n": 40,
+              "min": 890.8731780000089,
+              "median": 1180.9609994999919,
+              "p95": 2335.2460750000027,
+              "max": 2404.033389999997
+            },
+            "candidate": {
+              "n": 40,
+              "min": 686.016169999959,
+              "median": 990.8444619999937,
+              "p95": 1555.6442979999993,
+              "max": 1636.9818970000051
+            },
+            "medianRatio": 0.8390153971380157,
+            "p95Ratio": 0.6661586179948926,
+            "pass": true
+          },
+          {
+            "task": "trigonometry",
+            "metric": "htmlExportMs",
+            "rc6": {
+              "n": 40,
+              "min": 992.0726230000146,
+              "median": 1324.718875000006,
+              "p95": 1966.922842,
+              "max": 2792.6839990000008
+            },
+            "candidate": {
+              "n": 40,
+              "min": 704.9165860000066,
+              "median": 912.0022095000168,
+              "p95": 1437.3340460000036,
+              "max": 2412.747526000021
+            },
+            "medianRatio": 0.6884496225661559,
+            "p95Ratio": 0.7307526331528584,
+            "pass": true
+          },
+          {
+            "task": "trigonometry",
+            "metric": "printPayloadMs",
+            "rc6": {
+              "n": 40,
+              "min": 499.79194100003224,
+              "median": 614.9510930000179,
+              "p95": 1269.3686079999898,
+              "max": 1829.381426
+            },
+            "candidate": {
+              "n": 40,
+              "min": 502.5333559999999,
+              "median": 628.7336895000044,
+              "p95": 1106.7107280000055,
+              "max": 1265.6276110000035
+            },
+            "medianRatio": 1.0224125083390756,
+            "p95Ratio": 0.8718592227861479,
+            "pass": true
+          },
+          {
+            "task": "long",
+            "metric": "refreshMs",
+            "rc6": {
+              "n": 40,
+              "min": 400.7084820000455,
+              "median": 496.58398449997185,
+              "p95": 1195.3402010000427,
+              "max": 1253.824609000003
+            },
+            "candidate": {
+              "n": 40,
+              "min": 362.4238910000422,
+              "median": 478.30974699999206,
+              "p95": 1092.4718560000183,
+              "max": 1238.726136000012
+            },
+            "medianRatio": 0.9632001069901988,
+            "p95Ratio": 0.9139422024675796,
+            "pass": true
+          },
+          {
+            "task": "small-edit",
+            "metric": "editedRefreshMs",
+            "rc6": {
+              "n": 40,
+              "min": 10.767777999979444,
+              "median": 15.803327499976149,
+              "p95": 23.264936999999918,
+              "max": 39.412028999999166
+            },
+            "candidate": {
+              "n": 40,
+              "min": 8.68675200000871,
+              "median": 12.410505000007106,
+              "p95": 22.627312000025995,
+              "max": 66.09633799997391
+            },
+            "medianRatio": 0.7853096128031161,
+            "p95Ratio": 0.9725928765689791,
+            "pass": true
+          },
+          {
+            "task": "small-edit",
+            "metric": "htmlExportMs",
+            "rc6": {
+              "n": 40,
+              "min": 20.68331799999578,
+              "median": 36.49815500000841,
+              "p95": 58.268556000024546,
+              "max": 157.77399499999592
+            },
+            "candidate": {
+              "n": 40,
+              "min": 17.5403819999774,
+              "median": 27.635966500005452,
+              "p95": 43.50130000000354,
+              "max": 108.95194200001424
+            },
+            "medianRatio": 0.7571880414228906,
+            "p95Ratio": 0.7465656090737037,
+            "pass": true
+          },
+          {
+            "task": "small-edit",
+            "metric": "printPayloadMs",
+            "rc6": {
+              "n": 40,
+              "min": 5.043423000024632,
+              "median": 7.706274500000291,
+              "p95": 11.129368000023533,
+              "max": 13.862857999978587
+            },
+            "candidate": {
+              "n": 40,
+              "min": 5.214356000011321,
+              "median": 6.5574520000081975,
+              "p95": 14.723774999962188,
+              "max": 78.55330499995034
+            },
+            "medianRatio": 0.8509237505110868,
+            "p95Ratio": 1.322965958168609,
+            "pass": false
+          },
+          {
+            "task": "empty-core",
+            "metric": "refreshMs",
+            "rc6": {
+              "n": 40,
+              "min": 4.402931999997236,
+              "median": 8.628777000005357,
+              "p95": 15.594072999956552,
+              "max": 30.061011000012513
+            },
+            "candidate": {
+              "n": 40,
+              "min": 3.715741000021808,
+              "median": 5.727267500013113,
+              "p95": 10.43049900000915,
+              "max": 12.562977999972645
+            },
+            "medianRatio": 0.6637403539353905,
+            "p95Ratio": 0.6688758607220968,
+            "pass": true
+          }
+        ],
+        "recomputedTimingStatus": "FAIL"
+      },
+      {
+        "path": "evidence/rc9/performance/node-2.json",
+        "sha256": "0d5cee272e9c048f30e3e117ea1df9afa42960501886b4325403065db07c90b7",
+        "kind": "node",
+        "cohort": 2,
+        "runId": "4c343665-9e53-4c47-940e-98132557147d",
+        "recordedStatus": "FAIL",
+        "issues": [],
+        "flows": {
+          "trigonometry": {
+            "arms": 82,
+            "measuredArms": 80,
+            "warmupArms": 2,
+            "pairs": 40,
+            "errors": 0,
+            "orderCounts": {
+              "candidate→rc6": 20,
+              "rc6→candidate": 20
+            },
+            "equalOutputPairs": 40
+          },
+          "long": {
+            "arms": 82,
+            "measuredArms": 80,
+            "warmupArms": 2,
+            "pairs": 40,
+            "errors": 0,
+            "orderCounts": {
+              "candidate→rc6": 20,
+              "rc6→candidate": 20
+            },
+            "equalOutputPairs": 40
+          },
+          "small-edit": {
+            "arms": 82,
+            "measuredArms": 80,
+            "warmupArms": 2,
+            "pairs": 40,
+            "errors": 0,
+            "orderCounts": {
+              "candidate→rc6": 20,
+              "rc6→candidate": 20
+            },
+            "equalOutputPairs": 40
+          },
+          "empty-core": {
+            "arms": 82,
+            "measuredArms": 80,
+            "warmupArms": 2,
+            "pairs": 40,
+            "errors": 0,
+            "orderCounts": {
+              "candidate→rc6": 20,
+              "rc6→candidate": 20
+            },
+            "equalOutputPairs": 40
+          }
+        },
+        "metrics": [
+          {
+            "task": "trigonometry",
+            "metric": "refreshMs",
+            "rc6": {
+              "n": 40,
+              "min": 871.8542100000195,
+              "median": 1060.450389499998,
+              "p95": 1488.796073000005,
+              "max": 1676.6656779999612
+            },
+            "candidate": {
+              "n": 40,
+              "min": 651.7239039999549,
+              "median": 853.3009960000054,
+              "p95": 1034.5798490000016,
+              "max": 1461.7682530000457
+            },
+            "medianRatio": 0.8046590434111082,
+            "p95Ratio": 0.6949103828002897,
+            "pass": true
+          },
+          {
+            "task": "trigonometry",
+            "metric": "htmlExportMs",
+            "rc6": {
+              "n": 40,
+              "min": 964.1570769999817,
+              "median": 1263.9939040000027,
+              "p95": 1563.3989059999876,
+              "max": 2007.768084999996
+            },
+            "candidate": {
+              "n": 40,
+              "min": 652.5220090000003,
+              "median": 888.0588100000059,
+              "p95": 1139.9031850000028,
+              "max": 1373.4800260000047
+            },
+            "medianRatio": 0.7025815608680372,
+            "p95Ratio": 0.7291185765995488,
+            "pass": true
+          },
+          {
+            "task": "trigonometry",
+            "metric": "printPayloadMs",
+            "rc6": {
+              "n": 40,
+              "min": 446.00535699998727,
+              "median": 579.2995830000145,
+              "p95": 924.6417580000125,
+              "max": 1034.7852039999998
+            },
+            "candidate": {
+              "n": 40,
+              "min": 490.27835400000913,
+              "median": 617.1694929999867,
+              "p95": 799.8317800000077,
+              "max": 1028.5270779999992
+            },
+            "medianRatio": 1.065371892387451,
+            "p95Ratio": 0.8650180170642876,
+            "pass": false
+          },
+          {
+            "task": "long",
+            "metric": "refreshMs",
+            "rc6": {
+              "n": 40,
+              "min": 409.22938199999044,
+              "median": 510.75609700000496,
+              "p95": 923.8897510000388,
+              "max": 1567.7028200000059
+            },
+            "candidate": {
+              "n": 40,
+              "min": 345.1522170000244,
+              "median": 455.8787124999799,
+              "p95": 711.2925970000215,
+              "max": 1408.2560350000276
+            },
+            "medianRatio": 0.892556574806733,
+            "p95Ratio": 0.7698890438281218,
+            "pass": true
+          },
+          {
+            "task": "small-edit",
+            "metric": "editedRefreshMs",
+            "rc6": {
+              "n": 40,
+              "min": 10.97004400001606,
+              "median": 19.81524150003679,
+              "p95": 28.281533000001218,
+              "max": 236.0180999999866
+            },
+            "candidate": {
+              "n": 40,
+              "min": 9.364767999970354,
+              "median": 11.718322500004433,
+              "p95": 19.38284100004239,
+              "max": 88.89418999996269
+            },
+            "medianRatio": 0.5913792420840632,
+            "p95Ratio": 0.6853532656819401,
+            "pass": true
+          },
+          {
+            "task": "small-edit",
+            "metric": "htmlExportMs",
+            "rc6": {
+              "n": 40,
+              "min": 24.14844900002936,
+              "median": 38.59365049999906,
+              "p95": 53.22502699994948,
+              "max": 163.2124419999891
+            },
+            "candidate": {
+              "n": 40,
+              "min": 18.52054599998519,
+              "median": 28.107275500020478,
+              "p95": 78.11689699999988,
+              "max": 159.48965800000587
+            },
+            "medianRatio": 0.7282875585977845,
+            "p95Ratio": 1.4676722850713448,
+            "pass": false
+          },
+          {
+            "task": "small-edit",
+            "metric": "printPayloadMs",
+            "rc6": {
+              "n": 40,
+              "min": 5.442213999980595,
+              "median": 9.17053100001067,
+              "p95": 20.59635300002992,
+              "max": 30.218004999973346
+            },
+            "candidate": {
+              "n": 40,
+              "min": 5.243779000011273,
+              "median": 6.66643149999436,
+              "p95": 17.640174000000115,
+              "max": 86.40148800000316
+            },
+            "medianRatio": 0.7269406209942046,
+            "p95Ratio": 0.8564707547969531,
+            "pass": true
+          },
+          {
+            "task": "empty-core",
+            "metric": "refreshMs",
+            "rc6": {
+              "n": 40,
+              "min": 4.3165639999788254,
+              "median": 6.485212500003399,
+              "p95": 11.840351999970153,
+              "max": 27.710382999968715
+            },
+            "candidate": {
+              "n": 40,
+              "min": 3.7158610000042245,
+              "median": 5.0423235000052955,
+              "p95": 13.122912000049837,
+              "max": 53.08834100002423
+            },
+            "medianRatio": 0.7775109142534115,
+            "p95Ratio": 1.1083211039741823,
+            "pass": false
+          }
+        ],
+        "recomputedTimingStatus": "FAIL"
+      }
+    ],
+    "failedMetrics": [
+      {
+        "cohortFile": "recovery-cohort-1.json",
+        "task": "trig",
+        "metric": "htmlExportMs",
+        "rc6": {
+          "n": 40,
+          "min": 147.90000000037253,
+          "median": 192.84999999962747,
+          "p95": 268,
+          "max": 411.30000000074506
+        },
+        "candidate": {
+          "n": 40,
+          "min": 129.59999999962747,
+          "median": 189.15000000037253,
+          "p95": 353.19999999925494,
+          "max": 811.1999999992549
+        },
+        "medianRatio": 0.9808141042299088,
+        "p95Ratio": 1.317910447758414,
+        "pass": false
+      },
+      {
+        "cohortFile": "node-1.json",
+        "task": "small-edit",
+        "metric": "printPayloadMs",
+        "rc6": {
+          "n": 40,
+          "min": 5.043423000024632,
+          "median": 7.706274500000291,
+          "p95": 11.129368000023533,
+          "max": 13.862857999978587
+        },
+        "candidate": {
+          "n": 40,
+          "min": 5.214356000011321,
+          "median": 6.5574520000081975,
+          "p95": 14.723774999962188,
+          "max": 78.55330499995034
+        },
+        "medianRatio": 0.8509237505110868,
+        "p95Ratio": 1.322965958168609,
+        "pass": false
+      },
+      {
+        "cohortFile": "node-2.json",
+        "task": "trigonometry",
+        "metric": "printPayloadMs",
+        "rc6": {
+          "n": 40,
+          "min": 446.00535699998727,
+          "median": 579.2995830000145,
+          "p95": 924.6417580000125,
+          "max": 1034.7852039999998
+        },
+        "candidate": {
+          "n": 40,
+          "min": 490.27835400000913,
+          "median": 617.1694929999867,
+          "p95": 799.8317800000077,
+          "max": 1028.5270779999992
+        },
+        "medianRatio": 1.065371892387451,
+        "p95Ratio": 0.8650180170642876,
+        "pass": false
+      },
+      {
+        "cohortFile": "node-2.json",
+        "task": "small-edit",
+        "metric": "htmlExportMs",
+        "rc6": {
+          "n": 40,
+          "min": 24.14844900002936,
+          "median": 38.59365049999906,
+          "p95": 53.22502699994948,
+          "max": 163.2124419999891
+        },
+        "candidate": {
+          "n": 40,
+          "min": 18.52054599998519,
+          "median": 28.107275500020478,
+          "p95": 78.11689699999988,
+          "max": 159.48965800000587
+        },
+        "medianRatio": 0.7282875585977845,
+        "p95Ratio": 1.4676722850713448,
+        "pass": false
+      },
+      {
+        "cohortFile": "node-2.json",
+        "task": "empty-core",
+        "metric": "refreshMs",
+        "rc6": {
+          "n": 40,
+          "min": 4.3165639999788254,
+          "median": 6.485212500003399,
+          "p95": 11.840351999970153,
+          "max": 27.710382999968715
+        },
+        "candidate": {
+          "n": 40,
+          "min": 3.7158610000042245,
+          "median": 5.0423235000052955,
+          "p95": 13.122912000049837,
+          "max": 53.08834100002423
+        },
+        "medianRatio": 0.7775109142534115,
+        "p95Ratio": 1.1083211039741823,
+        "pass": false
+      }
+    ]
+  },
+  "capacity": {
+    "recordedStatus": "PASS",
+    "globalIssues": [],
+    "sizes": [
+      {
+        "sections": 6,
+        "runs": [
+          {
+            "rep": 1,
+            "pages": 12,
+            "sourceBytes": 29096,
+            "heapSamples": 21,
+            "heapSampleMaxGapMs": 527,
+            "computedFirstProgressMs": 145,
+            "computedMaxProgressGapMs": 540,
+            "issues": []
+          },
+          {
+            "rep": 2,
+            "pages": 12,
+            "sourceBytes": 29096,
+            "heapSamples": 19,
+            "heapSampleMaxGapMs": 278,
+            "computedFirstProgressMs": 24,
+            "computedMaxProgressGapMs": 240,
+            "issues": []
+          },
+          {
+            "rep": 3,
+            "pages": 12,
+            "sourceBytes": 29096,
+            "heapSamples": 18,
+            "heapSampleMaxGapMs": 471,
+            "computedFirstProgressMs": 30,
+            "computedMaxProgressGapMs": 222,
+            "issues": []
+          },
+          {
+            "rep": 4,
+            "pages": 12,
+            "sourceBytes": 29096,
+            "heapSamples": 16,
+            "heapSampleMaxGapMs": 282,
+            "computedFirstProgressMs": 22,
+            "computedMaxProgressGapMs": 216,
+            "issues": []
+          },
+          {
+            "rep": 5,
+            "pages": 12,
+            "sourceBytes": 29096,
+            "heapSamples": 19,
+            "heapSampleMaxGapMs": 273,
+            "computedFirstProgressMs": 30,
+            "computedMaxProgressGapMs": 343,
+            "issues": []
+          }
+        ],
+        "pages": [
+          12,
+          12,
+          12,
+          12,
+          12
+        ],
+        "sourceBytes": [
+          29096,
+          29096,
+          29096,
+          29096,
+          29096
+        ],
+        "maxPreviewMs": 610,
+        "maxReeditMs": 590,
+        "maxPrintReadyMs": 2240,
+        "maxCancelToIdleMs": 40,
+        "maxEventLoopGapMs": 420,
+        "maxProgressGapMs": 540,
+        "maxSampledTargetHeapBytes": 28762228,
+        "closedProjectHeapDriftBytes": -2814252
+      },
+      {
+        "sections": 30,
+        "runs": [
+          {
+            "rep": 1,
+            "pages": 52,
+            "sourceBytes": 145136,
+            "heapSamples": 39,
+            "heapSampleMaxGapMs": 464,
+            "computedFirstProgressMs": 171,
+            "computedMaxProgressGapMs": 448,
+            "issues": []
+          },
+          {
+            "rep": 2,
+            "pages": 52,
+            "sourceBytes": 145136,
+            "heapSamples": 37,
+            "heapSampleMaxGapMs": 392,
+            "computedFirstProgressMs": 97,
+            "computedMaxProgressGapMs": 360,
+            "issues": []
+          },
+          {
+            "rep": 3,
+            "pages": 52,
+            "sourceBytes": 145136,
+            "heapSamples": 37,
+            "heapSampleMaxGapMs": 383,
+            "computedFirstProgressMs": 69,
+            "computedMaxProgressGapMs": 436,
+            "issues": []
+          },
+          {
+            "rep": 4,
+            "pages": 52,
+            "sourceBytes": 145136,
+            "heapSamples": 36,
+            "heapSampleMaxGapMs": 254,
+            "computedFirstProgressMs": 46,
+            "computedMaxProgressGapMs": 442,
+            "issues": []
+          },
+          {
+            "rep": 5,
+            "pages": 52,
+            "sourceBytes": 145136,
+            "heapSamples": 37,
+            "heapSampleMaxGapMs": 277,
+            "computedFirstProgressMs": 62,
+            "computedMaxProgressGapMs": 433,
+            "issues": []
+          }
+        ],
+        "pages": [
+          52,
+          52,
+          52,
+          52,
+          52
+        ],
+        "sourceBytes": [
+          145136,
+          145136,
+          145136,
+          145136,
+          145136
+        ],
+        "maxPreviewMs": 1500,
+        "maxReeditMs": 1277,
+        "maxPrintReadyMs": 4437,
+        "maxCancelToIdleMs": 81,
+        "maxEventLoopGapMs": 339,
+        "maxProgressGapMs": 448,
+        "maxSampledTargetHeapBytes": 41803476,
+        "closedProjectHeapDriftBytes": 230600
+      },
+      {
+        "sections": 118,
+        "runs": [
+          {
+            "rep": 1,
+            "pages": 201,
+            "sourceBytes": 570616,
+            "heapSamples": 117,
+            "heapSampleMaxGapMs": 602,
+            "computedFirstProgressMs": 427,
+            "computedMaxProgressGapMs": 999,
+            "issues": []
+          },
+          {
+            "rep": 2,
+            "pages": 201,
+            "sourceBytes": 570616,
+            "heapSamples": 126,
+            "heapSampleMaxGapMs": 645,
+            "computedFirstProgressMs": 260,
+            "computedMaxProgressGapMs": 805,
+            "issues": []
+          },
+          {
+            "rep": 3,
+            "pages": 201,
+            "sourceBytes": 570616,
+            "heapSamples": 131,
+            "heapSampleMaxGapMs": 990,
+            "computedFirstProgressMs": 152,
+            "computedMaxProgressGapMs": 643,
+            "issues": []
+          },
+          {
+            "rep": 4,
+            "pages": 201,
+            "sourceBytes": 570616,
+            "heapSamples": 121,
+            "heapSampleMaxGapMs": 745,
+            "computedFirstProgressMs": 162,
+            "computedMaxProgressGapMs": 1605,
+            "issues": []
+          },
+          {
+            "rep": 5,
+            "pages": 201,
+            "sourceBytes": 570616,
+            "heapSamples": 123,
+            "heapSampleMaxGapMs": 599,
+            "computedFirstProgressMs": 214,
+            "computedMaxProgressGapMs": 742,
+            "issues": []
+          }
+        ],
+        "pages": [
+          201,
+          201,
+          201,
+          201,
+          201
+        ],
+        "sourceBytes": [
+          570616,
+          570616,
+          570616,
+          570616,
+          570616
+        ],
+        "maxPreviewMs": 2941,
+        "maxReeditMs": 2932,
+        "maxPrintReadyMs": 18903,
+        "maxCancelToIdleMs": 214,
+        "maxEventLoopGapMs": 834,
+        "maxProgressGapMs": 1605,
+        "maxSampledTargetHeapBytes": 82918516,
+        "closedProjectHeapDriftBytes": 158136
+      }
+    ]
+  },
+  "receiptChecks": [
+    {
+      "id": "G01",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "id": "G02",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "id": "G03",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "id": "G04",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "id": "G05",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "id": "G06",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "id": "G07",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "id": "G08",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "id": "G09",
+      "status": "FAIL",
+      "issues": []
+    },
+    {
+      "id": "G10",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "id": "G11",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "id": "G12",
+      "status": "BLOCKED",
+      "issues": []
+    },
+    {
+      "id": "G13",
+      "status": "BLOCKED",
+      "issues": []
+    },
+    {
+      "id": "G14",
+      "status": "BLOCKED",
+      "issues": []
+    },
+    {
+      "id": "G15",
+      "status": "NOT_RUN",
+      "issues": []
+    },
+    {
+      "id": "G16",
+      "status": "BLOCKED",
+      "issues": []
+    }
+  ],
+  "observationChecks": [
+    {
+      "name": "aggregate-new",
+      "exitCode": 0,
+      "artifacts": 2,
+      "issues": []
+    },
+    {
+      "name": "capacity-final",
+      "exitCode": 0,
+      "artifacts": 1,
+      "issues": []
+    },
+    {
+      "name": "firefox",
+      "exitCode": 0,
+      "artifacts": 1,
+      "issues": []
+    },
+    {
+      "name": "integrity-final-physical-dir",
+      "exitCode": 0,
+      "artifacts": 2,
+      "issues": []
+    },
+    {
+      "name": "integrity-new",
+      "exitCode": 1,
+      "artifacts": 1,
+      "issues": [
+        "changed evidence/rc9/integrity/acceptance.json"
+      ]
+    },
+    {
+      "name": "local-build",
+      "exitCode": 0,
+      "artifacts": 9,
+      "issues": []
+    },
+    {
+      "name": "native-dialog-new",
+      "exitCode": 0,
+      "artifacts": 1,
+      "issues": []
+    },
+    {
+      "name": "native-seat-final",
+      "exitCode": 0,
+      "artifacts": 1,
+      "issues": []
+    },
+    {
+      "name": "native-seat-new",
+      "exitCode": 0,
+      "artifacts": 0,
+      "issues": []
+    },
+    {
+      "name": "pdf-dialogue-new",
+      "exitCode": 0,
+      "artifacts": 1,
+      "issues": []
+    },
+    {
+      "name": "pdf-mixed-new",
+      "exitCode": 0,
+      "artifacts": 1,
+      "issues": []
+    },
+    {
+      "name": "pdf-new",
+      "exitCode": 0,
+      "artifacts": 33,
+      "issues": []
+    },
+    {
+      "name": "pdf-reference-new",
+      "exitCode": 0,
+      "artifacts": 1,
+      "issues": []
+    },
+    {
+      "name": "perf-browser-1",
+      "exitCode": 1,
+      "artifacts": 1,
+      "issues": []
+    },
+    {
+      "name": "perf-browser-2-repeat",
+      "exitCode": 0,
+      "artifacts": 1,
+      "issues": []
+    },
+    {
+      "name": "perf-node-1",
+      "exitCode": 1,
+      "artifacts": 1,
+      "issues": []
+    },
+    {
+      "name": "perf-node-2",
+      "exitCode": 1,
+      "artifacts": 1,
+      "issues": []
+    },
+    {
+      "name": "rich-import",
+      "exitCode": 0,
+      "artifacts": 3,
+      "issues": []
+    },
+    {
+      "name": "rollback-local",
+      "exitCode": 0,
+      "artifacts": 1,
+      "issues": []
+    },
+    {
+      "name": "trig-new",
+      "exitCode": 0,
+      "artifacts": 7,
+      "issues": []
+    },
+    {
+      "name": "ui-journey-final",
+      "exitCode": 0,
+      "artifacts": 4,
+      "issues": []
+    },
+    {
+      "name": "user-clipboard",
+      "exitCode": 0,
+      "artifacts": 1,
+      "issues": []
+    },
+    {
+      "name": "user-content",
+      "exitCode": 0,
+      "artifacts": 5,
+      "issues": []
+    },
+    {
+      "name": "user-storage",
+      "exitCode": 0,
+      "artifacts": 2,
+      "issues": []
+    },
+    {
+      "name": "verified-input-archives",
+      "exitCode": 0,
+      "artifacts": 1,
+      "issues": []
+    },
+    {
+      "name": "webkit",
+      "exitCode": 0,
+      "artifacts": 1,
+      "issues": []
+    },
+    {
+      "name": "wrapper-new",
+      "exitCode": 0,
+      "artifacts": 5,
+      "issues": []
+    }
+  ],
+  "reviewedDataPaths": [
+    "dist.build-manifest.json",
+    "docs/verification-tools/browser-recovery-protocol.json",
+    "docs/verification-tools/check-mixed.py",
+    "docs/verification-tools/check-reference.py",
+    "docs/verification-tools/graphical-seat.py",
+    "docs/verification-tools/performance-browser-recovery.mjs",
+    "docs/verification-tools/verify-rc9-input.py",
+    "evidence/rc9/acceptance/facts/G01.json",
+    "evidence/rc9/acceptance/facts/G02.json",
+    "evidence/rc9/acceptance/facts/G03.json",
+    "evidence/rc9/acceptance/facts/G04.json",
+    "evidence/rc9/acceptance/facts/G05-fresh.json",
+    "evidence/rc9/acceptance/facts/G06-fresh.json",
+    "evidence/rc9/acceptance/facts/G07.json",
+    "evidence/rc9/acceptance/facts/G08.json",
+    "evidence/rc9/acceptance/facts/G10.json",
+    "evidence/rc9/acceptance/facts/G11.json",
+    "evidence/rc9/acceptance/observations/aggregate-new.json",
+    "evidence/rc9/acceptance/observations/aggregate-new.log",
+    "evidence/rc9/acceptance/observations/capacity-final.json",
+    "evidence/rc9/acceptance/observations/capacity-final.log",
+    "evidence/rc9/acceptance/observations/firefox.json",
+    "evidence/rc9/acceptance/observations/firefox.log",
+    "evidence/rc9/acceptance/observations/integrity-final-physical-dir.json",
+    "evidence/rc9/acceptance/observations/integrity-final-physical-dir.log",
+    "evidence/rc9/acceptance/observations/integrity-new.json",
+    "evidence/rc9/acceptance/observations/integrity-new.log",
+    "evidence/rc9/acceptance/observations/local-build.json",
+    "evidence/rc9/acceptance/observations/local-build.log",
+    "evidence/rc9/acceptance/observations/native-dialog-new.json",
+    "evidence/rc9/acceptance/observations/native-dialog-new.log",
+    "evidence/rc9/acceptance/observations/native-seat-final.json",
+    "evidence/rc9/acceptance/observations/native-seat-final.log",
+    "evidence/rc9/acceptance/observations/native-seat-new.json",
+    "evidence/rc9/acceptance/observations/native-seat-new.log",
+    "evidence/rc9/acceptance/observations/pdf-dialogue-new.json",
+    "evidence/rc9/acceptance/observations/pdf-dialogue-new.log",
+    "evidence/rc9/acceptance/observations/pdf-mixed-new.json",
+    "evidence/rc9/acceptance/observations/pdf-mixed-new.log",
+    "evidence/rc9/acceptance/observations/pdf-new.json",
+    "evidence/rc9/acceptance/observations/pdf-new.log",
+    "evidence/rc9/acceptance/observations/pdf-reference-new.json",
+    "evidence/rc9/acceptance/observations/pdf-reference-new.log",
+    "evidence/rc9/acceptance/observations/perf-browser-1.json",
+    "evidence/rc9/acceptance/observations/perf-browser-1.log",
+    "evidence/rc9/acceptance/observations/perf-browser-2-repeat.json",
+    "evidence/rc9/acceptance/observations/perf-browser-2-repeat.log",
+    "evidence/rc9/acceptance/observations/perf-node-1.json",
+    "evidence/rc9/acceptance/observations/perf-node-1.log",
+    "evidence/rc9/acceptance/observations/perf-node-2.json",
+    "evidence/rc9/acceptance/observations/perf-node-2.log",
+    "evidence/rc9/acceptance/observations/rich-import.json",
+    "evidence/rc9/acceptance/observations/rich-import.log",
+    "evidence/rc9/acceptance/observations/rollback-local.json",
+    "evidence/rc9/acceptance/observations/rollback-local.log",
+    "evidence/rc9/acceptance/observations/trig-new.json",
+    "evidence/rc9/acceptance/observations/trig-new.log",
+    "evidence/rc9/acceptance/observations/ui-journey-final.json",
+    "evidence/rc9/acceptance/observations/ui-journey-final.log",
+    "evidence/rc9/acceptance/observations/user-clipboard.json",
+    "evidence/rc9/acceptance/observations/user-clipboard.log",
+    "evidence/rc9/acceptance/observations/user-content.json",
+    "evidence/rc9/acceptance/observations/user-content.log",
+    "evidence/rc9/acceptance/observations/user-storage.json",
+    "evidence/rc9/acceptance/observations/user-storage.log",
+    "evidence/rc9/acceptance/observations/verified-input-archives.json",
+    "evidence/rc9/acceptance/observations/verified-input-archives.log",
+    "evidence/rc9/acceptance/observations/webkit.json",
+    "evidence/rc9/acceptance/observations/webkit.log",
+    "evidence/rc9/acceptance/observations/wrapper-new.json",
+    "evidence/rc9/acceptance/observations/wrapper-new.log",
+    "evidence/rc9/acceptance/receipts/G01.json",
+    "evidence/rc9/acceptance/receipts/G02.json",
+    "evidence/rc9/acceptance/receipts/G03.json",
+    "evidence/rc9/acceptance/receipts/G04.json",
+    "evidence/rc9/acceptance/receipts/G05.json",
+    "evidence/rc9/acceptance/receipts/G06.json",
+    "evidence/rc9/acceptance/receipts/G07.json",
+    "evidence/rc9/acceptance/receipts/G08.json",
+    "evidence/rc9/acceptance/receipts/G09.json",
+    "evidence/rc9/acceptance/receipts/G10.json",
+    "evidence/rc9/acceptance/receipts/G11.json",
+    "evidence/rc9/acceptance/receipts/G12.json",
+    "evidence/rc9/acceptance/receipts/G13.json",
+    "evidence/rc9/acceptance/receipts/G14.json",
+    "evidence/rc9/acceptance/receipts/G15.json",
+    "evidence/rc9/acceptance/receipts/G16.json",
+    "evidence/rc9/acceptance/start.json",
+    "evidence/rc9/aggregate-tests/results.json",
+    "evidence/rc9/aggregate-tests/test.log",
+    "evidence/rc9/browser/content-outputs.mjs",
+    "evidence/rc9/browser/cross-engine.mjs",
+    "evidence/rc9/browser/native-probe.mjs",
+    "evidence/rc9/browser/results/browser-capture.json",
+    "evidence/rc9/browser/results/browser-storage.json",
+    "evidence/rc9/browser/results/content-outputs.json",
+    "evidence/rc9/browser/results/local-desktop-capabilities.json",
+    "evidence/rc9/browser/results/native-save.json",
+    "evidence/rc9/browser/results/oracle.json",
+    "evidence/rc9/browser/results/playwright-firefox.json",
+    "evidence/rc9/browser/results/playwright-webkit.json",
+    "evidence/rc9/browser/results/synthetic-browser-backup.pfproj",
+    "evidence/rc9/browser/results/trigonometry-downloads.json",
+    "evidence/rc9/browser/results/uat.json",
+    "evidence/rc9/browser/storage-operations.mjs",
+    "evidence/rc9/browser/uat.mjs",
+    "evidence/rc9/browser/verify-trig.py",
+    "evidence/rc9/build-tests/clean-build.log",
+    "evidence/rc9/build-tests/clean-receipt.json",
+    "evidence/rc9/build-tests/gate.log",
+    "evidence/rc9/build-tests/http-verification-local.json",
+    "evidence/rc9/build-tests/http.log",
+    "evidence/rc9/build-tests/release-gate.json",
+    "evidence/rc9/build-tests/secret-scan.json",
+    "evidence/rc9/build-tests/secrets.log",
+    "evidence/rc9/build-tests/static.log",
+    "evidence/rc9/input/identity.json",
+    "evidence/rc9/integrity/acceptance.json",
+    "evidence/rc9/integrity/final-bytes.json",
+    "evidence/rc9/operations/rich-import.json",
+    "evidence/rc9/operations/rollback-local.json",
+    "evidence/rc9/pdf-review/check-dialogue.py",
+    "evidence/rc9/pdf-review/dialogue.json",
+    "evidence/rc9/pdf-review/mixed.json",
+    "evidence/rc9/pdf-review/reference-pages.json",
+    "evidence/rc9/pdf/coverage.json",
+    "evidence/rc9/pdf/diagnostics/DIAGNOSTIC-mixed-original-BUS-01-Letter-landscape.pdf",
+    "evidence/rc9/pdf/diagnostics/DIAGNOSTIC-mixed-original-EDT-01-A5-portrait.pdf",
+    "evidence/rc9/pdf/diagnostics/DIAGNOSTIC-mixed-original-EDU-01-A4-portrait.pdf",
+    "evidence/rc9/pdf/physical-verification.json",
+    "evidence/rc9/pdf/portrait-landscape.json",
+    "evidence/rc9/pdf/results.json",
+    "evidence/rc9/performance/capacity.json",
+    "evidence/rc9/performance/node-1.json",
+    "evidence/rc9/performance/node-2.json",
+    "evidence/rc9/performance/recovery-cohort-1.json",
+    "evidence/rc9/performance/recovery-cohort-2.json",
+    "evidence/rc9/user-suite/production-paths.json",
+    "evidence/rc9/user-suite/smoke.json",
+    "evidence/rc9/user-suite/smoke.log",
+    "evidence/rc9/user-suite/studio.log",
+    "evidence/rc9/wrappers/compatibility-final.json",
+    "evidence/rc9/wrappers/mixed-wrappers-clipboard.html",
+    "evidence/rc9/wrappers/mixed-wrappers-raw.html",
+    "evidence/rc9/wrappers/wrapper-downloads.json",
+    "evidence/rc9/wrappers/wrapper-final.json",
+    "examples/rc9/DIAGRAM-DAN-GAMBAR.html",
+    "examples/rc9/KELAS-HTML.html",
+    "examples/rc9/content/aset-lokal.html",
+    "examples/rc9/content/diagram.html",
+    "examples/rc9/content/percakapan.html",
+    "examples/rc9/content/wrapper-rumus.html",
+    "examples/rc9/html/BUS-01.html",
+    "examples/rc9/html/CON-01.html",
+    "examples/rc9/html/EDT-01.html",
+    "examples/rc9/html/EDU-01.html",
+    "examples/rc9/pdf/conversation-BUS-01-A5-landscape.pdf",
+    "examples/rc9/pdf/conversation-BUS-01-Letter-portrait.pdf",
+    "examples/rc9/pdf/conversation-CON-01-A5-landscape.pdf",
+    "examples/rc9/pdf/conversation-CON-01-Letter-portrait.pdf",
+    "examples/rc9/pdf/conversation-EDT-01-A4-portrait.pdf",
+    "examples/rc9/pdf/conversation-EDT-01-Letter-landscape.pdf",
+    "examples/rc9/pdf/conversation-EDU-01-A4-landscape.pdf",
+    "examples/rc9/pdf/conversation-EDU-01-A5-portrait.pdf",
+    "examples/rc9/pdf/mixed-supported-BUS-01-A4-landscape.pdf",
+    "examples/rc9/pdf/mixed-supported-BUS-01-A5-portrait.pdf",
+    "examples/rc9/pdf/mixed-supported-CON-01-A4-landscape.pdf",
+    "examples/rc9/pdf/mixed-supported-CON-01-A5-portrait.pdf",
+    "examples/rc9/pdf/mixed-supported-EDT-01-A5-landscape.pdf",
+    "examples/rc9/pdf/mixed-supported-EDT-01-A5-portrait.pdf",
+    "examples/rc9/pdf/mixed-supported-EDT-01-Letter-portrait.pdf",
+    "examples/rc9/pdf/mixed-supported-EDU-01-A4-portrait.pdf",
+    "examples/rc9/pdf/mixed-supported-EDU-01-Letter-landscape.pdf",
+    "examples/rc9/pdf/trigonometry-BUS-01-A4-portrait.pdf",
+    "examples/rc9/pdf/trigonometry-BUS-01-Letter-landscape.pdf",
+    "examples/rc9/pdf/trigonometry-CON-01-A4-portrait.pdf",
+    "examples/rc9/pdf/trigonometry-CON-01-Letter-landscape.pdf",
+    "examples/rc9/pdf/trigonometry-EDT-01-A4-landscape.pdf",
+    "examples/rc9/pdf/trigonometry-EDT-01-A5-portrait.pdf",
+    "examples/rc9/pdf/trigonometry-EDU-01-A4-portrait.pdf",
+    "examples/rc9/pdf/trigonometry-EDU-01-A5-landscape.pdf",
+    "examples/rc9/pdf/trigonometry-EDU-01-Letter-portrait.pdf",
+    "examples/reference-rc6/RUMUS TRIGONOMETRI 1.html",
+    "fixtures/rc6/user-trigonometry.expected.json",
+    "fixtures/rc6/user-trigonometry.md",
+    "scripts/acceptance-selfcheck.mjs",
+    "scripts/verify-local-bundle.py",
+    "tests/bench/performance-browser-official.mjs",
+    "tests/bench/performance-node.mjs",
+    "tests/bench/performance-protocol.json",
+    "tests/e2e/perf-matrix.mjs",
+    "tests/e2e/rc8-pdf.mjs",
+    "tests/e2e/rc8-rich-export.mjs",
+    "tests/unit/render/rc8-final-bytes.test.ts",
+    "tests/unit/render/rc8-source-integrity.test.ts"
+  ]
+}

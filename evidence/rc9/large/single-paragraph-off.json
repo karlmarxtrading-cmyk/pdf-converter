@@ -1,0 +1,655 @@
+{
+  "shape": "single-paragraph",
+  "toc": "off",
+  "sourceSha256": "b3a64a1dedd54b8e250f0bf4dcbf2121196fb27b54e6b72f40d21171d4e0f812",
+  "sourceBytes": 2396354,
+  "identity": "37277f20b922b1a6a9f734b0d69e96a61a8298a6d71aad24a86fd53731178bc9",
+  "dist": "876bae95926bce4b4730864c66598f4192cf64c36c0ab02214dd9c3693656b0a",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "events": [
+    {
+      "type": "pf-print-ready",
+      "wallMs": 12195
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "fonts",
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 12207
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "images",
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 12622
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 12687
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 13974
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 23,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 14327
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 45,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 14689
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 67,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 15055
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 72,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 15416
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 94,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 15778
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 116,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 16141
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 137,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 16494
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 159,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 16858
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 180,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 17212
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 197,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 17724
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 211,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 18072
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 232,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 18427
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 252,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 18783
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 271,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 19139
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 292,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 19490
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 313,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 19847
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 324,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 20201
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 341,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 20578
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 359,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 20920
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 377,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 21285
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 392,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 21640
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 408,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 22012
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 415,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 22368
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 431,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 22724
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 450,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 23075
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 468,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 23448
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 485,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 23802
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 501,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 24165
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 513,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 24550
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 528,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 24900
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 546,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 25263
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 563,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 25635
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 578,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 25986
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 593,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 26335
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 607,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 26691
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 612,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 27060
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "paginate",
+      "pass": 1,
+      "pages": 614,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 27474
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "heading-check",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 614,
+      "wallMs": 27475
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "diagnostics",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 614,
+      "wallMs": 27488
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "flatten",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 0,
+      "wallMs": 27550
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "inventory",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 0,
+      "wallMs": 27601
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "inventory-reopen",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 614,
+      "wallMs": 28671
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 0,
+      "wallMs": 28760
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 32,
+      "wallMs": 28763
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 64,
+      "wallMs": 28765
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 96,
+      "wallMs": 28766
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 128,
+      "wallMs": 28767
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 160,
+      "wallMs": 28768
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 192,
+      "wallMs": 28792
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 224,
+      "wallMs": 28803
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 256,
+      "wallMs": 28813
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 288,
+      "wallMs": 28822
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 320,
+      "wallMs": 28841
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 352,
+      "wallMs": 28844
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 384,
+      "wallMs": 28850
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 416,
+      "wallMs": 28855
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 448,
+      "wallMs": 28866
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 480,
+      "wallMs": 28903
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 512,
+      "wallMs": 28909
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 544,
+      "wallMs": 28913
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 576,
+      "wallMs": 28921
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "geometry",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 608,
+      "wallMs": 28927
+    },
+    {
+      "type": "pf-print-progress",
+      "phase": "verified-pages",
+      "pass": 1,
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "units": 614,
+      "wallMs": 28935
+    },
+    {
+      "type": "pf-print-result",
+      "jobId": "pf-7-990696b0f4f9-mwr2ax3s",
+      "wallMs": 29032
+    }
+  ],
+  "method": "Production UI. Chromium automatic PDF of the exact verified, hash-matched print response.",
+  "phase": "pdf",
+  "status": "PASS",
+  "editorHash": "b3a64a1dedd54b8e250f0bf4dcbf2121196fb27b54e6b72f40d21171d4e0f812",
+  "initialSummary": "Revision\nrev 2 · b26d153f05f5\nFormat\nBUS-01 · A4 Portrait\nContent\n217850 words · 1 tables · 0 formulas · 0 images",
+  "settings": {
+    "paper": "A4",
+    "orientation": "portrait",
+    "subtitle": "",
+    "dateText": "",
+    "bodyFont": "inter",
+    "baseSizePt": "10.5",
+    "lineHeight": "1.5",
+    "cover": false,
+    "toc": false,
+    "tocDepth": "2",
+    "chapterBreak": false,
+    "pageNumbers": true,
+    "pageNumberStart": "1",
+    "header": "{title}",
+    "footer": "",
+    "inkSaver": false,
+    "followTemplateDefaults": false,
+    "contentLang": "id"
+  },
+  "inputSummary": "Revision\nrev 7 · 990696b0f4f9\nFormat\nBUS-01 · A4 Portrait\nContent\n217850 words · 1 tables · 0 formulas · 0 images",
+  "htmlSha256": "7106cb80380240589ed20fb8f55c5f2817464f65d276c4c904ad7af76c78c085",
+  "offline": {
+    "tables": 1,
+    "scripts": 0,
+    "formulas": 0,
+    "fonts": 3,
+    "sourceTokens": 217844,
+    "network": []
+  },
+  "flatSha256": "45419c69596736d4890b145887d434bfd89ce5997de9566743c43956fb9fb32a",
+  "layout": {
+    "pages": 614,
+    "verification": {
+      "status": "pass",
+      "pages": 614,
+      "inventory": [],
+      "structure": [],
+      "lostBlocks": 0
+    },
+    "timings": {
+      "fonts": 7,
+      "images": 13,
+      "prelayout": 392,
+      "enginePreviewCalls": 1,
+      "paginatePasses": 14461,
+      "flatten": 56,
+      "verify": 1374,
+      "globalPasses": 1,
+      "totalPreviewCalls": 1,
+      "finalAttemptPasses": 1,
+      "forcedBreaks": 0,
+      "total": 16769
+    },
+    "trace": [
+      {
+        "attempt": 1,
+        "pass": 1,
+        "globalPass": 1,
+        "pages": 614,
+        "elapsedMs": 14470
+      }
+    ],
+    "pass": 1
+  },
+  "pdfSha256": "3b24480c40d9c77296dbbf303ef3d8d38e4fc384c9318d73beefaea835a4b589",
+  "pdfBytes": 2915481,
+  "physical": {
+    "pass_": true,
+    "pages": 614,
+    "sourceBlocks": 3,
+    "referenceElements": 3,
+    "offline": {
+      "match": true,
+      "expectedLength": 2178478,
+      "actualLength": 2178478,
+      "matchedPrefix": 2178478,
+      "expectedSha256": "1f23057dd2aedec168e7d310eb6af2068f9bed1d827e060db57668dfc33384e3",
+      "actualSha256": "1f23057dd2aedec168e7d310eb6af2068f9bed1d827e060db57668dfc33384e3",
+      "last120": true
+    },
+    "pdf": {
+      "match": true,
+      "expectedLength": 2178478,
+      "actualLength": 2178478,
+      "matchedPrefix": 2178478,
+      "expectedSha256": "1f23057dd2aedec168e7d310eb6af2068f9bed1d827e060db57668dfc33384e3",
+      "actualSha256": "1f23057dd2aedec168e7d310eb6af2068f9bed1d827e060db57668dfc33384e3",
+      "last120": true
+    },
+    "fonts": [
+      "Inter-Bold",
+      "Inter-Regular",
+      "Inter-SemiBold"
+    ],
+    "method": "Pandoc GFM vs source blocks and text of glyphs emitted inside original source line rectangles. NFC; whitespace is layout-dependent. FE0F excluded from PDF text comparison only.",
+    "pass": true
+  },
+  "elapsedMs": 48818
+}

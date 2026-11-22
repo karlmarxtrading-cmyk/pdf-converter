@@ -1,0 +1,17 @@
+{
+  "cases": {
+    "cssAndFonts": true,
+    "mutatedArticle": true
+  },
+  "failures": [
+    "katex-layout",
+    "integrity",
+    "fonts-embedded"
+  ],
+  "cleanOutputHash": "ee3493220d23da6a834438d6176fef74b0267c02a76cf739cac5ad5f2df2e6e9",
+  "mutations": [
+    "removed layout CSS and all rendered formula children",
+    "damaged the actual embedded font data",
+    "injected a generated-looking navigation element in the compiled article"
+  ]
+}

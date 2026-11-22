@@ -1,0 +1,6 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> paperforma@3.0.0-rc.10 verify:static
+> node scripts/verify-static-release.mjs dist
+
+Verifikasi statis lulus: {"dir":"dist","profile":"production","files":179,"bytes":10224210,"maxFileBytes":1513070}

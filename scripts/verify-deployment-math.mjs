@@ -2,11 +2,11 @@
 // Pemakaian:  npm run verify:deployment -- https://performa-cwd.pages.dev
 // Membutuhkan Chrome/Chromium lokal (CHROME_PATH atau /usr/bin/google-chrome). Menulis evidence/deployment-math-<host>/results.json + PNG.
 // Alur: buka studio → tempel dokumen Einstein seperti dari ChatGPT (text/plain + text/html berdelimiter literal, dan
-// text/html KaTeX) lewat ClipboardEvent sungguhan → setujui konversi → periksa pratinjau: 11 rumus KaTeX, TeX sama
+// text/html KaTeX) lewat ClipboardEvent sintetis → setujui konversi → periksa pratinjau: 11 rumus KaTeX, TeX sama
 // dengan sumber, tidak ada \(…\) / \[…\] / \boxed mentah, mata uang & kode utuh; lalu tempel teks biasa ke editor.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { join } from 'node:path';
+import { resolve, join } from 'node:path';
 import puppeteer from 'puppeteer-core';
 import { deploymentIdentity } from './deployment-identity.mjs';
 import { root } from './fingerprint.mjs';
@@ -25,7 +25,7 @@ const htmlK = readFileSync(new URL('../fixtures/einstein/chatgpt-katex.html', im
 const EXPECTED = ['m', 'E_0', '\\boxed{E_0=mc^2}', 'v', '\\gamma=\\frac{1}{\\sqrt{1-\\frac{v^2}{c^2}}}', 'E=\\gamma mc^2', '\\Delta E = \\Delta m\\, c^2',
   "\\begin{pmatrix} ct' \\\\ x' \\end{pmatrix} = \\begin{pmatrix} \\gamma & -\\gamma\\beta \\\\ -\\gamma\\beta & \\gamma \\end{pmatrix} \\begin{pmatrix} ct \\\\ x \\end{pmatrix}",
   '\\tau = \\int_{t_1}^{t_2} \\sqrt{1-\\frac{v(t)^2}{c^2}}\\,dt', 'E_0=mc^2', 'p=\\gamma m v'];
-const output = join(root, 'evidence', 'deployment-math-' + encodeURIComponent(new URL(base).host));
+const output = process.argv[3] ? resolve(root, process.argv[3]) : join(root, 'evidence', 'deployment-math-' + encodeURIComponent(new URL(base).host));
 mkdirSync(output, { recursive: true });
 const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ['--no-sandbox'] });
 const results = [];

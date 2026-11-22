@@ -1,0 +1,71 @@
+
+ RUN  v5.1.0 /workspace/scratch/c635819e0476/budget-baseline
+
+ ↓ tests/unit/render/rc11-print-budget.test.ts > builds the real payload and admits only the inclusive limit (-1 byte offset)
+ ↓ tests/unit/render/rc11-print-budget.test.ts > builds the real payload and admits only the inclusive limit (0 byte offset)
+ × tests/unit/render/rc11-print-budget.test.ts > builds the real payload and admits only the inclusive limit (1 byte offset) 29ms
+   → expected null to match object { code: 'BUDGET_EXCEEDED', …(1) }
+ ↓ tests/unit/render/rc11-print-budget.test.ts > rechecks the actual transfer after the frame handshake and releases a rejected frame
+ ↓ tests/unit/render/rc11-print-budget.test.ts > checks the actual serialized print book at offset -1
+ ↓ tests/unit/render/rc11-print-budget.test.ts > checks the actual serialized print book at offset 0
+ × tests/unit/render/rc11-print-budget.test.ts > checks the actual serialized print book at offset 1 657ms
+   → expected null to match object { code: 'BUDGET_EXCEEDED', …(1) }
+ ↓ tests/unit/render/rc11-print-budget.test.ts > cancels an in-flight book before allocating its frame, then builds an edited revision for retry
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/render/rc11-print-budget.test.ts > builds the real payload and admits only the inclusive limit (1 byte offset)
+AssertionError: expected null to match object { code: 'BUDGET_EXCEEDED', …(1) }
+
+- Expected:
+{
+  "code": "BUDGET_EXCEEDED",
+  "result": {
+    "kind": "pdfPayload",
+    "limit": 47185920,
+  },
+}
+
++ Received:
+null
+
+ ❯ tests/unit/render/rc11-print-budget.test.ts:33:21
+     31|   if (delta === 1) {
+     32|     const refusal = await build.then(() => null, error => error);
+     33|     expect(refusal).toMatchObject({code:'BUDGET_EXCEEDED', result:{kin…
+       |                     ^
+     34|     expect(document.querySelector('iframe')).toBeNull();
+     35|   } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/unit/render/rc11-print-budget.test.ts > checks the actual serialized print book at offset 1
+AssertionError: expected null to match object { code: 'BUDGET_EXCEEDED', …(1) }
+
+- Expected:
+{
+  "code": "BUDGET_EXCEEDED",
+  "result": {
+    "actual": 47185921,
+  },
+}
+
++ Received:
+null
+
+ ❯ tests/unit/render/rc11-print-budget.test.ts:80:23
+     78|     if (delta > 0) {
+     79|       const refusal = await composeBook(p).then(() => null, error => e…
+     80|       expect(refusal).toMatchObject({code:'BUDGET_EXCEEDED',result:{ac…
+       |                       ^
+     81|       await expect(prepareBook(p,new AbortController().signal)).reject…
+     82|       expect(blob).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 6 skipped (8)
+   Start at  18:09:25
+   Duration  2.67s (environment 35%, tests 32%, transform 22%, import 11%)
+

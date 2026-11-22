@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "inputs": {
+    "rc6": {
+      "filename": "PAPERFORMA_STATIC_3.0.0-rc.6_AUDITED.zip",
+      "sha256": "82e6d021c1b042a498440c0ce8957c035eb011f4c1b1fe8c16a450697a52be53",
+      "bytes": 7409784,
+      "files": 551,
+      "verifiedChecksums": 550,
+      "pathsAndCRC": "PASS"
+    },
+    "rc7": {
+      "filename": "PAPERFORMA_STATIC_3.0.0-rc.7.zip",
+      "sha256": "2dc30a40212a2b41bbc98e44fb91ae61154b0a79ae8f275bcdcafa5402b98206",
+      "bytes": 12863497,
+      "files": 709,
+      "verifiedChecksums": 708,
+      "pathsAndCRC": "PASS"
+    },
+    "audit": {
+      "filename": "PAPERFORMA_RC7_AUDIT_PRODUKSI_20261122.zip",
+      "sha256": "f1ac3a44fd5a6efa5d00ad5aa987521bce133d25d7eb4cce54666732361487f0",
+      "bytes": 3767421,
+      "files": 77,
+      "verifiedChecksums": 76,
+      "pathsAndCRC": "PASS"
+    }
+  },
+  "fixtureBytes": 15280,
+  "fixtureSha256": "1f4b9345ef5a092c40e66290821f110cee2656a093a889c0f51800bdd54bb16f",
+  "originalHtmlSha256": "a82ecec4f37617d9730b1aeaf427c446c1e0f1acaa3ea9ffa37372f0126108ff"
+}

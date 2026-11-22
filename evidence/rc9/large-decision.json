@@ -1,0 +1,295 @@
+{
+  "source": "37277f20b922b1a6a9f734b0d69e96a61a8298a6d71aad24a86fd53731178bc9",
+  "dist": "876bae95926bce4b4730864c66598f4192cf64c36c0ab02214dd9c3693656b0a",
+  "runId": "c6de85a8-9f22-4683-b0d7-e20bc02fc245",
+  "gates": {
+    "U01": {
+      "status": "FAIL",
+      "reason": "Satu panggilan cetak untuk novel gagal menyimpan PDF. Perakitan 28 kelompok dapat menyelesaikan berkas di luar tombol standar. Empat bentuk sintetis, variasi daftar isi dan dokumen pemilik dinilai terpisah. Hasil cetak langsung, penyimpanan bertahap dan HTML mandiri tercatat per rute. Identitas revisi dari tangkapan layar tetap tidak terverifikasi.",
+      "artifacts": [
+        {
+          "path": "evidence/rc9/large/single-paragraph-off.json",
+          "sha256": "7a2789f393f841e2848e572bb2a3b9dfe35419ea6bd6fff9745b09c0f6309fe1"
+        },
+        {
+          "path": "evidence/rc9/large/paragraphs-on.json",
+          "sha256": "635b731894746c63637ad5bcedee2043f217b36df77d96ed536d420f98ec1a82"
+        },
+        {
+          "path": "evidence/rc9/large/paragraphs-off.json",
+          "sha256": "f875d181802e71642a45a7efd569a3252487eaeb878785781755e5567a27cfcc"
+        },
+        {
+          "path": "evidence/rc9/large/headings-on.json",
+          "sha256": "1b632a86883f16d468c3138f596b4d5dca5438995d5bbdab7c412b03ae9d50bd"
+        },
+        {
+          "path": "evidence/rc9/large/long-table-off.json",
+          "sha256": "c8fde83af0c2bde7c762269ee243f1f01094999f40e0d41659459c9d6e5f4cfb"
+        },
+        {
+          "path": "evidence/rc9/visual/matrix.json",
+          "sha256": "212354bc809d25170ac313c8f630f029ef53a082390d291576cc1db178ba855c"
+        },
+        {
+          "path": "evidence/rc9/private-receipts/print-job.json",
+          "sha256": "d27f85ee8a147ba122282a59a94c6488588e35089e3e639dc4e8222cce302ef5"
+        },
+        {
+          "path": "evidence/rc9/private-receipts/paged-physical.json",
+          "sha256": "c214e07a75bdc4dde1df6750d55edddee4e262b6ad728b2c17691ce2aac0014f"
+        },
+        {
+          "path": "evidence/rc9/private-receipts/one-shot.json",
+          "sha256": "15f36353536595f160ae2bbac0ee5b77e0764c673eb163ed27354c853206ee73"
+        }
+      ]
+    },
+    "U02": {
+      "status": "FAIL",
+      "reason": "Pengujian watchdog terkontrol dan pembatalan 11 tahap di studio terekam. Sebagian persiapan DOM serta serialisasi berjalan sinkron. Batas waktu pemulihan selama bagian sinkron dan siklus background/foreground untuk semua perangkat belum dibuktikan.",
+      "artifacts": [
+        {
+          "path": "evidence/rc9/lifecycle/client-timing.json",
+          "sha256": "c09f8153729ba28c12b2f71da0023a62d53e0541bbe0e914abe5246c755ac988"
+        },
+        {
+          "path": "evidence/rc9/lifecycle/cancel-stages.json",
+          "sha256": "d30b111fba2e73766450181d45061df16bbe1f014b01602518afa2735a352a4a"
+        },
+        {
+          "path": "evidence/rc9/build-tests/clean-build.log",
+          "sha256": "bb3235efa6a9f57da3d0a6767c88fa4ee5fb7a7d1440db1e91be92d17c7af772"
+        },
+        {
+          "path": "evidence/rc9/private-receipts/print-job.json",
+          "sha256": "d27f85ee8a147ba122282a59a94c6488588e35089e3e639dc4e8222cce302ef5"
+        }
+      ]
+    },
+    "U03": {
+      "status": "FAIL",
+      "reason": "Kontrol 14/28 serta browser Paged.js dengan 0/1/6 repair dan TOC hidup/mati lulus. Durasi tersedia per putaran dan beberapa fase kumulatif. Durasi terpisah untuk setiap fase di setiap percobaan yang dibuang belum lengkap.",
+      "artifacts": [
+        {
+          "path": "evidence/rc9/accounting/control.json",
+          "sha256": "7eaed640ed297d75faec27f1ae52f021a73b6e61d2ee687c132f7b7f4700697a"
+        },
+        {
+          "path": "evidence/rc9/accounting/browser.json",
+          "sha256": "e224c08f3d28f27c3144851bf224d7c356319d5334a97f4cb82264c9559053f8"
+        },
+        {
+          "path": "evidence/rc9/large/single-paragraph-off.json",
+          "sha256": "7a2789f393f841e2848e572bb2a3b9dfe35419ea6bd6fff9745b09c0f6309fe1"
+        },
+        {
+          "path": "evidence/rc9/large/paragraphs-on.json",
+          "sha256": "635b731894746c63637ad5bcedee2043f217b36df77d96ed536d420f98ec1a82"
+        },
+        {
+          "path": "evidence/rc9/large/paragraphs-off.json",
+          "sha256": "f875d181802e71642a45a7efd569a3252487eaeb878785781755e5567a27cfcc"
+        },
+        {
+          "path": "evidence/rc9/large/headings-on.json",
+          "sha256": "1b632a86883f16d468c3138f596b4d5dca5438995d5bbdab7c412b03ae9d50bd"
+        },
+        {
+          "path": "evidence/rc9/large/long-table-off.json",
+          "sha256": "c8fde83af0c2bde7c762269ee243f1f01094999f40e0d41659459c9d6e5f4cfb"
+        }
+      ]
+    },
+    "U04": {
+      "status": "FAIL",
+      "reason": "Penggabungan 28 kelompok menghasilkan buku aktual dengan 31 tautan dan 19 penanda daftar terverifikasi. Font Type 3 dan fallback ikut tercatat pada naskah asli. Penyimpanan satu operasi gagal. PDF fisik dari Paged.js untuk tiap bentuk disimpan dan dibuka ulang. Hasil novel serta normalisasi dicatat secara terpisah. Pemeriksaan dialog sistem tetap berada di G13.",
+      "artifacts": [
+        {
+          "path": "evidence/rc9/pdf/coverage.json",
+          "sha256": "98608edcd2e6b0e22c310c54b7b849e46b5efd2f1e7ae85da14fe0e25dc2de86"
+        },
+        {
+          "path": "evidence/rc9/pdf/physical-verification.json",
+          "sha256": "dfe63d3e3722b742e8294ca3ead24b5dcb4cefb2a9d153a3bb0bd5ea263fa390"
+        },
+        {
+          "path": "evidence/rc9/visual/matrix.json",
+          "sha256": "212354bc809d25170ac313c8f630f029ef53a082390d291576cc1db178ba855c"
+        },
+        {
+          "path": "evidence/rc9/large/single-paragraph-off.json",
+          "sha256": "7a2789f393f841e2848e572bb2a3b9dfe35419ea6bd6fff9745b09c0f6309fe1"
+        },
+        {
+          "path": "evidence/rc9/large/paragraphs-on.json",
+          "sha256": "635b731894746c63637ad5bcedee2043f217b36df77d96ed536d420f98ec1a82"
+        },
+        {
+          "path": "evidence/rc9/large/paragraphs-off.json",
+          "sha256": "f875d181802e71642a45a7efd569a3252487eaeb878785781755e5567a27cfcc"
+        },
+        {
+          "path": "evidence/rc9/large/headings-on.json",
+          "sha256": "1b632a86883f16d468c3138f596b4d5dca5438995d5bbdab7c412b03ae9d50bd"
+        },
+        {
+          "path": "evidence/rc9/large/long-table-off.json",
+          "sha256": "c8fde83af0c2bde7c762269ee243f1f01094999f40e0d41659459c9d6e5f4cfb"
+        },
+        {
+          "path": "examples/rc9/large/single-paragraph-off/dokumen.pdf",
+          "sha256": "3b24480c40d9c77296dbbf303ef3d8d38e4fc384c9318d73beefaea835a4b589"
+        },
+        {
+          "path": "examples/rc9/large/paragraphs-on/dokumen.pdf",
+          "sha256": "dd0e9503fb1b09c9330644e5e0486609beec7e64143f5f7bf50a6375d79f4f10"
+        },
+        {
+          "path": "examples/rc9/large/long-table-off/dokumen.pdf",
+          "sha256": "06f757c48ca4d3607b546a8c69bea98c326e4c15703260473a91e66bff866898"
+        },
+        {
+          "path": "examples/rc9/large/paragraphs-off/dokumen.pdf",
+          "sha256": "86db75f1db0654c20747d31566e17d999fc6732acb7b79ecaa57fb5a6f81bb1b"
+        },
+        {
+          "path": "examples/rc9/large/headings-on/dokumen.pdf",
+          "sha256": "33c75598126384fab9ac9f198c4d2d9e04cb363da9172ff4a3fb960d8349e4ef"
+        },
+        {
+          "path": "evidence/rc9/private-receipts/paged-physical.json",
+          "sha256": "c214e07a75bdc4dde1df6750d55edddee4e262b6ad728b2c17691ce2aac0014f"
+        },
+        {
+          "path": "evidence/rc9/private-receipts/standalone-verify.json",
+          "sha256": "3773b05d07a5f4b04046a415807d0b8599d718c4be427aedec78a0b0f1b4b0c7"
+        },
+        {
+          "path": "evidence/rc9/private-receipts/paged-assembly.json",
+          "sha256": "56f57f64da0d9fbabdc5a956fa0878f3d0d34b3350292c1fe3fbc3f9a39b94d6"
+        },
+        {
+          "path": "evidence/rc9/private-receipts/paged-markers.json",
+          "sha256": "d37ab27154d15687ad305e2f3857723403ba948bdd81b938ed2e94a394fda44c"
+        },
+        {
+          "path": "evidence/rc9/private-receipts/fonts-paged.json",
+          "sha256": "f7c1ee15ff628bfaaab41b995796d0c88ba6c4f11d9be0d5ace4355841320bee"
+        }
+      ]
+    },
+    "U05": {
+      "status": "PASS",
+      "reason": "HTML produksi dibuka luring di Chromium. Seluruh urutan kata dan struktur tabel dibandingkan dengan sumber. Navigasi, seleksi, aset dan contoh trigonometri memiliki pemeriksaan terpisah.",
+      "artifacts": [
+        {
+          "path": "evidence/rc9/offline/navigation.json",
+          "sha256": "8f04a9d25570589b7da7abd38a33fb7d9d98094277b9c9165c6fd3912bf66590"
+        },
+        {
+          "path": "evidence/rc9/visual/matrix.json",
+          "sha256": "212354bc809d25170ac313c8f630f029ef53a082390d291576cc1db178ba855c"
+        },
+        {
+          "path": "evidence/rc9/browser/results/trigonometry-downloads.json",
+          "sha256": "9014f233f4dc6fb21ef8b44367de77ecfda509258ecef4f84144b2f79e672e28"
+        },
+        {
+          "path": "evidence/rc9/private-receipts/binding.json",
+          "sha256": "41bae93b7ca92577974df37ca518d89325cb4f48cf48f1a15f9d78f4814ed813"
+        },
+        {
+          "path": "evidence/rc9/private-receipts/standalone-verify.json",
+          "sha256": "3773b05d07a5f4b04046a415807d0b8599d718c4be427aedec78a0b0f1b4b0c7"
+        },
+        {
+          "path": "examples/rc9/large/single-paragraph-off/dokumen.html",
+          "sha256": "7106cb80380240589ed20fb8f55c5f2817464f65d276c4c904ad7af76c78c085"
+        },
+        {
+          "path": "examples/rc9/large/paragraphs-on/dokumen.html",
+          "sha256": "508a1c1749fd7610bfa9f46309b380237867d6f71c292ef1a4e5f44b3ff7a1af"
+        },
+        {
+          "path": "examples/rc9/large/long-table-off/dokumen.html",
+          "sha256": "65d9003d69d1935a0ddac2a53455dee9cfa76022f446d09dbbdac8c3975d6d7c"
+        },
+        {
+          "path": "examples/rc9/large/paragraphs-off/dokumen.html",
+          "sha256": "721b0bd7666a93d6aac65fd80d60a60fbae90de41f9c5d91d864de39c7b55c5a"
+        },
+        {
+          "path": "examples/rc9/large/headings-on/dokumen.html",
+          "sha256": "082c5a9ddc4bd66fea3b52f8f783105e3e29b4745cc9f544945b15c36db8a5a9"
+        }
+      ]
+    },
+    "U06": {
+      "status": "PASS",
+      "reason": "Satu kontrol valid serta enam kontradiksi kapasitas diperiksa. Uji keputusan G10 mengikat ulang bukti yang dimutasi dan mencapai validator detail.",
+      "artifacts": [
+        {
+          "path": "evidence/rc9/accounting/capacity-mutations.json",
+          "sha256": "fc7deb3cd4ad80dc45afca3fb0c06accfc8e7550c10fcea9bc786c603d8580e7"
+        },
+        {
+          "path": "evidence/rc9/aggregate-tests/test.log",
+          "sha256": "91dcb3d03af83835ad8d63ff22a97f2793a45b22b6550bdb6b56d949f14d10ab"
+        },
+        {
+          "path": "evidence/rc9/performance/capacity.json",
+          "sha256": "ddefddeb427938b05e91f1e289f4a0e11086adf5bc9ea58909422626404147a5"
+        }
+      ]
+    },
+    "U07": {
+      "status": "PASS",
+      "reason": "Pemeriksaan A dan B dijalankan berselang serta serentak, termasuk setelah 160 kunci referensi. Enam perubahan rumus berjumlah tetap ditolak pada string dan dua bentuk DOM.",
+      "artifacts": [
+        {
+          "path": "evidence/rc9/integrity/interleaved.json",
+          "sha256": "b9fc78c29090293c8110d0c16105d6feebaa25fd6b1ca3f767b2a8c275cda909"
+        },
+        {
+          "path": "evidence/rc9/integrity/acceptance.json",
+          "sha256": "74969b59253f7cb72d9c20f9bd4835d5be29c631b438b1b115103ec934faec32"
+        },
+        {
+          "path": "evidence/rc9/integrity/final-bytes.json",
+          "sha256": "9eb40143f7c113ec8f87ea289e6dc7d51247a024007fede2abf6b9574b0aa0c2"
+        },
+        {
+          "path": "evidence/rc9/browser/results/trigonometry-downloads.json",
+          "sha256": "9014f233f4dc6fb21ef8b44367de77ecfda509258ecef4f84144b2f79e672e28"
+        },
+        {
+          "path": "evidence/rc9/build-tests/clean-build.log",
+          "sha256": "bb3235efa6a9f57da3d0a6767c88fa4ee5fb7a7d1440db1e91be92d17c7af772"
+        }
+      ]
+    },
+    "U08": {
+      "status": "PASS",
+      "reason": "Daftar terbalik dengan dan tanpa nilai awal, nomor eksplisit, nested dan wrapper matematika ditelusuri dari HTML. Penyalinan dengan keyboard pada Chromium Linux dan PDF marker menghasilkan 7, 4, 3 serta 2, 1.",
+      "artifacts": [
+        {
+          "path": "evidence/rc9/list/result.json",
+          "sha256": "e9d0e61dd85cc938fc1761ccc50b164948a79a0ed6a05d320338b11bc9018e43"
+        },
+        {
+          "path": "evidence/rc9/list/markers.pdf",
+          "sha256": "35995241d8f6a56ab2615e9343fe775e922769a276f8b4f55a2483af2e09800b"
+        },
+        {
+          "path": "evidence/rc9/build-tests/clean-build.log",
+          "sha256": "bb3235efa6a9f57da3d0a6767c88fa4ee5fb7a7d1440db1e91be92d17c7af772"
+        },
+        {
+          "path": "evidence/rc9/wrappers/compatibility-final.json",
+          "sha256": "b0b227042efca7019b87f6ed6bb9531f2102a848a4805100c9972899920b97f9"
+        }
+      ]
+    }
+  }
+}

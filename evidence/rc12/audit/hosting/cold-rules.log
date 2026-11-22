@@ -1,0 +1,372 @@
+{"beforePath": {"pdfinfo": null, "pdftotext": null, "pdffonts": null, "pandoc": null, "python": null, "python3": null}, "isolatedBootstrapModules": "[None, None, None, None]", "emptyHome": true}
+Node v24.22.3; npm 11.19.1
+Bootstrap lock SHA-256: c610f60e2df1cbda8de4a39e853e6249507e0ec7ccd08d88f8c619c279535382
+Transaction
+
+  Prefix: /tmp/paperforma-verifier-6D5oAh/install/env
+
+  Updating specs:
+
+   - pandoc==3.1.11.1=ha770c72_0
+   - libzlib==1.3.2=h25fd6f3_3
+   - libgomp==16.2.0=he0feb66_7
+   - libglvnd==1.7.0=ha4b6fd6_5
+   - zstd==1.5.7=hb78ec9c_7
+   - _openmp_mutex==4.5=20_gnu
+   - libegl==1.7.0=ha4b6fd6_5
+   - ld_impl_linux-64==2.46.1=default_hbd61a6d_103
+   - libgcc==16.2.0=ha9f2e26_7
+   - libev==4.33=h280c20c_3
+   - xorg-libice==1.1.2=h280c20c_0
+   - keyutils==1.6.3=h7cc23a3_1
+   - c-ares==1.34.9=hebe6cf0_0
+   - libwebp-base==1.6.0=hd42ef1d_1
+   - libpng==1.6.59=h922cc85_0
+   - tk==8.6.13=noxft_h1df4ec4_4
+   - ncurses==6.6=hdb14827_1
+   - libuuid==2.42.4=hcfc3c73_1
+   - libnsl==2.0.1=hb9d3cd8_1
+   - libdeflate==1.26=h351257e_0
+   - xorg-libxdmcp==1.1.5=h7cc23a3_2
+   - xorg-libxau==1.0.12=h7cc23a3_2
+   - pthread-stubs==0.4=h7cc23a3_1004
+   - libiconv==1.18=h0cb94f2_3
+   - liblzma==5.8.3=hb03c661_1
+   - libffi==3.7.0=h81df57d_1
+   - libexpat==2.9.0=hd2095e1_0
+   - bzip2==1.0.8=hda65f42_10
+   - libstdcxx==16.2.0=h934c35e_7
+   - libxcrypt==4.4.38=h280c20c_0
+   - libjpeg-turbo==3.2.1=h7cc23a3_0
+   - libfreetype6==2.14.3=h5e6c136_2
+   - libedit==3.1.20260512=pl5321h373387f_0
+   - readline==8.3=hd6e31c0_1
+   - xorg-libsm==1.2.6=h0d788c3_1
+   - libxcb==1.17.0=hb83e432_3
+   - pcre2==10.49=h8b3dc9c_0
+   - pixman==0.46.4=h54a6638_3
+   - zlib-ng==2.3.3=hce19668_1
+   - lerc==4.3.0=he78707d_0
+   - icu==78.3=py310h44b86e0_2
+   - nspr==4.41=h76ac25a_0
+   - libpython==3.12.14=h0c77377_3_cpython
+   - libfreetype==2.14.3=ha770c72_2
+   - xorg-libx11==1.8.14=hb83e432_0
+   - libglib==2.90.1=hb382ddc_4
+   - libtiff==4.7.2=h6d37cbf_2
+   - libpsl==0.23.1=hd9e3e90_1
+   - libxml2-16==2.15.4=hf3af7cc_1
+   - libsqlite==3.54.1=h13e7031_0
+   - fontconfig==2.18.4=h4db4eae_0
+   - xorg-libxfixes==6.0.2=h7cc23a3_1
+   - xorg-libxrender==0.9.13=h7cc23a3_0
+   - libglx==1.7.0=ha4b6fd6_5
+   - xorg-libxext==1.3.7=h7cc23a3_1
+   - openjpeg==2.5.4=heb1ab33_2
+   - lcms2==2.20=h9073bf1_0
+   - libxml2==2.15.4=h7df9aa5_1
+   - nss==3.118=h445c969_0
+   - libgl==1.7.0=ha4b6fd6_5
+   - xorg-libxi==1.8.4=h7cc23a3_0
+   - xorg-libxscrnsaver==1.2.4=hb9d3cd8_0
+   - libxslt==1.1.45=h8e12856_1
+   - xorg-libxtst==1.2.6=h7cc23a3_0
+   - ca-certificates==2026.11.20=hbd8a1cb_0
+   - font-ttf-dejavu-sans-mono==2.37=hab24e00_0
+   - python_abi==3.12=9_cp312
+   - font-ttf-inconsolata==3.0=h77eed37_0
+   - font-ttf-source-code-pro==2.38=h77eed37_0
+   - font-ttf-ubuntu==0.83=h77eed37_4
+   - tzdata==2026e=h5d301ff_0
+   - poppler-data==0.4.12=hd8ed1ab_0
+   - fonts-conda-forge==1=hc364b38_1
+   - fonts-conda-ecosystem==1=0
+   - openssl==3.6.5=h781a0a9_0
+   - cairo==1.18.6=h3c89d7e_0
+   - libssh2==1.11.1=h6154650_1
+   - libnghttp2==1.71.0=hc5e5977_0
+   - krb5==1.22.2=hbc21106_2
+   - python==3.12.14=h5f976f7_3_cpython
+   - libcurl==8.23.0=ha042cf0_0
+   - poppler==26.5.0=hfdef1ce_3
+   - packaging==26.3=pyhc364b38_0
+   - setuptools==84.2.1=pyhe730653_0
+   - wheel==0.48.0=pyhd8ed1ab_0
+   - pip==26.2.2=pyh8b19718_2
+   - typing_extensions==4.16.0=pyhcf101f3_0
+   - pypdf==6.21.4=pyh5ded981_0
+   - pillow==13.0.0=py312h38079b3_1
+   - lxml==6.1.1=py312h63ddcf0_0
+
+
+  Package                           Version  Build                 Channel                                               Size
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Install:
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  + _openmp_mutex                       4.5  20_gnu                /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + bzip2                             1.0.8  hda65f42_10           /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + c-ares                           1.34.9  hebe6cf0_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + ca-certificates              2026.11.20  hbd8a1cb_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + cairo                            1.18.6  h3c89d7e_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + font-ttf-dejavu-sans-mono          2.37  hab24e00_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + font-ttf-inconsolata              3.000  h77eed37_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + font-ttf-source-code-pro          2.038  h77eed37_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + font-ttf-ubuntu                    0.83  h77eed37_4            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + fontconfig                       2.18.4  h4db4eae_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + fonts-conda-ecosystem                 1  0                     /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + fonts-conda-forge                     1  hc364b38_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + icu                                78.3  py310h44b86e0_2       /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + keyutils                          1.6.3  h7cc23a3_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + krb5                             1.22.2  hbc21106_2            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + lcms2                              2.20  h9073bf1_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + ld_impl_linux-64                 2.46.1  default_hbd61a6d_103  /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + lerc                              4.3.0  he78707d_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libcurl                          8.23.0  ha042cf0_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libdeflate                         1.26  h351257e_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libedit                    3.1.20260512  pl5321h373387f_0      /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libegl                            1.7.0  ha4b6fd6_5            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libev                              4.33  h280c20c_3            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libexpat                          2.9.0  hd2095e1_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libffi                            3.7.0  h81df57d_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libfreetype                      2.14.3  ha770c72_2            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libfreetype6                     2.14.3  h5e6c136_2            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libgcc                           16.2.0  ha9f2e26_7            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libgl                             1.7.0  ha4b6fd6_5            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libglib                          2.90.1  hb382ddc_4            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libglvnd                          1.7.0  ha4b6fd6_5            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libglx                            1.7.0  ha4b6fd6_5            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libgomp                          16.2.0  he0feb66_7            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libiconv                           1.18  h0cb94f2_3            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libjpeg-turbo                     3.2.1  h7cc23a3_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + liblzma                           5.8.3  hb03c661_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libnghttp2                       1.71.0  hc5e5977_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libnsl                            2.0.1  hb9d3cd8_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libpng                           1.6.59  h922cc85_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libpsl                           0.23.1  hd9e3e90_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libpython                       3.12.14  h0c77377_3_cpython    /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libsqlite                        3.54.1  h13e7031_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libssh2                          1.11.1  h6154650_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libstdcxx                        16.2.0  h934c35e_7            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libtiff                           4.7.2  h6d37cbf_2            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libuuid                          2.42.4  hcfc3c73_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libwebp-base                      1.6.0  hd42ef1d_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libxcb                           1.17.0  hb83e432_3            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libxcrypt                        4.4.38  h280c20c_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libxml2                          2.15.4  h7df9aa5_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libxml2-16                       2.15.4  hf3af7cc_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libxslt                          1.1.45  h8e12856_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + libzlib                           1.3.2  h25fd6f3_3            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + lxml                              6.1.1  py312h63ddcf0_0       /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + ncurses                             6.6  hdb14827_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + nspr                               4.41  h76ac25a_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + nss                               3.118  h445c969_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + openjpeg                          2.5.4  heb1ab33_2            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + openssl                           3.6.5  h781a0a9_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + packaging                          26.3  pyhc364b38_0          /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + pandoc                         3.1.11.1  ha770c72_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + pcre2                             10.49  h8b3dc9c_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + pillow                           13.0.0  py312h38079b3_1       /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + pip                              26.2.2  pyh8b19718_2          /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + pixman                           0.46.4  h54a6638_3            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + poppler                         26.05.0  hfdef1ce_3            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + poppler-data                     0.4.12  hd8ed1ab_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + pthread-stubs                       0.4  h7cc23a3_1004         /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + pypdf                            6.21.4  pyh5ded981_0          /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + python                          3.12.14  h5f976f7_3_cpython    /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + python_abi                         3.12  9_cp312               /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + readline                            8.3  hd6e31c0_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + setuptools                       84.2.1  pyhe730653_0          /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + tk                               8.6.13  noxft_h1df4ec4_4      /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + typing_extensions                4.16.0  pyhcf101f3_0          /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + tzdata                            2026e  h5d301ff_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + wheel                            0.48.0  pyhd8ed1ab_0          /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + xorg-libice                       1.1.2  h280c20c_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + xorg-libsm                        1.2.6  h0d788c3_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + xorg-libx11                      1.8.14  hb83e432_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + xorg-libxau                      1.0.12  h7cc23a3_2            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + xorg-libxdmcp                     1.1.5  h7cc23a3_2            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + xorg-libxext                      1.3.7  h7cc23a3_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + xorg-libxfixes                    6.0.2  h7cc23a3_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + xorg-libxi                        1.8.4  h7cc23a3_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + xorg-libxrender                  0.9.13  h7cc23a3_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + xorg-libxscrnsaver                1.2.4  hb9d3cd8_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + xorg-libxtst                      1.2.6  h7cc23a3_0            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + zlib-ng                           2.3.3  hce19668_1            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+  + zstd                              1.5.7  hb78ec9c_7            /tmp/paperforma-verifier-6D5oAh/install/downloads         
+
+  Summary:
+
+  Install: 90 packages
+
+  Total download: 0 B
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+warning  libmamba Security Warning: This transaction includes executing package scripts (pre/post-link/unlink) if present. These scripts can contain arbitrary code. Please ensure you trust the package sources.
+
+Transaction starting
+Linking pandoc-3.1.11.1-ha770c72_0
+Linking libzlib-1.3.2-h25fd6f3_3
+Linking libgomp-16.2.0-he0feb66_7
+Linking libglvnd-1.7.0-ha4b6fd6_5
+Linking zstd-1.5.7-hb78ec9c_7
+Linking _openmp_mutex-4.5-20_gnu
+Linking libegl-1.7.0-ha4b6fd6_5
+Linking ld_impl_linux-64-2.46.1-default_hbd61a6d_103
+Linking libgcc-16.2.0-ha9f2e26_7
+Linking libev-4.33-h280c20c_3
+Linking xorg-libice-1.1.2-h280c20c_0
+Linking keyutils-1.6.3-h7cc23a3_1
+Linking c-ares-1.34.9-hebe6cf0_0
+Linking libwebp-base-1.6.0-hd42ef1d_1
+Linking libpng-1.6.59-h922cc85_0
+Linking tk-8.6.13-noxft_h1df4ec4_4
+Linking ncurses-6.6-hdb14827_1
+Linking libuuid-2.42.4-hcfc3c73_1
+Linking libnsl-2.0.1-hb9d3cd8_1
+Linking libdeflate-1.26-h351257e_0
+Linking xorg-libxdmcp-1.1.5-h7cc23a3_2
+Linking xorg-libxau-1.0.12-h7cc23a3_2
+Linking pthread-stubs-0.4-h7cc23a3_1004
+Linking libiconv-1.18-h0cb94f2_3
+Linking liblzma-5.8.3-hb03c661_1
+Linking libffi-3.7.0-h81df57d_1
+Linking libexpat-2.9.0-hd2095e1_0
+Linking bzip2-1.0.8-hda65f42_10
+Linking libstdcxx-16.2.0-h934c35e_7
+Linking libxcrypt-4.4.38-h280c20c_0
+Linking libjpeg-turbo-3.2.1-h7cc23a3_0
+Linking libfreetype6-2.14.3-h5e6c136_2
+Linking libedit-3.1.20260512-pl5321h373387f_0
+Linking readline-8.3-hd6e31c0_1
+Linking xorg-libsm-1.2.6-h0d788c3_1
+Linking libxcb-1.17.0-hb83e432_3
+Linking pcre2-10.49-h8b3dc9c_0
+Linking pixman-0.46.4-h54a6638_3
+Linking zlib-ng-2.3.3-hce19668_1
+Linking lerc-4.3.0-he78707d_0
+Linking icu-78.3-py310h44b86e0_2
+Linking nspr-4.41-h76ac25a_0
+Linking libpython-3.12.14-h0c77377_3_cpython
+Linking libfreetype-2.14.3-ha770c72_2
+Linking xorg-libx11-1.8.14-hb83e432_0
+Linking libglib-2.90.1-hb382ddc_4
+Linking libtiff-4.7.2-h6d37cbf_2
+Linking libpsl-0.23.1-hd9e3e90_1
+Linking libxml2-16-2.15.4-hf3af7cc_1
+Linking libsqlite-3.54.1-h13e7031_0
+Linking fontconfig-2.18.4-h4db4eae_0
+Linking xorg-libxfixes-6.0.2-h7cc23a3_1
+Linking xorg-libxrender-0.9.13-h7cc23a3_0
+Linking libglx-1.7.0-ha4b6fd6_5
+Linking xorg-libxext-1.3.7-h7cc23a3_1
+Linking openjpeg-2.5.4-heb1ab33_2
+Linking lcms2-2.20-h9073bf1_0
+Linking libxml2-2.15.4-h7df9aa5_1
+Linking nss-3.118-h445c969_0
+Linking libgl-1.7.0-ha4b6fd6_5
+Linking xorg-libxi-1.8.4-h7cc23a3_0
+Linking xorg-libxscrnsaver-1.2.4-hb9d3cd8_0
+Linking libxslt-1.1.45-h8e12856_1
+Linking xorg-libxtst-1.2.6-h7cc23a3_0
+Linking ca-certificates-2026.11.20-hbd8a1cb_0
+Linking font-ttf-dejavu-sans-mono-2.37-hab24e00_0
+Linking python_abi-3.12-9_cp312
+Linking font-ttf-inconsolata-3.000-h77eed37_0
+Linking font-ttf-source-code-pro-2.038-h77eed37_0
+Linking font-ttf-ubuntu-0.83-h77eed37_4
+Linking tzdata-2026e-h5d301ff_0
+Linking poppler-data-0.4.12-hd8ed1ab_0
+Linking fonts-conda-forge-1-hc364b38_1
+Linking fonts-conda-ecosystem-1-0
+Linking openssl-3.6.5-h781a0a9_0
+Linking cairo-1.18.6-h3c89d7e_0
+Linking libssh2-1.11.1-h6154650_1
+Linking libnghttp2-1.71.0-hc5e5977_0
+Linking krb5-1.22.2-hbc21106_2
+Linking python-3.12.14-h5f976f7_3_cpython
+Linking libcurl-8.23.0-ha042cf0_0
+Linking poppler-26.05.0-hfdef1ce_3
+Linking packaging-26.3-pyhc364b38_0
+Linking setuptools-84.2.1-pyhe730653_0
+Linking wheel-0.48.0-pyhd8ed1ab_0
+Linking pip-26.2.2-pyh8b19718_2
+Linking typing_extensions-4.16.0-pyhcf101f3_0
+Linking pypdf-6.21.4-pyh5ded981_0
+Linking pillow-13.0.0-py312h38079b3_1
+Linking lxml-6.1.1-py312h63ddcf0_0
+
+Transaction finished
+
+
+To activate this environment, use:
+
+    micromamba activate /tmp/paperforma-verifier-6D5oAh/install/env
+
+Or to execute a single command in this environment, use:
+
+    micromamba run -p /tmp/paperforma-verifier-6D5oAh/install/env mycommand
+
+Processing /tmp/paperforma-verifier-6D5oAh/install/downloads/pymupdf-1.26.6-cp310-abi3-manylinux_2_28_x86_64.whl
+Installing collected packages: pymupdf
+Successfully installed pymupdf-1.26.6
+Installed locked packages: 90 + 1 Python wheel
+{
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "versions": {
+    "pymupdf": "1.26.6",
+    "lxml": "6.1.1",
+    "pypdf": "6.21.4",
+    "pillow": "13.0.0",
+    "python": "3.12.14",
+    "pandoc": "3.1.11.1",
+    "pdfinfo": "26.05.0",
+    "pdftotext": "26.05.0",
+    "pdffonts": "26.05.0"
+  },
+  "pdfHtmlProbesPassed": true,
+  "isolatedOriginsChecked": true,
+  "lockSha256": "c610f60e2df1cbda8de4a39e853e6249507e0ec7ccd08d88f8c619c279535382",
+  "versionMismatches": {}
+}
+
+> paperforma@3.0.0-rc.12 test:acceptance
+> node --test tests/scripts/release-acceptance.test.mjs tests/scripts/large-acceptance.test.mjs tests/scripts/trace-acceptance.test.mjs
+
+✔ U01 and U04 reject failed one-shot, external assembly, partial and stale production artifacts with coherent hashes (4.353432ms)
+✔ one failed JSON cannot satisfy any of eight claimed PASS rows; aggregate always reports 24 dispositions (7.019501ms)
+✔ U06 positive capacity control, repeated observation and altered heap after coherently rebinding (2.522726ms)
+✔ U07 independent A/B TeX, modes and eighteen same-count mutations (0.905168ms)
+✔ U08 reopens physical ordered markers and both HTML routes; rebound empty PDF label and native paste discrepancy reject (947.62799ms)
+✔ U05 full offline control and same-digest rebound mutations of source text, requests and link counts (5093.851244ms)
+▶ one synthetic release, real files and processes, mutation rejection
+  ✔ all sixteen complete synthetic controls yield exit 0 (1293.211698ms)
+  ✔ three attached input mutations invalidate sealed receipts and recording (351.940686ms)
+  ✔ U06 positive, fully rebound invalid raw capacity, stale run and aggregate after G FAIL (4103.033766ms)
+  ✔ six capacity contradictions fail after receipt rebinding and at record time (7420.622014ms)
+  ✔ median mutation rejects promotion even with coherent byte hashes (1336.954115ms)
+  ✔ p95 mutation rejects, but one slow sample alone does not (2293.837618ms)
+  ✔ one modified production byte rejects before any receipt (50.814263ms)
+  ✔ operator mutation at constant formula count fails independent HTML oracle (511.347225ms)
+  ✔ missing receipt rejects promotion (1282.438283ms)
+  ✔ old run ID rejects otherwise identical receipt (976.816312ms)
+  ✔ short cohort rejects promotion (1197.532919ms)
+  ✔ changed immutable browser driver or procedure rejects before any receipt (105.231431ms)
+  ✔ forged driver identity and dropped failed block reject even after rebinding evidence (5757.484239ms)
+  ✔ native-save BLOCKED blocks production (1093.697207ms)
+  ✔ failed check, altered evidence and missing observations each reject (1173.38577ms)
+✔ one synthetic release, real files and processes, mutation rejection (35316.179223ms)
+✔ wrong AB order, missing warmup, or mismatched same-count formula oracle cannot pass (1.692228ms)
+✔ each flow requires ten consecutive four-pair blocks with paired, equivalent warmups (7.420953ms)
+✔ reconstructs invocation, logical pass, repair and interrupted phase accounting (25.07142ms)
+✔ rejects lifecycle overruns and missing observations even when the caller reports success (4.244059ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 35491.082693

@@ -1,0 +1,42 @@
+{
+  "application": {
+    "name": "PAPERFORMA_STATIC_3.0.0-rc.11_SOURCE_DIST_EVIDENCE.zip",
+    "zipSha256": "0fc160bfbb29f668208c17f93a618b8d51810925e172f87a19580ee548159a4a",
+    "bytes": 84992214,
+    "manifestEntries": 2094
+  },
+  "audit": {
+    "name": "PAPERFORMA_RC11_AUDIT_PRODUKSI_DAN_ARAHAN_GO_20261122.zip",
+    "zipSha256": "879f71e27e21a236cda77ff1669764c7e9de7d5935330c1c77fa33d5ea91a831",
+    "manifestEntries": 136
+  },
+  "sourceSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+  "distSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496",
+  "recordedPriorRelease": {
+    "PASS": 19,
+    "BLOCKED": 5
+  },
+  "existingSuiteTotal": 675,
+  "newFindings": [
+    {
+      "id": "F11-01",
+      "severity": "P2",
+      "statusInAudit": "CONFIRMED_FRESH_NODE_JSDOM"
+    },
+    {
+      "id": "F11-02",
+      "severity": "P2",
+      "statusInAudit": "CONFIRMED_FRESH_NODE_JSDOM"
+    },
+    {
+      "id": "F11-03",
+      "severity": "P2",
+      "statusInAudit": "CONFIRMED_FRESH_NODE_JSDOM_AND_UI_BINDING_SOURCE"
+    },
+    {
+      "id": "RC11-SEC-01",
+      "severity": "P2",
+      "statusInAudit": "CONFIRMED_ADMISSION_GAP"
+    }
+  ]
+}

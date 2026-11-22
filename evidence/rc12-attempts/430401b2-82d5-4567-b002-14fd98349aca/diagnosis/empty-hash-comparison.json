@@ -1,0 +1,2900 @@
+{
+  "purpose": "Diagnostic independent stage times for blank document, compared to the same RC12. This is outside official G09 observations.",
+  "pairs": 80,
+  "roots": [
+    "original",
+    "hash-small"
+  ],
+  "records": [
+    {
+      "pair": -5,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 6.239090999999462,
+        "analyze": 10.384364999999889,
+        "finish": 6.875386000000617,
+        "integrity": 2.0866839999998774,
+        "prepare": 1.393471999999747,
+        "compose": 0.992076000000452,
+        "refreshMs": 28.034056999999848,
+        "parseAndRenderMs": 9.171511000000464,
+        "integrityModelMs": 0.617087999999967
+      }
+    },
+    {
+      "pair": -5,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 1.1759900000001835,
+        "analyze": 10.276914999999917,
+        "finish": 6.217368000000079,
+        "integrity": 1.9234910000000127,
+        "prepare": 1.2992229999999836,
+        "compose": 0.9210199999997712,
+        "refreshMs": 21.87240299999985,
+        "parseAndRenderMs": 9.262977000000319,
+        "integrityModelMs": 0.5113400000000183
+      }
+    },
+    {
+      "pair": -4,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.5603839999998854,
+        "analyze": 2.830319000000145,
+        "finish": 1.9289589999998498,
+        "integrity": 0.5180410000002666,
+        "prepare": 0.21163499999966007,
+        "compose": 0.33039099999996324,
+        "refreshMs": 6.388030999999955,
+        "parseAndRenderMs": 1.9875159999996868,
+        "integrityModelMs": 0.6818039999998291
+      }
+    },
+    {
+      "pair": -4,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.4666539999998349,
+        "analyze": 2.60431299999982,
+        "finish": 2.9448499999998603,
+        "integrity": 1.0011090000007243,
+        "prepare": 0.4294389999995474,
+        "compose": 0.3474370000003546,
+        "refreshMs": 7.803125999999793,
+        "parseAndRenderMs": 2.0131540000002133,
+        "integrityModelMs": 0.4678059999996549
+      }
+    },
+    {
+      "pair": -3,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 3.518482999999833,
+        "analyze": 2.3105470000000423,
+        "finish": 2.1325210000004517,
+        "integrity": 0.6125109999993583,
+        "prepare": 0.22827000000052067,
+        "compose": 0.32540400000016234,
+        "refreshMs": 9.136709999999766,
+        "parseAndRenderMs": 1.7863569999999527,
+        "integrityModelMs": 0.45303400000011607
+      }
+    },
+    {
+      "pair": -3,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.61520500000006,
+        "analyze": 2.6580840000001444,
+        "finish": 1.9154889999999796,
+        "integrity": 0.5704479999999421,
+        "prepare": 0.5161779999998544,
+        "compose": 0.45178200000009383,
+        "refreshMs": 6.868245999999999,
+        "parseAndRenderMs": 2.214082999999846,
+        "integrityModelMs": 0.37940400000024965
+      }
+    },
+    {
+      "pair": -2,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2777030000002014,
+        "analyze": 2.29133899999988,
+        "finish": 2.0054730000001655,
+        "integrity": 0.5298480000001291,
+        "prepare": 0.1871979999996256,
+        "compose": 0.308299000000261,
+        "refreshMs": 5.608992999999828,
+        "parseAndRenderMs": 1.7668980000003103,
+        "integrityModelMs": 0.463329000000158
+      }
+    },
+    {
+      "pair": -2,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.47778999999991356,
+        "analyze": 2.2962460000007923,
+        "finish": 2.02480099999957,
+        "integrity": 0.7206919999998718,
+        "prepare": 0.2978030000003855,
+        "compose": 0.27406799999971554,
+        "refreshMs": 6.100053000000116,
+        "parseAndRenderMs": 1.8201170000002094,
+        "integrityModelMs": 0.41205299999910494
+      }
+    },
+    {
+      "pair": -1,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3971209999999701,
+        "analyze": 2.483643999999913,
+        "finish": 2.0040909999997893,
+        "integrity": 0.575064999999995,
+        "prepare": 0.25447799999983545,
+        "compose": 0.44744600000012724,
+        "refreshMs": 6.172090000000026,
+        "parseAndRenderMs": 2.0668240000004516,
+        "integrityModelMs": 0.3362999999999374
+      }
+    },
+    {
+      "pair": -1,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.39248399999996764,
+        "analyze": 3.01891999999998,
+        "finish": 2.2883640000000014,
+        "integrity": 0.6827459999999519,
+        "prepare": 0.2500110000000859,
+        "compose": 0.38781699999981356,
+        "refreshMs": 7.031949000000168,
+        "parseAndRenderMs": 2.492616999999882,
+        "integrityModelMs": 0.43722999999999956
+      }
+    },
+    {
+      "pair": 0,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2820799999999508,
+        "analyze": 2.0957469999998466,
+        "finish": 1.8611980000000585,
+        "integrity": 0.5611950000002253,
+        "prepare": 0.24971099999993385,
+        "compose": 0.4034899999996924,
+        "refreshMs": 5.463256000000001,
+        "parseAndRenderMs": 1.7522060000001147,
+        "integrityModelMs": 0.2798470000002453
+      }
+    },
+    {
+      "pair": 0,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 4.3939650000002075,
+        "analyze": 2.4410509999997885,
+        "finish": 1.805685999999696,
+        "integrity": 0.48001400000066496,
+        "prepare": 0.18352299999969546,
+        "compose": 0.31929500000023836,
+        "refreshMs": 9.63232699999935,
+        "parseAndRenderMs": 2.0870139999997264,
+        "integrityModelMs": 0.2577030000002196
+      }
+    },
+    {
+      "pair": 1,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.4883060000001933,
+        "analyze": 1.763904000000366,
+        "finish": 2.268663999999262,
+        "integrity": 0.5233290000005582,
+        "prepare": 0.28187900000011723,
+        "compose": 0.24360199999955512,
+        "refreshMs": 5.577455999999984,
+        "parseAndRenderMs": 1.5015329999996538,
+        "integrityModelMs": 0.20078800000010233
+      }
+    },
+    {
+      "pair": 1,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.268699999999626,
+        "analyze": 1.973004000000401,
+        "finish": 1.6464289999998982,
+        "integrity": 0.7375669999996717,
+        "prepare": 0.2509230000000571,
+        "compose": 0.24077800000031857,
+        "refreshMs": 5.1249729999999545,
+        "parseAndRenderMs": 1.7099530000000414,
+        "integrityModelMs": 0.20469499999990148
+      }
+    },
+    {
+      "pair": 2,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.25994700000001103,
+        "analyze": 1.9998640000003434,
+        "finish": 1.8671769999996286,
+        "integrity": 0.43935400000009395,
+        "prepare": 0.23655200000030163,
+        "compose": 0.25254499999982727,
+        "refreshMs": 5.062870000000203,
+        "parseAndRenderMs": 1.731626000000233,
+        "integrityModelMs": 0.22084799999993265
+      }
+    },
+    {
+      "pair": 2,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 1.9390140000004976,
+        "analyze": 2.2147839999997814,
+        "finish": 2.0185019999998985,
+        "integrity": 0.48676400000022113,
+        "prepare": 0.20499500000005355,
+        "compose": 0.27034199999980046,
+        "refreshMs": 7.144145999999637,
+        "parseAndRenderMs": 1.891722999999729,
+        "integrityModelMs": 0.2637720000002446
+      }
+    },
+    {
+      "pair": 3,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 4.322548999999526,
+        "analyze": 2.1206740000006903,
+        "finish": 2.08912699999928,
+        "integrity": 0.6780889999999999,
+        "prepare": 0.1983749999999418,
+        "compose": 0.2653040000004694,
+        "refreshMs": 9.683783000000403,
+        "parseAndRenderMs": 1.8510729999998148,
+        "integrityModelMs": 0.206637000000228
+      }
+    },
+    {
+      "pair": 3,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.49256199999990713,
+        "analyze": 2.6069379999999,
+        "finish": 1.801509000000351,
+        "integrity": 0.606000999999651,
+        "prepare": 0.18337300000030154,
+        "compose": 0.26701699999966877,
+        "refreshMs": 5.966563999999835,
+        "parseAndRenderMs": 2.3699650000003203,
+        "integrityModelMs": 0.18705799999997907
+      }
+    },
+    {
+      "pair": 4,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.29092299999956595,
+        "analyze": 2.2252900000003137,
+        "finish": 1.750072999999702,
+        "integrity": 0.5451710000002095,
+        "prepare": 0.22672800000009374,
+        "compose": 0.24053699999967648,
+        "refreshMs": 5.288176000000021,
+        "parseAndRenderMs": 1.6047260000000279,
+        "integrityModelMs": 0.5340949999999793
+      }
+    },
+    {
+      "pair": 4,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 1.8263459999998304,
+        "analyze": 2.3736109999999826,
+        "finish": 2.5998570000001564,
+        "integrity": 0.45208199999979115,
+        "prepare": 0.34678600000006554,
+        "compose": 0.35125200000038603,
+        "refreshMs": 7.960179000000608,
+        "parseAndRenderMs": 1.971932999999808,
+        "integrityModelMs": 0.3191640000004554
+      }
+    },
+    {
+      "pair": 5,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.6025870000003124,
+        "analyze": 2.4496429999999236,
+        "finish": 2.0627880000001824,
+        "integrity": 0.6391209999992498,
+        "prepare": 0.22930100000030507,
+        "compose": 0.33186399999976857,
+        "refreshMs": 6.329494000000523,
+        "parseAndRenderMs": 2.1645699999999124,
+        "integrityModelMs": 0.2185749999998734
+      }
+    },
+    {
+      "pair": 5,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.34284000000025117,
+        "analyze": 2.325949000000037,
+        "finish": 1.9894999999996799,
+        "integrity": 0.6881730000004609,
+        "prepare": 0.24361299999964103,
+        "compose": 0.21738300000015442,
+        "refreshMs": 5.816160999999738,
+        "parseAndRenderMs": 2.020314999999755,
+        "integrityModelMs": 0.24493399999937537
+      }
+    },
+    {
+      "pair": 6,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.4224690000000919,
+        "analyze": 1.4232460000002902,
+        "finish": 1.7595369999999093,
+        "integrity": 0.4371710000004896,
+        "prepare": 0.22253099999943515,
+        "compose": 0.2014390000003914,
+        "refreshMs": 4.475326999999197,
+        "parseAndRenderMs": 1.1970910000000003,
+        "integrityModelMs": 0.18342200000006414
+      }
+    },
+    {
+      "pair": 6,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.37947499999972933,
+        "analyze": 1.2234090000001743,
+        "finish": 1.6870289999997112,
+        "integrity": 0.7289550000004965,
+        "prepare": 0.19313699999929668,
+        "compose": 0.19081400000050053,
+        "refreshMs": 4.410230000000411,
+        "parseAndRenderMs": 1.037822999999662,
+        "integrityModelMs": 0.1471689999998489
+      }
+    },
+    {
+      "pair": 7,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.9346559999994497,
+        "analyze": 1.1048530000007304,
+        "finish": 2.056778999999551,
+        "integrity": 0.37019099999997707,
+        "prepare": 0.400405000000319,
+        "compose": 0.06980399999974907,
+        "refreshMs": 4.941154000000097,
+        "parseAndRenderMs": 0.8179669999999533,
+        "integrityModelMs": 0.17630300000018906
+      }
+    },
+    {
+      "pair": 7,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.5797130000000834,
+        "analyze": 1.3107789999994566,
+        "finish": 2.7338270000000193,
+        "integrity": 0.4088879999999335,
+        "prepare": 0.21593100000063714,
+        "compose": 0.07395999999971536,
+        "refreshMs": 5.327975000000151,
+        "parseAndRenderMs": 0.9783959999995204,
+        "integrityModelMs": 0.2609680000005028
+      }
+    },
+    {
+      "pair": 8,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3471270000000004,
+        "analyze": 0.9508940000005168,
+        "finish": 5.303016999999272,
+        "integrity": 0.7864600000002611,
+        "prepare": 0.218815999999606,
+        "compose": 0.07563200000004144,
+        "refreshMs": 7.686852999999246,
+        "parseAndRenderMs": 0.7570159999995667,
+        "integrityModelMs": 0.15787400000044727
+      }
+    },
+    {
+      "pair": 8,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 2.803620000000592,
+        "analyze": 1.2479560000001584,
+        "finish": 2.199822999999924,
+        "integrity": 0.6279139999996914,
+        "prepare": 0.21105400000033114,
+        "compose": 0.08734000000004016,
+        "refreshMs": 7.183414999999513,
+        "parseAndRenderMs": 0.9530979999999545,
+        "integrityModelMs": 0.24702700000034383
+      }
+    },
+    {
+      "pair": 9,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.4172600000001694,
+        "analyze": 1.1413079999992988,
+        "finish": 1.637826000000132,
+        "integrity": 0.37708999999995285,
+        "prepare": 0.17250700000022334,
+        "compose": 0.0640849999999773,
+        "refreshMs": 3.8144329999995534,
+        "parseAndRenderMs": 0.8106159999997544,
+        "integrityModelMs": 0.29097300000012183
+      }
+    },
+    {
+      "pair": 9,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2655559999993784,
+        "analyze": 0.9776260000007824,
+        "finish": 1.909111999999368,
+        "integrity": 0.44162800000049174,
+        "prepare": 0.17703399999936664,
+        "compose": 0.06811100000049919,
+        "refreshMs": 3.8435630000003584,
+        "parseAndRenderMs": 0.7501970000002984,
+        "integrityModelMs": 0.19043299999975716
+      }
+    },
+    {
+      "pair": 10,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.6536829999995462,
+        "analyze": 2.4518200000002253,
+        "finish": 3.175828999999794,
+        "integrity": 0.45892300000014075,
+        "prepare": 0.3982829999995374,
+        "compose": 0.1678300000003219,
+        "refreshMs": 7.312918000000536,
+        "parseAndRenderMs": 2.053166999999121,
+        "integrityModelMs": 0.29848500000025524
+      }
+    },
+    {
+      "pair": 10,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.6075550000005023,
+        "analyze": 0.8956829999997353,
+        "finish": 1.7289550000004965,
+        "integrity": 0.6060919999999896,
+        "prepare": 0.3269769999997152,
+        "compose": 0.23865500000010798,
+        "refreshMs": 4.41211899999962,
+        "parseAndRenderMs": 0.6820260000004055,
+        "integrityModelMs": 0.17748399999982212
+      }
+    },
+    {
+      "pair": 11,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.39130199999999604,
+        "analyze": 0.8791590000000724,
+        "finish": 1.5408749999996871,
+        "integrity": 0.6509189999997034,
+        "prepare": 0.18479500000012195,
+        "compose": 0.06575800000064191,
+        "refreshMs": 3.7177050000000236,
+        "parseAndRenderMs": 0.661525000000438,
+        "integrityModelMs": 0.18145000000004075
+      }
+    },
+    {
+      "pair": 11,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.27397800000017014,
+        "analyze": 1.802523000000292,
+        "finish": 5.759364999999889,
+        "integrity": 0.502147999999579,
+        "prepare": 0.321498000000247,
+        "compose": 0.1398589999998876,
+        "refreshMs": 8.80853400000069,
+        "parseAndRenderMs": 1.2206069999992906,
+        "integrityModelMs": 0.5316710000006424
+      }
+    },
+    {
+      "pair": 12,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.27294699999947625,
+        "analyze": 0.9339700000000448,
+        "finish": 1.8835650000000896,
+        "integrity": 0.6737229999998817,
+        "prepare": 0.1771440000002258,
+        "compose": 0.06908199999998033,
+        "refreshMs": 4.014597000000322,
+        "parseAndRenderMs": 0.7233970000006593,
+        "integrityModelMs": 0.17657299999973475
+      }
+    },
+    {
+      "pair": 12,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.5366389999999228,
+        "analyze": 1.0373439999993934,
+        "finish": 1.4921320000003107,
+        "integrity": 0.6736529999998311,
+        "prepare": 0.16124000000036176,
+        "compose": 0.06675900000027468,
+        "refreshMs": 3.972555000000284,
+        "parseAndRenderMs": 0.6561570000003485,
+        "integrityModelMs": 0.2843730000004143
+      }
+    },
+    {
+      "pair": 13,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.42733700000007957,
+        "analyze": 1.2124850000000151,
+        "finish": 2.463206999999784,
+        "integrity": 0.4478870000002644,
+        "prepare": 0.2644239999999627,
+        "compose": 0.0752119999997376,
+        "refreshMs": 4.895919000000504,
+        "parseAndRenderMs": 0.8210429999999178,
+        "integrityModelMs": 0.3490400000000591
+      }
+    },
+    {
+      "pair": 13,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.25738300000011805,
+        "analyze": 0.893779999999424,
+        "finish": 1.4688470000000962,
+        "integrity": 0.3626800000001822,
+        "prepare": 0.15420999999969354,
+        "compose": 0.0639950000004319,
+        "refreshMs": 3.204851000000417,
+        "parseAndRenderMs": 0.6527619999997114,
+        "integrityModelMs": 0.2069579999997586
+      }
+    },
+    {
+      "pair": 14,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.26096899999993184,
+        "analyze": 0.8853880000006029,
+        "finish": 1.690426999999545,
+        "integrity": 0.4877970000006826,
+        "prepare": 0.213608000000022,
+        "compose": 0.07141599999977188,
+        "refreshMs": 3.6143419999998514,
+        "parseAndRenderMs": 0.671940999999606,
+        "integrityModelMs": 0.17612199999985023
+      }
+    },
+    {
+      "pair": 14,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3765610000009474,
+        "analyze": 0.9663479999999254,
+        "finish": 1.6959549999992305,
+        "integrity": 0.38598500000080094,
+        "prepare": 0.2121160000006057,
+        "compose": 0.06682899999941583,
+        "refreshMs": 3.7085619999998016,
+        "parseAndRenderMs": 0.7054299999999785,
+        "integrityModelMs": 0.20129000000088126
+      }
+    },
+    {
+      "pair": 15,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.44653399999879184,
+        "analyze": 0.9414620000006835,
+        "finish": 1.532271000000037,
+        "integrity": 0.3695609999995213,
+        "prepare": 0.2200570000004518,
+        "compose": 0.09974899999906484,
+        "refreshMs": 3.6151930000014545,
+        "parseAndRenderMs": 0.6820650000008754,
+        "integrityModelMs": 0.22055799999907322
+      }
+    },
+    {
+      "pair": 15,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2712739999997211,
+        "analyze": 0.8679119999997056,
+        "finish": 4.8099019999999655,
+        "integrity": 0.42850799999996525,
+        "prepare": 0.1685010000001057,
+        "compose": 0.0654370000002018,
+        "refreshMs": 6.616001000000324,
+        "parseAndRenderMs": 0.627795000000333,
+        "integrityModelMs": 0.2028119999995397
+      }
+    },
+    {
+      "pair": 16,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3728949999995166,
+        "analyze": 1.1463060000005498,
+        "finish": 1.853940999999395,
+        "integrity": 0.7452590000002601,
+        "prepare": 0.3777030000001105,
+        "compose": 0.09778499999993073,
+        "refreshMs": 4.60073999999986,
+        "parseAndRenderMs": 0.8287940000000162,
+        "integrityModelMs": 0.2390559999994366
+      }
+    },
+    {
+      "pair": 16,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.5107200000002194,
+        "analyze": 1.1415199999992183,
+        "finish": 2.034179000000222,
+        "integrity": 0.6200330000010581,
+        "prepare": 0.20919099999991886,
+        "compose": 0.118916999999783,
+        "refreshMs": 4.641401000000769,
+        "parseAndRenderMs": 0.8483830000004673,
+        "integrityModelMs": 0.24601600000096369
+      }
+    },
+    {
+      "pair": 17,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.4670850000002247,
+        "analyze": 1.1671079999996437,
+        "finish": 1.9236190000010538,
+        "integrity": 0.390611999999237,
+        "prepare": 0.17788500000096974,
+        "compose": 0.06501599999864993,
+        "refreshMs": 4.195462000001498,
+        "parseAndRenderMs": 0.889404999999897,
+        "integrityModelMs": 0.23288700000011886
+      }
+    },
+    {
+      "pair": 17,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.6063229999999749,
+        "analyze": 1.141500000000633,
+        "finish": 2.1049239999993006,
+        "integrity": 0.405203000000256,
+        "prepare": 0.18554599999970378,
+        "compose": 0.07112600000073144,
+        "refreshMs": 4.519308999999339,
+        "parseAndRenderMs": 0.8023450000000594,
+        "integrityModelMs": 0.23893599999973958
+      }
+    },
+    {
+      "pair": 18,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.33806300000014744,
+        "analyze": 1.0845449999997072,
+        "finish": 1.9575549999999566,
+        "integrity": 1.9792560000005324,
+        "prepare": 0.22814000000016676,
+        "compose": 0.07057499999973516,
+        "refreshMs": 5.664072999999917,
+        "parseAndRenderMs": 0.8063799999999901,
+        "integrityModelMs": 0.2331370000001698
+      }
+    },
+    {
+      "pair": 18,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.6197720000000118,
+        "analyze": 1.0858069999994768,
+        "finish": 1.87279800000033,
+        "integrity": 0.5323829999997542,
+        "prepare": 0.17529099999956088,
+        "compose": 0.11631300000044575,
+        "refreshMs": 4.410556999999244,
+        "parseAndRenderMs": 0.6641390000004321,
+        "integrityModelMs": 0.380565999999817
+      }
+    },
+    {
+      "pair": 19,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.46144699999968,
+        "analyze": 0.975641999999425,
+        "finish": 1.7168259999998554,
+        "integrity": 0.387047000000166,
+        "prepare": 0.2331370000010793,
+        "compose": 0.10916199999883247,
+        "refreshMs": 3.8981739999999263,
+        "parseAndRenderMs": 0.7599819999995816,
+        "integrityModelMs": 0.1732879999999568
+      }
+    },
+    {
+      "pair": 19,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2546590000001743,
+        "analyze": 0.8803610000004483,
+        "finish": 1.5726409999997486,
+        "integrity": 0.3728049999999712,
+        "prepare": 0.15438999999969383,
+        "compose": 0.06433600000036677,
+        "refreshMs": 3.311610999999175,
+        "parseAndRenderMs": 0.6813050000000658,
+        "integrityModelMs": 0.16527599999972153
+      }
+    },
+    {
+      "pair": 20,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2822100000003047,
+        "analyze": 1.0221019999999044,
+        "finish": 1.6718989999999394,
+        "integrity": 0.39140300000053685,
+        "prepare": 0.2035729999997784,
+        "compose": 0.07293799999933981,
+        "refreshMs": 3.6484419999997044,
+        "parseAndRenderMs": 0.8091050000002724,
+        "integrityModelMs": 0.1779050000004645
+      }
+    },
+    {
+      "pair": 20,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.4056540000001405,
+        "analyze": 1.0078000000012253,
+        "finish": 2.272112999999081,
+        "integrity": 0.377743000000919,
+        "prepare": 0.16978299999937008,
+        "compose": 0.06649900000047637,
+        "refreshMs": 4.3039779999999155,
+        "parseAndRenderMs": 0.7535019999995711,
+        "integrityModelMs": 0.20603699999992386
+      }
+    },
+    {
+      "pair": 21,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.40020499999991443,
+        "analyze": 0.8660799999997835,
+        "finish": 1.5958659999996598,
+        "integrity": 0.3866760000000795,
+        "prepare": 0.1740090000002965,
+        "compose": 0.06790100000034727,
+        "refreshMs": 3.495224000000235,
+        "parseAndRenderMs": 0.5911100000012084,
+        "integrityModelMs": 0.18022800000107964
+      }
+    },
+    {
+      "pair": 21,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3293600000006336,
+        "analyze": 1.150974000000133,
+        "finish": 1.9553509999996095,
+        "integrity": 0.38217900000017835,
+        "prepare": 0.2113549999994575,
+        "compose": 0.119858000000022,
+        "refreshMs": 4.157690000000002,
+        "parseAndRenderMs": 0.8348729999997886,
+        "integrityModelMs": 0.2441129999997429
+      }
+    },
+    {
+      "pair": 22,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.4478769999996075,
+        "analyze": 1.159707000000708,
+        "finish": 2.2182419999999183,
+        "integrity": 3.132303999999749,
+        "prepare": 0.2991549999997005,
+        "compose": 0.10141100000055303,
+        "refreshMs": 7.364043999999922,
+        "parseAndRenderMs": 0.905268000000433,
+        "integrityModelMs": 0.21700300000065909
+      }
+    },
+    {
+      "pair": 22,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.8051590000013675,
+        "analyze": 1.4319519999990007,
+        "finish": 2.505741000000853,
+        "integrity": 0.651068999999552,
+        "prepare": 0.3266170000006241,
+        "compose": 0.11302799999975832,
+        "refreshMs": 5.839844999998604,
+        "parseAndRenderMs": 1.0866779999996652,
+        "integrityModelMs": 0.2918339999996533
+      }
+    },
+    {
+      "pair": 23,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.4682969999994384,
+        "analyze": 0.9435549999998329,
+        "finish": 1.9855160000006435,
+        "integrity": 0.5903089999992517,
+        "prepare": 0.20473500000116474,
+        "compose": 0.08212300000013784,
+        "refreshMs": 4.2793409999994765,
+        "parseAndRenderMs": 0.7051300000002811,
+        "integrityModelMs": 0.19528100000025006
+      }
+    },
+    {
+      "pair": 23,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.26800899999943795,
+        "analyze": 1.0162740000005215,
+        "finish": 1.6836670000002414,
+        "integrity": 0.39049100000011094,
+        "prepare": 0.15863599999920552,
+        "compose": 0.06569800000033865,
+        "refreshMs": 3.586770000000797,
+        "parseAndRenderMs": 0.7238170000000537,
+        "integrityModelMs": 0.25500000000010914
+      }
+    },
+    {
+      "pair": 24,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.254558999999972,
+        "analyze": 0.8982269999996788,
+        "finish": 5.837962999999945,
+        "integrity": 0.40322999999989406,
+        "prepare": 0.22865999999976339,
+        "compose": 0.07655400000021473,
+        "refreshMs": 7.7037200000004304,
+        "parseAndRenderMs": 0.7019650000002002,
+        "integrityModelMs": 0.16300200000023324
+      }
+    },
+    {
+      "pair": 24,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.4585430000006454,
+        "analyze": 1.1772929999988264,
+        "finish": 1.9546000000009371,
+        "integrity": 0.5829180000000633,
+        "prepare": 0.20169999999961874,
+        "compose": 0.08027000000038242,
+        "refreshMs": 4.460450999999011,
+        "parseAndRenderMs": 0.8935299999993731,
+        "integrityModelMs": 0.23800500000106695
+      }
+    },
+    {
+      "pair": 25,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.39696099999855505,
+        "analyze": 0.8845670000009704,
+        "finish": 2.115068999999494,
+        "integrity": 0.46137699999962933,
+        "prepare": 0.17968800000016927,
+        "compose": 0.07276799999999639,
+        "refreshMs": 4.115977999999814,
+        "parseAndRenderMs": 0.6754959999998391,
+        "integrityModelMs": 0.17315700000108336
+      }
+    },
+    {
+      "pair": 25,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2917139999999563,
+        "analyze": 1.0319069999995918,
+        "finish": 2.2581520000003366,
+        "integrity": 0.403280999999879,
+        "prepare": 0.19117499999993015,
+        "compose": 0.07203699999990931,
+        "refreshMs": 4.252621999999974,
+        "parseAndRenderMs": 0.7016249999996944,
+        "integrityModelMs": 0.29204399999980524
+      }
+    },
+    {
+      "pair": 26,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3205180000004475,
+        "analyze": 1.0770030000003317,
+        "finish": 5.779685999999856,
+        "integrity": 0.5249409999996715,
+        "prepare": 0.2089910000004238,
+        "compose": 0.08211299999948096,
+        "refreshMs": 7.99790800000028,
+        "parseAndRenderMs": 0.7903669999996055,
+        "integrityModelMs": 0.24538500000016938
+      }
+    },
+    {
+      "pair": 26,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 2.6644169999999576,
+        "analyze": 0.9786170000006678,
+        "finish": 2.1606269999992946,
+        "integrity": 1.5644290000000183,
+        "prepare": 0.272555999999895,
+        "compose": 0.13985800000045856,
+        "refreshMs": 7.786793000001126,
+        "parseAndRenderMs": 0.7450590000007651,
+        "integrityModelMs": 0.18860099999983504
+      }
+    },
+    {
+      "pair": 27,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.6449499999998807,
+        "analyze": 1.3935660000006465,
+        "finish": 2.7497540000003937,
+        "integrity": 0.8560249999991356,
+        "prepare": 0.21873500000037893,
+        "compose": 0.08354499999950349,
+        "refreshMs": 5.953915000000052,
+        "parseAndRenderMs": 1.0138200000001234,
+        "integrityModelMs": 0.31645100000059756
+      }
+    },
+    {
+      "pair": 27,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3712730000006559,
+        "analyze": 1.2853339999992386,
+        "finish": 6.518185000000813,
+        "integrity": 0.6368679999995948,
+        "prepare": 0.24563599999964936,
+        "compose": 0.07766500000070664,
+        "refreshMs": 9.139759000000595,
+        "parseAndRenderMs": 0.9761340000004566,
+        "integrityModelMs": 0.26069900000038615
+      }
+    },
+    {
+      "pair": 28,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.30814900000041234,
+        "analyze": 0.9850269999997181,
+        "finish": 1.8062490000002072,
+        "integrity": 0.5594430000001012,
+        "prepare": 0.17938699999922392,
+        "compose": 0.10759000000052765,
+        "refreshMs": 3.9537860000000364,
+        "parseAndRenderMs": 0.7107080000005226,
+        "integrityModelMs": 0.23202599999967788
+      }
+    },
+    {
+      "pair": 28,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.4029399999999441,
+        "analyze": 1.0542800000002899,
+        "finish": 1.7927889999991748,
+        "integrity": 0.5334940000011557,
+        "prepare": 0.1796780000004219,
+        "compose": 0.1112249999987398,
+        "refreshMs": 4.082517999999254,
+        "parseAndRenderMs": 0.7834060000004683,
+        "integrityModelMs": 0.1996370000015304
+      }
+    },
+    {
+      "pair": 29,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.4046230000003561,
+        "analyze": 1.003113000000667,
+        "finish": 2.0158510000001115,
+        "integrity": 0.5935740000004444,
+        "prepare": 0.19574199999988195,
+        "compose": 0.07120599999871047,
+        "refreshMs": 4.288445000000138,
+        "parseAndRenderMs": 0.7222050000000309,
+        "integrityModelMs": 0.2425810000004276
+      }
+    },
+    {
+      "pair": 29,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2728960000004008,
+        "analyze": 0.9402399999999034,
+        "finish": 5.589422000000923,
+        "integrity": 0.3831709999994928,
+        "prepare": 0.22536500000023807,
+        "compose": 0.07948899999973946,
+        "refreshMs": 7.495168999999805,
+        "parseAndRenderMs": 0.7112689999994473,
+        "integrityModelMs": 0.1650260000005801
+      }
+    },
+    {
+      "pair": 30,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3443229999993491,
+        "analyze": 1.2717830000001413,
+        "finish": 2.2599860000009357,
+        "integrity": 0.44427099999847997,
+        "prepare": 0.184465000000273,
+        "compose": 0.07510200000069744,
+        "refreshMs": 4.585146999999779,
+        "parseAndRenderMs": 0.9697939999987284,
+        "integrityModelMs": 0.26165000000037253
+      }
+    },
+    {
+      "pair": 30,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 3.2893070000009175,
+        "analyze": 0.9378669999987324,
+        "finish": 1.7303760000013426,
+        "integrity": 0.37016099999891594,
+        "prepare": 0.16601700000137498,
+        "compose": 0.06886299999860057,
+        "refreshMs": 6.567198000000644,
+        "parseAndRenderMs": 0.7075530000001891,
+        "integrityModelMs": 0.19203600000037113
+      }
+    },
+    {
+      "pair": 31,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 4.06174800000008,
+        "analyze": 0.8996189999998023,
+        "finish": 1.826218999998673,
+        "integrity": 0.44307000000117114,
+        "prepare": 0.24363300000004529,
+        "compose": 0.07645400000001246,
+        "refreshMs": 7.554967999998553,
+        "parseAndRenderMs": 0.6663619999999355,
+        "integrityModelMs": 0.19144500000038533
+      }
+    },
+    {
+      "pair": 31,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2846239999998943,
+        "analyze": 0.9486629999992147,
+        "finish": 1.6564259999995556,
+        "integrity": 0.3740269999998418,
+        "prepare": 0.1820110000007844,
+        "compose": 0.07240799999999581,
+        "refreshMs": 3.523055999999997,
+        "parseAndRenderMs": 0.7136129999998957,
+        "integrityModelMs": 0.19822600000043167
+      }
+    },
+    {
+      "pair": 32,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3226509999985865,
+        "analyze": 0.9166650000006484,
+        "finish": 1.796954999999798,
+        "integrity": 0.41730099999949744,
+        "prepare": 0.18164100000103645,
+        "compose": 0.07564199999978882,
+        "refreshMs": 3.7157029999998485,
+        "parseAndRenderMs": 0.7015950000004523,
+        "integrityModelMs": 0.17764399999941816
+      }
+    },
+    {
+      "pair": 32,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.41455799999857845,
+        "analyze": 0.9204100000006292,
+        "finish": 2.939577000001009,
+        "integrity": 0.4660439999988739,
+        "prepare": 0.1830229999995936,
+        "compose": 0.09939800000029209,
+        "refreshMs": 5.028196999999636,
+        "parseAndRenderMs": 0.6835279999995691,
+        "integrityModelMs": 0.19970699999976205
+      }
+    },
+    {
+      "pair": 33,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.4278569999987667,
+        "analyze": 1.0794270000005781,
+        "finish": 1.7525100000002567,
+        "integrity": 0.5327629999992496,
+        "prepare": 0.20621700000083365,
+        "compose": 0.07378000000062457,
+        "refreshMs": 4.079024000000572,
+        "parseAndRenderMs": 0.7939019999994343,
+        "integrityModelMs": 0.21226600000045437
+      }
+    },
+    {
+      "pair": 33,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.6849500000007538,
+        "analyze": 1.647462999999334,
+        "finish": 3.058102000000872,
+        "integrity": 0.6314299999994546,
+        "prepare": 0.3706220000003668,
+        "compose": 0.1785359999994398,
+        "refreshMs": 6.578714000001128,
+        "parseAndRenderMs": 1.2783429999999498,
+        "integrityModelMs": 0.3261259999999311
+      }
+    },
+    {
+      "pair": 34,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.37675099999978556,
+        "analyze": 1.4774890000007872,
+        "finish": 2.1360599999989063,
+        "integrity": 0.6808039999996254,
+        "prepare": 0.18275200000061886,
+        "compose": 0.07429100000081235,
+        "refreshMs": 4.932532999999239,
+        "parseAndRenderMs": 1.062922000000981,
+        "integrityModelMs": 0.3719039999996312
+      }
+    },
+    {
+      "pair": 34,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 3.8046749999994063,
+        "analyze": 1.012005999999019,
+        "finish": 2.295328000000154,
+        "integrity": 0.685540000000401,
+        "prepare": 0.23771400000077847,
+        "compose": 0.07531199999903038,
+        "refreshMs": 8.115352999999232,
+        "parseAndRenderMs": 0.7743929999996908,
+        "integrityModelMs": 0.1958520000007411
+      }
+    },
+    {
+      "pair": 35,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3828299999986484,
+        "analyze": 0.814712999999756,
+        "finish": 1.461395000000266,
+        "integrity": 0.34974099999999453,
+        "prepare": 0.16059900000072957,
+        "compose": 0.06317399999898043,
+        "refreshMs": 3.2361870000004274,
+        "parseAndRenderMs": 0.5874050000002171,
+        "integrityModelMs": 0.19241599999986647
+      }
+    },
+    {
+      "pair": 35,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.27900600000066333,
+        "analyze": 0.9050769999994372,
+        "finish": 5.723011000000042,
+        "integrity": 0.4235100000005332,
+        "prepare": 0.1754719999989902,
+        "compose": 0.06848200000058569,
+        "refreshMs": 7.578743000000031,
+        "parseAndRenderMs": 0.6753259999986767,
+        "integrityModelMs": 0.1956209999989369
+      }
+    },
+    {
+      "pair": 36,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.23628199999984645,
+        "analyze": 0.8472810000002937,
+        "finish": 1.766169999998965,
+        "integrity": 0.5161779999998544,
+        "prepare": 0.2081800000014482,
+        "compose": 0.06677899999885994,
+        "refreshMs": 3.644795999998678,
+        "parseAndRenderMs": 0.6522810000005848,
+        "integrityModelMs": 0.16362300000037067
+      }
+    },
+    {
+      "pair": 36,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.45047100000010687,
+        "analyze": 0.9646260000008624,
+        "finish": 1.9117459999997664,
+        "integrity": 0.525433000000703,
+        "prepare": 0.19975699999849894,
+        "compose": 0.0719970000009198,
+        "refreshMs": 4.128848000000289,
+        "parseAndRenderMs": 0.7290760000014416,
+        "integrityModelMs": 0.1961219999993773
+      }
+    },
+    {
+      "pair": 37,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 4.352919999999358,
+        "analyze": 0.9687020000001212,
+        "finish": 1.6447490000009566,
+        "integrity": 0.47477599999911035,
+        "prepare": 0.19623300000057498,
+        "compose": 0.07418999999936204,
+        "refreshMs": 7.7159259999989445,
+        "parseAndRenderMs": 0.7090960000004998,
+        "integrityModelMs": 0.21519999999873107
+      }
+    },
+    {
+      "pair": 37,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2512939999996888,
+        "analyze": 0.9986970000009023,
+        "finish": 1.74915399999918,
+        "integrity": 0.36492399999951886,
+        "prepare": 0.17748399999982212,
+        "compose": 0.07550200000150653,
+        "refreshMs": 3.621611999999004,
+        "parseAndRenderMs": 0.7648890000000392,
+        "integrityModelMs": 0.19709300000067742
+      }
+    },
+    {
+      "pair": 38,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.25157499999841093,
+        "analyze": 1.2140770000005432,
+        "finish": 1.7442169999994803,
+        "integrity": 0.42230900000140537,
+        "prepare": 0.17011300000012852,
+        "compose": 0.07583299999896553,
+        "refreshMs": 3.8824100000001636,
+        "parseAndRenderMs": 0.858487999999852,
+        "integrityModelMs": 0.24459399999977904
+      }
+    },
+    {
+      "pair": 38,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.42811799999981304,
+        "analyze": 0.9493329999986599,
+        "finish": 1.7326200000006793,
+        "integrity": 0.3613980000009178,
+        "prepare": 0.22536599999875762,
+        "compose": 0.8811409999998432,
+        "refreshMs": 4.585387000000992,
+        "parseAndRenderMs": 0.7234070000013162,
+        "integrityModelMs": 0.18668799999977637
+      }
+    },
+    {
+      "pair": 39,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 4.208905999999843,
+        "analyze": 0.8852679999999964,
+        "finish": 1.5350060000000667,
+        "integrity": 0.45606899999984307,
+        "prepare": 0.15882600000077218,
+        "compose": 0.07268799999837938,
+        "refreshMs": 7.320760000000519,
+        "parseAndRenderMs": 0.6814749999994092,
+        "integrityModelMs": 0.16832999999860476
+      }
+    },
+    {
+      "pair": 39,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.24052800000026764,
+        "analyze": 0.922192999998515,
+        "finish": 1.5538030000006984,
+        "integrity": 0.4960289999999077,
+        "prepare": 0.1818199999997887,
+        "compose": 0.06896299999971234,
+        "refreshMs": 3.467371999999159,
+        "parseAndRenderMs": 0.7117299999990792,
+        "integrityModelMs": 0.1755009999997128
+      }
+    },
+    {
+      "pair": 40,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2275790000003326,
+        "analyze": 0.8214230000012321,
+        "finish": 1.476197999998476,
+        "integrity": 0.37227400000119815,
+        "prepare": 0.1703139999990526,
+        "compose": 0.07391000000097847,
+        "refreshMs": 3.1456729999990785,
+        "parseAndRenderMs": 0.6286259999997128,
+        "integrityModelMs": 0.1599979999991774
+      }
+    },
+    {
+      "pair": 40,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 3.9225699999988137,
+        "analyze": 1.0407690000010916,
+        "finish": 1.7875509999994392,
+        "integrity": 0.3796149999998306,
+        "prepare": 0.17038400000092224,
+        "compose": 0.06820100000004459,
+        "refreshMs": 7.373316999999588,
+        "parseAndRenderMs": 0.769045000000915,
+        "integrityModelMs": 0.23235600000043632
+      }
+    },
+    {
+      "pair": 41,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 3.906756000000314,
+        "analyze": 0.9338199999983772,
+        "finish": 1.732720000001791,
+        "integrity": 0.4024489999992511,
+        "prepare": 0.26164000000062515,
+        "compose": 0.06790099999852828,
+        "refreshMs": 7.3099830000010115,
+        "parseAndRenderMs": 0.7130720000004658,
+        "integrityModelMs": 0.18209099999876344
+      }
+    },
+    {
+      "pair": 41,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.27766300000075717,
+        "analyze": 0.9353329999994457,
+        "finish": 4.9767289999999775,
+        "integrity": 0.44785699999920325,
+        "prepare": 0.2367630000007921,
+        "compose": 0.11930699999902572,
+        "refreshMs": 6.999480999998923,
+        "parseAndRenderMs": 0.6950040000010631,
+        "integrityModelMs": 0.20752900000115915
+      }
+    },
+    {
+      "pair": 42,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2442640000008396,
+        "analyze": 0.9286620000002586,
+        "finish": 1.6865509999988717,
+        "integrity": 0.35994600000049104,
+        "prepare": 0.17837499999950523,
+        "compose": 0.07035500000165484,
+        "refreshMs": 3.4726300000002084,
+        "parseAndRenderMs": 0.7088460000013583,
+        "integrityModelMs": 0.1833729999998468
+      }
+    },
+    {
+      "pair": 42,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 4.989759000000049,
+        "analyze": 1.0043549999991228,
+        "finish": 1.9184660000009899,
+        "integrity": 0.42223899999953574,
+        "prepare": 0.17772399999921618,
+        "compose": 0.1010710000009567,
+        "refreshMs": 8.619353000000046,
+        "parseAndRenderMs": 0.7634360000010929,
+        "integrityModelMs": 0.19798500000069907
+      }
+    },
+    {
+      "pair": 43,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 4.468152000001282,
+        "analyze": 1.5739830000002257,
+        "finish": 2.0027919999993173,
+        "integrity": 0.45803200000045763,
+        "prepare": 0.2156509999986156,
+        "compose": 0.07266800000070361,
+        "refreshMs": 8.796014000001378,
+        "parseAndRenderMs": 1.2154300000001967,
+        "integrityModelMs": 0.31473799999912444
+      }
+    },
+    {
+      "pair": 43,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2670080000007147,
+        "analyze": 1.1206679999995686,
+        "finish": 1.9497730000002775,
+        "integrity": 2.1502110000001267,
+        "prepare": 0.48775600000044506,
+        "compose": 0.08954400000038731,
+        "refreshMs": 6.071670000001177,
+        "parseAndRenderMs": 0.8757139999997889,
+        "integrityModelMs": 0.20659800000066753
+      }
+    },
+    {
+      "pair": 44,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2496609999998327,
+        "analyze": 1.0194879999999102,
+        "finish": 2.343529000001581,
+        "integrity": 0.3770509999994829,
+        "prepare": 0.1709149999987858,
+        "compose": 0.06850200000008044,
+        "refreshMs": 4.233362000000852,
+        "parseAndRenderMs": 0.7989589999997406,
+        "integrityModelMs": 0.1849449999990611
+      }
+    },
+    {
+      "pair": 44,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 4.882759000000078,
+        "analyze": 1.1468279999990045,
+        "finish": 1.9847939999999653,
+        "integrity": 1.4063440000008995,
+        "prepare": 0.20089899999948102,
+        "compose": 0.07607300000017858,
+        "refreshMs": 9.702433999998902,
+        "parseAndRenderMs": 0.8926590000010037,
+        "integrityModelMs": 0.2114050000000134
+      }
+    },
+    {
+      "pair": 45,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.49453600000015285,
+        "analyze": 1.1316750000005413,
+        "finish": 2.0169630000000325,
+        "integrity": 0.5075159999996686,
+        "prepare": 0.24078799999915645,
+        "compose": 0.08213199999954668,
+        "refreshMs": 4.478788999998869,
+        "parseAndRenderMs": 0.7738419999986945,
+        "integrityModelMs": 0.3103420000006736
+      }
+    },
+    {
+      "pair": 45,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.23426800000015646,
+        "analyze": 0.8575570000011794,
+        "finish": 1.4959969999999885,
+        "integrity": 0.3912929999987682,
+        "prepare": 2.817064000000755,
+        "compose": 0.1019510000005539,
+        "refreshMs": 5.9031879999984085,
+        "parseAndRenderMs": 0.6377999999986059,
+        "integrityModelMs": 0.18700800000078743
+      }
+    },
+    {
+      "pair": 46,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.24626700000044366,
+        "analyze": 0.8837860000003275,
+        "finish": 1.5146239999994577,
+        "integrity": 0.35014199999932316,
+        "prepare": 0.20406400000138092,
+        "compose": 0.06298299999980372,
+        "refreshMs": 3.2658919999994396,
+        "parseAndRenderMs": 0.6305379999994329,
+        "integrityModelMs": 0.21955700000034994
+      }
+    },
+    {
+      "pair": 46,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3947680000001128,
+        "analyze": 1.080539000000499,
+        "finish": 1.6554250000008324,
+        "integrity": 0.393765999999232,
+        "prepare": 0.20807000000058906,
+        "compose": 0.06706899999880989,
+        "refreshMs": 3.804384000000937,
+        "parseAndRenderMs": 0.6570080000001326,
+        "integrityModelMs": 0.3463560000000143
+      }
+    },
+    {
+      "pair": 47,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3863650000002963,
+        "analyze": 1.0006499999999505,
+        "finish": 1.7006920000003447,
+        "integrity": 0.36947999999938475,
+        "prepare": 0.17292700000143668,
+        "compose": 0.11234799999874667,
+        "refreshMs": 3.7486709999993764,
+        "parseAndRenderMs": 0.7729810000000725,
+        "integrityModelMs": 0.1909139999988838
+      }
+    },
+    {
+      "pair": 47,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2377440000000206,
+        "analyze": 0.9101050000008399,
+        "finish": 1.5607430000000022,
+        "integrity": 0.3507019999997283,
+        "prepare": 0.29120400000101654,
+        "compose": 0.07034499999826949,
+        "refreshMs": 3.4252790000009554,
+        "parseAndRenderMs": 0.6880940000010014,
+        "integrityModelMs": 0.18857000000025437
+      }
+    },
+    {
+      "pair": 48,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.22918100000060804,
+        "analyze": 0.7967459999999846,
+        "finish": 1.584299000000101,
+        "integrity": 0.37694099999862374,
+        "prepare": 0.17529100000137987,
+        "compose": 0.06254300000000512,
+        "refreshMs": 3.2293270000009215,
+        "parseAndRenderMs": 0.5684970000002068,
+        "integrityModelMs": 0.195040999999037
+      }
+    },
+    {
+      "pair": 48,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.37310599999909755,
+        "analyze": 0.8423039999997854,
+        "finish": 1.63458300000093,
+        "integrity": 0.3540469999989,
+        "prepare": 0.17215700000087963,
+        "compose": 0.09163599999919825,
+        "refreshMs": 3.4729000000006636,
+        "parseAndRenderMs": 0.6244989999995596,
+        "integrityModelMs": 0.18161999999938416
+      }
+    },
+    {
+      "pair": 49,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.41823199999998906,
+        "analyze": 0.8741509999999835,
+        "finish": 1.5011149999991176,
+        "integrity": 0.4239209999996092,
+        "prepare": 0.16389400000116439,
+        "compose": 0.06615899999997055,
+        "refreshMs": 3.470076000001427,
+        "parseAndRenderMs": 0.659020999999484,
+        "integrityModelMs": 0.1791670000002341
+      }
+    },
+    {
+      "pair": 49,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.22551500000008673,
+        "analyze": 0.8955430000005435,
+        "finish": 1.5092969999986963,
+        "integrity": 0.3664760000010574,
+        "prepare": 0.15820499999972526,
+        "compose": 0.061341999999058316,
+        "refreshMs": 3.2204540000002453,
+        "parseAndRenderMs": 0.6808130000008532,
+        "integrityModelMs": 0.18321300000025076
+      }
+    },
+    {
+      "pair": 50,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.26864000000023225,
+        "analyze": 1.0548099999996339,
+        "finish": 2.328527000001486,
+        "integrity": 0.46484199999940756,
+        "prepare": 0.18567699999948672,
+        "compose": 0.06807099999969068,
+        "refreshMs": 4.374552999999651,
+        "parseAndRenderMs": 0.845248999999967,
+        "integrityModelMs": 0.1747399999985646
+      }
+    },
+    {
+      "pair": 50,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.45112200000039593,
+        "analyze": 0.9615020000001095,
+        "finish": 1.5885349999989558,
+        "integrity": 0.35541900000134774,
+        "prepare": 0.17114399999991292,
+        "compose": 0.06506699999954435,
+        "refreshMs": 3.5972549999987677,
+        "parseAndRenderMs": 0.7298360000004323,
+        "integrityModelMs": 0.19473000000107277
+      }
+    },
+    {
+      "pair": 51,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.4286279999996623,
+        "analyze": 0.86714099999881,
+        "finish": 1.8254670000005717,
+        "integrity": 0.42074700000011944,
+        "prepare": 0.23100399999930232,
+        "compose": 0.07501100000081351,
+        "refreshMs": 3.8528559999995196,
+        "parseAndRenderMs": 0.6415550000001531,
+        "integrityModelMs": 0.19074400000135938
+      }
+    },
+    {
+      "pair": 51,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2540789999984554,
+        "analyze": 0.878247000000556,
+        "finish": 1.587894000000233,
+        "integrity": 0.3445929999998043,
+        "prepare": 0.1988259999998263,
+        "compose": 0.07891700000072888,
+        "refreshMs": 3.3470330000000104,
+        "parseAndRenderMs": 0.6271940000005998,
+        "integrityModelMs": 0.21712300000035611
+      }
+    },
+    {
+      "pair": 52,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.24675699999897915,
+        "analyze": 0.9381270000012591,
+        "finish": 1.7718079999995098,
+        "integrity": 0.37972500000068976,
+        "prepare": 0.1747399999985646,
+        "compose": 0.0713660000001255,
+        "refreshMs": 3.58665899999869,
+        "parseAndRenderMs": 0.7101669999992737,
+        "integrityModelMs": 0.18918099999973492
+      }
+    },
+    {
+      "pair": 52,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.47501700000066194,
+        "analyze": 0.9816009999995003,
+        "finish": 2.0261869999994815,
+        "integrity": 0.3721140000016021,
+        "prepare": 0.17916699999841512,
+        "compose": 0.07704400000147871,
+        "refreshMs": 4.115678000000116,
+        "parseAndRenderMs": 0.7120499999982712,
+        "integrityModelMs": 0.22832999999991443
+      }
+    },
+    {
+      "pair": 53,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3891990000010992,
+        "analyze": 0.8998300000002928,
+        "finish": 2.146434999998746,
+        "integrity": 0.39379700000063167,
+        "prepare": 0.16925199999968754,
+        "compose": 0.07082500000069558,
+        "refreshMs": 4.0737649999991845,
+        "parseAndRenderMs": 0.6142539999982546,
+        "integrityModelMs": 0.2476989999995567
+      }
+    },
+    {
+      "pair": 53,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.23480899999958638,
+        "analyze": 0.9385480000000825,
+        "finish": 1.642044000000169,
+        "integrity": 0.3543580000005022,
+        "prepare": 0.16810999999870546,
+        "compose": 0.07355000000097789,
+        "refreshMs": 3.4160460000002786,
+        "parseAndRenderMs": 0.7166779999988648,
+        "integrityModelMs": 0.18488500000057684
+      }
+    },
+    {
+      "pair": 54,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.23163500000009662,
+        "analyze": 1.1289409999990312,
+        "finish": 1.8232440000010683,
+        "integrity": 0.4071159999984957,
+        "prepare": 0.3529260000013892,
+        "compose": 0.12844099999892933,
+        "refreshMs": 4.078652000000147,
+        "parseAndRenderMs": 0.8470010000000912,
+        "integrityModelMs": 0.24538500000016938
+      }
+    },
+    {
+      "pair": 54,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.5026980000002368,
+        "analyze": 1.045215999998618,
+        "finish": 1.764037000000826,
+        "integrity": 0.40821800000048825,
+        "prepare": 0.1815999999998894,
+        "compose": 0.07395999999971536,
+        "refreshMs": 3.980435999999827,
+        "parseAndRenderMs": 0.7624250000008033,
+        "integrityModelMs": 0.24219099999936589
+      }
+    },
+    {
+      "pair": 55,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 4.383335000000443,
+        "analyze": 1.1312249999991764,
+        "finish": 2.0160410000007687,
+        "integrity": 0.4448819999997795,
+        "prepare": 0.24072899999919173,
+        "compose": 0.07481100000040897,
+        "refreshMs": 8.295871000000261,
+        "parseAndRenderMs": 0.9234240000005229,
+        "integrityModelMs": 0.17128500000035274
+      }
+    },
+    {
+      "pair": 55,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.32433300000047893,
+        "analyze": 1.0978850000010425,
+        "finish": 1.6675020000002405,
+        "integrity": 0.39330599999993865,
+        "prepare": 0.1815599999990809,
+        "compose": 0.0729989999999816,
+        "refreshMs": 3.7420409999995172,
+        "parseAndRenderMs": 0.8341319999999541,
+        "integrityModelMs": 0.19383799999923212
+      }
+    },
+    {
+      "pair": 56,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.27690200000142795,
+        "analyze": 1.3595939999995608,
+        "finish": 1.674793000000136,
+        "integrity": 0.39200399999936053,
+        "prepare": 0.19157500000073924,
+        "compose": 0.07218699999975797,
+        "refreshMs": 3.9717230000005657,
+        "parseAndRenderMs": 1.1322260000015376,
+        "integrityModelMs": 0.18976199999997334
+      }
+    },
+    {
+      "pair": 56,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 4.263747999999396,
+        "analyze": 0.919119000000137,
+        "finish": 1.633531999999832,
+        "integrity": 0.7295859999994718,
+        "prepare": 0.6754249999994499,
+        "compose": 0.10252300000138348,
+        "refreshMs": 8.331725000000006,
+        "parseAndRenderMs": 0.6785099999997328,
+        "integrityModelMs": 0.16554699999869626
+      }
+    },
+    {
+      "pair": 57,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3697699999993347,
+        "analyze": 0.8541020000011486,
+        "finish": 1.6173179999987042,
+        "integrity": 0.4618669999999838,
+        "prepare": 0.1661980000008043,
+        "compose": 0.06405499999891617,
+        "refreshMs": 3.55312000000049,
+        "parseAndRenderMs": 0.6378989999993792,
+        "integrityModelMs": 0.1801080000004731
+      }
+    },
+    {
+      "pair": 57,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.32250999999996566,
+        "analyze": 1.006388000001607,
+        "finish": 1.6392399999986083,
+        "integrity": 0.3957700000009936,
+        "prepare": 0.2196669999993901,
+        "compose": 0.06835099999989325,
+        "refreshMs": 3.655862999999954,
+        "parseAndRenderMs": 0.77777800000149,
+        "integrityModelMs": 0.19314800000029209
+      }
+    },
+    {
+      "pair": 58,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3240930000010849,
+        "analyze": 1.0531879999998637,
+        "finish": 2.051663999998709,
+        "integrity": 0.6431980000015756,
+        "prepare": 0.2542279999997845,
+        "compose": 0.08071000000018103,
+        "refreshMs": 4.411919000000125,
+        "parseAndRenderMs": 0.7260410000017146,
+        "integrityModelMs": 0.2515239999993355
+      }
+    },
+    {
+      "pair": 58,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 7.513254999999845,
+        "analyze": 0.9500750000006519,
+        "finish": 1.9338189999998576,
+        "integrity": 0.5387620000001334,
+        "prepare": 0.2691709999999148,
+        "compose": 0.08934299999964423,
+        "refreshMs": 11.299682000000757,
+        "parseAndRenderMs": 0.6762370000014926,
+        "integrityModelMs": 0.21477899999990768
+      }
+    },
+    {
+      "pair": 59,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.46081600000070466,
+        "analyze": 0.7792909999989206,
+        "finish": 1.4882850000012695,
+        "integrity": 0.3785439999992377,
+        "prepare": 0.18360299999949348,
+        "compose": 0.06416600000011385,
+        "refreshMs": 3.3586100000011356,
+        "parseAndRenderMs": 0.547115000001213,
+        "integrityModelMs": 0.1954409999998461
+      }
+    },
+    {
+      "pair": 59,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.23291600000084145,
+        "analyze": 0.9730089999993652,
+        "finish": 1.5641479999994772,
+        "integrity": 0.3541380000006029,
+        "prepare": 0.29873399999996764,
+        "compose": 0.06566799999927753,
+        "refreshMs": 3.4931809999998222,
+        "parseAndRenderMs": 0.7447879999999714,
+        "integrityModelMs": 0.1945800000012241
+      }
+    },
+    {
+      "pair": 60,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3396260000008624,
+        "analyze": 1.054108999998789,
+        "finish": 1.9466279999996914,
+        "integrity": 0.6485950000005687,
+        "prepare": 0.25694300000031944,
+        "compose": 0.1287819999997737,
+        "refreshMs": 4.382994999999937,
+        "parseAndRenderMs": 0.7841680000001361,
+        "integrityModelMs": 0.22516499999983353
+      }
+    },
+    {
+      "pair": 60,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.4524229999988165,
+        "analyze": 0.9814820000010513,
+        "finish": 1.6069919999990816,
+        "integrity": 0.48292899999978545,
+        "prepare": 0.16471500000079686,
+        "compose": 0.14825099999870872,
+        "refreshMs": 3.843553000000611,
+        "parseAndRenderMs": 0.7898760000007314,
+        "integrityModelMs": 0.1572439999999915
+      }
+    },
+    {
+      "pair": 61,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.5378800000034971,
+        "analyze": 1.1374139999970794,
+        "finish": 2.0154700000020966,
+        "integrity": 1.3598539999984496,
+        "prepare": 0.15850599999976112,
+        "compose": 0.07124599999951897,
+        "refreshMs": 5.284676999999647,
+        "parseAndRenderMs": 0.8240569999979925,
+        "integrityModelMs": 0.26800899999943795
+      }
+    },
+    {
+      "pair": 61,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.34833900000012363,
+        "analyze": 1.2274469999993016,
+        "finish": 2.551288000000568,
+        "integrity": 0.47347499999887077,
+        "prepare": 0.18999299999995856,
+        "compose": 0.15430000000014843,
+        "refreshMs": 4.950901000000158,
+        "parseAndRenderMs": 0.8435259999987466,
+        "integrityModelMs": 0.34593500000119093
+      }
+    },
+    {
+      "pair": 62,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.31549900000027264,
+        "analyze": 1.0981050000009418,
+        "finish": 2.1069169999991573,
+        "integrity": 0.37005000000135624,
+        "prepare": 0.5507699999998295,
+        "compose": 0.07552299999952083,
+        "refreshMs": 4.521461000000272,
+        "parseAndRenderMs": 0.7044690000002447,
+        "integrityModelMs": 0.35084199999982957
+      }
+    },
+    {
+      "pair": 62,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.46514299999762443,
+        "analyze": 1.1411079999998037,
+        "finish": 1.7780070000007981,
+        "integrity": 0.4419979999984207,
+        "prepare": 0.19314800000211108,
+        "compose": 0.07327900000018417,
+        "refreshMs": 4.096889000000374,
+        "parseAndRenderMs": 0.702636000001803,
+        "integrityModelMs": 0.3910519999990356
+      }
+    },
+    {
+      "pair": 63,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 2.4319550000000163,
+        "analyze": 1.4106510000019625,
+        "finish": 2.0136270000002696,
+        "integrity": 0.434146999999939,
+        "prepare": 0.21051299999817275,
+        "compose": 0.15976800000134972,
+        "refreshMs": 6.668011999998271,
+        "parseAndRenderMs": 1.1063169999979436,
+        "integrityModelMs": 0.2349499999982072
+      }
+    },
+    {
+      "pair": 63,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.24377300000014657,
+        "analyze": 1.0258580000008806,
+        "finish": 1.6387999999988097,
+        "integrity": 0.4265850000010687,
+        "prepare": 0.16534599999977218,
+        "compose": 0.0701439999993454,
+        "refreshMs": 3.5749720000003435,
+        "parseAndRenderMs": 0.779910999999629,
+        "integrityModelMs": 0.2086410000010801
+      }
+    },
+    {
+      "pair": 64,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.269189999999071,
+        "analyze": 0.9936300000008487,
+        "finish": 1.5823449999988952,
+        "integrity": 0.3812180000004446,
+        "prepare": 0.19238600000062434,
+        "compose": 0.07719499999984691,
+        "refreshMs": 3.5003509999987727,
+        "parseAndRenderMs": 0.7205729999986943,
+        "integrityModelMs": 0.23486899999988964
+      }
+    },
+    {
+      "pair": 64,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 1.1935069999999541,
+        "analyze": 0.9591479999980947,
+        "finish": 1.758017000000109,
+        "integrity": 0.35761199999979,
+        "prepare": 0.16108000000167522,
+        "compose": 0.07302899999922374,
+        "refreshMs": 4.507631000000401,
+        "parseAndRenderMs": 0.7343029999974533,
+        "integrityModelMs": 0.18358399999851827
+      }
+    },
+    {
+      "pair": 65,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.4526640000003681,
+        "analyze": 1.045656999998755,
+        "finish": 1.9950600000011036,
+        "integrity": 0.5527130000009493,
+        "prepare": 0.17345800000111922,
+        "compose": 0.07320899999831454,
+        "refreshMs": 4.297277000001486,
+        "parseAndRenderMs": 0.7863209999995888,
+        "integrityModelMs": 0.21703299999717274
+      }
+    },
+    {
+      "pair": 65,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2892909999991389,
+        "analyze": 1.2394150000000081,
+        "finish": 2.0794960000002902,
+        "integrity": 0.5427579999995942,
+        "prepare": 0.19949699999961013,
+        "compose": 0.08622900000045775,
+        "refreshMs": 4.442794999999023,
+        "parseAndRenderMs": 0.9206009999998059,
+        "integrityModelMs": 0.27524999999877764
+      }
+    },
+    {
+      "pair": 66,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.38841800000045623,
+        "analyze": 1.019177000000127,
+        "finish": 8.778779999998733,
+        "integrity": 0.6098180000008142,
+        "prepare": 0.168641000000207,
+        "compose": 0.06976399999985006,
+        "refreshMs": 11.039455999998609,
+        "parseAndRenderMs": 0.7308890000003885,
+        "integrityModelMs": 0.241809999999532
+      }
+    },
+    {
+      "pair": 66,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 4.114305000002787,
+        "analyze": 0.8319389999996929,
+        "finish": 1.5266830000000482,
+        "integrity": 0.3977919999997539,
+        "prepare": 0.14725900000121328,
+        "compose": 0.06680999999662163,
+        "refreshMs": 7.088714000001346,
+        "parseAndRenderMs": 0.6466719999989436,
+        "integrityModelMs": 0.14697900000101072
+      }
+    },
+    {
+      "pair": 67,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.43382500000006985,
+        "analyze": 0.8476320000008855,
+        "finish": 1.627943999999843,
+        "integrity": 0.407415999998193,
+        "prepare": 0.151095000001078,
+        "compose": 0.096454000002268,
+        "refreshMs": 3.5699139999996987,
+        "parseAndRenderMs": 0.6418760000015027,
+        "integrityModelMs": 0.16955199999938486
+      }
+    },
+    {
+      "pair": 67,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.25770399999964866,
+        "analyze": 1.063903999998729,
+        "finish": 2.2524330000014743,
+        "integrity": 0.42970900000000256,
+        "prepare": 0.2029529999999795,
+        "compose": 0.07205699999940407,
+        "refreshMs": 4.282865999999558,
+        "parseAndRenderMs": 0.729325999998764,
+        "integrityModelMs": 0.295099000000846
+      }
+    },
+    {
+      "pair": 68,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.24598599999990256,
+        "analyze": 0.957245999999941,
+        "finish": 4.723391999999876,
+        "integrity": 0.4203749999996944,
+        "prepare": 0.2111349999995582,
+        "compose": 0.10760000000118453,
+        "refreshMs": 6.671712999999727,
+        "parseAndRenderMs": 0.7255909999985306,
+        "integrityModelMs": 0.19561099999918952
+      }
+    },
+    {
+      "pair": 68,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.7779480000026524,
+        "analyze": 1.1066679999967164,
+        "finish": 2.2055830000026617,
+        "integrity": 0.4212569999981497,
+        "prepare": 0.19164599999930942,
+        "compose": 0.0726280000017141,
+        "refreshMs": 4.780627000000095,
+        "parseAndRenderMs": 0.7105369999990216,
+        "integrityModelMs": 0.31400700000085635
+      }
+    },
+    {
+      "pair": 69,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.5513210000026447,
+        "analyze": 0.9054880000003322,
+        "finish": 1.6293960000002699,
+        "integrity": 0.43638999999893713,
+        "prepare": 0.14519599999766797,
+        "compose": 0.066158000001451,
+        "refreshMs": 3.7377849999975297,
+        "parseAndRenderMs": 0.6694470000002184,
+        "integrityModelMs": 0.20302199999787263
+      }
+    },
+    {
+      "pair": 69,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.24878999999964435,
+        "analyze": 5.112682000000859,
+        "finish": 1.9102029999994556,
+        "integrity": 0.3622300000006362,
+        "prepare": 0.3745070000004489,
+        "compose": 0.07757599999968079,
+        "refreshMs": 8.090935000000172,
+        "parseAndRenderMs": 4.7859950000001845,
+        "integrityModelMs": 0.28707699999904435
+      }
+    },
+    {
+      "pair": 70,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.21672300000136602,
+        "analyze": 0.929612999998426,
+        "finish": 1.939938000001348,
+        "integrity": 0.6122020000002522,
+        "prepare": 0.32289099999979953,
+        "compose": 0.07139599999936763,
+        "refreshMs": 4.0967190000010305,
+        "parseAndRenderMs": 0.6931519999998272,
+        "integrityModelMs": 0.19798500000069907
+      }
+    },
+    {
+      "pair": 70,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.5916209999995772,
+        "analyze": 1.4936830000006012,
+        "finish": 2.165234000000055,
+        "integrity": 0.39921400000093854,
+        "prepare": 0.19285699999818462,
+        "compose": 0.07094599999982165,
+        "refreshMs": 4.917950999999448,
+        "parseAndRenderMs": 0.7615640000003623,
+        "integrityModelMs": 0.6898670000009588
+      }
+    },
+    {
+      "pair": 71,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 3.6222630000011122,
+        "analyze": 1.4155570000002626,
+        "finish": 2.4067329999998037,
+        "integrity": 0.4547869999987597,
+        "prepare": 0.16693899999881978,
+        "compose": 0.07083500000226195,
+        "refreshMs": 8.141861000000063,
+        "parseAndRenderMs": 1.1581140000016603,
+        "integrityModelMs": 0.21333700000104727
+      }
+    },
+    {
+      "pair": 71,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.302229000000807,
+        "analyze": 1.1872979999989184,
+        "finish": 2.238101999999344,
+        "integrity": 2.968659000000116,
+        "prepare": 0.175732000001517,
+        "compose": 0.07244799999898532,
+        "refreshMs": 6.9493750000001455,
+        "parseAndRenderMs": 0.8787580000007438,
+        "integrityModelMs": 0.26338200000100187
+      }
+    },
+    {
+      "pair": 72,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3054040000006353,
+        "analyze": 1.066557999998622,
+        "finish": 2.1946770000013203,
+        "integrity": 2.928820999999516,
+        "prepare": 0.19287699999949837,
+        "compose": 0.07129600000007486,
+        "refreshMs": 6.76430099999925,
+        "parseAndRenderMs": 0.7988389999991341,
+        "integrityModelMs": 0.223692999999912
+      }
+    },
+    {
+      "pair": 72,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3895299999967392,
+        "analyze": 1.0219210000032035,
+        "finish": 1.693572000000131,
+        "integrity": 0.42262899999695946,
+        "prepare": 0.1650660000013886,
+        "compose": 0.0675599999995029,
+        "refreshMs": 3.765204999999696,
+        "parseAndRenderMs": 0.6871529999989434,
+        "integrityModelMs": 0.29262499999822467
+      }
+    },
+    {
+      "pair": 73,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3907920000019658,
+        "analyze": 0.8712969999978668,
+        "finish": 1.5348850000009406,
+        "integrity": 0.4022389999990992,
+        "prepare": 0.31319599999915226,
+        "compose": 0.06497700000181794,
+        "refreshMs": 3.581901999998081,
+        "parseAndRenderMs": 0.6547549999995681,
+        "integrityModelMs": 0.17917700000180048
+      }
+    },
+    {
+      "pair": 73,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.22632700000031036,
+        "analyze": 0.9924779999983002,
+        "finish": 6.700179000001299,
+        "integrity": 0.5850109999992128,
+        "prepare": 0.265175000000454,
+        "compose": 0.134249999999156,
+        "refreshMs": 8.911462000000029,
+        "parseAndRenderMs": 0.7574370000002091,
+        "integrityModelMs": 0.20073800000136544
+      }
+    },
+    {
+      "pair": 74,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.3015689999992901,
+        "analyze": 1.004666000000725,
+        "finish": 1.7194299999991927,
+        "integrity": 0.5320520000004763,
+        "prepare": 0.1723970000002737,
+        "compose": 0.18456399999922724,
+        "refreshMs": 3.921609000000899,
+        "parseAndRenderMs": 0.77867999999944,
+        "integrityModelMs": 0.18626799999947252
+      }
+    },
+    {
+      "pair": 74,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 3.8612580000008165,
+        "analyze": 0.9462090000015451,
+        "finish": 1.6793299999990268,
+        "integrity": 0.4492890000001353,
+        "prepare": 0.15530199999921024,
+        "compose": 0.06725999999980559,
+        "refreshMs": 7.163375000000087,
+        "parseAndRenderMs": 0.7069929999997839,
+        "integrityModelMs": 0.20112999999764725
+      }
+    },
+    {
+      "pair": 75,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.4026190000004135,
+        "analyze": 0.7506579999972018,
+        "finish": 1.477349000000686,
+        "integrity": 0.34008600000015576,
+        "prepare": 0.14870200000223122,
+        "compose": 0.06392499999856227,
+        "refreshMs": 3.1875659999968775,
+        "parseAndRenderMs": 0.5508999999983644,
+        "integrityModelMs": 0.16335299999991548
+      }
+    },
+    {
+      "pair": 75,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.24953199999981734,
+        "analyze": 0.9704540000002453,
+        "finish": 1.8329389999998966,
+        "integrity": 0.41749199999867415,
+        "prepare": 0.25402800000119896,
+        "compose": 0.07610299999942072,
+        "refreshMs": 3.8051250000007713,
+        "parseAndRenderMs": 0.7522700000008626,
+        "integrityModelMs": 0.180688000000373
+      }
+    },
+    {
+      "pair": 76,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.27713199999925564,
+        "analyze": 1.0532280000006722,
+        "finish": 2.0165129999986675,
+        "integrity": 0.5496080000011716,
+        "prepare": 0.18923200000062934,
+        "compose": 0.08101999999780674,
+        "refreshMs": 4.171501000000717,
+        "parseAndRenderMs": 0.8031160000027739,
+        "integrityModelMs": 0.2074590000011085
+      }
+    },
+    {
+      "pair": 76,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.503870000000461,
+        "analyze": 1.0295120000009774,
+        "finish": 1.753301000000647,
+        "integrity": 0.44028500000058557,
+        "prepare": 0.26141999999890686,
+        "compose": 0.07669399999940651,
+        "refreshMs": 4.06977900000129,
+        "parseAndRenderMs": 0.7559350000010454,
+        "integrityModelMs": 0.23064399999930174
+      }
+    },
+    {
+      "pair": 77,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.48591400000077556,
+        "analyze": 0.7937510000010661,
+        "finish": 1.5279550000013842,
+        "integrity": 0.4031699999977718,
+        "prepare": 0.15646299999934854,
+        "compose": 0.07750600000144914,
+        "refreshMs": 3.4493660000007367,
+        "parseAndRenderMs": 0.6050509999986389,
+        "integrityModelMs": 0.15396900000268943
+      }
+    },
+    {
+      "pair": 77,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.26381299999775365,
+        "analyze": 1.0080200000011246,
+        "finish": 1.7057000000022526,
+        "integrity": 0.5736139999971783,
+        "prepare": 0.18678800000270712,
+        "compose": 1.8893719999978202,
+        "refreshMs": 5.636700999999448,
+        "parseAndRenderMs": 0.7848780000022089,
+        "integrityModelMs": 0.1874290000014298
+      }
+    },
+    {
+      "pair": 78,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.2725059999975201,
+        "analyze": 1.22302000000127,
+        "finish": 2.070603000000119,
+        "integrity": 0.4839800000008836,
+        "prepare": 0.16167099999802304,
+        "compose": 0.07373000000006869,
+        "refreshMs": 4.2898260000001756,
+        "parseAndRenderMs": 0.9836340000001655,
+        "integrityModelMs": 0.2028119999995397
+      }
+    },
+    {
+      "pair": 78,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.46699599999919883,
+        "analyze": 1.4296880000001693,
+        "finish": 1.9715160000014293,
+        "integrity": 0.5643899999995483,
+        "prepare": 0.16823999999905936,
+        "compose": 0.07507199999963632,
+        "refreshMs": 4.6806089999990945,
+        "parseAndRenderMs": 0.9688629999982368,
+        "integrityModelMs": 0.4170010000016191
+      }
+    },
+    {
+      "pair": 79,
+      "label": 0,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.43497800000113784,
+        "analyze": 0.8668199999992794,
+        "finish": 2.1730849999985367,
+        "integrity": 0.3650840000009339,
+        "prepare": 0.1639340000001539,
+        "compose": 0.07250800000110758,
+        "refreshMs": 4.080754999999044,
+        "parseAndRenderMs": 0.6506989999979851,
+        "integrityModelMs": 0.1769930000009481
+      }
+    },
+    {
+      "pair": 79,
+      "label": 1,
+      "oracle": "f2f67d1f20cf735989d2780cec57f1a74aee4ee822f59af1ed16310d882046d2",
+      "html": "d3dae47a7cf79031bf9de8bd24909f7d25bf8c5563cb8c0ed03e76fd3462695b",
+      "times": {
+        "snapshot": 0.34385199999815086,
+        "analyze": 1.0809289999997418,
+        "finish": 2.1411780000016734,
+        "integrity": 0.5642410000000382,
+        "prepare": 0.1757209999996121,
+        "compose": 0.07542299999840907,
+        "refreshMs": 4.386761999998271,
+        "parseAndRenderMs": 0.836645999999746,
+        "integrityModelMs": 0.19604199999957928
+      }
+    }
+  ]
+}

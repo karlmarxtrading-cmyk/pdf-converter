@@ -7,15 +7,26 @@
  * Cakupan jujur: ini memeriksa bahwa ISI SUMBER TERSAJI UTUH dan BERURUTAN di keluaran.
  * Ini TIDAK memeriksa kebenaran fakta atau kebenaran matematis isi.
  */
+import { readRenderedRoot } from './rendered-dom';
+import { articleCoverage, verifyFormulaRepresentations } from './article-integrity';
+import { renderTex } from './tex-renderer';
+import { compiledReference, formulaKey, formulaReferences, type FormulaReferences } from './formula-integrity';
 import { structuredConversation } from './conversation';
 import { DROP_WITH_CONTENT } from './sanitize';
 import type { RenderedBody } from './contracts';
 import { parseMarkdown, blockModels, orderedTokens, type ParsedMarkdown, type BlockModel } from './markdown';
 import { mkIssue, numberIssues, parseInert, imageRefKey, type CoreIssue } from './util';
+import { parseHtmlWithinBudget } from './html';
+import { recoverHtmlLiteralMath } from './html-math';
+import { readHtmlMathSource } from './html-math-source';
+import { renderedRawHtmlSignature } from './raw-html-integrity';
+import { unified } from 'unified';
+import rehypeStringify from 'rehype-stringify';
+import type { Root as HtmlRoot, Element as HtmlElement } from 'hast';
 
 export const INTEGRITY_SCOPE = {
-  id: 'Memeriksa keutuhan format: semua blok sumber tersaji berurutan dengan token, tanda, angka, sel tabel, rumus, kode, tautan, aset, dan catatan kaki yang sama. TIDAK memeriksa kebenaran fakta atau matematika.',
-  en: 'Checks format integrity: every source block is present in order with identical tokens, signs, numbers, table cells, formulas, code, links, assets and footnotes. Does NOT check factual or mathematical correctness.',
+  id: 'Memeriksa keutuhan format: blok yang diperiksa tersaji berurutan dengan token, tanda, angka, sel tabel, rumus, kode, tautan, aset, dan catatan kaki yang sama. TIDAK memeriksa kebenaran fakta atau matematika.',
+  en: 'Checks format integrity: covered source blocks are present in order with identical tokens, signs, numbers, table cells, formulas, code, links, assets and footnotes. Does NOT check factual or mathematical correctness.',
 };
 
 export interface TokenDiff { equal: boolean; index: number; expected?: string; actual?: string; expectedContext: string; actualContext: string }
@@ -42,13 +53,31 @@ export function compareText(expected: string, actual: string): TokenDiff {
 /* ---------------- model dari keluaran ---------------- */
 export interface RenderedBlock {
   id: string; tag: string; text: string; tokens: string[]; code?: string; math: string[]; cells?: string[][];
-  rawTableSignature?: string; links: string[]; images: string[]; fnRefs: string[]; fnLabel?: string; start1?: number | null;
+  rawTableSignature?: string; rawHtmlSignature?: string; brokenReference?: boolean; referenceLabels?: string[]; links: string[]; images: string[]; fnRefs: string[]; fnLabel?: string; start1?: number | null;
 }
 
 /** Canonical cell structure for a raw HTML table, including section, text, caption and merged cells. */
 function rawTableSignature(table: HTMLTableElement, rendered = false): string {
   const text = (el: Element) => {
     const clone = el.cloneNode(true) as Element;
+    // RC6-HTML02: compare literal formulas in source HTML tables with the TeX
+    // metadata in the rendered cells, without weakening text/row/link checks.
+    if (!rendered && (/\\|\$/.test(clone.textContent ?? '') || clone.querySelector('[data-tex], [data-latex], math, mjx-container'))) {
+      const parsed = parseHtmlWithinBudget(clone.innerHTML);
+      if (parsed.ok) {
+        const recover = (parent: HtmlRoot | HtmlElement): void => {
+          if (parent.type === 'element' && (['pre', 'code', 'kbd', 'samp'].includes(parent.tagName) || DROP_WITH_CONTENT.has(parent.tagName))) return;
+          parent.children = parent.children.map(child => {
+            const math = child.type === 'element' ? readHtmlMathSource(child) : null;
+            return math ? { type: 'text' as const, value: JSON.stringify(['TeX', math.display ? 'display' : 'inline', math.tex]) } : child;
+          });
+          recoverHtmlLiteralMath(parent, span => ({ type: 'text', value: JSON.stringify(['TeX', span.display ? 'display' : 'inline', span.renderTex ?? span.tex]) }));
+          for (const child of parent.children) if (child.type === 'element') recover(child);
+        };
+        recover(parsed.tree);
+        clone.innerHTML = unified().use(rehypeStringify).stringify(parsed.tree);
+      }
+    }
     for (const formula of clone.querySelectorAll('code[data-pf-formula], .pf-math[data-tex]')) {
       const tex = formula.getAttribute('data-tex') ?? formula.textContent ?? '';
       const mode = formula.getAttribute('data-pf-formula') ?? (formula.classList.contains('pf-math-display') ? 'display' : 'inline');
@@ -62,10 +91,10 @@ function rawTableSignature(table: HTMLTableElement, rendered = false): string {
     const safe = el.cloneNode(true) as Element;
     safe.querySelectorAll([...DROP_WITH_CONTENT].join(',')).forEach(n => n.remove());
     return {
-      links: [...safe.querySelectorAll('a')].map(a => rendered ? a.getAttribute('data-source-href') ?? a.getAttribute('href') ?? a.getAttribute('data-blocked-href') : a.getAttribute('href')).filter(h => h !== null),
-      images: [...safe.querySelectorAll(rendered ? 'img, .pf-img-placeholder' : 'img')].map(img => rendered
-        ? img.getAttribute('data-src-path') ?? img.getAttribute('data-src') ?? img.getAttribute('data-blocked-src') ?? imageRefKey(img.getAttribute('src') ?? '')
-        : imageRefKey(img.getAttribute('src') ?? '')),
+      links: [...safe.querySelectorAll('a')].map(a => [rendered ? a.getAttribute('data-source-href') ?? a.getAttribute('href') ?? a.getAttribute('data-blocked-href') : a.getAttribute('href'), a.getAttribute('title')]),
+      images: [...safe.querySelectorAll(rendered ? 'img, .pf-img-placeholder' : 'img')].map(img =>
+        [rendered ? img.getAttribute('data-src-path') ?? img.getAttribute('data-src') ?? img.getAttribute('data-blocked-src') ?? imageRefKey(img.getAttribute('src') ?? '')
+          : imageRefKey(img.getAttribute('src') ?? ''), img.getAttribute('alt') ?? (rendered ? img.getAttribute('data-alt') : null) ?? '', img.getAttribute('title')]),
     };
   };
   return JSON.stringify({
@@ -77,21 +106,28 @@ function rawTableSignature(table: HTMLTableElement, rendered = false): string {
   });
 }
 
-function flattenDom(node: Node, acc: { parts: string[]; links: string[]; images: string[]; fnRefs: string[]; math: string[] }): void {
+interface DomAccumulator { parts: string[]; referenceLabels?: string[]; links: string[]; images: string[]; fnRefs: string[]; math: string[] }
+function flattenDom(node: Node, acc: DomAccumulator): void {
   if (node.nodeType === 3) { acc.parts.push(node.nodeValue ?? ''); return; }
   if (node.nodeType !== 1) return;
   const el = node as Element;
   const cls = el.classList;
-  if (cls.contains('pf-ui-label') || el.tagName === 'INPUT') return;
-  if (el.hasAttribute('data-footnote-backref')) return;
+  if (el.tagName === 'INPUT' && el.getAttribute('type') === 'checkbox' && el.hasAttribute('disabled')) return;
+  if (el.matches('a[data-footnote-backref]') && el.closest('li[data-fn-label]') &&
+      /^↩(?:[0-9]+)?$/.test(el.textContent ?? '') && el.getAttribute('href')?.startsWith('#')) return;
   if (cls.contains('pf-math') && el.hasAttribute('data-tex')) { const t = el.getAttribute('data-tex')!; acc.parts.push(` ⟦math:${t}⟧ `); acc.math.push(t); return; }
   if (el.tagName === 'IMG' || cls.contains('pf-img-placeholder')) {
     const u = el.getAttribute('data-src-path') ?? el.getAttribute('data-src') ?? el.getAttribute('data-blocked-src') ?? el.getAttribute('src') ?? '';
-    acc.parts.push(` ⟦img:${u}⟧ `); acc.images.push(u); return;
+    acc.parts.push(` ⟦img:${u}⟧ `); acc.images.push(u);
+    (acc.referenceLabels ??= []).push(JSON.stringify(['image', el.getAttribute('alt') ?? el.getAttribute('data-alt') ?? '', el.getAttribute('title')]));
+    return;
   }
   if (el.hasAttribute('data-footnote-ref')) { const l = el.getAttribute('data-fn-label') ?? ''; acc.parts.push(` ⟦fn:${l}⟧ `); acc.fnRefs.push(l); return; }
   if (el.tagName === 'BR') { acc.parts.push(' '); return; }
-  if (el.tagName === 'A') { const h = el.getAttribute('data-source-href') ?? el.getAttribute('href') ?? el.getAttribute('data-blocked-href'); if (h !== null) acc.links.push(h); }
+  if (el.tagName === 'A') { const h = el.getAttribute('data-source-href') ?? el.getAttribute('href') ?? el.getAttribute('data-blocked-href'); if (h !== null) {
+      acc.links.push(h);
+      (acc.referenceLabels ??= []).push(JSON.stringify(['link', el.getAttribute('title')]));
+    } }
   if (el.tagName === 'PRE' && el.classList.contains('pf-code')) { acc.parts.push(` ${el.textContent ?? ''} `); return; }
   const block = /^(P|LI|H[1-6]|TD|TH|TR|BLOCKQUOTE|DIV|PRE)$/.test(el.tagName);
   for (const c of Array.from(el.childNodes)) flattenDom(c, acc);
@@ -101,17 +137,23 @@ function flattenDom(node: Node, acc: { parts: string[]; links: string[]; images:
 export function extractRenderedBlocks(html: string | Document | Element): RenderedBlock[] {
   const root: ParentNode = typeof html === 'string' ? parseInert(html).body : html;
   const out: RenderedBlock[] = [];
+  if (!root.firstElementChild) return out;
   for (const el of Array.from(root.querySelectorAll('[data-block-id]'))) {
     // blok bersarang (mis. data-block-id di dalam data-block-id) tidak diharapkan; ambil yang terluar
     if (el.parentElement?.closest('[data-block-id]')) continue;
-    const acc = { parts: [] as string[], links: [] as string[], images: [] as string[], fnRefs: [] as string[], math: [] as string[] };
+    const acc: DomAccumulator = { parts: [] as string[], links: [] as string[], images: [] as string[], fnRefs: [] as string[], math: [] as string[] };
     const rb: RenderedBlock = { id: el.getAttribute('data-block-id')!, tag: el.tagName.toLowerCase(), text: '', tokens: [], math: [], links: [], images: [], fnRefs: [] };
-    if (el.tagName === 'PRE' && el.classList.contains('pf-mermaid')) { rb.code = el.getAttribute('data-src') ?? ''; rb.text = rb.code; out.push(rb); continue; }
-    if (el.tagName === 'PRE') { rb.code = el.querySelector('code')?.textContent ?? el.textContent ?? ''; rb.text = rb.code; out.push(rb); continue; }
+    if (el.hasAttribute('data-pf-raw-html')) {
+      rb.rawHtmlSignature = renderedRawHtmlSignature(el);
+      out.push(rb);
+      continue;
+    }
+    if (el.tagName === 'PRE' && el.classList.contains('pf-mermaid')) { rb.code = el.textContent === el.getAttribute('data-src') ? el.textContent ?? '' : undefined; rb.text = rb.code ?? ''; out.push(rb); continue; }
+    if (el.tagName === 'PRE') { rb.code = el.textContent ?? ''; rb.text = rb.code; out.push(rb); continue; }
     if (el.classList.contains('pf-math') && el.hasAttribute('data-tex')) { rb.math = [el.getAttribute('data-tex')!]; rb.text = rb.math[0]!; out.push(rb); continue; }
     if (el.tagName === 'TABLE') {
       if (el.hasAttribute('data-pf-raw-table')) rb.rawTableSignature = rawTableSignature(el as HTMLTableElement, true);
-      rb.cells = Array.from(el.querySelectorAll('tr')).map((tr) => Array.from(tr.querySelectorAll('th,td')).filter((c) => !c.classList.contains('pf-cell-missing')).map((c) => {
+      rb.cells = Array.from(el.querySelectorAll('tr')).map((tr) => Array.from(tr.querySelectorAll('th,td')).filter((c) => !(c.classList.contains('pf-cell-missing') && c.getAttribute('data-missing') === 'true' && !c.hasChildNodes())).map((c) => {
         const a = { parts: [] as string[], links: rb.links, images: rb.images, fnRefs: rb.fnRefs, math: rb.math }; flattenDom(c, a); return a.parts.join('').replace(/\s+/g, ' ').trim();
       }));
     }
@@ -121,10 +163,51 @@ export function extractRenderedBlocks(html: string | Document | Element): Render
     flattenDom(el, acc);
     rb.text = acc.parts.join('').replace(/\s+/g, ' ').trim();
     rb.tokens = orderedTokens(rb.text);
+    if (acc.referenceLabels) rb.referenceLabels = acc.referenceLabels;
     if (!rb.cells) { rb.links = acc.links; rb.images = acc.images; rb.fnRefs = acc.fnRefs; rb.math = acc.math; }
     out.push(rb);
   }
+  if (typeof html !== 'string' || /data-(?:pf-target|source-href|src-path)|pf-img-placeholder/.test(html))
+    markBrokenReferences(root, out);
   return out;
+}
+
+/** Check live targets independently of the original URL/path kept for provenance. */
+function markBrokenReferences(root: ParentNode, blocks: RenderedBlock[]): void {
+  let ids: Map<string, number> | undefined;
+  let byId: Map<string, RenderedBlock> | undefined;
+  const targetExistsOnce = (id: string) => {
+    if (!ids) {
+      ids = new Map();
+      for (const node of root.querySelectorAll('[id]')) ids.set(node.id, (ids.get(node.id) ?? 0) + 1);
+    }
+    return ids.get(id) === 1;
+  };
+  for (const el of root.querySelectorAll('a[data-pf-target],a[data-source-href],img[data-src-path],.pf-img-placeholder')) {
+    const get = (k: string) => el.getAttribute(k);
+    let ok: boolean;
+    if (el.localName === 'a') {
+      const href = get('href') ?? '';
+      let target = href.slice(1);
+      try { target = decodeURIComponent(target); } catch { /* a literal percent can be part of an id */ }
+      const recorded = get('data-pf-target');
+      ok = href.startsWith('#') && (recorded === null || recorded === target) && targetExistsOnce(target);
+    } else if (el.localName === 'img') {
+      const src = get('src') ?? '';
+      const path = get('data-src-path')!;
+      ok = !!src && (path.startsWith('data:#') ? imageRefKey(src) === path
+        : el.hasAttribute('data-asset-id') ? /^data:image\/[\w.+-]+;base64,[^\s]/i.test(src) : src === path);
+    } else {
+      const label = get('aria-label');
+      const alt = get('data-alt');
+      ok = get('role') === 'img' && !!label && label === el.textContent && label === el.querySelector('.pf-ui-label')?.textContent &&
+        (!alt || label.endsWith(': ' + alt));
+    }
+    if (ok) continue;
+    byId ??= new Map(blocks.map(b => [b.id, b]));
+    const block = byId.get(el.closest('[data-block-id]')?.getAttribute('data-block-id') ?? '');
+    if (block) block.brokenReference = true;
+  }
 }
 
 export interface IntegrityReport {
@@ -134,17 +217,14 @@ export interface IntegrityReport {
   issues: CoreIssue[];
 }
 
-const SKIP: Record<string, string> = { html: 'HTML mentah dinilai oleh laporan sanitasi', definition: 'definisi tautan tidak menghasilkan blok', thematicBreak: 'garis pemisah tanpa isi' };
+const SKIP: Record<string, string> = { html: 'Fragmen HTML tanpa batas blok mandiri atau tanpa isi aman yang dapat dibandingkan', definition: 'definisi tautan tidak menghasilkan blok', thematicBreak: 'garis pemisah tanpa isi' };
 
 /**
  * Bandingkan model sumber (dari Markdown) dengan HTML keluaran (string, Document, atau elemen,
  * mis. DOM hasil paginasi) yang memuat atribut data-block-id. idPrefix harus sama dengan saat render.
  */
 export function checkIntegrity(source: string, rendered: RenderedBody | string | Element | Document, opts: { idPrefix?: string } = {}): IntegrityReport {
-  const expected = blockModels(parseMarkdown(source), opts.idPrefix ?? '');
-  const html = typeof rendered === 'object' && 'html' in rendered && typeof (rendered as RenderedBody).html === 'string' ? (rendered as RenderedBody).html : (rendered as string | Element | Document);
-  const actual = extractRenderedBlocks(html);
-  return compareBlockModels(expected, actual);
+  return checkRenderIntegrity(source, rendered, opts);
 }
 
 export function compareBlockModels(expected: BlockModel[], actual: RenderedBlock[]): IntegrityReport {
@@ -152,7 +232,12 @@ export function compareBlockModels(expected: BlockModel[], actual: RenderedBlock
   const skipped: IntegrityReport['skippedBlocks'] = [];
   const cov = { blocks: 0, tokens: 0, tables: 0, cells: 0, math: 0, code: 0, links: 0, images: 0, footnoteRefs: 0, footnoteDefs: 0 };
   const actById = new Map(actual.map((a) => [a.id, a]));
-  const exp = expected.filter((m) => { if (SKIP[m.kind] && !m.rawTableHtml) { skipped.push({ id: m.id, kind: m.kind, reason: SKIP[m.kind]! }); return false; } return true; });
+  const exp = expected.filter((m) => { if (SKIP[m.kind] && !m.rawTableHtml && !m.rawHtml) { skipped.push({ id: m.id, kind: m.kind, reason: SKIP[m.kind]! }); return false; } return true; });
+  const partial = skipped.filter(m => m.kind === 'html');
+  if (partial.length) issues.push(mkIssue('INTEGRITY_RAW_HTML_PARTIAL', 'warning', 'integrity', {
+    id: `${partial.length} fragmen HTML tidak menghasilkan blok aman mandiri. Periksa struktur sumber dan hasil secara manual.`,
+    en: `${partial.length} HTML fragments did not produce self-contained safe blocks. Review source and output structure manually.`,
+  }));
   const body = exp.filter((m) => m.kind !== 'footnoteDefinition');
   const defs = exp.filter((m) => m.kind === 'footnoteDefinition');
   // RC4-P02: membership must not rescan every source block for every rendered block.
@@ -163,15 +248,32 @@ export function compareBlockModels(expected: BlockModel[], actual: RenderedBlock
   const expOrder = body.map((m) => m.id).filter((id) => actById.has(id));
   const ord = compareTokens(expOrder, actOrder);
   if (!ord.equal) issues.push(mkIssue('INTEGRITY_BLOCK_ORDER', 'error', 'integrity', { id: `Urutan blok keluaran berbeda dari sumber mulai blok ke-${ord.index + 1}.`, en: `Output block order differs from the source starting at block ${ord.index + 1}.` }, { blocking: true, ...(ord.expected ? { blockId: ord.expected } : {}) }));
-  for (const a of actual) if (!expectedIds.has(a.id)) issues.push(mkIssue('INTEGRITY_BLOCK_UNEXPECTED', 'warning', 'integrity', { id: `Keluaran memuat blok ${a.id} yang tidak ada di sumber.`, en: `Output contains block ${a.id} that is not in the source.` }, { blockId: a.id }));
+  for (const a of actual) if (!expectedIds.has(a.id)) issues.push(mkIssue('INTEGRITY_BLOCK_UNEXPECTED', 'error', 'integrity', { id: `Keluaran memuat blok ${a.id} yang tidak ada di sumber.`, en: `Output contains block ${a.id} that is not in the source.` }, { blockId: a.id, blocking: true }));
   for (const m of exp) {
     const a = actById.get(m.id);
     const where = { line: m.line, blockId: m.id };
     if (!a) {
+      // Only referenced footnotes emit a list item; their dedicated check
+      // below distinguishes required definitions from genuinely unused ones.
+      if (m.kind === 'footnoteDefinition') continue;
       issues.push(mkIssue('INTEGRITY_BLOCK_MISSING', 'error', 'integrity', { id: `Blok sumber di baris ${m.line} (${m.kind}) tidak ditemukan di keluaran.`, en: `Source block at line ${m.line} (${m.kind}) was not found in the output.` }, { ...where, blocking: true }));
       continue;
     }
     cov.blocks++;
+    if (a.brokenReference) issues.push(mkIssue('INTEGRITY_REFERENCE_TARGET_CHANGED', 'error', 'integrity', {
+      id: `Tujuan tautan, isi gambar, atau label gambar di baris ${m.line} tidak sesuai dengan rujukannya.`,
+      en: `The live link target, image payload, or image label at line ${m.line} does not match its reference.`,
+    }, { ...where, blocking: true }));
+    if (m.rawHtml) {
+      const counts = m.rawHtml.counts;
+      cov.tokens += counts.tokens; cov.math += counts.math; cov.links += counts.links; cov.images += counts.images;
+      cov.code += counts.code; cov.tables += counts.tables; cov.cells += counts.cells;
+      if (a.rawHtmlSignature !== m.rawHtml.signature) issues.push(mkIssue('INTEGRITY_RAW_HTML_CHANGED', 'error', 'integrity', {
+        id: `Isi atau susunan blok HTML di baris ${m.line} berubah. Periksa teks, rumus, tautan, gambar, dan batas elemen.`,
+        en: `Content or structure of the HTML block at line ${m.line} changed. Review its text, formulas, links, images and element boundaries.`,
+      }, { ...where, blocking: true }));
+      continue;
+    }
     if (m.rawTableHtml) {
       const template = document.createElement('template');
       template.innerHTML = m.rawTableHtml;
@@ -227,6 +329,11 @@ export function compareBlockModels(expected: BlockModel[], actual: RenderedBlock
     if (!dl.equal) issues.push(mkIssue('INTEGRITY_LINK_CHANGED', 'error', 'integrity', { id: `Tautan di baris ${m.line} berbeda: "${dl.expected ?? '∅'}" → "${dl.actual ?? '∅'}".`, en: `Link at line ${m.line} differs: "${dl.expected ?? '∅'}" → "${dl.actual ?? '∅'}".` }, { ...where, blocking: true }));
     const di = compareTokens(m.images, a.images);
     if (!di.equal) issues.push(mkIssue('INTEGRITY_ASSET_CHANGED', 'error', 'integrity', { id: `Rujukan gambar di baris ${m.line} berbeda: "${di.expected ?? '∅'}" → "${di.actual ?? '∅'}".`, en: `Image reference at line ${m.line} differs: "${di.expected ?? '∅'}" → "${di.actual ?? '∅'}".` }, { ...where, blocking: true }));
+    if ((m.referenceLabels || a.referenceLabels) && !compareTokens(m.referenceLabels ?? [], a.referenceLabels ?? []).equal)
+      issues.push(mkIssue('INTEGRITY_REFERENCE_LABEL_CHANGED', 'error', 'integrity', {
+        id: `Teks alternatif gambar atau judul tautan/gambar di baris ${m.line} berubah.`,
+        en: `Image alternative text or link/image title changed at line ${m.line}.`,
+      }, { ...where, blocking: true }));
     const df = compareTokens(m.fnRefs, a.fnRefs);
     if (!df.equal) issues.push(mkIssue('INTEGRITY_FOOTNOTE_REF', 'error', 'integrity', { id: `Rujukan catatan kaki di baris ${m.line} berbeda.`, en: `Footnote references at line ${m.line} differ.` }, { ...where, blocking: true }));
   }
@@ -294,7 +401,7 @@ export function privateUseConservation(sources: string[] | [string, number][], r
         // sumber rumus ada di data-tex pada pembungkus .pf-math
         return;
       }
-      for (const a of ['data-tex', 'data-src', 'data-source-href', 'href', 'src', 'data-src-path', 'data-blocked-href', 'data-blocked-src', 'alt', 'title']) {
+      for (const a of ['data-tex', 'data-src', 'data-source-href', 'href', 'src', 'data-src-path', 'data-blocked-href', 'data-blocked-src', 'alt', 'data-alt', 'title']) {
         const v = el.getAttribute(a);
         if (v === null) continue;
         if (a === 'href' && el.hasAttribute('data-source-href')) continue;
@@ -327,17 +434,69 @@ export function integrityExpectation(source: string, opts: { idPrefix?: string; 
   return { blocks: expectedBlocksFor(source, opts), pua: privateUseCounts(integritySources(source, opts.conversation)) };
 }
 
-export function checkRenderIntegrity(source: string, rendered: RenderedBody | string | Element | Document, opts: { idPrefix?: string; conversation?: import('./contracts').Conversation; expected?: IntegrityExpectation } = {}): IntegrityReport {
+interface VerifiedSource {
+  source: string; html: string; conversationKey: string; idPrefix: string;
+  model: string; report: IntegrityReport;
+}
+const checkedBodies = new WeakMap<RenderedBody, VerifiedSource>();
+
+/** Export may reuse the preview proof only after independently rebuilding its
+ * source projection and matching the exact serialized body and conversation. */
+export function checkedSourceReport(source: string, body: RenderedBody, conversationKey: string, modelKey: string): IntegrityReport | undefined {
+  const saved = checkedBodies.get(body);
+  if (saved && saved.source === source && saved.html === body.html && saved.idPrefix === '' &&
+      saved.conversationKey === conversationKey && saved.model === modelKey) return structuredClone(saved.report);
+}
+
+// Rebuild missing expected markup from the source inventory and locked renderer.
+const detachedReferences: FormulaReferences = new Map();
+function referencesForSource(model: IntegrityExpectation, body?: object): FormulaReferences {
+  const owned = formulaReferences(body);
+  let refs = owned;
+  for (const block of model.blocks) for (const formula of block.formulas ?? []) {
+    const key = formulaKey(formula.tex, formula.display);
+    if (refs.has(key)) continue;
+    let expected = detachedReferences.get(key);
+    if (!expected) {
+      const rendered = renderTex(formula.tex, formula.display);
+      const slot = document.createElement('span');
+      slot.innerHTML = rendered.html;
+      expected = compiledReference(slot, formula.tex, formula.display, !rendered.ok);
+      if (!expected) continue;
+      // Bound both the number of entries and the retained markup per entry.
+      if (expected.markup.length <= 32768) {
+        if (detachedReferences.size >= 128) detachedReferences.delete(detachedReferences.keys().next().value!);
+        detachedReferences.set(key, expected);
+      }
+    }
+    if (refs === owned) refs = new Map(owned);
+    refs.set(key, expected);
+  }
+  return refs;
+}
+export function checkRenderIntegrity(source: string, rendered: RenderedBody | string | Element | Document, opts: { idPrefix?: string; conversation?: import('./contracts').Conversation; expected?: IntegrityExpectation; references?: FormulaReferences } = {}): IntegrityReport {
   const html = typeof rendered === 'object' && 'html' in rendered && typeof (rendered as RenderedBody).html === 'string' ? (rendered as RenderedBody).html : (rendered as string | Element | Document);
   const exp = opts.expected ?? integrityExpectation(source, opts);
-  const report = compareBlockModels(exp.blocks, extractRenderedBlocks(html));
-  const pua = privateUseConservation(exp.pua, html, true);
+  const retained = typeof rendered === 'object' && 'html' in rendered ? readRenderedRoot(rendered as RenderedBody) : undefined;
+  const root = typeof html === 'string' ? (retained ?? parseInert(html).body) : 'body' in html ? html.body : html;
+  const report = compareBlockModels(exp.blocks, extractRenderedBlocks(root));
+  const refs = opts.references ?? referencesForSource(exp, typeof rendered === 'object' ? rendered : undefined);
+  const coverage = [...articleCoverage(root, exp.blocks, opts.conversation), ...verifyFormulaRepresentations(root, exp.blocks, refs)];
+  if (coverage.length) {
+    report.issues = numberIssues([...report.issues, ...coverage], 'integrity');
+    report.ok = false;
+  }
+  const pua = privateUseConservation(exp.pua, root, true);
   if (!pua.ok) {
     report.issues = numberIssues([...report.issues, mkIssue('INTEGRITY_PRIVATE_USE_CHANGED', 'error', 'integrity', {
       id: `Karakter Private Use berubah di keluaran (sumber ${JSON.stringify(pua.expected)}, keluaran ${JSON.stringify(pua.actual)}).`,
       en: `Private Use characters changed in the output (source ${JSON.stringify(pua.expected)}, output ${JSON.stringify(pua.actual)}).`,
     }, { blocking: true, detail: { expected: JSON.stringify(pua.expected), actual: JSON.stringify(pua.actual) } })], 'integrity');
     report.ok = false;
+  }
+  if (report.ok && typeof rendered === 'object' && 'html' in rendered && typeof rendered.html === 'string') {
+    checkedBodies.set(rendered as RenderedBody,{source,html:rendered.html,conversationKey:JSON.stringify(opts.conversation ?? null),idPrefix:opts.idPrefix ?? '',
+      model:JSON.stringify(exp),report:structuredClone(report)});
   }
   return report;
 }

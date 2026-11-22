@@ -1,0 +1,34 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> paperforma@3.0.0-rc.6 test
+> vitest run && node --test tests/scripts/result-gates.test.mjs tests/scripts/static-server.test.mjs tests/e2e/pdf-oracle.test.mjs
+
+
+ RUN  v5.1.0 /workspace/scratch/d77204dbc71b/rc6
+
+
+ Test Files  54 passed (54)
+      Tests  444 passed (444)
+   Start at  02:30:33
+   Duration  15.48s (tests 39%, environment 38%, import 16%, transform 6%)
+
+    Isolate  54 workers spawned · ~930ms startup each (spawn + environment, per file)
+             at least ~5.35s faster with isolate: false — reuses workers across files instead of one per file
+
+✔ PF-R4-06 sign removal never passes as the same quantity (0.998846ms)
+✔ PF-R4-06 raw fallback cannot pass reversed blocks or reuse the same occurrence (0.238997ms)
+✔ PF-R4-06 unsupported glyph omission requires an explicit caller decision (0.318387ms)
+✔ PF-R4-06 prosa and cells around math/images are included in the oracle (102.891191ms)
+✔ deployment rejects old/missing versions and page errors even when all formulas render (0.860799ms)
+✔ performance runner fails after pagination, PDF, or console errors (0.230796ms)
+✔ cross-browser success requires every supported engine and matching document digests (0.395663ms)
+✔ local Pages simulator rejects malformed paths and sibling-directory traversal, then remains usable (46.556532ms)
+✔ deployment preflight rejects stale sources, alternate output bytes and QA builds of the same version (57.447542ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 848.840503

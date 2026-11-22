@@ -1,0 +1,9 @@
+
+ RUN  v5.1.0 /workspace/scratch/d77204dbc71b/rc10b
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  08:43:56
+   Duration  2.53s (environment 43%, tests 24%, transform 21%, import 11%)
+

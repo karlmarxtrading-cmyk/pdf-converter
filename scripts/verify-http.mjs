@@ -3,7 +3,7 @@
 // This verifies transport, identity and bytes, NOT rendering or PDF output.
 import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { extname, join, resolve } from 'node:path';
+import { dirname, extname, join, resolve } from 'node:path';
 import { root } from './fingerprint.mjs';
 import { deploymentIdentity } from './deployment-identity.mjs';
 import { startServer } from './serve-dist.mjs';
@@ -91,7 +91,9 @@ const result = { tool: 'scripts/verify-http.mjs', at: new Date().toISOString(), 
   pass: results.every((r) => r.pass), limitations: 'HTTP/bytes only; browser rendering, Worker execution, clipboard and PDF are not tested.', results };
 mkdirSync(join(root, 'evidence'), { recursive: true });
 const scope = localServer ? 'local' : encodeURIComponent(base.host);
-writeFileSync(join(root, 'evidence', `http-verification-${scope}.json`), JSON.stringify(result, null, 2) + '\n');
+const reportPath = process.argv[4] ? resolve(root, process.argv[4]) : join(root, 'evidence', `http-verification-${scope}.json`);
+mkdirSync(dirname(reportPath), { recursive: true });
+writeFileSync(reportPath, JSON.stringify(result, null, 2) + '\n');
 console.log(`${result.pass ? 'LULUS' : 'GAGAL'} HTTP: ${results.filter((r) => r.pass).length}/${results.length}; ${result.filesCompared}/${paths.length} berkas dibandingkan; versi ${pkg.version}`);
 for (const r of results.filter((x) => !x.pass)) console.log(r.path, r.errors.join('; '));
 process.exitCode = result.pass ? 0 : 1;

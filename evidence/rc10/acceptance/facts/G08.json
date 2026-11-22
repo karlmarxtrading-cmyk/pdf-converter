@@ -1,0 +1,89 @@
+{
+  "observations": [
+    "pdf-new"
+  ],
+  "checks": {
+    "code112Lines": {
+      "pass": true,
+      "evidence": "evidence/rc10/pdf/coverage.json"
+    },
+    "indentationAndBlankLines": {
+      "pass": true,
+      "evidence": "evidence/rc10/pdf/coverage.json"
+    },
+    "labelWithCode": {
+      "pass": true,
+      "evidence": "evidence/rc10/pdf/coverage.json"
+    },
+    "continuation": {
+      "pass": true,
+      "evidence": "evidence/rc10/pdf/coverage.json"
+    },
+    "a5Boundary": {
+      "pass": true,
+      "evidence": "evidence/rc10/pdf/coverage.json"
+    }
+  },
+  "pdfs": [
+    "examples/rc10/pdf/trigonometry-BUS-01-A4-portrait.pdf",
+    "examples/rc10/pdf/mixed-supported-BUS-01-A4-landscape.pdf",
+    "examples/rc10/pdf/mixed-supported-BUS-01-A5-portrait.pdf",
+    "examples/rc10/pdf/conversation-BUS-01-A5-landscape.pdf",
+    "examples/rc10/pdf/conversation-BUS-01-Letter-portrait.pdf",
+    "examples/rc10/pdf/trigonometry-BUS-01-Letter-landscape.pdf",
+    "examples/rc10/pdf/mixed-supported-EDU-01-A4-portrait.pdf",
+    "examples/rc10/pdf/conversation-EDU-01-A4-landscape.pdf",
+    "examples/rc10/pdf/conversation-EDU-01-A5-portrait.pdf",
+    "examples/rc10/pdf/trigonometry-EDU-01-A5-landscape.pdf",
+    "examples/rc10/pdf/trigonometry-EDU-01-Letter-portrait.pdf",
+    "examples/rc10/pdf/mixed-supported-EDU-01-Letter-landscape.pdf",
+    "examples/rc10/pdf/conversation-EDT-01-A4-portrait.pdf",
+    "examples/rc10/pdf/trigonometry-EDT-01-A4-landscape.pdf",
+    "examples/rc10/pdf/mixed-supported-EDT-01-A5-portrait.pdf",
+    "examples/rc10/pdf/mixed-supported-EDT-01-A5-landscape.pdf",
+    "examples/rc10/pdf/mixed-supported-EDT-01-Letter-portrait.pdf",
+    "examples/rc10/pdf/conversation-EDT-01-Letter-landscape.pdf",
+    "examples/rc10/pdf/trigonometry-CON-01-A4-portrait.pdf",
+    "examples/rc10/pdf/mixed-supported-CON-01-A4-landscape.pdf",
+    "examples/rc10/pdf/mixed-supported-CON-01-A5-portrait.pdf",
+    "examples/rc10/pdf/conversation-CON-01-A5-landscape.pdf",
+    "examples/rc10/pdf/conversation-CON-01-Letter-portrait.pdf",
+    "examples/rc10/pdf/trigonometry-CON-01-Letter-landscape.pdf",
+    "evidence/rc10/pdf/diagnostics/DIAGNOSTIC-mixed-original-EDU-01-A4-portrait.pdf",
+    "evidence/rc10/pdf/diagnostics/DIAGNOSTIC-mixed-original-BUS-01-Letter-landscape.pdf",
+    "evidence/rc10/pdf/diagnostics/DIAGNOSTIC-mixed-original-EDT-01-A5-portrait.pdf",
+    "examples/rc10/pdf/trigonometry-EDU-01-A4-portrait.pdf",
+    "examples/rc10/pdf/trigonometry-EDT-01-A5-portrait.pdf"
+  ],
+  "artifactClasses": {
+    "examples/rc10/pdf/trigonometry-BUS-01-A4-portrait.pdf": "PASS",
+    "examples/rc10/pdf/mixed-supported-BUS-01-A4-landscape.pdf": "PASS",
+    "examples/rc10/pdf/mixed-supported-BUS-01-A5-portrait.pdf": "PASS",
+    "examples/rc10/pdf/conversation-BUS-01-A5-landscape.pdf": "PASS",
+    "examples/rc10/pdf/conversation-BUS-01-Letter-portrait.pdf": "PASS",
+    "examples/rc10/pdf/trigonometry-BUS-01-Letter-landscape.pdf": "PASS",
+    "examples/rc10/pdf/mixed-supported-EDU-01-A4-portrait.pdf": "PASS",
+    "examples/rc10/pdf/conversation-EDU-01-A4-landscape.pdf": "PASS",
+    "examples/rc10/pdf/conversation-EDU-01-A5-portrait.pdf": "PASS",
+    "examples/rc10/pdf/trigonometry-EDU-01-A5-landscape.pdf": "PASS",
+    "examples/rc10/pdf/trigonometry-EDU-01-Letter-portrait.pdf": "PASS",
+    "examples/rc10/pdf/mixed-supported-EDU-01-Letter-landscape.pdf": "PASS",
+    "examples/rc10/pdf/conversation-EDT-01-A4-portrait.pdf": "PASS",
+    "examples/rc10/pdf/trigonometry-EDT-01-A4-landscape.pdf": "PASS",
+    "examples/rc10/pdf/mixed-supported-EDT-01-A5-portrait.pdf": "PASS",
+    "examples/rc10/pdf/mixed-supported-EDT-01-A5-landscape.pdf": "PASS",
+    "examples/rc10/pdf/mixed-supported-EDT-01-Letter-portrait.pdf": "PASS",
+    "examples/rc10/pdf/conversation-EDT-01-Letter-landscape.pdf": "PASS",
+    "examples/rc10/pdf/trigonometry-CON-01-A4-portrait.pdf": "PASS",
+    "examples/rc10/pdf/mixed-supported-CON-01-A4-landscape.pdf": "PASS",
+    "examples/rc10/pdf/mixed-supported-CON-01-A5-portrait.pdf": "PASS",
+    "examples/rc10/pdf/conversation-CON-01-A5-landscape.pdf": "PASS",
+    "examples/rc10/pdf/conversation-CON-01-Letter-portrait.pdf": "PASS",
+    "examples/rc10/pdf/trigonometry-CON-01-Letter-landscape.pdf": "PASS",
+    "evidence/rc10/pdf/diagnostics/DIAGNOSTIC-mixed-original-EDU-01-A4-portrait.pdf": "UNSUPPORTED_BLOCKED",
+    "evidence/rc10/pdf/diagnostics/DIAGNOSTIC-mixed-original-BUS-01-Letter-landscape.pdf": "UNSUPPORTED_BLOCKED",
+    "evidence/rc10/pdf/diagnostics/DIAGNOSTIC-mixed-original-EDT-01-A5-portrait.pdf": "UNSUPPORTED_BLOCKED",
+    "examples/rc10/pdf/trigonometry-EDU-01-A4-portrait.pdf": "PASS",
+    "examples/rc10/pdf/trigonometry-EDT-01-A5-portrait.pdf": "PASS"
+  }
+}

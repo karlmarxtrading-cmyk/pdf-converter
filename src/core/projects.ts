@@ -126,7 +126,7 @@ export function restoreRevisionChanges(p: Project, revision: number): { changes:
   const assets = [...restored, ...p.assets.filter((a) => !used.has(a.path))];
   const brandKit = state.brandKit?.logoAssetId && !assets.some(a => a.id === state.brandKit!.logoAssetId)
     ? { ...state.brandKit, logoAssetId: undefined } : state.brandKit;
-  const changes: Partial<Project> = { source, name: state.name, settings: state.settings, brandKit, sourcePath: state.sourcePath, conversation: state.conversation, assets };
+  const changes: Partial<Project> = { source, name: state.name, settings: { ...state.settings, allowExternalImages: p.settings.allowExternalImages }, brandKit, sourcePath: state.sourcePath, conversation: state.conversation, assets };
   return { changes, scope: 'full', missingAssetIds };
 }
 
@@ -499,6 +499,8 @@ export async function importBundle(bytes: Uint8Array, limits: Limits = LIMITS): 
     if (raw !== manifest.hashes.rawSourceHash || content !== manifest.hashes.contentSnapshotHash) return fail('BUNDLE_HASH_MISMATCH', 'Hash proyek tidak cocok dengan manifest.', 'Project hashes do not match the manifest.');
     const members = assertPortable(project, limits);
     if (members.size !== declared.size || [...declared].some(name => !members.has(name))) throw new Error('Undeclared project data');
+    // Verify the sender’s bytes first. Network consent belongs to this recipient.
+    project.settings = { ...project.settings, allowExternalImages: false };
     return { ok: true, project, manifest };
   } catch (e) {
     if (e instanceof BudgetError) return fail('BUDGET_EXCEEDED', e.result.message, e.result.messageEn);

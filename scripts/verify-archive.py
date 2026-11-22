@@ -1,7 +1,7 @@
 """Verify the delivered ZIP and rebuild its production tree in a clean directory.
 
-  python scripts/verify-archive.py ../PAPERFORMA_STATIC_3.0.0-rc.5.zip
-  python scripts/verify-archive.py ../PAPERFORMA_STATIC_3.0.0-rc.5.zip --offline
+  python scripts/verify-archive.py ../PAPERFORMA_STATIC_3.0.0-rc.12_SOURCE_DIST_EVIDENCE.zip
+  python scripts/verify-archive.py ../PAPERFORMA_STATIC_3.0.0-rc.12_SOURCE_DIST_EVIDENCE.zip --offline
 
 Requires the Node/npm versions specified by package.json. With --offline, npm's
 package cache must already contain every locked package for the local platform.

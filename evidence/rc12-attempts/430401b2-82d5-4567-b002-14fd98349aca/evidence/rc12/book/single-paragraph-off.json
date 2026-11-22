@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "runId": "430401b2-82d5-4567-b002-14fd98349aca",
+  "candidateSha256": "cdd20d42188dd4937a32c9d092960a284d67d5e1cfd8ab846f697e472bf97d55",
+  "distTreeSha256": "573c87801f272ccc24222db5bbe2339cba495488bc34c095caa2b39e2eacc347",
+  "case": "single-paragraph-off",
+  "sourceSha256": "b3a64a1dedd54b8e250f0bf4dcbf2121196fb27b54e6b72f40d21171d4e0f812",
+  "sourceBytes": 2396354,
+  "route": "print-book",
+  "toc": "off",
+  "platform": "linux 6.18.57",
+  "startedAt": "2026-11-22T15:08:25.755Z",
+  "status": "PASS",
+  "events": [
+    {
+      "phase": "import",
+      "elapsedMs": 496
+    },
+    {
+      "phase": "editor-verified",
+      "elapsedMs": 4980
+    },
+    {
+      "phase": "standalone-request",
+      "elapsedMs": 5339
+    },
+    {
+      "phase": "standalone-downloaded",
+      "elapsedMs": 9554
+    },
+    {
+      "phase": "prepare-book",
+      "elapsedMs": 9569
+    },
+    {
+      "phase": "book-downloaded",
+      "elapsedMs": 11077
+    },
+    {
+      "phase": "product-print-requested",
+      "elapsedMs": 11149
+    },
+    {
+      "phase": "product-document-bound",
+      "elapsedMs": 13278
+    },
+    {
+      "phase": "pdf-saved",
+      "elapsedMs": 14585
+    },
+    {
+      "phase": "offline-reopened",
+      "elapsedMs": 16435
+    },
+    {
+      "phase": "physical-reopened",
+      "elapsedMs": 27361
+    }
+  ],
+  "method": "Production import, standalone HTML browser download, book print control, exact official book document rendered by Chromium PrintToPDF (headless). Native OS Save is a separate gate.",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "sourceEditorSha256": "b3a64a1dedd54b8e250f0bf4dcbf2121196fb27b54e6b72f40d21171d4e0f812",
+  "settings": {
+    "paper": "A4",
+    "orientation": "portrait",
+    "bodyFont": "inter",
+    "baseSizePt": "10.5",
+    "lineHeight": "1.5",
+    "cover": false,
+    "toc": false,
+    "tocDepth": "2",
+    "chapterBreak": false,
+    "pageNumbers": true,
+    "pageNumberStart": "1",
+    "contentLang": "id"
+  },
+  "settingsTitleSha256": "0d1ae15e2c37283c4b64d6a9ad6f6661c514511d3b364a3851b8151093d98868",
+  "settingsTitleLength": 18,
+  "htmlBytes": 2541235,
+  "htmlSha256": "01472f227d8cf18d4bdeeeb2b882bbd75432d61cc1d5678250b085a4cbf259b0",
+  "receiptSha256": "55a4881c929253533f0c40666e93f782a42706b64b61bc37fd9b1b71a955c5b7",
+  "bookHtmlBytes": 2520201,
+  "bookHtmlSha256": "55a4881c929253533f0c40666e93f782a42706b64b61bc37fd9b1b71a955c5b7",
+  "printResponseSha256": "55a4881c929253533f0c40666e93f782a42706b64b61bc37fd9b1b71a955c5b7",
+  "profile": {
+    "browserPaginationAndPdfSerializationMs": 1262,
+    "readPdfStreamAndWriteFileMs": 32,
+    "independentReopenAndComparisonMs": 10872
+  },
+  "pdfSha256": "52c51b3056c3571c8c332d6dd9db8deaaec6c779e618dcdbdbf61c0196a91bc8",
+  "pdfBytes": 2224806,
+  "savedPdfSha256": "52c51b3056c3571c8c332d6dd9db8deaaec6c779e618dcdbdbf61c0196a91bc8",
+  "offline": {
+    "sourceBlocks": 3,
+    "anchors": 1,
+    "valid": 1,
+    "firstAnchorNavigates": true,
+    "selectionReadable": true,
+    "scripts": 0,
+    "fonts": 3,
+    "fontsLoaded": 3,
+    "images": 0,
+    "imagesLoaded": 0,
+    "networkRequests": [],
+    "expectedTextSha256": "b59741041da8de86586165292fbb16da33a548727d172a9560d8467569fe12b3",
+    "actualTextSha256": "b59741041da8de86586165292fbb16da33a548727d172a9560d8467569fe12b3",
+    "expectedStructureSha256": "9ceef3e15027502ad70048164c7b2dddf93790b98094912c599a76974b87aeb8",
+    "actualStructureSha256": "9ceef3e15027502ad70048164c7b2dddf93790b98094912c599a76974b87aeb8"
+  },
+  "pageErrorHashes": [],
+  "physical": {
+    "pass": true,
+    "sourceWordGaps": 217847,
+    "missingWordGapCount": 0,
+    "firstMissingGapOffsets": [],
+    "normalization": "HTML compares NFC prose with separated words and verbatim code. Physical comparisons check ordered characters and source word gaps after pagination; FE0E removed only if absent from source. Physical extraction also excludes FE0F. Table header repetitions removed only at real page boundaries inside the source table.",
+    "oracle": "Pandoc GFM → independent ordered block, list and table projections; PyMuPDF reopen of the saved document",
+    "pandoc": "pandoc 3.1.11.1",
+    "pymupdf": "1.26.6",
+    "sourceSha256": "b3a64a1dedd54b8e250f0bf4dcbf2121196fb27b54e6b72f40d21171d4e0f812",
+    "pdfSha256": "52c51b3056c3571c8c332d6dd9db8deaaec6c779e618dcdbdbf61c0196a91bc8",
+    "pdfBytes": 2224806,
+    "pages": 600,
+    "sourceBlocks": 3,
+    "visitedBlocks": 3,
+    "sourceTextBlocks": 3,
+    "confirmedTextBlocks": 3,
+    "expectedEmptyMarkers": 0,
+    "confirmedEmptyMarkers": 0,
+    "sourceTables": 1,
+    "sourceRows": 2,
+    "sourceCells": 4,
+    "sourceHeadings": 1,
+    "confirmedHeadings": 1,
+    "expectedBodySha256": "1f23057dd2aedec168e7d310eb6af2068f9bed1d827e060db57668dfc33384e3",
+    "actualBodySha256": "1f23057dd2aedec168e7d310eb6af2068f9bed1d827e060db57668dfc33384e3",
+    "expectedBodyCharacters": 2178478,
+    "actualBodyCharacters": 2178478,
+    "endMatches": true,
+    "verifiedFooterPages": 600,
+    "expectedFooterPages": 600,
+    "visibleEmptyMarkers": 0,
+    "minimumMarkerInkPixels": null,
+    "titleSettingMatchesSource": true,
+    "pdfDocumentTitleMatchesSource": true,
+    "expectedCoverPages": 0,
+    "actualCoverHeaders": 0,
+    "expectedTocLinks": 0,
+    "resolvedTocLinks": 0,
+    "physicalLinkAnnotations": 0,
+    "targetSequenceMatches": true,
+    "standaloneTocMatchesSource": true,
+    "bookTocMatchesSource": true,
+    "standaloneAssets": {
+      "scripts": 0,
+      "invalidFonts": 0,
+      "fontPayloads": 3,
+      "externalResources": 0,
+      "duplicateIds": 0
+    },
+    "bookAssets": {
+      "scripts": 0,
+      "invalidFonts": 0,
+      "fontPayloads": 3,
+      "externalResources": 0,
+      "duplicateIds": 0
+    },
+    "htmlSourceProjection": {
+      "text": "b59741041da8de86586165292fbb16da33a548727d172a9560d8467569fe12b3",
+      "shape": "9ceef3e15027502ad70048164c7b2dddf93790b98094912c599a76974b87aeb8",
+      "blocks": 3
+    },
+    "standaloneProjection": {
+      "text": "b59741041da8de86586165292fbb16da33a548727d172a9560d8467569fe12b3",
+      "shape": "9ceef3e15027502ad70048164c7b2dddf93790b98094912c599a76974b87aeb8",
+      "blocks": 3
+    },
+    "bookProjection": {
+      "text": "b59741041da8de86586165292fbb16da33a548727d172a9560d8467569fe12b3",
+      "shape": "9ceef3e15027502ad70048164c7b2dddf93790b98094912c599a76974b87aeb8",
+      "blocks": 3
+    },
+    "repeatedTableHeaders": 0,
+    "geometry": {
+      "footerFailures": [],
+      "headerFailures": [],
+      "unexpectedMediaBoxes": [],
+      "nulCharacters": 0,
+      "replacementCharacters": 0,
+      "outsideMediaBoxGlyphs": 0,
+      "invisibleTextLayerGlyphs": 0,
+      "unpaintedTextLayerGlyphs": 0,
+      "rasterCheckedFallback": {},
+      "missingGlyphCodepoints": {},
+      "blankPages": [],
+      "longTableFit": {
+        "applies": false,
+        "nonterminalPagesChecked": 0,
+        "minimumFractionOfPrintableHeightReached": null,
+        "threshold": 0.5,
+        "nonterminalPagesEndingInUpperHalf": []
+      },
+      "fontObjects": 5,
+      "embeddedOrType3Fonts": 5
+    },
+    "negativeControls": {
+      "validAccepted": true,
+      "addedTextRejected": true,
+      "missingEndRejected": true,
+      "changedCaseRejected": true,
+      "changedTableCellRejected": true,
+      "reorderedBlocksRejected": true
+    },
+    "differences": []
+  },
+  "finishedAt": "2026-11-22T15:08:53.118Z"
+}

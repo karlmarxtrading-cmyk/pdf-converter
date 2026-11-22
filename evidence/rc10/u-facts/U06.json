@@ -1,0 +1,8 @@
+{
+  "observations": [
+    "capacity-validator-control"
+  ],
+  "files": {
+    "syntheticControl": "evidence/rc10/accounting/capacity-validator-control.json"
+  }
+}

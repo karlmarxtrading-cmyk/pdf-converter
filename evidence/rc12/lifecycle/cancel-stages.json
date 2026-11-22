@@ -1,0 +1,4208 @@
+{
+  "method": "Production workspace and actual print Cancel button, triggered by a matching same-origin print-frame message. A 50 ms main-window timer measures scheduling gaps from Publish through visible idle. Heap is the CDP target after GC, not the native renderer footprint.",
+  "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+  "large": false,
+  "identity": {
+    "app": "paperforma",
+    "version": "3.0.0-rc.12",
+    "profile": "production",
+    "candidateSha256": "3a3ee3e24ce43548a31386f1141638a567a59c7a161b7200de0945f0b5b62460",
+    "distTreeSha256": "1aede97a9168d8d2e4e703afc1d3f1272e3575d2eb8535f60a4ab3dfdad01e39",
+    "node": "v24.22.3",
+    "engines": {
+      "node": "24.22.3",
+      "npm": ">=11.6.0 <12"
+    }
+  },
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "rows": [
+    {
+      "target": "startup-ready",
+      "progress": [
+        {
+          "ms": 353.5,
+          "phase": "startup-ready",
+          "job": null,
+          "pass": 0,
+          "units": 0
+        }
+      ],
+      "loop": [
+        0,
+        303.9000000022352,
+        355.4000000022352
+      ],
+      "cross": {
+        "ms": 353.5,
+        "job": null,
+        "phase": "startup-ready"
+      },
+      "started": 2319.89999999851,
+      "idle": 355.4000000022352,
+      "cancelled": true,
+      "frames": 0,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "heapBefore": 8886848,
+      "heapAfter": 14235508,
+      "phase": "startup-ready",
+      "elapsed": 1.9000000022351742,
+      "pass": true
+    },
+    {
+      "target": "fonts",
+      "progress": [
+        {
+          "ms": 18,
+          "phase": "startup-ready",
+          "job": null,
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 31,
+          "phase": "fonts",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        }
+      ],
+      "loop": [
+        0,
+        33
+      ],
+      "cross": {
+        "ms": 31,
+        "job": "pf-1-6a4e95b9798c-mws1jkf8",
+        "phase": "fonts"
+      },
+      "started": 2837.800000000745,
+      "idle": 33,
+      "cancelled": true,
+      "frames": 0,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "heapBefore": 14230496,
+      "heapAfter": 14248512,
+      "phase": "fonts",
+      "elapsed": 2,
+      "pass": true
+    },
+    {
+      "target": "images",
+      "progress": [
+        {
+          "ms": 20.100000001490116,
+          "phase": "startup-ready",
+          "job": null,
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 32.70000000298023,
+          "phase": "fonts",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 127.60000000149012,
+          "phase": "images",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        }
+      ],
+      "loop": [
+        0,
+        134.20000000298023
+      ],
+      "cross": {
+        "ms": 127.60000000149012,
+        "job": "pf-1-6a4e95b9798c-mws1jkf8",
+        "phase": "images"
+      },
+      "started": 3024.099999997765,
+      "idle": 134.20000000298023,
+      "cancelled": true,
+      "frames": 0,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "heapBefore": 14244812,
+      "heapAfter": 14266820,
+      "phase": "images",
+      "elapsed": 6.600000001490116,
+      "pass": true
+    },
+    {
+      "target": "paginate",
+      "progress": [
+        {
+          "ms": 21.199999999254942,
+          "phase": "startup-ready",
+          "job": null,
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 116.39999999850988,
+          "phase": "fonts",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 121.79999999701977,
+          "phase": "images",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 180.69999999925494,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        }
+      ],
+      "loop": [
+        0,
+        122.5,
+        182.89999999850988
+      ],
+      "cross": {
+        "ms": 180.69999999925494,
+        "job": "pf-1-6a4e95b9798c-mws1jkf8",
+        "phase": "paginate"
+      },
+      "started": 3301.300000000745,
+      "idle": 182.89999999850988,
+      "cancelled": true,
+      "frames": 0,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "heapBefore": 14260736,
+      "heapAfter": 14285196,
+      "phase": "paginate",
+      "elapsed": 2.199999999254942,
+      "pass": true
+    },
+    {
+      "target": "heading-check",
+      "progress": [
+        {
+          "ms": 17,
+          "phase": "startup-ready",
+          "job": null,
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 119,
+          "phase": "fonts",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 119.19999999925494,
+          "phase": "images",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 187.39999999850988,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        },
+        {
+          "ms": 499.5,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 21
+        },
+        {
+          "ms": 850.7999999970198,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 42
+        },
+        {
+          "ms": 1216.8999999985099,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 1573.2999999970198,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 85
+        },
+        {
+          "ms": 1934,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 106
+        },
+        {
+          "ms": 2286.39999999851,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 127
+        },
+        {
+          "ms": 2636.199999999255,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 148
+        },
+        {
+          "ms": 2986.199999999255,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 169
+        },
+        {
+          "ms": 3209.7999999970198,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3210,
+          "phase": "heading-check",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        }
+      ],
+      "loop": [
+        0,
+        120,
+        187.59999999776483,
+        201.39999999850988,
+        250.09999999776483,
+        300.0999999977648,
+        350.0999999977648,
+        400.0999999977648,
+        450.0999999977648,
+        500.0999999977648,
+        550.7999999970198,
+        600.0999999977648,
+        650.0999999977648,
+        700,
+        750,
+        800.1999999992549,
+        850.8999999985099,
+        900.0999999977648,
+        951,
+        1000.0999999977648,
+        1050.0999999977648,
+        1100.2999999970198,
+        1150.0999999977648,
+        1200.0999999977648,
+        1250.5999999977648,
+        1300.699999999255,
+        1351.199999999255,
+        1400.5,
+        1451.8999999985099,
+        1503.199999999255,
+        1550.2999999970198,
+        1603.5999999977648,
+        1664.8999999985099,
+        1701.3999999985099,
+        1752.5,
+        1801.7999999970198,
+        1853.0999999977648,
+        1900.0999999977648,
+        1950.7999999970198,
+        2002.2999999970198,
+        2052.7999999970198,
+        2106.199999999255,
+        2155.89999999851,
+        2202.7999999970198,
+        2252.099999997765,
+        2305.099999997765,
+        2351.2999999970198,
+        2401.599999997765,
+        2453,
+        2501.699999999255,
+        2551.89999999851,
+        2602.099999997765,
+        2652.699999999255,
+        2701.7999999970198,
+        2752.89999999851,
+        2803.2999999970198,
+        2854.5,
+        2904.199999999255,
+        2953.39999999851,
+        3003.39999999851,
+        3223.39999999851
+      ],
+      "cross": {
+        "ms": 3210,
+        "job": "pf-1-6a4e95b9798c-mws1jkf8",
+        "phase": "heading-check"
+      },
+      "started": 3638.800000000745,
+      "idle": 3223.39999999851,
+      "cancelled": true,
+      "frames": 0,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "heapBefore": 14278612,
+      "heapAfter": 14318780,
+      "phase": "heading-check",
+      "elapsed": 13.399999998509884,
+      "pass": true
+    },
+    {
+      "target": "diagnostics",
+      "progress": [
+        {
+          "ms": 19.399999998509884,
+          "phase": "startup-ready",
+          "job": null,
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 121.09999999776483,
+          "phase": "fonts",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 121.30000000074506,
+          "phase": "images",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 176.09999999776483,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        },
+        {
+          "ms": 483.5,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 850.0999999977648,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 38
+        },
+        {
+          "ms": 1200,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 59
+        },
+        {
+          "ms": 1557.5,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 1917.199999999255,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 102
+        },
+        {
+          "ms": 2274,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 123
+        },
+        {
+          "ms": 2634.300000000745,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 143
+        },
+        {
+          "ms": 3001.800000000745,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 165
+        },
+        {
+          "ms": 3243.099999997765,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3243.199999999255,
+          "phase": "heading-check",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3259.39999999851,
+          "phase": "diagnostics",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        }
+      ],
+      "loop": [
+        0,
+        121.5,
+        176.39999999850988,
+        206.30000000074506,
+        250.09999999776483,
+        308.19999999925494,
+        403.80000000074506,
+        450.5,
+        500.19999999925494,
+        550.0999999977648,
+        600.0999999977648,
+        650.0999999977648,
+        701.1999999992549,
+        750.1999999992549,
+        800,
+        850.3000000007451,
+        900,
+        950.1999999992549,
+        1001.1999999992549,
+        1051.3999999985099,
+        1100.699999999255,
+        1150.0999999977648,
+        1200.0999999977648,
+        1250.0999999977648,
+        1300.199999999255,
+        1350.3999999985099,
+        1402.0999999977648,
+        1450.5,
+        1500.0999999977648,
+        1557.5999999977648,
+        1600,
+        1650,
+        1700.699999999255,
+        1750.0999999977648,
+        1800.8999999985099,
+        1851.5999999977648,
+        1900.5,
+        1950.0999999977648,
+        2001.5,
+        2050.199999999255,
+        2102.39999999851,
+        2150.89999999851,
+        2204.699999999255,
+        2252.300000000745,
+        2304.199999999255,
+        2350.5,
+        2442.800000000745,
+        2451.5,
+        2501.39999999851,
+        2550.800000000745,
+        2602.300000000745,
+        2653,
+        2703.89999999851,
+        2753.39999999851,
+        2803.5,
+        2858.599999997765,
+        2902.5,
+        2953.099999997765,
+        3002.099999997765,
+        3050.599999997765,
+        3104.300000000745,
+        3256.099999997765,
+        3273.5
+      ],
+      "cross": {
+        "ms": 3259.39999999851,
+        "job": "pf-1-6a4e95b9798c-mws1jkf8",
+        "phase": "diagnostics"
+      },
+      "started": 7055.5,
+      "idle": 3273.5,
+      "cancelled": true,
+      "frames": 0,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "heapBefore": 14310908,
+      "heapAfter": 14321668,
+      "phase": "diagnostics",
+      "elapsed": 14.100000001490116,
+      "pass": true
+    },
+    {
+      "target": "flatten",
+      "progress": [
+        {
+          "ms": 18,
+          "phase": "startup-ready",
+          "job": null,
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 108.39999999850988,
+          "phase": "fonts",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 108.5,
+          "phase": "images",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 171.09999999776483,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        },
+        {
+          "ms": 486.0999999977648,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 21
+        },
+        {
+          "ms": 852.3999999985099,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 43
+        },
+        {
+          "ms": 1202.5,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 59
+        },
+        {
+          "ms": 1571.8999999985099,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 81
+        },
+        {
+          "ms": 1936.2999999970198,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 103
+        },
+        {
+          "ms": 2288.699999999255,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 124
+        },
+        {
+          "ms": 2652.199999999255,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 146
+        },
+        {
+          "ms": 3003.5,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 167
+        },
+        {
+          "ms": 3228.599999997765,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3228.699999999255,
+          "phase": "heading-check",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3240.699999999255,
+          "phase": "diagnostics",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3242.199999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3242.699999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3243.199999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3247.5,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3248.2999999970198,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3252.89999999851,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3257.39999999851,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3263.39999999851,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3267.89999999851,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3272.39999999851,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3279.39999999851,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3281.599999997765,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3286.199999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3290.699999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3296.2999999970198,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3300.7999999970198,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3305.39999999851,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3310.099999997765,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3314.5,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3319.099999997765,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3323.5,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3329.39999999851,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3333.599999997765,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3337.7999999970198,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3342,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3346.39999999851,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3350.599999997765,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3354.699999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3358.89999999851,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3363.599999997765,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3367.699999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3371.89999999851,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3376.099999997765,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3380.39999999851,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3384.699999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3388.89999999851,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3393.099999997765,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3397.39999999851,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3401.5,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3405.699999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3409.89999999851,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3414.099999997765,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3419,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3423.699999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3430.599999997765,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3435.199999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3440.099999997765,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3448.099999997765,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3452.5,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3457.39999999851,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3463.599999997765,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3468.199999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3472.699999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3479.699999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3481.7999999970198,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3486.39999999851,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3490.89999999851,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3496.199999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3500.89999999851,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3505.5,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3510.199999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3515.89999999851,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3523,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3535.7999999970198,
+          "phase": "flatten",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        }
+      ],
+      "loop": [
+        0,
+        113.29999999701977,
+        171.29999999701977,
+        201.39999999850988,
+        250.09999999776483,
+        300.19999999925494,
+        350.5999999977648,
+        403.5999999977648,
+        450.5,
+        500.5999999977648,
+        551.6999999992549,
+        600.1999999992549,
+        650.0999999977648,
+        700.5,
+        751.5999999977648,
+        802.5999999977648,
+        852.3999999985099,
+        901.6999999992549,
+        960.3999999985099,
+        1099.5,
+        1152.5999999977648,
+        1202.7999999970198,
+        1252.2999999970198,
+        1303.199999999255,
+        1353.7999999970198,
+        1406.7999999970198,
+        1452,
+        1502.3999999985099,
+        1554.7999999970198,
+        1602.5,
+        1653.5,
+        1702.2999999970198,
+        1754.5999999977648,
+        1803.7999999970198,
+        1852.5999999977648,
+        1902.8999999985099,
+        1953.199999999255,
+        2006.2999999970198,
+        2051.699999999255,
+        2101.699999999255,
+        2151.699999999255,
+        2203.199999999255,
+        2253.599999997765,
+        2303.39999999851,
+        2354.2999999970198,
+        2402.89999999851,
+        2453.199999999255,
+        2505.599999997765,
+        2556.099999997765,
+        2601.699999999255,
+        2652.2999999970198,
+        2701.89999999851,
+        2751.89999999851,
+        2801.199999999255,
+        2852,
+        2903.89999999851,
+        2953.89999999851,
+        3003.599999997765,
+        3053.199999999255,
+        3228.5,
+        3252.7999999970198,
+        3302.599999997765,
+        3354.699999999255,
+        3406.199999999255,
+        3457.2999999970198,
+        3502.7999999970198,
+        3552.89999999851
+      ],
+      "cross": {
+        "ms": 3535.7999999970198,
+        "job": "pf-1-6a4e95b9798c-mws1jkf8",
+        "phase": "flatten"
+      },
+      "started": 10520.800000000745,
+      "idle": 3552.89999999851,
+      "cancelled": true,
+      "frames": 0,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "heapBefore": 14313368,
+      "heapAfter": 14327416,
+      "phase": "flatten",
+      "elapsed": 17.100000001490116,
+      "pass": true
+    },
+    {
+      "target": "inventory",
+      "progress": [
+        {
+          "ms": 20.199999999254942,
+          "phase": "startup-ready",
+          "job": null,
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 125.10000000149012,
+          "phase": "fonts",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 125.60000000149012,
+          "phase": "images",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 173.90000000223517,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        },
+        {
+          "ms": 487.30000000074506,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 21
+        },
+        {
+          "ms": 853.1999999992549,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 43
+        },
+        {
+          "ms": 1203.4000000022352,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 1570.300000000745,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 84
+        },
+        {
+          "ms": 1921.699999999255,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 105
+        },
+        {
+          "ms": 2276.900000002235,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 126
+        },
+        {
+          "ms": 2640.199999999255,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 148
+        },
+        {
+          "ms": 3005.199999999255,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 170
+        },
+        {
+          "ms": 3165.60000000149,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3165.699999999255,
+          "phase": "heading-check",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3179.199999999255,
+          "phase": "diagnostics",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3183.5,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3184.10000000149,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3184.60000000149,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3185.10000000149,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3185.5,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3190,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3194.5,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3198.900000002235,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3203.5,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3208.10000000149,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3212.699999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3217.199999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3221.699999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3226.199999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3231.699999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3236.300000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3240.800000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3245.400000002235,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3249.800000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3254.400000002235,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3259.199999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3265.800000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3270,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3274.199999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3278.400000002235,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3282.699999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3286.900000002235,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3291.10000000149,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3295.300000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3299.5,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3303.60000000149,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3307.900000002235,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3312,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3316.300000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3320.400000002235,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3324.60000000149,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3328.800000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3333,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3337.199999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3341.400000002235,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3345.699999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3349.800000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3354.699999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3359.300000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3366.60000000149,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3371.400000002235,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3376.300000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3382.699999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3387.300000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3391.900000002235,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3399.60000000149,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3401.10000000149,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3405.60000000149,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3410.199999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3416.800000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3421.300000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3425.800000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3432.60000000149,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3437.300000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3442.10000000149,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3449.800000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3457.300000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3473.10000000149,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3475.10000000149,
+          "phase": "flatten",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        },
+        {
+          "ms": 3517.10000000149,
+          "phase": "inventory",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        }
+      ],
+      "loop": [
+        0,
+        125.80000000074506,
+        185.80000000074506,
+        204.10000000149012,
+        251.80000000074506,
+        301.4000000022352,
+        351.1000000014901,
+        401.80000000074506,
+        452.1000000014901,
+        503,
+        552,
+        602.9000000022352,
+        651.8000000007451,
+        701.9000000022352,
+        753.6000000014901,
+        805.5,
+        853.1999999992549,
+        903.5,
+        952.9000000022352,
+        1004.4000000022352,
+        1052.9000000022352,
+        1104,
+        1153.4000000022352,
+        1203.5,
+        1253.9000000022352,
+        1302.699999999255,
+        1354,
+        1452.9000000022352,
+        1505.300000000745,
+        1553.4000000022352,
+        1603,
+        1653,
+        1703,
+        1752.9000000022352,
+        1803.699999999255,
+        1853.300000000745,
+        1906.199999999255,
+        1959.300000000745,
+        2004,
+        2053.60000000149,
+        2103.800000000745,
+        2154.699999999255,
+        2204.60000000149,
+        2255.60000000149,
+        2307,
+        2356.400000002235,
+        2420.900000002235,
+        2454.699999999255,
+        2508,
+        2555,
+        2604.5,
+        2657,
+        2706.800000000745,
+        2755.699999999255,
+        2805.699999999255,
+        2855.10000000149,
+        2904.300000000745,
+        2954.400000002235,
+        3005.300000000745,
+        3179.10000000149,
+        3203.5,
+        3256.5,
+        3307.900000002235,
+        3354.800000000745,
+        3406.400000002235,
+        3457.800000000745,
+        3531.60000000149
+      ],
+      "cross": {
+        "ms": 3517.10000000149,
+        "job": "pf-1-6a4e95b9798c-mws1jkf8",
+        "phase": "inventory"
+      },
+      "started": 14284.89999999851,
+      "idle": 3531.60000000149,
+      "cancelled": true,
+      "frames": 0,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "heapBefore": 14328856,
+      "heapAfter": 14349772,
+      "phase": "inventory",
+      "elapsed": 14.5,
+      "pass": true
+    },
+    {
+      "target": "inventory-reopen",
+      "progress": [
+        {
+          "ms": 19.300000000745058,
+          "phase": "startup-ready",
+          "job": null,
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 115,
+          "phase": "fonts",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 115.19999999925494,
+          "phase": "images",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 177.40000000223517,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        },
+        {
+          "ms": 485.9000000022352,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 21
+        },
+        {
+          "ms": 837.5,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 42
+        },
+        {
+          "ms": 1188.699999999255,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 63
+        },
+        {
+          "ms": 1553.300000000745,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 85
+        },
+        {
+          "ms": 1906.199999999255,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 2257.199999999255,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 125
+        },
+        {
+          "ms": 2606.60000000149,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 146
+        },
+        {
+          "ms": 2973.10000000149,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3200.699999999255,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3200.900000002235,
+          "phase": "heading-check",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3216.800000000745,
+          "phase": "diagnostics",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3221.60000000149,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3222.300000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3222.900000002235,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3223.400000002235,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3224,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3228.60000000149,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3233.300000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3237.900000002235,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3242.800000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3248.900000002235,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3253.5,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3258.300000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3265.199999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3267.60000000149,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3272.199999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3276.800000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3282.10000000149,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3286.800000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3291.699999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3299,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3300.900000002235,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3305.5,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3309.699999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3316.10000000149,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3320.300000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3324.5,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3328.699999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3334.800000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3339.10000000149,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3343.300000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3349.199999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3353.400000002235,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3357.60000000149,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3361.699999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3366,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3370.199999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3374.300000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3378.60000000149,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3382.699999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3386.900000002235,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3391.10000000149,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3395.199999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3400,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3404.699999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3409.300000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3416,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3420.800000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3425.300000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3432.699999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3437.400000002235,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3441.900000002235,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3449.10000000149,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3451,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3455.60000000149,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3460.10000000149,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3466.10000000149,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3470.60000000149,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3475.199999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3482.699999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3484.5,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3488.900000002235,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3493.699999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3499.5,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3504.699999999255,
+          "phase": "flatten",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        },
+        {
+          "ms": 3543.400000002235,
+          "phase": "inventory",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        },
+        {
+          "ms": 3574.900000002235,
+          "phase": "inventory-source-ready",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 1200
+        },
+        {
+          "ms": 3942.10000000149,
+          "phase": "inventory-reopen",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        }
+      ],
+      "loop": [
+        0,
+        119.69999999925494,
+        177.5,
+        207.60000000149012,
+        251.80000000074506,
+        302.30000000074506,
+        353.9000000022352,
+        402.80000000074506,
+        453.80000000074506,
+        505.30000000074506,
+        553,
+        602.5,
+        652.1999999992549,
+        702.5,
+        752.4000000022352,
+        802.1999999992549,
+        854.3000000007451,
+        902.9000000022352,
+        953.9000000022352,
+        1002.6999999992549,
+        1054.6000000014901,
+        1103.300000000745,
+        1153.800000000745,
+        1203.199999999255,
+        1253.699999999255,
+        1303,
+        1354.300000000745,
+        1403.1000000014901,
+        1455.1000000014901,
+        1504,
+        1553.300000000745,
+        1603.199999999255,
+        1653.199999999255,
+        1703.199999999255,
+        1757.699999999255,
+        1802.4000000022352,
+        1858,
+        1906.300000000745,
+        1954.300000000745,
+        2005.5,
+        2056.5,
+        2104.900000002235,
+        2154.699999999255,
+        2204.10000000149,
+        2257.300000000745,
+        2307,
+        2355,
+        2404.5,
+        2455,
+        2506.10000000149,
+        2557.5,
+        2606.699999999255,
+        2655.199999999255,
+        2705.199999999255,
+        2754.900000002235,
+        2804.800000000745,
+        2854.900000002235,
+        2905.300000000745,
+        2956,
+        3005.10000000149,
+        3213.800000000745,
+        3258.199999999255,
+        3306.900000002235,
+        3357.60000000149,
+        3404.699999999255,
+        3455.699999999255,
+        3505.400000002235,
+        3575.10000000149,
+        3623.699999999255,
+        3700.400000002235,
+        3855.199999999255,
+        3942,
+        3966.900000002235
+      ],
+      "cross": {
+        "ms": 3942.10000000149,
+        "job": "pf-1-6a4e95b9798c-mws1jkf8",
+        "phase": "inventory-reopen"
+      },
+      "started": 18001.39999999851,
+      "idle": 3966.900000002235,
+      "cancelled": true,
+      "frames": 0,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "heapBefore": 14352028,
+      "heapAfter": 14385124,
+      "phase": "inventory-reopen",
+      "elapsed": 24.800000000745058,
+      "pass": true
+    },
+    {
+      "target": "geometry",
+      "progress": [
+        {
+          "ms": 19.699999999254942,
+          "phase": "startup-ready",
+          "job": null,
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 124.69999999925494,
+          "phase": "fonts",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 124.80000000074506,
+          "phase": "images",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 177.5,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        },
+        {
+          "ms": 503.4000000022352,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 22
+        },
+        {
+          "ms": 874.6000000014901,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 44
+        },
+        {
+          "ms": 1238.1000000014901,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 66
+        },
+        {
+          "ms": 1605.5,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 1971.1000000014901,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 107
+        },
+        {
+          "ms": 2321.60000000149,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 2672,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 149
+        },
+        {
+          "ms": 3023.400000002235,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 170
+        },
+        {
+          "ms": 3177.5,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3177.699999999255,
+          "phase": "heading-check",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3191.300000000745,
+          "phase": "diagnostics",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3196.10000000149,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3198.300000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3199.400000002235,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3199.800000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3200.400000002235,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3205,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3209.699999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3216.199999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3220.800000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3225.400000002235,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3232.5,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3234.699999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3239.400000002235,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3244,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3249.900000002235,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3254.5,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3259.199999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3267.400000002235,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3271.900000002235,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3276.5,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3283.60000000149,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3288,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3292.199999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3299.300000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3303.400000002235,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3307.60000000149,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3311.800000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3316.10000000149,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3320.300000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3324.400000002235,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3328.699999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3332.900000002235,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3337.10000000149,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3341.300000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3345.5,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3349.699999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3353.800000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3358,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3362.199999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3366.400000002235,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3370.60000000149,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3374.800000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3382.300000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3384.5,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3389.300000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3393.800000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3399.60000000149,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3404.10000000149,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3408.60000000149,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3416.199999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3418,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3422.5,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3427,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3432.5,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3436.900000002235,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3441.5,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3446,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3450.5,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3455,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3459.5,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3466,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3470.60000000149,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3475.199999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3483.699999999255,
+          "phase": "flatten",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        },
+        {
+          "ms": 3506.199999999255,
+          "phase": "inventory",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        },
+        {
+          "ms": 3535.900000002235,
+          "phase": "inventory-source-ready",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 1200
+        },
+        {
+          "ms": 3895.400000002235,
+          "phase": "inventory-reopen",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3899.5,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3900.10000000149,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3900.60000000149,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3901,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3901.400000002235,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3901.800000000745,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3906.400000002235,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3910.800000000745,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3916.400000002235,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3921,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3925.5,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3933.60000000149,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3938.10000000149,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3942.60000000149,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3949.60000000149,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3954.10000000149,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3958.60000000149,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3965.900000002235,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3967.5,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3972.10000000149,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3976.800000000745,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3993.900000002235,
+          "phase": "geometry",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        }
+      ],
+      "loop": [
+        0,
+        125.10000000149012,
+        188.80000000074506,
+        207.69999999925494,
+        251.40000000223517,
+        303.19999999925494,
+        351.9000000022352,
+        402.9000000022352,
+        453.4000000022352,
+        503.5,
+        552.1999999992549,
+        605.4000000022352,
+        655.5,
+        716.8000000007451,
+        756.1999999992549,
+        803.3000000007451,
+        853.1999999992549,
+        905.4000000022352,
+        955.5,
+        1006.8000000007451,
+        1054.800000000745,
+        1103.800000000745,
+        1152.9000000022352,
+        1203.300000000745,
+        1253.199999999255,
+        1303.800000000745,
+        1354.199999999255,
+        1404.800000000745,
+        1454.800000000745,
+        1505.4000000022352,
+        1554.5,
+        1605.6000000014901,
+        1654.4000000022352,
+        1791.4000000022352,
+        1800.699999999255,
+        1854.699999999255,
+        1905.699999999255,
+        1953.800000000745,
+        2004.5,
+        2054.60000000149,
+        2104.5,
+        2153.900000002235,
+        2205.400000002235,
+        2254,
+        2304.699999999255,
+        2354.10000000149,
+        2403.900000002235,
+        2453.800000000745,
+        2504.300000000745,
+        2553.60000000149,
+        2605.10000000149,
+        2654.300000000745,
+        2705,
+        2755.10000000149,
+        2806.199999999255,
+        2855,
+        2906,
+        2956.300000000745,
+        3006.400000002235,
+        3053.60000000149,
+        3188,
+        3207.800000000745,
+        3255.5,
+        3307.60000000149,
+        3358,
+        3404.900000002235,
+        3457.199999999255,
+        3506.300000000745,
+        3555.800000000745,
+        3631.900000002235,
+        3737.300000000745,
+        3888.199999999255,
+        3900.5,
+        3955.699999999255,
+        4020.60000000149
+      ],
+      "cross": {
+        "ms": 3993.900000002235,
+        "job": "pf-1-6a4e95b9798c-mws1jkf8",
+        "phase": "geometry"
+      },
+      "started": 22184.39999999851,
+      "idle": 4020.60000000149,
+      "cancelled": true,
+      "frames": 0,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "heapBefore": 14375552,
+      "heapAfter": 14390688,
+      "phase": "geometry",
+      "elapsed": 26.699999999254942,
+      "pass": true
+    },
+    {
+      "target": "verified-pages",
+      "progress": [
+        {
+          "ms": 16.300000000745058,
+          "phase": "startup-ready",
+          "job": null,
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 110,
+          "phase": "fonts",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 110.09999999776483,
+          "phase": "images",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 0,
+          "units": 0
+        },
+        {
+          "ms": 163.80000000074506,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        },
+        {
+          "ms": 483.5999999977648,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 21
+        },
+        {
+          "ms": 848.8000000007451,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 43
+        },
+        {
+          "ms": 1199.800000000745,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 1550.300000000745,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 85
+        },
+        {
+          "ms": 1901.199999999255,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 2267.800000000745,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 126
+        },
+        {
+          "ms": 2635,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 148
+        },
+        {
+          "ms": 3001.89999999851,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 170
+        },
+        {
+          "ms": 3138.5,
+          "phase": "paginate",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3138.699999999255,
+          "phase": "heading-check",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3151.099999997765,
+          "phase": "diagnostics",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3156.199999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3156.800000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3157.39999999851,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3157.800000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3158.300000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3162.800000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3167.300000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3171.800000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3178.5,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3183.39999999851,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3187.89999999851,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3195.599999997765,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3197,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3201.5,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3206.099999997765,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3211.699999999255,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3216.300000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3220.800000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3225.300000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3229.800000000745,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3234.39999999851,
+          "phase": "diagnostic-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3238.800000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3244.599999997765,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3248.800000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3253.099999997765,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3257.199999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3261.89999999851,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3265.89999999851,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3270.099999997765,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3274.199999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3278.5,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3282.599999997765,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3286.800000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3291,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3295.199999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3299.39999999851,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3303.599999997765,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3307.800000000745,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3312,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3316.199999999255,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3320.39999999851,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3324.5,
+          "phase": "widow-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3329.300000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3334,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3338.699999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3346.699999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3351.099999997765,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3355.599999997765,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3362.599999997765,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3367.199999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3371.699999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3379.199999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3383.699999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3388.199999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3395.199999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3399.599999997765,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3404.099999997765,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3408.699999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3413.199999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3417.599999997765,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3422.199999999255,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3429.39999999851,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3433.800000000745,
+          "phase": "font-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3439,
+          "phase": "flatten",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        },
+        {
+          "ms": 3461,
+          "phase": "inventory",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        },
+        {
+          "ms": 3483.800000000745,
+          "phase": "inventory-source-ready",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 1200
+        },
+        {
+          "ms": 3858,
+          "phase": "inventory-reopen",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        },
+        {
+          "ms": 3860.89999999851,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 8
+        },
+        {
+          "ms": 3866.300000000745,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 16
+        },
+        {
+          "ms": 3867.099999997765,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 24
+        },
+        {
+          "ms": 3867.599999997765,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3868.099999997765,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 40
+        },
+        {
+          "ms": 3868.699999999255,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 48
+        },
+        {
+          "ms": 3873.39999999851,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 56
+        },
+        {
+          "ms": 3878.699999999255,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3884.39999999851,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 72
+        },
+        {
+          "ms": 3889,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 80
+        },
+        {
+          "ms": 3896.39999999851,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 88
+        },
+        {
+          "ms": 3900.800000000745,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3905.39999999851,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 104
+        },
+        {
+          "ms": 3912.199999999255,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 112
+        },
+        {
+          "ms": 3916.699999999255,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 120
+        },
+        {
+          "ms": 3921.300000000745,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3928.800000000745,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 136
+        },
+        {
+          "ms": 3930.5,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 144
+        },
+        {
+          "ms": 3935.199999999255,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 152
+        },
+        {
+          "ms": 3939.699999999255,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3946.699999999255,
+          "phase": "inventory-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 168
+        },
+        {
+          "ms": 3958.5,
+          "phase": "geometry",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 0
+        },
+        {
+          "ms": 3963.800000000745,
+          "phase": "geometry",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 32
+        },
+        {
+          "ms": 3969.199999999255,
+          "phase": "geometry",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 64
+        },
+        {
+          "ms": 3974.699999999255,
+          "phase": "geometry",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 96
+        },
+        {
+          "ms": 3980,
+          "phase": "geometry",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 128
+        },
+        {
+          "ms": 3985.300000000745,
+          "phase": "geometry",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 160
+        },
+        {
+          "ms": 3990,
+          "phase": "verified-pages",
+          "job": "pf-1-6a4e95b9798c-mws1jkf8",
+          "pass": 1,
+          "units": 172
+        }
+      ],
+      "loop": [
+        0,
+        114.5,
+        164,
+        200,
+        250,
+        300.0999999977648,
+        350,
+        400.0999999977648,
+        451.0999999977648,
+        500.0999999977648,
+        550.0999999977648,
+        600.0999999977648,
+        657.5,
+        700.0999999977648,
+        750.0999999977648,
+        800,
+        850.0999999977648,
+        900,
+        950.0999999977648,
+        1000,
+        1050.0999999977648,
+        1100.0999999977648,
+        1150.199999999255,
+        1200.0999999977648,
+        1250.0999999977648,
+        1300.0999999977648,
+        1350,
+        1400,
+        1450,
+        1500,
+        1550.3999999985099,
+        1601.3999999985099,
+        1650.5999999977648,
+        1700.5,
+        1750.0999999977648,
+        1862.5999999977648,
+        1901.5999999977648,
+        1950.0999999977648,
+        2000.8999999985099,
+        2050,
+        2100.199999999255,
+        2151.099999997765,
+        2201,
+        2250,
+        2301.599999997765,
+        2350.099999997765,
+        2400.199999999255,
+        2451.199999999255,
+        2501.300000000745,
+        2550.599999997765,
+        2600.099999997765,
+        2650.699999999255,
+        2701.39999999851,
+        2750.599999997765,
+        2800.599999997765,
+        2850.599999997765,
+        2901.5,
+        2950.89999999851,
+        3002,
+        3147.800000000745,
+        3206.099999997765,
+        3255.5,
+        3307.800000000745,
+        3355.599999997765,
+        3404.099999997765,
+        3461.099999997765,
+        3500,
+        3851.099999997765,
+        3905.39999999851,
+        3958.5,
+        4011.699999999255
+      ],
+      "cross": {
+        "ms": 3990,
+        "job": "pf-1-6a4e95b9798c-mws1jkf8",
+        "phase": "verified-pages"
+      },
+      "started": 26421.5,
+      "idle": 4011.699999999255,
+      "cancelled": true,
+      "frames": 0,
+      "source": "97fdede313fc6c83a166efa7f9f966ac9c459b8fe7cc358f741bbc2fd6f4a840",
+      "heapBefore": 14379428,
+      "heapAfter": 14391968,
+      "phase": "verified-pages",
+      "elapsed": 21.699999999254942,
+      "pass": true
+    }
+  ],
+  "pass": true
+}

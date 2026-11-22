@@ -93,3 +93,10 @@ export function randomId(prefix: string): string {
 export function imageRefKey(url: string): string {
   return /^data:/i.test(url) ? `data:#${fnv1a(url)}:${url.length}` : url;
 }
+
+const TOKEN_RE = /⟦[^⟧]*⟧|\p{L}[\p{L}\p{M}]*|\p{N}+(?:[.,:]\p{N}+)*|[^\s\p{L}\p{N}]/gu;
+
+/** Token berurutan: kata, angka (dengan pemisah desimal/ribuan), dan SETIAP simbol (+ − - = % $ …) sebagai token sendiri. */
+export function orderedTokens(s: string): string[] {
+  return s.normalize('NFC').match(TOKEN_RE) ?? [];
+}

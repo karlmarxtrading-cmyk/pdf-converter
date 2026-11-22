@@ -1,0 +1,42 @@
+{
+  "candidate": "37277f20b922b1a6a9f734b0d69e96a61a8298a6d71aad24a86fd53731178bc9",
+  "dist": "876bae95926bce4b4730864c66598f4192cf64c36c0ab02214dd9c3693656b0a",
+  "productionEntrySha256": "8b4d27ae07cf1528a3f654793afa4ba510df3fd117410c456b4d75aedf1e88d2",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "cases": [
+    {
+      "name": "pelajaran.htm",
+      "sha256": "4f033957040a5b49c60e0ba0c7c9e24820b6b94c4ff67cca3995ad0bc7a1b081",
+      "rawSha256": "f26aa2e32830e57f4c3ced6b5602a0a6694931cb078545cabb2d3a4af7a7af37",
+      "offline": true,
+      "independentContent": true,
+      "externalRequests": [],
+      "rawOriginalIdentical": true,
+      "actualFormula": [
+        "x+1"
+      ],
+      "mergedCell": "Senin",
+      "actualImage": null,
+      "preservedFallback": null,
+      "status": "PASS"
+    },
+    {
+      "name": "diagram.md",
+      "sha256": "63ab270b6b7ff15cc07a3abc93f303d867527025ee1161da84fa39211aa6c9f3",
+      "rawSha256": "4cbc0192f05e2c654aaa8da6c37773eefe4a32679083fb49ebc23f064ffd8645",
+      "offline": true,
+      "independentContent": true,
+      "externalRequests": [],
+      "rawOriginalIdentical": true,
+      "actualFormula": [],
+      "mergedCell": null,
+      "actualImage": [
+        "Palet kelas",
+        3,
+        2
+      ],
+      "preservedFallback": "diagram-tanpa-jenis\n  Nilai belum ditetapkan",
+      "status": "PASS"
+    }
+  ]
+}

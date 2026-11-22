@@ -1,0 +1,19 @@
+[
+  {
+    "engine": "chromium",
+    "version": "HeadlessChrome/153.0.8010.0",
+    "title": "PaperForma RC12 preflight",
+    "pass": true
+  },
+  {
+    "engine": "firefox",
+    "version": "153.0",
+    "title": "PaperForma RC12 preflight",
+    "pass": true
+  },
+  {
+    "engine": "webkit",
+    "error": "browserType.launch: \n╔══════════════════════════════════════════════════════╗\n║ Host system is missing dependencies to run browsers. ║\n║ Missing libraries:                                   ║\n║     libGLESv2.so.2                                   ║\n╚══════════════════════════════════════════════════════╝",
+    "pass": false
+  }
+]

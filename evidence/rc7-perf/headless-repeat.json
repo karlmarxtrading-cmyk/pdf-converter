@@ -1,0 +1,918 @@
+{
+  "mode": "repeat",
+  "at": "2026-11-21T19:51:18.045Z",
+  "status": "COMPLETE",
+  "runs": [
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 252.60000000009313,
+        "smallPreviewMs": 331.30000000004657,
+        "editPreviewMs": 282.30000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 206.80000000004657,
+        "smallPreviewMs": 356.19999999995343,
+        "editPreviewMs": 388.5
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 576.8000000000466,
+        "smallPreviewMs": 312.80000000004657,
+        "editPreviewMs": 285.69999999995343
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 131.60000000009313,
+        "smallPreviewMs": 334.69999999995343,
+        "editPreviewMs": 283.69999999995343
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 112.5,
+        "smallPreviewMs": 311.69999999995343,
+        "editPreviewMs": 302.30000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 241,
+        "smallPreviewMs": 631,
+        "editPreviewMs": 276.5999999998603
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 100.30000000004657,
+        "smallPreviewMs": 310.0999999998603,
+        "editPreviewMs": 282.39999999990687
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 94.60000000009313,
+        "smallPreviewMs": 306.4000000001397,
+        "editPreviewMs": 280.5999999998603
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 104.10000000009313,
+        "smallPreviewMs": 333.70000000018626,
+        "editPreviewMs": 312.79999999981374
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 713.6000000000931,
+        "smallPreviewMs": 306.9000000001397,
+        "editPreviewMs": 280.30000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 99.39999999990687,
+        "smallPreviewMs": 318.0999999998603,
+        "editPreviewMs": 277.80000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 100,
+        "smallPreviewMs": 305.5,
+        "editPreviewMs": 293.79999999981374
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 5,
+      "times": {
+        "emptyReadyMs": 231.4000000001397,
+        "smallPreviewMs": 395.10000000009313,
+        "editPreviewMs": 280.30000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 5,
+      "times": {
+        "emptyReadyMs": 100.89999999990687,
+        "smallPreviewMs": 312.39999999990687,
+        "editPreviewMs": 276.39999999990687
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 6,
+      "times": {
+        "emptyReadyMs": 96.9000000001397,
+        "smallPreviewMs": 309.5,
+        "editPreviewMs": 272.5999999998603
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 6,
+      "times": {
+        "emptyReadyMs": 110.0999999998603,
+        "smallPreviewMs": 466.10000000009313,
+        "editPreviewMs": 283.4000000001397
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 7,
+      "times": {
+        "emptyReadyMs": 118,
+        "smallPreviewMs": 312.19999999995343,
+        "editPreviewMs": 274.30000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 7,
+      "times": {
+        "emptyReadyMs": 110.5,
+        "smallPreviewMs": 338.69999999995343,
+        "editPreviewMs": 282.10000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 8,
+      "times": {
+        "emptyReadyMs": 101.80000000004657,
+        "smallPreviewMs": 312.10000000009313,
+        "editPreviewMs": 311.30000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 8,
+      "times": {
+        "emptyReadyMs": 542.5999999998603,
+        "smallPreviewMs": 312,
+        "editPreviewMs": 278.60000000009313
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 9,
+      "times": {
+        "emptyReadyMs": 111.4000000001397,
+        "smallPreviewMs": 317.0999999998603,
+        "editPreviewMs": 284
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 9,
+      "times": {
+        "emptyReadyMs": 111.39999999990687,
+        "smallPreviewMs": 312.5999999998603,
+        "editPreviewMs": 309
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 10,
+      "times": {
+        "emptyReadyMs": 292.60000000009313,
+        "smallPreviewMs": 322.4000000001397,
+        "editPreviewMs": 282.69999999995343
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 10,
+      "times": {
+        "emptyReadyMs": 114.19999999995343,
+        "smallPreviewMs": 320.30000000004657,
+        "editPreviewMs": 279.19999999995343
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 11,
+      "times": {
+        "emptyReadyMs": 121.30000000004657,
+        "smallPreviewMs": 328.10000000009313,
+        "editPreviewMs": 286.80000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 11,
+      "times": {
+        "emptyReadyMs": 113.80000000004657,
+        "smallPreviewMs": 607.3999999999069,
+        "editPreviewMs": 283.4000000001397
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 12,
+      "times": {
+        "emptyReadyMs": 121.30000000004657,
+        "smallPreviewMs": 332.89999999990687,
+        "editPreviewMs": 283.30000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 12,
+      "times": {
+        "emptyReadyMs": 124.79999999981374,
+        "smallPreviewMs": 318.80000000004657,
+        "editPreviewMs": 281.30000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 13,
+      "times": {
+        "emptyReadyMs": 103.9000000001397,
+        "smallPreviewMs": 522.1000000000931,
+        "editPreviewMs": 531.3000000000466
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 13,
+      "times": {
+        "emptyReadyMs": 128.80000000004657,
+        "smallPreviewMs": 309.19999999995343,
+        "editPreviewMs": 280.80000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 14,
+      "times": {
+        "emptyReadyMs": 106.0999999998603,
+        "smallPreviewMs": 313.10000000009313,
+        "editPreviewMs": 277.0999999998603
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 14,
+      "times": {
+        "emptyReadyMs": 101.19999999995343,
+        "smallPreviewMs": 308.19999999995343,
+        "editPreviewMs": 398
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 15,
+      "times": {
+        "emptyReadyMs": 664.8000000000466,
+        "smallPreviewMs": 310.39999999990687,
+        "editPreviewMs": 277.69999999995343
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 15,
+      "times": {
+        "emptyReadyMs": 104,
+        "smallPreviewMs": 316.4000000001397,
+        "editPreviewMs": 281.39999999990687
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 16,
+      "times": {
+        "emptyReadyMs": 101,
+        "smallPreviewMs": 311.10000000009313,
+        "editPreviewMs": 407.80000000004657
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 16,
+      "times": {
+        "emptyReadyMs": 491.10000000009313,
+        "smallPreviewMs": 310,
+        "editPreviewMs": 281.5
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 17,
+      "times": {
+        "emptyReadyMs": 101.69999999995343,
+        "smallPreviewMs": 306.80000000004657,
+        "editPreviewMs": 281.5
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 17,
+      "times": {
+        "emptyReadyMs": 111.10000000009313,
+        "smallPreviewMs": 306.60000000009313,
+        "editPreviewMs": 313.5999999998603
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 18,
+      "times": {
+        "emptyReadyMs": 478.9000000001397,
+        "smallPreviewMs": 354,
+        "editPreviewMs": 276.5
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 18,
+      "times": {
+        "emptyReadyMs": 100.19999999995343,
+        "smallPreviewMs": 310.10000000009313,
+        "editPreviewMs": 275.19999999995343
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "small",
+      "round": 19,
+      "times": {
+        "emptyReadyMs": 97.70000000018626,
+        "smallPreviewMs": 314.5,
+        "editPreviewMs": 282.19999999995343
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "small",
+      "round": 19,
+      "times": {
+        "emptyReadyMs": 102.60000000009313,
+        "smallPreviewMs": 486.19999999995343,
+        "editPreviewMs": 276.19999999995343
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "trig",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 96.60000000009313,
+        "previewMs": 885,
+        "htmlExportMs": 189.80000000004657,
+        "pageReadyMs": 4082.7000000001863
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 110.80000000004657,
+        "previewMs": 994.1999999999534,
+        "htmlExportMs": 590.5999999998603,
+        "pageReadyMs": 3615.899999999907
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 139.30000000004657,
+        "previewMs": 881.1999999999534,
+        "htmlExportMs": 146.19999999995343,
+        "pageReadyMs": 2548.3000000000466
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "trig",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 133.89999999990687,
+        "previewMs": 737.5,
+        "htmlExportMs": 173.10000000009313,
+        "pageReadyMs": 2977
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "trig",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 110.89999999990687,
+        "previewMs": 837.4000000001397,
+        "htmlExportMs": 141,
+        "pageReadyMs": 2920.0999999998603
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 118.79999999981374,
+        "previewMs": 779.8000000000466,
+        "htmlExportMs": 203.9000000001397,
+        "pageReadyMs": 2836.6999999999534
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 142.5,
+        "previewMs": 995.6000000000931,
+        "htmlExportMs": 159.70000000018626,
+        "pageReadyMs": 3244.9000000001397
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "trig",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 134.80000000004657,
+        "previewMs": 913.1999999999534,
+        "htmlExportMs": 184,
+        "pageReadyMs": 2888.1999999999534
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "trig",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 143.89999999990687,
+        "previewMs": 855,
+        "htmlExportMs": 165.9000000001397,
+        "pageReadyMs": 3153.8000000000466
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 140.30000000004657,
+        "previewMs": 1048.5,
+        "htmlExportMs": 158.20000000018626,
+        "pageReadyMs": 2876.0999999998603
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "trig",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 107.80000000004657,
+        "previewMs": 769.0999999998603,
+        "htmlExportMs": 324.5,
+        "pageReadyMs": 2869.3000000000466
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "trig",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 142.5999999998603,
+        "previewMs": 832.3999999999069,
+        "htmlExportMs": 195.30000000004657,
+        "pageReadyMs": 2917.399999999907
+      },
+      "observations": {
+        "htmlBytes": 902295,
+        "pagination": "Revision 1 · 15 pages · 2 passes",
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "long",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 104,
+        "previewMs": 856.9000000001397
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": -1,
+      "times": {
+        "emptyReadyMs": 134.5,
+        "previewMs": 1062
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 146,
+        "previewMs": 821.1000000000931
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "long",
+      "round": 0,
+      "times": {
+        "emptyReadyMs": 100.19999999995343,
+        "previewMs": 1031.6000000000931
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "long",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 126.69999999995343,
+        "previewMs": 854.6000000000931
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": 1,
+      "times": {
+        "emptyReadyMs": 115.39999999990687,
+        "previewMs": 844.1999999999534
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 454.0999999998603,
+        "previewMs": 804.6999999999534
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "long",
+      "round": 2,
+      "times": {
+        "emptyReadyMs": 116.89999999990687,
+        "previewMs": 855.3000000000466
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "long",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 113.0999999998603,
+        "previewMs": 836.0999999998603
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": 3,
+      "times": {
+        "emptyReadyMs": 114,
+        "previewMs": 818.4000000001397
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc6",
+      "task": "long",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 123.30000000004657,
+        "previewMs": 927.6000000000931
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    },
+    {
+      "label": "rc7",
+      "task": "long",
+      "round": 4,
+      "times": {
+        "emptyReadyMs": 117.19999999995343,
+        "previewMs": 859.8999999999069
+      },
+      "observations": {
+        "heapUsedBytes": 10000000
+      }
+    }
+  ],
+  "node": "v24.22.3",
+  "versions": {
+    "rc6": {
+      "app": "paperforma",
+      "version": "3.0.0-rc.6",
+      "profile": "production",
+      "candidateSha256": "4e96aabbce9771cbedd945068a8ad3d8526fbb717200df11a60c96714ddcc497",
+      "distTreeSha256": "60be475033374b68db3cb1a39efab318ad303d642a652a231564ea302a7770d9",
+      "node": "v24.22.3",
+      "engines": {
+        "node": "24.22.3",
+        "npm": ">=11.6.0 <12"
+      }
+    },
+    "rc7": {
+      "app": "paperforma",
+      "version": "3.0.0-rc.7",
+      "profile": "production",
+      "candidateSha256": "fed74962c5c0f7df7a478e91e30bf53111c7db458009b06ac955e03b5b6b5f5b",
+      "distTreeSha256": "9d2ce6c321ffd305614859932cb8b8fc8cdad73f4f6d5b53b46eec2ddc86d234",
+      "node": "v24.22.3",
+      "engines": {
+        "node": "24.22.3",
+        "npm": ">=11.6.0 <12"
+      }
+    }
+  },
+  "method": "Actual production files on an independent loopback origin per revision, production response headers for the app and print. Only the /perf QA page adds permission to read the Blob delivered by the app. Separate persistent contexts, one warmup and fresh studio iframe per turn. AB/BA order alternates. 12ms DOM polling. GC measurements outside timed sections for the memory cohort, including the harness and current live editor in that target; excludes native/other worker processes. Input events are synthetic. No QA hook is injected into the app, no cold network or native file write is timed.",
+  "browser": "HeadlessChrome/153.0.8010.0"
+}

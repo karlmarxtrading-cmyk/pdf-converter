@@ -15,14 +15,21 @@
  * seluruh 6.400 titik kode PUA), penyamaran dimatikan dan pemulihan menjadi identitas.
  */
 import { lineOf } from './util';
+import { adaptCopiedTex, looksLikeCopiedMath, type MathAdaptation } from './math-copy';
+export type { MathAdaptation } from './math-copy';
 
 /** Sentinel bawaan (dipakai bila sumber tidak memuatnya). Sentinel aktual per pemindaian ada di `MathScan.sentinels`. */
 export const PUA_DOLLAR = '\uE001';
 export const PUA_FILL = '\uE004';
 
-export interface MathSpan { start: number; end: number; tex: string; display: boolean; delim: '$' | '$$' | '\\(' | '\\[' ; line: number }
+export interface MathSpan {
+  start: number; end: number; tex: string; display: boolean; delim: '$' | '$$' | '\\(' | '\\[' ; line: number;
+  /** RC6-M01: original payload/offsets stay exact; only the rendering copy is adapted. */
+  openerLength?: number; closerLength?: number; renderTex?: string; adaptations?: MathAdaptation[];
+  syntax?: 'github-inline';
+}
 export interface MathScanIssue { code: 'MATH_UNTERMINATED' | 'MATH_SUSPECT_UNTERMINATED'; line: number; snippet: string; offset?: number; closer?: string }
-export interface MathSentinels { dollar: string; fill: string; pipe?: string; slash?: string }
+export interface MathSentinels { dollar: string; fill: string; pipe?: string; slash?: string; boundary?: string }
 export interface MathScan {
   spans: MathSpan[]; literalDollars: number[]; issues: MathScanIssue[]; parseCopy: string;
   /** true bila sumber memuat karakter Private Use (informasi; tidak lagi mematikan perlindungan mata uang). */
@@ -38,6 +45,19 @@ export function chooseSentinels(src: string): MathSentinels | null {
     const c = src.charCodeAt(i);
     if (c >= 0xE000 && c <= 0xF8FF) used.add(c);
   }
+  // Entities are decoded by Markdown before restoration. Do not accidentally erase a
+  // user's encoded marker, either (e.g. &#x2042; or &#xE004;).
+  const encoded = new Set<number>();
+  if (src.includes('&#')) for (const m of src.matchAll(/&#(?:[xX]([0-9a-fA-F]+)|([0-9]+));?/g)) {
+    const point = Number.parseInt(m[1] ?? m[2]!, m[1] ? 16 : 10);
+    encoded.add(point);
+    if (point >= 0xE000 && point <= 0xF8FF) used.add(point);
+  }
+  // RC6-M05: delimiters are punctuation for CommonMark emphasis flanking. PUA padding
+  // is not punctuation and breaks **Sudut&#x20;**\(x\). These non-Markdown punctuation
+  // characters are reserved only when absent from the source and its numeric entities.
+  const boundary = ['\u2042', '\u204B', '\u2058', '\u2059', '\u205A', '\u205B', '\u2E2E', '\u2E31']
+    .find(c => !src.includes(c) && !encoded.has(c.charCodeAt(0)));
   const free: number[] = [];
   for (const preferred of [0xE001, 0xE004, 0xE005, 0xE006]) if (!used.has(preferred)) free.push(preferred);
   for (let c = 0xF8FF; c >= 0xE000 && free.length < 4; c--) {
@@ -49,6 +69,7 @@ export function chooseSentinels(src: string): MathSentinels | null {
     fill: String.fromCharCode(free[1]!),
     pipe: free[2] === undefined ? undefined : String.fromCharCode(free[2]),
     slash: free[3] === undefined ? undefined : String.fromCharCode(free[3]),
+    ...(boundary ? { boundary } : {}),
   };
 }
 
@@ -127,24 +148,31 @@ export function scanMath(src: string): MathScan {
     }
     if (ch === '<' && src.startsWith('<!--', i)) { const e = src.indexOf('-->', i + 4); i = e < 0 ? n : e + 3; continue; }
     if (ch === '\\') {
-      const nx = src[i + 1];
-      if (nx === '(' || nx === '[') {
-        const closer = nx === '(' ? '\\)' : '\\]';
+      let run = 1; while (src[i + run] === '\\') run++;
+      const nx = src[i + run];
+      if ((run === 1 || run === 2) && (nx === '(' || nx === '[')) {
+        const width = run + 1;
+        const copied = run === 2;
+        const closer = '\\'.repeat(run) + (nx === '(' ? ')' : ']');
         const limit = nx === '(' ? paraEnd(i) : n;
-        let p = i + 2, m = -1;
+        let p = i + width, m = -1;
         while (p < limit) {
           const t = nextCloser(closer, p);
           if (t < 0 || t >= limit || inFenced(t)) break;
           let bs = 0, r = t - 1; while (r >= 0 && src[r] === '\\') { bs++; r--; }
-          if (bs % 2 === 1) p = t + 1; else { m = t; break; }
+          if (copied ? bs !== 0 : bs % 2 === 1) p = t + 1; else { m = t; break; }
         }
-        if (m > i + 2) {
-          spans.push({ start: i, end: m + 2, tex: src.slice(i + 2, m), display: nx === '[', delim: nx === '(' ? '\\(' : '\\[', line: lineIdx(i) + 1 });
-          i = m + 2; continue;
+        const payload = m > i + width ? src.slice(i + width, m) : '';
+        if (payload && (!copied || looksLikeCopiedMath(payload))) {
+          const adapted = copied ? adaptCopiedTex(payload) : undefined;
+          spans.push({ start: i, end: m + width, tex: payload, display: nx === '[', delim: nx === '(' ? '\\(' : '\\[', line: lineIdx(i) + 1,
+            ...(copied ? { openerLength: width, closerLength: width, adaptations: ['copied-delimiters' as const, ...adapted!.adaptations],
+              ...(adapted!.tex !== payload ? { renderTex: adapted!.tex } : {}) } : {}) });
+          i = m + width; continue;
         }
         // CommonMark also uses \( as a literal parenthesis. Diagnose only a definite
         // TeX command after an unmatched opener, leaving ordinary punctuation alone.
-        if (m < 0 && /^\s*\\[A-Za-z]/.test(src.slice(i + 2, i + 82))) {
+        if (m < 0 && /^\s*\\[A-Za-z]/.test(src.slice(i + width, i + width + 80))) {
           issues.push({ code: 'MATH_UNTERMINATED', line: lineIdx(i) + 1, offset: i, closer,
             snippet: lines[lineIdx(i)]!.trim().slice(0, 80) });
         }
@@ -186,7 +214,10 @@ export function scanMath(src: string): MathScan {
         if (ok && !currencyProse && body.length > 0 && !/\n\s*\n/.test(body)) close = f;
       }
       if (close > 0) {
-        spans.push({ start: i, end: close + 1, tex: src.slice(i + 1, close), display: false, delim: '$', line: lineIdx(i) + 1 });
+        const payload = src.slice(i + 1, close);
+        const githubInline = /^`[^`]+`$/.test(payload);
+        spans.push({ start: i, end: close + 1, tex: payload, display: false, delim: '$', line: lineIdx(i) + 1,
+          ...(githubInline ? { renderTex: payload.slice(1, -1), syntax: 'github-inline' as const } : {}) });
         i = close + 1; continue;
       }
       if (nx === '\\' && /^\\[a-zA-Z]+/.test(src.slice(i + 1, i + 20))) {
@@ -206,18 +237,29 @@ export function scanMath(src: string): MathScan {
     for (const issue of issues) if (issue.offset !== undefined) arr[issue.offset] = sentinels.slash;
   }
   for (const s of spans) {
+    if (s.syntax === 'github-inline') { arr[s.start + 1] = sentinels.fill; arr[s.end - 2] = sentinels.fill; }
     // GFM splits tables on bars before parsing inline math. The math tokenizer also
     // treats a dollar inside \text{…} or \$ as a delimiter. Shield the formula payload
     // after the scanner has established its boundaries; offsets and source stay intact.
     if (/[|$]/.test(s.tex)) {
-      const contentStart = s.start + s.delim.length;
+      const contentStart = s.start + (s.openerLength ?? s.delim.length);
       for (let k = contentStart; k < contentStart + s.tex.length; k++) {
         if (src[k] === '$') arr[k] = sentinels.dollar;
         if (src[k] === '|' && sentinels.pipe) arr[k] = sentinels.pipe;
       }
     }
-    if (s.delim === '\\(') { arr[s.start] = sentinels.fill; arr[s.start + 1] = '$'; arr[s.end - 2] = '$'; arr[s.end - 1] = sentinels.fill; }
-    else if (s.delim === '\\[') { arr[s.start] = '$'; arr[s.start + 1] = '$'; arr[s.end - 2] = '$'; arr[s.end - 1] = '$'; }
+    if (s.delim === '\\(') {
+      const open = s.openerLength ?? 2, close = s.closerLength ?? 2;
+      const padding = sentinels.boundary ?? sentinels.fill;
+      for (let k = s.start; k < s.start + open - 1; k++) arr[k] = padding;
+      arr[s.start + open - 1] = '$'; arr[s.end - close] = '$';
+      for (let k = s.end - close + 1; k < s.end; k++) arr[k] = padding;
+    } else if (s.delim === '\\[') {
+      arr[s.start] = '$'; arr[s.start + 1] = '$'; arr[s.end - 2] = '$'; arr[s.end - 1] = '$';
+      // Whitespace is legal around a block math fence; padding sentinels would turn its closer into prose.
+      for (let k = s.start + 2; k < s.start + (s.openerLength ?? 2); k++) arr[k] = ' ';
+      for (let k = s.end - (s.closerLength ?? 2); k < s.end - 2; k++) arr[k] = ' ';
+    }
   }
   return { spans, literalDollars: literal, issues, parseCopy: arr.join(''), puaConflict, sentinels };
 }
@@ -229,6 +271,7 @@ export function scanMath(src: string): MathScan {
 export function restorePua(s: string, scan?: Pick<MathScan, 'sentinels'> | null): string {
   const z = scan?.sentinels;
   if (!z) return s;
+  if (z.boundary && s.includes(z.boundary)) s = s.split(z.boundary).join('');
   if (z.slash && s.includes(z.slash)) s = s.split(z.slash).join('\\');
   if (z.pipe && s.includes(z.pipe)) s = s.split(z.pipe).join('|');
   if (s.indexOf(z.dollar) < 0 && s.indexOf(z.fill) < 0) return s;

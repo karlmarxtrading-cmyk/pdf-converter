@@ -1,0 +1,222 @@
+{
+  "type": "diagnostic only: instrumented single-core Chromium, twelve pairs + one warmup",
+  "source": {
+    "candidateSha256": "04cd3038a66f8bc3c78440456b6319c22af52dade47bd411362b6bb967435f35",
+    "distTreeSha256": "f5c8558a3b058ff2fdb2591989c39d2c92e314fe9f205a95ef5bbedba1a54db6",
+    "manifestSha256": "1aae3dc490ec1038358613ade91420160f730e20911da2ef1a9c27f2674a0ed3",
+    "version": "3.0.0-rc.8"
+  },
+  "cohort": 1,
+  "runId": "638d331e-4315-4a39-b00f-1d3ed95f1b46",
+  "stageLogSha256": "66970113a0d4c4d19c9a690d558d7118aeb817a3923ae5c727520d241f011097",
+  "clock": {
+    "node": "v24.22.3",
+    "nodeExecutableSha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa",
+    "browserExecutableSha256": "53a15d6c3a3d27dfb54c4ba60278b1683136f70cf1e67e989da7dfbd3d451ef0",
+    "os": [
+      "linux",
+      "6.18.57",
+      "x64"
+    ],
+    "cpus": 1,
+    "model": "AMD EPYC 9V74 80-Core Processor",
+    "memoryBytes": 10451427328,
+    "initialLoad": {
+      "loadavg": [
+        6.91,
+        7.8,
+        6.07
+      ],
+      "at": "2026-11-21T21:26:36.363Z"
+    },
+    "affinity": "8",
+    "browser": "HeadlessChrome/153.0.8010.0"
+  },
+  "records": [
+    {
+      "label": "candidate",
+      "round": -1,
+      "timestamp": "2026-11-21T21:26:37.219Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "rc6",
+      "round": -1,
+      "timestamp": "2026-11-21T21:26:43.803Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "rc6",
+      "round": 0,
+      "timestamp": "2026-11-21T21:26:51.213Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "candidate",
+      "round": 0,
+      "timestamp": "2026-11-21T21:26:56.897Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "candidate",
+      "round": 1,
+      "timestamp": "2026-11-21T21:27:02.704Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "rc6",
+      "round": 1,
+      "timestamp": "2026-11-21T21:27:08.240Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "rc6",
+      "round": 2,
+      "timestamp": "2026-11-21T21:27:14.049Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "candidate",
+      "round": 2,
+      "timestamp": "2026-11-21T21:27:20.101Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "candidate",
+      "round": 3,
+      "timestamp": "2026-11-21T21:27:25.896Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "rc6",
+      "round": 3,
+      "timestamp": "2026-11-21T21:27:31.805Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "rc6",
+      "round": 4,
+      "timestamp": "2026-11-21T21:27:37.632Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "candidate",
+      "round": 4,
+      "timestamp": "2026-11-21T21:27:43.894Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "candidate",
+      "round": 5,
+      "timestamp": "2026-11-21T21:27:51.263Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "rc6",
+      "round": 5,
+      "timestamp": "2026-11-21T21:27:57.474Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "rc6",
+      "round": 6,
+      "timestamp": "2026-11-21T21:28:04.529Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "candidate",
+      "round": 6,
+      "timestamp": "2026-11-21T21:28:11.182Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "candidate",
+      "round": 7,
+      "timestamp": "2026-11-21T21:28:18.645Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "rc6",
+      "round": 7,
+      "timestamp": "2026-11-21T21:28:25.291Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "rc6",
+      "round": 8,
+      "timestamp": "2026-11-21T21:28:31.808Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "candidate",
+      "round": 8,
+      "timestamp": "2026-11-21T21:28:37.922Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "candidate",
+      "round": 9,
+      "timestamp": "2026-11-21T21:28:44.147Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "rc6",
+      "round": 9,
+      "timestamp": "2026-11-21T21:28:53.950Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "rc6",
+      "round": 10,
+      "timestamp": "2026-11-21T21:29:03.440Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "candidate",
+      "round": 10,
+      "timestamp": "2026-11-21T21:29:10.495Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "candidate",
+      "round": 11,
+      "timestamp": "2026-11-21T21:29:18.314Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    },
+    {
+      "label": "rc6",
+      "round": 11,
+      "timestamp": "2026-11-21T21:29:25.469Z",
+      "outputAccepted": true,
+      "digest": "77ffbfb4e833b7d24b660394ad62767ffd0ed1ebd41f029480eac60dd4270f39"
+    }
+  ],
+  "pairedResults": true,
+  "applicationFailureReproduced": false,
+  "observation": "All 26 samples completed. Original cohorts failed in the outer 180-second CDP request on opposite application revisions. This shorter diagnostic did not independently determine where either original arm stalled. It cannot prove an application crash, heap exhaustion, or the absence of a defect."
+}

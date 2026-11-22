@@ -1,0 +1,144 @@
+{
+  "purpose": "Pre-freeze isolated CPU-pair diagnostics under concurrent system load; retain all samples. Official G09 evidence is in the parent performance directory.",
+  "profiling": {
+    "a-detail.json": {
+      "snapshot": {
+        "n": 40,
+        "median": 0.29524899999978516,
+        "p95": 3.026958999999806
+      },
+      "analyze": {
+        "n": 40,
+        "median": 4.270360499999697,
+        "p95": 10.782627999999931
+      },
+      "finishRender": {
+        "n": 40,
+        "median": 6.133068999999978,
+        "p95": 10.784980999999789
+      },
+      "integrity": {
+        "n": 40,
+        "median": 1.9734095000003435,
+        "p95": 5.204405999999835
+      },
+      "prepareBody": {
+        "n": 40,
+        "median": 1.4455385000005663,
+        "p95": 4.046605000000454
+      },
+      "compose": {
+        "n": 40,
+        "median": 0.08019450000028883,
+        "p95": 0.20850000000064028
+      },
+      "total": {
+        "n": 40,
+        "median": 14.773745500000132,
+        "p95": 34.883326999999554
+      }
+    },
+    "b-detail.json": {
+      "snapshot": {
+        "n": 40,
+        "median": 0.22511450000001787,
+        "p95": 0.42820599999868136
+      },
+      "analyze": {
+        "n": 40,
+        "median": 5.619680999999673,
+        "p95": 8.410438000000795
+      },
+      "finishRender": {
+        "n": 40,
+        "median": 5.595555499999136,
+        "p95": 9.76133800000025
+      },
+      "integrity": {
+        "n": 40,
+        "median": 1.9796500000002197,
+        "p95": 3.770633000000089
+      },
+      "prepareBody": {
+        "n": 40,
+        "median": 1.361911500000133,
+        "p95": 3.7713540000004286
+      },
+      "compose": {
+        "n": 40,
+        "median": 0.07820100000026287,
+        "p95": 0.19239600000037171
+      },
+      "total": {
+        "n": 40,
+        "median": 14.949703000000227,
+        "p95": 27.981283999999505
+      }
+    },
+    "b1-small-rc6-rc10b.json": {
+      "oracleDigestsMatched": true,
+      "editedRefreshMs": {
+        "pairs": 40,
+        "rc6Median": 20.0689110000003,
+        "candidateMedian": 17.325262499999553,
+        "rc6P95": 29.105168000001868,
+        "candidateP95": 49.357458000000406,
+        "medianRatio": 0.8632886208922494,
+        "p95Ratio": 1.695831406985771
+      },
+      "htmlExportMs": {
+        "pairs": 40,
+        "rc6Median": 40.00301049999962,
+        "candidateMedian": 28.383808000000045,
+        "rc6P95": 53.57231899999897,
+        "candidateP95": 58.330590999998094,
+        "medianRatio": 0.7095417981104276,
+        "p95Ratio": 1.0888196010331235
+      },
+      "printPayloadMs": {
+        "pairs": 40,
+        "rc6Median": 8.491111999999703,
+        "candidateMedian": 5.922508999999991,
+        "rc6P95": 45.40356999999858,
+        "candidateP95": 14.083215000002383,
+        "medianRatio": 0.6974950984040957,
+        "p95Ratio": 0.31017858287361155
+      }
+    },
+    "small-rc6-rc10b.json": {
+      "oracleDigestsMatched": true,
+      "editedRefreshMs": {
+        "pairs": 40,
+        "rc6Median": 13.997968500000752,
+        "candidateMedian": 10.331877000000077,
+        "rc6P95": 19.31408200000078,
+        "candidateP95": 21.848863999999594,
+        "medianRatio": 0.7380983176236982,
+        "p95Ratio": 1.1312400972512549
+      },
+      "htmlExportMs": {
+        "pairs": 40,
+        "rc6Median": 28.40387800000053,
+        "candidateMedian": 17.91524699999991,
+        "rc6P95": 36.661222000000635,
+        "candidateP95": 33.05292699999882,
+        "medianRatio": 0.6307324302688377,
+        "p95Ratio": 0.9015773396750999
+      },
+      "printPayloadMs": {
+        "pairs": 40,
+        "rc6Median": 6.883686999999554,
+        "candidateMedian": 4.626305500000399,
+        "rc6P95": 10.507408000001305,
+        "candidateP95": 8.991273999999976,
+        "medianRatio": 0.6720679629972569,
+        "p95Ratio": 0.8557080870942537
+      }
+    }
+  },
+  "candidateFiles": {
+    "src/core/render.ts": "ab7339feeb0a11f1f4157d0dc94e391d953d6602238cded63a51e11971ab2f3f",
+    "src/core/rendered-dom.ts": "01de95b7c9664da5e5e6c4548a7626a4dd26b691ef38ce9a7e88af00dd255014",
+    "tests/unit/core/rc10-edit-math.test.ts": "f97b360bb6c87e3b18b84ce94eb1fef312432360cf5f59e65d507258785dc510"
+  }
+}

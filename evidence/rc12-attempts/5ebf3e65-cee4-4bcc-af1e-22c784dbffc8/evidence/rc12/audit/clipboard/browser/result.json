@@ -1,0 +1,298 @@
+{
+  "candidateSha256": "003a7b88c2ea84d49ab42053a06a9c2c8162f94578655ba370dad396451d7d7f",
+  "distTreeSha256": "131fb9a3290bdef125fbbae939dabf061b4b55f4aa5356bbd701c0c40f529e64",
+  "inputSha256": "cd81f5b6fa8b5eaee34d9292fca22d2a5935fd363c95046f3eab653c2a22bde3",
+  "browser": "HeadlessChrome/153.0.8010.0",
+  "method": "Synthetic public HTML import using production UI, preview, downloaded HTML offline and actual Chromium print paths. System Save dialog is qualified separately.",
+  "results": [
+    {
+      "mode": "html-standalone",
+      "output": {
+        "lines": [
+          [
+            "First line{br}{equation}{br}Last line",
+            " x ",
+            false
+          ],
+          [
+            "Path C:\\Math{br}{equation}{br}Next\\step",
+            "`y`",
+            false
+          ],
+          [
+            "Third line{br}{equation}{br}Final line",
+            "z",
+            false
+          ]
+        ],
+        "tables": [
+          [
+            "Sales",
+            [
+              [
+                [
+                  "TH",
+                  "Region",
+                  "col",
+                  []
+                ],
+                [
+                  "TH",
+                  "Amount",
+                  "col",
+                  []
+                ]
+              ],
+              [
+                [
+                  "TH",
+                  "North",
+                  "row",
+                  []
+                ],
+                [
+                  "TD",
+                  "42",
+                  null,
+                  [
+                    "North",
+                    "Amount"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            null,
+            [
+              [
+                [
+                  "TD",
+                  "One",
+                  null,
+                  []
+                ],
+                [
+                  "TD",
+                  "Two",
+                  null,
+                  []
+                ]
+              ],
+              [
+                [
+                  "TD",
+                  "Three",
+                  null,
+                  []
+                ],
+                [
+                  "TD",
+                  "Four",
+                  null,
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      },
+      "htmlSha256": "32f9ead28ff75d527e5096280bc209ac4cba671951f05776c6e258482e9c7ab7",
+      "status": "PASS"
+    },
+    {
+      "mode": "print",
+      "output": {
+        "lines": [
+          [
+            "First line{br}{equation}{br}Last line",
+            " x ",
+            false
+          ],
+          [
+            "Path C:\\Math{br}{equation}{br}Next\\step",
+            "`y`",
+            false
+          ],
+          [
+            "Third line{br}{equation}{br}Final line",
+            "z",
+            false
+          ]
+        ],
+        "tables": [
+          [
+            "Sales",
+            [
+              [
+                [
+                  "TH",
+                  "Region",
+                  "col",
+                  []
+                ],
+                [
+                  "TH",
+                  "Amount",
+                  "col",
+                  []
+                ]
+              ],
+              [
+                [
+                  "TH",
+                  "North",
+                  "row",
+                  []
+                ],
+                [
+                  "TD",
+                  "42",
+                  null,
+                  [
+                    "North",
+                    "Amount"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            null,
+            [
+              [
+                [
+                  "TD",
+                  "One",
+                  null,
+                  []
+                ],
+                [
+                  "TD",
+                  "Two",
+                  null,
+                  []
+                ]
+              ],
+              [
+                [
+                  "TD",
+                  "Three",
+                  null,
+                  []
+                ],
+                [
+                  "TD",
+                  "Four",
+                  null,
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      },
+      "htmlSha256": "1017d6c88fdd0cbdd652e58f2b4bb4d77687667fd019eaff888f5692289eac10",
+      "pdfBytes": 30593,
+      "pdfSha256": "389657e13c33d50d102ee5162bfbcc6a2c9fdcadab34b26ae007d17b5a14bdca",
+      "status": "PASS"
+    },
+    {
+      "mode": "print-book",
+      "output": {
+        "lines": [
+          [
+            "First line{br}{equation}{br}Last line",
+            " x ",
+            false
+          ],
+          [
+            "Path C:\\Math{br}{equation}{br}Next\\step",
+            "`y`",
+            false
+          ],
+          [
+            "Third line{br}{equation}{br}Final line",
+            "z",
+            false
+          ]
+        ],
+        "tables": [
+          [
+            "Sales",
+            [
+              [
+                [
+                  "TH",
+                  "Region",
+                  "col",
+                  []
+                ],
+                [
+                  "TH",
+                  "Amount",
+                  "col",
+                  []
+                ]
+              ],
+              [
+                [
+                  "TH",
+                  "North",
+                  "row",
+                  []
+                ],
+                [
+                  "TD",
+                  "42",
+                  null,
+                  [
+                    "North",
+                    "Amount"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            null,
+            [
+              [
+                [
+                  "TD",
+                  "One",
+                  null,
+                  []
+                ],
+                [
+                  "TD",
+                  "Two",
+                  null,
+                  []
+                ]
+              ],
+              [
+                [
+                  "TD",
+                  "Three",
+                  null,
+                  []
+                ],
+                [
+                  "TD",
+                  "Four",
+                  null,
+                  []
+                ]
+              ]
+            ]
+          ]
+        ]
+      },
+      "htmlSha256": "edc9a383651e629e765e37b4f246832698108916a737e46fd820f2b10985e68b",
+      "pdfBytes": 40194,
+      "pdfSha256": "8e488f5d6e4808e9471dc69bdb30beba1110747441e21db75ffb72a178cda0cd",
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,598 @@
+{
+  "schemaVersion": 1,
+  "auditDate": "2026-11-22",
+  "timezone": "Asia/Bangkok",
+  "releaseDecision": "NO_GO_FOR_FULL_PRODUCTION",
+  "workingStatus": "STAGING_CANDIDATE_WITH_OPEN_FINDINGS",
+  "sourceArchiveSha256": "2dc30a40212a2b41bbc98e44fb91ae61154b0a79ae8f275bcdcafa5402b98206",
+  "applicationSourceModified": false,
+  "severityMeaning": {
+    "P1": "Wajib ditutup sebelum klaim produksi penuh; integritas atau persyaratan performa utama",
+    "P2": "Penguatan/kompatibilitas/operasi sesuai kontrak rilis; harus ditutup untuk cakupan yang diumumkan",
+    "P3": "Perapian visual terkonfirmasi, tanpa bukti kehilangan isi"
+  },
+  "priorityCounts": {
+    "P1": 4,
+    "P2": 4,
+    "P3": 1
+  },
+  "notes": [
+    "A01 is direct input loss. A02/A03 are controlled output-mutation probes, not damage observed in the original trigonometry export.",
+    "A01/A02/A03 reproduce in RC6 as inherited gaps; this is not an assertion that RC7 introduced them.",
+    "Production acceptance has no numerical readiness percentage.",
+    "Per-component findings preserve detailed evidence. Consolidation merges related sub-findings without discarding them."
+  ],
+  "findings": [
+    {
+      "id": "A01",
+      "priority": "P1",
+      "category": "Integritas isi",
+      "title": "Teks mandiri di dalam wrapper rumus campuran dapat hilang tanpa peringatan",
+      "status": "CONFIRMED_OPEN",
+      "evidenceLevel": "FRESH_SOURCE_DOM_API_PROBE",
+      "findingKind": "direct source-to-output loss",
+      "baselineRelation": "Reproduces in RC6; RC7 guard is a partial improvement, not a newly introduced regression",
+      "sourceRefs": [
+        "src/core/html-math-source.ts:53-61",
+        "src/core/html-math-source.ts:104-111",
+        "src/core/render.ts:550-557",
+        "src/core/clipboard.ts:161-174",
+        "src/core/raw-html-integrity.ts:82-84"
+      ],
+      "observed": "section, details/summary, dl/dt/dd and plain div child content is erased on both raw and clipboard routes; no issues; raw math ready and integrity true",
+      "required": "All independent safe text/structure remains; ambiguity retained with a scoped warning",
+      "action": "Require proof that a wrapper is one math representation before replacing it; retain mixed children; use independent expected text conservation so production helper cannot erase both oracle sides",
+      "acceptance": [
+        "All four failing tag families preserve independent text in raw and clipboard routes",
+        "Valid isolated math and multiple formulas do not duplicate",
+        "All 231 original formulas, source, modes, 17 recovery warnings retained",
+        "Deleting retained text must produce a blocking integrity error; acknowledgment cannot authorize source loss"
+      ],
+      "evidenceFiles": [
+        "math_review/findings.json",
+        "math_review/probe-results.json",
+        "math_review/probe-run.log",
+        "math_review/rc6-comparison-results.json"
+      ],
+      "ownerSuggestion": "Core parser / integrity / export",
+      "componentIds": [
+        "MATH-AUD-01"
+      ]
+    },
+    {
+      "id": "A02",
+      "priority": "P1",
+      "category": "Integritas isi",
+      "title": "Formula kosong/rusak dapat lolos pemeriksaan integritas dan ekspor HTML",
+      "status": "CONFIRMED_OPEN",
+      "evidenceLevel": "FRESH_SOURCE_DOM_API_PROBE",
+      "findingKind": "controlled mutation exposes integrity/export gate false positive",
+      "baselineRelation": "Empty formula with intact data-tex also passes RC6; RC7 raw oracle extends provenance checks but still omits payload validation",
+      "sourceRefs": [
+        "src/core/integrity.ts:113",
+        "src/core/integrity.ts:147",
+        "src/core/raw-html-integrity.ts:116-118",
+        "src/render/exports.ts:183-187",
+        "src/render/exports.ts:203",
+        "src/render/exports.ts:229-235",
+        "src/core/render.ts:925-963"
+      ],
+      "observed": {
+        "delivered": true,
+        "status": "pass",
+        "verdict": "pass",
+        "checks": [
+          {
+            "name": "katex-layout",
+            "status": "pass",
+            "detail": "no rendered math"
+          },
+          {
+            "name": "no-scripts",
+            "status": "pass",
+            "detail": "0"
+          },
+          {
+            "name": "no-network-resources",
+            "status": "pass",
+            "detail": "0"
+          },
+          {
+            "name": "internal-anchors",
+            "status": "pass",
+            "detail": "1 links, 0 broken, 0 duplicate"
+          },
+          {
+            "name": "fonts-embedded",
+            "status": "pass",
+            "detail": "3 subset tersemat"
+          },
+          {
+            "name": "glyph-coverage",
+            "status": "pass"
+          },
+          {
+            "name": "size-budget",
+            "status": "pass",
+            "detail": "140382 / 26214400 B"
+          },
+          {
+            "name": "integrity",
+            "status": "pass",
+            "detail": "sumber → keluaran utuh"
+          }
+        ],
+        "issues": [],
+        "mathWrappers": 1,
+        "katex": 0,
+        "mathml": 0
+      },
+      "required": "Expected successful formulas have complete correct visual and MathML content, or an explicit exact fallback with parse issue",
+      "action": "Bind independent source formula inventory and trusted representation signature to snapshot, verify final content, source/canonical/mode/annotation and complete visual+MathML branches; require CSS from expected inventory, not observed .katex alone",
+      "acceptance": [
+        "Empty formula, erased visual/MathML, changed representation/anotation must block export",
+        "Canonical/raw metadata and display changes caught on every path",
+        "Exact parse-error fallback policy preserved",
+        "All original 231 formulas and actual CSS/font data still pass; structural validation does not replace visual/PDF checks"
+      ],
+      "evidenceFiles": [
+        "math_review/findings.json",
+        "math_review/probe-results.json",
+        "math_review/probe-run.log",
+        "math_review/rc6-comparison-results.json"
+      ],
+      "ownerSuggestion": "Core parser / integrity / export",
+      "componentIds": [
+        "MATH-AUD-02"
+      ]
+    },
+    {
+      "id": "A03",
+      "priority": "P1",
+      "category": "Integritas isi",
+      "title": "Prosa tambahan di luar blok sumber dapat lolos sebagai keluaran utuh",
+      "status": "CONFIRMED_OPEN",
+      "evidenceLevel": "FRESH_SOURCE_DOM_API_PROBE",
+      "findingKind": "controlled mutation exposes incomplete whole-output coverage",
+      "baselineRelation": "Added prose also passes RC6; documented RC7 PUA example understates effect on ordinary text",
+      "sourceRefs": [
+        "src/core/integrity.ts:132-137",
+        "src/core/integrity.ts:244-248",
+        "src/core/verdict.ts:13-17",
+        "src/render/exports.ts:229-235"
+      ],
+      "observed": {
+        "mutations": [
+          {
+            "mutation": "ordinaryUnregisteredParagraph",
+            "integrityOk": true,
+            "issues": []
+          },
+          {
+            "mutation": "privateUnregisteredParagraph",
+            "integrityOk": true,
+            "issues": []
+          },
+          {
+            "mutation": "ordinaryTextInsideKnownBlock",
+            "integrityOk": false,
+            "issues": [
+              "INTEGRITY_TOKEN_CHANGED"
+            ]
+          },
+          {
+            "mutation": "unknownRegisteredParagraph",
+            "integrityOk": true,
+            "issues": [
+              "INTEGRITY_BLOCK_UNEXPECTED"
+            ]
+          }
+        ],
+        "export": {
+          "status": "pass",
+          "verdict": "pass",
+          "addedProsePresent": true,
+          "checks": [
+            {
+              "name": "katex-layout",
+              "status": "pass",
+              "detail": "no rendered math"
+            },
+            {
+              "name": "no-scripts",
+              "status": "pass",
+              "detail": "0"
+            },
+            {
+              "name": "no-network-resources",
+              "status": "pass",
+              "detail": "0"
+            },
+            {
+              "name": "internal-anchors",
+              "status": "pass",
+              "detail": "1 links, 0 broken, 0 duplicate"
+            },
+            {
+              "name": "fonts-embedded",
+              "status": "pass",
+              "detail": "3 subset tersemat"
+            },
+            {
+              "name": "glyph-coverage",
+              "status": "pass"
+            },
+            {
+              "name": "size-budget",
+              "status": "pass",
+              "detail": "140372 / 26214400 B"
+            },
+            {
+              "name": "integrity",
+              "status": "pass",
+              "detail": "sumber → keluaran utuh"
+            }
+          ]
+        }
+      },
+      "required": "All meaningful output content is attributable to source or explicitly trusted generated decoration",
+      "action": "Audit whole article for orphan meaningful nodes and unknown/duplicate blocks; strict trusted generator exceptions; unexpected content is blocking, not warning",
+      "acceptance": [
+        "Unregistered ordinary paragraph, root text, unknown block and duplicate source content rejected",
+        "Same text added inside source block remains rejected",
+        "Legitimate TOC, cover, role labels, backlinks, pagination and explicit partial HTML preserve proper handling",
+        "Sources with and without PUA covered; no generic acknowledgment bypass for source mismatch"
+      ],
+      "evidenceFiles": [
+        "math_review/findings.json",
+        "math_review/probe-results.json",
+        "math_review/probe-run.log",
+        "math_review/rc6-comparison-results.json"
+      ],
+      "ownerSuggestion": "Core parser / integrity / export",
+      "componentIds": [
+        "MATH-AUD-03"
+      ]
+    },
+    {
+      "id": "A04",
+      "priority": "P1",
+      "category": "Performa",
+      "title": "Gate kesetaraan performa belum terpenuhi",
+      "status": "OPEN",
+      "evidenceLevel": "SUPPLIED_SAMPLES_RECOMPUTED_AND_SOURCE_REVIEWED",
+      "findingKind": "acceptance/measurement/enforcement gap; no fresh browser timing",
+      "baselineRelation": "See exact cohort results; no universal causal regression inferred",
+      "sourceRefs": [
+        {
+          "path": "evidence/rc7-perf/HASIL_PERFORMA.md",
+          "lines": "3–5,22,28,63–94"
+        },
+        {
+          "path": "evidence/rc7-perf/PERFORMANCE_BUDGET.md",
+          "lines": "3–11"
+        },
+        {
+          "path": "docs/RELEASE_REPORT.md",
+          "lines": "78–88"
+        },
+        {
+          "path": "evidence/rc7-perf/compare.json",
+          "jsonPointer": "/summary"
+        },
+        {
+          "path": "evidence/rc7-perf/repeat.json",
+          "jsonPointer": "/summary"
+        },
+        {
+          "path": "evidence/rc7-perf/headless-summary.json",
+          "jsonPointer": "/gateStatus"
+        }
+      ],
+      "observed": [
+        "Semua angka ringkasan cocok dengan sampel mentah. Node small-edit printPayload p95: 8.333→10.929 ms (+31.149%), ulang 9.593→22.933 ms (+139.055%). Node trigonometry printPayload p95: 598.143→687.456 (+14.932%), ulang 741.322→1011.466 (+36.441%). Browser ekspor HTML median: +9.045%, +8.391%, lalu -3.439% pada putaran tenang. Putaran tenang preview p95 +16.591% dan paginasi p95 +12.869%."
+      ],
+      "required": "Bukti lengkap dan gerbang yang benar untuk kontrak performa/produksi yang diumumkan",
+      "action": [
+        "Profilkan jalur yang melewati ambang pada host referensi stabil, catat load/CPU/GC, pertahankan dataset dan oracle, lalu ulangi perbandingan berpasangan dengan rencana sampel yang ditetapkan sebelumnya. Pisahkan dugaan penyebab dari hasil ukur; jangan menghapus outlier hanya agar gate lulus."
+      ],
+      "acceptance": [
+        "Dua cohort independen pada build yang identitasnya diverifikasi, >=40 pasangan untuk setiap alur berat yang menjadi gate dan urutan AB/BA seimbang.",
+        "Dengan kontrak yang sekarang: median RC7/baseline <=1.05 dan p95 <=1.10, atau status tetap OPEN/FAIL; perubahan kontrak harus dinyatakan sebagai perubahan produk, bukan perbaikan statistik.",
+        "Seluruh output dalam cohort tetap memenuhi oracle sumber/kanonik/mode/isi/font; semua sampel termasuk warmup dan kegagalan disimpan.",
+        "Catat kondisi cache, hardware, browser binary/hash, runtime, timestamp per sampel dan kondisi beban; laporkan CI atau sebaran yang relevan tanpa mencampur cohort berbeda."
+      ],
+      "evidenceFiles": [
+        "perf_review/findings.json",
+        "perf_review/recomputed.json"
+      ],
+      "ownerSuggestion": "Performance / release engineering",
+      "componentIds": [
+        "IA-PERF-01"
+      ]
+    },
+    {
+      "id": "A05",
+      "priority": "P2",
+      "category": "Otomasi rilis",
+      "title": "Gerbang rilis dan pengikatan bukti benchmark belum lengkap",
+      "status": "OPEN",
+      "evidenceLevel": "SUPPLIED_SAMPLES_RECOMPUTED_AND_SOURCE_REVIEWED",
+      "findingKind": "acceptance/measurement/enforcement gap; no fresh browser timing",
+      "baselineRelation": "See exact cohort results; no universal causal regression inferred",
+      "sourceRefs": [
+        {
+          "path": "package.json",
+          "lines": "12–31"
+        },
+        {
+          "path": "scripts/result-gates.mjs",
+          "lines": "9–13"
+        },
+        {
+          "path": "tests/e2e/perf-matrix.mjs",
+          "lines": "99–106"
+        },
+        {
+          "path": "tests/bench/rc7-browser-paired.mjs",
+          "lines": "69–76"
+        },
+        {
+          "path": "evidence/rc7-perf/REPRODUKSI.md",
+          "lines": "7–16"
+        },
+        {
+          "path": "scripts/verify-archive.py",
+          "lines": "73–84"
+        },
+        {
+          "path": "scripts/build.mjs",
+          "lines": "13–22"
+        },
+        {
+          "path": "tests/bench/rc7-browser-paired.mjs",
+          "lines": "29–42,63–69"
+        },
+        {
+          "path": "tests/bench/rc7-browser-page.js",
+          "lines": "18–20,27–35,62–65,83–84,139"
+        },
+        {
+          "path": "tests/bench/rc7-paired.mjs",
+          "lines": "47–48,67–70"
+        },
+        {
+          "path": "evidence/rc7-perf/verify-node-source.mjs",
+          "lines": "10–12,23–37"
+        }
+      ],
+      "observed": [
+        "npm run test:perf memeriksa keberhasilan layout/integritas/PDF, bukan ambang durasi. Runner browser berpasangan keluar 0 jika sampling COMPLETE tanpa menghitung gate 5%/10%. Build dan verify-archive tidak menjalankan aggregate browser/PDF/performance acceptance. Tidak ada workflow CI dalam ZIP ini; konfigurasi repository remote tidak diaudit.",
+        "Manifest dibaca lalu disalin ke receipt; dist/source tidak dihash ulang oleh runner browser dan printTreeMatches diisi true. Headless raw JSON tidak menyertakan sourceHash yang sebenarnya dihitung module browser. Hasil ekspor waktu memeriksa jumlah 231, satu aturan CSS dan keberadaan data-font, bukan semua nilai TeX/mode/annotasi atau digest isi. Trace Node 44 input tidak meliputi worker/harness, generateStress dan fixture yang dibaca dinamis."
+      ],
+      "required": "Bukti lengkap dan gerbang yang benar untuk kontrak performa/produksi yang diumumkan",
+      "action": [
+        "Tambahkan CLI acceptance terpisah yang membaca bukti dengan schema/identitas/cakupan yang wajib, menghitung gate per cohort, menolak bukti hilang/stale/FAIL/BLOCKED, dan digunakan pada jalur promosi staging ke produksi. Pertahankan verifier arsip sebagai pemeriksa konsistensi paket dengan nama/cakupan jelas.",
+        "Hash source, dist, benchmark, settings, fixture dan oracle yang benar-benar digunakan; verifikasi hash sebelum/akhir run; simpan ke setiap receipt. Di luar area waktu, validasi hasil dengan oracle independen yang lengkap dan simpan digest body/CSS/font."
+      ],
+      "acceptance": [
+        "Fixture hasil saat ini membuat acceptance CLI exit nonzero dengan IA-PERF-01, mixed PDF dan native-save status yang benar.",
+        "Mutasi data yang membuat median atau p95 melewati ambang, hasil hilang, sample count kurang, identitas dist berbeda, atau status BLOCKED tidak dapat menghasilkan PASS.",
+        "Kontrol lengkap yang memenuhi kontrak menghasilkan exit 0; test:perf tidak lagi disalahartikan sebagai gerbang produksi penuh.",
+        "Perubahan satu byte asset atau manifest stale menggagalkan runner sebelum sampling.",
+        "Perubahan operator, urutan atau mode satu rumus dengan jumlah rumus tetap menggagalkan validasi hasil waktu.",
+        "Setiap receipt dapat dipetakan ke fixture, settings, oracle, harness dan dist yang sama; dynamic inputs ikut trace.",
+        "Identitas SHA current dist tetap dihitung dari byte, tidak hanya mengandalkan nama versi atau metadata HTML."
+      ],
+      "evidenceFiles": [
+        "perf_review/findings.json",
+        "perf_review/recomputed.json"
+      ],
+      "ownerSuggestion": "Performance / release engineering",
+      "componentIds": [
+        "IA-PERF-02",
+        "IA-PERF-03"
+      ]
+    },
+    {
+      "id": "A06",
+      "priority": "P2",
+      "category": "Keluaran PDF",
+      "title": "Karakter PUA berubah menjadi kotak pada PDF campuran asli",
+      "status": "CONFIRMED_OPEN",
+      "evidenceLevel": "FRESH_INSPECTION_OF_SUPPLIED_PDF_BYTES_AND_RASTERS",
+      "findingKind": "confirmed_residual_content_limitation",
+      "baselineRelation": "Already disclosed by RC7. This is not a newly demonstrated regression from the accepted trigonometry baseline and does not mean all mixed prose is lost.",
+      "sourceRefs": [
+        {
+          "file": "evidence/rc7-output/diagnostics/mixed-EDU-A4.pdf",
+          "page": 4
+        },
+        {
+          "file": "evidence/rc7-output/diagnostics/mixed-BUS-Letter-landscape.pdf",
+          "page": 5
+        },
+        {
+          "file": "evidence/rc7-output/diagnostics/mixed-EDT-A5.pdf",
+          "page": 5
+        },
+        {
+          "file": "fixtures/mixed-document.md",
+          "line": 30
+        },
+        {
+          "file": "src/render/fonts.ts",
+          "lines": [
+            186,
+            197
+          ]
+        }
+      ],
+      "observed": "Both U+E000 and U+F8FF are visibly crossed-box placeholders. PyMuPDF preserves the multilingual paragraph except U+E000 becomes NUL in all three originals. U+F8FF remains extractable despite its wrong visible glyph. Emoji are visibly present, so their Type 3 font must not be equated with missing visual content.",
+      "required": "Original source and formula/code/table content stay unchanged; targeted glyphs render correctly with authorized mapping and remain semantically recoverable, or the product clearly rejects/limits unsupported export before labeling it safe. Preserve the noType3 gate until an explicit policy decision changes it, with rationale and separate visual/text checks.",
+      "action": "Keep the original mixed corpus as a strict non-PASS result. If universal PDF fidelity is intended, require a supported mapping/font for private-use characters or a clear blocking decision in strict export. Do not silently rewrite user text. Keep supported-glyph substitutions as separately named diagnostics only. Review emoji visual and extraction behavior separately from the existing noType3 acceptance rule.",
+      "acceptance": [
+        "Original source and formula/code/table content stay unchanged; targeted glyphs render correctly with authorized mapping and remain semantically recoverable, or the product clearly rejects/limits unsupported export before labeling it safe. Preserve the noType3 gate until an explicit policy decision changes it, with rationale and separate visual/text checks."
+      ],
+      "evidenceFiles": [
+        "pdf_review/findings.json",
+        "pdf_review/fresh-content-checks.json",
+        "pdf_review/detail/mixed-EDU-A4-page-4.png"
+      ],
+      "ownerSuggestion": "Fonts / pagination / export QA",
+      "componentIds": [
+        "RC7-PDF-A01"
+      ]
+    },
+    {
+      "id": "A07",
+      "priority": "P3",
+      "category": "Keluaran PDF",
+      "title": "Label kode kosong terpisah dari baris pertama pada A5",
+      "status": "CONFIRMED_OPEN",
+      "evidenceLevel": "FRESH_INSPECTION_OF_SUPPLIED_PDF_BYTES_AND_RASTERS",
+      "findingKind": "confirmed_visual_layout_defect",
+      "baselineRelation": "No regression claim; existing artifact defect",
+      "sourceRefs": [
+        {
+          "file": "evidence/rc7-output/diagnostics/mixed-EDT-A5.pdf",
+          "pages": [
+            10,
+            11
+          ]
+        },
+        {
+          "file": "evidence/rc7-output/diagnostics/mixed-EDT-A5-supported-glyphs.pdf",
+          "page": 10
+        },
+        {
+          "file": "src/render/paginate.ts",
+          "lines": [
+            596,
+            612
+          ]
+        },
+        {
+          "file": "evidence/rc7/a5-code-inventory.json",
+          "line": 16
+        }
+      ],
+      "observed": "Physical page10 ends with Blok kode panjang and a PYTHON-only empty box. Page11 starts the first actual line def hitung but is labeled PYTHON · LANJUTAN. The supported-glyph control has the same fragment. All112 code-line contents remain present in supplementary checks; this is a pagination/label defect, not missing code.",
+      "required": "On original mixed-document.md with EDT-01/A5, no page ends with a code-label-only box; first real code fragment has the initial label, later fragments show continuation;112 code-line contents, blank lines and indentation are unchanged.",
+      "action": "Keep code heading/language label with at least the first real code line. Do not emit a visible zero-line code fragment. Determine continuation labels from actual prior content rather than only a pagination split flag. Keep the integrity allowance for harmless empty engine fragments separate from presentation decisions.",
+      "acceptance": [
+        "On original mixed-document.md with EDT-01/A5, no page ends with a code-label-only box; first real code fragment has the initial label, later fragments show continuation;112 code-line contents, blank lines and indentation are unchanged."
+      ],
+      "evidenceFiles": [
+        "pdf_review/findings.json",
+        "pdf_review/fresh-content-checks.json",
+        "pdf_review/detail/mixed-EDT-A5-page-10.png",
+        "pdf_review/detail/mixed-EDT-A5-page-11.png"
+      ],
+      "ownerSuggestion": "Fonts / pagination / export QA",
+      "componentIds": [
+        "RC7-PDF-A02"
+      ]
+    },
+    {
+      "id": "A08",
+      "priority": "P2",
+      "category": "Kapasitas",
+      "title": "Bukti kapasitas, responsivitas, dan label puncak memori perlu diperbaiki",
+      "status": "OPEN",
+      "evidenceLevel": "SUPPLIED_SAMPLES_RECOMPUTED_AND_SOURCE_REVIEWED",
+      "findingKind": "acceptance/measurement/enforcement gap; no fresh browser timing",
+      "baselineRelation": "See exact cohort results; no universal causal regression inferred",
+      "sourceRefs": [
+        {
+          "path": "tests/e2e/perf-matrix.mjs",
+          "lines": "29–34,81–85"
+        },
+        {
+          "path": "evidence/perf-matrix.json",
+          "jsonPointer": "/rows/2/runs/0"
+        },
+        {
+          "path": "evidence/rc7/load.log",
+          "lines": "6–11"
+        },
+        {
+          "path": "evidence/perf-matrix.json",
+          "jsonPointer": "/rows/2/runs/0"
+        },
+        {
+          "path": "tests/e2e/perf-matrix.mjs",
+          "lines": "11–17,30–34,95–106"
+        },
+        {
+          "path": "docs/RELEASE_REPORT.md",
+          "lines": "68–69"
+        }
+      ],
+      "observed": [
+        "Ketiga dokumen 12/52/201 halaman mencatat peakJsHeapMiB=10; dokumen 201 halaman pada receipt yang sama mencatat heapAfterGcMiB=11.6. 'Peak' berasal dari performance.memory yang kasar dan polling 16 ms pada target halaman, sedangkan setelah GC memakai CDP.",
+        "Dokumen 201 halaman, 570616 byte: preview 2496 ms, layout 15688 ms, printReady 18184 ms, PDF 3982 ms, reedit 3719 ms, longest layout task 1092 ms, max layout event-loop gap 1117 ms. Hanya satu pengulangan per ukuran 12/52/201; 500/1000 halaman tidak ada pada evidence RC7 final."
+      ],
+      "required": "Bukti lengkap dan gerbang yang benar untuk kontrak performa/produksi yang diumumkan",
+      "action": [
+        "Gunakan sumber/cakupan/unit memori yang konsisten; simpan byte mentah dan tandai unknown jika API tidak memberikan data. Namai metrik 'maksimum sampel heap target' jika hanya sampling, serta ukur worker/native secara terpisah bila dibutuhkan untuk kontrak kapasitas.",
+        "Tetapkan kapasitas dan SLA responsivitas, ukur pada perangkat sasaran, profilkan fase layout/verify/flatten yang memblokir, dan pertimbangkan batching/yield/cancel yang mempertahankan integritas. Dokumentasikan batas ukuran sampai ada bukti di atasnya."
+      ],
+      "acceptance": [
+        "Tidak ada angka coarse performance.memory yang diberi label puncak heap akurat atau total RAM.",
+        "Pengukuran setelah GC dan maksimum sampel memakai target yang sama; receipt menjelaskan interval dan bagian memori yang dikecualikan.",
+        "Uji berulang membuka/menutup dan mengedit dokumen melaporkan heap setelah GC beserta plateau/tren, bukan hanya 8 revisi dan 3 pasangan.",
+        "Minimal 5 run per ukuran yang benar-benar didukung; untuk p95 release gate gunakan jumlah sampel yang memadai dan ditetapkan sebelumnya.",
+        "Simpan event-loop gaps, long tasks, waktu pembatalan dan keutuhan output; tetapkan serta penuhi batas responsivitas produk yang konkret.",
+        "Jangan mengiklankan dukungan 500/1000 halaman hanya karena ukuran tersebut ada pada default runner."
+      ],
+      "evidenceFiles": [
+        "perf_review/findings.json",
+        "perf_review/recomputed.json"
+      ],
+      "ownerSuggestion": "Performance / release engineering",
+      "componentIds": [
+        "IA-PERF-04",
+        "IA-PERF-05"
+      ]
+    },
+    {
+      "id": "A09",
+      "priority": "P2",
+      "category": "Penerimaan operasional",
+      "title": "Penerimaan native PDF, platform sasaran dan hosting belum ditutup",
+      "status": "OPEN_NOT_FULLY_VERIFIED",
+      "evidenceLevel": "SUPPLIED_EVIDENCE_REVIEW; LIVE_DEPLOYMENT_NOT_RUN",
+      "findingKind": "coverage gap, not a proven application failure in all target browsers",
+      "baselineRelation": "Supplied RC7 documents already disclose open/blocked acceptance",
+      "sourceRefs": [
+        "evidence/rc7-output/desktop-print.json",
+        "evidence/rc7/playwright-firefox.json",
+        "evidence/rc7/playwright-webkit.json",
+        "docs/RELEASE_REPORT.md",
+        "docs/DEPLOY_CLOUDFLARE.md",
+        "tests/e2e/rc7-print.mjs:99-138",
+        "tests/e2e/pdf-oracle.mjs:34-40"
+      ],
+      "observed": "Native save BLOCKED in supplied receipt. Browser logs were reviewed, not rerun here. Hosting/deployment NOT_RUN. Formula inventory is checked in paginated HTML before PDF output; prose PDF checks omit formula nodes. Physical target devices, actual AI provider copy sessions and full PDF math fidelity remain outside demonstrated coverage.",
+      "required": "Penerimaan pada build final yang sama, platform yang diumumkan, file PDF native benar-benar disimpan dan hosting cocok dengan manifest",
+      "action": "Jalankan matriks produksi pada perangkat sasaran; simpan/buka PDF native, uji semua rumus dalam korpus yang dipersyaratkan, clipboard nyata, offline HTML, storage/recovery/a11y, preview HTTP/CSP/worker/font dan rollback. Batasi klaim dukungan sesuai bukti.",
+      "acceptance": [
+        "Semua browser/OS yang diumumkan memiliki bukti pada versi final; WebKit Linux tidak dianggap pengganti Safari Apple.",
+        "File PDF dari dialog native tersimpan, dihash dan ditinjau; batal/cetak ulang tidak dilabeli sukses menyimpan.",
+        "URL preview/produksi benar-benar diverifikasi identitas source/dist/HTTP/CSP dan alur ekspornya.",
+        "Bukti clipboard nyata, pemulihan data, aksesibilitas dan rollback sesuai kontrak tersedia; missing/BLOCKED tidak menjadi PASS."
+      ],
+      "evidenceFiles": [
+        "input/VERIFIKASI_PAPERFORMA_RC7.json",
+        "pdf_review/findings.json",
+        "perf_review/findings.json"
+      ],
+      "ownerSuggestion": "Browser QA / pemilik rilis / operasi",
+      "componentIds": [
+        "RC7-PDF-L01",
+        "RC7-PDF-L02"
+      ]
+    }
+  ]
+}

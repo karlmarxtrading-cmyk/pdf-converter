@@ -1,0 +1,25 @@
+{
+  "observations": [
+    "trig-new"
+  ],
+  "checks": {
+    "productionUiDownload": {
+      "pass": true,
+      "evidence": "evidence/rc12/browser/results/trigonometry-downloads.json"
+    },
+    "offlineLayout": {
+      "pass": true,
+      "evidence": "evidence/rc12/browser/results/trigonometry-downloads.json"
+    },
+    "fourTemplates": {
+      "pass": true,
+      "evidence": "evidence/rc12/browser/results/trigonometry-downloads.json"
+    }
+  },
+  "html": [
+    "examples/rc12/html/BUS-01.html",
+    "examples/rc12/html/EDU-01.html",
+    "examples/rc12/html/EDT-01.html",
+    "examples/rc12/html/CON-01.html"
+  ]
+}

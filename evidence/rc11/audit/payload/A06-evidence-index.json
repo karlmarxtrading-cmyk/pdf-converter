@@ -1,0 +1,60 @@
+{
+  "finding": "A06",
+  "baseline": "3.0.0-rc.10",
+  "baselineZipSha256": "1959dfe69ac4fa838fb76365fe9423829ebfbde1d7e154fded4dc88d1e48c765",
+  "auditZipSha256": "56d155dca25e1bb591c467f68f1240056de11515f5d7d87bffda52b578438cf8",
+  "auditObservation": "Static review found no production enforcement of the configured limit. The audit did not observe a crash.",
+  "newBaselineReproduction": {
+    "evidence": "baseline-red.log",
+    "cases": 2,
+    "expectedFailures": 2,
+    "behavior": "Both production builders returned a payload at limit + 1 instead of rejecting it. These tests required no dialog and did not provoke a crash."
+  },
+  "contract": {
+    "limit": 47185920,
+    "inclusive": true,
+    "wire": "UTF-8 byte size of compact JSON for the complete PrintPayload DTO, accounting for JSON escapes; the actual transport is structured clone.",
+    "book": "The wire object and final UTF-8 book HTML each must fit. Include wrapper, escaped CSS/metadata, list transformations and embedded resources.",
+    "outside": "PDF saved by browser, flattened pagination result, JS heap and hosting asset upload sizes."
+  },
+  "fix": [
+    "Check transformed DOM lower bounds before body serialization for large documents and diagrams; repeated embedded images are charged for each occurrence.",
+    "Measure pending font base64 before encoding; bounded JSON string accounting, final validation, transfer-time validation and refusal cleanup.",
+    "Charge escaped book fragments before joining and compare final encoded UTF-8 bytes before the Blob/iframe.",
+    "Invalidate print cache on revisions. Use snapshot identity and cancellation checks around async preparation, cache publication, and retry/print."
+  ],
+  "evidence": {
+    "unit": "local-integration.log",
+    "exactLocalChromium": "browser.json",
+    "editorWorkflow": "browser-ui.json",
+    "baselineFailures": "baseline-red.log"
+  },
+  "fixture": "Public synthetic one-pixel PNG with valid 2 MiB tEXt chunk, 18 local references in 505-byte Markdown. Exact boundary tests tune diagnostic/CSS sizes while retaining a real document.",
+  "coverage": "Chromium Linux local serving, native print preparation. No Windows clipboard, native Save dialog or hosting claim.",
+  "identity": {
+    "candidateSha256": "979dfbd939723a8dd305623db0cf019bc963024382109ecc3d20c4a9d54d4876",
+    "distTreeSha256": "3597a4ad1cb94074f033bd30a6fc3ffe107d2765dc77a87aeb685bf9c4947496"
+  },
+  "decision": "PASS within the documented Linux Chromium and unit-test contract",
+  "result": {
+    "unitAndRelatedCases": 37,
+    "newBoundaryUnitCases": 8,
+    "browserBoundaries": 6,
+    "editor": {
+      "refusals": 2,
+      "cancellationAndEditedRetry": true,
+      "sourcePreserved": true,
+      "framesReleased": true
+    }
+  },
+  "checksums": {
+    "baseline-red.log": "23196d3c811f605f3a4fe9543e3b075ec4c5de700158596a1a126795979d4933",
+    "browser-ui.json": "4beb526df27e916291429b3699f00db8fed6e02ffce8432198c32d594a7759ce",
+    "browser.json": "2328c4a8ba2e4a93c2617b6fabaad94a226fd8dbf10666cfcf5f61a4055eca2d",
+    "browser.log": "eb0a3fde26de200a4205c57f82cb574a3bbddf15041051813d9e7770b84bc93a",
+    "identity-after.json": "466aec30a5501c9770717ce5a561a4021d49897890e8e16304fecbfb27c7ebc8",
+    "identity-before.json": "466aec30a5501c9770717ce5a561a4021d49897890e8e16304fecbfb27c7ebc8",
+    "local-integration.log": "a850c1a2525ef290d2098597f0af97312ac1a0ba5d1be23f86671a6bd1c091f3",
+    "ui.log": "c795cf5ccb523ad4518338c380d18483db54f0f1cd8676e17c66898d8ecdc37c"
+  }
+}

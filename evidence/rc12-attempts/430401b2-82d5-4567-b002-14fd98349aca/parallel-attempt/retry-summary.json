@@ -1,0 +1,17 @@
+{
+  "runId": "430401b2-82d5-4567-b002-14fd98349aca",
+  "condition": "First attempt ran multiple heavy browser suites concurrently. Same candidate, same limits. Selected failed suites repeated serially; logs of both retained. Earlier public PDFs archived in scratch; their actual hashes and failed-case reports retained.",
+  "serialExitCodes": {
+    "headings": 0,
+    "offline": 0,
+    "uat": 0,
+    "ui-e2e": 0,
+    "pdf": 0,
+    "G07": 0,
+    "G08": 0,
+    "dialogue": 0,
+    "mixed": 0,
+    "reference": 0,
+    "raster-index": 0
+  }
+}

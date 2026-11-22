@@ -1,0 +1,167 @@
+
+ RUN  v5.1.0 pf-math-baseline
+
+ ❯ tests/unit/core/rc7-clipboard-math.test.ts (21 tests | 12 failed) 252ms
+   ❯ RC7-M01 missed formulas across inline semantic boundaries (11)
+     × marks preserved residual TeX for review: <div>Hasil \(x+<a href="#section">y</a>\) akhir.</div> 74ms
+     × marks preserved residual TeX for review: <div>Hasil \[a<sup>2</sup>+b\] akhir.</div> 16ms
+     × marks preserved residual TeX for review: <div>Hasil \fr<em>ac</em>{a}{b} akhir.</div> 9ms
+     × marks preserved residual TeX for review: <div>Hasil $x+<a href="#section">y</a>$ akhir.</div> 9ms
+   ❯ RC7-M02 explicit TeX on mixed clipboard containers (10)
+     × preserves mixed content and warns about ambiguous enclosing metadata in clipboard import 31ms
+     × preserves mixed content and warns about ambiguous enclosing metadata in raw import 15ms
+     × keeps semantic HTML inside delimiter pairs and requests review after clipboard conversion 21ms
+     × keeps semantic HTML inside delimiter pairs and requests review after clipboard conversion 16ms
+     × keeps semantic HTML inside delimiter pairs and requests review after clipboard conversion 17ms
+     × retains an independent MathJax equation immediately before a different TeX script 8ms
+     × retains the only available MathML text when a KaTeX copy lacks TeX and a visual branch 5ms
+     × retains link and image titles in a structured clipboard table 4ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/core/rc7-clipboard-math.test.ts > RC7-M01 missed formulas across inline semantic boundaries > marks preserved residual TeX for review: <div>Hasil \(x+<a href="#section">y</a>\) akhir.</div>
+ FAIL  tests/unit/core/rc7-clipboard-math.test.ts > RC7-M01 missed formulas across inline semantic boundaries > marks preserved residual TeX for review: <div>Hasil \[a<sup>2</sup>+b\] akhir.</div>
+ FAIL  tests/unit/core/rc7-clipboard-math.test.ts > RC7-M01 missed formulas across inline semantic boundaries > marks preserved residual TeX for review: <div>Hasil \fr<em>ac</em>{a}{b} akhir.</div>
+ FAIL  tests/unit/core/rc7-clipboard-math.test.ts > RC7-M01 missed formulas across inline semantic boundaries > marks preserved residual TeX for review: <div>Hasil $x+<a href="#section">y</a>$ akhir.</div>
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/unit/core/rc7-clipboard-math.test.ts:22:82
+     20|     expect(result.stats.math).toBe(0);
+     21|     const report = preflight({ source, assets: [], renderInputHash: 'c…
+     22|     expect(result.issues.some(issue => issue.code === 'MATH_UNRENDERED…
+       |                                                                                  ^
+     23|     expect(report.categories.find(category => category.category === 'm…
+     24|     if (source.includes('<a ')) expect(dom(result.html).querySelector(…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/12]⎯
+
+ FAIL  tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > preserves mixed content and warns about ambiguous enclosing metadata in clipboard import
+ FAIL  tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > preserves mixed content and warns about ambiguous enclosing metadata in raw import
+AssertionError: expected [ 'unused' ] to deeply equal [ 'x+1', 'y+2' ]
+
+- Expected
++ Received
+
+  [
+-   "x+1",
+-   "y+2",
++   "unused",
+  ]
+
+ ❯ tests/unit/core/rc7-clipboard-math.test.ts:53:88
+     51|     const result = await renderBody(converted?.markdown ?? mixed, opti…
+     52|     const doc = dom(result.html);
+     53|     expect([...doc.querySelectorAll('.pf-math')].map(n => n.getAttribu…
+       |                                                                                        ^
+     54|     expect(doc.querySelector('code')?.textContent).toBe('literal');
+     55|     expect([...doc.querySelectorAll('p')].map(n => n.textContent).join…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/12]⎯
+
+ FAIL  tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > keeps semantic HTML inside delimiter pairs and requests review after clipboard conversion
+AssertionError: expected <span …(4)><code …(1)></code></span> to have a length of +0 but got 1
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ tests/unit/core/rc7-clipboard-math.test.ts:65:46
+     63|   ])('keeps semantic HTML inside delimiter pairs and requests review a…
+     64|     const { converted, doc } = await fromClipboard(source);
+     65|     expect(doc.querySelectorAll('.pf-math')).toHaveLength(0);
+       |                                              ^
+     66|     expect(doc.querySelector(selector)?.textContent).toBe(label);
+     67|     expect(doc.body.textContent).toBe(text);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/12]⎯
+
+ FAIL  tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > keeps semantic HTML inside delimiter pairs and requests review after clipboard conversion
+ FAIL  tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > keeps semantic HTML inside delimiter pairs and requests review after clipboard conversion
+AssertionError: expected <span …(2)>…(1)</span> to have a length of +0 but got 1
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ tests/unit/core/rc7-clipboard-math.test.ts:65:46
+     63|   ])('keeps semantic HTML inside delimiter pairs and requests review a…
+     64|     const { converted, doc } = await fromClipboard(source);
+     65|     expect(doc.querySelectorAll('.pf-math')).toHaveLength(0);
+       |                                              ^
+     66|     expect(doc.querySelector(selector)?.textContent).toBe(label);
+     67|     expect(doc.body.textContent).toBe(text);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/12]⎯
+
+ FAIL  tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > retains an independent MathJax equation immediately before a different TeX script
+AssertionError: expected [ 'y+2' ] to deeply equal [ 'x+1', 'y+2' ]
+
+- Expected
++ Received
+
+  [
+-   "x+1",
+    "y+2",
+  ]
+
+ ❯ tests/unit/core/rc7-clipboard-math.test.ts:74:88
+     72|   it('retains an independent MathJax equation immediately before a dif…
+     73|     const { doc } = await fromClipboard('<p><mjx-container data-tex="x…
+     74|     expect([...doc.querySelectorAll('.pf-math')].map(n => n.getAttribu…
+       |                                                                                        ^
+     75|   });
+     76|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/12]⎯
+
+ FAIL  tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > retains the only available MathML text when a KaTeX copy lacks TeX and a visual branch
+AssertionError: expected 'Awal akhir' to contain 'Awal x+y akhir'
+
+Expected: "Awal x+y akhir"
+Received: "Awal akhir"
+
+ ❯ tests/unit/core/rc7-clipboard-math.test.ts:84:34
+     82|   it('retains the only available MathML text when a KaTeX copy lacks T…
+     83|     const { doc, converted } = await fromClipboard('<p>Awal <span clas…
+     84|     expect(doc.body.textContent).toContain('Awal x+y akhir');
+       |                                  ^
+     85|     expect(doc.querySelectorAll('.pf-math')).toHaveLength(0);
+     86|     expect(converted.issues.some(i => i.code === 'CLIPBOARD_MATH_NO_TE…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/12]⎯
+
+ FAIL  tests/unit/core/rc7-clipboard-math.test.ts > RC7-M02 explicit TeX on mixed clipboard containers > retains link and image titles in a structured clipboard table
+AssertionError: expected null to be 'Buka catatan' // Object.is equality
+
+- Expected:
+"Buka catatan"
+
++ Received:
+null
+
+ ❯ tests/unit/core/rc7-clipboard-math.test.ts:98:61
+     96|     if (!result.ok) throw Error(result.message);
+     97|     const table = dom(result.markdown);
+     98|     expect(table.querySelector('a')?.getAttribute('title')).toBe('Buka…
+       |                                                             ^
+     99|     expect(table.querySelector('img')?.getAttribute('title')).toBe('Di…
+    100|     expect(table.querySelector('img')?.getAttribute('alt')).toBe('Sumb…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/12]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  12 failed | 9 passed (21)
+   Start at  02:34:08
+   Duration  1.62s (environment 53%, import 20%, tests 18%, transform 10%)
+
